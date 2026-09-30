@@ -63,9 +63,10 @@ while read -r old_id; do
   gh api -X DELETE "repos/$GH_REPO/releases/$old_id" > /dev/null
 done < <(list_draft_ids)
 
-# 4. Draftとして作成し、assetを添付する
+# 4. Draftとして作成し、assetを添付する。
+# --targetで対象コミットを固定し、タグもここでGitHub上に作成する。
 gh release create "$TAG" "$work/$asset" "$work/$asset.sha256" \
-  --draft --verify-tag \
+  --draft --target "$COMMIT" \
   --title "第${major}版 ${TAG}" --notes-file "$work/notes.md"
 
 mapfile -t draft_ids < <(list_draft_ids)

@@ -17,13 +17,11 @@ GitHub Actionsでは `texlive/texlive:TL2025-historic` のmanifest digestを固�
 
 コピー先RepositoryをPublicにしたうえで、[出版基盤のセットアップ手順](docs/setup.md)に従って Pages、Immutable releases、Tag rulesetを設定してください。最初のReleaseを作る前に設定を完了してください。
 
-日常の執筆はCommitとPushだけです。`main` または `release/**` へのPushでBuildが走ります。Build成功後、正式版を作るCommitに対して次を実行します。
+日常の執筆から正式版公開まで、GitHubのWeb画面で操作できます。`main`への変更でBuildが走ります。正式版にするときはActions → **Release** → **Run workflow** を開き、`main`を選択して版番号（例: `v1.0.3`）を入力します。Workflowがその時点の`main`をBuildし、PDFとSHA-256を検証してReleaseを作成します。成功後、Pages Workflowが公開済みのPDFを配信します。
 
-```bash
-bash scripts/tag-release.sh v1.0.0
-```
+GitHubのReleases画面から先にReleaseを作らないでください。正式版タグはRelease Workflowが作成します。公開済みタグは再利用できないため、毎回まだ使っていない版番号を指定してください。
 
-Tagの形式は `vMAJOR.MINOR.PATCH` です。Tag Push後、Release WorkflowがPDFとSHA-256を検証して公開し、Pages Workflowが公開済みReleaseのうち最大の版を配信します。
+本棚に表示する版番号は、ReleaseとPagesの公開が成功した後、[数学書の本棚](https://github.com/mas256/math-textbooks)の`books.json`で更新します。
 
 ## ブランチ
 

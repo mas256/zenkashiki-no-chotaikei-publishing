@@ -5,7 +5,7 @@ Tag・Immutable releases・Tag rulesetは、一度作ると取り消せません
 ## 0. 前提
 
 - Repositoryは**Public**にします(Privateでは、読者がReleasesに届かず、Pagesに有料プランが必要です)。Publicは、URLを知らない人にも見えます。友人間の共有でも、`main`の原稿は誰でも読めます。
-- ローカルに`git`と`gh`(GitHub CLI、`gh auth login`済み)が必要です。`scripts/tag-release.sh`はbashで動きます(Windowsでは WSL または Git Bash を使います)。
+- 執筆と公開はGitHubのWeb画面から行えます。ローカルのGit BashやGitHub CLIは不要です。
 
 ## 1. ファイルを置く
 
@@ -34,7 +34,20 @@ Tag・Immutable releases・Tag rulesetは、一度作ると取り消せません
 - 「未解決の参照があります」: `\ref`や`\cite`の参照先を確認します。
 - 「PDFに埋め込まれていないフォントがあります」/「原ノ味フォントが埋め込まれていません」: フォント設定を確認します。
 
-## 5. 初回運用確認
+## 5. 正式版をブラウザーから公開する
+
+1. 原稿の変更を`main`へCommitします。ファイルの画面で鉛筆アイコンから編集し、`Commit changes`を押せます。
+2. Actionsで`Build`が成功したことを確認します。
+3. Actions → `Release` → `Run workflow`を開きます。
+4. Branchを`main`にし、`version`へ未使用の版番号（例: `v1.0.3`）を入力して実行します。
+5. `Release`が成功したら、ReleasesにPDFと`.sha256`の2ファイルが添付されたことを確認します。
+6. `Deploy Pages`が成功したことを確認します。
+7. `math-textbooks`リポジトリの`books.json`を編集し、`version`を公開した番号にしてCommitします。
+8. カタログのActionsも成功したら、本棚の表示を確認します。
+
+GitHubのReleases画面から先にReleaseを作らないでください。この方法では、Release WorkflowがタグとRelease、添付ファイルをまとめて作成します。公開済みの版番号は再利用できません。
+
+## 6. 初回運用確認
 
 Immutable releasesやrulesetは最初のRelease前に有効にしてください。可能なら本番公開前にコピーしたテスト用Repositoryで次を確認します。
 
@@ -42,10 +55,6 @@ Immutable releasesやrulesetは最初のRelease前に有効にしてください
 2. `v0.0.1`を作成し、ReleaseにPDFと`.sha256`が付き、Pagesに`/`と`/book.pdf`が公開される
 3. 旧系列Tagを後から公開してもPagesが新しい版のままになる
 
-## 6. 最初の正式版
+## 7. 最初の正式版
 
-コピー先の本番Repositoryで、Buildが成功したCommitに対して実行します。
-
-```bash
-bash scripts/tag-release.sh v1.0.0
-```
+Actions画面から`Release`を実行します。初版の番号は`v1.0.0`です。
