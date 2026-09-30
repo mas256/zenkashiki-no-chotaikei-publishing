@@ -39,12 +39,21 @@ jobs:
 
       - name: Determine the latest release
         run: |
-          source scripts/lib/common.sh
-          latest="$(latest_release)"
+          # A published Release may have been created manually without the
+          # PDF/checksum pair. Pages must use the newest complete release.
+          latest="$(gh api --paginate "repos/$GH_REPO/releases?per_page=100" \
+            --jq '[.[]
+              | select(.draft == false and .prerelease == false)
+              | select([.assets[].name | select(endswith(".pdf"))] | length == 1)
+              | select([.assets[].name | select(endswith(".pdf.sha256"))] | length == 1)
+              | .tag_name]
+              | sort_by(split(".") | map(sub("^v"; "") | tonumber))
+              | last // empty')"
           if [ -z "$latest" ]; then
-            echo "::error::公開済みReleaseがありません"
+            echo "::error::PDFとSHA-256がそろった公開済みReleaseがありません"
             exit 1
           fi
+          echo "::warning::PDFとSHA-256がそろった最新の正式版を使用します: $latest"
           echo "LATEST=$latest" >> "$GITHUB_ENV"
           echo "最新正式版: $latest"
 
