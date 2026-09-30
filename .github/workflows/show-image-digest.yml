@@ -1,0 +1,17 @@
+# 手動実行用。Build用コンテナイメージのdigestを表示する(docs/setup.md 参照)。
+name: Show image digest
+
+on:
+  workflow_dispatch:
+    inputs:
+      image:
+        description: "digestを調べるイメージ"
+        default: "texlive/texlive:TL2025-historic"
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          IMAGE: ${{ inputs.image }}
+        run: docker buildx imagetools inspect "$IMAGE" | grep -m1 '^Digest:'

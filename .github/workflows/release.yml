@@ -1,0 +1,115 @@
+# 正式版Tagから、検証済みPDFの公開済みReleaseを作る。
+# Pagesは pages.yml が担当する(このWorkflowはPagesを更新しない)。
+# name は変更しないこと(pages.yml が名前で照合する)。
+name: Release
+
+on:
+  push:
+    tags:
+      # GitHub tag filters use glob syntax; strict SemVer is checked in verify.
+      - 'v[0-9]*.[0-9]*.[0-9]*'
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    outputs:
+      commit: ${{ steps.resolve.outputs.commit }}
+      published: ${{ steps.existing.outputs.published }}
+    steps:
+      - name: Checkout (all branches and tags)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Validate tag name
+        run: |
+          echo "$GITHUB_REF_NAME" | grep -Eq '^v[0-9]+\.[0-9]+\.[0-9]+$' \
+            || { echo "::error::正式版Tagの形式ではありません: $GITHUB_REF_NAME"; exit 1; }
+
+      - name: Resolve tag commit
+        id: resolve
+        run: |
+          commit="$(git rev-parse "refs/tags/${GITHUB_REF_NAME}^{commit}")"
+          echo "commit=$commit" >> "$GITHUB_OUTPUT"
+          echo "Tag $GITHUB_REF_NAME -> $commit"
+
+      - name: Check the commit is on main or release/**
+        env:
+          COMMIT: ${{ steps.resolve.outputs.commit }}
+        run: |
+          ok=0
+          for ref in $(git for-each-ref --format='%(refname)' refs/remotes/origin/main 'refs/remotes/origin/release/*'); do
+            if git merge-base --is-ancestor "$COMMIT" "$ref"; then
+              echo "OK: $COMMIT is in $ref"
+              ok=1
+              break
+            fi
+          done
+          if [ "$ok" -ne 1 ]; then
+            echo "::error::$COMMIT は main または release/** の履歴上にありません。ブランチに取り込んだ後に再実行してください"
+            exit 1
+          fi
+
+      - name: Check for an already published release
+        id: existing
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          n="$(gh release list --limit 1000 --json tagName,isDraft \
+                | jq --arg t "$GITHUB_REF_NAME" '[.[] | select(.tagName == $t and (.isDraft | not))] | length')"
+          if [ "$n" -ge 1 ]; then
+            echo "公開済みReleaseが既にあります。何も変更せず成功終了します"
+            echo "published=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "published=false" >> "$GITHUB_OUTPUT"
+          fi
+
+  build:
+    needs: verify
+    if: needs.verify.outputs.published != 'true'
+    uses: ./.github/workflows/_build.yml
+    with:
+      ref: ${{ needs.verify.outputs.commit }}
+      artifact-name: release-build
+      retention-days: 1
+
+  publish:
+    needs: [verify, build]
+    if: needs.verify.outputs.published != 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      TAG: ${{ github.ref_name }}
+      COMMIT: ${{ needs.verify.outputs.commit }}
+      BUILD_DIR: build-out
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.verify.outputs.commit }}
+          persist-credentials: false
+
+      - name: Download build outputs
+        uses: actions/download-artifact@v4
+        with:
+          name: release-build
+          path: build-out
+
+      - name: Create draft, verify, publish
+        run: ./scripts/release-publish.sh

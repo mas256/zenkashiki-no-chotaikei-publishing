@@ -18,6 +18,30 @@
 *.toc
 *.vrb
 *.xdv
+/*.pdf
+/基本-new/*.pdf
+/発展-new/*.pdf
+
+# GitHub Pages and workflow build outputs
+/out/
+/site/
+/dist/
+
+# Root-level latexmk output and caches
+/*.aux
+/*.bbl
+/*.bcf
+/*.blg
+/*.dvi
+/*.fdb_latexmk
+/*.fls
+/*.lof
+/*.log
+/*.lot
+/*.out
+/*.run.xml
+/*.toc
+/*.synctex*
 
 # latexindent and temporary editor files
 indent.log

@@ -1,0 +1,85 @@
+# 最新正式版(公開済みReleaseのSemVer最大)をPagesへ配信する。
+# main に置く。起動元のTagやCommitは使わず、実行時点で最新正式版を再計算する。
+name: Deploy Pages
+
+on:
+  workflow_run:
+    workflows: [Release]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+defaults:
+  run:
+    shell: bash
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Determine the latest release
+        run: |
+          source scripts/lib/common.sh
+          latest="$(latest_release)"
+          if [ -z "$latest" ]; then
+            echo "::error::公開済みReleaseがありません"
+            exit 1
+          fi
+          echo "LATEST=$latest" >> "$GITHUB_ENV"
+          echo "最新正式版: $latest"
+
+      - name: Download PDF and checksum from the release
+        run: |
+          gh release download "$LATEST" --pattern '*.pdf' --pattern '*.pdf.sha256' --dir dist
+          shopt -s nullglob
+          pdfs=(dist/*.pdf)
+          sums=(dist/*.pdf.sha256)
+          [ "${#pdfs[@]}" -eq 1 ] || { echo "::error::PDFがちょうど1つではありません"; exit 1; }
+          [ "${#sums[@]}" -eq 1 ] || { echo "::error::.sha256がちょうど1つではありません"; exit 1; }
+
+      - name: Verify checksum
+        run: |
+          (cd dist && sha256sum -c ./*.pdf.sha256)
+          actual="$(sha256sum dist/*.pdf | cut -d' ' -f1)"
+          digest="$(gh api "repos/$GH_REPO/releases/tags/$LATEST" \
+            --jq '[.assets[] | select(.name | endswith(".pdf")) | .digest][0] // ""')"
+          if [ -n "$digest" ]; then
+            [ "$digest" = "sha256:$actual" ] || { echo "::error::APIのdigestが一致しません"; exit 1; }
+          else
+            echo "::warning::assetのdigestがAPIから取得できませんでした"
+          fi
+
+      - name: Build site
+        run: ./scripts/pages-build.sh
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

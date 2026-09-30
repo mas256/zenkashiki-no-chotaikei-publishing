@@ -1,0 +1,108 @@
+# 再利用可能なBuild。build.yml と release.yml が共通で呼ぶ。
+# Build環境(コンテナイメージ)はこのファイルにだけ書く。
+name: Build (reusable)
+
+on:
+  workflow_call:
+    inputs:
+      ref:
+        description: "Build対象のCommit SHA。空なら呼び出し元のrefをBuildする"
+        type: string
+        default: ""
+      artifact-name:
+        type: string
+        default: latex-build
+      retention-days:
+        type: number
+        default: 7
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      # Docker Hub manifest digest (TL2025-historic)
+      image: texlive/texlive:TL2025-historic@sha256:f25ee2dcd00f58198f918064f4a1c8562410b33e84155bd55b02b419d73d9391
+    env:
+      MAIN_TEX: 漸化式の超体系的解説.tex
+      IMAGE_REF: texlive/texlive:TL2025-historic@sha256:f25ee2dcd00f58198f918064f4a1c8562410b33e84155bd55b02b419d73d9391
+      COMMIT: ${{ inputs.ref != '' && inputs.ref || github.sha }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+          persist-credentials: false
+
+      - name: Build (upLaTeX + dvipdfmx via latexmk)
+        working-directory: 発展-new
+        run: latexmk "$MAIN_TEX"
+
+      - name: Check unresolved references
+        working-directory: 発展-new
+        run: |
+          log="${MAIN_TEX%.tex}.log"
+          if grep -Eq 'There were undefined references|Citation .* undefined|Reference .* undefined' "$log"; then
+            grep -En 'undefined' "$log" | head -n 20
+            echo "::error::未解決の参照があります"
+            exit 1
+          fi
+
+      - name: Verify embedded fonts
+        working-directory: 発展-new
+        run: |
+          pdf="${MAIN_TEX%.tex}.pdf"
+          if ! command -v pdffonts >/dev/null 2>&1; then
+            apt-get update -qq
+            apt-get install -y -qq --no-install-recommends poppler-utils
+          fi
+          pdffonts "$pdf" | tee fonts.txt
+          # 末尾5列は emb sub uni object gen。emb が yes 以外のフォントを検出する。
+          missing="$(awk 'NR>2 && NF>=5 && $(NF-4)!="yes"' fonts.txt)"
+          if [ -n "$missing" ]; then
+            echo "$missing"
+            echo "::error::PDFに埋め込まれていないフォントがあります"
+            exit 1
+          fi
+          if ! grep -q 'HaranoAji' fonts.txt; then
+            echo "::error::原ノ味フォント(HaranoAji)が埋め込まれていません"
+            exit 1
+          fi
+
+      - name: Collect outputs and build-info
+        working-directory: 発展-new
+        run: |
+          mkdir -p ../out
+          cp "${MAIN_TEX%.tex}.pdf" ../out/main.pdf
+          cp fonts.txt ../out/fonts.txt
+          BUILT_AT="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          TL_VERSION="$(uplatex --version | sed -n 1p)"
+          DVIPDFMX_VERSION="$(dvipdfmx --version 2>&1 | sed -n 1p)"
+          FONTS="$(awk 'NR>2 {print $1}' fonts.txt | sort -u)"
+          export BUILT_AT TL_VERSION DVIPDFMX_VERSION FONTS
+          perl -MJSON::PP -e '
+            my %h = (
+              commit   => $ENV{COMMIT},
+              built_at => $ENV{BUILT_AT},
+              image    => $ENV{IMAGE_REF},
+              tex      => $ENV{TL_VERSION},
+              dvipdfmx => $ENV{DVIPDFMX_VERSION},
+              fonts    => [ split /\n/, $ENV{FONTS} ],
+            );
+            print JSON::PP->new->canonical->pretty->encode(\%h);
+          ' > ../out/build-info.json
+          cat ../out/build-info.json
+
+      - name: Upload build outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.artifact-name }}
+          path: out/
+          retention-days: ${{ inputs.retention-days }}
+          if-no-files-found: error

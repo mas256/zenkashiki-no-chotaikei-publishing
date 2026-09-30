@@ -1,0 +1,23 @@
+# 継続的な事前検証。PDFは公開しない。
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+      - 'release/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    uses: ./.github/workflows/_build.yml
+    with:
+      artifact-name: latex-build
+      retention-days: 7

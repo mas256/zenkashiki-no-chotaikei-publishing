@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="$lang">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>$title</title>
+<style>
+  :root { --bg:#ffffff; --fg:#1f2328; --muted:#59636e; --line:#d1d9e0; --accent:#0969da; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#0d1117; --fg:#e6edf3; --muted:#9198a1; --line:#3d444d; --accent:#4493f8; }
+  }
+  body { margin:0; background:var(--bg); color:var(--fg);
+         font-family: system-ui, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", sans-serif; line-height:1.7; }
+  main { max-width:42rem; margin:0 auto; padding:3rem 1.25rem; }
+  h1 { font-size:1.8rem; margin:0 0 .25rem; }
+  .meta { color:var(--muted); margin:0 0 1.5rem; }
+  .edition { display:inline-block; padding:.1rem .6rem; border:1px solid var(--line);
+             border-radius:999px; font-size:.9rem; margin-right:.5rem; }
+  a.button { display:inline-block; margin:1rem 0 1.5rem; padding:.7rem 1.4rem; background:var(--accent);
+             color:#fff; border-radius:.5rem; text-decoration:none; font-weight:600; }
+  a { color:var(--accent); }
+  h2 { font-size:1.1rem; margin-top:2rem; border-bottom:1px solid var(--line); padding-bottom:.3rem; }
+  ul { padding-left:1.2rem; }
+  time { color:var(--muted); margin-left:.5rem; font-size:.9rem; }
+  .cur { font-size:.8rem; border:1px solid var(--line); border-radius:999px; padding:0 .5rem; margin-left:.5rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>$title</h1>
+  <p class="meta">$authors</p>
+  <p><span class="edition">$edition</span><a href="$current_release_url">$tag</a><time>$date</time></p>
+  <p>$description</p>
+  <a class="button" href="book.pdf">PDFを読む</a>
+  <h2>過去の正式版</h2>
+  <ul>
+      $release_items
+  </ul>
+  <h2>リンク</h2>
+  <ul>
+    <li><a href="$releases_url">Releases</a></li>
+    <li><a href="$repo_url">Repository</a></li>
+  </ul>
+</main>
+</body>
+</html>
