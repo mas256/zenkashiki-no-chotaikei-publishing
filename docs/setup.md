@@ -47,5 +47,5 @@ Immutable releasesやrulesetは最初のRelease前に有効にしてください
 コピー先の本番Repositoryで、Buildが成功したCommitに対して実行します。
 
 ```bash
-scripts/tag-release.sh v1.0.0
+bash scripts/tag-release.sh v1.0.0
 ```

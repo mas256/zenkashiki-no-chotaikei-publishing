@@ -112,4 +112,4 @@ jobs:
           path: build-out
 
       - name: Create draft, verify, publish
-        run: ./scripts/release-publish.sh
+        run: bash ./scripts/release-publish.sh

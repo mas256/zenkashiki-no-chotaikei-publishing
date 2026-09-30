@@ -70,7 +70,7 @@ jobs:
           fi
 
       - name: Build site
-        run: ./scripts/pages-build.sh
+        run: bash ./scripts/pages-build.sh
 
       - name: Configure Pages
         uses: actions/configure-pages@v5

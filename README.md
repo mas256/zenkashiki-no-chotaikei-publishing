@@ -20,7 +20,7 @@ GitHub Actionsでは `texlive/texlive:TL2025-historic` のmanifest digestを固�
 日常の執筆はCommitとPushだけです。`main` または `release/**` へのPushでBuildが走ります。Build成功後、正式版を作るCommitに対して次を実行します。
 
 ```bash
-scripts/tag-release.sh v1.0.0
+bash scripts/tag-release.sh v1.0.0
 ```
 
 Tagの形式は `vMAJOR.MINOR.PATCH` です。Tag Push後、Release WorkflowがPDFとSHA-256を検証して公開し、Pages Workflowが公開済みReleaseのうち最大の版を配信します。
