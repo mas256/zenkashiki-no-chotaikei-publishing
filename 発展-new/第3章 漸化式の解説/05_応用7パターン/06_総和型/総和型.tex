@@ -33,24 +33,35 @@
       &a_{n+1}=\frac{p}{p-1}a_n+g(n)
     \end{align*}
     従って漸化式は階差等比複合型(\ref{節：階差等比複合型})に帰着する(係数$\frac{p}{p-1}$は$p=p-1$となることがないため,決して$1$にはならない).
-    \,$p=1$のときはこの割り算ができないが,\,$S_n=a_n+f(n)$と$S_n=S_{n-1}+a_n$($n\ge2$)を見比べることで,直接$a_n=f(n+1)-f(n)$が得られる.
+    $p=1$のときはこの割り算ができない.この場合,$S_n=a_n+f(n)$と$S_n=S_{n-1}+a_n$($n\ge2$)を比較すると,
+    \[
+      a_{n-1}=f(n)-f(n-1)\quad(n\ge2)
+    \]
+    となる.したがって,
+    \[
+      a_n=f(n+1)-f(n)\quad(n\ge1)
+    \]
+    を得る.なお,$n=1$のもとの式から$f(1)=0$が必要である.
 
     \noindent \textbf{【例題】}
     \begin{enumerate}[label=(\arabic*),parsep=3pt]
       \item $\displaystyle S_n=2a_n-n$
       \item $\displaystyle S_n=\frac12a_n+n$
+      \item $\displaystyle S_n=a_n+\binom n2$
     \end{enumerate}
 
     \noindent\textbf{【方針】}
     \begin{enumerate}[label=(\arabic*),parsep=3pt]
       \item まず$n=1$を代入して$a_1$を求めてから,本文の変形をなぞって$a_{n+1}$と$a_n$だけの漸化式を作りましょう.
       \item 同様です.できた漸化式は特性方程式型に帰着します.
+      \item $p=1$の場合です.$S_n-S_{n-1}=a_n$と比較して,$a_{n-1}$を直接求めましょう.
     \end{enumerate}
 
     \noindent\textbf{【解答】}
     \begin{enumerate}[label=(\arabic*),parsep=3pt]
       \item $\displaystyle a_n=2^n-1$
       \item $\displaystyle a_n=1+(-1)^{n-1}$
+      \item $\displaystyle a_n=n$
     \end{enumerate}
 
     \noindent\textbf{【解法】}
@@ -136,6 +147,31 @@
         \[
           a_n=1+(-1)^{n-1}
         \]
+    \item $\displaystyle S_n=a_n+\binom n2$
+
+        $n=1$では
+        \[
+          S_1=a_1=a_1+\binom12
+        \]
+        となり,この式だけでは$a_1$は定まらない.
+
+        $n\ge2$において,
+        \begin{align*}
+          a_n
+            &=S_n-S_{n-1}\\
+            &=\left(a_n+\binom n2\right)
+              -\left(a_{n-1}+\binom{n-1}{2}\right)\\
+            &=a_n-a_{n-1}+n-1
+        \end{align*}
+        であるから,
+        \[
+          a_{n-1}=n-1
+        \]
+        を得る.$n\ge2$で成り立つので,$n-1$を改めて$n$とおけば,
+        \[
+          a_n=n\quad(n\ge1)
+        \]
+        である.
 
     \end{enumerate}
 
@@ -155,58 +191,89 @@
     \noindent \textbf{【例題】}
     \begin{enumerate}[label=(\arabic*),parsep=3pt]
       \item $\displaystyle S_1=1,\ S_{n+1}=2S_n+n$
+      \item $\displaystyle S_1=0,\ S_{n+1}=2S_n+n$
     \end{enumerate}
 
     \noindent\textbf{【方針】}
     \begin{enumerate}[label=(\arabic*),parsep=3pt]
-      \item 本文の式は$n\ge2$でしか使えないことに注意し,\,$a_2$だけは$S_2=2S_1+f(1)$から別に求めましょう.
+      \item 本文の式は$n\ge2$でしか使えないことに注意し,$a_2$だけは$S_2=2S_1+1$から別に求めましょう.
+      \item 同様に$n\ge2$で漸化式を作り,$a_2$から解きます.$a_1$も含む一般項になるか最後に確認しましょう.
     \end{enumerate}
 
     \noindent\textbf{【解答】}
     \begin{enumerate}[label=(\arabic*),parsep=3pt]
       \item $\displaystyle a_1=1,\quad a_n=3\cdot2^{n-2}-1\ (n\ge2)$
+      \item $\displaystyle a_n=2^{n-1}-1\ (n\ge1)$
     \end{enumerate}
 
     \noindent\textbf{【解法】}
     \begin{enumerate}[label=(\arabic*),parsep=3pt]
     \item $\displaystyle S_1=1,\ S_{n+1}=2S_n+n$
 
-        $a_1=S_1=1$である.
-        本文で示した公式
+        $a_1=S_1=1$である.また,
         \[
-          a_{n+1}=pa_{n}+f(n)-f(n-1)
+          S_2=2S_1+1=3
+        \]
+        より
+        \[
+          a_2=S_2-S_1=2
+        \]
+        である.
+
+        本文の公式
+        \[
+          a_{n+1}=pa_n+f(n)-f(n-1)\quad(n\ge2)
         \]
         に$p=2,\ f(n)=n$を代入すると,
         \[
-          a_{n+1}=2a_n+\{n-(n-1)\}=2a_n+1\quad(n\ge2)
+          a_{n+1}=2a_n+1\quad(n\ge2)
         \]
-        を得る(この式は$n\ge2$でのみ成り立つことに注意する).
-
-        実際,\,$n=1$のときは
+        を得る.ここで$n\ge2$において$b_n=a_n+1$とおけば,
         \[
-          a_2=S_2-S_1=(2S_1+1)-S_1=2
-        \]
-        であるが,\,$2a_1+1=2\cdot1+1=3\ne a_2$であるから,この漸化式は$a_1$から$a_2$へは使えない.
-
-        そこで,\,$n\ge2$の範囲で $b_n=a_n+1$ とおくと,
-        \begin{align*}
-          b_{n+1}
-            &=a_{n+1}+1\\
-            &=2a_n+2\\
-            &=2(a_n+1)\\
-            &=2b_n\qquad(n\ge2)
-        \end{align*}
-        また,
-        \[
-          b_2=a_2+1=3
+          b_{n+1}=2b_n,\qquad b_2=3
         \]
         であるから,
         \[
           b_n=3\cdot2^{n-2}\quad(n\ge2)
         \]
-        よって,
+        したがって,
         \[
-          a_1=1,\quad a_n=3\cdot2^{n-2}-1\quad(n\ge2)
+          a_1=1,\qquad a_n=3\cdot2^{n-2}-1\quad(n\ge2)
         \]
+        である.
+
+    \item $\displaystyle S_1=0,\ S_{n+1}=2S_n+n$
+
+        $a_1=S_1=0$である.また,
+        \[
+          S_2=2S_1+1=1
+        \]
+        より
+        \[
+          a_2=S_2-S_1=1
+        \]
+        である.
+
+        1と同様に,
+        \[
+          a_{n+1}=2a_n+1\quad(n\ge2)
+        \]
+        を得る.ここで$n\ge2$において$b_n=a_n+1$とおけば,
+        \[
+          b_{n+1}=2b_n,\qquad b_2=2
+        \]
+        であるから,
+        \[
+          b_n=2^{n-1}\quad(n\ge2)
+        \]
+        したがって,
+        \[
+          a_n=2^{n-1}-1\quad(n\ge2)
+        \]
+        となる.$n=1$のときも$a_1=0=2^0-1$であるから,
+        \[
+          a_n=2^{n-1}-1\quad(n\ge1)
+        \]
+        である.
     \end{enumerate}
 
