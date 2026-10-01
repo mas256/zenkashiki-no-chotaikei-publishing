@@ -46,4 +46,9 @@
 1. `main` の原稿を確認し、正式版の版番号を1つ決めます。現在の `v1.3.0` より大きく、未使用のSemVer番号を使います。
 2. Actionsの **Release** Workflowを `main` から1回だけ実行します。Release画面から手動でTagやReleaseを先に作りません。前の実行が終わる前に別の版番号のReleaseを開始しません。
 3. PDF・SHA-256の検査とPages公開が成功した後に、本棚の `books.json` の `version` を更新します。
-4. `book.pdf` は正式版、`latest.pdf` と `latest-build-*` は成功した開発ビルドです。本棚の正式版番号には開発ビルドの番号を入れません。
+
+## 正式版PDFと開発中PDF
+
+正式版の `book.pdf` は、PDFとSHA-256がそろった公開SemVer Releaseから作ります。開発中の `latest.pdf` は、最新の成功したmain BuildのActions成果物から作り、同じPagesサイトに配信します。ビルド失敗時はPagesを更新しないため、前回の開発PDFを維持します。
+
+以前の方式で作成した `latest-build-*` Pre-releaseは、公開済み履歴として残します。今後、開発ビルドごとのTag・Pre-releaseは作りません。移行時に既存の `latest.pdf` がない場合は、旧Previewから一度だけ最新版PDFを引き継ぐために使います。これらは正式版に数えず、本棚の版番号にも反映しません。
