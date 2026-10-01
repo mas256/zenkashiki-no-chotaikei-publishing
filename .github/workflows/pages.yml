@@ -87,9 +87,19 @@ jobs:
 
       - name: Add latest successful PDF
         run: |
-          if gh release view latest-build >/dev/null 2>&1; then
+          latest_tag="$(gh api --paginate "repos/$GH_REPO/releases?per_page=100" \
+            --jq '[.[]
+              | select(.draft == false and .prerelease == true)
+              | select(.tag_name | test("^latest-build-[0-9]+$"))
+              | {run: (.tag_name | sub("^latest-build-"; "") | tonumber), tag: .tag_name}]
+              | sort_by(.run) | last | .tag // empty')"
+          # 移行前に公開した固定タグも、新しいタグができるまでは利用できる。
+          if [ -z "$latest_tag" ] && gh release view latest-build >/dev/null 2>&1; then
+            latest_tag="latest-build"
+          fi
+          if [ -n "$latest_tag" ]; then
             mkdir -p latest-dist
-            gh release download latest-build --pattern main.pdf --pattern main.pdf.sha256 --dir latest-dist
+            gh release download "$latest_tag" --pattern main.pdf --pattern main.pdf.sha256 --dir latest-dist
             (cd latest-dist && sha256sum -c main.pdf.sha256)
             cp latest-dist/main.pdf site/latest.pdf
           else
