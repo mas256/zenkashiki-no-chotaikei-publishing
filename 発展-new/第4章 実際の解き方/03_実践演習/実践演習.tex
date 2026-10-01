@@ -1,6 +1,6 @@
 % chapter: 問題演習
 
-\chapter{問題演習}
+\section{問題演習}
 
 ここでは,これまでに扱った漸化式の解法を実際の問題を通して確認する.
 前半では基本・応用11パターンを横断し,後半では複数の解法を組み合わせる高難易度問題および大学入試問題の構造を参考にした問題を扱う.
@@ -8,50 +8,36 @@
 
 % section: 基本と応用から出題されるもの
 
-\section{基本と応用から出題されるもの}
+\subsection{基本と応用から出題されるもの}
 ここでは第3章で扱った基本4パターンと応用7パターンを横断して出題する。問題の順序から解法を推測せず,式の構造から適切な解法を選択すること。
 
-\subsection{問題}
+\subsubsection{問題}
 \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em]
 \item 正の数列 \(\{a_n\}\) が
 \[
 a_1=2,\qquad a_{n+1}=a_n^2
 \]
 を満たす。一般項を求めよ。
-\item \[
-a_1=1,\qquad a_2=2,
-\]
+\item $\displaystyle a_1=1,\qquad a_2=2,$
 \[
 a_{n+2}=2a_{n+1}-2a_n
 \]
 で定められる数列の一般項を求めよ。
-\item \[
-a_1=1,\qquad
-a_{n+1}=n+\sum_{k=1}^{n}a_k
-\]
+\item $\displaystyle a_1=1,\qquad
+a_{n+1}=n+\sum_{k=1}^{n}a_k$
 で定められる数列の一般項を求めよ。
-\item \[
-a_1=1,\qquad
-a_{n+1}=\frac{2n+1}{2n-1}a_n
-\]
+\item $\displaystyle a_1=1,\qquad
+a_{n+1}=\frac{2n+1}{2n-1}a_n$
 で定められる数列の一般項を求めよ。
-\item \[
-a_1=1,\qquad
-a_{n+1}=\frac{2a_n}{a_n+2}
-\]
+\item $\displaystyle a_1=1,\qquad
+a_{n+1}=\frac{2a_n}{a_n+2}$
 で定められる数列の一般項を求めよ。
-\item \[
-a_1=1,\qquad
-a_{n+1}=\frac{a_n}{1+a_n}
-\]
+\item $\displaystyle a_1=1,\qquad
+a_{n+1}=\frac{a_n}{1+a_n}$
 で定められる数列の一般項を求めよ。
-\item \[
-a_1=7,\qquad a_{n+1}=a_n-5
-\]
+\item $\displaystyle a_1=7,\qquad a_{n+1}=a_n-5$
 で定められる数列について、\(a_n<0\) となる最小の正整数 \(n\) を求めよ。
-\item \[
-a_1=1,\qquad b_1=0,
-\]
+\item $\displaystyle a_1=1,\qquad b_1=0,$
 \[
 a_{n+1}=a_n+2b_n,\qquad
 b_{n+1}=2a_n+b_n
@@ -63,48 +49,34 @@ a_1=4,\qquad
 a_{n+1}=\frac{a_n^3}{4}
 \]
 を満たす。一般項を求めよ。
-\item \[
-a_1=1,\qquad b_1=0,
-\]
+\item $\displaystyle a_1=1,\qquad b_1=0,$
 \[
 a_{n+1}=2a_n,\qquad
 b_{n+1}=b_n+a_n
 \]
 で定められる2数列の一般項を求めよ。
-\item \[
-a_1=4,\qquad
-a_{n+1}=\left(\frac{n}{n+1}\right)^2a_n
-\]
+\item $\displaystyle a_1=4,\qquad
+a_{n+1}=\left(\frac{n}{n+1}\right)^2a_n$
 で定められる数列の一般項を求めよ。
-\item \[
-a_1=2,\qquad a_2=4,
-\]
+\item $\displaystyle a_1=2,\qquad a_2=4,$
 かつ
 \[
 a_{n+2}-a_{n+1}
 =-\frac12(a_{n+1}-a_n)
 \]
 を満たす数列の一般項を求めよ。
-\item \[
-a_1=1,\qquad a_2=2,
-\]
+\item $\displaystyle a_1=1,\qquad a_2=2,$
 \[
 a_{n+2}-a_{n+1}
 =3(a_{n+1}-a_n)
 \]
 で定められる数列の一般項を求めよ。
-\item \[
-a_1=1,\qquad
-a_{n+1}=2a_n+2^n
-\]
+\item $\displaystyle a_1=1,\qquad
+a_{n+1}=2a_n+2^n$
 で定められる数列の一般項を求めよ。
-\item \[
-a_1=0,\qquad a_{n+1}=-2a_n+6
-\]
+\item $\displaystyle a_1=0,\qquad a_{n+1}=-2a_n+6$
 で定められる数列の一般項を求めよ。
-\item \[
-a_1=-2,\qquad a_{n+1}=a_n-3
-\]
+\item $\displaystyle a_1=-2,\qquad a_{n+1}=a_n-3$
 で定められる数列 \(\{a_n\}\) の一般項を求めよ。
 \item 正の数列 \(\{a_n\}\) が
 \[
@@ -112,114 +84,78 @@ a_1=2,\qquad
 a_{n+1}=a_n^{\frac{n+1}{n}}
 \]
 を満たす。一般項を求めよ。
-\item \[
-a_1=0,\qquad
-a_{n+1}=\frac1{2-a_n}
-\]
+\item $\displaystyle a_1=0,\qquad
+a_{n+1}=\frac1{2-a_n}$
 で定められる数列の一般項を求めよ。
-\item \[
-a_1=2,\qquad a_{n+1}=3a_n
-\]
+\item $\displaystyle a_1=2,\qquad a_{n+1}=3a_n$
 で定められる数列の一般項を求めよ。
-\item \[
-a_1=1,\qquad a_{n+1}=a_n+n^2
-\]
+\item $\displaystyle a_1=1,\qquad a_{n+1}=a_n+n^2$
 で定められる数列の一般項を求めよ。
-\item \[
-a_1=2,\qquad b_1=1,
-\]
+\item $\displaystyle a_1=2,\qquad b_1=1,$
 \[
 a_{n+1}=3a_n+b_n,\qquad
 b_{n+1}=a_n+3b_n
 \]
 で定められる2数列の一般項を求めよ。
-\item \[
-a_1=1,\qquad a_2=6,
-\]
+\item $\displaystyle a_1=1,\qquad a_2=6,$
 \[
 a_{n+2}=6a_{n+1}-9a_n
 \]
 で定められる数列の一般項を求めよ。
-\item \[
-a_1=1,\qquad
-a_{n+1}=2a_n+3^n
-\]
+\item $\displaystyle a_1=1,\qquad
+a_{n+1}=2a_n+3^n$
 で定められる数列の一般項を求めよ。
-\item \[
-a_1=2,\qquad b_1=0,
-\]
+\item $\displaystyle a_1=2,\qquad b_1=0,$
 \[
 a_{n+1}=3a_n+2b_n,\qquad
 b_{n+1}=2a_n+3b_n
 \]
 で定められる2数列の一般項を求めよ。
-\item \[
-a_1=1,\qquad
-a_{n+1}=\sum_{k=1}^{n}a_k
-\]
+\item $\displaystyle a_1=1,\qquad
+a_{n+1}=\sum_{k=1}^{n}a_k$
 で定められる数列の一般項を求めよ。
 \item 数列 \(\{a_n\}\) は
 \[
 a_1=3,\qquad a_{n+1}=a_n+4
 \]
 を満たす。一般項 \(a_n\) を求めよ。
-\item \[
-a_1=1,\qquad a_{n+1}=a_n+2n+1
-\]
+\item $\displaystyle a_1=1,\qquad a_{n+1}=a_n+2n+1$
 で定められる数列の一般項を求めよ。
-\item \[
-a_1=81,\qquad a_{n+1}=\frac13a_n
-\]
+\item $\displaystyle a_1=81,\qquad a_{n+1}=\frac13a_n$
 で定められる数列の一般項を求めよ。
-\item \[
-a_1=1,\qquad b_1=0,
-\]
+\item $\displaystyle a_1=1,\qquad b_1=0,$
 \[
 a_{n+1}=2a_n+b_n,\qquad
 b_{n+1}=a_n+2b_n
 \]
 で定められる2数列の一般項を求めよ。
-\item \[
-a_1=1,\qquad
-a_{n+1}=\frac2n\sum_{k=1}^{n}a_k
-\]
+\item $\displaystyle a_1=1,\qquad
+a_{n+1}=\frac2n\sum_{k=1}^{n}a_k$
 で定められる数列の一般項を求めよ。
 \item 正の数列 \(\{a_n\}\) が
 \[
 a_1=1,\qquad a_{n+1}=2a_n^2
 \]
 を満たす。一般項を求めよ。
-\item \[
-a_1=1,\qquad
-a_{n+1}=2\sum_{k=1}^{n}a_k
-\]
+\item $\displaystyle a_1=1,\qquad
+a_{n+1}=2\sum_{k=1}^{n}a_k$
 で定められる数列の一般項を求めよ。
-\item \[
-a_1=1,\qquad
-a_{n+1}=\frac{n+2}{n+1}a_n
-\]
+\item $\displaystyle a_1=1,\qquad
+a_{n+1}=\frac{n+2}{n+1}a_n$
 で定められる数列の一般項を求めよ。
-\item \[
-a_1=1,\qquad
-a_{n+1}=\frac{2n}{n+1}a_n
-\]
+\item $\displaystyle a_1=1,\qquad
+a_{n+1}=\frac{2n}{n+1}a_n$
 で定められる数列の一般項を求めよ。
-\item \[
-a_1=1,\qquad a_2=2,
-\]
+\item $\displaystyle a_1=1,\qquad a_2=2,$
 \[
 a_{n+2}-3a_{n+1}+2a_n=1
 \]
 で定められる数列の一般項を求めよ。
-\item \[
-a_1=10,\qquad
-a_{n+1}=\frac12a_n+3
-\]
+\item $\displaystyle a_1=10,\qquad
+a_{n+1}=\frac12a_n+3$
 で定められる数列の一般項を求めよ。
-\item \[
-a_1=1,\qquad
-a_{n+1}=a_n+\frac1{n(n+1)}
-\]
+\item $\displaystyle a_1=1,\qquad
+a_{n+1}=a_n+\frac1{n(n+1)}$
 で定められる数列の一般項を求めよ。
 \item 数列 \(\{a_n\}\) は
 \[
@@ -231,14 +167,10 @@ a_1=5,\qquad a_{n+1}=pa_n+q
 a_2=4,\qquad \lim_{n\to\infty}a_n=2
 \]
 である。\(p,q\) と一般項 \(a_n\) を求めよ。
-\item \[
-a_1=4,\qquad
-a_{n+1}=2a_n+3\cdot2^n
-\]
+\item $\displaystyle a_1=4,\qquad
+a_{n+1}=2a_n+3\cdot2^n$
 で定められる数列の一般項を求めよ。
-\item \[
-a_1=4,\qquad a_{n+1}=a_n+3n-2
-\]
+\item $\displaystyle a_1=4,\qquad a_{n+1}=a_n+3n-2$
 で定められる数列の一般項を求めよ。
 \item 数列 \(\{a_n\}\) が
 \[
@@ -249,9 +181,7 @@ a_{n+1}=a_n+d
 a_2=5,\qquad a_6=17
 \]
 である。定数 \(d\) と一般項 \(a_n\) を求めよ。
-\item \[
-a_1=-4,\qquad a_{n+1}=-2a_n
-\]
+\item $\displaystyle a_1=-4,\qquad a_{n+1}=-2a_n$
 で定められる数列の一般項を求めよ。
 \item 数列 \(\{a_n\}\) は
 \[
@@ -262,9 +192,7 @@ a_1=2,\qquad a_2=7,
 a_{n+2}-a_{n+1}=a_{n+1}-a_n
 \]
 を満たす。一般項を求めよ。
-\item \[
-a_1=0,\qquad a_{n+1}=a_n+2^n
-\]
+\item $\displaystyle a_1=0,\qquad a_{n+1}=a_n+2^n$
 で定められる数列の一般項を求めよ。
 \item すべての項が正である数列 \(\{a_n\}\) が
 \[
@@ -275,10 +203,8 @@ a_{n+2}a_n=a_{n+1}^2
 a_1=2,\qquad a_2=6
 \]
 である。一般項を求めよ。
-\item \[
-a_1=3,\qquad
-a_{n+1}=3-\frac2{a_n}
-\]
+\item $\displaystyle a_1=3,\qquad
+a_{n+1}=3-\frac2{a_n}$
 で定められる数列の一般項を求めよ。
 \item 正の数列 \(\{a_n\}\) が
 \[
@@ -289,31 +215,23 @@ a_{n+1}=ra_n
 a_2=6,\qquad a_5=162
 \]
 である。\(r\) と一般項を求めよ。
-\item \[
-a_1=1,\qquad a_2=3,
-\]
+\item $\displaystyle a_1=1,\qquad a_2=3,$
 かつ
 \[
 a_{n+2}-a_{n+1}
 =2(a_{n+1}-a_n)
 \]
 を満たす数列の一般項を求めよ。
-\item \[
-a_1=1,\qquad a_2=5,
-\]
+\item $\displaystyle a_1=1,\qquad a_2=5,$
 \[
 a_{n+2}=5a_{n+1}-6a_n
 \]
 で定められる数列の一般項を求めよ。
-\item \[
-a_1=1,\qquad
-a_{n+1}=1+\sum_{k=1}^{n}a_k
-\]
+\item $\displaystyle a_1=1,\qquad
+a_{n+1}=1+\sum_{k=1}^{n}a_k$
 で定められる数列の一般項を求めよ。
-\item \[
-a_1=3,\qquad
-a_{n+1}=\frac{3a_n+1}{a_n+3}
-\]
+\item $\displaystyle a_1=3,\qquad
+a_{n+1}=\frac{3a_n+1}{a_n+3}$
 で定められる数列の一般項を求めよ。
 \item 正の数列 \(\{a_n\}\) が
 \[
@@ -321,22 +239,16 @@ a_1=8,\qquad
 a_{n+1}=\sqrt{2a_n}
 \]
 を満たす。一般項を求めよ。
-\item \[
-a_1=4,\qquad a_{n+1}=3a_n-4
-\]
+\item $\displaystyle a_1=4,\qquad a_{n+1}=3a_n-4$
 で定められる数列の一般項を求めよ。
-\item \[
-a_1=1,\qquad a_{n+1}=2a_n+3
-\]
+\item $\displaystyle a_1=1,\qquad a_{n+1}=2a_n+3$
 で定められる数列の一般項を求めよ。
-\item \[
-a_1=2,\qquad
-a_{n+1}=\frac{n+1}{n}a_n
-\]
+\item $\displaystyle a_1=2,\qquad
+a_{n+1}=\frac{n+1}{n}a_n$
 で定められる数列の一般項を求めよ。
 \end{enumerate}
 
-\subsection{方針}
+\subsubsection{方針}
 \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em]
 \item \(2\) を底とする対数を取り、指数部分を一次漸化式にする。
 \item 特性方程式の複素根を極形式に直し、三角関数型で表す。
@@ -395,7 +307,7 @@ a_{n+1}=\frac{n+1}{n}a_n
 \item 階比を \(1\) から \(n-1\) まで掛け、積を約分する。
 \end{enumerate}
 
-\subsection{解答}
+\subsubsection{解答}
 \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em]
 \item \[
 b_n=\log_2 a_n
@@ -1720,14 +1632,12 @@ a_n=2n
 
 % section: 高難易度のもの
 
-\section{高難易度のもの}
+\subsection{高難易度のもの}
 ここでは複数の解法を組み合わせる問題,複数回の変換を要する問題,一見単純でありながら技巧的な変形を要する問題を扱う。
 
-\subsection{問題}
+\subsubsection{問題}
 \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em]
-\item \[
-a_1=b_1=1,
-\]
+\item $\displaystyle a_1=b_1=1,$
 \[
 \begin{cases}
 a_{n+1}=2a_n+b_n+3^n,\\
@@ -1738,11 +1648,9 @@ b_{n+1}=a_n+2b_n-3^n
 とする。
 (1) \(a_n,b_n\) の一般項を求めよ。
 (2) \(\displaystyle\sum_{k=1}^{n}a_k\) を求めよ。
-\item \[
-S_n=\sum_{k=1}^{n}a_k,\qquad
+\item $\displaystyle S_n=\sum_{k=1}^{n}a_k,\qquad
 a_1=1,\qquad
-a_{n+1}=4a_n-S_n
-\]
+a_{n+1}=4a_n-S_n$
 とする。\(a_n,S_n\) を求めよ。
 \item 正の数列 \(\{a_n\}\) を
 \[
@@ -1750,9 +1658,7 @@ a_1=1,\qquad
 a_{n+1}=2^n\prod_{k=1}^{n}a_k
 \]
 で定める。\(a_n\) を求めよ。
-\item \[
-a_1=\frac32,\qquad b_1=\frac12,
-\]
+\item $\displaystyle a_1=\frac32,\qquad b_1=\frac12,$
 \[
 a_{n+1}=
 \frac32(a_n+b_n)+
@@ -1764,10 +1670,8 @@ b_{n+1}=
 \frac12\frac{a_n-b_n}{1+a_n-b_n}
 \]
 とする。\(a_n,b_n\) を求めよ。
-\item \[
-a_1=2,\qquad
-a_{n+1}=1+\frac{a_n-1}{2+n(a_n-1)}
-\]
+\item $\displaystyle a_1=2,\qquad
+a_{n+1}=1+\frac{a_n-1}{2+n(a_n-1)}$
 とする。
 (1) \(a_n\) を求めよ。
 (2) \(\displaystyle\lim_{n\to\infty}2^n(a_n-1)\) を求めよ。
@@ -1779,15 +1683,11 @@ a_1=2,\qquad a_2=16,
 a_{n+2}a_n=2^{2n+1}a_{n+1}^2
 \]
 を満たす。\(a_n\) を求めよ。
-\item \[
-a_1=3,\qquad
+\item $\displaystyle a_1=3,\qquad
 a_{n+1}=
-\frac{(n+2)a_n-n}{na_n+2-n}
-\]
+\frac{(n+2)a_n-n}{na_n+2-n}$
 とする。\(a_n\) を求めよ。
-\item \[
-a_1=\frac32,\qquad b_1=\frac12,
-\]
+\item $\displaystyle a_1=\frac32,\qquad b_1=\frac12,$
 \[
 a_{n+1}=
 \frac52(a_n+b_n)+
@@ -1820,34 +1720,24 @@ a_1=1,\qquad a_2=2,
 (n+1)a_{n+1}^2
 \]
 を満たす。\(a_n\) を求めよ。
-\item \[
-a_1=3,\qquad
-a_{n+1}=\frac{a_n^2+1}{2a_n}
-\]
+\item $\displaystyle a_1=3,\qquad
+a_{n+1}=\frac{a_n^2+1}{2a_n}$
 とする。\(a_n\) を求めよ。
-\item \[
-a_1=2,\qquad
-a_{n+1}=2a_n^2-1
-\]
+\item $\displaystyle a_1=2,\qquad
+a_{n+1}=2a_n^2-1$
 とする。\(a_n\) を求めよ。
-\item \[
-a_1=2,\qquad
-a_{n+1}=\frac{a_n^2+3}{2a_n}
-\]
+\item $\displaystyle a_1=2,\qquad
+a_{n+1}=\frac{a_n^2+3}{2a_n}$
 とする。\(a_n\) を求めよ。
-\item \[
-a_1=3,\qquad
-a_{n+1}=a_n^2-2
-\]
+\item $\displaystyle a_1=3,\qquad
+a_{n+1}=a_n^2-2$
 とする。\(a_n\) を求めよ。
-\item \[
-a_1=\frac13,\qquad
-a_{n+1}=\frac{2a_n}{1+a_n^2}
-\]
+\item $\displaystyle a_1=\frac13,\qquad
+a_{n+1}=\frac{2a_n}{1+a_n^2}$
 とする。\(a_n\) を求めよ。
 \end{enumerate}
 
-\subsection{方針}
+\subsubsection{方針}
 \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em]
 \item 連立式の対称性から和と差に分離する。和は等比、差は階差型になる。最後に等比数列の和を使う。
 \item 部分和を直接解かず、\(S_n\) を消去して重解をもつ3項間漸化式へ落とす。
@@ -1866,7 +1756,7 @@ a_{n+1}=\frac{2a_n}{1+a_n^2}
 \item \(1\pm a_n\) を同時に因数分解し、その比を取ると平方型になる。
 \end{enumerate}
 
-\subsection{解答}
+\subsubsection{解答}
 \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em]
 \item \(s_n=a_n+b_n,\ d_n=a_n-b_n\) とおくと
 \[
@@ -2348,10 +2238,10 @@ a_n=
 
 % section: 大学過去問ベースのもの
 
-\section{大学過去問ベースのもの}
+\subsection{大学過去問ベースのもの}
 以下の問題は大学入試問題の出題構造・発想を参考に,本書の演習として独立に再構成したものである。原典の問題文そのものではない。
 
-\subsection{問題}
+\subsubsection{問題}
 \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em]
 \item 正の数列 \(\{a_n\}\) を
 \[
@@ -2422,7 +2312,7 @@ S_m=\sum_{k=1}^{m}a_k a_{m-k+1}
 \textit{参考構造：東京大学 2024 理系 第3問の状態分類・確率漸化式を参考に再構成}
 \end{enumerate}
 
-\subsection{方針}
+\subsubsection{方針}
 \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em]
 \item 逆数列 \(b_n\) の差を計算する。まず \(a_n\) を上から評価して平均の極限を求め、その結果を再び \(b_n/n\) の極限評価に使う。
 \item 奇数項が続いている間は \(a_{n+1}+1=\frac32(a_n+1)\) が成立する。\(a_j\) が奇数である条件を \(a_0+1\) の2進因子の条件に読み替える。
@@ -2431,7 +2321,7 @@ S_m=\sum_{k=1}^{m}a_k a_{m-k+1}
 \item  \(A\),対頂点 \(C\),隣接頂点 \(B,D\) の3種類に状態分類する。\(A\) と \(C\) の確率の和と差を取る。
 \end{enumerate}
 
-\subsection{解答}
+\subsubsection{解答}
 \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em]
 \item 漸化式から
 \[
