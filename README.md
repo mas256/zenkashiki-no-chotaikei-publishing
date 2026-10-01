@@ -31,3 +31,11 @@ GitHubのReleases画面から先にReleaseを作らないでください。正�
 ## ライセンス
 
 このRepositoryにはライセンスを追加していません。原稿、図、PDFの利用条件を決めるまで、`LICENSE` は置きません。
+
+## 最新版（開発中）
+
+`main`へのpush時にBuild WorkflowがPDFを作成し、ビルド・参照・フォント検査に成功した場合だけ、
+`latest-build`というPre-releaseの`main.pdf`を更新します。
+正式版のReleaseとPagesの`book.pdf`は従来どおりです。
+ビルド失敗時は直前の最新版PDFを維持し、古いrunの再実行による巻き戻しも防ぎます。
+最新版は[数学書の本棚](https://mas256.github.io/math-textbooks/)から閲覧できます。

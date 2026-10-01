@@ -1,4 +1,4 @@
-# 継続的な事前検証。PDFは公開しない。
+# push時に検証し、mainの成功ビルドを正式版とは別に公開する。
 name: Build
 
 on:
@@ -21,3 +21,28 @@ jobs:
     with:
       artifact-name: latex-build
       retention-days: 7
+
+  publish-latest:
+    # needs の既定の成功条件により、ビルド失敗時は公開済みPDFを変更しない。
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - name: Checkout publishing script
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Download successful build
+        uses: actions/download-artifact@v4
+        with:
+          name: latex-build
+          path: latest-out
+
+      - name: Publish latest successful PDF
+        run: bash scripts/latest-publish.sh
