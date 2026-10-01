@@ -29,7 +29,7 @@ Tag・Immutable releases・Tag rulesetは、一度作ると取り消せません
 
 ## 4. Buildを確認する
 
-`main`へPushして、`Build`が成功することを確認します。既存の入口TeXと本文は日本語パスのまま維持されています。成功しない場合は、ログを確認します。
+`main`へPushして、`Build`が成功することを確認します。成功後に`Deploy Pages`が実行され、開発中PDFを`latest.pdf`として公開します。既存の入口TeXと本文は日本語パスのまま維持されています。成功しない場合は、ログを確認します。
 
 - 「未解決の参照があります」: `\ref`や`\cite`の参照先を確認します。
 - 「PDFに埋め込まれていないフォントがあります」/「原ノ味フォントが埋め込まれていません」: フォント設定を確認します。
@@ -37,11 +37,11 @@ Tag・Immutable releases・Tag rulesetは、一度作ると取り消せません
 ## 5. 正式版をブラウザーから公開する
 
 1. 原稿の変更を`main`へCommitします。ファイルの画面で鉛筆アイコンから編集し、`Commit changes`を押せます。
-2. Actionsで`Build`が成功したことを確認します。
+2. Actionsで`Build`と後続の`Deploy Pages`が成功し、開発中PDFが`latest.pdf`に公開されたことを確認します。
 3. Actions → `Release` → `Run workflow`を開きます。
 4. Branchを`main`にし、`version`へ未使用の版番号（例: `v1.0.3`）を入力して実行します。
 5. `Release`が成功したら、ReleasesにPDFと`.sha256`の2ファイルが添付されたことを確認します。
-6. `Deploy Pages`が成功したことを確認します。
+6. `Deploy Pages`が成功し、正式版の`book.pdf`と開発中の`latest.pdf`が配信されたことを確認します。
 7. `math-textbooks`リポジトリの`books.json`を編集し、`version`を公開した番号にしてCommitします。
 8. カタログのActionsも成功したら、本棚の表示を確認します。
 
@@ -51,7 +51,7 @@ GitHubのReleases画面から先にReleaseを作らないでください。こ�
 
 Immutable releasesやrulesetは最初のRelease前に有効にしてください。可能なら本番公開前にコピーしたテスト用Repositoryで次を確認します。
 
-1. `main`へのPushで`Build`が成功する
+1. `main`へのPushで`Build`が成功し、`Deploy Pages`が`/latest.pdf`を公開する
 2. `v0.0.1`を作成し、ReleaseにPDFと`.sha256`が付き、Pagesに`/`と`/book.pdf`が公開される
 3. 旧系列Tagを後から公開してもPagesが新しい版のままになる
 
