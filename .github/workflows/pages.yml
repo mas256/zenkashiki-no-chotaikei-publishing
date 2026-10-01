@@ -1,10 +1,14 @@
-# 最新正式版(公開済みReleaseのSemVer最大)をPagesへ配信する。
+# 最新成功ビルドと最新正式版をPagesへ配信する。
 # main に置く。起動元のTagやCommitは使わず、実行時点で最新正式版を再計算する。
 name: Deploy Pages
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/pages.yml
   workflow_run:
-    workflows: [Release]
+    workflows: [Release, Build]
     types: [completed]
   workflow_dispatch:
 
@@ -80,6 +84,17 @@ jobs:
 
       - name: Build site
         run: bash ./scripts/pages-build.sh
+
+      - name: Add latest successful PDF
+        run: |
+          if gh release view latest-build >/dev/null 2>&1; then
+            mkdir -p latest-dist
+            gh release download latest-build --pattern main.pdf --pattern main.pdf.sha256 --dir latest-dist
+            (cd latest-dist && sha256sum -c main.pdf.sha256)
+            cp latest-dist/main.pdf site/latest.pdf
+          else
+            echo "::warning::最新版PDFがまだ公開されていないため、正式版だけをPagesへ配信します"
+          fi
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
