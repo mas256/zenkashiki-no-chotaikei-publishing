@@ -19,7 +19,7 @@ GitHub Actionsでは `texlive/texlive:TL2025-historic` のmanifest digestを固�
 
 コピー先RepositoryをPublicにしたうえで、[出版基盤のセットアップ手順](docs/setup.md)に従って Pages、Immutable releases、Tag rulesetを設定してください。最初のReleaseを作る前に設定を完了してください。
 
-日常の執筆から正式版公開まで、GitHubのWeb画面で操作できます。`main`への変更でBuildが走ります。正式版にするときはActions → **Release** → **Run workflow** を開き、`main`を選択して版番号を入力します（現行 `v1.3.0` の次の例は `v1.3.1`）。Workflowがその時点の`main`をBuildし、PDFとSHA-256を検証してReleaseを作成します。成功後、Pages Workflowが公開済みのPDFを配信します。
+日常の執筆から正式版公開まで、GitHubのWeb画面で操作できます。`main`への変更でBuildが走ります。正式版にするときはActions → **Release** → **Run workflow** を開き、`main`を選択して版番号を入力します（現行 `v1.3.3` の次の例は `v1.3.4`）。Workflowがその時点の`main`をBuildし、PDFとSHA-256を検証してReleaseを作成します。成功後、Pages Workflowが公開済みのPDFを配信します。
 
 Release Workflowは一度に1つだけ実行します。前の実行・Pages公開が終わってから次の正式版を作成してください。GitHubのReleases画面から先にReleaseを作らないでください。正式版タグはRelease Workflowが作成します。公開済みタグは再利用できないため、毎回まだ使っていない版番号を指定してください。
 
