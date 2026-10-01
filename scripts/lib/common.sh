@@ -36,7 +36,7 @@ latest_release() {
   formal_releases | jq -r '.tagName' | sort -V | tail -n 1
 }
 
-# 全ページの成功ビルドから、run番号が最大のPre-releaseを返す。
+# 旧方式で作った開発Previewから、移行時の引き継ぎ候補を選ぶ。
 latest_build_release() {
   gh api --paginate "repos/${GH_REPO:?}/releases?per_page=100" --jq '
     .[]
