@@ -2,6 +2,8 @@
 
 このRepositoryは「基本-new」と「発展-new」の原稿を管理します。出版基盤が正式版としてビルド・配布するのは、付録を含む最新版の **発展-new** です。基本版のPDFも従来どおり原稿ディレクトリに残しますが、正式ReleaseのPDFには含めません。
 
+公開版の正は、このRepositoryの正式Releaseです。現在の正式版・Tag・本棚の表示・過去の版履歴は[公開版と版番号の整理](docs/release-status.md)にまとめています。
+
 ## ローカルでビルド
 
 TeX Live 2025以降を用意し、次を実行します。
@@ -17,9 +19,9 @@ GitHub Actionsでは `texlive/texlive:TL2025-historic` のmanifest digestを固�
 
 コピー先RepositoryをPublicにしたうえで、[出版基盤のセットアップ手順](docs/setup.md)に従って Pages、Immutable releases、Tag rulesetを設定してください。最初のReleaseを作る前に設定を完了してください。
 
-日常の執筆から正式版公開まで、GitHubのWeb画面で操作できます。`main`への変更でBuildが走ります。正式版にするときはActions → **Release** → **Run workflow** を開き、`main`を選択して版番号（例: `v1.0.3`）を入力します。Workflowがその時点の`main`をBuildし、PDFとSHA-256を検証してReleaseを作成します。成功後、Pages Workflowが公開済みのPDFを配信します。
+日常の執筆から正式版公開まで、GitHubのWeb画面で操作できます。`main`への変更でBuildが走ります。正式版にするときはActions → **Release** → **Run workflow** を開き、`main`を選択して版番号を入力します（現行 `v1.3.0` の次の例は `v1.3.1`）。Workflowがその時点の`main`をBuildし、PDFとSHA-256を検証してReleaseを作成します。成功後、Pages Workflowが公開済みのPDFを配信します。
 
-GitHubのReleases画面から先にReleaseを作らないでください。正式版タグはRelease Workflowが作成します。公開済みタグは再利用できないため、毎回まだ使っていない版番号を指定してください。
+Release Workflowは一度に1つだけ実行します。前の実行・Pages公開が終わってから次の正式版を作成してください。GitHubのReleases画面から先にReleaseを作らないでください。正式版タグはRelease Workflowが作成します。公開済みタグは再利用できないため、毎回まだ使っていない版番号を指定してください。
 
 本棚に表示する版番号は、ReleaseとPagesの公開が成功した後、[数学書の本棚](https://github.com/mas256/math-textbooks)の`books.json`で更新します。
 
