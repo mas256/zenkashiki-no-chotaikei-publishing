@@ -36,8 +36,8 @@ Release Workflowは一度に1つだけ実行します。前の実行・Pages公�
 
 ## 最新版（開発中）
 
-`main`へのpush時にBuild WorkflowがPDFを作成し、ビルド・参照・フォント検査に成功した場合だけ、
-run番号ごとに固有の`latest-build-<run number>` Pre-releaseへ保存します。公開済みassetは変更せず、Pagesの`latest.pdf`だけを成功ビルドに合わせて更新します。
-正式版のReleaseとPagesの`book.pdf`は従来どおりです。
-ビルド失敗時は直前の最新版PDFを維持し、古いrunの再実行による巻き戻しも防ぎます。
-最新版は[数学書の本棚](https://mas256.github.io/math-textbooks/)から閲覧できます。
+`main`へのpush時にBuild WorkflowがPDFを作成し、ビルド・参照・フォント検査に成功するとActions成果物 `latex-build` が作られます。Pages Workflowは最新の成功したmainビルドのPDFを `latest.pdf` として配信します。`latest.pdf.sha256` も同じ場所から取得できます。
+
+ビルドが失敗した場合はPagesを更新せず、直前に公開した開発PDFを維持します。開発ビルドごとのTagやPre-releaseは新たに作りません。正式版のReleaseとPagesの `book.pdf` は別に管理し、正式版番号も変わりません。
+
+正式版と開発中のPDFは[数学書の本棚](https://mas256.github.io/math-textbooks/)から閲覧できます。教科書の紹介ページからも両方を開けます。
