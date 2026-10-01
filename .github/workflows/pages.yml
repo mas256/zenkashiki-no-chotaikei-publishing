@@ -27,7 +27,7 @@ concurrency:
 
 jobs:
   deploy:
-    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -43,21 +43,13 @@ jobs:
 
       - name: Determine the latest release
         run: |
-          # A published Release may have been created manually without the
-          # PDF/checksum pair. Pages must use the newest complete release.
-          latest="$(gh api --paginate "repos/$GH_REPO/releases?per_page=100" \
-            --jq '[.[]
-              | select(.draft == false and .prerelease == false)
-              | select([.assets[].name | select(endswith(".pdf"))] | length == 1)
-              | select([.assets[].name | select(endswith(".pdf.sha256"))] | length == 1)
-              | .tag_name]
-              | sort_by(split(".") | map(sub("^v"; "") | tonumber))
-              | last // empty')"
+          source scripts/lib/common.sh
+          latest="$(latest_release)"
           if [ -z "$latest" ]; then
             echo "::error::PDFとSHA-256がそろった公開済みReleaseがありません"
             exit 1
           fi
-          echo "::warning::PDFとSHA-256がそろった最新の正式版を使用します: $latest"
+          echo "::notice::PDFとSHA-256がそろった最新の正式版を使用します: $latest"
           echo "LATEST=$latest" >> "$GITHUB_ENV"
           echo "最新正式版: $latest"
 
@@ -87,20 +79,25 @@ jobs:
 
       - name: Add latest successful PDF
         run: |
-          latest_tag="$(gh api --paginate "repos/$GH_REPO/releases?per_page=100" \
-            --jq '[.[]
-              | select(.draft == false and .prerelease == true)
-              | select(.tag_name | test("^latest-build-[0-9]+$"))
-              | {run: (.tag_name | sub("^latest-build-"; "") | tonumber), tag: .tag_name}]
-              | sort_by(.run) | last | .tag // empty')"
-          # 移行前に公開した固定タグも、新しいタグができるまでは利用できる。
-          if [ -z "$latest_tag" ] && gh release view latest-build >/dev/null 2>&1; then
-            latest_tag="latest-build"
-          fi
+          source scripts/lib/common.sh
+          latest_tag="$(latest_build_release)"
           if [ -n "$latest_tag" ]; then
             mkdir -p latest-dist
-            gh release download "$latest_tag" --pattern main.pdf --pattern main.pdf.sha256 --dir latest-dist
+            gh release download "$latest_tag" --pattern main.pdf --pattern main.pdf.sha256 --pattern latest-build.json --dir latest-dist
             (cd latest-dist && sha256sum -c main.pdf.sha256)
+            python3 - "$latest_tag" <<'PY'
+          import json, sys
+          from pathlib import Path
+          tag = sys.argv[1]
+          info = json.loads(Path("latest-dist/latest-build.json").read_text())
+          assert info["run_number"] == int(tag.removeprefix("latest-build-")), "Run number mismatch"
+          PY
+            actual="$(sha256sum latest-dist/main.pdf | cut -d' ' -f1)"
+            digest="$(gh api "repos/$GH_REPO/releases/tags/$latest_tag" \
+              --jq '[.assets[] | select(.name == "main.pdf") | .digest][0] // ""')"
+            if [ -n "$digest" ]; then
+              [ "$digest" = "sha256:$actual" ] || { echo "::error::最新版PDFのAPI digestが一致しません"; exit 1; }
+            fi
             cp latest-dist/main.pdf site/latest.pdf
           else
             echo "::warning::最新版PDFがまだ公開されていないため、正式版だけをPagesへ配信します"

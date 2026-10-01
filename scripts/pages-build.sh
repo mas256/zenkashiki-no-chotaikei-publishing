@@ -5,6 +5,8 @@ set -euo pipefail
 
 here="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 root="$(cd "$here/.." && pwd)"
+# shellcheck source=lib/common.sh
+source "$here/lib/common.sh"
 
 : "${GH_REPO:?}" "${LATEST:?}"
 
@@ -20,9 +22,7 @@ cp "${pdfs[0]}" site/book.pdf
 gh api -H 'Accept: application/vnd.github.raw+json' \
   "repos/$GH_REPO/contents/book.yml?ref=$LATEST" > book.at-tag.yml
 
-gh api --paginate "repos/$GH_REPO/releases?per_page=100" \
-  --jq '[.[] | select(.draft == false and .prerelease == false) | {tagName: .tag_name, publishedAt: .published_at}] | .[]' \
-  > releases.ndjson
+formal_releases > releases.ndjson
 python3 - <<'PY' > releases.json
 import json
 from pathlib import Path
