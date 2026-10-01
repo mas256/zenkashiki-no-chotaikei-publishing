@@ -78,8 +78,19 @@ gh release create "$TAG" "$work/$asset" "$work/$asset.sha256" \
   --draft --target "$COMMIT" \
   --title "第${major}版 ${TAG}" --notes-file "$work/notes.md"
 
-mapfile -t draft_ids < <(list_draft_ids)
-[ "${#draft_ids[@]}" -eq 1 ] || die "Draftがちょうど1件ではありません: ${#draft_ids[@]}件"
+# GitHub側の一覧APIにはDraft作成が即時反映されない場合があるため、
+# 1件取得できるまで短時間リトライする。
+draft_ids=()
+for attempt in {1..10}; do
+  mapfile -t draft_ids < <(list_draft_ids)
+  if [ "${#draft_ids[@]}" -eq 1 ]; then
+    break
+  fi
+  [ "${#draft_ids[@]}" -gt 1 ] && die "Draftが複数あります: ${#draft_ids[@]}件"
+  echo "Draft一覧への反映待ち: ${attempt}/10"
+  sleep 2
+done
+[ "${#draft_ids[@]}" -eq 1 ] || die "Draftが見つかりません"
 id="${draft_ids[0]}"
 
 # 6. Draftのassetを再取得して検証する
