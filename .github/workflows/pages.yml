@@ -1,5 +1,5 @@
 # 最新成功ビルドと最新正式版をPagesへ配信する。
-# main に置く。起動元のTagやCommitは使わず、実行時点で最新正式版を再計算する。
+# main に置き、正式版は実行時点の最新Releaseから再計算する。
 name: Deploy Pages
 
 on:
@@ -13,6 +13,7 @@ on:
   workflow_dispatch:
 
 permissions:
+  actions: read
   contents: read
   pages: write
   id-token: write
@@ -51,10 +52,10 @@ jobs:
           fi
           echo "::notice::PDFとSHA-256がそろった最新の正式版を使用します: $latest"
           echo "LATEST=$latest" >> "$GITHUB_ENV"
-          echo "最新正式版: $latest"
 
       - name: Download PDF and checksum from the release
         run: |
+          mkdir -p dist
           gh release download "$LATEST" --pattern '*.pdf' --pattern '*.pdf.sha256' --dir dist
           shopt -s nullglob
           pdfs=(dist/*.pdf)
@@ -77,30 +78,103 @@ jobs:
       - name: Build site
         run: bash ./scripts/pages-build.sh
 
-      - name: Add latest successful PDF
+      - name: Find the latest successful main build
+        id: latest_build
         run: |
-          source scripts/lib/common.sh
-          latest_tag="$(latest_build_release)"
-          if [ -n "$latest_tag" ]; then
-            mkdir -p latest-dist
-            gh release download "$latest_tag" --pattern main.pdf --pattern main.pdf.sha256 --pattern latest-build.json --dir latest-dist
-            (cd latest-dist && sha256sum -c main.pdf.sha256)
-            python3 - "$latest_tag" <<'PY'
+          runs="$(gh api "repos/$GH_REPO/actions/workflows/build.yml/runs?branch=main&status=success&per_page=1")"
+          run_id="$(jq -r '.workflow_runs[0].id // empty' <<< "$runs")"
+          head_sha="$(jq -r '.workflow_runs[0].head_sha // empty' <<< "$runs")"
+          if [ -n "$run_id" ] && [ -n "$head_sha" ]; then
+            echo "run_id=$run_id" >> "$GITHUB_OUTPUT"
+            echo "head_sha=$head_sha" >> "$GITHUB_OUTPUT"
+            echo "::notice::最新版PDFの元となる成功ビルド: $run_id ($head_sha)"
+          else
+            echo "::notice::成功したmainビルドがまだありません"
+          fi
+
+      - name: Download the latest successful main build artifact
+        id: download_dev
+        if: steps.latest_build.outputs.run_id != ''
+        continue-on-error: true
+        uses: actions/download-artifact@v4
+        with:
+          name: latex-build
+          path: latest-dist
+          run-id: ${{ steps.latest_build.outputs.run_id }}
+          github-token: ${{ github.token }}
+
+      - name: Verify the development PDF
+        id: verify_dev
+        if: steps.download_dev.outcome == 'success'
+        env:
+          EXPECTED_COMMIT: ${{ steps.latest_build.outputs.head_sha }}
+        run: |
+          python3 - "$EXPECTED_COMMIT" <<'PY'
+          import json, sys
+          from pathlib import Path
+          pdf = Path("latest-dist/main.pdf")
+          info_path = Path("latest-dist/build-info.json")
+          assert pdf.is_file() and pdf.read_bytes().startswith(b"%PDF-"), "Invalid development PDF"
+          info = json.loads(info_path.read_text())
+          assert info["commit"] == sys.argv[1], "Build artifact commit mismatch"
+          PY
+
+      - name: Add the latest successful development PDF
+        if: steps.verify_dev.outcome == 'success'
+        run: |
+          cp latest-dist/main.pdf site/latest.pdf
+          digest="$(sha256sum site/latest.pdf | cut -d' ' -f1)"
+          printf '%s  latest.pdf\n' "$digest" > site/latest.pdf.sha256
+
+      - name: Preserve the previously published development PDF
+        if: steps.download_dev.outcome != 'success'
+        run: |
+          mkdir -p fallback-dist
+          found=false
+          pages_url="$(gh api "repos/$GH_REPO/pages" --jq '.html_url // empty' 2>/dev/null || true)"
+          if [ -n "$pages_url" ] && curl -fsSL --retry 2 "${pages_url%/}/latest.pdf" -o fallback-dist/latest.pdf; then
+            if python3 - fallback-dist/latest.pdf <<'PY'
+          import sys
+          from pathlib import Path
+          raise SystemExit(0 if Path(sys.argv[1]).read_bytes().startswith(b"%PDF-") else 1)
+          PY
+            then
+              if curl -fsSL "${pages_url%/}/latest.pdf.sha256" -o fallback-dist/latest.pdf.sha256; then
+                (cd fallback-dist && sha256sum -c latest.pdf.sha256)
+              fi
+              cp fallback-dist/latest.pdf site/latest.pdf
+              found=true
+              echo "::notice::現在公開中の最新版PDFを維持します"
+            fi
+          fi
+
+          if [ "$found" != true ]; then
+            source scripts/lib/common.sh
+            legacy_tag="$(latest_build_release)"
+            if [ -n "$legacy_tag" ]; then
+              mkdir -p fallback-dist/legacy
+              gh release download "$legacy_tag" \
+                --pattern main.pdf --pattern main.pdf.sha256 --pattern latest-build.json \
+                --dir fallback-dist/legacy
+              (cd fallback-dist/legacy && sha256sum -c main.pdf.sha256)
+              python3 - "$legacy_tag" <<'PY'
           import json, sys
           from pathlib import Path
           tag = sys.argv[1]
-          info = json.loads(Path("latest-dist/latest-build.json").read_text())
-          assert info["run_number"] == int(tag.removeprefix("latest-build-")), "Run number mismatch"
+          info = json.loads(Path("fallback-dist/legacy/latest-build.json").read_text())
+          assert info["run_number"] == int(tag.removeprefix("latest-build-")), "Legacy preview run mismatch"
+          assert Path("fallback-dist/legacy/main.pdf").read_bytes().startswith(b"%PDF-"), "Invalid legacy preview PDF"
           PY
-            actual="$(sha256sum latest-dist/main.pdf | cut -d' ' -f1)"
-            digest="$(gh api "repos/$GH_REPO/releases/tags/$latest_tag" \
-              --jq '[.assets[] | select(.name == "main.pdf") | .digest][0] // ""')"
-            if [ -n "$digest" ]; then
-              [ "$digest" = "sha256:$actual" ] || { echo "::error::最新版PDFのAPI digestが一致しません"; exit 1; }
+              cp fallback-dist/legacy/main.pdf site/latest.pdf
+              echo "::notice::既存の成功ビルドPreviewから最新版PDFを引き継ぎます: $legacy_tag"
+            else
+              echo "::warning::最新版PDFがまだないため、正式版だけをPagesへ配信します"
             fi
-            cp latest-dist/main.pdf site/latest.pdf
-          else
-            echo "::warning::最新版PDFがまだ公開されていないため、正式版だけをPagesへ配信します"
+          fi
+
+          if [ -f site/latest.pdf ]; then
+            digest="$(sha256sum site/latest.pdf | cut -d' ' -f1)"
+            printf '%s  latest.pdf\n' "$digest" > site/latest.pdf.sha256
           fi
 
       - name: Configure Pages
