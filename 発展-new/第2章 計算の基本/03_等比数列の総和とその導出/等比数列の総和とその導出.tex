@@ -1,27 +1,62 @@
 % section: 等比数列の総和とその導出
 
-\section{等比数列の総和とその導出}
-  発想の話をする.
+\section{等比数列の総和とその導出}\label{節：等比数列の総和とその導出}
+  初項が$a$,公比が$r$である等比数列
   \[
-    \sum_{k=1}^{n} ar^{k-1}=a+ar+ar^2+\cdots+ar^{n-1}
+    a,\,ar,\,ar^2,\,\ldots,\,ar^{n-1}
   \]
-  これの求め方は
-  \begin{align*}
-    &S_{n}=a+ar+ar^2+\cdots+ar^{n-1} \tag*{\(\cdots\) (1)}\\
-    &rS_n=ar+ar^2+ar^3+\cdots+ar^{n} \tag*{\(\cdots\) (2)}\\
-  \end{align*}
-  として,
+  の初項から第$n$項までの総和を考える.
+  その総和を$S_n$とすると,
   \[
-  \begin{array}{rrrl}
-      &S_{n}={}&a+&\hspace{-0.75em}ar+ar^2+\cdots+ar^{n-1}\\
-    -\,) & rS_n={}&{}&\hspace{-0.75em}ar+ar^2+ar^3+\cdots+ar^{n}\\ \hline
-      & (1-r)S_n={}&{}&\hspace{-0.75em}a-ar^n
-  \end{array}
+    S_n
+    =\sum_{k=1}^{n} ar^{k-1}
+    =a+ar+ar^2+\cdots+ar^{n-1}
   \]
-  \[
-    \therefore \quad S_n=\frac{a(1-r^n)}{1-r}
-  \]
-  ただし,この式は$r\ne1$のときのものであり,\,$r=1$のときは$S_n=na$である.
-  このように,数列においては総和を定数倍してから引くなどして,共通して現れる項を打ち消し合わせてしまう手法がよく取られる.
-  覚えておこう.
+  と表せる.
+
+  \subsection{総和の公式}
+    公比$r$が$1$でないとき,
+    \[
+      S_n=\frac{a(1-r^n)}{1-r}
+    \]
+    である.
+    分母と分子の符号を同時に変えれば,
+    \[
+      S_n=\frac{a(r^n-1)}{r-1}
+    \]
+    とも書ける.
+    公比が$1$のときは,すべての項が$a$であるから,
+    \[
+      S_n=na
+    \]
+    となる.
+
+  \subsection{公式の導出}
+    $r\ne1$として,総和の式の両辺に$r$を掛ける.
+    \begin{align*}
+      S_n
+        &=a+ar+ar^2+\cdots+ar^{n-1},\\
+      rS_n
+        &=ar+ar^2+ar^3+\cdots+ar^n.
+    \end{align*}
+    2つの式を項ごとに引くと,右辺では共通する項がすべて消える.
+    \begin{align*}
+      S_n-rS_n
+        &=(a+ar+ar^2+\cdots+ar^{n-1})\\
+        &\qquad -(ar+ar^2+ar^3+\cdots+ar^n)\\
+        &=a-ar^n.
+    \end{align*}
+    よって,
+    \[
+      (1-r)S_n=a(1-r^n)
+    \]
+    である.
+    $r\ne1$より両辺を$1-r$で割ると,
+    \[
+      S_n=\frac{a(1-r^n)}{1-r}
+    \]
+    を得る.
+
+    この導出では,総和を公比$r$倍してから元の総和との差を取ることで,途中の項を消している.
+    数列の和を求めるときには,このように総和を定数倍して引き,共通する項を消す考え方がよく用いられる.
 

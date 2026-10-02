@@ -1,0 +1,291 @@
+% section: 極形式と複素平面
+
+\section{極形式と複素平面}\label{節：極形式と複素平面}
+本節では,座標平面における回転,移動,縮小,拡大およびド・モアブルの定理,オイラーの公式について扱う.
+
+  \subsection{複素平面と極形式}
+    $i^2=-1$を満たす虚数単位$i$を用いると,実数$x,y$に対して複素数は
+    \[
+      z=x+iy
+    \]
+    と表される.
+    この複素数$z$を座標平面上の点$(x,y)$に対応させたものを複素平面という.
+    横軸を実軸,縦軸を虚軸とする.
+
+    点$(x,y)$と原点との距離は
+    \[
+      \rho=\sqrt{x^2+y^2}
+    \]
+    である.
+    また,正の$x$軸から点$(x,y)$へ向かう半直線まで反時計回りに測った角を$\theta$とすると,
+    \[
+      x=\rho\cos\theta,\qquad
+      y=\rho\sin\theta
+    \]
+    と表せる.
+    したがって,\,$z$は
+    \[
+      z=\rho(\cos\theta+i\sin\theta)
+    \]
+    と表される.
+    この表し方を複素数の極形式という.
+
+    $\rho$は$z$の絶対値であり,\,$|z|=\rho$と書く.
+    $z\ne0$のとき,\,$\theta$を$z$の偏角という.
+    偏角には$2\pi$の整数倍を加えても同じ点を表すため,一意には定まらない.
+    $z=0$では$\rho=0$となり,偏角は定まらない.
+
+    例えば,\,$\rho=2,\,\theta=\dfrac{\pi}{3}$の点は
+    \[
+      (x,y)
+      =
+      \left(
+        2\cos\frac{\pi}{3},
+        2\sin\frac{\pi}{3}
+      \right)
+      =
+      (1,\sqrt{3})
+    \]
+    である.
+    直交座標では$(1,\sqrt{3})$,極形式では
+    \[
+      2\left(
+        \cos\frac{\pi}{3}
+        +i\sin\frac{\pi}{3}
+      \right)
+    \]
+    と表される.
+
+  \subsection{複素数による平面上の変換}
+    複素数の加法と乗法は,座標平面上の点の移動や回転,拡大・縮小に対応する.
+
+    まず,\,$b=u+iv$を固定した複素数とし,\,$z=x+iy$に$b$を加える.
+    \[
+      w=z+b=(x+u)+i(y+v)
+    \]
+    となるので,点$(x,y)$は点$(x+u,y+v)$へ移る.
+    これは,すべての点を同じベクトル$(u,v)$だけ平行移動する操作である.
+
+    次に,\,$z=\rho(\cos\theta+i\sin\theta)$に
+    \[
+      c=s(\cos\phi+i\sin\phi)
+      \qquad(s>0)
+    \]
+    を掛ける.
+    三角関数の加法定理より,
+    \begin{align*}
+      cz
+        &=s\rho
+          (\cos\phi+i\sin\phi)
+          (\cos\theta+i\sin\theta)\\
+        &=s\rho
+          \{\cos(\theta+\phi)+i\sin(\theta+\phi)\}.
+    \end{align*}
+    したがって,絶対値は$s$倍され,偏角は$\phi$だけ増える.
+
+    特に,\,$s=1$なら原点を中心とする角$\phi$の回転である.
+    $s>1$なら原点からの距離が$s$倍される拡大,\,$0<s<1$なら原点からの距離が$s$倍される縮小となる.
+    例えば,\,$i=\cos\dfrac{\pi}{2}+i\sin\dfrac{\pi}{2}$であるから,\,$z$に$i$を掛けると原点を中心に反時計回りに$\dfrac{\pi}{2}$だけ回転する.
+
+    回転・拡大縮小の中心を$z_0$とし,移動先の中心を$w_0$とすると,これらをまとめた変換は
+    \[
+      w=c(z-z_0)+w_0
+    \]
+    と表せる.
+    まず中心からの差$z-z_0$に$c$を掛けて回転・拡大縮小し,その後$w_0$を加えて中心を移す.
+
+  \subsection{ド・モアブルの定理}
+    まず,極形式どうしの積を考える.
+    三角関数の加法定理から,
+    \begin{align*}
+      &(\cos\alpha+i\sin\alpha)
+       (\cos\beta+i\sin\beta)\\
+      &\quad=
+       \cos\alpha\cos\beta-\sin\alpha\sin\beta\\
+      &\qquad
+       +i(\sin\alpha\cos\beta+\cos\alpha\sin\beta)\\
+      &\quad=
+       \cos(\alpha+\beta)+i\sin(\alpha+\beta)
+    \end{align*}
+    となる.
+    つまり,絶対値が$1$の複素数どうしを掛けると,偏角が加わる.
+
+    これを繰り返すと,任意の整数$n$について
+    \[
+      (\cos\theta+i\sin\theta)^n
+      =
+      \cos(n\theta)+i\sin(n\theta)
+    \]
+    が成り立つ.
+    これをド・モアブルの定理という.
+
+    正の整数$n$については,数学的帰納法で確かめられる.
+    $n=1$では明らかであり,\,$n$で成り立つと仮定すると,
+    \begin{align*}
+      (\cos\theta+i\sin\theta)^{n+1}
+        &=
+        \{\cos(n\theta)+i\sin(n\theta)\}
+        (\cos\theta+i\sin\theta)\\
+        &=
+        \cos((n+1)\theta)+i\sin((n+1)\theta)
+    \end{align*}
+    となる.
+    また,\,$n=0$では両辺とも$1$である.
+    $n<0$の場合は,加法定理より
+    \[
+      (\cos\theta+i\sin\theta)
+      (\cos(-\theta)+i\sin(-\theta))=1
+    \]
+    であるから,
+    \[
+      (\cos\theta+i\sin\theta)^{-1}
+      =
+      \cos(-\theta)+i\sin(-\theta)
+    \]
+    を用いて正の整数の場合に帰着できる.
+
+    例えば,
+    \[
+      \left(
+        \cos\frac{\pi}{6}
+        +i\sin\frac{\pi}{6}
+      \right)^6
+      =
+      \cos\pi+i\sin\pi
+      =
+      -1
+    \]
+    である.
+    このように極形式で表すと,累乗では絶対値を累乗し,偏角を指数倍すればよい.
+
+  \subsection{オイラーの公式}
+    次に,複素数の指数表示$e^{i\theta}$を極限を用いて考える.
+    ここでは
+    \[
+      e^{i\theta}
+      =
+      \lim_{n\to\infty}
+      \left(1+\frac{i\theta}{n}\right)^n
+    \]
+    と定める.
+    前節で準備した極限を用いて,この値を求める.
+
+    $\theta\ne0$とし,\,$\phi_n$を
+    \[
+      -\frac{\pi}{2}<\phi_n<\frac{\pi}{2},
+      \qquad
+      \tan\phi_n=\frac{\theta}{n}
+    \]
+    を満たす角とする.
+    また,
+    \[
+      r_n=\sqrt{1+\frac{\theta^2}{n^2}}
+    \]
+    とおくと,
+    \[
+      \cos\phi_n=\frac{1}{r_n},
+      \qquad
+      \sin\phi_n=\frac{\theta}{nr_n}
+    \]
+    である.
+    よって,
+    \[
+      1+\frac{i\theta}{n}
+      =
+      r_n(\cos\phi_n+i\sin\phi_n)
+    \]
+    と極形式で表せる.
+
+    まず,\,$r_n^n$の極限を求める.
+    自然対数の基本極限より,
+    \begin{align*}
+      \log(r_n^n)
+        &=
+        \frac{n}{2}
+        \log\left(1+\frac{\theta^2}{n^2}\right)\\
+        &=
+        \frac{\theta^2}{2n}
+        \frac{
+          \log\left(1+\frac{\theta^2}{n^2}\right)
+        }{
+          \frac{\theta^2}{n^2}
+        }\\
+        &\longrightarrow0.
+    \end{align*}
+    したがって,
+    \[
+      r_n^n\longrightarrow1
+    \]
+    である.
+
+    次に,\,$n\phi_n$の極限を求める.
+    $\tan\phi_n=\dfrac{\theta}{n}\to0$より$\phi_n\to0$であり,
+    \[
+      n\phi_n
+      =
+      \theta\frac{\phi_n}{\tan\phi_n}
+      \longrightarrow\theta
+    \]
+    となる.
+    ここでは,\,$\lim_{x\to0}\dfrac{x}{\tan x}=1$を用いた.
+
+    ド・モアブルの定理により,
+    \[
+      \left(1+\frac{i\theta}{n}\right)^n
+      =
+      r_n^n
+      \{\cos(n\phi_n)+i\sin(n\phi_n)\}
+    \]
+    である.
+    $r_n^n\to1,\,n\phi_n\to\theta$と三角関数の連続性から,
+    \[
+      e^{i\theta}
+      =
+      \lim_{n\to\infty}
+      \left(1+\frac{i\theta}{n}\right)^n
+      =
+      \cos\theta+i\sin\theta
+    \]
+    を得る.
+    $\theta=0$の場合も両辺が$1$であり,同じ式が成り立つ.
+    これをオイラーの公式という.
+
+    オイラーの公式により,複素数の極形式
+    \[
+      z=\rho(\cos\theta+i\sin\theta)
+    \]
+    は
+    \[
+      z=\rho e^{i\theta}
+    \]
+    とも表せる.
+    さらに,ド・モアブルの定理は
+    \[
+      z^n
+      =
+      \rho^n e^{in\theta}
+      =
+      \rho^n\{\cos(n\theta)+i\sin(n\theta)\}
+      \qquad(n\in\mathbb Z)
+    \]
+    と書ける.
+
+  \subsection{複素数の実数乗}
+    $z=\rho e^{i\theta}$で$\rho>0$とし,偏角$\theta$を一つ選んで固定する.
+    この選び方に基づいて,実数$x$に対する複素数のべき乗を
+    \[
+      z^x=\rho^x e^{ix\theta}
+      =
+      \rho^x\{\cos(x\theta)+i\sin(x\theta)\}
+    \]
+    と定めることができる.
+
+    ただし,偏角は$\theta+2\pi k$とも表せるため,整数でない$x$に対する$z^x$の値は,どの偏角を選ぶかによって変わる.
+    $x$が整数なら,選ぶ偏角によらず同じ値になる.
+    また,\,$x=\dfrac{m}{n}$を有理数とし,\,$n\ge1$として上の定義で得た値を$n$乗すると,
+    \[
+      (z^{m/n})^n=z^m
+    \]
+    となる.
+    したがって,この定義で得られる$z^{m/n}$は$z^m$の$n$乗根の一つである.
+
