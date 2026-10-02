@@ -1,13 +1,19 @@
 % section: 極限
 
 \section{極限}\label{節：極限}
-  \subsection{ネイピア数$e$の定義}
-    ネイピア数$e$は,ベルヌーイの定義によって,
+  \subsection{極限}
+    ある関数$f(x)$について\,$x$を$a$に限りなく近づける操作を数学的には
     \[
-      e=\lim_{n\to\infty}\left(1+\frac{1}{n}\right)^n
+      \lim_{x\to a} f(x)
     \]
-    と定める.
-    以下では,この定義と数列・関数の極限を用いて,オイラーの公式の導出に必要な関係を確認する.
+    と表す.
+    これを用いることで,ある関数$f(x)$の$x=a$の近傍での値がどうなっているかを知ることができる.
+    例えば,\,$f(x)=x^2-4$のとき
+    \[
+      \lim_{x\to 2} (x^2-4)
+    \]
+    は$0$となる.
+    一見シンプルな代入計算に見えるかもしれないが,これが今後重要な役割を果たす.
 
   \subsection{数列の極限}
     数列$\{a_n\}$の番号$n$を大きくしていくとき,\,$a_n$がある値$L$に限りなく近づくなら,\,$a_n$は$L$に収束するといい,
@@ -15,9 +21,8 @@
       \lim_{n\to\infty}a_n=L
     \]
     と書く.
-    これは,\,$L$の近くにどれほど狭い範囲を指定しても,\,$n$を十分大きくすればその範囲に$a_n$が入るという意味である.
-
-    例えば,
+    
+    例えば,\,$n>0$のとき
     \[
       a_n=\frac{1}{n}
     \]
@@ -40,12 +45,69 @@
     \[
       a_n\le b_n\le c_n
     \]
-    が十分大きな$n$で成り立ち,\,$a_n$と$c_n$が同じ値$L$に収束するなら,\,$b_n$も$L$に収束する.
+    が成り立っており,
+    \[
+      \lim_{n\to\infty}a_n=\lim_{n\to\infty}c_n=L
+    \]
+    であるとき,\,$b_n$も$L$に収束する.
     これをはさみうちの原理という.
+
+  \subsection{ネイピア数$e$の定義}
+    ネイピア数$e$は,ベルヌーイの定義によって,
+    \[
+      e=\lim_{n\to\infty}\left(1+\frac{1}{n}\right)^n
+    \]
+    と定める.
+    以下では,この定義と数列・関数の極限を用いて,オイラーの公式の導出に必要な関係を確認する.
 
   \subsection{三角関数の基本極限}
     角度は弧度法で表す.
     $0<x<\dfrac{\pi}{2}$のとき,半径$1$の円の扇形と,その扇形に内接・外接する三角形の面積を比べると,
+    \begin{center}
+      \begin{tikzpicture}[
+        x=2.4cm,
+        y=2.4cm,
+        line cap=round,
+        line join=round,
+        >=stealth
+      ]
+        % x=40度を例に,扇形と内接・外接する三角形を描く.
+        \pgfmathsetmacro{\figangle}{40}
+        \coordinate (O) at (0,0);
+        \coordinate (A) at (1,0);
+        \coordinate (P) at ({cos(\figangle)},{sin(\figangle)});
+        \coordinate (Q) at (1,{tan(\figangle)});
+
+        % 第一象限だけを描き,各図形は境界線で示す.
+        \draw[->,thin] (O)--(1.38,0) node[below] {$x$};
+        \draw[->,thin] (O)--(0,1.28) node[left] {$y$};
+        \draw[thin] (A) arc[start angle=0,end angle=90,radius=1];
+        \draw[thick] (O)--(Q)--(A)--cycle;
+        \draw[thick] (O)--(P)--(A);
+        \draw[thick] (A) arc[start angle=0,end angle=\figangle,radius=1];
+        \draw[->,semithick] (0.24,0)
+          arc[start angle=0,end angle=\figangle,radius=0.24];
+
+        \fill (O) circle (0.018);
+        \fill (A) circle (0.018);
+        \fill (P) circle (0.018);
+        \fill (Q) circle (0.018);
+        \node[below left] at (O) {$O$};
+        \node[below] at (0.52,-0.03) {$1$};
+        \node[below right] at (A) {$A$};
+        \node[above left] at (P) {$P$};
+        \node[above right] at (Q) {$Q$};
+        \node at (0.55,0.20) {$\frac12\sin x$};
+        \node at (0.27,0.07) {$x$};
+
+        \node[anchor=east,align=right,text width=2.0cm] (sector-label)
+          at (-0.10,0.88) {扇形\\[-1pt]面積 $\frac12x$};
+        \draw[->,thin] (sector-label.east)--(0.94,0.342);
+        \node[anchor=west,align=left,text width=2.1cm] (outer-label)
+          at (1.33,0.62) {外接三角形\\[-1pt]面積 $\frac12\tan x$};
+        \draw[->,thin] (outer-label.west)--(0.91,0.55);
+      \end{tikzpicture}
+    \end{center}
     \[
       \frac{1}{2}\sin x
       <
@@ -59,9 +121,9 @@
       \cos x<\frac{\sin x}{x}<1
     \]
     である.
-    $x\to0+$のとき$\cos x\to1$なので,はさみうちの原理より
+    $x\to+0$のとき$\cos x\to1$なので,はさみうちの原理より
     \[
-      \lim_{x\to0+}\frac{\sin x}{x}=1
+      \lim_{x\to+0}\frac{\sin x}{x}=1
     \]
     を得る.
     また,\,$\dfrac{\sin x}{x}$は偶関数であるから,左側から近づけた場合にも同じ極限となる.
@@ -88,78 +150,17 @@
 
   \subsection{自然対数と指数関数の基本極限}
     以下では,\,$\log x$を自然対数$\log_e x$の意味で用いる.
-    $x>-1$に対して,
     \[
-      \log(1+x)=\int_0^x\frac{1}{1+t}\,dt
+      \lim_{x\to0}\frac{\log(1+x)}{x}
     \]
-    である.
-    $0<|x|<1$のとき,積分区間で
-    \[
-      \frac{1}{1+|x|}
-      \le
-      \frac{1}{1+t}
-      \le
-      \frac{1}{1-|x|}
-    \]
-    が成り立つ.
-    両辺を区間の長さで平均すると,
-    \[
-      \frac{1}{1+|x|}
-      \le
-      \frac{\log(1+x)}{x}
-      \le
-      \frac{1}{1-|x|}
-    \]
-    となる.
-    $x\to0$のとき両端は$1$に近づくので,
-    \[
-      \lim_{x\to0}\frac{\log(1+x)}{x}=1
-    \]
-    を得る.
-
+    について考える.
+    対数の定義から,
+    \begin{align*}
+      \lim_{x\to0}\frac{\log(1+x)}{x}&=\lim_{x\to0} \frac{\log{(1+x)}}{x}\\
+      &=\lim_{x\to0} \log{(1+x)^\frac{1}{x}}=1
+    \end{align*}
     この極限を用いると,任意の実数$a$について
     \[
-      \lim_{n\to\infty}\left(1+\frac{a}{n}\right)^n=e^a
+      \lim_{n\to\infty}\left(1+\frac{a}{n}\right)^n=\lim_{n\to\infty} \left\{\left(1+\frac{a}{n}\right)^\frac{n}{a}\right\}^{a}=e^a
     \]
     が成り立つ.
-    $a=0$のときは明らかである.
-    $a\ne0$のとき,\,$n$を十分大きくすれば底は正であり,
-    \begin{align*}
-      \log\left\{\left(1+\frac{a}{n}\right)^n\right\}
-        &=n\log\left(1+\frac{a}{n}\right)\\
-        &=a\,
-          \frac{
-            \log\left(1+\frac{a}{n}\right)
-          }{
-            \frac{a}{n}
-          }\\
-        &\longrightarrow a.
-    \end{align*}
-    よって,両辺の指数を考えれば極限は$e^a$となる.
-    この式は,ベルヌーイの定義を実数の指数に拡張した極限公式である.
-
-  \subsection{オイラーによる$e$の特徴づけ}
-    ベルヌーイの定義とは別に,指数関数の原点での変化率によって$e$を特徴づける方法もある.
-    正の数$b$に対して,自然対数の基本極限から
-    \[
-      \lim_{x\to0}\frac{b^x-1}{x}=\log b
-    \]
-    となる.
-    実際,\,$b\ne1$として$u=b^x-1$とおけば,\,$u\to0$であり,\,$x\log b=\log(1+u)$だから,
-    \[
-      \frac{b^x-1}{x}
-      =
-      \log b\,\frac{u}{\log(1+u)}
-      \longrightarrow\log b.
-    \]
-    $b=1$の場合も,両辺は$0$である.
-    したがって,この極限が$1$となる底$b$は$\log b=1$を満たす$e$である.
-    特に,
-    \[
-      \lim_{x\to0}\frac{e^x-1}{x}=1
-    \]
-    となる.
-    この関係をオイラーによる$e$の定義・特徴づけとして紹介することがある.
-    ベルヌーイの定義が$\left(1+\dfrac{1}{n}\right)^n$の極限で$e$を与えるのに対し,こちらは指数関数の原点での変化率から$e$を特徴づけている.
-
-    以上の極限を用いて,次節では複素数の指数表示とオイラーの公式を導く.
