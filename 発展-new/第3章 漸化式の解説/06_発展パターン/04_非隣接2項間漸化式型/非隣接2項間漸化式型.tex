@@ -1,9 +1,76 @@
 \subsection{非隣接2項間漸化式型}
-  よく見られる非隣接二項間型の漸化式は
+  非隣接2項間漸化式とは,例えば
   \[
-    a_{n+2}=f(a_{n})
+    a_{n+2}=f(a_n)\qquad(n\ge1)
   \]
-  のような見た目のものである.
-  このような場合には大きく分けて2つの解放がある.
-  一つは$n=2k$のときと$n=2k-1$のときで場合分けして一般項を求める手法で,
-  もう一方は0倍の$a_{n+1}$が存在すると考えて,隣接三項間漸化式に持ち込む方法である.
+  のように,隣り合わない2項の間に関係がある漸化式である.
+  この形では,\,$a_1$から$a_3,a_5,\ldots$が決まり,\,$a_2$から$a_4,a_6,\ldots$が決まるため,奇数番目と偶数番目に分けて考えるとよい.
+  また,\,$a_{n+2}=qa_n$では,\,$a_{n+2}=0\cdot a_{n+1}+qa_n$と見て特性方程式を使うこともできる.
+
+  次の数列の一般項を求めてみよう.
+
+  \noindent \textbf{【例題】}
+  \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \item $\displaystyle a_1=2,\,a_2=3,\,a_{n+2}=a_n^2$
+    \item $\displaystyle a_1=1,\,a_2=2,\,a_{n+2}=2a_n+1$
+    \item $\displaystyle a_1=1,\,a_2=3,\,a_{n+2}=4a_n$
+  \end{enumerate}
+
+  \noindent\textbf{【方針】}
+  \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \item 奇数番目と偶数番目を別々の数列とみなし,それぞれの二乗関係を調べます.
+    \item $b_n=a_n+1$とおいて定数項を消してから,奇数番目と偶数番目に分けます.
+    \item $a_{n+2}=0\cdot a_{n+1}+4a_n$と見て,特性方程式を解きます.
+  \end{enumerate}
+
+  \noindent\textbf{【解答】}
+  \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \item $\displaystyle a_{2k-1}=2^{\,2^{k-1}},\quad a_{2k}=3^{\,2^{k-1}}\quad(k\ge1)$
+    \item $\displaystyle a_{2k-1}=2^k-1,\quad a_{2k}=3\cdot2^{k-1}-1\quad(k\ge1)$
+    \item $\displaystyle a_n=\frac54\,2^{n-1}-\frac14\,(-2)^{n-1}$
+  \end{enumerate}
+
+  \noindent\textbf{【解法】}
+  \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \item $u_k=a_{2k-1},\,v_k=a_{2k}$とおくと,
+          \[
+            u_1=2,\quad v_1=3,\qquad
+            u_{k+1}=u_k^2,\quad v_{k+1}=v_k^2
+          \]
+          となる.したがって,それぞれ順に2乗していくので,
+          \[
+            u_k=2^{\,2^{k-1}},\qquad v_k=3^{\,2^{k-1}}
+          \]
+          である.
+    \item $b_n=a_n+1$とおくと,
+          \[
+            b_{n+2}=a_{n+2}+1=2a_n+2=2b_n
+          \]
+          であり,$b_1=2,\,b_2=3$である.
+          よって,奇数番目と偶数番目で分けると,
+          \[
+            b_{2k-1}=2^k,\qquad b_{2k}=3\cdot2^{k-1}
+          \]
+          となる.$a_n=b_n-1$に戻せば,
+          \[
+            a_{2k-1}=2^k-1,\qquad a_{2k}=3\cdot2^{k-1}-1
+          \]
+          を得る.
+    \item 特性方程式は
+          \[
+            r^2-4=0
+          \]
+          であり,解は$r=2,-2$である.したがって,
+          \[
+            a_n=A\,2^{n-1}+B\,(-2)^{n-1}
+          \]
+          とおける.$a_1=1,\,a_2=3$を代入すると,
+          \[
+            A+B=1,\qquad 2A-2B=3
+          \]
+          より$A=\dfrac54,\,B=-\dfrac14$である.ゆえに,
+          \[
+            a_n=\frac54\,2^{n-1}-\frac14\,(-2)^{n-1}
+          \]
+          となる.
+  \end{enumerate}

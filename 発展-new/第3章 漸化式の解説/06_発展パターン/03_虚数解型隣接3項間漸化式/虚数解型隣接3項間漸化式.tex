@@ -505,3 +505,97 @@
     \end{cases}
   \]
   という違いが生じる(\,$\rho=1$のときに数列自身が周期的になりうることは,先に見た通りである).
+
+  次の数列の一般項を求めてみよう.
+
+  \noindent \textbf{【例題】}
+  \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \item $\displaystyle a_1=0,\,a_2=1,\quad a_{n+2}=2a_{n+1}-2a_n\quad(n\ge1)$
+    \item $\displaystyle a_1=1,\,a_2=2,\quad a_{n+2}=-4a_n\quad(n\ge1)$
+    \item $\displaystyle a_1=1,\,a_2=0,\quad a_{n+2}=2a_{n+1}-4a_n\quad(n\ge1)$
+  \end{enumerate}
+
+  \noindent\textbf{【方針】}
+  \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \item 特性根を極形式で表し,$\rho=\sqrt2,\,\theta=\dfrac{\pi}{4}$を用いて一般項を置きます.
+    \item 特性根は$\pm2i$です.$\rho=2,\,\theta=\dfrac{\pi}{2}$として初期条件を代入します.
+    \item 特性根を極形式で表し,$\rho=2,\,\theta=\dfrac{\pi}{3}$として係数を決定します.
+  \end{enumerate}
+
+  \noindent\textbf{【解答】}
+  \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \item $\displaystyle a_n=(\sqrt2)^{n-1}\sin\frac{(n-1)\pi}{4}$
+    \item $\displaystyle a_n=2^{n-1}\left(\cos\frac{(n-1)\pi}{2}+\sin\frac{(n-1)\pi}{2}\right)$
+    \item $\displaystyle a_n=2^{n-1}\left(\cos\frac{(n-1)\pi}{3}-\frac1{\sqrt3}\sin\frac{(n-1)\pi}{3}\right)$
+  \end{enumerate}
+
+  \noindent\textbf{【解法】}
+  \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \item 特性方程式は
+          \[
+            x^2-2x+2=0
+          \]
+          であり,特性根は$1\pm i$である.したがって
+          \[
+            \rho=\sqrt2,\qquad\theta=\frac{\pi}{4}
+          \]
+          として,
+          \[
+            a_n=(\sqrt2)^{n-1}
+            \left(
+              C\cos\frac{(n-1)\pi}{4}
+              +D\sin\frac{(n-1)\pi}{4}
+            \right)
+          \]
+          とおける.$a_1=0$より$C=0$であり,$a_2=1$より$D=1$である.よって,
+          \[
+            a_n=(\sqrt2)^{n-1}\sin\frac{(n-1)\pi}{4}
+          \]
+          を得る.
+    \item 特性方程式は$x^2+4=0$であり,特性根は$2i,-2i$である.したがって
+          \[
+            a_n=2^{n-1}
+            \left(
+              C\cos\frac{(n-1)\pi}{2}
+              +D\sin\frac{(n-1)\pi}{2}
+            \right)
+          \]
+          とおける.$a_1=1$より$C=1$であり,$a_2=2$より$2D=2$,すなわち$D=1$である.よって,
+          \[
+            a_n=2^{n-1}
+            \left(
+              \cos\frac{(n-1)\pi}{2}
+              +\sin\frac{(n-1)\pi}{2}
+            \right)
+          \]
+          を得る.
+    \item 特性方程式は
+          \[
+            x^2-2x+4=0
+          \]
+          であり,特性根は$1\pm\sqrt3\,i$である.したがって
+          \[
+            \rho=2,\qquad\theta=\frac{\pi}{3}
+          \]
+          として,
+          \[
+            a_n=2^{n-1}
+            \left(
+              C\cos\frac{(n-1)\pi}{3}
+              +D\sin\frac{(n-1)\pi}{3}
+            \right)
+          \]
+          とおける.$a_1=1$より$C=1$であり,$a_2=0$より
+          \[
+            0=2\left(\frac12+D\frac{\sqrt3}{2}\right)
+          \]
+          となるので$D=-\dfrac1{\sqrt3}$である.よって,
+          \[
+            a_n=2^{n-1}
+            \left(
+              \cos\frac{(n-1)\pi}{3}
+              -\frac1{\sqrt3}\sin\frac{(n-1)\pi}{3}
+            \right)
+          \]
+          を得る.
+  \end{enumerate}
