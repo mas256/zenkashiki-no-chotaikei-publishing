@@ -129,155 +129,63 @@ $\alpha=p\alpha+q$ だから,
 重なった固有値から $n$ が現れる例を,ここでは具体的に見ることができた.
 
 
-一つの数を更新する一次分数型漸化式も,二次元の行列で表すことができる.
+一次分数型の更新も,二次元ベクトルの方向を動かす行列として表せる.
 \[
   a_{n+1}=\frac{pa_n+q}{ra_n+s}
 \]
-を考えよう.本編と同じく,漸化式の分母が $0$ にならない範囲で考える.
-各項を二つの数の比
-\[
-  a_n=\frac{x_n}{y_n}
-\]
-として表そう.
-\[
-  M=\begin{pmatrix}p&q\\r&s\end{pmatrix}
-\]
-を用いて
+に対し,$\,a_n=x_n/y_n$ とおき,
 \[
   \begin{pmatrix}x_{n+1}\\y_{n+1}\end{pmatrix}
   =
-  M\begin{pmatrix}x_n\\y_n\end{pmatrix}
+  M\begin{pmatrix}x_n\\y_n\end{pmatrix},
+  \qquad
+  M=\begin{pmatrix}p&q\\r&s\end{pmatrix}
 \]
-と更新すると,
-\[
-  \frac{x_{n+1}}{y_{n+1}}
-  =
-  \frac{px_n+qy_n}{rx_n+sy_n}
-  =
-  \frac{pa_n+q}{ra_n+s}
-\]
-となり,もとの漸化式が得られる.
-初期状態を $\begin{pmatrix}x_1\\y_1\end{pmatrix}=\begin{pmatrix}a_1\\1\end{pmatrix}$ とすれば
-\[
-  \begin{pmatrix}x_n\\y_n\end{pmatrix}
-  =
-  M^{n-1}\begin{pmatrix}a_1\\1\end{pmatrix}
-\]
-である.
-行列の更新は線形だが,成分の比として取り出すと一次分数型の更新になる.
-二次元ベクトルの大きさを同じ倍率で変えても比は変わらないので,ここでは数直線上の値を二次元ベクトルの方向で表している.
-行列式が $0$ でない行列でベクトルの方向を移し,その方向を数直線上の値と対応させる見方を射影変換という.その座標表示が一次分数型になる.
+とすれば,$\,a_{n+1}=(px_n+qy_n)/(rx_n+sy_n)$ となる.
+二次元ベクトルの方向を数 $x_n/y_n$ と対応させているため,行列による線形な更新が一次分数型の更新になる.
+この見方を射影変換という.
 
-不動点 $\alpha$ は,更新しても値が変わらない数,すなわち
-\[
-  \alpha=\frac{p\alpha+q}{r\alpha+s}
-\]
-を満たす.
-このとき
+不動点 $\alpha$ では
 \[
   M\begin{pmatrix}\alpha\\1\end{pmatrix}
-  =
-  \begin{pmatrix}p\alpha+q\\r\alpha+s\end{pmatrix}
-  =
-  (r\alpha+s)\begin{pmatrix}\alpha\\1\end{pmatrix}
+  =(r\alpha+s)\begin{pmatrix}\alpha\\1\end{pmatrix}.
 \]
-となる.
-したがって不動点 $\alpha$ は固有値そのものではなく,固有ベクトルの成分の比として現れる.
-一次分数型の不動点を求める二次方程式
-\[
-  r\alpha^2+(s-p)\alpha-q=0
-\]
-は,行列の固有方向の比を求める条件でもある.
-
-この対応は,具体例でも確かめられる.
-\[
-  a_{n+1}=\frac{2a_n}{1-a_n}
-\]
-なら
-\[
-  M=\begin{pmatrix}2&0\\-1&1\end{pmatrix}
-\]
-である.
-\[
-  M\begin{pmatrix}1\\-1\end{pmatrix}
-  =2\begin{pmatrix}1\\-1\end{pmatrix},
-  \qquad
-  M\begin{pmatrix}0\\1\end{pmatrix}
-  =\begin{pmatrix}0\\1\end{pmatrix}
-\]
-だから,固有方向の成分比 $x/y$ はそれぞれ $-1,0$ である.
-実際,この漸化式の不動点も $-1,0$ である.
-初期状態は
-\[
-  \begin{pmatrix}a_1\\1\end{pmatrix}
-  =
-  a_1\begin{pmatrix}1\\-1\end{pmatrix}
-  +(1+a_1)\begin{pmatrix}0\\1\end{pmatrix}
-\]
-と二つの固有方向に分けられる.
-よって
-\[
-  \begin{pmatrix}x_n\\y_n\end{pmatrix}
-  =
-  2^{n-1}a_1\begin{pmatrix}1\\-1\end{pmatrix}
-  +(1+a_1)\begin{pmatrix}0\\1\end{pmatrix}
-\]
-であり,分母が $0$ にならない範囲では
-\[
-  a_n=\frac{x_n}{y_n}
-  =\frac{2^{n-1}a_1}{1+a_1-2^{n-1}a_1}
-\]
-を得る.
-一次分数型の反復を,二つの固有方向での倍率の変化に分けて計算できた.
-
-本編の一次分数型では,異なる二つの不動点 $\alpha,\beta$ を用いて
-\[
-  b_n=\frac{a_n-\alpha}{a_n-\beta}
-\]
-と置き,$\,b_n$ を等比数列に帰着させた.
-この置き換えがなぜ自然かも,行列で説明できる.
-$M$ が正則で,二つの有限な不動点 $\alpha,\beta$ を持つとき,
-\[
-  M\begin{pmatrix}\alpha\\1\end{pmatrix}
-  =\lambda_\alpha\begin{pmatrix}\alpha\\1\end{pmatrix},
-  \qquad
-  M\begin{pmatrix}\beta\\1\end{pmatrix}
-  =\lambda_\beta\begin{pmatrix}\beta\\1\end{pmatrix}
-\]
-と書ける.
+つまり不動点は固有値ではなく,固有ベクトルの成分比である.
+異なる二つの不動点 $\alpha,\beta$ があり,対応する倍率を
+$\lambda_\alpha=r\alpha+s,\ \lambda_\beta=r\beta+s$ とする.
 状態を
 \[
   \begin{pmatrix}x_n\\y_n\end{pmatrix}
-  =
-  c_n\begin{pmatrix}\alpha\\1\end{pmatrix}
+  =c_n\begin{pmatrix}\alpha\\1\end{pmatrix}
   +d_n\begin{pmatrix}\beta\\1\end{pmatrix}
 \]
-と分けると,$\,c_{n+1}=\lambda_\alpha c_n$,$\,d_{n+1}=\lambda_\beta d_n$ である.
-また $a_n=x_n/y_n$ なので
+と分けると,$\,c_n,d_n$ はそれぞれ $\lambda_\alpha,\lambda_\beta$ 倍される.
+また $a_n=x_n/y_n$ より
 \[
-  \frac{a_n-\alpha}{a_n-\beta}
-  =-\frac{d_n}{c_n}
-\]
-となる.
-つまり本編の $b_n$ は二つの固有方向の成分比であり,一歩ごとに
-\[
-  b_{n+1}=\frac{\lambda_\beta}{\lambda_\alpha}b_n
-\]
-と変化する.
-固定点の関係式を引くと $p=s+r(\alpha+\beta)$ となるので
-\[
-  \lambda_\beta=r\beta+s=p-r\alpha,
+  \frac{a_n-\alpha}{a_n-\beta}=-\frac{d_n}{c_n},
   \qquad
-  \lambda_\alpha=r\alpha+s=p-r\beta
+  \frac{a_{n+1}-\alpha}{a_{n+1}-\beta}
+  =\frac{\lambda_\beta}{\lambda_\alpha}
+   \frac{a_n-\alpha}{a_n-\beta}.
 \]
-である.
-したがって
+固定点の関係式を使えば
 \[
   \frac{\lambda_\beta}{\lambda_\alpha}
-  =\frac{p-r\alpha}{p-r\beta}
+  =\frac{p-r\alpha}{p-r\beta}.
 \]
-となり,本編で求めた $b_n$ の公比とも一致する.
-本編で固定点からの差の比を作った操作は,固有方向を基準に座標を取り直し,二つの倍率の比を取り出す操作だった.
+これは本編で $b_n=(a_n-\alpha)/(a_n-\beta)$ と置いて得た公比そのものである.
+本編の置き換えは,二つの固有方向の成分比を取り出す操作だった.
+
+たとえば
+\[
+  a_{n+1}=\frac{2a_n}{1-a_n},
+  \qquad
+  M=\begin{pmatrix}2&0\\-1&1\end{pmatrix}
+\]
+では,不動点 $0,-1$ に対応する固有値はそれぞれ $1,2$ である.
+したがって本編と同じ変数 $b_n=a_n/(a_n+1)$ は $b_{n+1}=2b_n$ を満たす.
+一次分数型の計算を繰り返す代わりに,行列の二つの方向の倍率の比を追っている.
+
 
 \subsection{状態を二つ持つと,二階の漸化式になる}
 
@@ -389,161 +297,47 @@ $\begin{pmatrix}a&b\\c&d\end{pmatrix}$ に対して $ad-bc$ と計算する.
 実数の初期値から出発した場合,複素共役な二方向の寄与が組になり,数列の項は実数のままになる.
 
 
-この「方向ごとに倍率を分ける」という見方は,二階の漸化式だけに限らない.
-二つの数が互いに影響しながら変化する連立漸化式でも,同じ考え方で解くことができる.
+この方向ごとの倍率の考え方は,本編の連立型にも現れている.
 たとえば
 \[
-  x_{n+1}=2x_n+y_n,
-  \qquad
-  y_{n+1}=x_n+2y_n
+  \begin{pmatrix}x_{n+1}\\y_{n+1}\end{pmatrix}
+  =
+  \begin{pmatrix}2&1\\1&2\end{pmatrix}
+  \begin{pmatrix}x_n\\y_n\end{pmatrix}
 \]
-を考えよう.
-二つの式をまとめると
+なら,$\,u_n=x_n+y_n,\ v_n=x_n-y_n$ とおくことで
 \[
-  \boldsymbol{w}_{n+1}=A\boldsymbol{w}_n,
-  \qquad
-  \boldsymbol{w}_n=
-  \begin{pmatrix}x_n\\y_n\end{pmatrix},
-  \qquad
-  A=\begin{pmatrix}2&1\\1&2\end{pmatrix}
+  u_{n+1}=3u_n,\qquad v_{n+1}=v_n
 \]
 となる.
-この行列に
-\[
-  \boldsymbol{p}=\begin{pmatrix}1\\1\end{pmatrix},
-  \qquad
-  \boldsymbol{q}=\begin{pmatrix}1\\-1\end{pmatrix}
-\]
-を掛けると
-\[
-  A\boldsymbol{p}=3\boldsymbol{p},
-  \qquad
-  A\boldsymbol{q}=\boldsymbol{q}
-\]
-である.
-つまり,状態が $\boldsymbol{p}$ の方向にあれば一歩ごとに $3$ 倍され,$\,\boldsymbol{q}$ の方向にあれば変わらない.
-このように,行列がある方向を保ったまま倍率だけを変えるとき,その方向を固有ベクトル,倍率を固有値という.
+行列で書けば $(1,1)A=3(1,1),\ (1,-1)A=(1,-1)$ である.
+状態の方向を保つ固有ベクトルに対し,$\, (1,1)$ や $(1,-1)$ は状態から等比型の量を取り出す行ベクトルになっている.
 
-実際に
+一般に連立漸化式を
 \[
-  u_n=x_n+y_n,
-  \qquad
-  v_n=x_n-y_n
-\]
-と置くと,もとの連立漸化式から
-\[
-  u_{n+1}=3u_n,
-  \qquad
-  v_{n+1}=v_n
-\]
-を得る.
-二つの数を同時に追う代わりに,固有方向に沿った二つの成分 $u_n,v_n$ を追えば,どちらも等比型になる.
-たとえば $(x_0,y_0)=(1,0)$ なら $u_0=v_0=1$ だから
-\[
-  u_n=3^n,\qquad v_n=1,
-  \qquad
-  x_n=\frac{3^n+1}{2},\quad y_n=\frac{3^n-1}{2}
-\]
-である.
-二つの漸化式が互いに絡んで見えても,適切な方向に座標を取り直せば,独立した単純な更新に分けられる.
-
-一般に,二つの独立な固有ベクトル $\boldsymbol{p},\boldsymbol{q}$ があり,それぞれの固有値が $\lambda,\mu$ である行列 $A$ を考える.
-二本の方向を列に並べた行列と,倍率を並べた行列を
-\[
-  P=(\boldsymbol{p}\ \boldsymbol{q}),
-  \qquad
-  D=\begin{pmatrix}\lambda&0\\0&\mu\end{pmatrix}
-\]
-とすると,$\,AP=PD$ である.
-$P$ は固有ベクトルを座標軸に選ぶ変換を表し,その逆変換 $P^{-1}$ を用いれば
-\[
-  A=PDP^{-1},
-  \qquad
-  A^n=PD^nP^{-1},
-  \qquad
-  D^n=\begin{pmatrix}\lambda^n&0\\0&\mu^n\end{pmatrix}
-\]
-となる.
-したがって初めの状態を
-\[
-  \boldsymbol{w}_0=c\boldsymbol{p}+d\boldsymbol{q}
-\]
-と分けられれば,$\,n$ 回更新した状態は
-\[
-  \boldsymbol{w}_n=c\lambda^n\boldsymbol{p}
-  +d\mu^n\boldsymbol{q}
-\]
-となる.
-行列の累乗を直接計算する代わりに,初期状態を固有ベクトルの方向に分け,それぞれの倍率を $n$ 回掛ければよい.
-
-
-本編の「連立型」では,$\,a_n,b_n$ を直接分ける代わりに,
-\[
-  c_n=\alpha a_n+\beta b_n
-\]
-という一次結合を作り,$\,c_n$ が等比数列になるように $\alpha,\beta$ を選んだ.
-この方法を行列で読み直そう.
-\[
-  \boldsymbol{z}_n=\begin{pmatrix}a_n\\b_n\end{pmatrix},
-  \qquad
   \boldsymbol{z}_{n+1}=A\boldsymbol{z}_n,
+  \qquad
+  \boldsymbol{z}_n=\begin{pmatrix}a_n\\b_n\end{pmatrix},
   \qquad
   A=\begin{pmatrix}p&q\\r&s\end{pmatrix}
 \]
-とし,
-\[
-  \boldsymbol{\ell}=\begin{pmatrix}\alpha\\\beta\end{pmatrix},
-  \qquad
-  c_n=\boldsymbol{\ell}^{\mathsf T}\boldsymbol{z}_n
-\]
-と置く.
+とし,$\,c_n=\boldsymbol{\ell}^{\mathsf T}\boldsymbol{z}_n$ とおく.
 もし
 \[
   \boldsymbol{\ell}^{\mathsf T}A
   =\gamma\boldsymbol{\ell}^{\mathsf T}
 \]
-なら
-\[
-  c_{n+1}
-  =\boldsymbol{\ell}^{\mathsf T}\boldsymbol{z}_{n+1}
-  =\boldsymbol{\ell}^{\mathsf T}A\boldsymbol{z}_n
-  =\gamma c_n
-\]
-であり,$\,c_n$ は等比数列になる.
-この条件を満たす $\boldsymbol{\ell}$ を左固有ベクトルという.
-本編で $\alpha,\beta$ を決める計算は,この左固有ベクトルを求めていたのである.
-
-左固有ベクトルが零でないためには
+なら,$\,c_{n+1}=\gamma c_n$ となる.
+このような $\boldsymbol{\ell}$ を左固有ベクトルという.
+本編の連立型で $c_n=\alpha a_n+\beta b_n$ が等比数列となるよう $\alpha,\beta$ を選ぶ計算は,左固有ベクトルを求めていたのである.
+このベクトルが零でないための条件
 \[
   \det(\gamma I-A)
-  =
-  \begin{vmatrix}
-    \gamma-p&-q\\
-    -r&\gamma-s
-  \end{vmatrix}
-  =
-  \gamma^2-(p+s)\gamma+(ps-qr)
-  =0
+  =\gamma^2-(p+s)\gamma+(ps-qr)=0
 \]
-でなければならない.
-これは本編の連立漸化式で得た特性方程式と一致する.
-異なる二つの根から独立な二つの一次結合を作れば,それぞれを等比数列として解き,最後に連立方程式を解いて $a_n,b_n$ を取り出せる.
-本編の解法は,状態を動かす固有ベクトルと,状態から等比型の量を取り出す左固有ベクトルという,二つの側面を持っていた.
-
-二階の漸化式を行列で表した
-\[
-  B=\begin{pmatrix}s&t\\1&0\end{pmatrix}
-\]
-も,この連立漸化式の一例である.
-異なる特性根 $\lambda_1,\lambda_2$ に対応する固有ベクトル
-\[
-  \begin{pmatrix}\lambda_1\\1\end{pmatrix},
-  \qquad
-  \begin{pmatrix}\lambda_2\\1\end{pmatrix}
-\]
-を座標の軸に選ぶと,二階の漸化式を二つの等比型の変化に分けられる.
-したがって,特性方程式を解いて一般項を作る方法は,連立漸化式を行列の固有方向に分解して解く方法の特別な場合と見られる.
-
+は,本編で現れた特性方程式と一致する.
+したがって,本編の解法では状態から等比型の量を取り出し,その二つを用いて元の連立漸化式を解いている.
+二階の漸化式も二成分の状態に直せば同じ行列の枠組みに入る.
 フィボナッチ数列では $s=t=1$ なので
 \[
   B=\begin{pmatrix}1&1\\1&0\end{pmatrix}
