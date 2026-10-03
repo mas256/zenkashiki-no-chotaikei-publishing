@@ -133,7 +133,8 @@ $\alpha=p\alpha+q$ だから,
 \[
   a_{n+1}=\frac{pa_n+q}{ra_n+s}
 \]
-を考え,各項を二つの数の比
+を考えよう.本編と同じく,漸化式の分母が $0$ にならない範囲で考える.
+各項を二つの数の比
 \[
   a_n=\frac{x_n}{y_n}
 \]
@@ -262,6 +263,19 @@ $M$ が正則で,二つの有限な不動点 $\alpha,\beta$ を持つとき,
   b_{n+1}=\frac{\lambda_\beta}{\lambda_\alpha}b_n
 \]
 と変化する.
+固定点の関係式を引くと $p=s+r(\alpha+\beta)$ となるので
+\[
+  \lambda_\beta=r\beta+s=p-r\alpha,
+  \qquad
+  \lambda_\alpha=r\alpha+s=p-r\beta
+\]
+である.
+したがって
+\[
+  \frac{\lambda_\beta}{\lambda_\alpha}
+  =\frac{p-r\alpha}{p-r\beta}
+\]
+となり,本編で求めた $b_n$ の公比とも一致する.
 本編で固定点からの差の比を作った操作は,固有方向を基準に座標を取り直し,二つの倍率の比を取り出す操作だった.
 
 \subsection{状態を二つ持つと,二階の漸化式になる}
