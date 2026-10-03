@@ -59,14 +59,14 @@
 と置く.
 こうすると,二つの数を毎回別々に追う代わりに,一つの行列を同じ状態へ繰り返し作用させればよい.
 \[
-  \boldsymbol v_{n+1}
-  =
-  \begin{pmatrix}p&q\\1&0\end{pmatrix}\boldsymbol v_n
+  \boldsymbol v_{n+1}=A\boldsymbol v_n,
+  \qquad
+  A=\begin{pmatrix}p&q\\1&0\end{pmatrix}
 \]
 行列は,複数の数の更新を一つの操作にまとめる道具なのである.
 
 では,行列を何度も掛けると何が起こるのか.
-行列には,向きは変えず長さだけを $\lambda$ 倍する特別な方向がある.
+実数の固有値を持つ行列には,その直線上から外れずに符号付き倍率 $\lambda$ で伸び縮みする特別な方向がある.
 その方向を固有ベクトル,\,$\lambda$ を固有値という.
 言い換えると,行列の形は変わっても,その方向に沿って見れば毎回同じ倍率を掛けるだけである.
 その方向にいる状態は,一歩ごとに
@@ -76,10 +76,11 @@
 \]
 と変化する.
 行列の反復が,等比数列の反復に置き換わった.
-特別な方向を $\boldsymbol v$ とすれば,\,$A\boldsymbol v=\lambda\boldsymbol v$ であり,
-$(A-\lambda I)\boldsymbol v=\boldsymbol 0$ となる.
-零ベクトル以外の解があるためには,この連立方程式の係数がつぶれている必要がある.
-その条件を行列式で書くと,
+特別な方向のベクトルを $\boldsymbol v$ とすれば,\,$A\boldsymbol v=\lambda\boldsymbol v$ である.
+この式を整理すると $(A-\lambda I)\boldsymbol v=\boldsymbol 0$ となる.
+ここで $I$ は対角に $1$ を並べた単位行列である.
+零でない $\boldsymbol v$ が解になるには,\,$A-\lambda I$ の二つの列が独立であってはならない.
+$2\times2$ 行列の二つの列が独立でない条件は,行列式 $ad-bc$ が $0$ になることだから,
 \[
   \det\begin{pmatrix}p-\lambda&q\\1&-\lambda\end{pmatrix}=0
 \]
