@@ -154,13 +154,53 @@
       \lim_{x\to0}\frac{\log(1+x)}{x}
     \]
     について考える.
-    対数の定義から,
-    \begin{align*}
-      \lim_{x\to0}\frac{\log(1+x)}{x}&=\lim_{x\to0} \frac{\log{(1+x)}}{x}\\
-      &=\lim_{x\to0} \log{(1+x)^\frac{1}{x}}=1
-    \end{align*}
-    この極限を用いると,任意の実数$a$について
+    $x$が$0$に十分近く,\,$x\ne0$のとき,対数の性質から
     \[
-      \lim_{n\to\infty}\left(1+\frac{a}{n}\right)^n=\lim_{n\to\infty} \left\{\left(1+\frac{a}{n}\right)^\frac{n}{a}\right\}^{a}=e^a
+      \frac{\log(1+x)}{x}
+      =\log\left((1+x)^{1/x}\right)
+    \]
+    である.右辺の極限を求めるには,
+    \[
+      \lim_{x\to0}(1+x)^{1/x}=e
+    \]
+    を使う.これは,先に指数対数の節で定めた$e$の極限表示から確認できる.
+    $x\to0^+$では,\,$t=1/x\to\infty$と置くと
+    \[
+      (1+x)^{1/x}=\left(1+\frac1t\right)^t\longrightarrow e.
+    \]
+    $x\to0^-$では,\,$t=-1/x\to\infty$と置くと
+    \[
+      (1+x)^{1/x}
+      =\left(1-\frac1t\right)^{-t}
+      =\left(1+\frac1{t-1}\right)^{t-1}
+       \left(1+\frac1{t-1}\right)
+      \longrightarrow e.
+    \]
+    自然対数は正の数上で連続であり,\,$\log e=1$なので,
+    \[
+      \lim_{x\to0}\frac{\log(1+x)}{x}
+      =\lim_{x\to0}\log\left((1+x)^{1/x}\right)
+      =\log e=1
+    \]
+    となる.
+    この極限を用いて,\,$\lim_{n\to\infty}\left(1+\frac{a}{n}\right)^n$を求める.
+    $a=0$の場合は,
+    \[
+      \lim_{n\to\infty}\left(1+\frac{0}{n}\right)^n=1=e^0
+    \]
+    である.以下,\,$a\ne0$とする.
+    $n$が十分大きければ,\,$1+\dfrac{a}{n}>0$なので,
+    \[
+      \lim_{n\to\infty}\left(1+\frac{a}{n}\right)^n
+      =
+      \left\{
+        \lim_{n\to\infty}
+        \left(1+\frac{a}{n}\right)^{n/a}
+      \right\}^{a}
+      =e^a
+    \]
+    となる.以上より,\,$a=0$を含む任意の実数$a$について,
+    \[
+      \lim_{n\to\infty}\left(1+\frac{a}{n}\right)^n=e^a
     \]
     が成り立つ.
