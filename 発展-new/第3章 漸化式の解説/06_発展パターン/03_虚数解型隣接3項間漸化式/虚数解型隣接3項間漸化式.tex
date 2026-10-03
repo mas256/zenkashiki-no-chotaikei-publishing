@@ -510,6 +510,7 @@
 
   \noindent \textbf{【例題】}
   \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \item $\displaystyle a_1=1,\,a_2=0,\quad a_{n+2}=-a_n\quad(n\ge1)$
     \item $\displaystyle a_1=0,\,a_2=1,\quad a_{n+2}=2a_{n+1}-2a_n\quad(n\ge1)$
     \item $\displaystyle a_1=1,\,a_2=2,\quad a_{n+2}=-4a_n\quad(n\ge1)$
     \item $\displaystyle a_1=1,\,a_2=0,\quad a_{n+2}=2a_{n+1}-4a_n\quad(n\ge1)$
@@ -517,6 +518,7 @@
 
   \noindent\textbf{【方針】}
   \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \item 初項から数項を計算して周期性を見つけ,一般項を予想します.その後,数学的帰納法で証明します.
     \item 特性根を極形式で表し,$\rho=\sqrt2,\,\theta=\dfrac{\pi}{4}$を用いて一般項を置きます.
     \item 特性根は$\pm2i$です.$\rho=2,\,\theta=\dfrac{\pi}{2}$として初期条件を代入します.
     \item 特性根を極形式で表し,$\rho=2,\,\theta=\dfrac{\pi}{3}$として係数を決定します.
@@ -524,6 +526,7 @@
 
   \noindent\textbf{【解答】}
   \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \item $\displaystyle a_n=\cos\frac{(n-1)\pi}{2}$
     \item $\displaystyle a_n=(\sqrt2)^{n-1}\sin\frac{(n-1)\pi}{4}$
     \item $\displaystyle a_n=2^{n-1}\left(\cos\frac{(n-1)\pi}{2}+\sin\frac{(n-1)\pi}{2}\right)$
     \item $\displaystyle a_n=2^{n-1}\left(\cos\frac{(n-1)\pi}{3}-\frac1{\sqrt3}\sin\frac{(n-1)\pi}{3}\right)$
@@ -531,6 +534,41 @@
 
   \noindent\textbf{【解法】}
   \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \item 初項から数項を計算すると,
+          \[
+            a_1=1,\quad a_2=0,\quad a_3=-1,\quad a_4=0,\quad
+            a_5=1,\quad a_6=0,\quad a_7=-1,\quad a_8=0
+          \]
+          となる.この並びから,
+          \[
+            a_n=\cos\frac{(n-1)\pi}{2}
+          \]
+          と予想できる.これを数学的帰納法で証明する.
+          $n=1,2$では
+          \[
+            a_1=1=\cos0,\qquad a_2=0=\cos\frac{\pi}{2}
+          \]
+          となり,主張が成り立つ.
+          ある$k\ge1$で,$n=k,k+1$に対して
+          \[
+            a_k=\cos\frac{(k-1)\pi}{2},\qquad
+            a_{k+1}=\cos\frac{k\pi}{2}
+          \]
+          が成り立つと仮定する.漸化式と$-\cos x=\cos(x+\pi)$より,
+          \[
+            \begin{aligned}
+              a_{k+2}
+              &=-a_k\\
+              &=-\cos\frac{(k-1)\pi}{2}\\
+              &=\cos\left(\frac{(k-1)\pi}{2}+\pi\right)\\
+              &=\cos\frac{(k+1)\pi}{2}
+            \end{aligned}
+          \]
+          である.したがって,$n=k+1,k+2$でも主張が成り立つ.初めの2項で成り立つことと合わせ,数学的帰納法により
+          \[
+            a_n=\cos\frac{(n-1)\pi}{2}
+          \]
+          がすべての$n\ge1$で成り立つ.
     \item 特性方程式は
           \[
             x^2-2x+2=0
