@@ -237,6 +237,108 @@ $\begin{pmatrix}a&b\\c&d\end{pmatrix}$ に対して $ad-bc$ と計算する.
 二つの根が複素数でも,成分を複素数まで広げて同じ計算を行える.
 実数の初期値から出発した場合,複素共役な二方向の寄与が組になり,数列の項は実数のままになる.
 
+
+この「方向ごとに倍率を分ける」という見方は,二階の漸化式だけに限らない.
+二つの数が互いに影響しながら変化する連立漸化式でも,同じ考え方で解くことができる.
+たとえば
+\[
+  x_{n+1}=2x_n+y_n,
+  \qquad
+  y_{n+1}=x_n+2y_n
+\]
+を考えよう.
+二つの式をまとめると
+\[
+  \boldsymbol{w}_{n+1}=A\boldsymbol{w}_n,
+  \qquad
+  \boldsymbol{w}_n=
+  \begin{pmatrix}x_n\\y_n\end{pmatrix},
+  \qquad
+  A=\begin{pmatrix}2&1\\1&2\end{pmatrix}
+\]
+となる.
+この行列に
+\[
+  \boldsymbol{p}=\begin{pmatrix}1\\1\end{pmatrix},
+  \qquad
+  \boldsymbol{q}=\begin{pmatrix}1\\-1\end{pmatrix}
+\]
+を掛けると
+\[
+  A\boldsymbol{p}=3\boldsymbol{p},
+  \qquad
+  A\boldsymbol{q}=\boldsymbol{q}
+\]
+である.
+つまり,状態が $\boldsymbol{p}$ の方向にあれば一歩ごとに $3$ 倍され,$\,\boldsymbol{q}$ の方向にあれば変わらない.
+このように,行列がある方向を保ったまま倍率だけを変えるとき,その方向を固有ベクトル,倍率を固有値という.
+
+実際に
+\[
+  u_n=x_n+y_n,
+  \qquad
+  v_n=x_n-y_n
+\]
+と置くと,もとの連立漸化式から
+\[
+  u_{n+1}=3u_n,
+  \qquad
+  v_{n+1}=v_n
+\]
+を得る.
+二つの数を同時に追う代わりに,固有方向に沿った二つの成分 $u_n,v_n$ を追えば,どちらも等比型になる.
+たとえば $(x_0,y_0)=(1,0)$ なら $u_0=v_0=1$ だから
+\[
+  u_n=3^n,\qquad v_n=1,
+  \qquad
+  x_n=\frac{3^n+1}{2},\quad y_n=\frac{3^n-1}{2}
+\]
+である.
+二つの漸化式が互いに絡んで見えても,適切な方向に座標を取り直せば,独立した単純な更新に分けられる.
+
+一般に,二つの独立な固有ベクトル $\boldsymbol{p},\boldsymbol{q}$ があり,それぞれの固有値が $\lambda,\mu$ である行列 $A$ を考える.
+二本の方向を列に並べた行列と,倍率を並べた行列を
+\[
+  P=(\boldsymbol{p}\ \boldsymbol{q}),
+  \qquad
+  D=\begin{pmatrix}\lambda&0\\0&\mu\end{pmatrix}
+\]
+とすると,$\,AP=PD$ である.
+$P$ は固有ベクトルを座標軸に選ぶ変換を表し,その逆変換 $P^{-1}$ を用いれば
+\[
+  A=PDP^{-1},
+  \qquad
+  A^n=PD^nP^{-1},
+  \qquad
+  D^n=\begin{pmatrix}\lambda^n&0\\0&\mu^n\end{pmatrix}
+\]
+となる.
+したがって初めの状態を
+\[
+  \boldsymbol{w}_0=c\boldsymbol{p}+d\boldsymbol{q}
+\]
+と分けられれば,$\,n$ 回更新した状態は
+\[
+  \boldsymbol{w}_n=c\lambda^n\boldsymbol{p}
+  +d\mu^n\boldsymbol{q}
+\]
+となる.
+行列の累乗を直接計算する代わりに,初期状態を固有ベクトルの方向に分け,それぞれの倍率を $n$ 回掛ければよい.
+
+二階の漸化式を行列で表した
+\[
+  B=\begin{pmatrix}s&t\\1&0\end{pmatrix}
+\]
+も,この連立漸化式の一例である.
+異なる特性根 $\lambda_1,\lambda_2$ に対応する固有ベクトル
+\[
+  \begin{pmatrix}\lambda_1\\1\end{pmatrix},
+  \qquad
+  \begin{pmatrix}\lambda_2\\1\end{pmatrix}
+\]
+を座標の軸に選ぶと,二階の漸化式を二つの等比型の変化に分けられる.
+したがって,特性方程式を解いて一般項を作る方法は,連立漸化式を行列の固有方向に分解して解く方法の特別な場合と見られる.
+
 フィボナッチ数列では $s=t=1$ なので
 \[
   B=\begin{pmatrix}1&1\\1&0\end{pmatrix}
