@@ -52,6 +52,61 @@
     であるとき,\,$b_n$も$L$に収束する.
     これをはさみうちの原理という.
 
+  \subsection{片側極限とその記法}\label{節：片側極限}
+    $x$を$a$に近づけるとき,近づく側を限定した極限を\textbf{片側極限}という.
+    $x<a$の範囲で$a$に近づける場合を\textbf{左側極限},\,$x>a$の範囲で$a$に近づける場合を\textbf{右側極限}という.
+    数直線で考えると,それぞれ$a$の左側・右側から近づけることに対応する.
+
+    左側極限には,次のような複数の記法がある.
+    \[
+      \boxed{
+        \begin{aligned}
+          \lim_{x\to a-}f(x)
+          &=\lim_{x\to a^-}f(x)\\
+          &=\lim_{\substack{x\to a\\x<a}}f(x)\\
+          &=\lim_{x\uparrow a}f(x)
+        \end{aligned}
+      }
+    \]
+    これらは同じ左側極限を表す記法である.
+    $a^-$の$-$は,\,$x<a$の側から近づけることを示す.
+    また,\,$x\uparrow a$も$a$より小さい側から$a$に近づけることを表す.
+
+    同様に,右側極限には次の記法がある.
+    \[
+      \boxed{
+        \begin{aligned}
+          \lim_{x\to a+}f(x)
+          &=\lim_{x\to a^+}f(x)\\
+          &=\lim_{\substack{x\to a\\x>a}}f(x)\\
+          &=\lim_{x\downarrow a}f(x)
+        \end{aligned}
+      }
+    \]
+    $a^+$の$+$は,\,$x>a$の側から近づけることを示す.
+    また,\,$x\downarrow a$も$a$より大きい側から$a$に近づけることを表す.
+    特に$a=0$のときは,\,$x\to0^+$を$x\to+0$,\,$x\to0^-$を$x\to-0$と書くこともある.
+    $+0$や$-0$は近づく側を表す記法であり,異なる二つの数を表しているわけではない.
+
+    左右の両側から近づけることができる場合,通常の極限$\lim_{x\to a}f(x)$が有限の値$L$になるための必要十分条件は,左右の片側極限がともに存在し,同じ値$L$になることである.
+    つまり,
+    \[
+      \lim_{x\to a^-}f(x)
+      =\lim_{x\to a^+}f(x)=L
+    \]
+    である.
+    例えば,
+    \[
+      f(x)=
+      \begin{cases}
+        -1 & (x<0),\\
+        1 & (x\ge0)
+      \end{cases}
+    \]
+    の場合,左側極限は$-1$,右側極限は$1$となる.
+    左右の値が異なるので,\,$\lim_{x\to0}f(x)$は存在しない.
+    また,片側極限でも$x=a$での関数の値そのものは関係しない.
+
   \subsection{ネイピア数$e$の定義}\label{節：ネイピア数eの定義}
     ネイピア数$e$は,ベルヌーイの定義によって,
     \[
@@ -164,22 +219,22 @@
       \lim_{x\to0}(1+x)^{1/x}=e
     \]
     を使う.これは,先に指数対数の節で定めた$e$の極限表示から確認できる.
-    $x\to0^+$では,\,$t=1/x\to\infty$と置くと
+    $x\to 0^+$では,\,$t=1/x\to\infty$と置くと
     \[
       (1+x)^{1/x}=\left(1+\frac1t\right)^t\longrightarrow e.
     \]
-    $x\to0^-$では,\,$t=-1/x\to\infty$と置くと
-    \[
-      (1+x)^{1/x}
-      =\left(1-\frac1t\right)^{-t}
-      =\left(1+\frac1{t-1}\right)^{t-1}
+    $x\to 0^-$では,\,$t=-1/x\to\infty$と置くと
+    \begin{align*}
+      &(1+x)^{1/x}
+      =\left(1-\frac1t\right)^{-t}\\
+      &=\left(1+\frac1{t-1}\right)^{t-1}
        \left(1+\frac1{t-1}\right)
       \longrightarrow e.
-    \]
+    \end{align*}
     自然対数は正の数上で連続であり,\,$\log e=1$なので,
     \[
       \lim_{x\to0}\frac{\log(1+x)}{x}
-      =\lim_{x\to0}\log\left((1+x)^{1/x}\right)
+      =\lim_{x\to0}\log\left\{(1+x)^{1/x}\right\}
       =\log e=1
     \]
     となる.
