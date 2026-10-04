@@ -1,0 +1,298 @@
+% 付録：行列の基本
+
+\section{行列の基本}\label{節：行列の基本}
+
+本編では,複雑な漸化式を等比型などの既知の形へ変えることを繰り返してきた.
+付録では,その置き換えがなぜうまくいくのかを,行列や差分,母関数という言葉で捉え直す.
+最初に,そのための道具となる行列の読み方と計算の仕方を説明しよう.
+行列を初めて学ぶ読者も,数値例から順に確かめてほしい.
+ここでは主に二行二列の行列を扱う.
+後の節では,本編で求めた不動点や等比数列が,ここで学ぶ計算の中にそのまま現れる.
+
+\subsection{行列とは何か}
+
+行列とは,数を長方形に並べ,全体を括弧で囲んだものである.
+たとえば
+\[
+  A=\begin{pmatrix}2&1\\1&2\end{pmatrix}
+\]
+は,縦に二段,横に二列の数を並べた行列である.
+横の並びを\textbf{行},縦の並びを\textbf{列}という.
+上が第一行,下が第二行であり,左が第一列,右が第二列である.
+並んでいる一つ一つの数を\textbf{成分}と呼ぶ.
+この例の第一行・第二列の成分は$1$である.
+
+また,二つの数を縦に並べた
+\[
+  \boldsymbol{v}=\begin{pmatrix}x\\y\end{pmatrix}
+\]
+を\textbf{列ベクトル}と呼ぶ.
+太字の$\boldsymbol{v}$は,二つの数をまとめて表すための記号である.
+平面上の点$(x,y)$への矢印と考えることもできるが,以下ではまず「二つの値を入れた一組の記録」として読めばよい.
+
+列ベクトルの足し算と定数倍は,成分ごとに行う.
+\[
+  \begin{pmatrix}x\\y\end{pmatrix}
+  +\begin{pmatrix}u\\v\end{pmatrix}
+  =\begin{pmatrix}x+u\\y+v\end{pmatrix},
+  \qquad
+  c\begin{pmatrix}x\\y\end{pmatrix}
+  =\begin{pmatrix}cx\\cy\end{pmatrix}.
+\]
+たとえば$\begin{pmatrix}3\\1\end{pmatrix}+\begin{pmatrix}1\\-1\end{pmatrix}
+=\begin{pmatrix}4\\0\end{pmatrix}$である.
+二つの列ベクトルが等しいとは,上下それぞれの成分が等しいことをいう.
+
+\subsubsection{行列を列ベクトルに掛ける}
+
+先ほどの行列$A$を列ベクトルに掛けるときは,次のように計算する.
+\[
+  \begin{pmatrix}2&1\\1&2\end{pmatrix}
+  \begin{pmatrix}x\\y\end{pmatrix}
+  =
+  \begin{pmatrix}2x+y\\x+2y\end{pmatrix}.
+\]
+上の成分は,第一行の$2,\,1$を$x,y$にそれぞれ掛けて足したもの.
+下の成分は,第二行の$1,\,2$を$x,y$にそれぞれ掛けて足したものである.
+たとえば
+\[
+  A\begin{pmatrix}1\\0\end{pmatrix}
+  =\begin{pmatrix}2\\1\end{pmatrix},
+  \qquad
+  A\begin{pmatrix}2\\1\end{pmatrix}
+  =\begin{pmatrix}5\\4\end{pmatrix}.
+\]
+この行列は,二つの値$x,y$を受け取り,新しい二つの値$2x+y,x+2y$を作る規則を表している.
+
+一般には
+\[
+  \begin{pmatrix}p&q\\r&s\end{pmatrix}
+  \begin{pmatrix}x\\y\end{pmatrix}
+  =\begin{pmatrix}px+qy\\rx+sy\end{pmatrix}
+\]
+と定める.
+したがって,連立した二つの式
+\[
+  x'=px+qy,\qquad y'=rx+sy
+\]
+を,行列と列ベクトルの積一つにまとめられる.
+ここで$x',y'$は,更新後の値を表す記号である.
+
+また,成分ごとに展開すれば
+\[
+  A(c\boldsymbol{u}+d\boldsymbol{v})
+  =cA\boldsymbol{u}+dA\boldsymbol{v}
+\]
+が成り立つ.
+これは,二つの列ベクトルを足してから更新しても,別々に更新してから足しても結果が同じ,という性質である.
+後で初期値を二つの部分に分けて考える際に使う.
+
+\subsection{行列の積は,更新を続けて行うことを表す}
+
+行列をもう一度掛けると,同じ規則で二回更新できる.
+先ほどの例なら
+\[
+  \begin{pmatrix}1\\0\end{pmatrix}
+  \ \longmapsto\
+  \begin{pmatrix}2\\1\end{pmatrix}
+  \ \longmapsto\
+  \begin{pmatrix}5\\4\end{pmatrix}
+\]
+と進む.
+この二回分の更新を一つにまとめた行列を$A^2$と書く.
+実際に文字$x,y$で計算すると
+\[
+  \begin{aligned}
+    A\left(A\begin{pmatrix}x\\y\end{pmatrix}\right)
+    &=A\begin{pmatrix}2x+y\\x+2y\end{pmatrix}\\
+    &=\begin{pmatrix}5x+4y\\4x+5y\end{pmatrix}.
+  \end{aligned}
+\]
+したがって
+\[
+  A^2=\begin{pmatrix}5&4\\4&5\end{pmatrix}
+\]
+である.
+各成分を単に二乗するのではなく,更新を二回行った結果に合わせて積を定めている.
+
+異なる行列$A,B$でも,まず$B$,次に$A$を掛ける操作を$AB$と書く.
+$B$の各列に$A$を掛けた結果を並べると,積$AB$が得られる.
+具体的には
+\[
+  \begin{aligned}
+    &\begin{pmatrix}p&q\\r&s\end{pmatrix}
+     \begin{pmatrix}u&v\\w&z\end{pmatrix}\\
+    &\qquad=
+     \begin{pmatrix}
+       pu+qw&pv+qz\\
+       ru+sw&rv+sz
+     \end{pmatrix}.
+  \end{aligned}
+\]
+右の行列から先に作用するため,一般には$AB$と$BA$は一致しない.
+
+何も変えない更新は
+\[
+  I=\begin{pmatrix}1&0\\0&1\end{pmatrix},
+  \qquad
+  I\begin{pmatrix}x\\y\end{pmatrix}
+  =\begin{pmatrix}x\\y\end{pmatrix}
+\]
+で表される.
+$I$を\textbf{単位行列}という.
+数の累乗で$a^0=1$とするのに対応して,行列では$A^0=I$と定める.
+
+\subsection{固有ベクトルと固有値：更新が定数倍になる場合}
+
+毎回行列の積を計算するのは手間がかかる.
+そこで,行列を掛けても定数倍になるだけの列ベクトルを探してみよう.
+先ほどの$A$について
+\[
+  \begin{aligned}
+    A\begin{pmatrix}1\\1\end{pmatrix}
+      &=\begin{pmatrix}3\\3\end{pmatrix}
+       =3\begin{pmatrix}1\\1\end{pmatrix},\\
+    A\begin{pmatrix}1\\-1\end{pmatrix}
+      &=\begin{pmatrix}1\\-1\end{pmatrix}
+  \end{aligned}
+\]
+である.
+第一の列ベクトルは一回ごとに$3$倍され,第二の列ベクトルは変わらない.
+したがって$k$回更新した結果は
+\[
+  A^k\begin{pmatrix}1\\1\end{pmatrix}
+    =3^k\begin{pmatrix}1\\1\end{pmatrix},
+  \qquad
+  A^k\begin{pmatrix}1\\-1\end{pmatrix}
+    =\begin{pmatrix}1\\-1\end{pmatrix}
+\]
+とすぐに分かる.
+
+一般に,零でない列ベクトル$\boldsymbol{u}$が
+\[
+  A\boldsymbol{u}=\lambda\boldsymbol{u}
+\]
+を満たすとき,\,\,$\boldsymbol{u}$を$A$の\textbf{固有ベクトル},\,\,$\lambda$を対応する\textbf{固有値}という.
+固有値は,そのベクトルに対して一回の更新が何倍になるかを表す数である.
+零ベクトル$\boldsymbol{0}=\begin{pmatrix}0\\0\end{pmatrix}$は,どんな$\lambda$でもこの式を満たしてしまうため,固有ベクトルから除く.
+負の固有値では矢印の向きが反転し,固有値$0$では零ベクトルになる場合もある.
+
+\subsubsection{ベクトルを二つの部分に分ける}
+
+固有ベクトルが見つかると,ほかのベクトルへの作用も計算しやすくなる.
+たとえば
+\[
+  \begin{pmatrix}1\\0\end{pmatrix}
+  =\frac12\begin{pmatrix}1\\1\end{pmatrix}
+   +\frac12\begin{pmatrix}1\\-1\end{pmatrix}
+\]
+である.
+右辺を実際に足せば,上が$1$,下が$0$になる.
+二つの部分を別々に$k$回更新すれば
+\[
+  \begin{aligned}
+    A^k\begin{pmatrix}1\\0\end{pmatrix}
+      &=\frac{3^k}{2}\begin{pmatrix}1\\1\end{pmatrix}
+        +\frac12\begin{pmatrix}1\\-1\end{pmatrix}\\
+      &=\begin{pmatrix}(3^k+1)/2\\(3^k-1)/2\end{pmatrix}.
+  \end{aligned}
+\]
+大きな累乗を一回ずつ計算する代わりに,定数倍になる二つの部分を追えばよい.
+本編で等比型に帰着させると計算が簡単になったのと同じように,行列でも一定の倍率で変わる部分を見つけることが鍵になる.
+
+一般に,二つの異なる固有値$\lambda_1,\lambda_2$に対応する固有ベクトル$\boldsymbol{u}_1,\boldsymbol{u}_2$があれば,どんな二成分のベクトルも
+\[
+  \boldsymbol{v}=c\boldsymbol{u}_1+d\boldsymbol{u}_2
+\]
+と表せる.
+異なる固有値に対応する二つの固有ベクトルは,互いの定数倍にならないからである.
+係数$c,d$は,上下の成分を比較した連立方程式で求められる.
+その後は
+\[
+  A^k\boldsymbol{v}
+  =c\lambda_1^k\boldsymbol{u}_1+d\lambda_2^k\boldsymbol{u}_2
+\]
+で計算できる.
+$k=0$のときは元の分解式を読み,\,\,$k\ge1$で固有値が$0$なら対応する部分は零になる.
+
+\subsection{行ベクトルと左固有ベクトル}
+
+数を横に並べた$L=(\alpha,\beta)$を\textbf{行ベクトル}という.
+列ベクトル$\boldsymbol{\ell}$を横に並べ直す操作を\textbf{転置}といい,\,$\boldsymbol{\ell}^{\mathsf T}$と書く.
+たとえば$\boldsymbol{\ell}=\begin{pmatrix}\alpha\\\beta\end{pmatrix}$なら,\,$\boldsymbol{\ell}^{\mathsf T}=(\alpha,\beta)$である.
+行ベクトルと列ベクトルの積は,対応する成分を掛けて足す.
+\[
+  (\alpha,\beta)\begin{pmatrix}x\\y\end{pmatrix}
+  =\alpha x+\beta y.
+\]
+行ベクトルを行列に掛けるときは,行列の各列との積を横に並べる.
+たとえば,先ほどの$A$について
+\[
+  \begin{aligned}
+    (1,\,1)A&=(3,\,3)=3(1,\,1),\\
+    (1,-1)A&=(1,-1)
+  \end{aligned}
+\]
+である.
+一般に,零でない行ベクトル$L$が$LA=\gamma L$を満たすとき,\,\,$L$を\textbf{左固有ベクトル}という.
+この場合,列ベクトル$\boldsymbol{v}$から作った数$L\boldsymbol{v}$は,更新後には
+\[
+  L(A\boldsymbol{v})=(LA)\boldsymbol{v}
+  =\gamma L\boldsymbol{v}
+\]
+となる.
+たとえば$L=(1,\,1)$なら,\,\,$x+y$という和が更新によって$3$倍される.
+固有ベクトルは定数倍になる列ベクトルを表し,左固有ベクトルは定数倍になる量を取り出す係数を表す.
+
+\subsection{固有値を求める条件：行列式}
+
+固有ベクトルの成分を比較すれば,固有値を求める条件が得られる.
+その条件を一つの式にまとめるため,行列式という記号を導入しよう.
+二行二列の場合には
+\[
+  \det\begin{pmatrix}a&b\\c&d\end{pmatrix}=ad-bc
+\]
+と定める.
+行列そのものではなく,四つの成分から計算した一つの数である.
+
+二つの式$ax+by=0,\ cx+dy=0$について,\,\,$ad-bc\ne0$なら解は$x=y=0$だけになる.
+たとえば,第一の式を$d$倍したものから第二の式を$b$倍したものを引くと,\,\,$(ad-bc)x=0$となる.
+同様に$(ad-bc)y=0$も得られる.
+逆に$ad-bc=0$なら,零でない解が存在する.
+実際,\,\,$(a,b)\ne(0,\,0)$なら$(x,y)=(b,-a)$が両方の式を満たす.
+$(a,b)=(0,\,0)$の場合も,残る一つの式から零でない解を選べる.
+
+固有値の式$A\boldsymbol{u}=\lambda\boldsymbol{u}$は
+\[
+  (\lambda I-A)\boldsymbol{u}=\boldsymbol{0}
+\]
+と書き直せる.
+行列の引き算は対応する成分ごとに行うので,\,\,$A=\begin{pmatrix}p&q\\r&s\end{pmatrix}$なら
+\[
+  \lambda I-A
+  =\begin{pmatrix}\lambda-p&-q\\-r&\lambda-s\end{pmatrix}.
+\]
+零でない解が存在する条件は
+\[
+  \begin{aligned}
+    \det(\lambda I-A)
+      &=(\lambda-p)(\lambda-s)-qr\\
+      &=\lambda^2-(p+s)\lambda+(ps-qr)=0.
+  \end{aligned}
+\]
+これを行列$A$の\textbf{特性方程式}という.
+この方程式を解いて$\lambda$を求め,成分の連立方程式を解けば,対応する固有ベクトルも見つかる.
+たとえば$A=\begin{pmatrix}2&1\\1&2\end{pmatrix}$では
+\[
+  \lambda^2-4\lambda+3
+  =(\lambda-3)(\lambda-1)=0
+\]
+だから,固有値は$3,\,1$である.
+これは数値例で確かめた倍率と一致する.
+
+漸化式では,次の項を計算するために記録しておく値の組を\textbf{状態}と呼ぶ.
+また,行列式が$0$でないときは,更新後の二つの値から更新前の二つの値を一意に求め直せる.
+このように更新を逆向きに戻せる行列を\textbf{可逆な行列}という.
+
+次節では,これらの計算を本編の漸化式に当てはめていこう.
+特に,本編で選んだ「何を引くか」「どのような比や和を作るか」が,行列では何を選ぶことに対応するのかを考える.
