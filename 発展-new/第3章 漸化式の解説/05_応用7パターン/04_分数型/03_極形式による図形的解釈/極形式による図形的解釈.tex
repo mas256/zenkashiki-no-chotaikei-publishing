@@ -113,29 +113,29 @@
   \begin{align*}
     b_{n+1}
     &=
-    \frac{1- i}{1+i}b_n
+    \frac{1+i}{1-i}b_n
   \end{align*}
   となる.
 
   ここで,
   \[
-    \frac{1-i}{1+i}
+    \frac{1+i}{1-i}
     =
-    \frac{(1-i)^2}{2}
-    =-i
+    \frac{(1+i)^2}{2}
+    =i
   \]
   であるから,
   \[
-    b_{n+1}=-ib_n
+    b_{n+1}=ib_n
   \]
   を得る.
 
-  $-i$は極形式で
+  $i$は極形式で
   \[
-    -i=\cos\frac{3\pi}{2}+i\sin\frac{3\pi}{2}
+    i=\cos\frac{\pi}{2}+i\sin\frac{\pi}{2}
   \]
   と表せる.
-  したがって,\,$b_n$は複素平面上で毎回$\dfrac{3\pi}{2}$,すなわち時計回りに$\dfrac{\pi}{2}$だけ回転する.
+  したがって,\,$b_n$は複素平面上で毎回反時計回りに$\dfrac{\pi}{2}$だけ回転する.
 
   例えば,\,$a_1=\dfrac12$とすると,
   \begin{align*}
@@ -154,12 +154,12 @@
 
   一方,\,$b_n$に着目すると,
   \[
-    b_{n+1}=-ib_n
+    b_{n+1}=ib_n
   \]
   であるから,
   \[
-    b_1\longrightarrow-ib_1\longrightarrow-b_1
-    \longrightarrow ib_1\longrightarrow b_1\longrightarrow\cdots
+    b_1\longrightarrow ib_1\longrightarrow-b_1
+    \longrightarrow-ib_1\longrightarrow b_1\longrightarrow\cdots
   \]
   となる.
 

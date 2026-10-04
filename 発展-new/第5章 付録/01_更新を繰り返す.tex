@@ -99,8 +99,9 @@ $\alpha=p\alpha+q$ だから,
 となる.
 本編の解法で別々に追っていた「不動点」と「そこからのずれ」は,行列では更新倍率の異なる二つの方向として一緒に記録されている.
 
-行列を掛けたとき,方向は変わらず倍率だけが変わる特別なベクトルを固有ベクトル,その倍率を固有値と呼ぶ.
+行列を掛けたとき,方向は変わらず倍率だけが変わる特別な零でないベクトルを固有ベクトル,その倍率を固有値と呼ぶ.
 上の例では $\begin{pmatrix}\alpha\\1\end{pmatrix}$ の固有値が $1$ で,\,$\begin{pmatrix}1\\0\end{pmatrix}$ の固有値が $p$ である.
+ここで$I$は単位行列$\begin{pmatrix}1&0\\0&1\end{pmatrix}$であり,二行二列の行列式$\det\begin{pmatrix}a&b\\c&d\end{pmatrix}$は$ad-bc$を表す.
 行列の固有値を求める方程式は,この行列の場合
 \[
   \det(\lambda I-A)
@@ -133,7 +134,8 @@ $\alpha=p\alpha+q$ だから,
 \[
   a_{n+1}=\frac{pa_n+q}{ra_n+s}
 \]
-に対し,$\,a_n=x_n/y_n$ とおき,
+に対し,$\,ps-qr\ne0$を仮定し,各項で$ra_n+s\ne0$とする.
+$y_n\ne0$となる範囲で$\,a_n=x_n/y_n$ とおき,
 \[
   \begin{pmatrix}x_{n+1}\\y_{n+1}\end{pmatrix}
   =
@@ -160,6 +162,8 @@ $\lambda_\alpha=r\alpha+s,\ \lambda_\beta=r\beta+s$ とする.
   +d_n\begin{pmatrix}\beta\\1\end{pmatrix}
 \]
 と分けると,$\,c_n,d_n$ はそれぞれ $\lambda_\alpha,\lambda_\beta$ 倍される.
+以下の比を取る際は$a_1\ne\beta$とする.不動点$\beta$を初項とする場合は$a_n=\beta$という定数列になる.
+行列$M$は可逆で,\,$\lambda_\alpha\ne0$だから,\,$a_1\ne\beta$なら$c_n\ne0$,すなわち$a_n\ne\beta$が保たれる.
 また $a_n=x_n/y_n$ より
 \[
   \frac{a_n-\alpha}{a_n-\beta}=-\frac{d_n}{c_n},
@@ -321,7 +325,7 @@ $\begin{pmatrix}a&b\\c&d\end{pmatrix}$ に対して $ad-bc$ と計算する.
   \qquad
   A=\begin{pmatrix}p&q\\r&s\end{pmatrix}
 \]
-とし,$\,c_n=\boldsymbol{\ell}^{\mathsf T}\boldsymbol{z}_n$ とおく.
+とし,零でない列ベクトル$\boldsymbol{\ell}$を用いて$\,c_n=\boldsymbol{\ell}^{\mathsf T}\boldsymbol{z}_n$ とおく.ここで$\mathsf T$は転置を表し,列ベクトルを行ベクトルに直す.
 もし
 \[
   \boldsymbol{\ell}^{\mathsf T}A
@@ -330,7 +334,7 @@ $\begin{pmatrix}a&b\\c&d\end{pmatrix}$ に対して $ad-bc$ と計算する.
 なら,$\,c_{n+1}=\gamma c_n$ となる.
 このような $\boldsymbol{\ell}$ を左固有ベクトルという.
 本編の連立型で $c_n=\alpha a_n+\beta b_n$ が等比数列となるよう $\alpha,\beta$ を選ぶ計算は,左固有ベクトルを求めていたのである.
-このベクトルが零でないための条件
+この関係を満たす零でないベクトル$\boldsymbol{\ell}$が存在するための条件
 \[
   \det(\gamma I-A)
   =\gamma^2-(p+s)\gamma+(ps-qr)=0
