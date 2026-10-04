@@ -1,6 +1,6 @@
 % subsection: 階差型 \, $a_{n+1}=a_n+f(n)$
 
-  \subsection{階差型 \, $a_{n+1}=a_n+f(n)$}\label{節：階差型}
+  \subsection{\texorpdfstring{階差型 \, $a_{n+1}=a_n+f(n)$}{階差型}}\label{節：階差型}
     階差型は先の2つに比べて一段階難易度が高い.
     しかしきちんと先程の議論を理解して,丁寧に式を追うことで理解することができるものである.
     兎にも角にも解法を見てみよう.
@@ -16,32 +16,32 @@
     $f(n)$によってこの後の処理が変わるものの,漸化式の解法としてはここまでである.
     ここからはシグマの計算の能力が問われる話で,この後にやることは等差数列の総和を求めることであったり,等比数列の総和を求めることであったり,あるいは部分分数分解を用いて解くことなどが考えられる.
 
-    \noindent \textbf{【例題】}
-    \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \noindent \bookblocklink{example-difference-1}{problem}{answer}{【例題】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-difference-1}{problem}{answer}]
       \item $\displaystyle a_1=1,\, a_{n+1}=a_n+n$
       \item $\displaystyle a_1=1,\, a_{n+1}=a_n+2^n$
       \item $\displaystyle a_1=0,\, a_{n+1}=a_n+\frac{1}{n(n+1)}$
       \item $\displaystyle a_1=1,\, a_{n+1}=a_n+(n+1)^2$
     \end{enumerate}
 
-    \noindent\textbf{【方針】}
-    \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \noindent\bookblocklink{example-difference-1}{hint}{problem}{【方針】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-difference-1}{hint}{problem}]
       \item 最もシンプルな形の階差数列です.先程の議論を踏まえて解きましょう.
       \item もちろん,\,$f(n)$となる関数には指数関数も含まれます.何にせよやることは\,(1)と同じです.
       \item シグマは部分分数分解で処理しましょう.
       \item 勘の良い人であれば式を見た瞬間に答えがわかるかもしれませんね.これは"あの数列"の総和と同じ見た目になりませんか?.
     \end{enumerate}
 
-    \noindent\textbf{【解答】}
-    \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \noindent\bookblocklink{example-difference-1}{answer}{problem}{【解答】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-difference-1}{answer}{problem}]
       \item $\displaystyle a_n=1+\frac{n(n-1)}{2}$
       \item $\displaystyle a_n=2^n-1$
       \item $\displaystyle a_n=1-\frac{1}{n}$
       \item $\displaystyle a_n=\frac{1}{6}n(n+1)(2n+1)$
     \end{enumerate}
 
-    \noindent\textbf{【解法】}
-    \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \noindent\bookblocklink{example-difference-1}{solution}{problem}{【解法】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-difference-1}{solution}{problem}]
       \item $\displaystyle a_1=1,\,a_{n+1}=a_n+n$\\
             階差型の一般項
             \[

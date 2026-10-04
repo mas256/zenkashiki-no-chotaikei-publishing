@@ -1,7 +1,7 @@
 % subsection: 分数型
 
 \subsection{分数型}\label{節：分数型}
-  \subsubsection{逆数型  \, $\displaystyle a_{n+1}=\frac{pa_n}{qa_n+r}$}
+  \subsubsection{\texorpdfstring{逆数型  \, $\displaystyle a_{n+1}=\frac{pa_n}{qa_n+r}$}{逆数型}}
     では逆数型の漸化式について扱っていこう.
     この漸化式の解法はかなり技巧的な式変形が要求される.
     実際に見せよう.
@@ -19,26 +19,26 @@
     \end{align*}
     このようにすることで,特性方程式型の漸化式になる.
 
-    \noindent \textbf{【例題】}
-    \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \noindent \bookblocklink{example-fractional-1}{problem}{answer}{【例題】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-fractional-1}{problem}{answer}]
       \item $\displaystyle a_1=1,\, a_{n+1}=\frac{a_n}{a_n+1}$
       \item $\displaystyle a_1=1,\, a_{n+1}=\frac{-a_n}{2a_n+1}$
     \end{enumerate}
 
-    \noindent\textbf{【方針】}
-    \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \noindent\bookblocklink{example-fractional-1}{hint}{problem}{【方針】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-fractional-1}{hint}{problem}]
       \item とにかく基本に忠実に解きましょう.
       \item 基本に忠実に.
     \end{enumerate}
 
-    \noindent\textbf{【解答】}
-    \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \noindent\bookblocklink{example-fractional-1}{answer}{problem}{【解答】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-fractional-1}{answer}{problem}]
       \item $\displaystyle a_n=\frac{1}{n}$
       \item $\displaystyle a_n=\frac{1}{2(-1)^{n-1}-1}$
     \end{enumerate}
 
-    \noindent\textbf{【解法】}
-    \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \noindent\bookblocklink{example-fractional-1}{solution}{problem}{【解法】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-fractional-1}{solution}{problem}]
       \item $\displaystyle a_1=1,\, a_{n+1}=\frac{a_n}{a_n+1}$\\
             両辺の逆数を取って,
             \begin{align*}
@@ -71,7 +71,7 @@
               &\therefore \quad a_n=\frac{1}{b_n}=\frac{1}{2(-1)^{n-1}-1}
             \end{align*}
     \end{enumerate}
-  \subsubsection{1次分数型 \, $\displaystyle a_{n+1}=\frac{pa_n+q}{ra_n+s}$}
+  \subsubsection{\texorpdfstring{1次分数型 \, $\displaystyle a_{n+1}=\frac{pa_n+q}{ra_n+s}$}{1次分数型}}
     先程の逆数型の一般化と言える漸化式である.
     ここで一度断りを入れておこう.この小節では,分母が0にならないものとして議論を進める.
     0になる場合は,そもそも数列が定義できない,あるいは,別の漸化式に帰着するからである.
@@ -313,32 +313,32 @@
     \end{align*}
     (＊)を代入して$a_n$を求めることができる.
 
-    \noindent \textbf{【例題】}
-    \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \noindent \bookblocklink{example-fractional-2}{problem}{answer}{【例題】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-fractional-2}{problem}{answer}]
       \item $\displaystyle a_1=3,\, a_{n+1}=\frac{2a_n+1}{a_n+2}$
       \item $\displaystyle a_1=0,\, a_{n+1}=\frac{a_n+4}{a_n+1}$
       \item $\displaystyle a_1=5,\, a_{n+1}=\dfrac{4a_{n}-9}{a_{n}-2}$
       \item $\displaystyle a_1=1,\, a_{n+1}=1+\frac{1}{a_n}$
     \end{enumerate}
 
-    \noindent\textbf{【方針】}
-    \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \noindent\bookblocklink{example-fractional-2}{hint}{problem}{【方針】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-fractional-2}{hint}{problem}]
       \item 最も基本的な例です.先程の議論に習って解きましょう.
       \item 同様に不動点$\alpha,\beta$を求めましょう.今回は片方が負の値になります.
       \item 今回は不動点の方程式が重解になります.それでもやることは同じです.
       \item このような形も一次分数型です.解と係数の関係を活用して解きましょう.
     \end{enumerate}
 
-    \noindent\textbf{【解答】}
-    \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \noindent\bookblocklink{example-fractional-2}{answer}{problem}{【解答】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-fractional-2}{answer}{problem}]
       \item $\displaystyle a_n=\frac{2\cdot3^{n-1}+1}{2\cdot3^{n-1}-1}$
       \item $\displaystyle a_n=\frac{2\left(3^{n-1}+(-1)^n\right)}{3^{n-1}-(-1)^n}$
       \item $a_{n}=\dfrac{6n-1}{2n-1}$
       \item $\displaystyle a_n=\cfrac{\left(\cfrac{1-\sqrt{5}}{2}\right)^{n+1}-\left(\cfrac{1+\sqrt{5}}{2}\right)^{n+1}}{\left(\cfrac{1-\sqrt{5}}{2}\right)^n-\left(\cfrac{1+\sqrt{5}}{2}\right)^n}$
     \end{enumerate}
 
-    \noindent\textbf{【解法】}
-    \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \noindent\bookblocklink{example-fractional-2}{solution}{problem}{【解法】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-fractional-2}{solution}{problem}]
       \item $\displaystyle a_1=3,\, a_{n+1}=\frac{2a_n+1}{a_n+2}$\\
             不動点の方程式は
             \[
@@ -503,7 +503,7 @@
   例えば(3)は解答の一般項から分かるように,分母分子それぞれが一次関数の形で書かれているため,想像しやすい.
   $a_1$から$a_3$ぐらいまでを求めさせてから帰納法で示させるような誘導問題が出た時は帰納法を使って解くことも視野に入れておくといいだろう.
   以下にその例を示す.\\
-    \noindent\textbf{【例題】}
+    \noindent\bookblocklink{example-fractional-3}{problem}{answer}{【例題】}
     \begin{quote}
       以下の漸化式
       \[
@@ -511,7 +511,7 @@
       \]
       を満たす数列$a_n$の一般項を帰納法を用いて求めよ.
     \end{quote}
-    \textbf{【方針】}
+    \bookblocklink{example-fractional-3}{hint}{problem}{【方針】}
     \begin{quote}
       実験的に代入計算をしてみると,
       \[
@@ -523,7 +523,7 @@
       \]
       と予想する.
     \end{quote}
-    \textbf{【解答】}
+    \bookblocklink{example-fractional-3}{answer}{problem}{【解答】}
     \begin{quote}
       一般項$a_n$が
       \[

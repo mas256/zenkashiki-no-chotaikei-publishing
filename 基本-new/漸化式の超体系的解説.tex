@@ -1,7 +1,6 @@
 \documentclass[dvipdfmx,a4paper,11pt,fleqn,openany]{jsbook}
 
 \usepackage{amsmath,amsthm,amssymb,amsfonts}
-\usepackage{nameref}
 \usepackage[margin=20truemm]{geometry}
 \usepackage{tikz}
 \usepackage{graphicx}
@@ -32,6 +31,8 @@
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{4}
 
+\input{../tex/book-links.tex}
+
 % 箇条書き内で式番号を付ける
 \newcommand{\itemeq}[2][]{%
   \refstepcounter{equation}%
@@ -46,8 +47,8 @@
   \fi
 }
 
-\newcommand{\chapterref}[1]{第\ref{#1}章~\nameref{#1}}
-\newcommand{\sectionref}[1]{\ref{#1}~\nameref{#1}}
+\newcommand{\chapterref}[1]{\hyperref[#1]{第\ref*{#1}章~\nameref*{#1}}}
+\newcommand{\sectionref}[1]{\hyperref[#1]{\ref*{#1}~\nameref*{#1}}}
 
 \title{漸化式の超体系的解説}
 

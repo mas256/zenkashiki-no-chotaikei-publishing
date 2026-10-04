@@ -1,7 +1,7 @@
 % subsection: 総和型
 
 \subsection{総和型}\label{節：総和型}
-  \subsubsection{総和と一般項の漸化式型 \, $S_n=pa_n+f(n)$}
+  \subsubsection{\texorpdfstring{総和と一般項の漸化式型 \, $S_n=pa_n+f(n)$}{総和と一般項の漸化式型}}
     ある漸化式によって定められる数列$a_n$によって,
     \[
       S_n=\sum_{k=1}^{n} a_k
@@ -43,29 +43,29 @@
     \]
     を得る.なお,$n=1$のもとの式から$f(1)=0$が必要である.
 
-    \noindent \textbf{【例題】}
-    \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \noindent \bookblocklink{example-summation-1}{problem}{answer}{【例題】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-summation-1}{problem}{answer}]
       \item $\displaystyle S_n=2a_n-n$
       \item $\displaystyle S_n=\frac12a_n+n$
       \item $\displaystyle S_n=a_n+\binom n2$
     \end{enumerate}
 
-    \noindent\textbf{【方針】}
-    \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \noindent\bookblocklink{example-summation-1}{hint}{problem}{【方針】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-summation-1}{hint}{problem}]
       \item まず$n=1$を代入して$a_1$を求めてから,本文の変形をなぞって$a_{n+1}$と$a_n$だけの漸化式を作りましょう.
       \item 同様です.できた漸化式は特性方程式型に帰着します.
       \item $p=1$の場合です.$S_n-S_{n-1}=a_n$と比較して,$a_{n-1}$を直接求めましょう.
     \end{enumerate}
 
-    \noindent\textbf{【解答】}
-    \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \noindent\bookblocklink{example-summation-1}{answer}{problem}{【解答】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-summation-1}{answer}{problem}]
       \item $\displaystyle a_n=2^n-1$
       \item $\displaystyle a_n=1+(-1)^{n-1}$
       \item $\displaystyle a_n=n$
     \end{enumerate}
 
-    \noindent\textbf{【解法】}
-    \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \noindent\bookblocklink{example-summation-1}{solution}{problem}{【解法】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-summation-1}{solution}{problem}]
     \item $\displaystyle S_n=2a_n-n$
 
         $n=1$を代入すると,
@@ -175,7 +175,7 @@
 
     \end{enumerate}
 
-  \subsubsection{純総和型 \, $S_{n+1}=pS_n+f(n) $}
+  \subsubsection{\texorpdfstring{純総和型 \, $S_{n+1}=pS_n+f(n) $}{純総和型}}
     両辺に総和がきてもやることは一緒で,1つずらした総和と元の式を足し引きしてやることで,\,$a_n$や$a_{n+1}$の項を作れば良い.
     \begin{align*}
       &S_{n+1}=pS_n+f(n) \tag*{\(\cdots\) (1)}\\
@@ -188,26 +188,26 @@
     ただし(2)は(1)の$n$を$n-1$に置き換えた式なので,$n\ge2$でのみ成り立つ.$a_1$と$a_2$の関係は,$S_1,S_2$から直接求める必要がある.
     あとはただの階差数列型の計算である.
 
-    \noindent \textbf{【例題】}
-    \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \noindent \bookblocklink{example-summation-2}{problem}{answer}{【例題】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-summation-2}{problem}{answer}]
       \item $\displaystyle S_1=1,\ S_{n+1}=2S_n+n$
       \item $\displaystyle S_1=0,\ S_{n+1}=2S_n+n$
     \end{enumerate}
 
-    \noindent\textbf{【方針】}
-    \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \noindent\bookblocklink{example-summation-2}{hint}{problem}{【方針】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-summation-2}{hint}{problem}]
       \item 本文の式は$n\ge2$でしか使えないことに注意し,$a_2$だけは$S_2=2S_1+1$から別に求めましょう.
       \item 同様に$n\ge2$で漸化式を作り,$a_2$から解きます.$a_1$も含む一般項になるか最後に確認しましょう.
     \end{enumerate}
 
-    \noindent\textbf{【解答】}
-    \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \noindent\bookblocklink{example-summation-2}{answer}{problem}{【解答】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-summation-2}{answer}{problem}]
       \item $\displaystyle a_1=1,\quad a_n=3\cdot2^{n-2}-1\ (n\ge2)$
       \item $\displaystyle a_n=2^{n-1}-1\ (n\ge1)$
     \end{enumerate}
 
-    \noindent\textbf{【解法】}
-    \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \noindent\bookblocklink{example-summation-2}{solution}{problem}{【解法】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-summation-2}{solution}{problem}]
     \item $\displaystyle S_1=1,\ S_{n+1}=2S_n+n$
 
         $a_1=S_1=1$である.また,

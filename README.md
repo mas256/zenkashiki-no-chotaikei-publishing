@@ -15,6 +15,8 @@ latexmk 漸化式の超体系的解説.tex
 
 GitHub Actionsでは `texlive/texlive:TL2025-historic` のmanifest digestを固定して同じ入口をビルドします。生成PDFはGitで追跡せず、正式版Releaseのassetとして保存します。
 
+PDFの目次は章・節・項（`chapter` から `subsubsection`）までクリックでき、本文中の見出し参照もリンクになります。例題・演習問題の番号から対応する解答へ、方針・解答・解法の番号から元の問題へ戻れます。番号のない例題を含め、例題の【例題】・【方針】・【解答】・【解法】の見出しにも同じリンクを付けています。リンク設定は両版共通の `tex/book-links.tex` にあります。
+
 ## GitHubでの初期設定
 
 コピー先RepositoryをPublicにしたうえで、[出版基盤のセットアップ手順](docs/setup.md)に従って Pages、Immutable releases、Tag rulesetを設定してください。最初のReleaseを作る前に設定を完了してください。

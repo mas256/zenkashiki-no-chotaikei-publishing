@@ -11,7 +11,6 @@
 % =========================================================
 
 \usepackage{amsmath,amsthm,amssymb,amsfonts}
-\usepackage{nameref}
 \usepackage{refcount}
 \usepackage{tikz}
 
@@ -155,6 +154,8 @@
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{4}
 
+\input{../tex/book-links.tex}
+
 % =========================================================
 % 章・節・項の相互参照
 % =========================================================
@@ -177,14 +178,14 @@
 
 \cs_new_protected:Npn \bookref_full:n #1
   {
-    \tl_set:Nn \l_bookref_text_tl { 第\ref{#1} }
+    \tl_set:Nn \l_bookref_text_tl { 第\ref*{#1} }
     \int_case:nnF { \seq_count:N \l_bookref_number_seq }
       {
         {1}{ \tl_put_right:Nn \l_bookref_text_tl {章} }
         {2}{ \tl_put_right:Nn \l_bookref_text_tl {節} }
       }
       { \tl_put_right:Nn \l_bookref_text_tl {項} }
-    \tl_put_right:Nn \l_bookref_text_tl {「\nameref{#1}」}
+    \tl_put_right:Nn \l_bookref_text_tl {「\nameref*{#1}」}
   }
 
 \cs_new_protected:Npn \bookref_format:n #1
@@ -219,7 +220,7 @@
       {
         \bookref_format:n {#2}
         \IfBooleanT{#1}{ \bookref_full:n {#2} }
-        \tl_use:N \l_bookref_text_tl
+        \hyperref[#2]{\tl_use:N \l_bookref_text_tl}
       }
       { \ref{#2}「\nameref{#2}」 }
     \group_end:

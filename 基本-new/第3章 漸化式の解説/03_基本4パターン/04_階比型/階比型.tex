@@ -1,6 +1,6 @@
 % subsection: 階比型 \, $a_{n+1}=f(n)a_n$
 
-  \subsection{階比型 \, $a_{n+1}=f(n)a_n$}\label{節：階比型}
+  \subsection{\texorpdfstring{階比型 \, $a_{n+1}=f(n)a_n$}{階比型}}\label{節：階比型}
     階比型漸化式は,基本4パターンの中で最も難しく,
     また,式変形が技巧的であったり,他の解法と混ざってしまいやすく,基本としての扱いが適切であるかは一考の余地がある.
     しかしながら,漸化式そのもののシンプルさの観点から基本パターンの方で扱う事とした.
@@ -53,29 +53,29 @@
     が言える.
     多くはこの場合が出題されるため,演習問題はこの手法を使って解くものを揃えた.
     
-    \noindent \textbf{【例題】}
-    \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \noindent \bookblocklink{example-ratio-1}{problem}{answer}{【例題】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-ratio-1}{problem}{answer}]
       \item $\displaystyle a_1=1,\, a_{n+1}=2na_n$
       \item $\displaystyle a_1=2,\, a_{n+1}=\frac{n+2}{n}a_n$
       \item $\displaystyle a_1=1,\, a_{n+1}=n(n+1)a_n$
     \end{enumerate}
 
-    \noindent\textbf{【方針】}
-    \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \noindent\bookblocklink{example-ratio-1}{hint}{problem}{【方針】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-ratio-1}{hint}{problem}]
       \item 先程の例の類題です.
       \item 式変形をいろいろ試していくと,気付くことがあるかもしれません.大原則,左辺を$g(n+1)$に,右辺を$g(n)$に,です.
       \item ちょっと頭を捻ってみましょう.なぜ,先程までは階乗で解けて,これは無理なのでしょうか.そもそもなんで階乗で割ったのでしょうか."きれい"にしたいのでしたよね.
     \end{enumerate}
 
-    \noindent\textbf{【解答】}
-    \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \noindent\bookblocklink{example-ratio-1}{answer}{problem}{【解答】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-ratio-1}{answer}{problem}]
       \item $\displaystyle a_n=(n-1)!\cdot 2^{n-1}$
       \item $\displaystyle a_n=n(n+1)$
       \item $\displaystyle a_n=n!(n-1)!$
     \end{enumerate}
 
-    \noindent\textbf{【解法】}
-    \begin{enumerate}[label=(\arabic*),parsep=3pt]
+    \noindent\bookblocklink{example-ratio-1}{solution}{problem}{【解法】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-ratio-1}{solution}{problem}]
       \item $\displaystyle a_1=1,\, a_{n+1}=2na_n$\\
             両辺を$n!$で割って,
             \begin{align*}

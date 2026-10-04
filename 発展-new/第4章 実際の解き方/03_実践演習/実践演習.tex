@@ -11,8 +11,8 @@
     \subsection{基本と応用から出題されるもの}\label{節：基本と応用から出題されるもの}
       ここでは\chapterref{章：漸化式の解説}で扱った基本4パターンと応用7パターンを横断して出題する。問題の順序から解法を推測せず,式の構造から適切な解法を選択すること。
 
-      \subsubsection{問題}
-        \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em]
+      \subsubsection{問題}\label{節：基本と応用から出題されるもの：問題}
+        \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-basic}{problem}{answer}]
           \item 正の数列 \(\{a_n\}\) が
             \[
               a_1=2,\qquad a_{n+1}=a_n^2
@@ -248,8 +248,8 @@
                 で定められる数列の一般項を求めよ。
         \end{enumerate}
 
-      \subsubsection{方針}
-        \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em]
+      \subsubsection{方針}\label{節：基本と応用から出題されるもの：方針}
+        \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-basic}{hint}{problem}]
           \item \(2\) を底とする対数を取り、指数部分を一次漸化式にする。
           \item 特性方程式の複素根を極形式に直し、三角関数型で表す。
           \item 連続する2つの式を引いて、一次の非斉次漸化式に変換する。
@@ -307,8 +307,8 @@
           \item 階比を \(1\) から \(n-1\) まで掛け、積を約分する。
         \end{enumerate}
 
-      \subsubsection{解答}
-        \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em]
+      \subsubsection{解答}\label{節：基本と応用から出題されるもの：解答}
+        \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-basic}{answer}{problem}]
           \item \[
               a_n=2^{2^{n-1}}
             \]
@@ -498,8 +498,8 @@
             \]
         \end{enumerate}
 
-      \subsubsection{解法}
-        \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em]
+      \subsubsection{解法}\label{節：基本と応用から出題されるもの：解法}
+        \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-basic}{solution}{problem}]
           \item $\displaystyle b_n=\log_2 a_n$
                 とおくと
             \[
@@ -1427,8 +1427,8 @@
     \subsection{高難易度のもの}\label{節：高難易度のもの}
       ここでは複数の解法を組み合わせる問題,複数回の変換を要する問題,一見単純でありながら技巧的な変形を要する問題を扱う。
 
-      \subsubsection{問題}
-        \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em]
+      \subsubsection{問題}\label{節：高難易度のもの：問題}
+        \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-advanced}{problem}{answer}]
           \item $\displaystyle a_1=b_1=1,$
             \[
               \begin{cases}
@@ -1529,8 +1529,8 @@
                 とする。\(a_n\) を求めよ。
         \end{enumerate}
 
-      \subsubsection{方針}
-        \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em]
+      \subsubsection{方針}\label{節：高難易度のもの：方針}
+        \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-advanced}{hint}{problem}]
           \item 連立式の対称性から和と差に分離する。和は等比、差は階差型になる。最後に等比数列の和を使う。
           \item 部分和を直接解かず、\(S_n\) を消去して重解をもつ3項間漸化式へ落とす。
           \item 積を対数で総和へ変換し、隣接する式を引いて一次漸化式にする。
@@ -1548,8 +1548,8 @@
           \item \(1\pm a_n\) を同時に因数分解し、その比を取ると平方型になる。
         \end{enumerate}
 
-      \subsubsection{解答}
-        \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em]
+      \subsubsection{解答}\label{節：高難易度のもの：解答}
+        \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-advanced}{answer}{problem}]
           \item \[
               \begin{aligned}
                 a_n &= \frac{5\cdot3^{n-1}-3}{2},\\
@@ -1641,8 +1641,8 @@
             \]
         \end{enumerate}
 
-      \subsubsection{解法}
-        \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em]
+      \subsubsection{解法}\label{節：高難易度のもの：解法}
+        \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-advanced}{solution}{problem}]
           \item \(s_n=a_n+b_n,\ d_n=a_n-b_n\) とおくと
             \[
               s_{n+1}=3s_n,\qquad d_{n+1}=d_n+2\cdot3^n.
@@ -1963,8 +1963,8 @@
     \subsection{大学過去問ベースのもの}\label{節：大学過去問ベースのもの}
       以下の問題は大学入試問題の出題構造・発想を参考に,本書の演習として独立に再構成したものである。原典の問題文そのものではない。
 
-      \subsubsection{問題}
-        \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em]
+      \subsubsection{問題}\label{節：大学過去問ベースのもの：問題}
+        \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-entrance}{problem}{answer}]
           \item 正の数列 \(\{a_n\}\) を
             \[
               a_1=1,\qquad
@@ -2034,8 +2034,8 @@
                 \textit{参考構造：東京大学 2024 理系 第3問の状態分類・確率漸化式を参考に再構成}
         \end{enumerate}
 
-      \subsubsection{方針}
-        \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em]
+      \subsubsection{方針}\label{節：大学過去問ベースのもの：方針}
+        \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-entrance}{hint}{problem}]
           \item 逆数列 \(b_n\) の差を計算する。まず \(a_n\) を上から評価して平均の極限を求め、その結果を再び \(b_n/n\) の極限評価に使う。
           \item 奇数項が続いている間は \(a_{n+1}+1=\frac32(a_n+1)\) が成立する。\(a_j\) が奇数である条件を \(a_0+1\) の2進因子の条件に読み替える。
           \item 桁数条件と最高位条件をそれぞれ \(k\) の区間へ変換する。整数個数と区間長との差は高々定数なので,極限では区間長の最高次項だけを比較する。
@@ -2043,8 +2043,8 @@
           \item  \(A\),対頂点 \(C\),隣接頂点 \(B,D\) の3種類に状態分類する。\(A\) と \(C\) の確率の和と差を取る。
         \end{enumerate}
 
-      \subsubsection{解答}
-        \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em]
+      \subsubsection{解答}\label{節：大学過去問ベースのもの：解答}
+        \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-entrance}{answer}{problem}]
           \item \[
               \lim_{n\to\infty}na_n=\frac14,
               \qquad
@@ -2070,8 +2070,8 @@
                 なお \(p_0=1\) である.
         \end{enumerate}
 
-      \subsubsection{解法}
-        \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em]
+      \subsubsection{解法}\label{節：大学過去問ベースのもの：解法}
+        \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-entrance}{solution}{problem}]
           \item 漸化式から
             \[
               b_{n+1}=b_n+4+4a_n.

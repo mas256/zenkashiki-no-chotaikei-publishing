@@ -1,6 +1,6 @@
 % subsection: 対数型 \, $a_{n+1}=pa_n^q$
 
-\subsection{対数型 \, $a_{n+1}=pa_n^q$}\label{節：対数型}
+\subsection{\texorpdfstring{対数型 \, $a_{n+1}=pa_n^q$}{対数型}}\label{節：対数型}
   今までは$a_n$に対する操作は定数倍したり関数が掛けられたりするだけだった.
   しかし,\,$a_n$に指数がついたらどうだろうか.
   この場合はかなり難しい発想の変形が必要である.
@@ -38,8 +38,8 @@
   漸化式が全て積や商のみで表される場合にその強みが現れる.
   これはここで解説するよりも演習問題を通して経験するほうがわかりやすいと判断したため,この内容は(2)で取り扱っている.
 
-  \noindent\textbf{【例題】}
-  \begin{enumerate}[label=(\arabic*),parsep=3pt]
+  \noindent\bookblocklink{example-logarithmic-1}{problem}{answer}{【例題】}
+  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-logarithmic-1}{problem}{answer}]
     \item $\displaystyle a_1=2,\quad a_{n+1}=2a_n^2$
     \item $\displaystyle a_1=\frac{1}{2},\quad a_{n+1}=\frac{1}{a_n}$
     \item $\displaystyle a_1=1,\quad a_{n+1}=2^na_n$
@@ -48,8 +48,8 @@
     \item $\displaystyle a_1=1,\quad a_{n+1}=(n+1)a_n$
   \end{enumerate}
 
-  \noindent\textbf{【方針】}
-  \begin{enumerate}[label=(\arabic*),parsep=3pt]
+  \noindent\bookblocklink{example-logarithmic-1}{hint}{problem}{【方針】}
+  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-logarithmic-1}{hint}{problem}]
     \item 両辺の底を$2$とする対数を取り,\,$b_n=\log_2a_n$とおいて一次の漸化式に変形します.その結果,漸化式は特性方程式型になります.
     \item 一見すると分数型(後述)のように見えますが,対数型として解くことができます.
     \item $f(n)=2^n$が指数関数なので,対数を取ると和の形に帰着できます.
@@ -58,8 +58,8 @@
     \item 階比型に見えますが,対数型としても解けます.
   \end{enumerate}
 
-  \noindent\textbf{【解答】}
-  \begin{enumerate}[label=(\arabic*),parsep=3pt]
+  \noindent\bookblocklink{example-logarithmic-1}{answer}{problem}{【解答】}
+  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-logarithmic-1}{answer}{problem}]
     \item $\displaystyle a_n=2^{2^{n}-1}$
     \item $a_n=2^{(-1)^{n}}$
     \item $a_n=2^{\frac{n(n-1)}{2}}$
@@ -68,7 +68,7 @@
     \item $a_n=n!$
   \end{enumerate}
 
-  \noindent\textbf{【解法】}
+  \noindent\bookblocklink{example-logarithmic-1}{solution}{problem}{【解法】}
 
   (1),(2),(3),(5),(6)では,初項が正であり,正の項から次の項も正となる.
   従って数学的帰納法により,$a_n>0$がすべての$n\ge1$で成り立つ.
