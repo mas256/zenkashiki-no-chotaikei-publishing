@@ -1,0 +1,17 @@
+{
+  "check_directory": "C:\\Users\\krunk\\AppData\\Local\\Temp\\latex-global-verified-5dvbdnmc",
+  "latexmk": "C:\\texlive\\2026\\bin\\windows\\latexmk.EXE",
+  "global_rc": "C:\\Users\\krunk\\.latexmkrc",
+  "local_rc_present": false,
+  "global_build_exit_code": 0,
+  "editor_build_exit_code": 0,
+  "verified_tools": [
+    "uplatex",
+    "upbibtex",
+    "upmendex",
+    "dvipdfmx"
+  ],
+  "undefined_references_or_citations": false,
+  "synctex": true,
+  "pdf_bytes": 32537
+}

@@ -519,7 +519,7 @@
             \[
               r^2-2r+2=0
             \]
-                で、根は
+                で, 根は
             \[
               1\pm i
               =\sqrt2\left(
@@ -534,8 +534,8 @@
               +B\sin\frac{n\pi}{4}
               \right)
             \]
-                と表せる。
-                初期条件を代入すると \(A=0,B=1\) となり、
+                と表せる.
+                初期条件を代入すると \(A=0,B=1\) となり,
             \[
               a_n=(\sqrt2)^n\sin\frac{n\pi}{4}.
             \]
@@ -568,11 +568,14 @@
             \[
               a_n=3\cdot2^{n-2}-1.
             \]
-          \item $\displaystyle a_n
-                =\prod_{k=1}^{n-1}\frac{2k+1}{2k-1}
-                =\frac31\cdot\frac53\cdots\frac{2n-1}{2n-3}
-                =2n-1.$
-          \item $\displaystyle b_n=\frac1{a_n}$
+          \item \[
+            \begin{aligned}
+              a_n &= \prod_{k=1}^{n-1}\frac{2k+1}{2k-1}\\
+              &= \frac31\cdot\frac53\cdots\frac{2n-1}{2n-3}\\
+              &= 2n-1.
+            \end{aligned}
+          \]
+          \item $\displaystyle b_n=\displaystyle \frac1{a_n}$
                 とおくと
             \[
               b_{n+1}
@@ -588,7 +591,7 @@
             \[
               a_n=\frac2{n+1}.
             \]
-          \item $\displaystyle b_n=\frac1{a_n}$
+          \item $\displaystyle b_n=\displaystyle \frac1{a_n}$
                 とおくと
             \[
               b_{n+1}
@@ -671,13 +674,13 @@
               =b_1+\sum_{k=1}^{n-1}2^{k-1}
               =2^{n-1}-1.
             \]
-          \item $\displaystyle a_n
-                =4\prod_{k=1}^{n-1}
-                \left(\frac{k}{k+1}\right)^2
-                =4\left(
-                \prod_{k=1}^{n-1}\frac{k}{k+1}
-                \right)^2.$
-                中の積は \(1/n\) なので
+          \item \[
+            \begin{aligned}
+              a_n &= 4\prod_{k=1}^{n-1} \left(\frac{k}{k+1}\right)^2\\
+              &= 4\left( \prod_{k=1}^{n-1}\frac{k}{k+1} \right)^2.
+            \end{aligned}
+          \]
+                中の積は \(\displaystyle \frac{1}{n}\) なので
             \[
               a_n=\frac4{n^2}.
             \]
@@ -726,8 +729,8 @@
               =1+\frac{3^{n-1}-1}{2}
               =\frac{3^{n-1}+1}{2}.
             \]
-          \item $\displaystyle b_n=\frac{a_n}{2^{n-1}}$
-                とおく。
+          \item $\displaystyle b_n=\displaystyle \frac{a_n}{2^{n-1}}$
+                とおく.
                 漸化式を \(2^n\) で割ると
             \[
               b_{n+1}=b_n+1.
@@ -744,7 +747,7 @@
             \[
               \alpha=-2\alpha+6
             \]
-                より \(\alpha=2\)。
+                より \(\alpha=2\).
                 したがって
             \[
               a_{n+1}-2=-2(a_n-2).
@@ -757,7 +760,7 @@
             \[
               a_n=2+(-2)^n.
             \]
-          \item 公差は \(-3\) なので、
+          \item 公差は \(-3\) なので,
             \[
               a_n=-2-3(n-1)=1-3n.
             \]
@@ -767,7 +770,7 @@
               b_{n+1}=\frac{n+1}{n}b_n,
               \qquad b_1=1.
             \]
-                これは階比型で、
+                これは階比型で,
             \[
               b_n
               =\prod_{k=1}^{n-1}\frac{k+1}{k}
@@ -777,7 +780,7 @@
             \[
               a_n=2^n.
             \]
-          \item 不動点は \(1\) である。
+          \item 不動点は \(1\) である.
             \[
               b_n=\frac1{1-a_n}
             \]
@@ -795,7 +798,7 @@
               =\frac{2-a_n}{1-a_n}
               =1+b_n.
             \]
-                \(b_1=1\) より \(b_n=n\)。
+                \(b_1=1\) より \(b_n=n\).
                 よって
             \[
               a_n=1-\frac1n.
@@ -847,22 +850,22 @@
             \[
               a_n=(A+B(n-1))3^{n-1}.
             \]
-                \(a_1=1\) より \(A=1\)。
+                \(a_1=1\) より \(A=1\).
                 また
             \[
               a_2=3(A+B)=6
             \]
-                より \(A+B=2\) なので \(B=1\)。
+                より \(A+B=2\) なので \(B=1\).
                 したがって
             \[
               a_n=n3^{n-1}.
             \]
-          \item \(3^n\) 型の特解を考える。
-                実際、
+          \item \(3^n\) 型の特解を考える.
+                実際,
             \[
               3^{n+1}=2\cdot3^n+3^n
             \]
-                なので \(3^n\) は特解である。
+                なので \(3^n\) は特解である.
                 そこで
             \[
               b_n=a_n-3^n
@@ -919,7 +922,7 @@
             \[
               a_n=2^{n-2}\quad(n\ge2).
             \]
-          \item 公差は \(4\) であるから、
+          \item 公差は \(4\) であるから,
             \[
               a_n=a_1+(n-1)\cdot4
               =3+4(n-1)
@@ -936,14 +939,14 @@
             \[
               a_n=n^2.
             \]
-          \item 公比は \(1/3\) だから
+          \item 公比は \(\displaystyle \frac{1}{3}\) だから
             \[
               a_n=81\left(\frac13\right)^{n-1}
               =3^4\cdot3^{-(n-1)}
               =3^{5-n}.
             \]
           \item $\displaystyle s_n=a_n+b_n,\qquad d_n=a_n-b_n$
-                とおく。
+                とおく.
                 すると
             \[
               s_{n+1}=3s_n,
@@ -1034,13 +1037,19 @@
             \[
               a_n=2\cdot3^{n-2}\quad(n\ge2).
             \]
-          \item $\displaystyle a_n
-                =\prod_{k=1}^{n-1}\frac{k+2}{k+1}
-                =\frac32\cdot\frac43\cdots\frac{n+1}{n}
-                =\frac{n+1}{2}.$
-          \item $\displaystyle a_n
-                =\prod_{k=1}^{n-1}\frac{2k}{k+1}
-                =2^{n-1}\frac{1\cdot2\cdots(n-1)}{2\cdot3\cdots n}.$
+          \item \[
+            \begin{aligned}
+              a_n &= \prod_{k=1}^{n-1}\frac{k+2}{k+1}\\
+              &= \frac32\cdot\frac43\cdots\frac{n+1}{n}\\
+              &= \frac{n+1}{2}.
+            \end{aligned}
+          \]
+          \item \[
+            \begin{aligned}
+              a_n &= \prod_{k=1}^{n-1}\frac{2k}{k+1}\\
+              &= 2^{n-1}\frac{1\cdot2\cdots(n-1)}{2\cdot3\cdots n}.
+            \end{aligned}
+          \]
                 よって
             \[
               a_n=\frac{2^{n-1}}n.
@@ -1065,7 +1074,7 @@
             \[
               b_1=2,\qquad b_2=4
             \]
-                より \(A=0,B=2\)。
+                より \(A=0,B=2\).
                 したがって
             \[
               b_n=2^n,
@@ -1076,7 +1085,7 @@
             \[
               \alpha=\frac12\alpha+3
             \]
-                より \(\alpha=6\)。
+                より \(\alpha=6\).
                 したがって
             \[
               a_{n+1}-6
@@ -1087,8 +1096,9 @@
               a_n-6
               =4\left(\frac12\right)^{n-1}.
             \]
-          \item $\displaystyle \frac1{n(n+1)}
-                =\frac1n-\frac1{n+1}.$
+          \item \[
+            \frac1{n(n+1)} =\frac1n-\frac1{n+1}.
+          \]
                 したがって
             \[
               a_n
@@ -1121,8 +1131,8 @@
             \[
               a_n=2+3\left(\frac23\right)^{n-1}.
             \]
-          \item $\displaystyle b_n=\frac{a_n}{2^{n-1}}$
-                とおく。
+          \item $\displaystyle b_n=\displaystyle \frac{a_n}{2^{n-1}}$
+                とおく.
                 両辺を \(2^n\) で割ると
             \[
               b_{n+1}=b_n+3.
@@ -1151,7 +1161,7 @@
             \[
               17-5=4d
             \]
-                より \(d=3\)。また
+                より \(d=3\). また
             \[
               a_1=a_2-d=2
             \]
@@ -1163,12 +1173,12 @@
             \[
               a_n=-4(-2)^{n-1}.
             \]
-                符号が交互に変化することにも注意する。
+                符号が交互に変化することにも注意する.
           \item 条件より
             \[
               a_{n+2}-a_{n+1}=a_{n+1}-a_n
             \]
-                なので、階差 \(a_{n+1}-a_n\) は一定である。
+                なので, 階差 \(a_{n+1}-a_n\) は一定である.
                 初項2項から公差は
             \[
               7-2=5.
@@ -1183,7 +1193,7 @@
             \[
               a_n=2^n-2.
             \]
-          \item 各項は正なので割り算できる。
+          \item 各項は正なので割り算できる.
             \[
               a_{n+2}a_n=a_{n+1}^2
             \]
@@ -1193,7 +1203,7 @@
               =
               \frac{a_{n+1}}{a_n}.
             \]
-                したがって隣接項の比は一定である。
+                したがって隣接項の比は一定である.
                 初めの比は
             \[
               \frac{a_2}{a_1}=3
@@ -1210,7 +1220,7 @@
             \[
               (x-1)(x-2)=0
             \]
-                より \(1,2\)。
+                より \(1,2\).
                 そこで
             \[
               b_n=\frac{a_n-1}{a_n-2}
@@ -1242,7 +1252,7 @@
             \[
               r^3=\frac{162}{6}=27.
             \]
-                正の数列なので \(r=3\)。
+                正の数列なので \(r=3\).
                 さらに
             \[
               a_1=\frac{a_2}{3}=2
@@ -1315,7 +1325,7 @@
             \[
               a_n=2^{n-1}.
             \]
-          \item 不動点は \(1,-1\) である。
+          \item 不動点は \(1,-1\) である.
             \[
               b_n=\frac{a_n-1}{a_n+1}
             \]
@@ -1365,7 +1375,7 @@
             \[
               \alpha=3\alpha-4
             \]
-                より \(\alpha=2\)。
+                より \(\alpha=2\).
                 したがって
             \[
               a_{n+1}-2=3(a_n-2).
@@ -1382,7 +1392,7 @@
             \[
               \alpha=2\alpha+3
             \]
-                より \(\alpha=-3\)。
+                より \(\alpha=-3\).
                 そこで
             \[
               b_n=a_n+3
@@ -1399,8 +1409,9 @@
             \[
               a_n=2^{n+1}-3.
             \]
-          \item $\displaystyle a_n
-                =2\prod_{k=1}^{n-1}\frac{k+1}{k}.$
+          \item \[
+            a_n =2\prod_{k=1}^{n-1}\frac{k+1}{k}.
+          \]
                 積は連鎖的に約分され
             \[
               \prod_{k=1}^{n-1}\frac{k+1}{k}=n.
@@ -1540,54 +1551,48 @@
       \subsubsection{解答}
         \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em]
           \item \[
-              \boxed{a_n=\frac{5\cdot3^{n-1}-3}{2}},\qquad
-              \boxed{b_n=\frac{3-3^{n-1}}2}
+              \begin{aligned}
+                a_n &= \frac{5\cdot3^{n-1}-3}{2},\\
+                b_n &= \frac{3-3^{n-1}}2
+              \end{aligned}
             \]
             \[
-              \boxed{\sum_{k=1}^{n}a_k=
-              \frac{5(3^n-1)-6n}{4}}
+              \sum_{k=1}^{n}a_k=
+              \frac{5(3^n-1)-6n}{4}
             \]
           \item \[
-              \boxed{a_n=(n+1)2^{n-2}},\qquad
-              \boxed{S_n=n2^{n-1}}
+              a_n=(n+1)2^{n-2},\qquad
+              S_n=n2^{n-1}
             \]
           \item \[
-              \boxed{a_n=2^{\,2^{n-1}-1}}
+              a_n=2^{\,2^{n-1}-1}
             \]
           \item \[
-              \boxed{a_n=3^{n-1}+\frac1{2n}},\qquad
-              \boxed{b_n=3^{n-1}-\frac1{2n}}
+              \begin{aligned}
+                a_n &= 3^{n-1}+\frac1{2n},\\
+                b_n &= 3^{n-1}-\frac1{2n}
+              \end{aligned}
             \]
           \item \[
-              \boxed{
               a_n=1+\frac1{3\cdot2^{n-1}-n-1}
-              }
             \]
             \[
-              \boxed{\lim_{n\to\infty}2^n(a_n-1)=\frac23}
+              \lim_{n\to\infty}2^n(a_n-1)=\frac23
             \]
           \item \[
-              \boxed{
               a_n=
               2^{\frac{n(n-1)(2n-1)}6+2n-1}
-              }
             \]
           \item \[
-              \boxed{
               a_n=\frac{n^2-n+6}{n^2-n+2}
-              }
             \]
           \item \[
-              \boxed{
-              a_n=5^{n-1}+\frac3{n^2+n+4}
-              },
-              \qquad
-              \boxed{
-              b_n=5^{n-1}-\frac3{n^2+n+4}
-              }
+              \begin{aligned}
+                a_n &= 5^{n-1}+\frac3{n^2+n+4},\\
+                b_n &= 5^{n-1}-\frac3{n^2+n+4}
+              \end{aligned}
             \]
           \item \[
-              \boxed{
               a_n=
               2^{
               \frac1{\sqrt5}
@@ -1597,55 +1602,42 @@
               \left(\frac{3-\sqrt5}{2}\right)^{n-1}
               \right]
               }
-              }
             \]
           \item \[
-              \boxed{
               a_n=
               \prod_{k=1}^{n-1}\frac{2k}{2k-1}
               =
               \frac{(2n-2)!!}{(2n-3)!!}
-              }
             \]
           \item \[
-              \boxed{
               a_n=
               \frac{2^{\,2^{n-1}}+1}
               {2^{\,2^{n-1}}-1}
-              }
             \]
           \item \[
-              \boxed{
               a_n=
               \frac12\left\{
               (2+\sqrt3)^{2^{n-1}}
               +
               (2-\sqrt3)^{2^{n-1}}
               \right\}
-              }
             \]
           \item \[
-              \boxed{
               a_n=
               \sqrt3\,
               \frac{1+(2-\sqrt3)^{2^n}}
               {1-(2-\sqrt3)^{2^n}}
-              }
             \]
           \item \[
-              \boxed{
               a_n=
               \left(\frac{3+\sqrt5}{2}\right)^{2^{n-1}}
               +
               \left(\frac{3-\sqrt5}{2}\right)^{2^{n-1}}
-              }
             \]
           \item \[
-              \boxed{
               a_n=
               \frac{2^{\,2^{n-1}}-1}
               {2^{\,2^{n-1}}+1}
-              }
             \]
         \end{enumerate}
 
@@ -1691,7 +1683,7 @@
             \[
               a_n=(A+B(n-1))2^{n-1}
             \]
-                に初期条件を入れると \(A=1,B=1/2\)。よって
+                に初期条件を入れると \(A=1,B=\displaystyle \frac{1}{2}\). よって
             \[
               a_n=(n+1)2^{n-2}.
             \]
@@ -1724,16 +1716,16 @@
             \[
               s_n=2\cdot3^{n-1}.
             \]
-                また \(c_n=1/d_n\) とおくと
+                また \(c_n=\displaystyle \frac{1}{d_n}\) とおくと
             \[
               c_{n+1}=c_n+1,\qquad c_1=1,
             \]
-                したがって \(d_n=1/n\)。ゆえに
+                したがって \(d_n=\displaystyle \frac{1}{n}\). ゆえに
             \[
               a_n=\frac{s_n+d_n}{2},\qquad
               b_n=\frac{s_n-d_n}{2}.
             \]
-          \item $\displaystyle b_n=\frac1{a_n-1}$
+          \item $\displaystyle b_n=\displaystyle \frac1{a_n-1}$
                 とおくと
             \[
               b_{n+1}=2b_n+n,\qquad b_1=1.
@@ -1767,12 +1759,12 @@
               x_n=1+\sum_{k=1}^{n-1}(k^2+2)
               =\frac{n(n-1)(2n-1)}6+2n-1.
             \]
-          \item $\displaystyle b_n=\frac{a_n-1}{a_n+1}$
+          \item $\displaystyle b_n=\displaystyle \frac{a_n-1}{a_n+1}$
                 とおくと
             \[
               b_{n+1}=\frac{b_n}{1+nb_n}.
             \]
-                さらに \(c_n=1/b_n\) とおけば
+                さらに \(c_n=\displaystyle \frac{1}{b_n}\) とおけば
             \[
               c_{n+1}=c_n+n.
             \]
@@ -1789,7 +1781,7 @@
             \[
               \frac{a_n-1}{a_n+1}=b_n
             \]
-                へ戻せば答えを得る。
+                へ戻せば答えを得る.
           \item \(s_n=a_n+b_n,\ d_n=a_n-b_n\) とおくと
             \[
               s_{n+1}=5s_n,\qquad
@@ -1799,7 +1791,7 @@
             \[
               s_n=2\cdot5^{n-1}.
             \]
-                さらに \(c_n=1/d_n\) とおくと
+                さらに \(c_n=\displaystyle \frac{1}{d_n}\) とおくと
             \[
               c_{n+1}=c_n+\frac{n+1}{3}.
             \]
@@ -1826,7 +1818,7 @@
             \[
               x_{n+1}-3x_n+x_{n-1}=0.
             \]
-                \(x_1=0,x_2=1\)。特性方程式
+                \(x_1=0,x_2=1\). 特性方程式
             \[
               r^2-3r+1=0
             \]
@@ -1839,13 +1831,13 @@
             \[
               x_n=\frac{\alpha^{n-1}-\beta^{n-1}}{\sqrt5}.
             \]
-                よって \(a_n=2^{x_n}\)。
-          \item $\displaystyle r_n=\frac{a_{n+1}}{a_n}$
+                よって \(a_n=2^{x_n}\).
+          \item $\displaystyle r_n=\displaystyle \frac{a_{n+1}}{a_n}$
                 とおくと
             \[
               r_{n+1}=\frac{(n+1)r_n}{n+r_n}.
             \]
-                \(c_n=1/r_n\) とおけば
+                \(c_n=\displaystyle \frac{1}{r_n}\) とおけば
             \[
               c_{n+1}=\frac{nc_n+1}{n+1}.
             \]
@@ -1853,7 +1845,7 @@
             \[
               d_{n+1}=\frac{n}{n+1}d_n.
             \]
-                \(r_1=2\) より \(d_1=-1/2\)。したがって
+                \(r_1=2\) より \(d_1=-\displaystyle \frac{1}{2}\). したがって
             \[
               d_n=-\frac1{2n},
               \quad
@@ -1863,8 +1855,12 @@
             \[
               a_n=\prod_{k=1}^{n-1}\frac{2k}{2k-1}.
             \]
-          \item $\displaystyle a_{n+1}-1=\frac{(a_n-1)^2}{2a_n},\qquad
-                a_{n+1}+1=\frac{(a_n+1)^2}{2a_n}.$
+          \item \[
+            \begin{aligned}
+              a_{n+1}-1 &= \frac{(a_n-1)^2}{2a_n},\\
+              a_{n+1}+1 &= \frac{(a_n+1)^2}{2a_n}.
+            \end{aligned}
+          \]
                 したがって
             \[
               b_n=\frac{a_n-1}{a_n+1}
@@ -1873,13 +1869,13 @@
             \[
               b_{n+1}=b_n^2.
             \]
-                \(b_1=1/2\) より
+                \(b_1=\displaystyle \frac{1}{2}\) より
             \[
               b_n=2^{-2^{n-1}}.
             \]
-                これを \(a_n\) について解く。
+                これを \(a_n\) について解く.
           \item $\displaystyle b_n=a_n+\sqrt{a_n^2-1}$
-                とおく。
+                とおく.
             \[
               a_{n+1}^2-1=4a_n^2(a_n^2-1)
             \]
@@ -1899,11 +1895,12 @@
             \[
               2a_n=b_n+b_n^{-1}.
             \]
-          \item $\displaystyle a_{n+1}-\sqrt3
-                =\frac{(a_n-\sqrt3)^2}{2a_n},
-                \qquad
-                a_{n+1}+\sqrt3
-                =\frac{(a_n+\sqrt3)^2}{2a_n}.$
+          \item \[
+            \begin{aligned}
+              a_{n+1}-\sqrt3 &= \frac{(a_n-\sqrt3)^2}{2a_n},\\
+              a_{n+1}+\sqrt3 &= \frac{(a_n+\sqrt3)^2}{2a_n}.
+            \end{aligned}
+          \]
                 したがって
             \[
               b_n=\frac{a_n-\sqrt3}{a_n+\sqrt3}
@@ -1920,9 +1917,11 @@
             \[
               b_n=(2-\sqrt3)^{2^n}.
             \]
-                最後に \(a_n\) について解く。
-          \item $\displaystyle b_n=\frac{a_n+\sqrt{a_n^2-4}}2$
-                とおく。
+                最後に \(a_n\) について解く.
+          \item \[
+            b_n=\frac{a_n+\sqrt{a_n^2-4}}2
+          \]
+                とおく.
             \[
               a_{n+1}^2-4=a_n^2(a_n^2-4)
             \]
@@ -1930,7 +1929,7 @@
             \[
               b_{n+1}=b_n^2.
             \]
-                \(b_1=(3+\sqrt5)/2\) なので
+                \(b_1=\displaystyle \frac{3+\sqrt5}{2}\) なので
             \[
               b_n=\left(\frac{3+\sqrt5}{2}\right)^{2^{n-1}}.
             \]
@@ -1938,11 +1937,12 @@
             \[
               a_n=b_n+b_n^{-1}.
             \]
-          \item $\displaystyle 1-a_{n+1}
-                =\frac{(1-a_n)^2}{1+a_n^2},
-                \qquad
-                1+a_{n+1}
-                =\frac{(1+a_n)^2}{1+a_n^2}.$
+          \item \[
+            \begin{aligned}
+              1-a_{n+1} &= \frac{(1-a_n)^2}{1+a_n^2},\\
+              1+a_{n+1} &= \frac{(1+a_n)^2}{1+a_n^2}.
+            \end{aligned}
+          \]
                 したがって
             \[
               b_n=\frac{1-a_n}{1+a_n}
@@ -1951,11 +1951,11 @@
             \[
               b_{n+1}=b_n^2.
             \]
-                \(b_1=1/2\) より
+                \(b_1=\displaystyle \frac{1}{2}\) より
             \[
               b_n=2^{-2^{n-1}}.
             \]
-                これを \(a_n\) について解けばよい。
+                これを \(a_n\) について解けばよい.
         \end{enumerate}
 
 % section: 大学過去問ベースのもの
@@ -2046,31 +2046,28 @@
       \subsubsection{解答}
         \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em]
           \item \[
-              \boxed{\lim_{n\to\infty}na_n=\frac14},
+              \lim_{n\to\infty}na_n=\frac14,
               \qquad
-              \boxed{\lim_{n\to\infty}\frac1n\sum_{k=1}^{n}a_k=0}.
+              \lim_{n\to\infty}\frac1n\sum_{k=1}^{n}a_k=0.
             \]
           \item \[
-              \boxed{a_0=2^{m+1}-1}.
+              a_0=2^{m+1}-1.
             \]
           \item \[
-              \boxed{
               \lim_{n\to\infty}\frac{L_n}{N_n}
               =\frac{d}{c}
               =\log_{10}\frac32
-              }.
+              .
             \]
           \item \[
-              \boxed{
               S_m=\frac2{m+1}\sum_{k=1}^{m}\frac1k
-              }.
+              .
             \]
           \item \[
-              \boxed{
               p_n=\frac14+\frac1{2^{n+1}}\quad(n\ge1)
-              }.
+              .
             \]
-                なお \(p_0=1\) である。
+                なお \(p_0=1\) である.
         \end{enumerate}
 
       \subsubsection{解法}
@@ -2083,7 +2080,7 @@
             \[
               b_n=4n-3+4\sum_{k=1}^{n-1}a_k,
             \]
-                ゆえに \(n\ge2\) で \(b_n>4n-3\)。よって
+                ゆえに \(n\ge2\) で \(b_n>4n-3\). よって
             \[
               0<a_n<\frac1{4n-3},
             \]
@@ -2116,7 +2113,7 @@
             \[
               2\cdot10^{n-1}\le5^{\sqrt{k}}<3\cdot10^{n-1}.
             \]
-                \(d=\log_5(3/2)\) とおくと
+                \(d=\log_5(\displaystyle \frac{3}{2})\) とおくと
             \[
               L_n=2cd\,n+O(1).
             \]

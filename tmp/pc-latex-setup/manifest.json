@@ -1,0 +1,26 @@
+[
+  {
+    "target": "C:\\Users\\krunk\\.latexmkrc",
+    "staged": "home-dot-latexmkrc",
+    "original_sha256": "3f3ef5985bcc590bc21ce0f3685b0c8b9891f7c46c412f9ef402df004b06e011",
+    "replacement_sha256": "5b54e58e66c88c2eed249db33d1112f9b23932941b3cc71800683e13ee7eda7b"
+  },
+  {
+    "target": "C:\\Users\\krunk\\latexmkrc",
+    "staged": "home-latexmkrc",
+    "original_sha256": "c6b24e00f1b733e06ec05ff0818bed03c0256d53fb5d6a9d24b38b6bfc93cec6",
+    "replacement_sha256": "5b54e58e66c88c2eed249db33d1112f9b23932941b3cc71800683e13ee7eda7b"
+  },
+  {
+    "target": "C:\\Users\\krunk\\AppData\\Roaming\\Code\\User\\settings.json",
+    "staged": "vscode-settings.json",
+    "original_sha256": "6ef0a55e7ccc3f9f0709331e0c11947c23a27a62707b8308ed56d7536ba08bdc",
+    "replacement_sha256": "c6eab0eaa659611ef6b305ca290ce5720b87c6c289604b1d3c11efeff113c486"
+  },
+  {
+    "target": "C:\\Users\\krunk\\AppData\\Roaming\\Cursor\\User\\settings.json",
+    "staged": "cursor-settings.json",
+    "original_sha256": "daf2d850f2f6881c7afb87cc73ad4ee19e5170d27b0f637e9f1b2729d0d17555",
+    "replacement_sha256": "4e3faf549d19907960ed500a06179fe6a5083aca120a38894565584b725cd323"
+  }
+]

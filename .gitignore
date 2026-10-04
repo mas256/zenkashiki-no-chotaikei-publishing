@@ -18,7 +18,7 @@
 *.toc
 *.vrb
 *.xdv
-/*.pdf
+*.[pP][dD][fF]
 /基本-new/*.pdf
 /発展-new/*.pdf
 

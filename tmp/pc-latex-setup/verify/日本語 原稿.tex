@@ -1,0 +1,20 @@
+\documentclass[dvipdfmx,a4paper,11pt,fleqn,openany]{jsbook}
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+\usepackage{nameref}
+\usepackage[margin=20truemm]{geometry}
+\usepackage{tikz}
+\usepackage[table]{xcolor}
+\usepackage{tcolorbox}
+\usepackage{makeidx}
+\tcbuselibrary{breakable}
+\makeindex
+\begin{document}
+\chapter{共通ビルドの確認}
+\label{ch:check}
+日本語・空白を含むファイル名、数式、作図、参照、文献、索引を確認します。
+\input{章 本文/本文.tex}
+第\ref{ch:check}章の式\eqref{eq:recurrence}を参照します。\cite{test}
+\bibliographystyle{plain}
+\bibliography{references}
+\printindex
+\end{document}

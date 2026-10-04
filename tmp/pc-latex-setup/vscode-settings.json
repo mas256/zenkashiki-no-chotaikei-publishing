@@ -1,0 +1,37 @@
+{
+    "workbench.colorTheme": "Visual Studio 2017 Dark - C++",
+    "markdown-pdf.mermaidServer": "https://unpkg.com/mermaid@10.4.0/dist/mermaid.js",
+    "workbench.settings.applyToAllProfiles": [
+        "markdown-pdf.mermaidServer",
+        "latex-workshop.latex.recipe.default",
+        "latex-workshop.latex.recipes",
+        "latex-workshop.latex.tools"
+    ],
+    "editor.unicodeHighlight.nonBasicASCII": false,
+    "editor.tabSize": 2,
+    "security.workspace.trust.untrustedFiles": "open",
+    "latex-workshop.latex.recipe.default": "latexmk (latexmkrc)",
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "latexmk (latexmkrc)",
+            "tools": [
+                "latexmk (latexmkrc)"
+            ]
+        }
+    ],
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk (latexmkrc)",
+            "command": "latexmk",
+            "args": [
+                "-cd",
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ]
+        }
+    ],
+    "tinymist.exportPdf": "onType",
+    "jdk.telemetry.enabled": true
+}
