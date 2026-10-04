@@ -13,6 +13,7 @@ import re
 import sys
 from pathlib import Path
 from string import Template
+from urllib.parse import quote
 
 SEMVER = re.compile(r"^v(\d+)\.(\d+)\.(\d+)$")
 
@@ -61,6 +62,7 @@ def main() -> int:
     ap.add_argument("--tag", required=True)
     ap.add_argument("--repo", required=True)
     ap.add_argument("--out", required=True)
+    ap.add_argument("--catalog")
     args = ap.parse_args()
 
     if not SEMVER.match(args.tag):
@@ -91,7 +93,15 @@ def main() -> int:
             f"{html.escape(tag)}</a> <time>{html.escape(date)}</time>{cur}</li>"
         )
 
-    major = semver_key(args.tag)[0]
+    catalog = json.loads(Path(args.catalog).read_text(encoding="utf-8")) if args.catalog else None
+    filename = f"{book['title']}-{args.tag}.pdf"
+    latest_link = ""
+    if catalog and catalog.get("latest"):
+        latest = catalog["latest"]
+        url = quote(latest["pdf"]) + "?sha=" + latest["sha256"]
+        latest_link = (f'<p><a href="{html.escape(url)}">最新版（開発中）のPDF</a>'
+                       f' <time datetime="{html.escape(latest["updated_at"])}">'
+                       f'{html.escape(latest["updated_at"])}</time></p>')
     authors = book.get("author", [])
     if isinstance(authors, str):
         authors = [authors]
@@ -104,7 +114,8 @@ def main() -> int:
         title=esc(str(book.get("title", ""))),
         authors=esc("、".join(authors)),
         description=esc(book.get("description", "")),
-        edition=esc(f"第{major}版"),
+        pdf_url=esc(quote(filename), quote=True),
+        latest_link=latest_link,
         tag=esc(args.tag),
         date=esc(published[args.tag]),
         release_items="\n      ".join(items),

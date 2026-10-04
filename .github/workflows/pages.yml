@@ -7,6 +7,10 @@ on:
     branches: [main]
     paths:
       - .github/workflows/pages.yml
+      - scripts/pages-*.py
+      - scripts/pages-build.sh
+      - scripts/render_index.py
+      - .github/pages/**
   workflow_run:
     workflows: [Release, Build]
     types: [completed]
@@ -142,6 +146,7 @@ jobs:
               if curl -fsSL "${pages_url%/}/latest.pdf.sha256" -o fallback-dist/latest.pdf.sha256; then
                 (cd fallback-dist && sha256sum -c latest.pdf.sha256)
               fi
+              curl -fsSL "${pages_url%/}/catalog.json" -o fallback-dist/catalog.json || true
               cp fallback-dist/latest.pdf site/latest.pdf
               found=true
               echo "::notice::現在公開中の最新版PDFを維持します"
@@ -176,6 +181,9 @@ jobs:
             digest="$(sha256sum site/latest.pdf | cut -d' ' -f1)"
             printf '%s  latest.pdf\n' "$digest" > site/latest.pdf.sha256
           fi
+
+      - name: Publish named PDFs and catalog metadata
+        run: python3 scripts/pages-catalog.py --tag "$LATEST" --repo "$GH_REPO"
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
