@@ -1,6 +1,7 @@
 \documentclass[dvipdfmx,a4paper,11pt,fleqn,openany]{jsbook}
 
 \usepackage{amsmath,amsthm,amssymb,amsfonts}
+\usepackage{nameref}
 \usepackage[margin=20truemm]{geometry}
 \usepackage{tikz}
 \usepackage{graphicx}
@@ -44,6 +45,9 @@
     \label{#1}%
   \fi
 }
+
+\newcommand{\chapterref}[1]{第\ref{#1}章}
+\newcommand{\sectionref}[1]{\ref{#1}~\nameref{#1}}
 
 \title{漸化式の超体系的解説}
 
