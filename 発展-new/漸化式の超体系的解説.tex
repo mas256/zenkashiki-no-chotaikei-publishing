@@ -12,6 +12,7 @@
 
 \usepackage{amsmath,amsthm,amssymb,amsfonts}
 \usepackage{nameref}
+\usepackage{refcount}
 \usepackage{tikz}
 
 
@@ -154,8 +155,80 @@
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{4}
 
-\newcommand{\chapterref}[1]{第\ref{#1}章}
-\newcommand{\sectionref}[1]{\ref{#1}~\nameref{#1}}
+% =========================================================
+% 章・節・項の相互参照
+% =========================================================
+
+% \headingref{ラベル} : 参照先の番号とタイトルを自動表示する。
+% chapter       -> 第n章「タイトル」
+% section       -> 第n.m節「タイトル」
+% subsection    -> 第n.m.l項「タイトル」
+% subsubsection -> 第n.m.l.k項「タイトル」
+% 同じ章の直前・直後のsectionだけは「前節」「次節」とする。
+% 現在位置がsubsection以下でも、その位置を含むsectionを基準にする。
+% \headingref*{ラベル} : 隣接していても番号とタイトルを表示する。
+% 既存の\chapterref・\sectionrefも同じ規則を使う（*付きも可）。
+% 見出し直後に\labelを置き、番号・タイトルの更新後は再コンパイルする。
+% \refは従来どおり番号だけを返す。式・例題の参照にもそのまま使える。
+\ExplSyntaxOn
+\seq_new:N \l_bookref_number_seq
+\tl_new:N \l_bookref_number_tl
+\tl_new:N \l_bookref_text_tl
+
+\cs_new_protected:Npn \bookref_full:n #1
+  {
+    \tl_set:Nn \l_bookref_text_tl { 第\ref{#1} }
+    \int_case:nnF { \seq_count:N \l_bookref_number_seq }
+      {
+        {1}{ \tl_put_right:Nn \l_bookref_text_tl {章} }
+        {2}{ \tl_put_right:Nn \l_bookref_text_tl {節} }
+      }
+      { \tl_put_right:Nn \l_bookref_text_tl {項} }
+    \tl_put_right:Nn \l_bookref_text_tl {「\nameref{#1}」}
+  }
+
+\cs_new_protected:Npn \bookref_format:n #1
+  {
+    \tl_set:Nx \l_bookref_number_tl { \getrefnumber{#1} }
+    \seq_set_split:NnV \l_bookref_number_seq {.} \l_bookref_number_tl
+    \bookref_full:n {#1}
+    \int_compare:nNnT { \seq_count:N \l_bookref_number_seq } = {2}
+      {
+        \str_if_eq:eeT
+          { \seq_item:Nn \l_bookref_number_seq {1} } { \thechapter }
+          {
+            \int_compare:nNnT { \value{section} } > {0}
+              {
+                \int_compare:nNnT
+                  { \seq_item:Nn \l_bookref_number_seq {2} }
+                  = { \value{section} - 1 }
+                  { \tl_set:Nn \l_bookref_text_tl {前節} }
+                \int_compare:nNnT
+                  { \seq_item:Nn \l_bookref_number_seq {2} }
+                  = { \value{section} + 1 }
+                  { \tl_set:Nn \l_bookref_text_tl {次節} }
+              }
+          }
+      }
+  }
+
+\NewDocumentCommand{\headingref}{s m}
+  {
+    \group_begin:
+    \cs_if_exist:cTF { r@#2 }
+      {
+        \bookref_format:n {#2}
+        \IfBooleanT{#1}{ \bookref_full:n {#2} }
+        \tl_use:N \l_bookref_text_tl
+      }
+      { \ref{#2}「\nameref{#2}」 }
+    \group_end:
+  }
+\NewDocumentCommand{\chapterref}{s m}
+  { \IfBooleanTF{#1}{\headingref*{#2}}{\headingref{#2}} }
+\NewDocumentCommand{\sectionref}{s m}
+  { \IfBooleanTF{#1}{\headingref*{#2}}{\headingref{#2}} }
+\ExplSyntaxOff
 
 \title{漸化式の超体系的解説}
 
