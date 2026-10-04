@@ -23,7 +23,7 @@ GitHub Actionsでは `texlive/texlive:TL2025-historic` のmanifest digestを固�
 
 Release Workflowは一度に1つだけ実行します。前の実行・Pages公開が終わってから次の正式版を作成してください。GitHubのReleases画面から先にReleaseを作らないでください。正式版タグはRelease Workflowが作成します。公開済みタグは再利用できないため、毎回まだ使っていない版番号を指定してください。
 
-本棚に表示する版番号は、ReleaseとPagesの公開が成功した後、[数学書の本棚](https://github.com/mas256/math-textbooks)の`books.json`で更新します。
+本棚の版番号とPDFリンクは、Pages公開後に `catalog.json` から自動取得します。
 
 ## ブランチ
 
@@ -41,3 +41,11 @@ Release Workflowは一度に1つだけ実行します。前の実行・Pages公�
 ビルドが失敗した場合はPagesを更新せず、直前に公開した開発PDFを維持します。開発ビルドごとのTagやPre-releaseは新たに作りません。正式版のReleaseとPagesの `book.pdf` は別に管理し、正式版番号も変わりません。
 
 正式版と開発中のPDFは[数学書の本棚](https://mas256.github.io/math-textbooks/)から閲覧できます。教科書の紹介ページからも両方を開けます。
+
+## PagesのPDFファイル名と本棚への公開情報
+
+Pagesの正式版PDFは `タイトル-vMAJOR.MINOR.PATCH.pdf`、開発中PDFは `latest-タイトル-vMAJOR.MINOR.PATCH.pdf` です。タイトルは公開Release時点の `book.yml`、版番号は配信する正式Releaseから取得します。開発中PDFの名前も現在の正式Release番号を使い、内容の更新はSHA-256クエリで区別します。
+
+Pages WorkflowはPDFと一緒に `catalog.json` を公開します。正式版はReleaseの公開日時、latestは成功ビルドの `built_at` を最終更新日時とし、再配信では変更しません。本棚はこの情報から版番号・更新日時・PDFリンクを自動取得するため、`books.json` の版番号更新は不要です。
+
+既存リンクとの互換性のため `book.pdf` と `latest.pdf` も残しますが、紹介ページと本棚はタイトル・版番号付きのPDFを案内します。公開済みReleaseのassetやTagは変更しません。
