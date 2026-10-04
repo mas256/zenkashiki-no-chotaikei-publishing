@@ -1,7 +1,7 @@
 % subsection: 階差等比複合型 \, $\displaystyle a_{n+1}=pa_n+f(n)$
 
 \subsection{階差等比複合型 \, $\displaystyle a_{n+1}=pa_n+f(n)$}\label{節：階差等比複合型}
-  \subsubsection{一般型 \, $\displaystyle a_{n+1}=pa_n+f(n)$}
+  \subsubsection{多項式型 \, $\displaystyle a_{n+1}=pa_n+f(n)$}
     では次に,階差等比複合型について説明する.
     この漸化式は,等比型と階差型の組み合わせからなっている.
     先程の特性方程式型と同じように,等比型に帰着させることを試みよう.
@@ -43,12 +43,13 @@
     のようにして,特性方程式型のような解き方で解を得ることも可能である.
     なお,\,$p\ne1$のとき,このような$g(n)$が実際に存在することは,\,$g(n)=x_0+x_1n+\cdots+x_mn^m$の係数$x_i$を$g(n+1)=pg(n)+f(n)$に代入し,両辺の係数を比較すること(未定係数法)で確かめられる.
   \subsubsection{指数型  \, $\displaystyle a_{n+1}=pa_n+q^n$}
-    前節では$f(n)$が任意の関数である場合を扱った.
+    前節では$f(n)$が多項式である場合を扱った.
     ここでは$f(n)$が特に指数関数である場合を扱う.
     指数関数である場合にはもう一つ別の解法が存在する.
     \begin{align*}
       a_{n+1}=pa_n+q^n
     \end{align*}
+    以下では$q\ne0$とする($q=0$なら$n\ge1$で$q^n=0$なので等比型になる).
     両辺を$q^n$で割って,
     \begin{align*}      
       &\frac{a_{n+1}}{q^n}=\frac{p}{q}\cdot\frac{a_n}{q^{n-1}}+1\\

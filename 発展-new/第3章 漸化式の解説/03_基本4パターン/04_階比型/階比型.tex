@@ -33,7 +33,8 @@
       &a_{n+1}=a_1 \prod_{k=1}^n f(k)\\
       &\therefore \quad a_n=a_1 \prod_{k=1}^{n-1} f(k)
     \end{align*}
-    また,以下のような解法もある.
+    この積による表示は$f(k)=0$となる場合も成り立つ(空積は$1$とする).
+    一方,以下の正規化では$f(k)\ne0$を仮定し,常に$g(n)\ne0$となるように選ぶ.
     与式の両辺に$g(n+1)$を掛けると,
     \[
       g(n+1)a_{n+1}=g(n+1)f(n)a_n
@@ -108,7 +109,7 @@
             \end{align*}
             両辺を
             \[
-              \displaystyle \frac{1}{n(n+1)(n+2)}
+              n(n+1)(n+2)
             \]
             で割って,
             \begin{align*}        
@@ -117,7 +118,7 @@
             $a_n$について遡っていくと
             \begin{align*}
               &\frac{a_{n}}{n(n+1)}=\frac{a_{n-1}}{(n-1)(n)}=\\
-              &\frac{a_{n-2}}{(n-2)(n-1)}=\frac{a_{1}}{1(1+1)}\\
+              &\frac{a_{n-2}}{(n-2)(n-1)}=\cdots=\frac{a_{1}}{1(1+1)}\\
               &\therefore \quad \frac{a_{n}}{n(n+1)}=\frac{a_{1}}{1(1+1)}\\
               &a_n=n(n+1)
             \end{align*}
