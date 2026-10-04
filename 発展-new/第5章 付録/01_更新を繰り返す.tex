@@ -1,22 +1,19 @@
-% 付録：特性方程式から行列の応用へ
+% 付録再編草案・第1部：特性方程式から行列へ
 
 \section{特性方程式を行列で見直す}\label{節：特性方程式を行列で見直す}
 
-本節では,本編の漸化式を行列で表し,更新を繰り返したときの姿を調べる.
-不動点からのずれ,一次分数型の成分比,二階漸化式の特性根を,順に行列の作用と結びつけていこう.
+ここでは,本編の解法を行列の言葉で眺めてみよう.
+一つの更新を行列で書くと何が見え,その見方を広げると,本編で扱った二階の漸化式にどうつながるのだろうか.
 
 \subsection{一つの値の更新を行列で書く}\label{節：一つの値の更新を行列で書く}
 
-$a_{n+1}=pa_n+q$ $(p\ne1)$を行列で表してみよう.
-次の項を決めるのに必要なのは$a_n$だけだが,定数$q$の足し算も含まれている.
-次の値を決めるために記録しておく値の組を状態と呼ぶ.
-ここでは定数項も同じ更新に含めるため,
+$a_{n+1}=pa_n+q$ $(p\ne1)$ では,次の項を決めるのに必要なのは $a_n$ だけである.
+定数 $q$ も同じ更新の中に含めるため,状態を
 \[
   \boldsymbol{x}_n=
   \begin{pmatrix}a_n\\1\end{pmatrix}
 \]
-とする.
-下に$1$を並べておくと,$q$に$1$を掛けて足すことで定数項も表せる.
+と少し広げて持つ.
 すると
 \[
   \begin{pmatrix}p&q\\0&1\end{pmatrix}
@@ -41,10 +38,9 @@ $a_{n+1}=pa_n+q$ $(p\ne1)$を行列で表してみよう.
   \boldsymbol{x}_n=A^{n-1}\boldsymbol{x}_1
 \]
 と表せる.
-初項から第$n$項への更新は$n-1$回なので,累乗の指数も$n-1$になる.
 
-不動点$\alpha$を満たす条件は$\alpha=p\alpha+q$である.
-したがって,
+ここで,本編で使った $\alpha$ と $b_n$ が行列の中でどう見えるかを確かめよう.
+$\alpha=p\alpha+q$ だから,
 \[
   A\begin{pmatrix}\alpha\\1\end{pmatrix}
   =
@@ -92,8 +88,8 @@ $a_{n+1}=pa_n+q$ $(p\ne1)$を行列で表してみよう.
 ただし両者は無関係ではない.
 不動点は固有値 $1$ の方向に,不動点からのずれは固有値 $p$ の方向に対応していた.
 
-$p=1$のときも同じ行列表示を使える.
-この場合は
+本編では $p=1$ の場合を等差型として分けて扱った.
+行列で書けば
 \[
   A=\begin{pmatrix}1&q\\0&1\end{pmatrix},
   \qquad
@@ -108,120 +104,65 @@ $p=1$のときも同じ行列表示を使える.
 重なった固有値から $n$ が現れる例を,ここでは具体的に見ることができた.
 
 
-\subsubsection{一次分数型は,二つの成分の比として読む}
-
-ここまで,列ベクトルの成分そのものを数列の項として読んだ.
-今度は成分の\textbf{比}を読むと,本編の一次分数型につながることを見てみよう.
+一次分数型の更新も,二次元ベクトルの方向を動かす行列として表せる.
 \[
   a_{n+1}=\frac{pa_n+q}{ra_n+s}
 \]
-に対し,\,$r\ne0,\ ps-qr\ne0$とし,すべての項で$ra_n+s\ne0$と仮定する.
-初めを$(x_1,y_1)=(a_1,\,1)$として
+に対し,$\,ps-qr\ne0$を仮定し,各項で$ra_n+s\ne0$とする.
+$y_n\ne0$となる範囲で$\,a_n=x_n/y_n$ とおき,
 \[
   \begin{pmatrix}x_{n+1}\\y_{n+1}\end{pmatrix}
-  =M\begin{pmatrix}x_n\\y_n\end{pmatrix},
-  \qquad M=\begin{pmatrix}p&q\\r&s\end{pmatrix}
+  =
+  M\begin{pmatrix}x_n\\y_n\end{pmatrix},
+  \qquad
+  M=\begin{pmatrix}p&q\\r&s\end{pmatrix}
 \]
-と更新する.
-$a_n=x_n/y_n$であれば
-\[
-  \begin{aligned}
-    \frac{x_{n+1}}{y_{n+1}}
-    &=\frac{px_n+qy_n}{rx_n+sy_n}\\
-    &=\frac{p(x_n/y_n)+q}{r(x_n/y_n)+s}
-     =\frac{pa_n+q}{ra_n+s}.
-  \end{aligned}
-\]
-また,\,$y_{n+1}=(ra_n+s)y_n$なので,分母が零にならないという仮定のもとで$y_n\ne0$が保たれる.
-したがって,各回の成分比はもとの漸化式の項になる.
-ベクトル全体を零でない数で何倍しても比は同じである.
-このように成分比に注目して行列の作用を見る方法を,射影変換の見方という.
+とすれば,$\,a_{n+1}=(px_n+qy_n)/(rx_n+sy_n)$ となる.
+二次元ベクトルの方向を数 $x_n/y_n$ と対応させているため,行列による線形な更新が一次分数型の更新になる.
+この見方を射影変換という.
 
-不動点$\alpha$については
-\[
-  p\alpha+q=\alpha(r\alpha+s)
-\]
-なので
+不動点 $\alpha$ では
 \[
   M\begin{pmatrix}\alpha\\1\end{pmatrix}
   =(r\alpha+s)\begin{pmatrix}\alpha\\1\end{pmatrix}.
 \]
-つまり,不動点に対応する列ベクトルは固有ベクトルであり,固有値は$r\alpha+s$である.
-$\alpha$自身が固有値なのではなく,ベクトルの二成分の比になっている.
-
-異なる二つの不動点$\alpha,\beta$がある場合を考え,
-\[
-  \lambda_\alpha=r\alpha+s,\qquad
-  \lambda_\beta=r\beta+s
-\]
-と置く.
-各状態を
+つまり不動点は固有値ではなく,固有ベクトルの成分比である.
+異なる二つの不動点 $\alpha,\beta$ があり,対応する倍率を
+$\lambda_\alpha=r\alpha+s,\ \lambda_\beta=r\beta+s$ とする.
+状態を
 \[
   \begin{pmatrix}x_n\\y_n\end{pmatrix}
   =c_n\begin{pmatrix}\alpha\\1\end{pmatrix}
-   +d_n\begin{pmatrix}\beta\\1\end{pmatrix}
+  +d_n\begin{pmatrix}\beta\\1\end{pmatrix}
 \]
-と分ければ
+と分けると,$\,c_n,d_n$ はそれぞれ $\lambda_\alpha,\lambda_\beta$ 倍される.
+以下の比を取る際は$a_1\ne\beta$とする.不動点$\beta$を初項とする場合は$a_n=\beta$という定数列になる.
+行列$M$は可逆で,\,$\lambda_\alpha\ne0$だから,\,$a_1\ne\beta$なら$c_n\ne0$,すなわち$a_n\ne\beta$が保たれる.
+また $a_n=x_n/y_n$ より
 \[
-  c_{n+1}=\lambda_\alpha c_n,\qquad
-  d_{n+1}=\lambda_\beta d_n
-\]
-となる.
-二つの係数が,別々の等比数列として進むのである.
-
-本編の置き換えとの関係を,成分から確かめよう.
-$x_n=\alpha c_n+\beta d_n,\ y_n=c_n+d_n$だから
-\[
-  x_n-\alpha y_n=(\beta-\alpha)d_n,
+  \frac{a_n-\alpha}{a_n-\beta}=-\frac{d_n}{c_n},
   \qquad
-  x_n-\beta y_n=(\alpha-\beta)c_n.
-\]
-したがって
-\[
-  \frac{a_n-\alpha}{a_n-\beta}
-  =\frac{x_n-\alpha y_n}{x_n-\beta y_n}
-  =-\frac{d_n}{c_n}.
-\]
-以下では$a_1\ne\beta$とする.
-このとき$c_1\ne0$であり,\,$ps-qr\ne0$より$\lambda_\alpha\ne0$なので,\,$c_n\ne0$が保たれる.
-ここで$\lambda_\alpha=0$なら$M\begin{pmatrix}\alpha\\1\end{pmatrix}=\boldsymbol{0}$となり,行列式が零でないことに反する.
-$a_1=\beta$の場合は,\,$a_n=\beta$という定数列として扱えばよい.
-
-係数の更新規則より
-\[
   \frac{a_{n+1}-\alpha}{a_{n+1}-\beta}
   =\frac{\lambda_\beta}{\lambda_\alpha}
    \frac{a_n-\alpha}{a_n-\beta}.
 \]
-本編で$b_n=(a_n-\alpha)/(a_n-\beta)$を等比数列にできたのは,この二つの係数の比を取り出していたからである.
-不動点の方程式
-\[
-  r z^2+(s-p)z-q=0
-\]
-の解と係数の関係から$r(\alpha+\beta)=p-s$なので,
-\[
-  p-r\alpha=r\beta+s,\qquad
-  p-r\beta=r\alpha+s
-\]
-となる.
-よって公比は本編と同じ
+固定点の関係式を使えば
 \[
   \frac{\lambda_\beta}{\lambda_\alpha}
-  =\frac{p-r\alpha}{p-r\beta}
+  =\frac{p-r\alpha}{p-r\beta}.
 \]
-である.
+これは本編で $b_n=(a_n-\alpha)/(a_n-\beta)$ と置いて得た公比そのものである.
+本編の置き換えは,二つの固有方向の成分比を取り出す操作だった.
 
-たとえば$a_{n+1}=2a_n/(1-a_n)$では
+たとえば
 \[
+  a_{n+1}=\frac{2a_n}{1-a_n},
+  \qquad
   M=\begin{pmatrix}2&0\\-1&1\end{pmatrix}
 \]
-で,不動点$0,-1$に対応する固有値はそれぞれ$1,\,2$になる.
-$\alpha=0,\ \beta=-1$とすると
-\[
-  b_n=\frac{a_n}{a_n+1},\qquad b_{n+1}=2b_n
-\]
-である.
-この$2$は,二つの固有値の比$2/1$から現れていた.
+では,不動点 $0,-1$ に対応する固有値はそれぞれ $1,2$ である.
+したがって本編と同じ変数 $b_n=a_n/(a_n+1)$ は $b_{n+1}=2b_n$ を満たす.
+一次分数型の計算を繰り返す代わりに,行列の二つの方向の倍率の比を追っている.
 
 
 \subsection{状態を二つ持つと,二階の漸化式になる}\label{節：状態を二つ持つと,二階の漸化式になる}
@@ -284,7 +225,7 @@ $\alpha=0,\ \beta=-1$とすると
 は,二階の漸化式を二成分の一階更新に書き直したものである.
 なお本編の形 $a_{n+2}+pa_{n+1}+qa_n=0$ で書く場合は,ここで $s=-p,\,t=-q$ とすればよい.
 
-この行列の固有値を求めてみよう.
+行列からも同じ特性方程式が出ることを見よう.
 固有ベクトルを $\begin{pmatrix}x\\y\end{pmatrix}$ とすると
 \[
   B\begin{pmatrix}x\\y\end{pmatrix}
@@ -312,6 +253,8 @@ $\alpha=0,\ \beta=-1$とすると
   =\lambda^2-s\lambda-t=0
 \]
 とも書く.
+この見方から,特性方程式の根が行列の固有値になる理由が分かる.
+
 二つの異なる特性根 $\lambda_1,\lambda_2$ があるとき,対応する固有ベクトル
 \[
   \begin{pmatrix}\lambda_1\\1\end{pmatrix},
@@ -338,7 +281,8 @@ $\alpha=0,\ \beta=-1$とすると
   u_{n+1}=3u_n,\qquad v_{n+1}=v_n
 \]
 となる.
-この例の行列を$A=\begin{pmatrix}2&1\\1&2\end{pmatrix}$とすれば,$\,(1,1)A=3(1,1),\ (1,-1)A=(1,-1)$である.
+ここで$A=\begin{pmatrix}2&1\\1&2\end{pmatrix}$とする.
+行列で書けば $(1,1)A=3(1,1),\ (1,-1)A=(1,-1)$ である.
 状態の方向を保つ固有ベクトルに対し,$\, (1,1)$ や $(1,-1)$ は状態から等比型の量を取り出す行ベクトルになっている.
 
 一般に連立漸化式を
@@ -349,14 +293,15 @@ $\alpha=0,\ \beta=-1$とすると
   \qquad
   A=\begin{pmatrix}p&q\\r&s\end{pmatrix}
 \]
-とし,左固有ベクトル$L=(\alpha,\beta)$を用いて$\,c_n=L\boldsymbol{z}_n=\alpha a_n+\beta b_n$とおく.
+とし,零でない列ベクトル$\boldsymbol{\ell}$を用いて$\,c_n=\boldsymbol{\ell}^{\mathsf T}\boldsymbol{z}_n$ とおく.
 もし
 \[
-  LA=\gamma L
+  \boldsymbol{\ell}^{\mathsf T}A
+  =\gamma\boldsymbol{\ell}^{\mathsf T}
 \]
 なら,$\,c_{n+1}=\gamma c_n$ となる.
 本編の連立型で $c_n=\alpha a_n+\beta b_n$ が等比数列となるよう $\alpha,\beta$ を選ぶ計算は,左固有ベクトルを求めていたのである.
-この関係を満たす零でない行ベクトル$L$が存在するための条件
+この関係を満たす零でないベクトル$\boldsymbol{\ell}$が存在するための条件
 \[
   \det(\gamma I-A)
   =\gamma^2-(p+s)\gamma+(ps-qr)=0
