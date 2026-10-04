@@ -37,96 +37,73 @@
       p\alpha+q-r\alpha^{2}-s\alpha=0 \Leftrightarrow \alpha=\frac{p\alpha+q}{r\alpha+s}
     \]
     であることから,形式的に$a_n$を$\alpha$に置き換えた,\,$\alpha$についての二次方程式を解くことで求めることができる.
-    あとは逆数型として計算してもよいのだが,計算が煩雑であるから,より良い方法について検討しよう.
+    ここまでで逆数型に帰着できたので,既習の方法を使って解くことができる.
+    ただし,不動点の方程式が異なる2解を持つ場合には,二つの不動点を使って直接等比型に帰着させる方法もある.
+    その置換を先に示すのではなく,不動点を引いた式に何が残っているかを確かめよう.
+    以下では,\, $r\ne0$,\, $ps-qr\ne0$とし,もとの漸化式の分母が$0$にならないものとする.
 
-    ここでこの話は再び不動点に関しての議論に至る.
-
-    ここまででは,\,$b_n=a_n-\alpha$と置くことで,
-    \[
-      b_{n+1}=\frac{tb_n}{ub_n+v}
-    \]
-    の形に帰着させることを考えた.
-    
-    ここで,もう少しこの$\alpha$について考えてみよう.
-    先ほどの計算では
-    \[
-      p\alpha+q-r\alpha^2-s\alpha=0
-    \]
-    となるように$\alpha$を選んだ.
-    これは整理すると
+    \noindent \textbf{【不動点を引いた後に残るもの】}
+    特性方程式型では,不動点を引くと,不動点からの差が一定の倍率で変化する等比数列になった.
+    今回も同じことが起こるか,先ほどの式を$a_n-\alpha$の形で見直してみよう.
+    不動点$\alpha$は
     \[
       r\alpha^2+(s-p)\alpha-q=0
     \]
-    である.
-    
-    つまり,\,$\alpha$は適当に選んだ数ではなく,
+    を満たすから,
+    \[
+      q-s\alpha=-\alpha(p-r\alpha)
+    \]
+    である.したがって,
+    \begin{align*}
+      a_{n+1}-\alpha
+      &=\frac{(p-r\alpha)a_n+q-s\alpha}{ra_n+s}\\
+      &=\frac{p-r\alpha}{ra_n+s}(a_n-\alpha)
+    \end{align*}
+    となる.
+    しかし,特性方程式型とは異なり,倍率
+    \[
+      \frac{p-r\alpha}{ra_n+s}
+    \]
+    に$a_n$が残っている.
+    したがって,不動点を引くだけでは,一般には等比型にならない.
+    次の目標は,この倍率に含まれる$ra_n+s$を消すことである.
+
+    \noindent \textbf{【もう一つの不動点と比較する】}
+    不動点を求める方程式
     \[
       rx^2+(s-p)x-q=0
     \]
-    という二次方程式の解なのである.
-    
-    ここで,この二次方程式が異なる2つの実数解$\alpha,\beta$を持つ場合を考えよう.
-    ここでの$\alpha,\beta$は先程の$\alpha$が取りうる2つの実数解を別々に書いたものである.
-    解と係数の関係から,
+    が異なる2つの実数解$\alpha,\beta$を持つ場合を考えよう.
+    $\beta$も不動点なので,同じ計算によって
     \[
-      \alpha+\beta=\frac{p-s}{r},
-      \qquad
-      \alpha\beta=-\frac qr
+      a_{n+1}-\beta
+      =\frac{p-r\beta}{ra_n+s}(a_n-\beta)
     \]
-    である.
-    したがって,$\alpha,\beta$を個別に解の公式で求めなくても,
-    \[
-      x^2-(\alpha+\beta)x+\alpha\beta
-      =
-      x^2-\frac{p-s}{r}x-\frac qr
-    \]
-    と書くことができる.
+    となる.
+    ここで注目したいのは,二つの差の変化に,同じ分母$ra_n+s$が現れることである.
+    一方を他方で割れば,この共通の分母を消せるのではないだろうか.
 
-    ここで,$\alpha,\beta$を使った変形を実際に行ってみよう.
-    この二次式が重要なのは,\,$\alpha,\beta$を用いて
-    \[
-      \frac{a_{n+1}-\alpha}{a_{n+1}-\beta}
-    \]
-    という形を作ることができるからである.この変形により,一次分数型の漸化式を等比数列に帰着できるのである.
+    比を取る前に,\, $a_1=\alpha$または$a_1=\beta$なら,数列はその不動点を値とする定数数列なので,先に扱っておこう.
+    以下では初項がどちらの不動点とも異なる場合を考える.
+    また,\, $p-r\beta=0$なら不動点の条件から$q=s\beta$となり,\, $ps-qr=0$となって仮定に反する.
+    よって,\, $p-r\beta\ne0$であり,上の式から$a_n\ne\beta$なら$a_{n+1}\ne\beta$である.
+    初項から順に考えると,すべての項で$a_n\ne\beta$なので,二つの差の比を取ることができる.
 
-    では実際に,
-    \[
-      a_{n+1}=\frac{pa_n+q}{ra_n+s}
-    \]
-    を代入すると,
+    \noindent \textbf{【比を取って共通の分母を消す】}
+    実際に二つの式の比を取ると,
     \begin{align*}
       \frac{a_{n+1}-\alpha}{a_{n+1}-\beta}
-      &=
-      \frac{(p-r\alpha)a_n+q-s\alpha}{(p-r\beta)a_n+q-s\beta}
+      &=\frac{\displaystyle
+        \frac{(p-r\alpha)(a_n-\alpha)}{ra_n+s}}
+        {\displaystyle
+        \frac{(p-r\beta)(a_n-\beta)}{ra_n+s}}\\
+      &=\frac{p-r\alpha}{p-r\beta}
+        \frac{a_n-\alpha}{a_n-\beta}
     \end{align*}
-    
-    ここで$\alpha$は不動点なので,
-    \[
-      r\alpha^2+(s-p)\alpha-q=0
-    \]
-    を満たすので,
-    \[
-      q-s\alpha
-      =-\alpha(p-r\alpha)
-    \]
-    したがって,
-    \[
-      (p-r\alpha)a_n+q-s\alpha
-      =(p-r\alpha)(a_n-\alpha)
-    \]
-    同様に$\beta$についても,
-    \[
-      (p-r\beta)a_n+q-s\beta
-      =(p-r\beta)(a_n-\beta)
-    \]
-    よって,
-    \begin{align*}
-      \frac{a_{n+1}-\alpha}{a_{n+1}-\beta}
-      &=
-      \frac{p-r\alpha}{p-r\beta}
-      \frac{a_n-\alpha}{a_n-\beta}
-    \end{align*}
-    
+    となる.
+    倍率に残っていた$ra_n+s$が消え,一定の倍率$\dfrac{p-r\alpha}{p-r\beta}$だけが残った.
+    つまり,「不動点を引く」という既習の方法を試し,そこで残った共通の分母を消すために,二つの不動点からの差の比を取ったのである.
+
     ここで
     \[
       b_n=\frac{a_n-\alpha}{a_n-\beta}
