@@ -288,7 +288,7 @@
           % G2
           \item $a_{n+1}$を左辺に,\,$a_n$を右辺にまとめる.
           % R2
-          \item 倍率を$\dfrac{n}{n+1}\dfrac{n+3}{n+2}$と分解し,順に掛ける.
+          \item 倍率を$\displaystyle \frac{n}{n+1}\frac{n+3}{n+2}$と分解し,順に掛ける.
           % M2
           \item 右辺を$(n+1)^2+n^2$と見れば,引くべき二次式が分かる.
           % S2
@@ -308,7 +308,7 @@
           % D3
           \item 両辺に現れる$n$を消去してから,隣り合う項の差を見る.
           % L3
-          \item 対数を取った数列の階比が$\dfrac{n+2}{n}$となる.積の途中の因子が消えることに注目する.
+          \item 対数を取った数列の階比が$\displaystyle \frac{n+2}{n}$となる.積の途中の因子が消えることに注目する.
           % S3
           \item $S_n+1$を等比数列として解いてから,\,$a_n=S_n-S_{n-1}$を使う. この差の公式を使う範囲と$a_1$を区別する.
           % F3
@@ -324,7 +324,7 @@
           % G4
           \item 第$2$項から第$5$項までには$r$を$3$回掛ける.
           % F4
-          \item $\dfrac{2}{(k+1)(k+3)}=\dfrac1{k+1}-\dfrac1{k+3}$と分解する.
+          \item $\displaystyle \frac{2}{(k+1)(k+3)}=\frac1{k+1}-\frac1{k+3}$と分解する.
           % T4
           \item 定数解$2$を引く.その後の特性方程式の一つの解$3$を使うと,初項が$0$の補助数列が現れる.
           % U4
@@ -609,7 +609,8 @@
                   a_n=\frac3{2n-1}.
                 \]
                 求めた式もすべての正整数$n$で正であり,逆数を戻す際の分母も$0$にならない.
-                \par\smallskip\noindent\textbf{【別解】}\par\nopagebreak[4]
+
+                \noindent \textbf{【別解】}\\
                 最初の数項は
                 \[
                   a_1=\frac31,\quad a_2=\frac33,\quad a_3=\frac35
@@ -663,7 +664,8 @@
                   a_n=3\cdot2^{n-1}n!
                 \]
                 を得る.分母を$(n-1)!$にするのではなく,係数$n+1$と添字が合う$n!$を選ぶことがポイントである.
-                \par\smallskip\noindent\textbf{【別解】}\par\nopagebreak[4]
+
+                \noindent \textbf{【別解】}\\
                 倍率を初項から順に掛けると,
                 \[
                   a_n
@@ -694,7 +696,8 @@
                   a_n=3\cdot2^{n-1}-n
                 \]
                 となる.最終式に$n=1$を代入すると$2$である.
-                \par\smallskip\noindent\textbf{【別解：階差を先に求める】}
+
+                \noindent \textbf{【別解：階差を先に求める】}\\
                 隣り合う更新式を引くと,
                 \[
                   d_n=a_{n+1}-a_n,\qquad d_{n+1}=2d_n+1
@@ -763,7 +766,8 @@
                               a_n&=\frac{s_n+d_n}{2}=2+3^{n-1},\\
                               b_n&=\frac{s_n-d_n}{2}=2-3^{n-1}.
                             \end{align*}
-                \par\smallskip\noindent\textbf{【別解】}\par\nopagebreak[4]
+
+                \noindent \textbf{【別解】}\\
                 和が変わらないことから$a_n+b_n=4$である.
                                 したがって$b_n=4-a_n$を第1式に代入して,
                             \[
@@ -791,7 +795,8 @@
                   a_n=2^{\,1+3^{n-1}}
                 \]
                 となる.
-                \par\smallskip\noindent\textbf{【別解：指数を直接追う】}
+
+                \noindent \textbf{【別解：指数を直接追う】}\\
                 \,$c_n=a_n/2$とおくと,
                 \[
                   c_{n+1}=\frac{a_n^3}{8}=c_n^3,\qquad c_1=2
@@ -802,8 +807,9 @@
                 \]
                 である.実際,\,$n=1$では$2$となり,この式の両辺を3乗すれば$n+1$の式が得られる.
                 従って,\,$a_n=2c_n=2^{1+3^{n-1}}$となる.
-                \par\smallskip\noindent\textbf{【別解：階比を補助数列にする】}
-                全項が正なので,\,$r_n=\dfrac{a_{n+1}}{a_n}=\dfrac{a_n^2}{4}$とおける.
+
+                \noindent \textbf{【別解：階比を補助数列にする】}\\
+                全項が正なので,\,$\displaystyle r_n=\frac{a_{n+1}}{a_n}=\frac{a_n^2}{4}$とおける.
                 この階比について,
                 \[
                   r_{n+1}=\frac{a_{n+1}^2}{4}
@@ -840,7 +846,8 @@
                   a_n=2+3^n
                 \]
                 となる.\,$n=1$を代入すると$5$となり,初期条件も満たす.
-                \par\smallskip\noindent\textbf{【別解：階差に注目する】}
+
+                \noindent \textbf{【別解：階差に注目する】}\\
                 漸化式を1つずらして引くと,
                 \[
                   a_{n+2}-a_{n+1}=3(a_{n+1}-a_n)
@@ -926,7 +933,8 @@
                 \end{align*}
                 となる.途中の立方数が次々に相殺するため,平方和を別に計算する必要はない.
                 $n=1$でも$a_1=1=1^3$なので,結論はすべての正整数$n$で成り立つ.
-                \par\smallskip\noindent\textbf{【別解1】}\par\nopagebreak[4]
+
+                \noindent \textbf{【別解1】}\\
                 最初の数項を計算すると$1,\,8,\,27,\ldots$となり,\,$a_n=n^3$が予想できる.
                 これを数学的帰納法で確かめる.
                 $n=1$では$a_1=1=1^3$である.
@@ -935,7 +943,8 @@
                   a_{n+1}=n^3+3n^2+3n+1=(n+1)^3
                 \]
                 となるから,予想はすべての正整数$n$について正しい.
-                \par\smallskip\noindent\textbf{【別解2】}\par\nopagebreak[4]
+
+                \noindent \textbf{【別解2】}\\
                 漸化式を
                 \[
                   a_{n+1}-(n+1)^3=a_n-n^3
@@ -969,7 +978,8 @@
                   a_n=\frac4{5(-1)^{n-1}-3}.
                 \]
                 この分母は$n$が奇数なら$2$,偶数なら$-8$なので,\,$0$にはならない.
-                \par\smallskip\noindent\textbf{【別解】}\par\nopagebreak[4]
+
+                \noindent \textbf{【別解】}\\
                 漸化式の右辺を$f(x)=-2x/(3x+2)$と書くと,
                 \[
                   f(2)=-\frac12,\qquad f\left(-\frac12\right)=2.
@@ -1034,7 +1044,8 @@
                               a_n=4\cdot3^{n-1}-2^{n-1},\qquad
                               b_n=2\cdot3^{n-1}-2^{n-1}.
                             \]
-                \par\smallskip\noindent\textbf{【別解】}\par\nopagebreak[4]
+
+                \noindent \textbf{【別解】}\\
                 第1式から$2b_n=4a_n-a_{n+1}$である.
                                 第2式を使うと,
                             \begin{align*}
@@ -1092,7 +1103,8 @@
                 \end{align*}
                 となる.分子と次の分母が相殺するので,大きな積を計算する必要はない.
                 $n=1$でも右辺は$6$であり,初項と一致する.
-                \par\smallskip\noindent\textbf{【別解】}\par\nopagebreak[4]
+
+                \noindent \textbf{【別解】}\\
                 両辺が同じ形になるように,
                 \[
                   b_n=\frac{n}{n+2}a_n
@@ -1165,7 +1177,8 @@
                   a_n=2+3^{\,2^{n-1}}
                 \]
                 を得る.\,$n=1$でも$a_1=5$となる.
-                \par\smallskip\noindent\textbf{【別解：繰り返し2乗する】}
+
+                \noindent \textbf{【別解：繰り返し2乗する】}\\
                 \,$c_n=a_n-2$とおけば,\,$c_{n+1}=c_n^2,c_1=3$である.
                 従って指数が$1,2,4,8,\ldots$と変わり,
                 \[
@@ -1204,7 +1217,8 @@
                   \qquad a_n=(2-n)2^{n-1}.
                 \]
                 割ったものは$2^n$であり,\,$a_2=0$でもこの操作に問題はない.
-                \par\smallskip\noindent\textbf{【別解】}\par\nopagebreak[4]
+
+                \noindent \textbf{【別解】}\\
                 初めから$c_n=a_n/2^{n-1}$と置き,もとの漸化式を$2^{n+1}$で割ると,
                 \[
                   c_{n+2}-2c_{n+1}+c_n=0.
@@ -1233,8 +1247,9 @@
                   b_n=-3^{n-1},\qquad a_n=2^n-3^{n-1}
                 \]
                 を得る.一般項は$n=1$で$1$となる.
-                \par\smallskip\noindent\textbf{【別解：指数列で割る】}
-                \,$c_n=\dfrac{a_n}{2^{n-1}}$とおくと,
+
+                \noindent \textbf{【別解：指数列で割る】}\\
+                \,$\displaystyle c_n=\frac{a_n}{2^{n-1}}$とおくと,
                 \[
                   c_{n+1}=\frac32c_n-1,\qquad c_1=1
                 \]
@@ -1269,7 +1284,8 @@
                             \[
                               a_n=n2^{n-1},\qquad b_n=2^n.
                             \]
-                \par\smallskip\noindent\textbf{【別解】}\par\nopagebreak[4]
+
+                \noindent \textbf{【別解】}\\
                 $b_n=a_{n+1}-2a_n$を使い,\,$b_{n+1}=2b_n$から$b_n$を消去すると,
                             \[
                               a_{n+2}-2a_{n+1}
@@ -1308,8 +1324,8 @@
                 と置くと,
                 \begin{align*}
                   b_{n+1}
-                  &=\frac{\frac{3a_n+2}{a_n+2}-2}
-                           {\frac{3a_n+2}{a_n+2}+1}\\
+                  &=\cfrac{\cfrac{3a_n+2}{a_n+2}-2}
+                           {\cfrac{3a_n+2}{a_n+2}+1}\\
                   &=\frac{a_n-2}{4a_n+4}
                   =\frac14b_n.
                 \end{align*}
@@ -1323,7 +1339,8 @@
                   =\frac{10\cdot4^{n-1}+2}{5\cdot4^{n-1}-2}.
                 \]
                 $0<b_n\leq2/5$なので,最後の変形で割った$1-b_n$も$0$ではない.
-                \par\smallskip\noindent\textbf{【別解】}\par\nopagebreak[4]
+
+                \noindent \textbf{【別解】}\\
                 不動点$2$からの差について,
                 \[
                   a_{n+1}-2=\frac{a_n-2}{a_n+2}
@@ -1390,7 +1407,8 @@
                   a_n=2^{b_n}=2^{\frac{n(n+1)}2}
                 \]
                 となる.分数の指数が含まれていても,対数を取れば一次の係数になる.
-                \par\smallskip\noindent\textbf{【別解：対数を取らず指数をそろえる】}
+
+                \noindent \textbf{【別解：対数を取らず指数をそろえる】}\\
                 階比型の解法で現れた因子$n(n+1)$を利用し,
                 \[
                   c_n=a_n^{\frac{2}{n(n+1)}}
@@ -1429,7 +1447,8 @@
                             \[
                               a_1=1,\qquad a_n=4\cdot3^{n-2}\quad(n\ge2).
                             \]
-                \par\smallskip\noindent\textbf{【別解】}\par\nopagebreak[4]
+
+                \noindent \textbf{【別解】}\\
                 $n\ge2$において,
                             \begin{align*}
                               a_{n+1}
@@ -1452,7 +1471,8 @@
                 \end{align*}
                 となる.最後の式は$n=1$でも初項$3$に一致する.
                 階差が指数関数であっても,まず差を加え,その後で和を計算すればよい.
-                \par\smallskip\noindent\textbf{【別解1】}\par\nopagebreak[4]
+
+                \noindent \textbf{【別解1】}\\
                 $2\cdot3^n=3^{n+1}-3^n$に気づけば,漸化式は
                 \[
                   a_{n+1}-3^{n+1}=a_n-3^n
@@ -1460,7 +1480,8 @@
                 と書ける.したがって,\,$a_n-3^n$は初項での値$a_1-3=0$に等しい.
                 よって,\,$a_n=3^n$である.
                 増加分が隣り合う指数関数の差になっているため,相殺を使っても解ける.
-                \par\smallskip\noindent\textbf{【別解2】}\par\nopagebreak[4]
+
+                \noindent \textbf{【別解2】}\\
                 $a_n=3^n$を予想して帰納法を使うこともできる.
                 初項は予想と一致し,\,$a_n=3^n$とすると,
                 \[
@@ -1480,7 +1501,8 @@
                   n^2a_n=4,\qquad a_n=\frac4{n^2}
                 \]
                 である.\,$n$は正整数なので,\,$n^2$で割ることができる.
-                \par\smallskip\noindent\textbf{【別解】}\par\nopagebreak[4]
+
+                \noindent \textbf{【別解】}\\
                 最初の数項は$4,\,1,\,\dfrac49,\,\dfrac14,\ldots$なので,\,$a_n=\dfrac4{n^2}$が予想できる.
                 初項はこの式と一致する.
                 $a_n=\dfrac4{n^2}$を仮定すると,
@@ -1509,7 +1531,8 @@
                   a_n=6-6\left(\frac23\right)^{n-1}
                 \]
                 である.\,$n=1$では$0$となる.
-                \par\smallskip\noindent\textbf{【別解：増加量を求める】}
+
+                \noindent \textbf{【別解：増加量を求める】}\\
                 与式を1つずらした式からもとの式を引くと,
                 \[
                   (a_{n+2}-a_{n+1})-(a_{n+1}-a_n)
@@ -1550,7 +1573,8 @@
                             \[
                               a_n=2\cdot3^{n-1}-2^{n-1}\quad(n\ge1).
                             \]
-                \par\smallskip\noindent\textbf{【別解】}\par\nopagebreak[4]
+
+                \noindent \textbf{【別解】}\\
                 $n\ge2$において, 与式から1つ前の式を引くと,
                             \[
                               a_{n+1}-a_n
@@ -1601,7 +1625,8 @@
                 \]
                 最後の分母は,\,$n$が奇数なら$3^{n-1}+1$,偶数なら$3^{n-1}-1$である.
                 偶数の場合は$n\geq2$なので,いずれも正であり$0$ではない.
-                \par\smallskip\noindent\textbf{【別解】}\par\nopagebreak[4]
+
+                \noindent \textbf{【別解】}\\
                 数列$\{u_n\}$を
                 \[
                   u_1=u_2=1,\qquad u_{n+2}=2u_{n+1}+3u_n
@@ -1700,7 +1725,8 @@
                   a_n=2+3^{n-1}.
                 \]
                 この問題では一方の補助数列が常に$0$になるため,二本を両方求める前に元の数列を等比数列に帰着できる.
-                \par\smallskip\noindent\textbf{【別解】}\par\nopagebreak[4]
+
+                \noindent \textbf{【別解】}\\
                 一般項を直接予想する前に,\,$a_{n+1}=3a_n-4$という短い漸化式が成り立つことを示す方法もある.
                 まず$a_2=5=3a_1-4$である.
                 ある$k$について$a_{k+1}=3a_k-4$が成り立つとき,
@@ -1756,7 +1782,8 @@
                   a_n=2^{\,2-2^{2-n}}
                 \]
                 を得る.\,$n=1$では指数が$0$となり,\,$a_1=1$である.
-                \par\smallskip\noindent\textbf{【別解：正の不動点で割る】}
+
+                \noindent \textbf{【別解：正の不動点で割る】}\\
                 正の不動点は$4=2\sqrt4$を満たす$4$である.
                 \,$c_n=a_n/4$とおくと,
                 \[
@@ -1801,7 +1828,8 @@
                 \end{align*}
                 となる.最後の式は$n=1$でも初項$2$に一致する.
                 積の計算そのものではなく,指数の和を計算している点が大切である.
-                \par\smallskip\noindent\textbf{【別解1】}\par\nopagebreak[4]
+
+                \noindent \textbf{【別解1】}\\
                 すべての項が正であるから,
                 \[
                   b_n=\log_2 a_n
@@ -1816,7 +1844,8 @@
                 \]
                 を得る.したがって,\,$a_n=2^{b_n}=2^{n^2}$である.
                 指数の和を直接計算する方法と,対数を取る方法は,同じ計算を異なる形で表している.
-                \par\smallskip\noindent\textbf{【別解2】}\par\nopagebreak[4]
+
+                \noindent \textbf{【別解2】}\\
                 $2n+1=(n+1)^2-n^2$を使うと,
                 \[
                   \frac{a_{n+1}}{2^{(n+1)^2}}
@@ -1840,7 +1869,7 @@
                 となる.求めた式に$n=3,\,8$を代入すれば,指定された2つの値をともに満たす.
           % M4
           \item $a_n$に掛かる係数と,加わる指数列の底がともに$2$である.
-                そこで,\,$b_n=\dfrac{a_n}{2^{n-1}}$とおく.
+                そこで,\,$\displaystyle b_n=\frac{a_n}{2^{n-1}}$とおく.
                 与式を$2^n$で割ると,
                 \[
                   b_{n+1}=b_n+3,\qquad b_1=2
@@ -1884,7 +1913,8 @@
                             \[
                               b_n=\frac{2^{n-1}-(-1)^{n-1}}{3}\quad(n\ge1).
                             \]
-                \par\smallskip\noindent\textbf{【別解】}\par\nopagebreak[4]
+
+                \noindent \textbf{【別解】}\\
                 $c_n=a_n+b_n,\ d_n=a_n-2b_n$とおくと,
                             \[
                               c_{n+1}=2c_n,\qquad d_{n+1}=-d_n.
@@ -1911,7 +1941,8 @@
                   a_n=\frac{(n-1)!\,n!}{2^{n-1}}
                 \]
                 を得る.
-                \par\smallskip\noindent\textbf{【別解】}\par\nopagebreak[4]
+
+                \noindent \textbf{【別解】}\\
                 倍率を分けて掛ければ,
                 \begin{align*}
                   a_n
@@ -1948,7 +1979,8 @@
                   b_n=n,\qquad a_n=1+\frac1n=\frac{n+1}{n}.
                 \]
                 不動点が重なる場合には,差の逆数から等差数列が現れた.
-                \par\smallskip\noindent\textbf{【別解】}\par\nopagebreak[4]
+
+                \noindent \textbf{【別解】}\\
                 数項を計算すると,
                 \[
                   a_1=\frac21,\quad a_2=\frac32,\quad a_3=\frac43
@@ -1968,7 +2000,7 @@
                   a_n=0
                 \]
                 を得る.等比型の一般項を直接用いても,\,$a_n=0\cdot7^{n-1}=0$となる.
-                この例では$a_n=0$なので,\,$\dfrac{a_{n+1}}{a_n}$を作るために$a_n$で割ってはいけない.
+                この例では$a_n=0$なので,\,$\displaystyle \frac{a_{n+1}}{a_n}$を作るために$a_n$で割ってはいけない.
           % L5
           \item 初項は正であり,正の項からは次の項も正となるので,全項について対数を取ることができる.
                 \,$b_n=\log_2a_n$とおけば,
@@ -1993,7 +2025,8 @@
                   b_n=n+2^{n-1},\qquad a_n=2^{\,n+2^{n-1}}
                 \]
                 を得る.指数に$n=1$を代入すると$2$なので,初項は$4$となる.
-                \par\smallskip\noindent\textbf{【別解：指数列で割ってから指数を追う】}
+
+                \noindent \textbf{【別解：指数列で割ってから指数を追う】}\\
                 対数を取った解法で$n$を引くことは,もとの項を$2^n$で割ることに対応する.
                 \,$d_n=a_n/2^n$とおけば,
                 \[
@@ -2019,7 +2052,8 @@
                 \end{align*}
                 である.この式は$n=1$でも$1$となる.
                 したがって,奇数番目の項は$1$,\,偶数番目の項は$0$である.
-                \par\smallskip\noindent\textbf{【別解】}\par\nopagebreak[4]
+
+                \noindent \textbf{【別解】}\\
                 2回分の変化をまとめると,
                 \[
                   a_{n+2}
@@ -2055,7 +2089,8 @@
                   a_n=2+6\left(\frac12\right)^{n-1}
                 \]
                 を得る.これに$n=1,2,3$を代入すると,順に$8,5,\frac72$となる.
-                \par\smallskip\noindent\textbf{【別解：階差から一般項を求める】}
+
+                \noindent \textbf{【別解：階差から一般項を求める】}\\
                 係数を決めた後,漸化式を1つずらして引くと,
                 \[
                   d_n=a_{n+1}-a_n,\qquad
@@ -2103,7 +2138,8 @@
                   a_n=2^n-n.
                 \]
                 階差もすぐに等比数列になるわけではないが,さらに$1$を加えることで等比数列になった.
-                \par\smallskip\noindent\textbf{【別解】}\par\nopagebreak[4]
+
+                \noindent \textbf{【別解】}\\
                 定数解の代わりに,\,$-n$が漸化式を満たすことに気付けば,
                 \[
                   -(n+2)-3\{-(n+1)\}+2(-n)=1
@@ -2136,7 +2172,7 @@
                 \]
                 と求まる.
           % M5
-          \item $(-1)^n$は$0$にならないので,\,$b_n=\dfrac{a_n}{(-1)^{n-1}}$とおける.
+          \item $(-1)^n$は$0$にならないので,\,$\displaystyle b_n=\frac{a_n}{(-1)^{n-1}}$とおける.
                 与式を$(-1)^n$で割ると,
                 \[
                   b_{n+1}=-2b_n+3,\qquad b_1=0
@@ -2155,7 +2191,8 @@
                      =(-1)^{n-1}-2^{n-1}
                 \]
                 となる.最後の等号には$(-1)^{n-1}(-2)^{n-1}=2^{n-1}$を用いた.
-                \par\smallskip\noindent\textbf{【別解：交代する項を直接引く】}
+
+                \noindent \textbf{【別解：交代する項を直接引く】}\\
                 \,$g_n=(-1)^{n-1}$とおくと,
                 \[
                   g_{n+1}=2g_n+3(-1)^n
@@ -2193,7 +2230,8 @@
                             \[
                               a_n=n(n+1).
                             \]
-                \par\smallskip\noindent\textbf{【別解】}\par\nopagebreak[4]
+
+                \noindent \textbf{【別解】}\\
                 $na_{n+1}=(n+2)a_n$を
                             \[
                               \frac{a_{n+1}}{(n+1)(n+2)}
