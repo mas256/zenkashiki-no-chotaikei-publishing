@@ -6,6 +6,13 @@ on:
     branches:
       - main
       - 'release/**'
+    paths:
+      - '発展-new/**'
+      - 'tex/**'
+      - '.github/workflows/build.yml'
+      - '.github/workflows/_build.yml'
+      - '.github/texlive/**'
+      - 'scripts/setup-texlive.sh'
   workflow_dispatch:
 
 permissions:
@@ -13,7 +20,7 @@ permissions:
 
 concurrency:
   group: build-${{ github.ref }}
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
