@@ -13,7 +13,7 @@ cd 発展-new
 latexmk 漸化式の超体系的解説.tex
 ```
 
-GitHub Actionsでは `texlive/texlive:TL2025-historic` のmanifest digestを固定して同じ入口をビルドします。生成PDFはGitで追跡せず、正式版Releaseのassetとして保存します。
+GitHub Actionsでは TeX Live 2025 の固定アーカイブ（`tlnet-final`）から必要なパッケージだけを用意し、同じ入口をビルドします。インストール済み環境をキャッシュするため、2回目以降は大きなコンテナの取得や再インストールが不要です。生成PDFはGitで追跡せず、正式版Releaseのassetとして保存します。
 
 PDFの目次は章・節・項（`chapter` から `subsubsection`）までクリックでき、本文中の見出し参照もリンクになります。例題・演習問題の番号から対応する解答へ、方針・解答・解法の番号から元の問題へ戻れます。番号のない例題を含め、例題の【例題】・【方針】・【解答】・【解法】の見出しにも同じリンクを付けています。リンク設定は両版共通の `tex/book-links.tex` にあります。
 
@@ -21,7 +21,7 @@ PDFの目次は章・節・項（`chapter` から `subsubsection`）までクリ
 
 コピー先RepositoryをPublicにしたうえで、[出版基盤のセットアップ手順](docs/setup.md)に従って Pages、Immutable releases、Tag rulesetを設定してください。最初のReleaseを作る前に設定を完了してください。
 
-日常の執筆から正式版公開まで、GitHubのWeb画面で操作できます。`main`への変更でBuildが走ります。正式版にするときはActions → **Release** → **Run workflow** を開き、`main`を選択して版番号を入力します（現行 `v1.3.3` の次の例は `v1.3.4`）。Workflowがその時点の`main`をBuildし、PDFとSHA-256を検証してReleaseを作成します。成功後、Pages Workflowが公開済みのPDFを配信します。
+日常の執筆から正式版公開まで、GitHubのWeb画面で操作できます。`main`の原稿・共通TeX・ビルド環境への変更でBuildが走ります。連続した変更では古いビルドを中止し、最新の変更を優先します。正式版にするときはActions → **Release** → **Run workflow** を開き、`main`を選択して版番号を入力します（現行 `v1.3.3` の次の例は `v1.3.4`）。Workflowがその時点の`main`をBuildし、PDFとSHA-256を検証してReleaseを作成します。成功後、Pages Workflowが公開済みのPDFを配信します。
 
 Release Workflowは一度に1つだけ実行します。前の実行・Pages公開が終わってから次の正式版を作成してください。GitHubのReleases画面から先にReleaseを作らないでください。正式版タグはRelease Workflowが作成します。公開済みタグは再利用できないため、毎回まだ使っていない版番号を指定してください。
 

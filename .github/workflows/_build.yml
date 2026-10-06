@@ -25,13 +25,9 @@ defaults:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    container:
-      # Docker Hub manifest digest (TL2025-historic)
-      image: texlive/texlive:TL2025-historic@sha256:f25ee2dcd00f58198f918064f4a1c8562410b33e84155bd55b02b419d73d9391
+    runs-on: ubuntu-24.04
     env:
       MAIN_TEX: 漸化式の超体系的解説.tex
-      IMAGE_REF: texlive/texlive:TL2025-historic@sha256:f25ee2dcd00f58198f918064f4a1c8562410b33e84155bd55b02b419d73d9391
       COMMIT: ${{ inputs.ref != '' && inputs.ref || github.sha }}
     steps:
       - name: Checkout
@@ -39,6 +35,28 @@ jobs:
         with:
           ref: ${{ inputs.ref }}
           persist-credentials: false
+
+      - name: Cache the frozen TeX Live toolchain
+        id: texlive_cache
+        uses: actions/cache/restore@v4
+        with:
+          path: ${{ runner.temp }}/texlive
+          key: texlive-2025-v1-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('scripts/setup-texlive.sh', '.github/texlive/packages.txt') }}
+
+      - name: Set up TeX Live
+        env:
+          TEXLIVE_ROOT: ${{ runner.temp }}/texlive
+        run: |
+          bash scripts/setup-texlive.sh
+          echo "$TEXLIVE_ROOT/bin/x86_64-linux" >> "$GITHUB_PATH"
+          echo "TOOLCHAIN_REF=$(cat "$TEXLIVE_ROOT/repository.txt")" >> "$GITHUB_ENV"
+
+      - name: Save the prepared TeX Live toolchain
+        if: steps.texlive_cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: ${{ runner.temp }}/texlive
+          key: ${{ steps.texlive_cache.outputs.cache-primary-key }}
 
       - name: Build (upLaTeX + dvipdfmx via latexmk)
         working-directory: 発展-new
@@ -58,9 +76,9 @@ jobs:
         working-directory: 発展-new
         run: |
           pdf="${MAIN_TEX%.tex}.pdf"
-          if ! command -v pdffonts >/dev/null 2>&1; then
-            apt-get update -qq
-            apt-get install -y -qq --no-install-recommends poppler-utils
+          if ! command -v pdffonts >/dev/null 2>&1 || [ ! -d /usr/share/poppler/cMap/Adobe-Japan1 ]; then
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq --no-install-recommends poppler-utils poppler-data
           fi
           pdffonts "$pdf" | tee fonts.txt
           # 末尾5列は emb sub uni object gen。emb が yes 以外のフォントを検出する。
@@ -90,7 +108,7 @@ jobs:
             my %h = (
               commit   => $ENV{COMMIT},
               built_at => $ENV{BUILT_AT},
-              image    => $ENV{IMAGE_REF},
+              toolchain => $ENV{TOOLCHAIN_REF},
               tex      => $ENV{TL_VERSION},
               dvipdfmx => $ENV{DVIPDFMX_VERSION},
               fonts    => [ split /\n/, $ENV{FONTS} ],
@@ -105,4 +123,5 @@ jobs:
           name: ${{ inputs.artifact-name }}
           path: out/
           retention-days: ${{ inputs.retention-days }}
+          compression-level: 0
           if-no-files-found: error

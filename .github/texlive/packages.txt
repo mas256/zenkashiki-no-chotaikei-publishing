@@ -1,0 +1,31 @@
+# tlmgr installs dependencies automatically. Keep only the manuscript's packages.
+latexmk
+uplatex
+upmendex
+dvipdfmx
+adobemapping
+jsclasses
+japanese-otf
+ptex-fontmaps
+haranoaji
+# Avoid optional font fallbacks in quotchap and TS1 text symbols.
+psnfss
+bookman
+cm-super
+amsmath
+amscls
+amsfonts
+refcount
+pgf
+geometry
+tools
+enumitem
+url
+quotchap
+xcolor
+colortbl
+tcolorbox
+etoolbox
+pdfcol
+hyperref
+pxjahyper

@@ -36,7 +36,7 @@ sha="$(cut -d' ' -f1 "$work/$asset.sha256")"
 built_at="$(jq -r '.built_at' "$BUILD_DIR/build-info.json")"
 tex="$(jq -r '.tex' "$BUILD_DIR/build-info.json")"
 dvipdfmx="$(jq -r '.dvipdfmx' "$BUILD_DIR/build-info.json")"
-image="$(jq -r '.image' "$BUILD_DIR/build-info.json")"
+toolchain="$(jq -r '.toolchain // .image' "$BUILD_DIR/build-info.json")"
 fonts="$(jq -r '.fonts | join(", ")' "$BUILD_DIR/build-info.json")"
 cat > "$work/notes.md" <<NOTES
 第${major}版 \`${TAG}\`
@@ -48,7 +48,7 @@ cat > "$work/notes.md" <<NOTES
 | Build日時(UTC) | ${built_at} |
 | TeX | ${tex} |
 | dvipdfmx | ${dvipdfmx} |
-| Build image | \`${image}\` |
+| TeX environment | \`${toolchain}\` |
 | 埋め込みフォント | ${fonts} |
 | PDF | \`${asset}\` |
 | PDF SHA-256 | \`${sha}\` |

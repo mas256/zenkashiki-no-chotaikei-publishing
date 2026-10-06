@@ -25,7 +25,11 @@ Tag・Immutable releases・Tag rulesetは、一度作ると取り消せません
 
 ## 3. Build環境
 
-`.github/workflows/_build.yml`はDocker Hubで確認した`texlive/texlive:TL2025-historic`のmanifest digest `sha256:f25ee2dcd00f58198f918064f4a1c8562410b33e84155bd55b02b419d73d9391`に固定済みです。digestを更新するときは「Show image digest」Workflowを手動実行し、`image:`と`IMAGE_REF:`を同時に更新してください。
+`.github/workflows/_build.yml`は Ubuntu 24.04 上で TeX Live 2025 の固定アーカイブ `https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2025/tlnet-final` を使用します。`scripts/setup-texlive.sh` が SHA-512 を固定したインストーラーで最小構成を用意し、`.github/texlive/packages.txt` のパッケージと依存関係を追加します。マニュアル・ソースはインストールしません。
+
+環境全体を Actions cache に保存します。セットアップスクリプトまたはパッケージ一覧を変更するとキャッシュキーも変わり、自動で再構築します。新しい LaTeX パッケージを使う場合は一覧にも追加してください。キャッシュがない初回はインストールに時間がかかります。参照検査と原ノ味フォントの埋め込み検査は毎回実行します。
+
+Build は原稿・共通TeX・ビルド設定が変わった場合に実行します。README や出版サイトだけの変更では PDF を再ビルドしません。Actions の手動実行は引き続き利用できます。通常の Build は新しい変更で古い実行を中止します。正式版の Release は中止せず、最後まで実行します。
 
 ## 4. Buildを確認する
 
