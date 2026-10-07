@@ -62,6 +62,9 @@ jobs:
         working-directory: 発展-new
         run: latexmk "$MAIN_TEX"
 
+      - name: Verify learning paths and examples
+        run: node scripts/verify-learning-design.mjs
+
       - name: Check unresolved references
         working-directory: 発展-new
         run: |
@@ -92,6 +95,34 @@ jobs:
             echo "::error::原ノ味フォント(HaranoAji)が埋め込まれていません"
             exit 1
           fi
+
+      - name: Preview revised pages for editorial review
+        if: startsWith(github.ref, 'refs/heads/release/learning-design-')
+        working-directory: 発展-new
+        run: |
+          python3 - <<'PY'
+          import base64, pathlib, re, subprocess
+          pdf = "漸化式の超体系的解説.pdf"
+          print(subprocess.check_output(["pdfinfo", pdf], text=True))
+          text = subprocess.check_output(["pdftotext", "-layout", pdf, "-"], text=True)
+          pages = text.split("\f")
+          markers = ["以下の5問は", "定数項を消すために何を引くか", "ここでは一般項まで一気に計算する前に", "初回からすべての問題を解く必要はない"]
+          selected = []
+          for marker in markers:
+              matches = [i + 1 for i, page in enumerate(pages) if marker in re.sub(r"\s+", "", page)]
+              if not matches:
+                  raise RuntimeError("Preview marker missing: " + marker)
+              selected.append(matches[0])
+          out = pathlib.Path("../out")
+          out.mkdir(exist_ok=True)
+          for page in sorted(set(selected)):
+              prefix = out / ("preview-page-" + str(page))
+              subprocess.run(["pdftoppm", "-f", str(page), "-l", str(page), "-singlefile", "-scale-to", "1400", "-png", pdf, str(prefix)], check=True)
+              encoded = base64.b64encode(prefix.with_suffix(".png").read_bytes()).decode()
+              for start in range(0, len(encoded), 8192):
+                  print("CODEX_PREVIEW_" + str(page) + "_CHUNK_" + str(start // 8192) + ":" + encoded[start:start+8192])
+          print("CODEX_PREVIEW_PAGES:" + ",".join(map(str, sorted(set(selected)))))
+          PY
 
       - name: Collect outputs and build-info
         working-directory: 発展-new

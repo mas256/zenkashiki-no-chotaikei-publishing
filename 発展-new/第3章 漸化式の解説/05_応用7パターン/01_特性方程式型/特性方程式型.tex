@@ -1,83 +1,64 @@
 % subsection: 特性方程式型 \, $a_{n+1}=pa_n+q$
 
 \subsection{\texorpdfstring{特性方程式型 \, $a_{n+1}=pa_n+q$}{特性方程式型}}\label{節：特性方程式型}
-  応用パターンの1つ目,特性方程式型について説明する.
-  まずは一般的な形を見せよう.
+  \noindent\textbf{【学ぶこと】}\par
+  \sectionref*{節：等比型}への帰着を使う.
+  定数項を消すために何を引くかを求め,初項がその値に等しい場合も説明できることを目標とする.
+
+  \noindent\textbf{【観察と発想】}\par
   \[
     a_{n+1}=pa_n+q
   \]
-  ただし$p\ne1$とする($p=1$の場合は等差型に帰着するので,ここでは扱わない).
-  さて,この漸化式はどのように解くことができるだろうか.
-  数学の問題を解くときの強い原則は,知っている形にすることである.
-  ここでも同じで,漸化式をうまく変形して知っている形に変形できれば解くことができる.
-  
-  そこから考えて,先に扱った基本4パターンの知識を使ってこの漸化式を分析してみよう.
-  この漸化式は$a_n$に対して$p$が掛けられ,さらに$q$が足されている.
-  つまり,この漸化式は,等比型と階差型の組み合わせからなっていることがわかる.
-  そこから判断して,ここは少々突飛な発想ではあるが,この漸化式を等比型に帰着させることを試みよう.
-  
-  この漸化式は,等比型漸化式
-  \[
-    a_{n+1}=pa_n
-  \]
-  に対して$q$が足されたものだ.
-  つまりは,\,$q$がうまく消えてくれるような計算式を考えたいのだ.
-  その分だけうまく戻せばよい.
-  結論から言えば,
-  \[
-    \begin{array}{rrl}
-       & a_{n+1}={} & pa_n+q\\
-      -\,) & \alpha={} & p\alpha+q\\ \hline
-       & a_{n+1}-\alpha={} & p(a_n-\alpha)
-    \end{array}
-  \]
-  より,
+  では,定数$q$を取り除けば等比型になる.
+  ただし$p=1$なら等差型であり,\,$p=0$なら直接$n\ge2$で$a_n=q$と分かる.
+  以下では$p\ne0,1$を考える.
+
+  数列全体から同じ数$\alpha$を引き,
   \[
     a_{n+1}-\alpha=p(a_n-\alpha)
   \]
-  を満たすような$\alpha$を考えればよい.
-  形式的には,
+  となることを目指す.右辺を展開すると定数項は$-p\alpha$なので,必要な条件は
   \[
-    a_{n+1}-\alpha=p(a_n-\alpha)
-  \]
-  すなわち
-  \[
+    q-\alpha=-p\alpha
+    \quad\Longleftrightarrow\quad
     \alpha=p\alpha+q
   \]
-  を解き,\,$\alpha$を求めればよい.\,この$\alpha=p\alpha+q$を特性方程式と言う.
-  続けると,
-  \begin{align*}
-    &a_{n+1}-\alpha=p(a_n-\alpha)\\
-    &a_{n+1}-\alpha=pa_n-p\alpha\\
-    &a_{n+1}=pa_n-p\alpha+\alpha\\
-    &a_{n+1}=pa_n+(1-p)\alpha
-  \end{align*}
-  $(1-p)\alpha$について,
+  である.この方程式を本書では特性方程式と呼ぶ.
+  解は$\alpha=\frac{q}{1-p}$であり,これが引くべき値である.
+  また,\,$\alpha=p\alpha+q$は,その値から出発すると更新しても変わらないことを表す.
+  このような値を不動点という.
+
+  \noindent\textbf{【式変形と元への戻し方】}\par
+  元の更新式から不動点の式を引くと,
   \[
-    a_{n+1}=pa_n+q
+    \begin{array}{rrl}
+       &a_{n+1}={}&pa_n+q\\
+      -\,)&\alpha={}&p\alpha+q\\ \hline
+       &a_{n+1}-\alpha={}&p(a_n-\alpha)
+    \end{array}
   \]
-  と係数比較を行うと,
+  となる.$b_n=a_n-\alpha$と置けば
+  \[
+    b_{n+1}=pb_n,\qquad b_1=a_1-\alpha.
+  \]
+  等比型の一般項を使い,\,$a_n=b_n+\alpha$へ戻すと,
   \begin{align*}
-    &q=(1-p)\alpha\\
-    &\therefore \quad \alpha=\frac{q}{1-p}
+    b_n&=(a_1-\alpha)p^{n-1},\\
+    a_n&=(a_1-\alpha)p^{n-1}+\alpha
   \end{align*}
-  $\alpha$が求まったので,次のステップに移る.
-  式の見た目を整えるために,\,$b_n=a_n-\alpha$と置く.
-  すると,
-  \begin{align*}
-    &a_{n+1}-\alpha=p(a_n-\alpha) \iff b_{n+1}=pb_n
-  \end{align*}
-  この等比型漸化式$b_{n+1}=pb_n$を解くと,
-  \begin{align*}
-    &b_{n+1}=pb_n\\
-    &\therefore \quad b_n=b_1p^{n-1}\\
-    &a_n-\alpha=(a_1-\alpha)p^{n-1}\\
-    &a_n=(a_1-\alpha)p^{n-1}+\alpha\\
-    &\therefore \quad a_n=\left(a_1-\frac{q}{1-p}\right)p^{n-1}+\frac{q}{1-p}
-  \end{align*}
-  となり,\,$a_n$の一般項が示された.
-  やってほしくないことは,この議論の末に得られた結果の形だけを覚えて問題に挑むことである.
-  この議論全体を問題を解くたびに都度再現してほしい.
+  を得る.大切なのは最終式だけでなく,同じ定数項を持つ二つの式を引いた理由である.
+  初項が不動点なら$b_1=0$となり,\,$a_n=\alpha$という定数解もこの式に含まれる.
+
+  \noindent\bookblocklink{check-fixed}{problem}{answer}{【確認問題】}
+  \begin{enumerate}[format=\bookitemlink{check-fixed}{problem}{answer}]
+    \item $a_{n+1}=3a_n-4$で,何を引くと等比型になるか.
+          $a_1=5$と$a_1=2$の場合の一般項をそれぞれ求めよ.
+  \end{enumerate}
+  \noindent\bookblocklink{check-fixed}{answer}{problem}{【確認の解答】}
+  \begin{enumerate}[format=\bookitemlink{check-fixed}{answer}{problem}]
+    \item $\alpha=3\alpha-4$より$\alpha=2$を引く.
+          $a_1=5$なら$a_n=2+3^n$であり,\,$a_1=2$なら$a_n=2$である.
+  \end{enumerate}
 
   もう少し数学の世界に深入りしていこう.
   \,$\alpha$を求めるというのはどういった意味合いを持つだろうか.
