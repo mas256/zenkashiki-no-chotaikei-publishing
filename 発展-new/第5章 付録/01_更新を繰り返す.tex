@@ -136,7 +136,7 @@ $\alpha=p\alpha+q$ だから,
   M=\begin{pmatrix}p&q\\r&s\end{pmatrix}
 \]
 で更新する.
-$a_n=x_n/y_n$とすると
+$\displaystyle a_n=\frac{x_n}{y_n}$とすると
 \[
   \frac{x_{n+1}}{y_{n+1}}
   =\frac{px_n+qy_n}{rx_n+sy_n}
@@ -172,7 +172,7 @@ $\lambda_\alpha=r\alpha+s,\ \lambda_\beta=r\beta+s$ とする.
     x_n-\beta y_n&=(\alpha-\beta)c_n.
   \end{aligned}
 \]
-したがって,\,$a_n=x_n/y_n$より
+したがって,\,$\displaystyle a_n=\frac{x_n}{y_n}$より
 \[
   \frac{a_n-\alpha}{a_n-\beta}=-\frac{d_n}{c_n},
   \qquad
@@ -188,8 +188,8 @@ $\lambda_\alpha=r\alpha+s,\ \lambda_\beta=r\beta+s$ とする.
     \lambda_\alpha&=r\alpha+s=p-r\beta.
   \end{aligned}
 \]
-よって$\lambda_\beta/\lambda_\alpha=(p-r\alpha)/(p-r\beta)$である.
-これは本編で $b_n=(a_n-\alpha)/(a_n-\beta)$ と置いて得た公比そのものである.
+よって$\displaystyle \frac{\lambda_\beta}{\lambda_\alpha}=\frac{p-r\alpha}{p-r\beta}$である.
+これは本編で $\displaystyle b_n=\frac{a_n-\alpha}{a_n-\beta}$ と置いて得た公比そのものである.
 本編の置き換えは,二つの固有方向の成分比を取り出す操作だった.
 
 たとえば
@@ -199,7 +199,7 @@ $\lambda_\alpha=r\alpha+s,\ \lambda_\beta=r\beta+s$ とする.
   M=\begin{pmatrix}2&0\\-1&1\end{pmatrix}
 \]
 では,不動点 $0,-1$ に対応する固有値はそれぞれ $1,2$ である.
-したがって本編の置き換えに合わせた $b_n=a_n/(a_n+1)$ は,\,$a_1\ne-1$なら $b_{n+1}=2b_n$ を満たす.
+したがって本編の置き換えに合わせた $\displaystyle b_n=\frac{a_n}{a_n+1}$ は,\,$a_1\ne-1$なら $b_{n+1}=2b_n$ を満たす.
 一次分数型の計算を繰り返す代わりに,行列の二つの方向の倍率の比を追っている.
 
 
@@ -511,8 +511,8 @@ $n=0,1$ では
 となる.
 チェビシェフ多項式は,余弦の整数倍の角を,角度を使わずに $x=\cos\theta$ の多項式として記録している.
 
-ここで本編の$a_1=\sqrt3/2$, $a_{n+1}=2a_n^2-1$に戻ろう.
-本編では$a_1=\cos(\pi/6)$から角度を二倍ずつ進めたが,多項式の言葉では
+ここで本編の$\displaystyle a_1=\frac{\sqrt3}{2}$, $a_{n+1}=2a_n^2-1$に戻ろう.
+本編では$\displaystyle a_1=\cos(\frac{\pi}{6})$から角度を二倍ずつ進めたが,多項式の言葉では
 \[
   a_{n+1}=T_2(a_n),\qquad
   a_n=T_{2^{n-1}}(a_1)
