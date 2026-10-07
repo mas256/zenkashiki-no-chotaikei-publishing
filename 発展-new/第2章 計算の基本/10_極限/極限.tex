@@ -212,20 +212,20 @@
     $x$が$0$に十分近く,\,$x\ne0$のとき,対数の性質から
     \[
       \frac{\log(1+x)}{x}
-      =\log\left((1+x)^{1/x}\right)
+      =\log\left((1+x)^\frac{1}{x}\right)
     \]
     である.右辺の極限を求めるには,
     \[
-      \lim_{x\to0}(1+x)^{1/x}=e
+      \lim_{x\to0}(1+x)^\frac{1}{x}=e
     \]
     を使う.これは,先に指数対数の節で定めた$e$の極限表示から確認できる.
-    $x\to 0^+$では,\,$t=1/x\to\infty$と置くと
+    $x\to 0^+$では,\,$\displaystyle t=\frac{1}{x}\to\infty$と置くと
     \[
-      (1+x)^{1/x}=\left(1+\frac1t\right)^t\longrightarrow e.
+      (1+x)^\frac{1}{x}=\left(1+\frac1t\right)^t\longrightarrow e.
     \]
-    $x\to 0^-$では,\,$t=-1/x\to\infty$と置くと
+    $x\to 0^-$では,\,$\displaystyle t=-\frac{1}{x}\to\infty$と置くと
     \begin{align*}
-      &(1+x)^{1/x}
+      &(1+x)^\frac{1}{x}
       =\left(1-\frac1t\right)^{-t}\\
       &=\left(1+\frac1{t-1}\right)^{t-1}
        \left(1+\frac1{t-1}\right)
@@ -234,7 +234,7 @@
     自然対数は正の数上で連続であり,\,$\log e=1$なので,
     \[
       \lim_{x\to0}\frac{\log(1+x)}{x}
-      =\lim_{x\to0}\log\left\{(1+x)^{1/x}\right\}
+      =\lim_{x\to0}\log\left\{(1+x)^\frac{1}{x}\right\}
       =\log e=1
     \]
     となる.
@@ -250,7 +250,7 @@
       =
       \left\{
         \lim_{n\to\infty}
-        \left(1+\frac{a}{n}\right)^{n/a}
+        \left(1+\frac{a}{n}\right)^{\frac{n}{a}}
       \right\}^{a}
       =e^a
     \]
