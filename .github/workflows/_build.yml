@@ -104,9 +104,9 @@ jobs:
           import base64, pathlib, re, subprocess
           pdf = "漸化式の超体系的解説.pdf"
           print(subprocess.check_output(["pdfinfo", pdf], text=True))
-          text = subprocess.check_output(["pdftotext", "-layout", pdf, "-"], text=True)
+          text = subprocess.check_output(["pdftotext", pdf, "-"], text=True)
           pages = text.split("\f")
-          markers = ["以下の5問は", "定数項を消すために何を引くか", "ここでは一般項まで一気に計算する前に", "初回からすべての問題を解く必要はない"]
+          markers = ["以下の5問は", "定数項を消すために", "ここでは一般項まで一気に計算する前に", "初回からすべての問題を解く必要はない"]
           selected = []
           for marker in markers:
               matches = [i + 1 for i, page in enumerate(pages) if marker in re.sub(r"\s+", "", page)]
