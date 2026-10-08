@@ -106,6 +106,12 @@ function verifyTeX(readText) {
       else assert(stack.pop()===m[2],"unbalanced environment in "+path);
     }
     assert(stack.length===0,"unclosed environment in "+path);
+    const mathStack=[];
+    for (const m of text.matchAll(/(?<!\\)\\([\[\]()])/g)) {
+      if (m[1]==="[" || m[1]==="(") mathStack.push(m[1]);
+      else assert(mathStack.pop()===(m[1]==="]" ? "[" : "("),"unbalanced math delimiter in "+path);
+    }
+    assert(mathStack.length===0,"unclosed math delimiter in "+path);
     for (const m of text.matchAll(/\\label\{([^}]+)\}/g)) {
       assert(!labels.has(m[1]),"duplicate label "+m[1]); labels.add(m[1]);
     }
