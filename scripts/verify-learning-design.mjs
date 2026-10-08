@@ -1,6 +1,7 @@
 // Structural checks and exact finite checks for the learning-design revision.
 // These finite calculations supplement the mathematical arguments in the text.
 import { readFileSync } from "node:fs";
+import { execFileSync } from "node:child_process";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -79,7 +80,7 @@ function stripComments(text) {
     return line;
   }).join("\n");
 }
-function verifyTeX(readText) {
+function verifyTeX(readText, pdfDestinations = null) {
   const files=new Map();
   function visit(path) {
     if (files.has(path)) return;
@@ -157,10 +158,25 @@ function verifyTeX(readText) {
   const bridgeProblems=bridge.slice(bridge.indexOf("\\subsubsection{問題}"),bridge.indexOf("\\subsubsection{方針}"));
   const bridgeIds=[...bridgeProblems.matchAll(/^\s*% (B\d+):/gm)].map(m=>m[1]);
   assert(bridgeIds.join(",")===Array.from({length:10},(_,i)=>"B"+(i+1)).join(","),"bridge reading route identities changed");
-  return { inputFiles:files.size,labels:labels.size,headingReferences:references.length,problemReferences:problemRefs.length,exerciseCount:Object.entries(groups).filter(([id])=>id.startsWith("practice-")).reduce((sum,[,roles])=>sum+roles.problem,0) };
+  let pdfProblemDestinations=0;
+  if (pdfDestinations) {
+    for (const [id,roles] of Object.entries(groups)) for (const [role,count] of Object.entries(roles)) {
+      for (let number=1;number<=count;number++) {
+        const name="book:"+id+":"+role+":"+number;
+        assert(pdfDestinations.has(name),"missing PDF problem destination "+name);
+        pdfProblemDestinations++;
+      }
+    }
+  }
+  return { ...(pdfDestinations ? {pdfProblemDestinations} : {}), inputFiles:files.size,labels:labels.size,headingReferences:references.length,problemReferences:problemRefs.length,exerciseCount:Object.entries(groups).filter(([id])=>id.startsWith("practice-")).reduce((sum,[,roles])=>sum+roles.problem,0) };
 }
 
 const root=fileURLToPath(new URL("../",import.meta.url));
-const tex=verifyTeX(path=>readFileSync(join(root,path),"utf8"));
+let pdfDestinations=null;
+if (process.argv.includes("--pdf")) {
+  const destinations=execFileSync("pdfinfo",["-dests",join(root,"発展-new/漸化式の超体系的解説.pdf")],{encoding:"utf8"});
+  pdfDestinations=new Set(destinations.match(/book:[a-z0-9-]+:[a-z]+(?::[0-9]+)?/g) || []);
+}
+const tex=verifyTeX(path=>readFileSync(join(root,path),"utf8"),pdfDestinations);
 const math=verifyMathematics();
 console.log(JSON.stringify({tex,math},null,2));

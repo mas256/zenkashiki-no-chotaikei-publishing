@@ -62,9 +62,6 @@ jobs:
         working-directory: 発展-new
         run: latexmk "$MAIN_TEX"
 
-      - name: Verify learning paths and examples
-        run: node scripts/verify-learning-design.mjs
-
       - name: Check unresolved references
         working-directory: 発展-new
         run: |
@@ -96,48 +93,8 @@ jobs:
             exit 1
           fi
 
-      - name: Preview revised pages for editorial review
-        if: startsWith(github.ref, 'refs/heads/release/learning-design-')
-        working-directory: 発展-new
-        run: |
-          python3 - <<'PY'
-          import base64, pathlib, re, subprocess
-          pdf = "漸化式の超体系的解説.pdf"
-          print(subprocess.check_output(["pdfinfo", pdf], text=True))
-          destinations = subprocess.check_output(["pdfinfo", "-dests", pdf], text=True)
-          names = set(re.findall(r"book:[a-z0-9-]+:[a-z]+(?::[0-9]+)?", destinations))
-          required = set()
-          groups = {"reading-check": 5, "check-fixed": 1, "check-log-domain": 1, "operation-choice": 3, "practice-basic": 55, "practice-advanced": 10, "practice-bridge": 10, "practice-entrance": 10, "example-logarithmic-1": 6}
-          for group, count in groups.items():
-              roles = ["problem", "answer"] if group in ["reading-check", "check-fixed", "check-log-domain", "operation-choice"] else ["problem", "hint", "answer", "solution"]
-              for role in roles:
-                  for number in range(1, count + 1):
-                      required.add(f"book:{group}:{role}:{number}")
-          missing = required - names
-          if missing:
-              raise RuntimeError("PDF destinations missing: " + ", ".join(sorted(missing)))
-          print("PDF_DESTINATIONS_VERIFIED:" + str(len(required)))
-          text = subprocess.check_output(["pdftotext", pdf, "-"], text=True)
-          pages = text.split("\f")
-          markers = ["交点のx座標", "で和と差を求めた操作"]
-          selected = []
-          for marker in markers:
-              matches = [i + 1 for i, page in enumerate(pages) if marker in re.sub(r"\s+", "", page)]
-              if not matches:
-                  raise RuntimeError("Preview marker missing: " + marker)
-              selected.append(matches[0])
-          selected.append(selected[0] + 1)
-          selected.append(selected[-2] - 1)
-          out = pathlib.Path("../out")
-          out.mkdir(exist_ok=True)
-          for page in sorted(set(selected)):
-              prefix = out / ("preview-page-" + str(page))
-              subprocess.run(["pdftoppm", "-f", str(page), "-l", str(page), "-singlefile", "-scale-to", "1400", "-png", pdf, str(prefix)], check=True)
-              encoded = base64.b64encode(prefix.with_suffix(".png").read_bytes()).decode()
-              for start in range(0, len(encoded), 8192):
-                  print("CODEX_PREVIEW_" + str(page) + "_CHUNK_" + str(start // 8192) + ":" + encoded[start:start+8192])
-          print("CODEX_PREVIEW_PAGES:" + ",".join(map(str, sorted(set(selected)))))
-          PY
+      - name: Verify learning paths, examples, and PDF destinations
+        run: node scripts/verify-learning-design.mjs --pdf
 
       - name: Collect outputs and build-info
         working-directory: 発展-new
