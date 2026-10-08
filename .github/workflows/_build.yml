@@ -106,7 +106,7 @@ jobs:
           print(subprocess.check_output(["pdfinfo", pdf], text=True))
           text = subprocess.check_output(["pdftotext", pdf, "-"], text=True)
           pages = text.split("\f")
-          markers = ["本書は漸化式の解法を体系的", "以下の5問は", "定数項を消すために", "引く量を選ぶ", "最初から実数の対数を取れる", "ここでは一般項まで一気に計算する前に", "初回からすべての問題を解く必要はない", "主解は付加項と同じ更新をする一次式", "で和と差を求めた操作"]
+          markers = ["本書は漸化式の解法を体系的", "以下の5問は", "定数項を消すために", "引く量を選ぶ", "最初から実数の対数を取れる", "ここでは一般項まで一気に計算する前に", "初回からすべての問題を解く必要はない", "付加項と同じ更新をする一次式", "で和と差を求めた操作"]
           selected = []
           for marker in markers:
               matches = [i + 1 for i, page in enumerate(pages) if marker in re.sub(r"\s+", "", page)]

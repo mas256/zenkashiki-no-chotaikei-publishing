@@ -1,0 +1,637 @@
+    \subsection{発展入門}\label{節：発展入門}
+      ここでは,漸化式を自分で立てて数学の対象を調べる練習として,\,10題を扱う.
+      追う量や場合分けを小問で示し,基本的な解法を一つか二つ使えば解けるようにした.
+      まず「操作を1回増やすと何が変わるか」を言葉で説明し,それを式にしよう.
+      問8では一般項を求めずに項の範囲を調べ,問9では整数方程式の解を作る.
+      問10のみ数学IIIの指数関数の積分・部分積分を前提とする.
+      それ以外は,場合の数・確率・整数・ベクトル・数列の既習事項を使う.
+      この10題で立式に慣れたら,\sectionref{節：発展難易度}へ進もう.
+
+      \subsubsection{問題}\label{節：発展入門：問題}
+        \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-bridge}{problem}{answer}]
+          % B1: 直線が分ける領域
+          \item 平面上に直線を1本ずつ引く.どの2本も平行でなく,どの3本も1点で交わらないものとする.\,
+                $\displaystyle n$本の直線で分けられた領域の個数を$\displaystyle R_n$とし,\,$\displaystyle R_0=1$とする.
+                \par\smallskip\noindent
+                (1) $\displaystyle R_1,R_2,R_3$を求めよ.
+                \par\smallskip\noindent
+                (2) $\displaystyle n$本目の直線は,それまでの直線によっていくつの部分に分かれるか.
+                これを使って$\displaystyle R_n$と$\displaystyle R_{n-1}$の関係式を求めよ.
+                \par\smallskip\noindent
+                (3) $\displaystyle R_n$を求めよ.また,領域の個数が初めて$\displaystyle 100$以上になる直線の本数を求めよ.
+          % B2: 取り出した赤玉の個数の偶奇
+          \item 袋に赤玉2個と青玉1個が入っている.
+                玉を1個無作為に取り出し,色を記録してから袋へ戻して十分に混ぜる操作を繰り返す.
+                各回の取り出しは独立とする.\,
+                $\displaystyle n$回の記録に現れた赤の個数が偶数である確率を$\displaystyle p_n$とする.\,
+                $\displaystyle 0$は偶数なので$\displaystyle p_0=1$である.
+                \par\smallskip\noindent
+                (1) 直前の赤の個数の偶奇で場合分けし,\,$\displaystyle p_{n+1}$を$\displaystyle p_n$で表せ.
+                \par\smallskip\noindent
+                (2) $\displaystyle p_n$を求めよ.
+                \par\smallskip\noindent
+                (3) $\displaystyle \lim_{n\to\infty}p_n$を求めよ.
+          % B3: 1が隣り合わない文字列
+          \item $\displaystyle 0$と$\displaystyle 1$を並べて作る長さ$\displaystyle n$の文字列のうち,\,$\displaystyle 1$が隣り合わないものの個数を$\displaystyle c_n$とする.
+                長さ$\displaystyle 0$の空の文字列は1個と数え,\,$\displaystyle c_0=1$とする.
+                \par\smallskip\noindent
+                (1) $\displaystyle c_1,c_2,c_3$を求めよ.
+                \par\smallskip\noindent
+                (2) 最後の文字が$\displaystyle 0$の場合と$\displaystyle 1$の場合に分け,\,$\displaystyle c_n,c_{n-1},c_{n-2}$の関係式を求めよ.
+                ただし,\,$\displaystyle n\ge2$とする.
+                \par\smallskip\noindent
+                (3) $\displaystyle \alpha=\frac{1+\sqrt5}{2}$,\,$\displaystyle \beta=\frac{1-\sqrt5}{2}$とおく.
+                特性方程式を使って$\displaystyle c_n$を求めよ.
+          % B4: 大きな項を計算せずに整数の性質を調べる
+          \item 数列$\displaystyle \{a_n\}$を
+                \[
+                  a_0=1,\qquad a_{n+1}=2a_n^2+1
+                  \quad(n=0,1,2,\ldots)
+                \]
+                によって定める.
+                \par\smallskip\noindent
+                (1) $\displaystyle a_1,a_2,a_3$を求めよ.
+                \par\smallskip\noindent
+                (2) $\displaystyle a_n$を$\displaystyle 3$で割った余りを$\displaystyle r_n$とする.\,
+                $\displaystyle r_n=0,1,2$のそれぞれについて$\displaystyle r_{n+1}$を調べ,\,$\displaystyle a_n$が$\displaystyle 3$の倍数になる添字$\displaystyle n$をすべて求めよ.
+                \par\smallskip\noindent
+                (3) $\displaystyle n\ge1$のとき,\,$\displaystyle a_n$が整数の平方にならないことを,\,$\displaystyle 4$で割った余りを用いて示せ.
+          % B5: 三角形の辺の中点を取り続ける
+          \item 三角形$\displaystyle A_0B_0C_0$の重心を$\displaystyle O$とする.\,
+                辺$\displaystyle B_nC_n$の中点を$\displaystyle A_{n+1}$,
+                辺$\displaystyle C_nA_n$の中点を$\displaystyle B_{n+1}$,
+                辺$\displaystyle A_nB_n$の中点を$\displaystyle C_{n+1}$とし,この操作を繰り返す.\,
+                $\displaystyle n$は$\displaystyle 0$以上の整数とする.
+                \par\smallskip\noindent
+                (1) 各三角形の重心が$\displaystyle O$であることを示せ.
+                さらに,\,$\displaystyle \boldsymbol a_n=\overrightarrow{OA_n}$とおいて,\,
+                $\displaystyle \boldsymbol a_{n+1}$を$\displaystyle \boldsymbol a_n$で表せ.
+                \par\smallskip\noindent
+                (2) 三角形$\displaystyle A_nB_nC_n$の面積を$\displaystyle S_n$とする.\,
+                $\displaystyle S_n$を$\displaystyle S_0,n$で表せ.
+                \par\smallskip\noindent
+                (3) $\displaystyle \overrightarrow{OA_n}$を$\displaystyle n,\overrightarrow{OA_0}$で表し,\,$\displaystyle A_n,B_n,C_n$がすべて$\displaystyle O$に近づくことを示せ.
+          % B6: 四つの箱への分配と畳み込み和
+          \item 区別しない$\displaystyle n$個の玉を,区別する箱へ分ける.空の箱があってもよい.\,
+                $\displaystyle n$は$\displaystyle 0$以上の整数とする.
+                2個の箱へ分ける方法の数を$\displaystyle a_n$,\,4個の箱$\displaystyle A,B,C,D$へ分ける方法の数を$\displaystyle T_n$とする.
+                \par\smallskip\noindent
+                (1) $\displaystyle a_n$を求めよ.
+                \par\smallskip\noindent
+                (2) 箱$\displaystyle A,B$に入る玉の合計を$\displaystyle k$として場合分けし,
+                \[
+                  T_n=\sum_{k=0}^{n}a_ka_{n-k}
+                \]
+                を示せ.
+                \par\smallskip\noindent
+                (3) $\displaystyle n\ge1$について$\displaystyle T_n-T_{n-1}$を求め,\,$\displaystyle T_n$を求めよ.\,
+                $\displaystyle T_0=1$であることに注意せよ.
+          % B7: 食塩水を少しずつ交換する
+          \item 容器$\displaystyle A,B$に,それぞれ体積$\displaystyle 1\,\mathrm{L}$の液体が入っている.
+                初め,\,$\displaystyle A$には食塩$\displaystyle 10\,\mathrm{g}$が溶け,\,$\displaystyle B$には食塩が含まれていない.
+                各容器を十分に混ぜた後,それぞれから$\displaystyle \frac14\,\mathrm{L}$を取り出し,取り出した液体を互いの容器へ移す.
+                移した後に十分に混ぜる操作を1回とし,これを繰り返す.
+                体積は加え合わせた分になり,食塩の析出や液体の損失はないものとする.\,
+                $\displaystyle n$回の操作後の$\displaystyle A,B$の食塩の質量を,それぞれ$\displaystyle x_n,y_n$（単位$\displaystyle \mathrm{g}$）とする.
+                \par\smallskip\noindent
+                (1) $\displaystyle x_{n+1},y_{n+1}$を$\displaystyle x_n,y_n$で表せ.
+                \par\smallskip\noindent
+                (2) $\displaystyle x_n+y_n,x_n-y_n$の漸化式を作り,\,$\displaystyle x_n,y_n$を求めよ.
+                \par\smallskip\noindent
+                (3) $\displaystyle x_n,y_n$の極限を求めよ.
+          % B8: 一般項を求めずに減少と極限を調べる
+          \item 数列$\displaystyle \{a_n\}$を
+                \[
+                  a_1=1,\qquad a_{n+1}=a_n-\frac12a_n^2
+                  \quad(n\ge1)
+                \]
+                によって定める.
+                \par\smallskip\noindent
+                (1) すべての$\displaystyle n\ge1$について$\displaystyle 0<a_{n+1}<a_n\le1$を示せ.
+                \par\smallskip\noindent
+                (2) $\displaystyle b_n=\frac1{a_n}$とおく.\,
+                $\displaystyle b_{n+1}-b_n$を$\displaystyle a_n$で表し,
+                \[
+                  \frac12\le b_{n+1}-b_n\le1
+                \]
+                を示せ.
+                \par\smallskip\noindent
+                (3) (2)の不等式を足し合わせ,
+                \[
+                  \frac1n\le a_n\le\frac2{n+1}
+                \]
+                を示せ.さらに,\,$\displaystyle \lim_{n\to\infty}a_n$を求めよ.
+          % B9: 整数方程式の解を作る
+          \item 二つの数列$\displaystyle \{x_n\},\{y_n\}$を
+                \[
+                  x_0=1,\qquad y_0=0,
+                \]
+                \[
+                  \begin{cases}
+                    x_{n+1}=2x_n+3y_n,\\
+                    y_{n+1}=x_n+2y_n
+                  \end{cases}
+                  \quad(n\ge0)
+                \]
+                によって定める.
+                \par\smallskip\noindent
+                (1) $\displaystyle x_1,y_1,x_2,y_2$を求め,
+                \[
+                  x_{n+1}^2-3y_{n+1}^2=x_n^2-3y_n^2
+                \]
+                を示せ.
+                \par\smallskip\noindent
+                (2) $\displaystyle z_n=x_n+\sqrt3\,y_n$,\,$\displaystyle w_n=x_n-\sqrt3\,y_n$とおく.\,
+                $\displaystyle z_n,w_n$を求め,\,$\displaystyle x_n,y_n$を求めよ.
+                \par\smallskip\noindent
+                (3) 方程式$\displaystyle x^2-3y^2=1$に正の整数解が無限個あることを,この二つの数列を用いて示せ.
+          % B10: 積分の指数を添字にする
+          \item この問題では数学IIIの指数関数の積分・部分積分を用いる.\,
+                $\displaystyle e$は自然対数の底とし,
+                \[
+                  I_n=\int_0^1 x^n e^x\,dx
+                  \quad(n=0,1,2,\ldots)
+                \]
+                とする.
+                \par\smallskip\noindent
+                (1) $\displaystyle I_0$を求めよ.
+                \par\smallskip\noindent
+                (2) $\displaystyle n\ge1$について,部分積分を用いて$\displaystyle I_n$と$\displaystyle I_{n-1}$の関係式を求め,\,$\displaystyle I_1,I_2,I_3$を計算せよ.
+                \par\smallskip\noindent
+                (3) $\displaystyle 0\le x\le1$で$\displaystyle e^x\le e$であることを使って
+                \[
+                  0<I_n\le\frac{e}{n+1}
+                \]
+                を示し,\,$\displaystyle \lim_{n\to\infty}I_n$を求めよ.
+        \end{enumerate}
+
+      \subsubsection{方針}\label{節：発展入門：方針}
+        \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-bridge}{hint}{problem}]
+          % B1
+          \item 新しい直線上の交点は$\displaystyle n-1$個で,すべて異なる.その間の各部分が領域を一つずつ分ける.増える個数を階差として足し合わせる.
+          % B2
+          \item 偶数回から偶数回になるには青,奇数回から偶数回になるには赤が必要である.「奇数回である確率」は$\displaystyle 1-p_n$と書ける.立式後は定数の解を引く.
+          % B3
+          \item 最後が$\displaystyle 0$ならその1文字を,最後が$\displaystyle 1$なら末尾の$\displaystyle 01$を取り除く.短い文字列との対応が逆向きにも成り立つことを確かめる.
+          % B4
+          \item 余り$\displaystyle r_n$にも「二乗して2倍し1を足す」操作を行い,再び余りを取る.平方数を$\displaystyle 4$で割った余りは,整数の偶奇から調べられる.
+          % B5
+          \item 重心を原点とした三つの位置ベクトルの和は$\displaystyle 0$である.中点の式で,他の二つのベクトルの和を置き換える.辺長比と面積比を区別する.
+          % B6
+          \item 2箱なら一方の玉の個数を決めればよい.\,4箱では2箱ずつにまとめる.
+                差を取るときは$\displaystyle T_{n-1}$の和を$\displaystyle k=0,\ldots,n-1$とし,\,$\displaystyle T_n$にだけある$\displaystyle k=n$の項を残す.
+          % B7
+          \item 各容器の食塩のうち,\,4分の3が残り,\,4分の1が相手へ移る.
+                二つの式を加えると食塩の総量が,引くと二つの容器の偏りが追える.
+          % B8
+          \item $\displaystyle a_{n+1}=a_n(1-\frac12a_n)$と因数分解して正値を確認する.
+                逆数の差を通分し,(1)から分母の範囲を決める.不等式を足す範囲は$\displaystyle k=1,\ldots,n-1$である.
+          % B9
+          \item (1)は二つの平方を展開して引く.(2)は次項の$\displaystyle z,w$を実際に作ると等比型になる.
+                (3)では整数性・正値に加え,同じ解を繰り返していないことを示す.
+          % B10
+          \item $\displaystyle x^n$を微分し,\,$\displaystyle e^x$を積分するように部分積分する.
+                極限には一般項を使わず,被積分関数を上から押さえればよい.
+        \end{enumerate}
+
+      \subsubsection{解答}\label{節：発展入門：解答}
+        \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-bridge}{answer}{problem}]
+          % B1
+          \item (1) $\displaystyle R_1=2,R_2=4,R_3=7$.
+                \par\smallskip\noindent
+                (2) $\displaystyle n$個の部分に分かれ,\,$\displaystyle R_n=R_{n-1}+n$.
+                \par\smallskip\noindent
+                (3)
+                \[
+                  R_n=1+\frac{n(n+1)}2.
+                \]
+                求める本数は$\displaystyle 14$本である.
+          % B2
+          \item (1)
+                \[
+                  p_{n+1}=\frac13p_n+\frac23(1-p_n).
+                \]
+                (2)
+                \[
+                  p_n=\frac12+\frac12\left(-\frac13\right)^n.
+                \]
+                (3) 極限は$\displaystyle \frac12$である.
+          % B3
+          \item (1) $\displaystyle c_1=2,c_2=3,c_3=5$.
+                \par\smallskip\noindent
+                (2) $\displaystyle c_n=c_{n-1}+c_{n-2}$（$\displaystyle n\ge2$）.
+                \par\smallskip\noindent
+                (3)
+                \[
+                  c_n=\frac{\alpha^{n+2}-\beta^{n+2}}{\sqrt5}
+                  \quad(n\ge0).
+                \]
+          % B4
+          \item (1) $\displaystyle a_1=3,a_2=19,a_3=723$.
+                \par\smallskip\noindent
+                (2) 余りの変化は$\displaystyle 0\mapsto1,1\mapsto0,2\mapsto0$である.
+                初期値$\displaystyle r_0=1$より,\,$\displaystyle 3$の倍数になるのは$\displaystyle n=1,3,5,\ldots$である.
+                \par\smallskip\noindent
+                (3) $\displaystyle n\ge1$では$\displaystyle a_n$を$\displaystyle 4$で割った余りは$\displaystyle 3$であり,平方数の余り$\displaystyle 0,1$と異なる.
+          % B5
+          \item (1) 重心は常に$\displaystyle O$であり,
+                \[
+                  \boldsymbol a_{n+1}=-\frac12\boldsymbol a_n.
+                \]
+                (2)
+                \[
+                  S_n=\frac{S_0}{4^n}.
+                \]
+                (3)
+                \[
+                  \overrightarrow{OA_n}
+                    =\left(-\frac12\right)^n\overrightarrow{OA_0}.
+                \]
+                $\displaystyle B_n,C_n$にも同様の式が成り立ち,すべて$\displaystyle O$へ近づく.
+          % B6
+          \item (1) $\displaystyle a_n=n+1$.
+                \par\smallskip\noindent
+                (2) $\displaystyle A,B$への分配と$\displaystyle C,D$への分配の組合せを数えると,設問の等式が得られる.
+                \par\smallskip\noindent
+                (3)
+                \[
+                  T_n-T_{n-1}=\frac{(n+1)(n+2)}2,
+                \]
+                \[
+                  T_n=\frac{(n+1)(n+2)(n+3)}6.
+                \]
+          % B7
+          \item (1)
+                \[
+                  \begin{cases}
+                    x_{n+1}=\frac34x_n+\frac14y_n,\\[3pt]
+                    y_{n+1}=\frac14x_n+\frac34y_n.
+                  \end{cases}
+                \]
+                (2) $\displaystyle s_n=x_n+y_n,d_n=x_n-y_n$とおくと,
+                \[
+                  s_{n+1}=s_n,\qquad d_{n+1}=\frac12d_n.
+                \]
+                $\displaystyle s_0=d_0=10$より,
+                \[
+                  x_n=5+\frac5{2^n},\qquad
+                  y_n=5-\frac5{2^n}.
+                \]
+                (3) 極限はともに$\displaystyle 5$（単位$\displaystyle \mathrm{g}$）である.
+          % B8
+          \item (1) $\displaystyle 0<a_n\le1$を仮定すると,\,$\displaystyle 0<a_{n+1}<a_n\le1$となるので帰納法で示せる.
+                \par\smallskip\noindent
+                (2)
+                \[
+                  b_{n+1}-b_n=\frac1{2-a_n},
+                \]
+                よって$\displaystyle \frac12\le b_{n+1}-b_n\le1$である.
+                \par\smallskip\noindent
+                (3) $\displaystyle \frac{n+1}{2}\le b_n\le n$から設問の評価が得られ,極限は$\displaystyle 0$である.
+          % B9
+          \item (1) $\displaystyle (x_1,y_1)=(2,1),(x_2,y_2)=(7,4)$.
+                展開すると設問の等式が成り立つ.
+                \par\smallskip\noindent
+                (2)
+                \[
+                  z_n=(2+\sqrt3)^n,\qquad w_n=(2-\sqrt3)^n,
+                \]
+                \[
+                  x_n=\frac{(2+\sqrt3)^n+(2-\sqrt3)^n}{2},
+                \]
+                \[
+                  y_n=\frac{(2+\sqrt3)^n-(2-\sqrt3)^n}{2\sqrt3}.
+                \]
+                (3) $\displaystyle n\ge1$の$\displaystyle (x_n,y_n)$は相異なる正の整数解である.
+          % B10
+          \item (1) $\displaystyle I_0=e-1$.
+                \par\smallskip\noindent
+                (2)
+                \[
+                  I_n=e-nI_{n-1}\quad(n\ge1),
+                \]
+                \[
+                  I_1=1,\quad I_2=e-2,\quad I_3=6-2e.
+                \]
+                (3) 設問の評価から,極限は$\displaystyle 0$である.
+        \end{enumerate}
+
+      \subsubsection{解法}\label{節：発展入門：解法}
+        \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-bridge}{solution}{problem}]
+          % B1
+          \item \textbf{(1)(2)~1本増やしたときの変化を数える.}
+                1本,\,2本,\,3本の順に図を描けば,\,$\displaystyle R_1=2,R_2=4,R_3=7$である.\,
+                $\displaystyle n$本目の直線は,平行な直線がないので以前の$\displaystyle n-1$本すべてと交わる.
+                交点が重なると3本が1点で交わることになるから,交点は$\displaystyle n-1$個あり,すべて異なる.
+                よって新しい直線は$\displaystyle n$個の部分に分かれる.
+                それぞれの部分は異なる領域を横切り,その領域を二つに分ける.
+                実際,新しい直線に沿って進むと,一度横切った以前の直線を再び横切ることはないので,同じ領域へ戻ることはない.
+                したがって,増える領域は$\displaystyle n$個であり,
+                \[
+                  R_n-R_{n-1}=n
+                \]
+                となる.
+
+                \smallskip
+                \textbf{(3)~階差を足して元の個数に戻す.}
+                チャートの「付加項の総和」に沿って,
+                \[
+                  R_n=R_0+\sum_{k=1}^{n}k
+                     =1+\frac{n(n+1)}2.
+                \]
+                $\displaystyle R_{13}=92,R_{14}=106$であり,\,$\displaystyle R_n$は増加するので答えは$\displaystyle 14$本である.
+                領域を直接すべて数えるより,新しく増える部分を数える方が簡単である.
+          % B2
+          \item \textbf{(1)~直前の状態を二つに分ける.}
+                最後に赤の個数が偶数になるのは,直前まで偶数で青を取り出す場合と,直前まで奇数で赤を取り出す場合である.
+                次の色はそれまでの記録と独立だから,それぞれの確率は$\displaystyle \frac13p_n$,\,$\displaystyle \frac23(1-p_n)$である.
+                二つの場合は同時には起こらないので,
+                \[
+                  p_{n+1}=\frac13p_n+\frac23(1-p_n)
+                         =\frac23-\frac13p_n.
+                \]
+
+                \smallskip
+                \textbf{(2)(3)~定数を引いて等比型にする.}
+                チャートの「係数・付加項が定数」に対応する特性方程式型である.
+                定数の解$\displaystyle \frac12$を引けば,
+                \[
+                  p_{n+1}-\frac12
+                   =-\frac13\left(p_n-\frac12\right).
+                \]
+                初期値$\displaystyle p_0=1$より,
+                \[
+                  p_n-\frac12=\frac12\left(-\frac13\right)^n.
+                \]
+                公比の絶対値が$\displaystyle 1$未満だから極限は$\displaystyle \frac12$となる.
+                「偶数か奇数か」だけを記録すれば,赤の正確な個数をすべて追う必要はない.
+          % B3
+          \item \textbf{(1)(2)~末尾を取り除いて短い問題に戻す.}
+                長さ1では$\displaystyle 0,1$の2通り,長さ2では$\displaystyle 00,01,10$の3通りである.
+                長さ3では$\displaystyle 000,001,010,100,101$の5通りである.\,
+                $\displaystyle n\ge2$とする.最後が$\displaystyle 0$の文字列から最後の1文字を取り除くと,条件を満たす長さ$\displaystyle n-1$の文字列が得られる.
+                逆に,そのような文字列の後ろへ$\displaystyle 0$を付けても条件を満たすから,\,$\displaystyle c_{n-1}$通りである.
+                最後が$\displaystyle 1$なら,その直前は$\displaystyle 0$でなければならない.
+                末尾の$\displaystyle 01$を取り除く操作と,条件を満たす長さ$\displaystyle n-2$の文字列に$\displaystyle 01$を付ける操作は互いに逆である.
+                よってこちらは$\displaystyle c_{n-2}$通りであり,
+                \[
+                  c_n=c_{n-1}+c_{n-2}.
+                \]
+                $\displaystyle n=2$では$\displaystyle 01$を取り除くと空の文字列になる.\,$\displaystyle c_0=1$とする意味がここにある.
+
+                \smallskip
+                \textbf{(3)~隣接3項間の解法を使う.}
+                チャートの「何項間か」に沿って特性方程式
+                \[
+                  t^2-t-1=0
+                \]
+                を作る.異なる二つの根は$\displaystyle \alpha,\beta$であるから,
+                \[
+                  c_n=A\alpha^n+B\beta^n
+                \]
+                と書ける.\,$\displaystyle c_0=1,c_1=2$を代入すると,
+                \[
+                  A=\frac{\alpha^2}{\sqrt5},\qquad
+                  B=-\frac{\beta^2}{\sqrt5}
+                \]
+                となり,解答の式を得る.
+                根に無理数が現れても,数えているものが文字列の個数なので,得られる値は整数である.
+          % B4
+          \item \textbf{(1)(2)~項の大きさから余りへ視点を変える.}
+                順に代入すると,\,$\displaystyle a_1=3,a_2=19,a_3=723$となる.
+                それ以降の項も求められるが,整除を調べるために大きな整数を計算する必要はない.
+                整数$\displaystyle a_n=3q+r_n$を式へ代入すれば,\,$\displaystyle a_{n+1}$と$\displaystyle 2r_n^2+1$の差は$\displaystyle 3$の倍数になる.
+                したがって,余りの更新は
+                \[
+                  \begin{array}{c|ccc}
+                    r_n&0&1&2\\ \hline
+                    r_{n+1}&1&0&0
+                  \end{array}
+                \]
+                である.\,$\displaystyle r_0=1$なので,\,$\displaystyle 1,0,1,0,\ldots$と繰り返す.
+                この二つの余りが交互に続くことは更新表から帰納法で確かめられる.
+                よって,\,$\displaystyle a_n$が$\displaystyle 3$の倍数になるのは$\displaystyle n$が正の奇数のときである.
+
+                \smallskip
+                \textbf{(3)~平方数にあり得ない余りを使う.}
+                初項も,更新式から得られる項もすべて奇数である.
+                奇数の平方を$\displaystyle 4$で割った余りは$\displaystyle 1$なので,\,$\displaystyle n\ge1$の$\displaystyle a_n$の余りは$\displaystyle 2\cdot1+1=3$になる.
+                一方,整数の平方の余りは,偶数を平方すれば$\displaystyle 0$,奇数を平方すれば$\displaystyle 1$である.
+                したがって,\,$\displaystyle a_n$は整数の平方ではない.
+                ここで立てたのは,元の数列の一般項ではなく,余りを追う漸化式である.
+          % B5
+          \item \textbf{(1)~図形操作をベクトルの更新にする.}
+                $\displaystyle \boldsymbol b_n=\overrightarrow{OB_n}$,\,$\displaystyle \boldsymbol c_n=\overrightarrow{OC_n}$ともおく.
+                最初の重心が$\displaystyle O$であることから,
+                \[
+                  \boldsymbol a_0+\boldsymbol b_0+\boldsymbol c_0
+                    =\boldsymbol0.
+                \]
+                中点の公式より,
+                \[
+                  \boldsymbol a_{n+1}
+                    =\frac{\boldsymbol b_n+\boldsymbol c_n}{2}
+                \]
+                であり,他の二つも同様である.三つの式を加えると,ベクトルの和は操作の前後で変わらない.
+                よって和は常に$\displaystyle \boldsymbol0$であり,重心は常に$\displaystyle O$である.
+                これを中点の式へ戻すと,
+                \[
+                  \boldsymbol a_{n+1}=-\frac12\boldsymbol a_n.
+                \]
+                $\displaystyle \boldsymbol b_n,\boldsymbol c_n$にも同じ関係が成り立つ.
+
+                \smallskip
+                \textbf{(2)(3)~長さと面積を別々に追う.}
+                各頂点の位置ベクトルが$\displaystyle -\frac12$倍されるので,三角形は$\displaystyle O$の反対側へ移り,相似比は$\displaystyle \frac12$になる.
+                面積比はその平方であるから,
+                \[
+                  S_{n+1}=\frac14S_n,\qquad S_n=\frac{S_0}{4^n}.
+                \]
+                位置ベクトルにも等比型の考え方を使えば,
+                \[
+                  \boldsymbol a_n=\left(-\frac12\right)^n\boldsymbol a_0,
+                \]
+                \[
+                  OA_n=\left(\frac12\right)^n OA_0\longrightarrow0.
+                \]
+                他の頂点も同様である.面積の減少だけで収束を判断せず,各頂点と$\displaystyle O$の距離を調べている.
+          % B6
+          \item \textbf{(1)(2)~二つの小さい分配に分ける.}
+                2箱なら,一方へ入れる玉を$\displaystyle 0,1,\ldots,n$個から選ぶと他方の個数も決まる.よって$\displaystyle a_n=n+1$である.
+                4箱では,\,$\displaystyle A,B$に合計$\displaystyle k$個入れると,\,$\displaystyle C,D$には合計$\displaystyle n-k$個入る.
+                前半の分け方は$\displaystyle a_k$通り,後半は$\displaystyle a_{n-k}$通りなので,組合せは$\displaystyle a_ka_{n-k}$通りである.
+                異なる$\displaystyle k$の場合は重ならないから,
+                \[
+                  T_n=\sum_{k=0}^{n}(k+1)(n-k+1).
+                \]
+
+                \smallskip
+                \textbf{(3)~和そのものの階差を作る.}
+                チャートの「総和があるか」に沿って,添字を一つずらした和を引く.\,
+                $\displaystyle n\ge1$で,
+                \[
+                  T_{n-1}=\sum_{k=0}^{n-1}(k+1)(n-k).
+                \]
+                両方にある項と,\,$\displaystyle T_n$にだけある最後の項を分けると,
+                \begin{align*}
+                  T_n-T_{n-1}
+                    &=\sum_{k=0}^{n-1}(k+1)+(n+1)\\
+                    &=\frac{(n+1)(n+2)}2.
+                \end{align*}
+                この右辺は,連続する三つの整数の積の差
+                \[
+                  \frac{(n+1)(n+2)(n+3)}6
+                    -\frac{n(n+1)(n+2)}6
+                \]
+                に等しい.したがって,\,$\displaystyle T_0=1$から帰納法で
+                \[
+                  T_n=\frac{(n+1)(n+2)(n+3)}6
+                \]
+                を得る.各項の総和を展開する代わりに,求めたい和の漸化式を作ったのである.
+
+                \noindent \textbf{【別解】}\\
+                玉$\displaystyle n$個と仕切り3本を一列に並べ,仕切りの間にある玉の数を順に$\displaystyle A,B,C,D$の個数とする.
+                仕切りが隣り合う場合や端にある場合が,空の箱に対応する.\,
+                $\displaystyle n+3$個の位置から仕切りの位置3個を選べばよいので,
+                \[
+                  T_n=\binom{n+3}{3}
+                     =\frac{(n+1)(n+2)(n+3)}6.
+                \]
+                一つずつ増やす考え方と,一度に全体を数える考え方を比べてみよう.
+          % B7
+          \item \textbf{(1)~1回の交換で移る食塩を計算する.}
+                十分に混ざっているので,\,$\displaystyle A$から取り出す液体には$\displaystyle x_n$の4分の1の食塩が含まれる.\,
+                $\displaystyle A$に残るのは4分の3であり,\,$\displaystyle B$からは$\displaystyle y_n$の4分の1が移ってくる.
+                よって,
+                \[
+                  x_{n+1}=\frac34x_n+\frac14y_n.
+                \]
+                $\displaystyle B$についても同様に立式する.二つの取り出しは,液体を交換する前の状態から行うことに注意する.
+
+                \smallskip
+                \textbf{(2)(3)~総量と偏りを追う.}
+                チャートの「複数の数列の関係」に沿って,連立型の和と差を試す.\,
+                $\displaystyle s_n=x_n+y_n,d_n=x_n-y_n$とおけば,
+                \[
+                  s_{n+1}=s_n,\qquad d_{n+1}=\frac12d_n.
+                \]
+                初期値が$\displaystyle s_0=d_0=10$なので,\,$\displaystyle s_n=10,d_n=10\left(\frac12\right)^n$である.\,
+                $\displaystyle x_n=\frac{s_n+d_n}{2},y_n=\frac{s_n-d_n}{2}$から解答の式を得る.\,
+                $\displaystyle d_n\to0$だから食塩は両方に$\displaystyle 5\,\mathrm{g}$ずつ近づく.
+                操作を繰り返しても総量は変わらず,二つの容器の偏りだけが減ることを式が表している.
+
+                \noindent \textbf{【別解】}\\
+                先に食塩の総量が変わらないことを使い,\,$\displaystyle y_n=10-x_n$を代入すると,
+                \[
+                  x_{n+1}=\frac12x_n+\frac52
+                \]
+                となる.特性方程式型として定数の解$\displaystyle 5$を引けば,同じ答えが得られる.
+          % B8
+          \item \textbf{(1)~変形の前に正値を確保する.}
+                $\displaystyle a_1=1$である.\,$\displaystyle 0<a_n\le1$を仮定すると,
+                \[
+                  \frac12\le1-\frac12a_n<1.
+                \]
+                したがって,
+                \[
+                  a_{n+1}=a_n\left(1-\frac12a_n\right)
+                \]
+                は正で,\,$\displaystyle a_n$より小さい.帰納法で全項の正値と単調減少が示される.
+
+                \smallskip
+                \textbf{(2)~逆数の増分を調べる.}
+                正値を確認したので,逆数を取れる.
+                二つの逆数の差を通分し,更新式を代入すると,
+                \[
+                  b_{n+1}-b_n
+                    =\frac{a_n-a_{n+1}}{a_na_{n+1}}
+                    =\frac1{2-a_n}.
+                \]
+                $\displaystyle 0<a_n\le1$より$\displaystyle 1\le2-a_n<2$であるから,
+                \[
+                  \frac12\le b_{n+1}-b_n\le1.
+                \]
+                厳密な階差の一般項を求めなくても,上下から押さえられる.
+
+                \smallskip
+                \textbf{(3)~不等式を足して元の数列へ戻す.}
+                $\displaystyle b_1=1$である.\,$\displaystyle n\ge2$では,(2)を$\displaystyle k=1,\ldots,n-1$について足すと,
+                \[
+                  \frac{n-1}{2}\le b_n-1\le n-1.
+                \]
+                よって,\,$\displaystyle \frac{n+1}{2}\le b_n\le n$である.この式は$\displaystyle n=1$でも成り立つ.
+                すべて正なので,逆数を取ると不等号の向きが変わり,
+                \[
+                  \frac1n\le a_n\le\frac2{n+1}.
+                \]
+                両端が$\displaystyle 0$に近づくから,はさみうちの原理で$\displaystyle a_n\to0$を得る.
+                本編の逆数化と階差の考え方を,一般項の計算から不等式の評価へ広げている.
+          % B9
+          \item \textbf{(1)~操作をしても変わらない量を調べる.}
+                代入すると,\,$\displaystyle (x_1,y_1)=(2,1),(x_2,y_2)=(7,4)$となる.
+                また,
+                \begin{align*}
+                  x_{n+1}^2-3y_{n+1}^2
+                    &=(2x_n+3y_n)^2\\
+                    &\quad-3(x_n+2y_n)^2\\
+                    &=x_n^2-3y_n^2.
+                \end{align*}
+                操作を繰り返しても値が変わらない量を\textbf{不変量}という.
+                初期値から,\,$\displaystyle x_n^2-3y_n^2=x_0^2-3y_0^2=1$である.
+
+                \smallskip
+                \textbf{(2)~重みを付けた和と差で連立を分ける.}
+                チャートの「複数の数列の関係」に沿って,今度は$\displaystyle \sqrt3$の重みを付けた和と差を使う.
+                実際に次項を作ると,
+                \begin{align*}
+                  z_{n+1}
+                    &=(2x_n+3y_n)+\sqrt3(x_n+2y_n)\\
+                    &=(2+\sqrt3)z_n.
+                \end{align*}
+                同様に$\displaystyle w_{n+1}=(2-\sqrt3)w_n$である.\,
+                $\displaystyle z_0=w_0=1$から二つの等比数列を求め,
+                \[
+                  x_n=\frac{z_n+w_n}{2},\qquad
+                  y_n=\frac{z_n-w_n}{2\sqrt3}
+                \]
+                と戻せばよい.重みは,展開後に元の$\displaystyle z_n,w_n$が現れるように選ばれている.
+
+                \smallskip
+                \textbf{(3)~無限個の異なる整数解を作る.}
+                初期値が整数で,更新式の係数も整数だから,帰納法で$\displaystyle x_n,y_n$はすべて整数である.\,
+                $\displaystyle n=1$ではどちらも正であり,更新式から$\displaystyle n\ge1$で正値が続く.
+                さらに,
+                \[
+                  x_{n+1}-x_n=x_n+3y_n>0
+                \]
+                なので,同じ解は繰り返されない.
+                (1)の不変量からすべて$\displaystyle x^2-3y^2=1$を満たすため,正の整数解が無限個得られる.
+                一般項に無理数が含まれていても,整数性は元の漸化式から確実に分かる.
+                この漸化式が,正の整数解を無限個生成する仕組みになっている.
+          % B10
+          \item \textbf{(1)(2)~指数を一つ下げる操作を作る.}
+                $\displaystyle I_0=\int_0^1e^x\,dx=e-1$である.\,
+                $\displaystyle n\ge1$で,\,$\displaystyle x^n$を微分する側,\,$\displaystyle e^x$を積分する側として部分積分すると,
+                \begin{align*}
+                  I_n&=[x^ne^x]_0^1
+                       -n\int_0^1x^{n-1}e^x\,dx\\
+                     &=e-nI_{n-1}.
+                \end{align*}
+                下端の項が$\displaystyle 0$になるのは$\displaystyle n\ge1$だからであり,\,$\displaystyle I_0$は別に計算する必要がある.
+                この関係に初期値を入れれば,
+                \[
+                  I_1=1,\quad I_2=e-2,\quad I_3=6-2e.
+                \]
+                一つの積分を単独で計算するのではなく,同じ形の積分を指数$\displaystyle n$で並べると,漸化式で前の計算を使える.
+
+                \smallskip
+                \textbf{(3)~極限には積分の大きさを使う.}
+                $\displaystyle 0<x<1$で$\displaystyle x^ne^x>0$なので,\,$\displaystyle I_n>0$である.
+                また,\,$\displaystyle 0\le x\le1$で$\displaystyle x^ne^x\le ex^n$であるから,
+                \[
+                  I_n\le e\int_0^1x^n\,dx=\frac{e}{n+1}.
+                \]
+                右辺が$\displaystyle 0$に近づくので,はさみうちの原理から$\displaystyle I_n\to0$となる.
+                低い次数の値には漸化式が役立ち,極限には積分の評価が役立つ.
+                求めたいものに合わせて使う式を選ぼう.
+        \end{enumerate}

@@ -137,6 +137,7 @@ function verifyTeX(readText) {
       assert(count===roles.problem,"item count mismatch "+id+":"+role);
   assert(groups["practice-basic"].problem===55,"standard exercise count changed");
   assert(groups["practice-advanced"].problem===10,"advanced exercise count changed");
+  assert(groups["practice-bridge"].problem===10,"bridge exercise count changed");
   assert(groups["practice-entrance"].problem===10,"research exercise count changed");
   // These question identities are used by the reading routes and comparisons.
   // Use the unstripped source comments to check stable question identities.
@@ -146,6 +147,10 @@ function verifyTeX(readText) {
   const expected={1:"Q1",2:"S1",3:"R1",4:"M1",5:"G1",6:"T1",7:"U1",8:"L1",9:"C1",10:"D1",11:"F1",17:"D2",19:"R2",20:"M2",23:"T3",24:"M3",25:"U3",26:"Q3",29:"L3",34:"S4",42:"R4"};
   for (const [number,id] of Object.entries(expected))
     assert(questionIds[Number(number)-1]===id,"reading route identity changed at standard "+number);
+  const bridge=readText("発展-new/第4章 実際の解き方/03_実践演習/発展入門.tex");
+  const bridgeProblems=bridge.slice(bridge.indexOf("\\subsubsection{問題}"),bridge.indexOf("\\subsubsection{方針}"));
+  const bridgeIds=[...bridgeProblems.matchAll(/^\s*% (B\d+):/gm)].map(m=>m[1]);
+  assert(bridgeIds.join(",")===Array.from({length:10},(_,i)=>"B"+(i+1)).join(","),"bridge reading route identities changed");
   return { inputFiles:files.size,labels:labels.size,headingReferences:references.length,problemReferences:problemRefs.length,exerciseCount:Object.entries(groups).filter(([id])=>id.startsWith("practice-")).reduce((sum,[,roles])=>sum+roles.problem,0) };
 }
 
