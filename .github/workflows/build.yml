@@ -13,6 +13,7 @@ on:
       - '.github/workflows/_build.yml'
       - '.github/texlive/**'
       - 'scripts/setup-texlive.sh'
+      - 'scripts/verify-pdf-a4.py'
   pull_request:
     paths:
       - '発展-new/**'

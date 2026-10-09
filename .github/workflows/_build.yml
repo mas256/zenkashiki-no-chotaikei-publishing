@@ -93,6 +93,10 @@ jobs:
             exit 1
           fi
 
+      - name: Verify A4 page dimensions
+        working-directory: 発展-new
+        run: python3 ../scripts/verify-pdf-a4.py "${MAIN_TEX%.tex}.pdf"
+
       - name: Verify learning paths, examples, and PDF destinations
         run: node scripts/verify-learning-design.mjs --pdf
 
