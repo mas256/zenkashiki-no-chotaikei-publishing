@@ -42,21 +42,38 @@
 \draw[->,thick](a)--(b);\draw[->,thick](b)--(c);\draw[<->,thick](b)--(d);\draw[->,dashed](c.south)|-(d.east);
 }}
 
-\newcommand{\BookFigArithmeticSum}{\BookDiagram{等差数列の増分を正順と逆順で組み合わせる}{
-% 各列の高さは nd. 画像と同じく先頭と末尾の2列を示す模式図.
-\foreach \x/\h in {0/0.46,1.35/0.84,4.05/1.91,5.40/2.29}{
-  \draw (\x,0) rectangle ({\x+1.28},2.75);
-  \draw (\x,\h)--({\x+1.28},\h);
-}
-\node at (.64,.23) {$d$};
-\node at (1.99,.41) {$2d$};
-\node at (.64,1.62) {$(n-1)d$};
-\node at (1.99,1.83) {$(n-2)d$};
-\node at (4.69,2.34) {$2d$};
-\node at (6.04,2.51) {$d$};
-\node at (4.69,.97) {$(n-2)d$};
-\node at (6.04,1.15) {$(n-1)d$};
-\node at (3.37,1.4) {$\cdots$};
+\newcommand{\BookFigArithmeticSum}{\BookGraph{等差数列の増分を正順と逆順で組み合わせる}{
+% 省略された各列の中段は \vdots で示し,一組の列同士は必ず辺を共有させる.
+% 図の文字と枠幅を併せて縮小する. \BookGraph は段幅まで拡大しない.
+\begin{scope}[every node/.append style={font=\scriptsize},line width=.38pt]
+  % 正順側：隣接する2列が一本の境界線を共有する.
+  \draw (0,1.72)--(0,2.60)--(2.46,2.60)--(2.46,1.72);
+  \draw (1.23,1.72)--(1.23,2.60);
+  \draw (0,.82)--(0,0)--(2.46,0)--(2.46,.82);
+  \draw (1.23,0)--(1.23,.82);
+  \draw (0,.33)--(1.23,.33);
+  \draw (1.23,.56)--(2.46,.56);
+  \node at (.615,2.30) {$(n-1)d$};
+  \node at (1.845,2.30) {$(n-2)d$};
+  \node at (.615,.16) {$d$};
+  \node at (1.845,.27) {$2d$};
+  \node at (.615,1.27) {$\vdots$};
+  \node at (1.845,1.27) {$\vdots$};
+
+  % 逆順側：こちらも2列の間の枠線を共有する.
+  \begin{scope}[xshift=3.50cm]
+    \draw (0,1.72)--(0,2.60)--(2.46,2.60)--(2.46,1.72);
+    \draw (1.23,1.72)--(1.23,2.60);
+    \draw (0,.82)--(0,0)--(2.46,0)--(2.46,.82);
+    \draw (1.23,0)--(1.23,.82);
+    \draw (0,2.18)--(1.23,2.18);
+    \draw (1.23,2.40)--(2.46,2.40);
+    \node at (.615,.20) {$(n-2)d$};
+    \node at (1.845,.20) {$(n-1)d$};
+    \node at (.615,1.27) {$\vdots$};
+    \node at (1.845,1.27) {$\vdots$};
+  \end{scope}
+\end{scope}
 }}
 
 \newcommand{\BookFigPolar}{\BookGraph{複素数を距離と偏角で表す}{
@@ -228,12 +245,18 @@
 }}
 
 \newcommand{\BookFigChebyshev}{\BookGraph{角の倍化とチェビシェフ多項式の対応}{
-
-\draw[->](-1.6,0)--(1.75,0)node[right]{$x$};\draw[->](0,-1.35)--(0,1.5);
-\draw(0,0)circle(1.15);\coordinate(P)at(33:1.15);\coordinate(Q)at(66:1.15);
-\draw[very thick,->](0,0)--(P)node[right]{$\theta$};\draw[very thick,->](0,0)--(Q)node[above]{$2\theta$};
-\draw[dashed](P)--(P|-0,0);\draw[dashed](Q)--(Q|-0,0);
-\node at(0,-1.8){$T_2(\cos\theta)=\cos 2\theta$};
+% 円の第一象限のみを表示する.
+\draw[->,semithick] (0,0)--(2.53,0)node[right]{$x$};
+\draw[->,semithick] (0,0)--(0,2.51)node[above]{$y$};
+\draw[thick] (2.10,0) arc[start angle=0,end angle=90,radius=2.10];
+\coordinate(P)at(33:2.10);\coordinate(Q)at(66:2.10);
+\draw[thick,->](0,0)--(P);
+\draw[thick,->](0,0)--(Q);
+\draw[dashed](P)--(P|-0,0);
+\draw[dashed](Q)--(Q|-0,0);
+\draw[->] (.52,0)arc[start angle=0,end angle=33,radius=.52];
+\node at(17:.80) {$\theta$};
+\node at(74:1.33) {$2\theta$};
 }}
 
 \newcommand{\BookFigLagrange}{\BookGraph{有限個の点を通る式は複数作れる}{
