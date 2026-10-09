@@ -119,60 +119,18 @@
     
     したがって\,$\alpha,\beta$は,もとの漸化式の$a_n$を形式的に$\alpha,\beta$に置き換えたときにも値が変化しない数,すなわち不動点である.
     
-    議論が長くなったので,ここで解法をまとめておこう.
-    \[
-      a_{n+1}=\frac{pa_n+q}{ra_n+s} 
-    \]
-    の形で表される漸化式に対して,ただし$ps-qr\ne0$とし,
-    $r\ne0$とする.また,以下では$a_n\ne-\dfrac sr$(漸化式の分母が$0$にならないこと)を仮定する.
-    さらに,$a_1\ne\beta$とする.
-    \[
-      x= \frac{px+q}{rx+s} \Leftrightarrow rx^2+(s-p)x-q=0
-    \]
-    を解き,その異なる2解を$\alpha,\beta$とする.
-    ここで,
-    \[
-      b_n=\frac{a_n-\alpha}{a_n-\beta}
-    \]
-    と置く.
-    すると,
-    \begin{align*}
-      b_{n+1}&=\frac{a_{n+1}-\alpha}{a_{n+1}-\beta}\\
-      &=\cfrac{\displaystyle\frac{pa_n+q}{ra_n+s}-\alpha}{\displaystyle\frac{pa_n+q}{ra_n+s}-\beta}\\
-      &=\frac{pa_n+q-\alpha(ra_n+s)}{pa_n+q-\beta(ra_n+s)}\\
-      &=\frac{(p-r\alpha)a_n+q-s\alpha}{(p-r\beta)a_n+q-s\beta}
-    \end{align*}
-    ここで,\,$\alpha$は
-    \[
-      r\alpha^2+(s-p)\alpha-q=0
-    \]
-    を満たすから,
-    \[
-      q-s\alpha=-\alpha(p-r\alpha)
-    \]
-    である.
-    したがって,
-    \[
-      (p-r\alpha)a_n+q-s\alpha
-      =(p-r\alpha)(a_n-\alpha)
-    \]
-    同様に,\,$\beta$について
-    \[
-      (p-r\beta)a_n+q-s\beta
-      =(p-r\beta)(a_n-\beta)
-    \]
-    である.
-    よって,
-    \begin{align*}
-      b_{n+1}&=\frac{(p-r\alpha)(a_n-\alpha)}{(p-r\beta)(a_n-\beta)}\\
-      &=\frac{p-r\alpha}{p-r\beta}\frac{a_n-\alpha}{a_n-\beta}\\
-      &=\frac{p-r\alpha}{p-r\beta}b_n
-    \end{align*}
-    したがって,
-    \[
-      b_{n+1}=\frac{p-r\alpha}{p-r\beta}b_n
-    \]
-    となり,\,$b_n$は等比数列である.
+    \noindent\textbf{【異なる二つの不動点の場合の手順】}\par
+    ここまでの導出を,使う順に整理しよう.
+    \begin{enumerate}
+      \item 元の分母が零にならないことを確かめ,不動点の方程式を解く.
+            異なる二つの不動点を$\alpha,\beta$とする.
+      \item 初項が不動点なら定数解として扱う.
+            それ以外では$b_n=\frac{a_n-\alpha}{a_n-\beta}$を作る.
+      \item 共通の分母が比で消えることから得た
+            $b_{n+1}=\frac{p-r\alpha}{p-r\beta}b_n$を解き,元へ戻す.
+    \end{enumerate}
+    $r\ne0,ps-qr\ne0$という仮定の下で,$a_1\ne\beta$なら比の分母が途中で零にならないことは先ほど確かめた.
+    計算する式をまとめると,次のようになる.
     初項
     \[
       b_1=\frac{a_1-\alpha}{a_1-\beta}
@@ -223,15 +181,9 @@
       =\frac{1}{a_n-\alpha}+\frac{r}{c}
     \]
     であるから,右辺も含めて$\displaystyle \frac{1}{a_n-\alpha}$について考えれば等差数列に帰着できる.
-    ここで$b_n=a_n-\alpha$とおくと,
-    \[
-      b_{n+1}=\frac{cb_n}{rb_n+c}
-    \]
-    という逆数型漸化式に帰着する.したがって両辺の逆数を取れば
-    \[
-      \frac1{b_{n+1}}=\frac1{b_n}+\frac rc
-    \]
-    という等差数列が得られ,ここから$a_n$を求めることができる(具体的な計算は例題(3)を参照).
+    重解では二つの差の比を作れないが,一つの差の逆数が等差型になる.
+    異なる不動点の場合と同じく,追う量を選び直して既知の更新へ帰着させたのである.
+    具体的な計算は例題(3)で確かめよう.
 
     \noindent \bookblocklink{example-mobius-1}{problem}{answer}{【例題】}
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-mobius-1}{problem}{answer}]
