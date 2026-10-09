@@ -1,11 +1,12 @@
 % subsection: 対数型 \, $a_{n+1}=pa_n^q$
 
 \subsection{\texorpdfstring{対数型 \, $a_{n+1}=pa_n^q$}{対数型}}\label{節：対数型}
-  今までは$a_n$に対する操作は定数倍したり関数が掛けられたりするだけだった.
-  しかし,\,$a_n$に指数がついたらどうだろうか.
-  この場合はかなり難しい発想の変形が必要である.
-  それは対数を取るという操作である.
-  実際にやってみよう.
+  \noindent\textbf{【観察と発想】}\par
+  $a_n$の2乗などを含む更新は,そのままでは$a_n$について一次の式ではない.
+  \sectionref*{節：指数対数}の公式$\log_t(x^q)=q\log_t x$を使えば,指数を係数として取り出せる.
+  積・商・累乗を和・差・定数倍へ変えることが,対数を選ぶ手掛かりである.
+  以下では,先に正値を確認してから対数を取る.
+
   \[
     a_{n+1}=pa_n^q
   \]
@@ -53,9 +54,9 @@
     \item 両辺の底を$2$とする対数を取り,\,$b_n=\log_2a_n$とおいて一次の漸化式に変形します.その結果,漸化式は特性方程式型になります.
     \item 一見すると分数型(後述)のように見えますが,対数型として解くことができます.
     \item $f(n)=2^n$が指数関数なので,対数を取ると和の形に帰着できます.
-    \item うまく変形すると対数型になります.
+    \item 平方完成で$a_{n+1}-1=(a_n-1)^2$を作ります.対数を取る量は$a_n$ではなく$a_n-1$であり,その正値を先に確認します.
     \item 両辺の底を$2$とする対数を取り,$b_n=\log_2a_n$と置きます. $b_n$から一次式$n+1$を引くと等比型に帰着できます.
-    \item 階比型に見えますが,対数型としても解けます.
+    \item 積を直接まとめる方法と,対数で和に変える方法を比べましょう.最後には同じ積$n!$を計算します.
   \end{enumerate}
 
   \noindent\bookblocklink{example-logarithmic-1}{answer}{problem}{【解答】}
@@ -74,7 +75,7 @@
   従って数学的帰納法により,$a_n>0$がすべての$n\ge1$で成り立つ.
   (4)では$a_1-1=4>0$であり,$a_{n+1}-1=(a_n-1)^2$から同様に$a_n-1>0$が成り立つ.
   以下では,これらの正の量に対して対数を取る.
-  \begin{enumerate}[label=(\arabic*),parsep=3pt]
+  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-logarithmic-1}{solution}{problem}]
     \item $\displaystyle a_1=2,\quad a_{n+1}=2a_n^2$\\
           両辺の底を$2$とする対数を取ると,
           \begin{align*}
@@ -192,4 +193,16 @@
   真数が$0$や負になる場合は,そのまま実数の対数を取ることはできない.
   例えば(4)で初項が$1$ならば$a_n=1$という定数数列になるため,
   $\log(a_n-1)$を取らずに別に扱う.
+
+  \noindent\bookblocklink{check-log-domain}{problem}{answer}{【確認問題】}
+  \begin{enumerate}[format=\bookitemlink{check-log-domain}{problem}{answer}]
+    \item $a_{n+1}=a_n^2$で,初項が$2,0,-2$の場合を比較せよ.
+          最初から実数の対数を取れるのはどの場合か.取れない場合にも数列は定義されるか.
+  \end{enumerate}
+  \noindent\bookblocklink{check-log-domain}{answer}{problem}{【確認の解答】}
+  \begin{enumerate}[format=\bookitemlink{check-log-domain}{answer}{problem}]
+    \item 初項$2$ならすべての項が正である.
+          初項$0$なら零列,初項$-2$なら第2項以降が正である.
+          いずれも元の漸化式は定義される.対数を取る条件と,元の数列が存在する条件は区別する.
+  \end{enumerate}
 

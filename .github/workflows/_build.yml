@@ -93,6 +93,9 @@ jobs:
             exit 1
           fi
 
+      - name: Verify learning paths, examples, and PDF destinations
+        run: node scripts/verify-learning-design.mjs --pdf
+
       - name: Collect outputs and build-info
         working-directory: 発展-new
         run: |

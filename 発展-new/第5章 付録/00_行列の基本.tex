@@ -42,6 +42,16 @@
 たとえば$\begin{pmatrix}3\\1\end{pmatrix}+\begin{pmatrix}1\\-1\end{pmatrix}
 =\begin{pmatrix}4\\0\end{pmatrix}$である.
 二つの列ベクトルが等しいとは,上下それぞれの成分が等しいことをいう.
+一般の二成分のベクトルも
+\[
+  \begin{pmatrix}x\\y\end{pmatrix}
+  =\frac{x+y}{2}\begin{pmatrix}1\\1\end{pmatrix}
+   +\frac{x-y}{2}\begin{pmatrix}1\\-1\end{pmatrix}
+\]
+と分けられる.上下の成分をそれぞれ足して確かめてほしい.
+本編の\sectionref*{節：連立型}で和と差を求めた操作は,この二つの係数を求めることに対応する.
+この対応は\bookproblemref{practice-basic}{7}{標準問7}で確認できる.
+後で,この二つの方向が更新の定数倍とどう結び付くかを見る.
 
 \subsubsection{行列を列ベクトルに掛ける}
 
@@ -172,7 +182,7 @@ $I$を\textbf{単位行列}という.
 \[
   A\boldsymbol{u}=\lambda\boldsymbol{u}
 \]
-を満たすとき,\,\,$\boldsymbol{u}$を$A$の\textbf{固有ベクトル},\,\,$\lambda$を対応する\textbf{固有値}という.
+を満たすとき,\,$\boldsymbol{u}$を$A$の\textbf{固有ベクトル},\,$\lambda$を対応する\textbf{固有値}という.
 固有値は,そのベクトルに対して一回の更新が何倍になるかを表す数である.
 零ベクトル$\boldsymbol{0}=\begin{pmatrix}0\\0\end{pmatrix}$は,どんな$\lambda$でもこの式を満たしてしまうため,固有ベクトルから除く.
 負の固有値では矢印の向きが反転し,固有値$0$では零ベクトルになる場合もある.
@@ -213,7 +223,7 @@ $I$を\textbf{単位行列}という.
   =c\lambda_1^k\boldsymbol{u}_1+d\lambda_2^k\boldsymbol{u}_2
 \]
 で計算できる.
-$k=0$のときは元の分解式を読み,\,\,$k\ge1$で固有値が$0$なら対応する部分は零になる.
+$k=0$のときは元の分解式を読み,\,$k\ge1$で固有値が$0$なら対応する部分は零になる.
 
 \subsection{行ベクトルと左固有ベクトル}
 
@@ -234,14 +244,14 @@ $k=0$のときは元の分解式を読み,\,\,$k\ge1$で固有値が$0$なら対
   \end{aligned}
 \]
 である.
-一般に,零でない行ベクトル$L$が$LA=\gamma L$を満たすとき,\,\,$L$を\textbf{左固有ベクトル}という.
+一般に,零でない行ベクトル$L$が$LA=\gamma L$を満たすとき,\,$L$を\textbf{左固有ベクトル}という.
 この場合,列ベクトル$\boldsymbol{v}$から作った数$L\boldsymbol{v}$は,更新後には
 \[
   L(A\boldsymbol{v})=(LA)\boldsymbol{v}
   =\gamma L\boldsymbol{v}
 \]
 となる.
-たとえば$L=(1,\,1)$なら,\,\,$x+y$という和が更新によって$3$倍される.
+たとえば$L=(1,\,1)$なら,\,$x+y$という和が更新によって$3$倍される.
 固有ベクトルは定数倍になる列ベクトルを表し,左固有ベクトルは定数倍になる量を取り出す係数を表す.
 
 \subsection{固有値を求める条件：行列式}
@@ -255,11 +265,11 @@ $k=0$のときは元の分解式を読み,\,\,$k\ge1$で固有値が$0$なら対
 と定める.
 行列そのものではなく,四つの成分から計算した一つの数である.
 
-二つの式$ax+by=0,\ cx+dy=0$について,\,\,$ad-bc\ne0$なら解は$x=y=0$だけになる.
-たとえば,第一の式を$d$倍したものから第二の式を$b$倍したものを引くと,\,\,$(ad-bc)x=0$となる.
+二つの式$ax+by=0,\ cx+dy=0$について,\,$ad-bc\ne0$なら解は$x=y=0$だけになる.
+たとえば,第一の式を$d$倍したものから第二の式を$b$倍したものを引くと,\,$(ad-bc)x=0$となる.
 同様に$(ad-bc)y=0$も得られる.
 逆に$ad-bc=0$なら,零でない解が存在する.
-実際,\,\,$(a,b)\ne(0,\,0)$なら$(x,y)=(b,-a)$が両方の式を満たす.
+実際,\,$(a,b)\ne(0,\,0)$なら$(x,y)=(b,-a)$が両方の式を満たす.
 $(a,b)=(0,\,0)$の場合も,残る一つの式から零でない解を選べる.
 
 固有値の式$A\boldsymbol{u}=\lambda\boldsymbol{u}$は
@@ -267,7 +277,7 @@ $(a,b)=(0,\,0)$の場合も,残る一つの式から零でない解を選べる.
   (\lambda I-A)\boldsymbol{u}=\boldsymbol{0}
 \]
 と書き直せる.
-行列の引き算は対応する成分ごとに行うので,\,\,$A=\begin{pmatrix}p&q\\r&s\end{pmatrix}$なら
+行列の引き算は対応する成分ごとに行うので,\,$A=\begin{pmatrix}p&q\\r&s\end{pmatrix}$なら
 \[
   \lambda I-A
   =\begin{pmatrix}\lambda-p&-q\\-r&\lambda-s\end{pmatrix}.
