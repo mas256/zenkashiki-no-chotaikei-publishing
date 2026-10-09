@@ -42,18 +42,21 @@
 \draw[->,thick](a)--(b);\draw[->,thick](b)--(c);\draw[<->,thick](b)--(d);\draw[->,dashed](c.south)|-(d.east);
 }}
 
-\newcommand{\BookFigArithmeticSum}{\BookDiagram{等差数列の順序を逆にすると各組の和がそろう}{
-
-\foreach \x/\top/\bot in {0/a/l,1/{a+d}/{l-d},2/{a+2d}/{l-2d},3/{\cdots}/{\cdots},4/l/a}{
-\node[box,minimum width=1.5cm] at (1.8*\x,0) {$\top$}; \node[box,minimum width=1.5cm] at (1.8*\x,-.9) {$\bot$}; \node at (1.8*\x,-1.65) {$a+l$};}
-\draw[thick](-.75,-1.25)--(7.95,-1.25);
-}}
-
-\newcommand{\BookFigTrigCircle}{\BookGraph{単位円上の点と三角関数}{
-
-\draw[->](-1.6,0)--(2.6,0)node[right]{$x$};\draw[->](0,-1.4)--(0,1.8)node[above]{$y$};
-\draw(0,0)circle(1.25);\coordinate(P)at(42:1.25);\draw[very thick,->](0,0)--(P)node[above right]{$(\cos\theta,\sin\theta)$};
-\draw[dashed](P)--(P|-0,0);\draw(.5,0)arc(0:42:.5);\node at(.75,.26){$\theta$};
+\newcommand{\BookFigArithmeticSum}{\BookDiagram{等差数列の増分を正順と逆順で組み合わせる}{
+% 各列の高さは nd. 画像と同じく先頭と末尾の2列を示す模式図.
+\foreach \x/\h in {0/0.46,1.35/0.84,4.05/1.91,5.40/2.29}{
+  \draw (\x,0) rectangle ({\x+1.28},2.75);
+  \draw (\x,\h)--({\x+1.28},\h);
+}
+\node at (.64,.23) {$d$};
+\node at (1.99,.41) {$2d$};
+\node at (.64,1.62) {$(n-1)d$};
+\node at (1.99,1.83) {$(n-2)d$};
+\node at (4.69,2.34) {$2d$};
+\node at (6.04,2.51) {$d$};
+\node at (4.69,.97) {$(n-2)d$};
+\node at (6.04,1.15) {$(n-1)d$};
+\node at (3.37,1.4) {$\cdots$};
 }}
 
 \newcommand{\BookFigPolar}{\BookGraph{複素数を距離と偏角で表す}{
@@ -130,14 +133,6 @@
 }
 }}
 
-\newcommand{\BookFigFloorGroups}{\BookDiagram{$\lfloor\sqrt{n}\rfloor$ は $3,5,7,\ldots$ 項ずつ同じ値が続く}{
-\node[box](g1)at(0,0){$1,\ 1,\ 1$};
-\node[box](g2)at(3.6,0){$2,\ 2,\ 2,\ 2,\ 2$};
-\node[box](g3)at(8.5,0){$3,\ 3,\ 3,\ 3,\ 3,\ 3,\ 3$};
-\node at(0,-.85){3項};\node at(3.6,-.85){5項};\node at(8.5,-.85){7項};
-\draw[->](g1)--(g2);\draw[->](g2)--(g3);
-}}
-
 \newcommand{\BookFigNonadjacent}{\BookDiagram{非隣接型は二つの独立した更新列に分けられる}{
 
 \foreach \i/\x in {1/0,3/2,5/4,7/6}{\node[box](o\i)at(\x,0){$a_{\i}$};}
@@ -166,13 +161,24 @@
 \fill(1.5,0)circle(2pt)node[above left]{$a_{n+1}$};\node[below]at(2,0){$a_n$};
 }}
 
-\newcommand{\BookFigCobweb}{\BookGraph{異なる初項からの反復をグラフ上で追う}{
-
-\draw[->](-.1,0)--(1.42,0)node[right]{$x$};\draw[->](0,-.1)--(0,1.44)node[above]{$y$};
-\draw[dashed](0,0)--(1.25,1.25)node[above]{$y=x$};
-\draw[thick,domain=0:1.16,samples=40]plot(\x,{\x*\x})node[right]{$y=x^2$};
-\draw[very thick](.8,0)--(.8,.64)--(.64,.64)--(.64,.4096)--(.4096,.4096)--(.4096,.1678);
-\fill(.8,0)circle(2pt)node[below]{$a_1$};
+\newcommand{\BookFigCobweb}{\BookGraph{初項からの反復を $y=f(x)$ と $y=x$ で追う}{
+% Section example: f(x)=(x^2-1)/2; a1=2 -> a2=3/2 -> a3=5/8.
+% Match characteristic-equation figures (scale=0.8) using natural coordinate sizes.
+\begin{scope}[x=1.7cm,y=1.45cm]
+  \draw[->,semithick] (-.65,0)--(2.63,0) node[right] {$x$};
+  \draw[->,semithick] (0,-.71)--(0,2.8) node[above] {$y$};
+  \draw[dashed,thin] (-.55,-.55)--(2.43,2.43) node[above] {$y=x$};
+  \draw[thick,domain=-.60:2.42,samples=60]
+    plot (\x,{(\x*\x-1)/2})
+    node[right] {$y=f(x)$};
+  \draw[semithick]
+    (2,0)--(2,1.5)--(1.5,1.5)--(1.5,.625)
+    --(.625,.625)--(.625,-.3046875)
+    --(-.3046875,-.3046875);
+  \fill (2,0) circle (1.15pt) node[below right] {$a_1=2$};
+  \fill (1.5,0) circle (.9pt) node[below] {$a_2$};
+  \fill (.625,0) circle (.9pt) node[above left] {$a_3$};
+\end{scope}
 }}
 
 \newcommand{\BookFigFlowchart}{\BookDiagram{式全体・項・付加項の観察から解法候補を選ぶ}{
