@@ -1,0 +1,65 @@
+  \subsubsection{床関数を整数の個数として数える}\label{節：ガウス型の個数と格子点}
+    \,$X\ge0$に対して$\lfloor X\rfloor$は,\,$1\le k\le X$を満たす整数$k$の個数である.
+    例えば$\lfloor\frac nm\rfloor$は,\,$1,\ldots,n$に含まれる$m$の倍数の個数を表す.
+    床関数を含む和は,\textbf{何を数えているか}から意味を読み直せる.
+
+    座標がともに整数である点を格子点という.
+    例えば$\sum_{k=1}^{n}\lfloor ck\rfloor\ (c>0)$は,
+    \,$x=k$を固定するたびに,\,$1\le y\le ck$を満たす整数$y$を数えている.
+    同じ値の群で整理する方法とは別に,図形の中の点を数える方法としても理解できる.
+    二つの使い方は重なり,前の群数列の別解も整数の組を数え直す方法であった.
+
+    \noindent \bookblocklink{example-gauss-role-10}{problem}{answer}{【例題】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-10}{problem}{answer}]
+      \item 数列を次のように定める.
+            \[
+              a_0=0,\qquad
+              a_n=a_{n-1}+\left\lfloor\frac{5n}{2}\right\rfloor
+              \quad(n\ge1).
+            \]
+            一般項を求め,\,$a_n$をある範囲の格子点の個数として説明せよ.
+    \end{enumerate}
+
+    \noindent \bookblocklink{example-gauss-role-10}{hint}{problem}{【方針】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-10}{hint}{problem}]
+      \item \,$\lfloor\frac{5k}{2}\rfloor=2k+\lfloor\frac k2\rfloor$と分けます.
+            後者の和を偶奇で求め,床関数が数えている整数$y$の範囲も確認しましょう.
+    \end{enumerate}
+
+    \noindent \bookblocklink{example-gauss-role-10}{answer}{problem}{【解答】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-10}{answer}{problem}]
+      \item \[
+              a_n=n(n+1)+\left\lfloor\frac{n^2}{4}\right\rfloor.
+            \]
+            これは整数$x,y$で,
+            \[
+              1\le x\le n,\qquad 1\le y\le\frac{5x}{2}
+            \]
+            を満たす格子点の個数である.
+    \end{enumerate}
+
+    \noindent \bookblocklink{example-gauss-role-10}{solution}{problem}{【解法】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-10}{solution}{problem}]
+      \item 階差を足し,整数$2k$を床関数の外に出すと,
+            \begin{align*}
+              a_n&=\sum_{k=1}^{n}\left\lfloor\frac{5k}{2}\right\rfloor\\
+                 &=n(n+1)+\sum_{k=1}^{n}\left\lfloor\frac k2\right\rfloor.
+            \end{align*}
+            後ろの和は$n=2m$なら,
+            \[
+              0+1+1+2+2+\cdots+(m-1)+(m-1)+m=m^2,
+            \]
+            \,$n=2m+1$なら$m^2+m$である.
+            従っていずれの場合も,
+            \[
+              \sum_{k=1}^{n}\left\lfloor\frac k2\right\rfloor
+              =\left\lfloor\frac{n^2}{4}\right\rfloor
+            \]
+            となり,一般項を得る.\,$n=0$でも成立する.
+
+            格子点としての意味も確かめよう.\,$x=k$と固定したとき,
+            \,$1\le y\le\frac{5k}{2}$を満たす整数$y$は$\lfloor\frac{5k}{2}\rfloor$個である.
+            \,$k=1,\ldots,n$について足した値が$a_n$だから,【解答】の範囲の点を数えている.
+            数列の値,床関数の和,図形の中の個数が同じ量を表している.
+    \end{enumerate}
+

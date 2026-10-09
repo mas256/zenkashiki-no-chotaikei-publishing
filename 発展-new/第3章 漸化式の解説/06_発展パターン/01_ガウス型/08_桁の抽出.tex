@@ -1,0 +1,62 @@
+  \subsubsection{商と余りで整数の桁を読む}\label{節：ガウス型の桁の抽出}
+    正整数$b\ge2$に対し,非負整数$n$を$b$で割って,
+    \[
+      q=\left\lfloor\frac nb\right\rfloor,
+      \qquad r=n-b\left\lfloor\frac nb\right\rfloor
+    \]
+    とおくと,\,$n=bq+r,\ 0\le r<b$である.
+    十進法では,\,$q=\lfloor\frac n{10}\rfloor$が一の位を取り除いた整数,
+    \,$r=n-10\lfloor\frac n{10}\rfloor$が一の位の数字になる.
+
+    一般の$b$進法も,各桁の数字を0から$b-1$までとし,位を$b$倍ずつにする表し方である.
+    このとき$q$は最後の桁を取り除く操作,$r$はその桁の数字に当たる.
+    \textbf{添字を小さくする床関数と,桁を取り出す余りを組み合わせる}ことができる.
+    前の添字分割は二つの項を足したが,ここでは一つの項へ戻りながら最後の桁を処理する.
+
+    \noindent \bookblocklink{example-gauss-role-8}{problem}{answer}{【例題】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-8}{problem}{answer}]
+      \item 数列を次のように定める.
+            \[
+              a_0=0,\qquad
+              a_n=a_{\left\lfloor\frac n3\right\rfloor}
+                  +n-3\left\lfloor\frac n3\right\rfloor
+              \quad(n\ge1).
+            \]
+            \,$a_n$が$n$の3進表示とどのような関係を持つか説明し,\,$a_{14}$を求めよ.
+    \end{enumerate}
+
+    \noindent \bookblocklink{example-gauss-role-8}{hint}{problem}{【方針】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-8}{hint}{problem}]
+      \item \,$n=3q+r\ (0\le r<3)$と書くと,漸化式は$a_n=a_q+r$になります.
+            \,$q$の3進表示に最後の桁$r$を付けると$n$になることを使いましょう.
+    \end{enumerate}
+
+    \noindent \bookblocklink{example-gauss-role-8}{answer}{problem}{【解答】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-8}{answer}{problem}]
+      \item \,$a_n$は$n$の3進表示の各桁の数字の和である.
+            \,$14=(112)_3$より,
+            \[
+              a_{14}=1+1+2=4.
+            \]
+    \end{enumerate}
+
+    \noindent \bookblocklink{example-gauss-role-8}{solution}{problem}{【解法】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-8}{solution}{problem}]
+      \item \,$n\ge1$では$0\le q=\lfloor\frac n3\rfloor<n$なので,初期値$a_0$から各項を定義できる.
+            \,$r=n-3q$とおけば$r$は0,1,2のいずれかで,
+            \[
+              a_n=a_q+r.
+            \]
+            \,$n$より小さな整数について桁の和との一致が分かっているとしよう.
+            \,$n=3q+r$の3進表示は,\,$q$の表示を一桁ずらして最後に$r$を付けたものになる.
+            その桁の和は$q$の桁の和に$r$を足した値であり,漸化式と一致する.
+            \,$a_0=0$から,この考えを$n=1,2,\ldots$と順に適用すれば,すべての$n$について示される.
+            \,$q=0$の場合も,桁の和を0として同じ議論が成り立つ.
+
+            実際,\,$14=3\cdot4+2,\ 4=3\cdot1+1,\ 1=3\cdot0+1$なので,
+            \[
+              a_{14}=a_4+2=a_1+3=a_0+4=4.
+            \]
+            この問題では,一般項を長い式で書く前に,数列が何を表すかを理解することに意味がある.
+    \end{enumerate}
+

@@ -1,0 +1,64 @@
+  \subsubsection{余りを取り出し,値の範囲と周期を調べる}\label{節：ガウス型の余りと周期}
+    整数$X$と正整数$m$に対して,
+    \[
+      X-m\left\lfloor\frac Xm\right\rfloor
+    \]
+    は$X$を$m$で割った余りであり,\,$0,1,\ldots,m-1$のいずれかである.
+    これは床関数の定義から,この式が0以上$m$未満の整数になるためである.
+    大きな数を計算する式に見えても,\textbf{値が有限個に制限される}ことに注目しよう.
+
+    \,$x\equiv y\pmod m$は,\,$x-y$が$m$の倍数であることを表す合同式である.
+    次の値が$n$にも依存するなら,\,$a_n$だけでなく$n$の余りも一緒に追う.
+    同じ組に戻り,その組から次の組が一意に決まれば,以降は繰り返す.
+    有限個の状態を追う場合でも,初項から繰り返すとは限らず,途中から周期的になることもある.
+
+    \noindent \bookblocklink{example-gauss-role-3}{problem}{answer}{【例題】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-3}{problem}{answer}]
+      \item 数列を次のように定める.一般項と最小の正の周期を求めよ.
+            \[
+              a_1=1,\qquad
+              a_{n+1}=X_n-4\left\lfloor\frac{X_n}{4}\right\rfloor,
+            \]
+            \[
+              X_n=a_n^2+n^2+n\quad(n\ge1).
+            \]
+    \end{enumerate}
+
+    \noindent \bookblocklink{example-gauss-role-3}{hint}{problem}{【方針】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-3}{hint}{problem}]
+      \item 次の項は$X_n$を4で割った余りです.
+            \,$(a_n,n\bmod4)$の組を追うと,同じ状態への戻りを確かめられます.
+    \end{enumerate}
+
+    \noindent \bookblocklink{example-gauss-role-3}{answer}{problem}{【解答】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-3}{answer}{problem}]
+      \item \[
+              a_n=
+              \begin{cases}
+                1 & (n\equiv0,1\pmod4),\\
+                3 & (n\equiv2,3\pmod4).
+              \end{cases}
+            \]
+            最小の正の周期は4である.
+    \end{enumerate}
+
+    \noindent \bookblocklink{example-gauss-role-3}{solution}{problem}{【解法】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-3}{solution}{problem}]
+      \item 初項は整数.整数$a_n$から$X_n$も次の項も整数になるので,各項は整数である.
+            第2項以降は$0\le a_n<4$であり,
+            \[
+              a_{n+1}\equiv a_n^2+n(n+1)\pmod4
+            \]
+            となる.順に追うと,
+            \[
+              a_1,a_2,a_3,a_4,a_5=1,3,3,1,1.
+            \]
+            第1項と第5項では値が1,添字の余りが1で一致する.
+            以降も同じ組から同じ次の組が決まるので,帰納法により$a_{n+4}=a_n$である.
+            従って【解答】の一般項が得られる.
+            第1項と第4項の値だけは同じでも,添字の余りが違うことに注意しよう.
+
+            最小周期を確認する.1と2は$a_1\ne a_2,\ a_1\ne a_3$より周期ではなく,
+            3も$a_2\ne a_5$より周期ではない.4は周期なので,最小の正の周期は4である.
+    \end{enumerate}
+

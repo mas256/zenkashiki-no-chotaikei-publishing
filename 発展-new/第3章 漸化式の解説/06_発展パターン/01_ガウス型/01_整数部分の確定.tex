@@ -1,0 +1,53 @@
+  \subsubsection{整数性と不等式で整数部分を確定する}\label{節：ガウス型の整数部分の確定}
+    ガウス記号を見たら,まず中にある数が整数かどうかを考えよう.
+    整数$k$と実数$x$に対して,
+    \[
+      \lfloor k+x\rfloor=k+\lfloor x\rfloor
+    \]
+    が成り立つ.例えば,整数$a_n$に対して$\lfloor a_n+\sqrt3\rfloor=a_n+1$である.
+    ただし,これを使う前に,初項から整数が保たれることを確かめる必要がある.
+
+    中身が整数との和でなくても,\,$k\le X<k+1$を示せば$\lfloor X\rfloor=k$と分かる.
+    平方根なら,先に隣り合う平方数の間に挟むとよい.
+    \textbf{床関数の値を確定してから,既知の漸化式として解く}のがこの使い方である.
+
+    \noindent \bookblocklink{example-gauss-role-1}{problem}{answer}{【例題】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-1}{problem}{answer}]
+      \item 数列を次のように定める.一般項を求めよ.
+            \[
+              a_1=1,\qquad
+              a_{n+1}=\left\lfloor\sqrt{a_n^2+4a_n+5}\right\rfloor
+              \quad(n\ge1).
+            \]
+    \end{enumerate}
+
+    \noindent \bookblocklink{example-gauss-role-1}{hint}{problem}{【方針】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-1}{hint}{problem}]
+      \item 整数$a_n$に対して,平方根の中身を$(a_n+2)^2$と$(a_n+3)^2$で挟みます.
+            まず各項が非負整数であることを確かめましょう.
+    \end{enumerate}
+
+    \noindent \bookblocklink{example-gauss-role-1}{answer}{problem}{【解答】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-1}{answer}{problem}]
+      \item \[
+              a_n=2n-1\quad(n\ge1).
+            \]
+    \end{enumerate}
+
+    \noindent \bookblocklink{example-gauss-role-1}{solution}{problem}{【解法】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-1}{solution}{problem}]
+      \item 初項は非負整数であり,非負整数$a_n$から次の項も非負整数になる.
+            よって帰納法により,すべての項が非負整数である.
+            非負整数$x$について,
+            \[
+              (x+2)^2\le x^2+4x+5<(x+3)^2
+            \]
+            が成り立つ.左の差は1,右の差は$2x+4>0$である.
+            平方根を取ると,
+            \[
+              x+2\le\sqrt{x^2+4x+5}<x+3
+            \]
+            なので,床関数の値は$x+2$である.
+            従って$a_{n+1}=a_n+2$となり,\sectionref{節：等差型}に帰着して$a_n=2n-1$を得る.
+    \end{enumerate}
+

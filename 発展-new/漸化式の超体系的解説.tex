@@ -1,7 +1,10 @@
+% jsbook の 11pt で用いられる拡大率 (\mag) が用紙にも及ぶのを防ぎ、
+% PDF の実寸を A4 (210 mm × 297 mm) に保つ。
 \documentclass[
   dvipdfmx,
   a4paper,
-  11pt,
+  10pt,
+  nomag,
   fleqn,
   openany
 ]{jsbook}
@@ -16,6 +19,8 @@
 \everymath{\displaystyle}
 \usepackage{refcount}
 \usepackage{tikz}
+\usepackage{graphicx}
+\input{figures/diagrams.tex}
 
 
 % =========================================================
@@ -157,6 +162,11 @@
 \setcounter{secnumdepth}{4}
 
 \input{../tex/book-links.tex}
+\hypersetup{
+  pdftitle={漸化式の超体系的解説},
+  pdfauthor={MAS256},
+  pdfsubject={漸化式の解法・発想・数学的なつながり}
+}
 
 % =========================================================
 % 章・節・項の相互参照
