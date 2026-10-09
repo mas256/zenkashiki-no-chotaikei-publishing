@@ -1,0 +1,74 @@
+  \subsubsection{同じ値を取る区間を群としてまとめる}\label{節：ガウス型の群数列}
+    床関数は,中身が同じ二つの連続整数の間にある間,同じ値を取る.
+    例えば,正整数$k,j$に対して,
+    \[
+      \lfloor\sqrt k\rfloor=j
+      \iff j^2\le k\le(j+1)^2-1
+    \]
+    だから,値$j$が$2j+1$項続く.
+    このようなまとまりを一つの群として数えるのが,群数列の考え方である.
+    実際に$\lfloor\sqrt k\rfloor$は,
+    \[
+      \underbrace{1,1,1}_{3\text{個}},\,
+      \underbrace{2,2,2,2,2}_{5\text{個}},\,
+      \underbrace{3,3,3,3,3,3,3}_{7\text{個}},\,\ldots
+    \]
+    と並ぶ.
+
+    階差にこの形が現れたら,\sectionref{節：階差型}と同じように足す.
+    \textbf{群の境界と,最後の群のどこまでを足すか}を区別しよう.
+    似た形でも,和の上端が$n$か$n-1$かで境界が変わる.
+
+    \noindent \bookblocklink{example-gauss-role-2}{problem}{answer}{【例題】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-2}{problem}{answer}]
+      \item 数列を次のように定める.一般項を求めよ.
+            \[
+              a_1=2,\qquad
+              a_{n+1}=a_n+\lfloor\sqrt{n+2}\rfloor
+              \quad(n\ge1).
+            \]
+            必要ならば,\,$m=\lfloor\sqrt{n+1}\rfloor$を用いてよい.
+    \end{enumerate}
+
+    \noindent \bookblocklink{example-gauss-role-2}{hint}{problem}{【方針】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-2}{hint}{problem}]
+      \item 階差を足し,\,$\lfloor\sqrt k\rfloor$の和にします.
+            \,$k=1,2$で値がともに1であることを使い,和の範囲をそろえましょう.
+    \end{enumerate}
+
+    \noindent \bookblocklink{example-gauss-role-2}{answer}{problem}{【解答】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-2}{answer}{problem}]
+      \item \,$m=\lfloor\sqrt{n+1}\rfloor$とおくと,
+            \[
+              a_n=m(n+2)-\frac{m(m+1)(2m+1)}6.
+            \]
+    \end{enumerate}
+
+    \noindent \bookblocklink{example-gauss-role-2}{solution}{problem}{【解法】}
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-2}{solution}{problem}]
+      \item 階差を足すと,
+            \[
+              a_n=2+\sum_{k=3}^{n+1}\lfloor\sqrt k\rfloor
+                  =\sum_{k=1}^{n+1}\lfloor\sqrt k\rfloor.
+            \]
+            \,$n=1$では最初の和を空の和として0とする.
+            \,$N=n+1,\ m=\lfloor\sqrt N\rfloor$とおく.
+            第$m-1$群までは全項,第$m$群は$k=m^2$から$N$までの$N-m^2+1$項を足すので,
+            \begin{align*}
+              a_n&=\sum_{j=1}^{m-1}j(2j+1)+m(N-m^2+1)\\
+                 &=\frac{(m-1)m(4m+1)}6\\
+                 &\quad+m(N-m^2+1)\\
+                 &=m(N+1)-\frac{m(m+1)(2m+1)}6.
+            \end{align*}
+            \,$N=n+1$を戻せば一般項を得る.\,$m=1$でも最初の和は0となり,初項と一致する.
+
+            \noindent \textbf{【別解】}\\
+            \,$\lfloor\sqrt k\rfloor$は,\,$j^2\le k$を満たす正整数$j$の個数でもある.
+            同じ組$(j,k)$を$j$ごとに数えると,
+            \begin{align*}
+              a_n&=\sum_{j=1}^{m}(N-j^2+1)\\
+                 &=m(N+1)-\frac{m(m+1)(2m+1)}6.
+            \end{align*}
+            群ごとにまとめる方法と,何を数えているかを読み直す方法がつながっている.
+    \end{enumerate}
+
