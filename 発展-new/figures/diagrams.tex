@@ -43,35 +43,37 @@
 }}
 
 \newcommand{\BookFigArithmeticSum}{\BookGraph{等差数列の増分を正順と逆順で組み合わせる}{
-% 省略された各列の中段は \vdots で示し,一組の列同士は必ず辺を共有させる.
-% 図の文字と枠幅を併せて縮小する. \BookGraph は段幅まで拡大しない.
-\begin{scope}[every node/.append style={font=\tiny},line width=.38pt]
-  % 正順側：隣接する2列が一本の境界線を共有する.
-  \draw (0,1.72)--(0,2.60)--(2.46,2.60)--(2.46,1.72);
-  \draw (1.23,1.72)--(1.23,2.60);
-  \draw (0,.82)--(0,0)--(2.46,0)--(2.46,.82);
-  \draw (1.23,0)--(1.23,.82);
-  \draw (0,.33)--(1.23,.33);
-  \draw (1.23,.56)--(2.46,.56);
-  \node[scale=.87,transform shape] at (.615,2.30) {$(n-1)d$};
-  \node[scale=.87,transform shape] at (1.845,2.30) {$(n-2)d$};
-  \node at (.615,.16) {$d$};
-  \node at (1.845,.27) {$2d$};
-  \node at (.615,1.27) {$\vdots$};
-  \node at (1.845,1.27) {$\vdots$};
+% 柱は上下の端だけを示し,中間は縦の省略記号で示す.
+% 隣接する2列は境界の辺を共有する.
+\begin{scope}[every node/.append style={font=\scriptsize},line width=.42pt]
+  % 逆順と組み合わせる前の正順側.
+  \draw (0,3.45)--(0,4.75)--(2.96,4.75)--(2.96,3.45);
+  \draw (1.48,3.45)--(1.48,4.75);
+  \draw (0,1.25)--(0,0)--(2.96,0)--(2.96,1.25);
+  \draw (1.48,0)--(1.48,1.25);
+  \draw (0,.43)--(1.48,.43);
+  \draw (1.48,.77)--(2.96,.77);
+  \node at (.74,4.10) {$(n-1)d$};
+  \node at (2.22,4.10) {$(n-2)d$};
+  \node at (.74,.20) {$d$};
+  \node at (2.22,.38) {$2d$};
+  \node at (.74,2.30) {$\vdots$};
+  \node at (2.22,2.30) {$\vdots$};
 
-  % 逆順側：こちらも2列の間の枠線を共有する.
-  \begin{scope}[xshift=3.50cm]
-    \draw (0,1.72)--(0,2.60)--(2.46,2.60)--(2.46,1.72);
-    \draw (1.23,1.72)--(1.23,2.60);
-    \draw (0,.82)--(0,0)--(2.46,0)--(2.46,.82);
-    \draw (1.23,0)--(1.23,.82);
-    \draw (0,2.18)--(1.23,2.18);
-    \draw (1.23,2.40)--(2.46,2.40);
-    \node[scale=.87,transform shape] at (.615,.20) {$(n-2)d$};
-    \node[scale=.87,transform shape] at (1.845,.20) {$(n-1)d$};
-    \node at (.615,1.27) {$\vdots$};
-    \node at (1.845,1.27) {$\vdots$};
+  % 逆順側. 同じ高さの長方形を左右に隙間なく並べる.
+  \begin{scope}[xshift=3.76cm]
+    \draw (0,3.45)--(0,4.75)--(2.96,4.75)--(2.96,3.45);
+    \draw (1.48,3.45)--(1.48,4.75);
+    \draw (0,1.25)--(0,0)--(2.96,0)--(2.96,1.25);
+    \draw (1.48,0)--(1.48,1.25);
+    \draw (0,4.02)--(1.48,4.02);
+    \draw (1.48,4.37)--(2.96,4.37);
+    \node at (.74,4.37) {$2d$};
+    \node at (2.22,4.55) {$d$};
+    \node at (.74,.62) {$(n-2)d$};
+    \node at (2.22,.62) {$(n-1)d$};
+    \node at (.74,2.30) {$\vdots$};
+    \node at (2.22,2.30) {$\vdots$};
   \end{scope}
 \end{scope}
 }}
@@ -150,14 +152,6 @@
 }
 }}
 
-\newcommand{\BookFigNonadjacent}{\BookDiagram{非隣接型は二つの独立した更新列に分けられる}{
-
-\foreach \i/\x in {1/0,3/2,5/4,7/6}{\node[box](o\i)at(\x,0){$a_{\i}$};}
-\foreach \i/\x in {2/0,4/2,6/4,8/6}{\node[box](e\i)at(\x,-1.5){$a_{\i}$};}
-\draw[->,thick](o1)--(o3);\draw[->,thick](o3)--(o5);\draw[->,thick](o5)--(o7);
-\draw[->,thick](e2)--(e4);\draw[->,thick](e4)--(e6);\draw[->,thick](e6)--(e8);
-}}
-
 \newcommand{\BookFigComplexRoots}{\BookGraph{特性根の累乗は回転と伸縮の繰り返しになる}{
 
 \draw[->](-3.5,0)--(3.2,0)node[right]{実軸};\draw[->](0,-2.7)--(0,3.15)node[above]{虚軸};
@@ -219,11 +213,19 @@
 }}
 
 \newcommand{\BookFigMatrixMap}{\BookGraph{行列の作用を平面上のベクトルとして表す}{
-
-\draw[->](-.2,0)--(4.7,0)node[right]{$x$};\draw[->](0,-.2)--(0,3.1)node[above]{$y$};
-\draw[very thick,->](0,0)--(1.4,1.15)node[above]{$\boldsymbol v$};
-\draw[very thick,->](0,0)--(3.05,2.3)node[right]{$A\boldsymbol v$};
-\draw[->,dashed](1.65,1.45)to[out=50,in=160]node[above]{$A$}(2.65,2.15);
+% 二つの座標平面に分けて元のベクトルと作用後を判別しやすくする.
+% A=(2,1;1,2), v=(1,1/2) なら Av=(5/2,2).
+\begin{scope}[line width=.65pt]
+  \draw[->] (-.15,0)--(1.95,0)node[right]{$x$};
+  \draw[->] (0,-.12)--(0,2.65)node[above]{$y$};
+  \draw[->,very thick] (0,0)--(1,.5)node[above]{$\boldsymbol v$};
+  \node[font=\small]at(3.05,1.30){$\xrightarrow{\ A\ }$};
+  \begin{scope}[xshift=4.35cm]
+    \draw[->](-.15,0)--(3.05,0)node[right]{$x$};
+    \draw[->](0,-.12)--(0,2.65)node[above]{$y$};
+    \draw[->,very thick](0,0)--(2.5,2)node[above right]{$A\boldsymbol v$};
+  \end{scope}
+\end{scope}
 }}
 
 \newcommand{\BookFigEigen}{\BookGraph{固有ベクトルだけは作用後も元と同じ直線上にある}{
@@ -233,15 +235,6 @@
 \draw[->,very thick](0,0)--(3.7,0)node[below right]{$A\boldsymbol v$};
 \draw[->](0,0)--(.9,1.65)node[left]{$\boldsymbol u$};
 \draw[->,dashed](0,0)--(2.3,.95)node[above]{$A\boldsymbol u$};
-}}
-
-\newcommand{\BookFigMatrixState}{\BookDiagram{一段の更新を行列で表せば反復は行列の累乗となる}{
-
-\node[box](a)at(0,0){$\binom{a_n}{1}$};
-\node[box](m)at(2.55,0){$\begin{pmatrix}p&q\\0&1\end{pmatrix}$};
-\node[box](b)at(5.15,0){$\binom{a_{n+1}}{1}$};
-\draw[->](a)--(m);\draw[->](m)--(b);
-\node at(2.55,-1.25){$\boldsymbol x_{n+1}=A\boldsymbol x_n,\quad \boldsymbol x_n=A^{n-1}\boldsymbol x_1$};
 }}
 
 \newcommand{\BookFigChebyshev}{\BookGraph{角の倍化とチェビシェフ多項式の対応}{
@@ -278,11 +271,3 @@
 \node at(1.1,-.72){$\Delta,\ \sum$};\node at(4.95,-.72){$\frac{\mathrm{d}}{\mathrm{d}x},\ \int$};\draw[<->,dashed](2.7,1)--(3.4,1);
 }}
 
-\newcommand{\BookFigGenerating}{\BookDiagram{母関数への $x$ の乗算は係数列の右シフト}{
-
-\node[anchor=east]at(-.2,0){$A(x)$};\node[anchor=east]at(-.2,-1.35){$xA(x)$};
-\foreach \x/\v in {0/{a_0},1/{a_1},2/{a_2},3/{a_3},4/{\cdots}}{\node[box](t\x)at(1.15*\x,0){$\v$};}
-\node[box](b0)at(0,-1.35){$0$};
-\foreach \x/\v in {1/{a_0},2/{a_1},3/{a_2},4/{a_3}}{\node[box](b\x)at(1.15*\x,-1.35){$\v$};}
-\draw[->,dashed](t0)--(b1);\draw[->,dashed](t1)--(b2);\draw[->,dashed](t2)--(b3);\draw[->,dashed](t3)--(b4);
-}}
