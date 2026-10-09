@@ -526,10 +526,17 @@
                   a_n=2^{\,2-2^{2-n}}
                 \]
           % C4
-          \item \[
+\item \BookMathLayout{\[
                   a_n=3+(t-3)4^{n-1},\qquad
                 \text{定数数列となるのは }t=3
-                \]
+                \]}{
+\[
+\begin{aligned}
+a_n&=3+(t-3)4^{n-1},\\
+&\text{定数数列となるのは }t=3
+\end{aligned}
+\]
+}
           % R4
           \item \[
                   a_n=2^{n^2}
@@ -543,9 +550,16 @@
                   a_n=(3n-1)2^{n-1}
                 \]
           % U5
-          \item \[
+\item \BookMathLayout{\[
                   a_n=\frac{2^n+(-1)^{n-1}}{3},\qquad b_n=\frac{2^{n-1}-(-1)^{n-1}}{3}
-                \]
+                \]}{
+\[
+\begin{aligned}
+a_n&=\frac{2^n+(-1)^{n-1}}3,\\
+b_n&=\frac{2^{n-1}-(-1)^{n-1}}3
+\end{aligned}
+\]
+}
           % R5
           \item \[
                   a_n=\frac{(n-1)!\,n!}{2^{n-1}}
@@ -667,12 +681,20 @@
 
                 \noindent \textbf{【別解】}\\
                 倍率を初項から順に掛けると,
-                \[
+\BookMathLayout{\[
                   a_n
                     =3\prod_{k=1}^{n-1}2(k+1)
                     =3\cdot2^{n-1}(2\cdot3\cdots n)
                     =3\cdot2^{n-1}n!
-                \]
+                \]}{
+\[
+\begin{aligned}
+a_n&=3\prod_{k=1}^{n-1}2(k+1)\\
+&=3\cdot2^{n-1}(2\cdot3\cdots n)\\
+&=3\cdot2^{n-1}n!
+\end{aligned}
+\]
+}
                 である.この積には$2$が$n-1$個含まれる.
                 $n=1$では空積を$1$とするので,同じ式が成り立つ.
           % M1
@@ -821,12 +843,20 @@
                          =\frac{a_n^6}{64}=r_n^3,\qquad r_1=4
                 \]
                 が成り立つ.指数を追うと$r_n=4^{3^{n-1}}$となるから,\,$n\ge2$では,
-                \[
+\BookMathLayout{\[
                   a_n=4\prod_{k=1}^{n-1}r_k
                      =4^{\,1+\sum_{k=1}^{n-1}3^{k-1}}
                      =4^{\,\frac{1+3^{n-1}}{2}}
                      =2^{\,1+3^{n-1}}
-                \]
+                \]}{
+\[
+\begin{aligned}
+a_n&=4\prod_{k=1}^{n-1}r_k\\
+&=4^{\,1+\sum_{k=1}^{n-1}3^{k-1}}\\
+&=4^{\,\frac{1+3^{n-1}}{2}}=2^{\,1+3^{n-1}}
+\end{aligned}
+\]
+}
                 である.ここでは階比の積を,指数の和に読み替えている.
                 最終式は$n=1$でも成り立つ.
           % C1
@@ -1097,7 +1127,7 @@
                   a_{n+1}=\frac{n}{n+1}\frac{n+3}{n+2}a_n
                 \]
                 と書ける.この2つの分数の積を分けて掛ければ,\,$n\ge2$のとき,
-                \begin{align*}
+\BookMathLayout{\begin{align*}
                   a_n
                     &=6\prod_{k=1}^{n-1}\frac{k}{k+1}
                         \prod_{k=1}^{n-1}\frac{k+3}{k+2}\\
@@ -1105,7 +1135,17 @@
                         \left(\frac43\frac54\cdots\frac{n+2}{n+1}\right)\\
                     &=6\cdot\frac1n\cdot\frac{n+2}{3}\\
                     &=\frac{2(n+2)}n
-                \end{align*}
+                \end{align*}}{
+\[
+\begin{aligned}
+a_n&=6\prod_{k=1}^{n-1}\frac{k}{k+1}\prod_{k=1}^{n-1}\frac{k+3}{k+2}\\
+&=6\left(\frac12\frac23\cdots\frac{n-1}n\right)\\
+&\quad\cdot\left(\frac43\frac54\cdots\frac{n+2}{n+1}\right)\\
+&=6\cdot\frac1n\cdot\frac{n+2}3\\
+&=\frac{2(n+2)}n
+\end{aligned}
+\]
+}
                 となる.分子と次の分母が相殺するので,大きな積を計算する必要はない.
                 $n=1$でも右辺は$6$であり,初項と一致する.
 
@@ -1115,13 +1155,20 @@
                   b_n=\frac{n}{n+2}a_n
                 \]
                 と置く.もとの漸化式より,
-                \[
+\BookMathLayout{\[
                   b_{n+1}
                     =\frac{n+1}{n+3}
                       \frac{n(n+3)}{(n+1)(n+2)}a_n
                     =\frac{n}{n+2}a_n
                     =b_n
-                \]
+                \]}{
+\[
+\begin{aligned}
+b_{n+1}&=\frac{n+1}{n+3}\frac{n(n+3)}{(n+1)(n+2)}a_n\\
+&=\frac n{n+2}a_n=b_n
+\end{aligned}
+\]
+}
                 である.初項は$b_1=\dfrac13\cdot6=2$だから,\,$b_n=2$であり,
                 \[
                   a_n=\frac{2(n+2)}n
@@ -1316,11 +1363,19 @@
                                 $a_1=1,\ a_2=2a_1+b_1=4$より$C=D=1$であり,\,$a_n=n2^{n-1}$を得る.
           % Q3
           \item 不動点の方程式は
-                \[
+\BookMathLayout{\[
                   x=\frac{3x+2}{x+2}
                   \quad\Longleftrightarrow\quad
                   x^2-x-2=(x-2)(x+1)=0
-                \]
+                \]}{
+\[
+\begin{aligned}
+x=\frac{3x+2}{x+2}\\
+\Longleftrightarrow\quad x^2-x-2\\
+\hspace{5zw}=(x-2)(x+1)=0
+\end{aligned}
+\]
+}
                 なので,不動点は$2$と$-1$である.
                 また,\,$a_1>2$であり,
                 \[
@@ -1467,11 +1522,19 @@
 
                 \noindent \textbf{【別解】}\\
                 $n\ge2$において,
-                            \begin{align*}
+\BookMathLayout{\begin{align*}
                               a_{n+1}
                                 &=S_{n+1}-S_n\\
                                 &=(3S_n+2)-(3S_{n-1}+2)=3a_n.
-                            \end{align*}
+                            \end{align*}}{
+\[
+\begin{aligned}
+a_{n+1}&=S_{n+1}-S_n\\
+&=(3S_n+2)-(3S_{n-1}+2)\\
+&=3a_n.
+\end{aligned}
+\]
+}
                                 ただし,\,$S_n=3S_{n-1}+2$を使ったので, この式の導出は$n\ge2$で行っている.
                                 $S_2=3S_1+2=5$より$a_2=5-1=4$であるから,
                             \[
@@ -1593,11 +1656,19 @@
 
                 \noindent \textbf{【別解】}\\
                 $n\ge2$において, 与式から1つ前の式を引くと,
-                            \[
+\BookMathLayout{\[
                               a_{n+1}-a_n
                                 =2(S_n-S_{n-1})+2^n-2^{n-1}
                                 =2a_n+2^{n-1}.
-                            \]
+                            \]}{
+\[
+\begin{aligned}
+a_{n+1}-a_n&=2(S_n-S_{n-1})\\
+&\quad+2^n-2^{n-1}\\
+&=2a_n+2^{n-1}.
+\end{aligned}
+\]
+}
                                 したがって$a_{n+1}=3a_n+2^{n-1}$である.
                                 $a_2=2S_1+2=4=3a_1+1$より, この関係は$n=1$でも成り立つ.
                                 $b_n=a_n+2^{n-1}$とおけば,
@@ -1662,10 +1733,17 @@
                 \]
                 である.\,$u_{n+2}+u_{n+1}=3(u_{n+1}+u_n)$に対応する等比数列と,
                 $u_{n+2}-3u_{n+1}=-(u_{n+1}-3u_n)$に対応する等比数列を初項から求めると,
-                \[
+\BookMathLayout{\[
                   u_{n+1}+u_n=2\cdot3^{n-1},\qquad
                   u_{n+1}-3u_n=-2(-1)^{n-1}
-                \]
+                \]}{
+\[
+\begin{aligned}
+u_{n+1}+u_n&=2\cdot3^{n-1},\\
+u_{n+1}-3u_n&=-2(-1)^{n-1}
+\end{aligned}
+\]
+}
                 を得る.二式の差から,
                 \[
                   u_n=\frac{3^{n-1}+(-1)^{n-1}}2.
@@ -1808,11 +1886,19 @@
                   c_{n+1}=\sqrt{c_n},\qquad c_1=\frac14
                 \]
                 となる.従って,
-                \[
+\BookMathLayout{\[
                   c_n=\left(\frac14\right)^{(\frac12)^{n-1}},\qquad
                   a_n=4\left(\frac14\right)^{(\frac12)^{n-1}}
                      =2^{\,2-2^{2-n}}
-                \]
+                \]}{
+\[
+\begin{aligned}
+c_n&=\left(\frac14\right)^{(\frac12)^{n-1}},\\
+a_n&=4\left(\frac14\right)^{(\frac12)^{n-1}}\\
+&=2^{\,2-2^{2-n}}
+\end{aligned}
+\]
+}
                 を得る.1回進むたびに指数が半分になることを利用した.
           % C4
           \item 不動点を求めると,
@@ -2151,12 +2237,21 @@
                   \qquad d_n=2^n-1.
                 \]
                 よって,\,$n\geq2$では,
-                \begin{align*}
+\BookMathLayout{\begin{align*}
                   a_n
                   &=a_1+\sum_{k=1}^{n-1}(a_{k+1}-a_k)\\
                   &=1+\sum_{k=1}^{n-1}(2^k-1)\\
                   &=1+(2^n-2)-(n-1)=2^n-n.
-                \end{align*}
+                \end{align*}}{
+\[
+\begin{aligned}
+a_n&=a_1+\sum_{k=1}^{n-1}(a_{k+1}-a_k)\\
+&=1+\sum_{k=1}^{n-1}(2^k-1)\\
+&=1+(2^n-2)-(n-1)\\
+&=2^n-n.
+\end{aligned}
+\]
+}
                 この式は$n=1$でも$a_1=1$を与える.したがって,
                 \[
                   a_n=2^n-n.
@@ -2196,7 +2291,8 @@
                 \]
                 と求まる.
           % M5
-          \item $(-1)^n$は$0$にならないので,\,$\displaystyle b_n=\frac{a_n}{(-1)^{n-1}}$とおける.
+\item \BookMathLayout{$(-1)^n$は$0$にならないので,\,$\displaystyle b_n=\frac{a_n}{(-1)^{n-1}}$とおける.}{$(-1)^n$は$0$にならないので,\\
+$\displaystyle b_n=\frac{a_n}{(-1)^{n-1}}$とおける.}
                 与式を$(-1)^n$で割ると,
                 \[
                   b_{n+1}=-2b_n+3,\qquad b_1=0
@@ -2214,7 +2310,8 @@
                   a_n=(-1)^{n-1}\{1-(-2)^{n-1}\}
                      =(-1)^{n-1}-2^{n-1}
                 \]
-                となる.最後の等号には$(-1)^{n-1}(-2)^{n-1}=2^{n-1}$を用いた.
+\BookMathLayout{となる.最後の等号には$(-1)^{n-1}(-2)^{n-1}=2^{n-1}$を用いた.}{となる.最後の等号には\\
+$(-1)^{n-1}(-2)^{n-1}=2^{n-1}$を用いた.}
 
                 \noindent \textbf{【別解：交代する項を直接引く】}\\
                 \,$g_n=(-1)^{n-1}$とおくと,

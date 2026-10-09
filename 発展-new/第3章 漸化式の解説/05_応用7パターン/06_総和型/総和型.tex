@@ -116,12 +116,21 @@
         \[
           a_1=2
         \]
-        \begin{align*}
+\BookMathLayout{\begin{align*}
           a_{n+1}
             &=S_{n+1}-S_n\\
             &=\left\{\frac12a_{n+1}+(n+1)\right\}-\left(\frac12a_n+n\right)\\
             &=\frac12a_{n+1}-\frac12a_n+1
-        \end{align*}
+        \end{align*}}{
+\[
+\begin{aligned}
+a_{n+1}&=S_{n+1}-S_n\\
+&=\left\{\frac12a_{n+1}+(n+1)\right\}\\
+&\quad-\left(\frac12a_n+n\right)\\
+&=\frac12a_{n+1}-\frac12a_n+1
+\end{aligned}
+\]
+}
         したがって,
         \[
           a_{n+1}=-a_n+2
@@ -156,13 +165,22 @@
         となり,この式だけでは$a_1$は定まらない.
 
         $n\ge2$において,
-        \begin{align*}
+\BookMathLayout{\begin{align*}
           a_n
             &=S_n-S_{n-1}\\
             &=\left(a_n+\binom n2\right)
               -\left(a_{n-1}+\binom{n-1}{2}\right)\\
             &=a_n-a_{n-1}+n-1
-        \end{align*}
+        \end{align*}}{
+\[
+\begin{aligned}
+a_n&=S_n-S_{n-1}\\
+&=\left(a_n+\binom n2\right)\\
+&\quad-\left(a_{n-1}+\binom{n-1}2\right)\\
+&=a_n-a_{n-1}+n-1
+\end{aligned}
+\]
+}
         であるから,
         \[
           a_{n-1}=n-1

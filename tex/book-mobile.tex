@@ -1,0 +1,37 @@
+% スマホ版専用の組版。本文の文字サイズ・数式のスタイルは本編と同じ。
+\setlength{\mathindent}{1zw}
+\setlength{\fullwidth}{\textwidth}
+\setlength{\columnseprule}{0pt}
+\raggedbottom
+
+\makeatletter
+% 目次の深い階層でも長い数式を紙幅内に収める。
+\renewcommand*{\l@subsection}{\@dottedtocline{2}{2zw}{3.5zw}}
+\renewcommand*{\l@subsubsection}{\@dottedtocline{3}{3zw}{4.5zw}}
+% 柱は本編と同じ文字・下線・太字のページ番号で、長いものだけ折り返す。
+\pagestyle{headings}
+\def\@evenhead{\underline{\hbox to\textwidth{\autoxspacing\textbf{\thepage}\hfil
+  \parbox[b]{\dimexpr\textwidth-2zw\relax}{\raggedleft\baselineskip=10pt\leftmark}}}}
+\def\@oddhead{\underline{\hbox to\textwidth{\autoxspacing
+  \parbox[b]{\dimexpr\textwidth-2zw\relax}{\raggedright\baselineskip=10pt\rightmark}\hfil\textbf{\thepage}}}}
+\makeatother
+
+% 図の描画内容を変えず、紙幅を超える場合だけ縮小する。
+\newsavebox{\BookMobileGraphBox}
+\renewcommand{\BookGraph}[2]{%
+  \par\smallskip\noindent
+  \begin{minipage}{\linewidth}\centering
+    \sbox{\BookMobileGraphBox}{%
+      \begin{tikzpicture}[scale=0.8,>=Stealth,line cap=round,line join=round,
+        every node/.style={font=\small}]#2\end{tikzpicture}}%
+    \ifdim\wd\BookMobileGraphBox>\linewidth
+      \resizebox{\linewidth}{!}{\usebox{\BookMobileGraphBox}}%
+    \else\usebox{\BookMobileGraphBox}\fi
+    \BookFigureCaption{#1}%
+  \end{minipage}\par\smallskip
+}
+
+% 組版ログに入力ファイルを記録して、はみ出しの場所を追えるようにする。
+\AddToHook{file/before}{\typeout{MOBILE-BEGIN:\CurrentFile}}
+\AddToHook{file/after}{\typeout{MOBILE-END:\CurrentFile}}
+\typeout{MOBILE-MATHINDENT:\the\mathindent}

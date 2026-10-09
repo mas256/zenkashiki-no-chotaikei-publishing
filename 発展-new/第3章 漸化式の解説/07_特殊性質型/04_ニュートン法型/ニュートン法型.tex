@@ -57,11 +57,18 @@ $e_n=a_n-\sqrt{2}$ と置くと見える.
 誤差がほぼ二乗されるため,正しい近似に近づくと桁数が一気に増える.
 
 実は,この漸化式は閉じた式で表すことができる.
-\[
+\BookMathLayout{\[
   a_{n+1}-\sqrt{2}=\frac{(a_n-\sqrt{2})^2}{2a_n},
   \qquad
   a_{n+1}+\sqrt{2}=\frac{(a_n+\sqrt{2})^2}{2a_n}
+\]}{
+\[
+\begin{aligned}
+a_{n+1}-\sqrt2&=\frac{(a_n-\sqrt2)^2}{2a_n},\\
+a_{n+1}+\sqrt2&=\frac{(a_n+\sqrt2)^2}{2a_n}
+\end{aligned}
 \]
+}
 であることに注目すると,両辺の比を取ることで$2a_n$が消え,
 \[
   \frac{a_{n+1}-\sqrt{2}}{a_{n+1}+\sqrt{2}}

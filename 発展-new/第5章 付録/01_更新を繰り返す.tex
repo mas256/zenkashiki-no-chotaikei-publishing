@@ -94,12 +94,19 @@ $\alpha=p\alpha+q$ だから,
 
 上の例では $\begin{pmatrix}\alpha\\1\end{pmatrix}$ の固有値が $1$ で,\,\,$\begin{pmatrix}1\\0\end{pmatrix}$ の固有値が $p$ である.
 行列の固有値を求める方程式は,この行列の場合
-\[
+\BookMathLayout{\[
   \det(\lambda I-A)
   =
   \det\begin{pmatrix}\lambda-p&-q\\0&\lambda-1\end{pmatrix}
   =(\lambda-p)(\lambda-1)=0
+\]}{
+\[
+\begin{aligned}
+\det(\lambda I-A)&=\det\begin{pmatrix}\lambda-p&-q\\0&\lambda-1\end{pmatrix}\\
+&=(\lambda-p)(\lambda-1)=0
+\end{aligned}
 \]
+}
 となる.
 なお,本編で「特性方程式」と呼んだ $\alpha=p\alpha+q$ は不動点を求める式であり,ここでの行列の特性方程式とは別の式である.
 ただし両者は無関係ではない.
@@ -286,12 +293,19 @@ $\lambda_\alpha=r\alpha+s,\ \lambda_\beta=r\beta+s$ とする.
 本編の符号で書けば $\lambda^2+p\lambda+q=0$ である.
 
 この条件は線形代数では
-\[
+\BookMathLayout{\[
   \det(\lambda I-B)
   =
   \det\begin{pmatrix}\lambda-s&-t\\-1&\lambda\end{pmatrix}
   =\lambda^2-s\lambda-t=0
+\]}{
+\[
+\begin{aligned}
+\det(\lambda I-B)&=\det\begin{pmatrix}\lambda-s&-t\\-1&\lambda\end{pmatrix}\\
+&=\lambda^2-s\lambda-t=0
+\end{aligned}
 \]
+}
 とも書く.
 この見方から,特性方程式の根が行列の固有値になる理由が分かる.
 
@@ -403,13 +417,21 @@ $(x_n,y_n)$をこの二つの方向に分けて考えることは,
 
 
 一般に連立漸化式を
-\[
+\BookMathLayout{\[
   \boldsymbol{z}_{n+1}=A\boldsymbol{z}_n,
   \qquad
   \boldsymbol{z}_n=\begin{pmatrix}a_n\\b_n\end{pmatrix},
   \qquad
   A=\begin{pmatrix}p&q\\r&s\end{pmatrix}
+\]}{
+\[
+\begin{aligned}
+\boldsymbol z_{n+1}&=A\boldsymbol z_n,\\
+\boldsymbol z_n&=\begin{pmatrix}a_n\\b_n\end{pmatrix},\quad
+A=\begin{pmatrix}p&q\\r&s\end{pmatrix}
+\end{aligned}
 \]
+}
 とし,零でない列ベクトル$\boldsymbol{\ell}$を用いて$\,c_n=\boldsymbol{\ell}^{\mathsf T}\boldsymbol{z}_n$ とおく.
 もし
 \[
@@ -468,10 +490,18 @@ $|\psi|<1<\varphi$ なので,歩みを重ねるにつれて $\psi^n$ の成分�
 また,\sectionref{節：階差等比複合型}の指数型で二つの倍率が一致した場合にも,同じように等比的な部分を取り除くと等差型が現れた.
 式の形は違っても,倍率をそろえて差を取るという工夫は共通している.
 たとえば重解が $1$ のときは
-\[
+\BookMathLayout{\[
   a_{n+2}-2a_{n+1}+a_n
   =(a_{n+2}-a_{n+1})-(a_{n+1}-a_n)=0
+\]}{
+\[
+\begin{aligned}
+a_{n+2}-2a_{n+1}+a_n\\
+{}=(a_{n+2}-a_{n+1})-(a_{n+1}-a_n)\\
+{}=0
+\end{aligned}
 \]
+}
 より,隣り合う項の差が一定で $a_n=C+Dn$ となる.
 重解が $r=0$ の場合は $a_{n+2}=0$ となる退化した漸化式であり,直接調べればよい.
 
@@ -580,12 +610,19 @@ $n=0,1$ では
 
 より一般に,\,$\,T_m(T_k(x))=T_{mk}(x)$ という合成の関係も,同じ角度の式から分かる.
 $x=\cos\theta$ とすれば
-\[
+\BookMathLayout{\[
   T_m(T_k(x))
   =T_m(\cos(k\theta))
   =\cos(mk\theta)
   =T_{mk}(x).
+\]}{
+\[
+\begin{aligned}
+T_m(T_k(x))&=T_m(\cos(k\theta))\\
+&=\cos(mk\theta)=T_{mk}(x).
+\end{aligned}
 \]
+}
 この等式は $[-1,1]$ のすべての $x$ で成り立ち,両辺が多項式なので,多項式の恒等式として実数全体で成り立つ.
 したがって$T_2$を繰り返し合成する操作は,添字を二倍ずつ進める$T_2,T_4,T_8,\ldots$にまとまる.
 本編の「整数倍の公式へ」で扱った$m$倍角にも同じことがいえる.
@@ -603,11 +640,18 @@ $-1\le a_1\le1$なら$a_1=\cos\theta$と表せるため,これは本編の$a_n=\
   P_0(x)=1,\qquad P_1(x)=x
 \]
 と三項漸化式
-\[
+\BookMathLayout{\[
   (n+1)P_{n+1}(x)
   =(2n+1)xP_n(x)-nP_{n-1}(x)
   \qquad(n\ge1)
+\]}{
+\[
+\begin{aligned}
+(n+1)P_{n+1}(x)&=(2n+1)xP_n(x)\\
+&\quad-nP_{n-1}(x)\qquad(n\ge1)
+\end{aligned}
 \]
+}
 で定まる.
 例えば
 \[
