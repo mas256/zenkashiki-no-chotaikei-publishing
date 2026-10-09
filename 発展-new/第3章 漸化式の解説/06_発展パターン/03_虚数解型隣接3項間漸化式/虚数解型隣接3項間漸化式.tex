@@ -1,528 +1,142 @@
 \subsection{虚数解型隣接3項間漸化式}\label{節：虚数解型隣接3項間漸化式}
   \BookFigComplexRoots
 
-  今までの隣接3\,項間漸化式(\sectionref{節：隣接3項間漸化式型})では,特性方程式の解$\alpha,\beta$が異なれば$a_n=A\alpha^{n-1}+B\beta^{n-1}$という式自体は虚数解の場合でもそのまま成り立つ.
-  ここでは,特性方程式が虚数解をもつ場合に,この式を三角関数を用いた実数の形に書き直す方法を考える.
+  特性方程式が実数解をもたない場合も,実数列の一般項を求められる.
+  本項では,倍率をそろえる補助数列を作り,三角関数の加法定理から一般項を導く.
+  初めに必要なのは,加法定理と「初めの二項と更新が一致すれば,その後も一致する」という考え方である.
+  専門的な用語と複素数による別の見方は,導出の後に説明する.
 
-  まず,
+  \noindent\textbf{【観察：倍率と角度を取り出す】}\par
+  実数の係数$p,q$について
   \[
     a_{n+2}+pa_{n+1}+qa_n=0
   \]
-  を考える.特性方程式は
+  を考える.特性方程式$x^2+px+q=0$が非実の解をもつ条件は$p^2-4q<0$である.
+  このとき$q>0$なので,$\rho=\sqrt q>0$と置ける.
+  さらに$|p|<2\rho$だから,
   \[
-    x^2+px+q=0
+    \cos\theta=-\frac{p}{2\rho},\qquad 0<\theta<\pi
   \]
-  である.
+  を満たす角$\theta$を選べる.$\sin\theta\ne0$であることも分かる.
+  特性根は$\rho(\cos\theta\pm i\sin\theta)$であり,
+  $\rho$はその絶対値,$\theta$は正の虚部をもつ根の偏角である.
+  元の式は
+  \[
+    a_{n+2}-2\rho\cos\theta\,a_{n+1}+\rho^2a_n=0
+  \]
+  と書ける.
 
-  これまで,特性方程式の解が異なる実数
+  \noindent\textbf{【発想と変形：倍率をそろえる】}\par
+  係数に$\rho$と$\rho^2$があるので,添字一つにつき$\rho$倍される量を基準にする.
+  \sectionref*{節：補助数列の設計}の正規化を使い,
   \[
-    x=\alpha,\beta
+    b_n=\frac{a_n}{\rho^{n-1}}
   \]
-  をもつ場合には,
-  \[
-    a_n=A\alpha^n+B\beta^n
-  \]
-  という形の一般項が得られることを学んだ(\sectionref{節：二次特性方程式型}では指数が$n-1$であったが,\,$A,B$は適当な定数のため自由に$\alpha,\beta$を掛けても良い).
-
-  では,特性方程式が実数解をもたず,
-  \[
-    x=\alpha,\overline{\alpha}
-  \]
-  という互いに共役な解をもつ場合には,一般項はどのような形になるだろうか.
-
-  例えば,
-  \[
-    x^2-2x+2=0
-  \]
-  を考えると,
-  \[
-    x=1\pm i
-  \]
-  である.したがって,漸化式
-  \[
-    a_{n+2}=2a_{n+1}-2a_n
-  \]
-  の特性方程式は虚数解をもつ.
-
-  形式的には,一般項を
-  \[
-    a_n=A(1+i)^n+B(1-i)^n
-  \]
-  と書くことができる.しかし,\,$a_n$が実数列である場合,このままでは一般項の実数性が分かりにくい.そこで,複素数の極形式を利用する.
-
-  一般に,特性方程式の解を
-  \[
-    \alpha=\rho(\cos\theta+i\sin\theta)=\rho e^{i\theta}
-  \]
-  とすると,共役解は
-  \[
-    \overline{\alpha}=\rho(\cos\theta-i\sin\theta)=\rho e^{-i\theta}
-  \]
-  である.したがって,
-  \[
-    \alpha^n=\rho^n e^{in\theta}
-    =\rho^n(\cos n\theta+i\sin n\theta)
-  \]
-  および
-  \[
-    \overline{\alpha}^{\,n}
-    =\rho^n e^{-in\theta}
-    =\rho^n(\cos n\theta-i\sin n\theta)
-  \]
-  となる.
-
-  ここで,\,$a_n$は実数列だから,\,$A\alpha^n+B\overline{\alpha}^{\,n}$が全ての$n$で実数になるためには$B=\overline{A}$(すなわち$A,B$が互いに共役)でなければならない.実際,\,$A=\dfrac{C-iD}{2},\ B=\dfrac{C+iD}{2}$(\,$C,D$は実数)とおくと,
-\BookMathLayout{\begin{align*}
-    A\alpha^n+B\overline{\alpha}^{\,n}
-    &=\frac{C-iD}{2}\rho^n(\cos n\theta+i\sin n\theta)\\
-    &\qquad+\frac{C+iD}{2}\rho^n(\cos n\theta-i\sin n\theta)\\
-    &=\rho^n(C\cos n\theta+D\sin n\theta)
-  \end{align*}}{
-\[
-\begin{aligned}
-A\alpha^n+B\overline\alpha^{\,n}\\
-{}=\frac{C-iD}{2}\rho^n(\cos n\theta+i\sin n\theta)\\
-\quad+\frac{C+iD}{2}\rho^n(\cos n\theta-i\sin n\theta)\\
-{}=\rho^n(C\cos n\theta+D\sin n\theta)
-\end{aligned}
-\]
-}
-  のように,虚部が打ち消し合って
-  \[
-    a_n=\rho^n(C\cos n\theta+D\sin n\theta)
-  \]
-  という実数の形に書き直せることが分かる.
-
-  したがって,虚数解をもつ隣接3\,項間漸化式では,
-  \[
-    a_n=\rho^n(C\cos n\theta+D\sin n\theta)
-  \]
-  という形が基本的な一般項となる.ここで,\,$\rho$は特性根の絶対値,\,$\theta$はその偏角である.
-
-  では,一般項
-  \[
-    a_n=\rho^n(C\cos n\theta+D\sin n\theta)
-  \]
-  に含まれる定数$C,D$をどのように決定すればよいだろうか.
-
-  これまでの漸化式と同様に,初期条件を代入することで$C,D$を決定することができる.例えば,\,$a_1,a_2$が与えられているとする.一般項に$n=1,2$を代入すると,
-  \[
-    a_1=\rho(C\cos\theta+D\sin\theta)
-  \]
-  および
-  \[
-    a_2=\rho^2(C\cos2\theta+D\sin2\theta)
-  \]
-  を得る.
-
-  これは$C,D$についての連立方程式である.したがって,この2つの方程式を解けば$C,D$が決定される.
-
-  特に,\,$a_0$が初期条件として与えられている場合には,より簡単になる.一般項に$n=0$を代入すると,
-  \[
-    a_0=C
-  \]
-  となる.したがって,
-  \[
-    C=a_0
-  \]
-  が直ちに得られる.
-
-  さらに,\,$n=1$を代入すると,
-  \[
-    a_1=\rho(C\cos\theta+D\sin\theta)
-  \]
-  であるから,
-  \[
-    D=
-    \cfrac{\frac{a_1}{\rho}-C\cos\theta}{\sin\theta}
-  \]
-  となる.ここで,\,$\sin\theta\neq0$であることに注意する.特性根が実数ではなく虚部をもつ場合には,\,$\theta$は$0$や$\pi$ではないため,
-  \[
-    \sin\theta\neq0
-  \]
-  が成り立つ.
-
-  したがって,\,$a_0,a_1$が与えられている場合には,
-  \[
-    C=a_0,\qquad
-    D=\cfrac{\frac{a_1}{\rho}-a_0\cos\theta}{\sin\theta}
-  \]
-  として$C,D$を求めることができる.
-
-  例えば,先ほどの
-  \[
-    a_{n+2}=2a_{n+1}-2a_n
-  \]
-  を考える.特性根は
-  \[
-    1+i
-    =\sqrt{2}
-    \left(
-      \cos\frac{\pi}{4}
-      +i\sin\frac{\pi}{4}
-    \right)
-  \]
-  であるから,
-  \[
-    \rho=\sqrt{2},\qquad
-    \theta=\frac{\pi}{4}
-  \]
-  である.したがって一般項は
-  \[
-    a_n=(\sqrt{2})^n
-    \left(
-      C\cos\frac{n\pi}{4}
-      +D\sin\frac{n\pi}{4}
-    \right)
-  \]
-  となる.
-
-  例えば初期条件
-  \[
-    a_0=1,\qquad a_1=2
-  \]
-  が与えられているとする.まず,
-  \[
-    C=a_0=1
-  \]
-  である.また,
-  \[
-    2=\sqrt{2}
-    \left(
-      C\cos\frac{\pi}{4}
-      +D\sin\frac{\pi}{4}
-    \right)
-  \]
-  であるから,
-  \[
-    2=\sqrt{2}
-    \left(
-      \frac{1}{\sqrt{2}}
-      +\frac{D}{\sqrt{2}}
-    \right)
-    =1+D
-  \]
-  より,
-  \[
-    D=1
-  \]
-  を得る.
-
-  よって,この場合の一般項は
-  \[
-    a_n=(\sqrt{2})^n
-    \left(
-      \cos\frac{n\pi}{4}
-      +\sin\frac{n\pi}{4}
-    \right)
-  \]
-  となる.
-
-  このように,虚数解をもつ場合でも,基本的な流れは実数解の場合と変わらない.まず特性根から$\rho,\theta$を求め,
-  \[
-    a_n=\rho^n(C\cos n\theta+D\sin n\theta)
-  \]
-  とおき,初期条件を代入して$C,D$を決定すればよい.
-
-  ここまででは,特性方程式の解を利用して一般項の形を導いた.実は,特性方程式の解が複素数である場合には,漸化式そのものを変形することによっても,
-  \[
-    a_n=\rho^n(C\cos n\theta+D\sin n\theta)
-  \]
-  という形を自然に導くことができる.
-
-  特性方程式の解を極形式を用いて
-  \[
-    \alpha=\rho(\cos\theta+i\sin\theta)
-  \]
-  とすると,共役な解は
-  \[
-    \overline{\alpha}
-    =\rho(\cos\theta-i\sin\theta)
-  \]
-  である.解と係数の関係より,
-  \[
-    \alpha+\overline{\alpha}=-p
-  \]
-  および
-  \[
-    \alpha\overline{\alpha}=q
-  \]
-  であるから,
-  \[
-    p=-2\rho\cos\theta,\qquad
-    q=\rho^2
-  \]
-  を得る.
-
-  したがって,もとの漸化式
-  \[
-    a_{n+2}+pa_{n+1}+qa_n=0
-  \]
-  は,
-  \[
-    a_{n+2}
-    -2\rho\cos\theta\,a_{n+1}
-    +\rho^2a_n=0
-  \]
-  と書き直すことができる.
-
-  ここで,両辺を$\rho^{n+2}$で割ると,
-  \[
-    \frac{a_{n+2}}{\rho^{n+2}}
-    -2\cos\theta
-    \frac{a_{n+1}}{\rho^{n+1}}
-    +\frac{a_n}{\rho^n}
-    =0
-  \]
-  となる.
-
-  そこで,
-  \[
-    b_n=\frac{a_n}{\rho^n}
-  \]
-  とおく.すると,
-  \[
-    b_{n+2}
-    -2\cos\theta\,b_{n+1}
-    +b_n=0
-  \]
-  すなわち,
-  \[
-    b_{n+2}+b_n
-    =2\cos\theta\,b_{n+1}
-  \]
-  を得る.
-
-  この式は,三角関数の加法定理
-  \[
-    \cos(x+\theta)+\cos(x-\theta)
-    =2\cos\theta\cos x
-  \]
-  および
-  \[
-    \sin(x+\theta)+\sin(x-\theta)
-    =2\cos\theta\sin x
-  \]
-  と同じ形をしている.
-
-  実際,
-  \[
-    b_n=\cos n\theta
-  \]
-  とすると,
-  \[
-  \begin{aligned}
-    b_{n+2}+b_n
-    &=
-    \cos(n+2)\theta+\cos n\theta
-  \\
-    &=
-    2\cos\theta\cos(n+1)\theta
-  \\
-    &=
-    2\cos\theta\,b_{n+1}
-  \end{aligned}
-  \]
-  となり,確かに漸化式を満たす.
-
-  同様に,
-  \[
-    b_n=\sin n\theta
-  \]
-  とすると,
-  \[
-  \begin{aligned}
-    b_{n+2}+b_n
-    &=
-    \sin(n+2)\theta+\sin n\theta
-  \\
-    &=
-    2\cos\theta\sin(n+1)\theta
-  \\
-    &=
-    2\cos\theta\,b_{n+1}
-  \end{aligned}
-  \]
-  となる.
-
-  したがって,この漸化式では
-  \[
-    \cos n\theta
-  \]
-  と
-  \[
-    \sin n\theta
-  \]
-  が基本的な解として現れる.
-
-  漸化式は2階の漸化式であるから,解の全体は2次元のベクトル空間をなし,初期条件を2つ与えることで数列が一意に定まる.$\cos n\theta$の初期値は$(b_0,b_1)=(1,\cos\theta)$, $\sin n\theta$の初期値は$(b_0,b_1)=(0,\sin\theta)$であり,\,$\sin\theta\ne0$であることからこの2組は比例しない,すなわち独立である.したがって任意の初期条件はこの2つの解の線形結合で表せるから,この2つの基本的な解を組み合わせると,
-  \[
-    b_n=C\cos n\theta+D\sin n\theta
-  \]
-  と表すことができる.
-
-  もともと
-  \[
-    b_n=\frac{a_n}{\rho^n}
-  \]
-  とおいていたので,
-  \[
-    a_n=\rho^n b_n
-  \]
-  である.したがって,
-  \[
-    a_n=\rho^n
-    (C\cos n\theta+D\sin n\theta)
-  \]
-  を得る.
-
-  このように,複素数解を直接べき乗することなく,特性根から得られる
-  \[
-    p=-2\rho\cos\theta,\qquad q=\rho^2
-  \]
-  を用いて漸化式を変形すると,三角関数の加法定理が現れ,そこから
-  \[
-    \rho^n\cos n\theta,\qquad
-    \rho^n\sin n\theta
-  \]
-  という2つの基本的な形が自然に導かれる.
-
-  なお,\,$C=D=0$なら$a_n=0$という定数列となり,振動も増減も生じない.
-  以下の振動と周期性の説明では,\,$C,D$の少なくとも一方が$0$でない場合を考える.
-
-  ここまでの議論から分かるように,虚数解をもつ漸化式の一般項には
-  \[
-    \cos n\theta,\qquad \sin n\theta
-  \]
-  という三角関数が現れる.このことから,数列$\{a_n\}$には三角関数に由来する振動する形が現れることが分かる.
-  ただし,三角関数が現れることだけから,整数添字の数列が周期的であるとはいえない.
-
-  特に,
-  \[
-    \rho=1
-  \]
-  の場合には,
-  \[
-    a_n=C\cos n\theta+D\sin n\theta
-  \]
-  となるため,数列そのものが周期的になる場合がある.
-
-  実際,
-  \[
-    \frac{\theta}{2\pi}
-  \]
-  が有理数であるとする.このとき,ある正の整数$T$と整数$k$を用いて
-  \[
-    T\theta=2k\pi
-  \]
-  と書くことができる.したがって,
-  \[
-    \cos(n+T)\theta=\cos n\theta
-  \]
-  および
-  \[
-    \sin(n+T)\theta=\sin n\theta
-  \]
-  であるから,
-  \[
-    a_{n+T}=a_n
-  \]
-  となる.よって,この場合には数列$\{a_n\}$は周期的である.
-
-  一方,\,$\rho\neq1$の場合には,
-  \[
-    a_n=\rho^n
-    (C\cos n\theta+D\sin n\theta)
-  \]
-  であるため,\,$\rho^n$によって数列全体の大きさが変化する.
-  また,\,$\displaystyle \frac{\theta}{2\pi}$が無理数なら,三角関数の部分も整数添字について周期的ではない.
-  したがって,一般には数列そのものは周期的ではないが,\,$\cos n\theta$や$\sin n\theta$に由来する振動する形は現れる.
-
-  さらに,このような三角関数の性質に着目すると,一般項をあらかじめ仮定することなく,数学的帰納法によってその形を確かめることもできる.
-
-  例えば,
+  と置く.元の式を$\rho^{n+1}$で割ると
   \[
     b_{n+2}-2\cos\theta\,b_{n+1}+b_n=0
   \]
-  を考える.三角関数の加法定理より,
+  となる.大きさの倍率を除いたことで,加法定理と同じ関係が残った.
+  実際,
   \[
-    \cos(n+2)\theta+\cos n\theta
-    =2\cos\theta\cos(n+1)\theta
+    \cos(x+\theta)+\cos(x-\theta)=2\cos\theta\cos x
   \]
-  であるから,
+  と,余弦を正弦に替えた同じ公式に$x=n\theta$を入れると,
   \[
-    \cos(n+2)\theta
-    =2\cos\theta\cos(n+1)\theta-\cos n\theta
+    u_n=\cos((n-1)\theta),\qquad
+    v_n=\sin((n-1)\theta)
   \]
-  が成り立つ.
+  はどちらも$w_{n+2}-2\cos\theta\,w_{n+1}+w_n=0$を満たすと分かる.
+  この関係は各項の一次式なので,定数$C,D$について$Cu_n+Dv_n$も同じ関係を満たす.
+  そこで
+  \[
+    b_n=C\cos((n-1)\theta)+D\sin((n-1)\theta)
+  \]
+  を候補にしよう.
 
-  ここで,
+  \noindent\textbf{【初期条件を合わせ,すべての項で確かめる】}\par
+  候補の初めの二項は$C$と$C\cos\theta+D\sin\theta$である.
+  元の初期条件から$b_1=a_1,b_2=\frac{a_2}{\rho}$なので,
   \[
-    b_0=1,\qquad b_1=\cos\theta
+    C=a_1,\qquad
+    D=\cfrac{\frac{a_2}{\rho}-a_1\cos\theta}{\sin\theta}
   \]
-  とすると,
+  と選べば一致する.$\sin\theta\ne0$だから,この二つの係数は必ず決められる.
+  候補も元の$b_n$も,直前の二項から同じ式で次の項を作る.
+  従って初めの二項が一致すれば第三項も一致し,同じことを繰り返すとすべての項で一致する.
+  初期条件と加法定理だけで,この候補が一般項であることを確かめられた.
+  元へ戻すと,
+  \BookMathLayout{\[
+    a_n=\rho^{n-1}\{C\cos((n-1)\theta)+D\sin((n-1)\theta)\}
+  \]}{\[
+    \begin{aligned}
+      a_n=\rho^{n-1}\bigl\{&C\cos((n-1)\theta)\\
+                           &+D\sin((n-1)\theta)\bigr\}
+    \end{aligned}
+  \]}
+  を得る.倍率をそろえ,加法定理に合う量を作り,初めの二項を合わせるのが解法の流れである.
+  $a_0,a_1$から始める場合も同じで,
   \[
-    b_n=\cos n\theta
+    a_n=\rho^n(C\cos n\theta+D\sin n\theta)
   \]
-  が成り立つことを数学的帰納法によって示すことができる.
+  と置けば,$C=a_0,D=\cfrac{\frac{a_1}{\rho}-a_0\cos\theta}{\sin\theta}$となる.
 
-  実際,\,$b_n=\cos n\theta$および$b_{n+1}=\cos(n+1)\theta$が成り立つと仮定すると,漸化式より,
-  \[
-  \begin{aligned}
-    b_{n+2}
-    &=2\cos\theta\,b_{n+1}-b_n\\
-    &=2\cos\theta\cos(n+1)\theta-\cos n\theta\\
-    &=\cos(n+2)\theta
-  \end{aligned}
-  \]
-  となる.したがって,数学的帰納法により,
-  \[
-    b_n=\cos n\theta
-  \]
-  がすべての$n$について成り立つ.
+  \noindent\textbf{【ここまでの考え方に名前を付ける】}\par
+  二つの数列に定数を掛けて足した$Cu_n+Dv_n$を,それらの\textbf{線形結合}という.
+  今回の$u_n,v_n$の初めの二項は$(1,\cos\theta)$と$(0,\sin\theta)$であり,
+  一方を定数倍しても他方にはならない.この関係を\textbf{一次独立}という.
+  先ほどは,どの初期条件もこの二つの数列を組み合わせて表せると確かめた.
+  解の数列は足し算や定数倍をしても解になるので,専門的には解全体が\textbf{ベクトル空間}をなし,
+  二つの係数で一意に表せることを\textbf{次元が2}という.
+  これは,初めの二項が数列全体を決めることに名前を付けた見方である.
+  用語を覚えていなくても,直前の初期条件を合わせる説明で一般項を求められる.
 
-  同様に,
-  \[
-    \sin(n+2)\theta
-    =2\cos\theta\sin(n+1)\theta-\sin n\theta
-  \]
-  であるから,
-  \[
-    b_0=0,\qquad b_1=\sin\theta
-  \]
-  に対して,
-  \[
-    b_n=\sin n\theta
-  \]
-  が数学的帰納法によって示される.
+  \noindent\textbf{【別の見方：複素数の冪から同じ式を読む】}\par
+  特性根を$\alpha=\rho(\cos\theta+i\sin\theta)$とすると,
+  ド・モアブルの定理からその冪も回転と伸縮を表す.
+  $U=\frac{C-iD}{2}$と置けば,共役な二つの項の虚部が打ち消され,
+  \BookMathLayout{\[
+    \begin{aligned}
+      U\alpha^{n-1}+\overline U\,\overline\alpha^{\,n-1}
+      &=\rho^{n-1}\bigl\{C\cos((n-1)\theta)\\
+      &\hspace{4zw}+D\sin((n-1)\theta)\bigr\}
+    \end{aligned}
+  \]}{\[
+    \begin{aligned}
+      U\alpha^{n-1}+\overline U\,\overline\alpha^{\,n-1}\\
+      {}=\rho^{n-1}\bigl\{C\cos((n-1)\theta)\\
+      \hspace{4zw}+D\sin((n-1)\theta)\bigr\}
+    \end{aligned}
+  \]}
+  となる.実数解の場合の二つの冪による一般項と,先ほど導いた三角関数による一般項は同じものだった.
+  複素数の冪を計算する方法を使えば特性根から直接式を書ける.
+  加法定理を使う方法では,元の実数の更新をどのように作るかが見える.
+  どちらの場合も,最後は初期条件を合わせて確かめる.
 
-  このように,三角関数の加法定理を利用することで,
-  \[
-    \cos n\theta,\qquad \sin n\theta
-  \]
-  が漸化式を満たすことを直接確認できる.さらに,初期条件によってこれらを適切に組み合わせることで,
-  \[
-    a_n=\rho^n
-    (C\cos n\theta+D\sin n\theta)
-  \]
-  という形が得られる.
-
-  したがって,虚数解をもつ漸化式では,特性方程式から形式的に一般項を求めるだけでなく,三角関数の振動する形や加法定理に着目することで,数列の振る舞いを直接捉えることができる.
-  数列そのものの周期性を主張するときには,\,$\rho=1$であり,かつ$\displaystyle \frac{\theta}{2\pi}$が有理数であることを確認する.
-
-  これらの議論を踏まえると,特性方程式の解が実数解の場合には$\alpha^n$や$\beta^n$による指数的な増減が中心となるのに対し,虚数解の場合には
-  \[
-    \cos n\theta,\qquad\sin n\theta
-  \]
-  が現れるため,数列に振動する形が生じる.さらに,\,$\rho$の大きさによってその振幅が変化する.このとき,\,$\rho$によって
+  \noindent\textbf{【振動と周期性を区別する】}\par
+  $C=D=0$なら零数列であり,以下では少なくとも一方が零でないとする.
+  三角関数の部分には振動する形が現れるが,整数の添字で見た数列が周期的になるとは限らない.
+  $\rho^{n-1}$は全体の大きさの倍率なので,
   \[
     \begin{cases}
-      \rho<1 & \text{振幅が減衰する}\\
-      \rho=1 & \text{振幅が一定である}\\
+      0<\rho<1 & \text{振幅が減衰する},\\
+      \rho=1 & \text{振幅が一定である},\\
       \rho>1 & \text{振幅が増大する}
     \end{cases}
   \]
-  という違いが生じる(\,$\rho=1$のときに数列自身が周期的になりうることは,先に見た通りである).
+  と区別できる.
+  $\rho=1$で$\frac{\theta}{2\pi}$が有理数なら,正整数$T$について$T\theta$を$2\pi$の整数倍にでき,
+  加法定理から$a_{n+T}=a_n$となる.
+  非零の解については,逆も成り立つ.
+  複素数の冪の式で周期$T$を仮定すると,
+  \[
+    U(\alpha^T-1)\alpha^{n-1}
+    +\overline U(\overline\alpha^{\,T}-1)\overline\alpha^{\,n-1}=0
+  \]
+  を得る.$n=1,2$の二つの式を使うと,$\alpha\ne\overline\alpha$だから両方の係数が零になる.
+  非零の実数解では$U,\overline U$も零でないので,$\alpha^T=\overline\alpha^{\,T}=1$である.
+  従って周期性には$\rho=1$と$\frac{\theta}{2\pi}\in\mathbb Q$の両方を確認する.
+  三角関数があるというだけで周期性を結論しないようにしよう.
 
   次の数列の一般項を求めてみよう.
 

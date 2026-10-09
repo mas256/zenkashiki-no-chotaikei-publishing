@@ -112,10 +112,11 @@
 \newcommand{\BookFigBasicFour}{\BookDiagram{差と比に着目すると4つの基本型が並んで見える}{
 
 \node[anchor=west]at(0,0){等差型：$a_{n+1}-a_n=d$}; \node[anchor=west]at(7,0){差が一定};
-\node[anchor=west]at(0,-.9){等比型：$\frac{a_{n+1}}{a_n}=r$}; \node[anchor=west]at(7,-.9){比が一定};
+\node[anchor=west]at(0,-.9){等比型：$a_{n+1}=ra_n$}; \node[anchor=west]at(7,-.9){一定の倍率};
 \node[anchor=west]at(0,-1.8){階差型：$a_{n+1}-a_n=f(n)$}; \node[anchor=west]at(7,-1.8){差を足す};
-\node[anchor=west]at(0,-2.7){階比型：$\frac{a_{n+1}}{a_n}=g(n)$}; \node[anchor=west]at(7,-2.7){比を掛ける};
+\node[anchor=west]at(0,-2.7){階比型：$a_{n+1}=g(n)a_n$}; \node[anchor=west]at(7,-2.7){倍率を掛ける};
 \foreach \y in {0,-.9,-1.8,-2.7}{\draw[->](6.3,\y)--(6.8,\y);}
+\node[anchor=west,font=\scriptsize]at(0,-3.45){$a_n\ne0$のとき,倍率は$\frac{a_{n+1}}{a_n}$として読める.};
 }}
 
 \newcommand{\BookFigMobius}{\BookGraph{複素数の比は距離の比と偏角の差の両方を表す}{
@@ -228,13 +229,17 @@
 \end{scope}
 }}
 
-\newcommand{\BookFigEigen}{\BookGraph{固有ベクトルだけは作用後も元と同じ直線上にある}{
-
-\draw[->](-.2,0)--(4.85,0)node[right]{$x$};\draw[->](0,-.2)--(0,2.8)node[above]{$y$};
-\draw[->,very thick](0,0)--(1.6,0)node[below]{$\boldsymbol v$};
-\draw[->,very thick](0,0)--(3.7,0)node[below right]{$A\boldsymbol v$};
-\draw[->](0,0)--(.9,1.65)node[left]{$\boldsymbol u$};
-\draw[->,dashed](0,0)--(2.3,.95)node[above]{$A\boldsymbol u$};
+\newcommand{\BookFigEigen}{\BookGraph{本文の行列$A$では,二つの方向がそれぞれ3倍と1倍になる}{
+% A=(2,1;1,2). 作用前後を同じ座標と縮尺で表示する.
+\draw[->](-.25,0)--(3.9,0)node[right]{$x$};
+\draw[->](0,-1.6)--(0,3.6)node[above]{$y$};
+\draw[very thick,->](0,0)--(3,3)node[above right]{$A\boldsymbol v=(3,3)$};
+\draw[->,thick](0,0)--(1,1)node[left]{$\boldsymbol v=(1,1)$};
+\fill(1,-1)circle(2pt)node[right]{$\boldsymbol w=A\boldsymbol w=(1,-1)$};
+\draw[->,thick](0,0)--(1,-1);
+\draw[->](0,0)--(1,0);
+\node[anchor=north west]at(1.1,-.1){$\boldsymbol u=(1,0)$};
+\draw[->,dashed](0,0)--(2,1)node[right]{$A\boldsymbol u=(2,1)$};
 }}
 
 \newcommand{\BookFigChebyshev}{\BookGraph{角の倍化とチェビシェフ多項式の対応}{
