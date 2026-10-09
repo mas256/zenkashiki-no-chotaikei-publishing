@@ -1,6 +1,25 @@
 % subsubsection: 極形式による図形的解釈
 
 \subsubsection{極形式による図形的解釈}
+  \BookFigMobius
+
+  図では,点$a_n$と二つの不動点$\alpha,\beta$を結ぶ線分を描いた.
+  上の線分の長さを下の線分の長さで割ると,
+  \[
+    \frac{|a_n-\alpha|}{|a_n-\beta|}
+    =\left|\frac{a_n-\alpha}{a_n-\beta}\right|
+    =|b_n|
+  \]
+  となる.また,二つの線分の向きの差は,
+  $b_n$の偏角$\arg b_n$に対応する.
+  したがって,図で見ている\textbf{長さの比と角度の差}は,
+  計算で導入する一つの複素数$b_n$の絶対値と偏角に他ならない.
+  さらに$b_{n+1}=\lambda b_n$となったときは,
+  長さの比が$|\lambda|$倍され,角度の差が$\arg\lambda$だけ増える.
+  特に$|\lambda|=1$なら,長さの比を保ったまま偏角だけが変わり,
+  複素平面上の回転として理解できる.
+
+
   ここまででは,\,$\alpha,\beta$を不動点として
   \[
     b_n=\frac{a_n-\alpha}{a_n-\beta}
