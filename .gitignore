@@ -55,3 +55,6 @@ __pycache__/
 .pytest_cache/
 .vscode/
 .idea/
+
+# スマホ版の完成PDFだけGitで管理する
+!/漸化式の超体系的解説-スマホ版.pdf

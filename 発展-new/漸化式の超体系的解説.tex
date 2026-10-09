@@ -27,11 +27,19 @@
 % レイアウト
 % =========================================================
 
-\usepackage[
-  margin=20truemm
-]{geometry}
+\ifdefined\BookMobile
+  \usepackage[paperwidth=90truemm,paperheight=160truemm,margin=8truemm,headheight=8.5truemm,headsep=1truemm]{geometry}
+\else
+  \usepackage[margin=20truemm]{geometry}
+\fi
 
 \usepackage{multicol}
+% 本文は同じ原稿を使用し、スマホ版だけ1段組にする。
+\ifdefined\BookMobile
+  \newenvironment{bookcolumns}{\par}{\par}
+\else
+  \newenvironment{bookcolumns}{\begin{multicols*}{2}}{\end{multicols*}}
+\fi
 \usepackage{enumitem}
 \usepackage{url}
 
@@ -243,7 +251,13 @@
   { \IfBooleanTF{#1}{\headingref*{#2}}{\headingref{#2}} }
 \ExplSyntaxOff
 
+% 紙面の幅で改行位置だけを切り替える。第1引数は本編、第2引数はスマホ版。
+\newcommand{\BookMathLayout}[2]{\ifdefined\BookMobile#2\else#1\fi}
 \title{漸化式の超体系的解説}
+
+\ifdefined\BookMobile
+  \input{../tex/book-mobile.tex}
+\fi
 
 \begin{document}
 

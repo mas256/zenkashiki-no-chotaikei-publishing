@@ -42,11 +42,19 @@
                 \par\smallskip{\small\textit{\href{https://www.kyoto-u.ac.jp/ja/admissions/undergrad/past-eq}{京都大学2024年理系第4問の偶奇分岐を参考に再構成}}}
           % F3: 畳み込み和が一定になる数列
           \item 数列$\{c_n\}$を
-                \[
+\BookMathLayout{\[
                   c_0=1,\qquad
                   c_{n+1}=\frac{2n+1}{2n+2}c_n
                   \quad(n=0,1,2,\ldots)
-                \]
+                \]}{
+\[
+\begin{aligned}
+c_0&=1,\\
+c_{n+1}&=\frac{2n+1}{2n+2}c_n\\
+&\quad(n=0,1,2,\ldots)
+\end{aligned}
+\]
+}
                 によって定め,
                 \[
                   T_n=\sum_{k=0}^{n}c_kc_{n-k}
@@ -782,7 +790,7 @@
                  I_2=[\tan\theta]_0^{\frac{\pi}{3}}=\sqrt3.
                 \]
                 \par\noindent
-                \textbf{(2) 二つ前の積分へ帰着させる.}
+\BookMathLayout{\textbf{(2) 二つ前の積分へ帰着させる.}}{\textbf{(2) 二つ前の積分へ}\\\textbf{帰着させる.}}
                 $\displaystyle (\tan\theta)'=\frac{1}{\cos^2\theta}$を利用して,
                 \[
                  I_n=\int_0^{\frac{\pi}{3}}
@@ -1323,7 +1331,8 @@
                 \[
                  S(n)=nS(n-1)+(-1)^n.
                 \]
-                ここで$n$を階比として吸収するため,\,$\displaystyle P_n=\frac{S(n)}{n!}$とおく.
+\BookMathLayout{ここで$n$を階比として吸収するため,\,$\displaystyle P_n=\frac{S(n)}{n!}$とおく.}{ここで$n$を階比として吸収するため,\\
+$\displaystyle P_n=\frac{S(n)}{n!}$とおく.}
                 \[
                  P_n-P_{n-1}=\frac{(-1)^n}{n!}.
                 \]

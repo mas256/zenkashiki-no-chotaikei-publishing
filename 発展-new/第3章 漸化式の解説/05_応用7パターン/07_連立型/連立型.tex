@@ -24,15 +24,33 @@
       &a_n-b_n=(a_1-b_1)(p-q)^{n-1}\tag*{\(\cdots\) (2)}
     \end{align*}
     $(1)+(2)$をすると
-    \begin{align*}
+\BookMathLayout{\begin{align*}
       &2a_n=(a_1+b_1)(p+q)^{n-1}+(a_1-b_1)(p-q)^{n-1}\\
       &a_n=\frac{(a_1+b_1)(p+q)^{n-1}+(a_1-b_1)(p-q)^{n-1}}{2}\\
-    \end{align*}
+    \end{align*}}{
+\[
+\begin{aligned}
+2a_n&=(a_1+b_1)(p+q)^{n-1}\\
+&\quad+(a_1-b_1)(p-q)^{n-1}\\
+a_n&=\frac{1}{2}\bigl\{(a_1+b_1)(p+q)^{n-1}\\
+&\qquad+(a_1-b_1)(p-q)^{n-1}\bigr\}
+\end{aligned}
+\]
+}
     $(1)-(2)$をすると
-    \begin{align*}
+\BookMathLayout{\begin{align*}
       &2b_n=(a_1+b_1)(p+q)^{n-1}-(a_1-b_1)(p-q)^{n-1}\\
       &b_n=\frac{(a_1+b_1)(p+q)^{n-1}-(a_1-b_1)(p-q)^{n-1}}{2}
-    \end{align*}
+    \end{align*}}{
+\[
+\begin{aligned}
+2b_n&=(a_1+b_1)(p+q)^{n-1}\\
+&\quad-(a_1-b_1)(p-q)^{n-1}\\
+b_n&=\frac{1}{2}\bigl\{(a_1+b_1)(p+q)^{n-1}\\
+&\qquad-(a_1-b_1)(p-q)^{n-1}\bigr\}
+\end{aligned}
+\]
+}
     別解及び演習は一般型の方で行う.
   \subsubsection{一般型}
     連立一般型の漸化式は,
@@ -47,13 +65,21 @@
     $a_n$と$b_n$が互いに影響し合っているため,独立させて解くことは難しそうだ.
     ならばそれぞれについて求めるのではなく,いっそのこと合わせて求めてしまおうというのが解法の思想である.
     その流れは,
-    \[
+\BookMathLayout{\[
       \begin{array}{rrl}
         & a_{n+1}={} &pa_{n}+qb_{n}\\
         +\,) & b_{n+1}={} & ra_{n}+sb_{n}\\ \hline
         & a_{n+1}+b_{n+1}={} & (p+r)a_{n}+(q+s)b_{n}
       \end{array}
-    \]
+    \]}{
+\[
+\setlength{\arraycolsep}{2pt}
+\begin{array}{rrl}
+&a_{n+1}={}&pa_n+qb_n\\
++\,)&b_{n+1}={}&ra_n+sb_n\\\hline
+&a_{n+1}+b_{n+1}={}&(p+r)a_n+(q+s)b_n
+\end{array}\]
+}
     について
     \[
       \alpha a_{n+1}+\beta b_{n+1}
@@ -61,10 +87,18 @@
     \]
     を満たすようにしてやればよい.
     実際に左辺を計算すると,
-    \begin{align*}
+\BookMathLayout{\begin{align*}
       \alpha a_{n+1}+\beta b_{n+1}&=\alpha(pa_n+qb_n)+\beta(ra_n+sb_n)\\
       &=(p\alpha+r\beta)a_n+(q\alpha+s\beta)b_n
-    \end{align*}
+    \end{align*}}{
+\[
+\begin{aligned}
+\alpha a_{n+1}+\beta b_{n+1}
+&=\alpha(pa_n+qb_n)\\ &\quad+\beta(ra_n+sb_n)\\
+&=(p\alpha+r\beta)a_n\\ &\quad+(q\alpha+s\beta)b_n
+\end{aligned}
+\]
+}
     一方,
     \[
       \gamma(\alpha a_n+\beta b_n)=\gamma\alpha a_n+\gamma\beta b_n

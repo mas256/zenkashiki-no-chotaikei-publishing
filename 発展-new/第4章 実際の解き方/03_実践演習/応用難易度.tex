@@ -350,11 +350,17 @@
                   d_{n+1}=\frac{n}{n+1}d_n,\qquad d_1=-\frac12.
                 \]
                 よって積の相殺から
-                \[
+\BookMathLayout{\[
                   d_n=-\frac1{2n},\qquad
                   c_n=\frac{2n-1}{2n},\qquad
                   r_n=\frac{2n}{2n-1}.
-                \]
+                \]}{
+\[
+\begin{aligned}
+d_n&=-\frac1{2n},\\c_n&=\frac{2n-1}{2n},\\r_n&=\frac{2n}{2n-1}.
+\end{aligned}
+\]
+}
                 初項$a_1=1$に戻って,
                 \[
                   a_n=\prod_{k=1}^{n-1}\frac{2k}{2k-1}.
@@ -408,12 +414,20 @@
                   c_{n+1}=c_n+\frac{n+1}{3},\qquad c_1=1.
                 \]
                 したがって,
-                \begin{align*}
+\BookMathLayout{\begin{align*}
                  c_n
                   &=1+\frac13\sum_{k=1}^{n-1}(k+1)\\
                   &=1+\frac{(n-1)(n+2)}6
                    =\frac{n^2+n+4}{6}.
-                \end{align*}
+                \end{align*}}{
+\[
+\begin{aligned}
+c_n&=1+\frac13\sum_{k=1}^{n-1}(k+1)\\
+&=1+\frac{(n-1)(n+2)}6\\
+&=\frac{n^2+n+4}6.
+\end{aligned}
+\]
+}
                 これより$\displaystyle d_n=\frac{6}{n^2+n+4}$である.最後に
                 \[
                   a_n=\frac{s_n+d_n}{2},\qquad
@@ -424,10 +438,17 @@
                 連立式全体を一つの方法で解こうとする必要はない.和と差を作った後,それぞれに適した解法を選ぶ.
           % A6: 積の3項間関係と二重の階差
           \item 正値の条件を使って$x_n=\log_2a_n$とおくと,
-                \[
+\BookMathLayout{\[
                   x_{n+2}-2x_{n+1}+x_n=2n+1,
                   \qquad x_1=1,\quad x_2=4.
-                \]
+                \]}{
+\[
+\begin{aligned}
+x_{n+2}-2x_{n+1}+x_n&=2n+1,\\
+x_1&=1,\quad x_2=4.
+\end{aligned}
+\]
+}
                 この式は$x_n$自体の階差ではなく,階差の階差を表している.そこで
                 \[
                   d_n=x_{n+1}-x_n
@@ -441,12 +462,21 @@
                   d_n=3+(n^2-1)=n^2+2.
                 \]
                 さらにもう一度階差を加えて,
-                \begin{align*}
+\BookMathLayout{\begin{align*}
                   x_n
                    &=1+\sum_{k=1}^{n-1}(k^2+2)\\
                    &=1+\frac{n(n-1)(2n-1)}6+2(n-1)\\
                    &=\frac{n(n-1)(2n-1)}6+2n-1.
-                \end{align*}
+                \end{align*}}{
+\[
+\begin{aligned}
+x_n&=1+\sum_{k=1}^{n-1}(k^2+2)\\
+&=1+\frac{n(n-1)(2n-1)}6\\
+&\quad+2(n-1)\\
+&=\frac{n(n-1)(2n-1)}6+2n-1.
+\end{aligned}
+\]
+}
                 最後に$a_n=2^{x_n}$と戻せばよい.
                 
                 本編の隣接3項間漸化式と似た形でも,定数項が$n$に依存し,しかも左辺が二重の階差そのものになっている.この構造を見れば,特性方程式の計算に進む前に短い解法が見つかる.
@@ -615,10 +645,17 @@
                   P_n=a_nb_n,\qquad R_n=\frac{a_n}{b_n}
                 \]
                 とおくと,
-                \[
+\BookMathLayout{\[
                   P_{n+1}=P_n^3,\quad P_1=4,
                   \qquad R_{n+1}=2^{4n+2}R_n,\quad R_1=1.
-                \]
+                \]}{
+\[
+\begin{aligned}
+P_{n+1}&=P_n^3,\quad P_1=4,\\
+R_{n+1}&=2^{4n+2}R_n,\quad R_1=1.
+\end{aligned}
+\]
+}
                 よって,
                 \[
                   P_n=2^{\,2\cdot3^{n-1}},\qquad
@@ -627,11 +664,18 @@
                 正値を使って$a_n=\sqrt{P_nR_n}$,\, $\displaystyle b_n=\sqrt{\frac{P_n}{R_n}}$と戻せば同じ答えになる.対数の和差は,元の数列の積と商に対応する.
           % A10: 二つの平方が作る分数式
           \item 分子だけを展開すると構造が見えにくくなる.分母を$D_n$と書けば,
-                \[
+\BookMathLayout{\[
                  a_{n+1}-1=\frac{2^{n+1}(a_n-1)^2}{D_n},
                  \qquad
                  a_{n+1}+1=\frac{2(a_n+1)^2}{D_n}.
-                \]
+                \]}{
+\[
+\begin{aligned}
+a_{n+1}-1&=\frac{2^{n+1}(a_n-1)^2}{D_n},\\
+a_{n+1}+1&=\frac{2(a_n+1)^2}{D_n}.
+\end{aligned}
+\]
+}
                 共通する分母を消すため,
                 \[
                   b_n=\frac{a_n-1}{a_n+1}

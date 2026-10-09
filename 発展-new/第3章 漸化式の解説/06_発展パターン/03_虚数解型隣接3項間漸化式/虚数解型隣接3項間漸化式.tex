@@ -72,12 +72,21 @@
   となる.
 
   ここで,\,$a_n$は実数列だから,\,$A\alpha^n+B\overline{\alpha}^{\,n}$が全ての$n$で実数になるためには$B=\overline{A}$(すなわち$A,B$が互いに共役)でなければならない.実際,\,$A=\dfrac{C-iD}{2},\ B=\dfrac{C+iD}{2}$(\,$C,D$は実数)とおくと,
-  \begin{align*}
+\BookMathLayout{\begin{align*}
     A\alpha^n+B\overline{\alpha}^{\,n}
     &=\frac{C-iD}{2}\rho^n(\cos n\theta+i\sin n\theta)\\
     &\qquad+\frac{C+iD}{2}\rho^n(\cos n\theta-i\sin n\theta)\\
     &=\rho^n(C\cos n\theta+D\sin n\theta)
-  \end{align*}
+  \end{align*}}{
+\[
+\begin{aligned}
+A\alpha^n+B\overline\alpha^{\,n}\\
+{}=\frac{C-iD}{2}\rho^n(\cos n\theta+i\sin n\theta)\\
+\quad+\frac{C+iD}{2}\rho^n(\cos n\theta-i\sin n\theta)\\
+{}=\rho^n(C\cos n\theta+D\sin n\theta)
+\end{aligned}
+\]
+}
   のように,虚部が打ち消し合って
   \[
     a_n=\rho^n(C\cos n\theta+D\sin n\theta)
@@ -520,9 +529,9 @@
   \noindent \bookblocklink{example-complex-1}{problem}{answer}{【例題】}
   \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-complex-1}{problem}{answer}]
     \item $\displaystyle a_1=1,\,a_2=0,\quad a_{n+2}=-a_n\quad(n\ge1)$
-    \item $\displaystyle a_1=0,\,a_2=1,\quad a_{n+2}=2a_{n+1}-2a_n\quad(n\ge1)$
+\item \BookMathLayout{$\displaystyle a_1=0,\,a_2=1,\quad a_{n+2}=2a_{n+1}-2a_n\quad(n\ge1)$}{$\displaystyle a_1=0,\,a_2=1$\\ $\displaystyle a_{n+2}=2a_{n+1}-2a_n$\\ $\displaystyle(n\ge1)$}
     \item $\displaystyle a_1=1,\,a_2=2,\quad a_{n+2}=-4a_n\quad(n\ge1)$
-    \item $\displaystyle a_1=1,\,a_2=0,\quad a_{n+2}=2a_{n+1}-4a_n\quad(n\ge1)$
+\item \BookMathLayout{$\displaystyle a_1=1,\,a_2=0,\quad a_{n+2}=2a_{n+1}-4a_n\quad(n\ge1)$}{$\displaystyle a_1=1,\,a_2=0$\\ $\displaystyle a_{n+2}=2a_{n+1}-4a_n$\\ $\displaystyle(n\ge1)$}
   \end{enumerate}
 
   \noindent\bookblocklink{example-complex-1}{hint}{problem}{【方針】}
@@ -538,7 +547,8 @@
     \item $\displaystyle a_n=\cos\frac{(n-1)\pi}{2}$
     \item $\displaystyle a_n=(\sqrt2)^{n-1}\sin\frac{(n-1)\pi}{4}$
     \item $\displaystyle a_n=2^{n-1}\left(\cos\frac{(n-1)\pi}{2}+\sin\frac{(n-1)\pi}{2}\right)$
-    \item $\displaystyle a_n=2^{n-1}\left(\cos\frac{(n-1)\pi}{3}-\frac1{\sqrt3}\sin\frac{(n-1)\pi}{3}\right)$
+\item \BookMathLayout{$\displaystyle a_n=2^{n-1}\left(\cos\frac{(n-1)\pi}{3}-\frac1{\sqrt3}\sin\frac{(n-1)\pi}{3}\right)$}{$\displaystyle a_n=2^{n-1}\Bigl(\cos\frac{(n-1)\pi}{3}$\\
+$\displaystyle\hspace{3zw}-\frac1{\sqrt3}\sin\frac{(n-1)\pi}{3}\Bigr)$}
   \end{enumerate}
 
   \noindent\bookblocklink{example-complex-1}{solution}{problem}{【解法】}
@@ -587,13 +597,20 @@
             \rho=\sqrt2,\qquad\theta=\frac{\pi}{4}
           \]
           として,
-          \[
+\BookMathLayout{\[
             a_n=(\sqrt2)^{n-1}
             \left(
               C\cos\frac{(n-1)\pi}{4}
               +D\sin\frac{(n-1)\pi}{4}
             \right)
-          \]
+          \]}{
+\[
+\begin{aligned}
+a_n&=(\sqrt2)^{n-1}\Bigl(C\cos\frac{(n-1)\pi}{4}\\
+&\hspace{4zw}+D\sin\frac{(n-1)\pi}{4}\Bigr)
+\end{aligned}
+\]
+}
           とおける.$a_1=0$より$C=0$であり,$a_2=1$より$D=1$である.よって,
           \[
             a_n=(\sqrt2)^{n-1}\sin\frac{(n-1)\pi}{4}

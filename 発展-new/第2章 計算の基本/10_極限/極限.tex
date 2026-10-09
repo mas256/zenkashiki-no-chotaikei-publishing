@@ -122,7 +122,7 @@
     角度は弧度法で表す.
     $0<x<\dfrac{\pi}{2}$のとき,半径$1$の円の扇形と,その扇形に内接・外接する三角形の面積を比べると,
     \begin{center}
-      \begin{tikzpicture}[
+      \BookMathLayout{\begin{tikzpicture}[
         x=2.4cm,
         y=2.4cm,
         line cap=round,
@@ -164,7 +164,49 @@
         \node[anchor=west,align=left,text width=2.1cm] (outer-label)
           at (1.33,0.62) {外接三角形\\[-1pt]面積 $\frac12\tan x$};
         \draw[->,thin] (outer-label.west)--(0.91,0.55);
-      \end{tikzpicture}
+      \end{tikzpicture}}{\resizebox{\linewidth}{!}{\begin{tikzpicture}[
+        x=2.4cm,
+        y=2.4cm,
+        line cap=round,
+        line join=round,
+        >=stealth
+      ]
+        % x=40度を例に,扇形と内接・外接する三角形を描く.
+        \pgfmathsetmacro{\figangle}{40}
+        \coordinate (O) at (0,0);
+        \coordinate (A) at (1,0);
+        \coordinate (P) at ({cos(\figangle)},{sin(\figangle)});
+        \coordinate (Q) at (1,{tan(\figangle)});
+
+        % 第一象限だけを描き,各図形は境界線で示す.
+        \draw[->,thin] (O)--(1.38,0) node[below] {$x$};
+        \draw[->,thin] (O)--(0,1.28) node[left] {$y$};
+        \draw[thin] (A) arc[start angle=0,end angle=90,radius=1];
+        \draw[thick] (O)--(Q)--(A)--cycle;
+        \draw[thick] (O)--(P)--(A);
+        \draw[thick] (A) arc[start angle=0,end angle=\figangle,radius=1];
+        \draw[->,semithick] (0.24,0)
+          arc[start angle=0,end angle=\figangle,radius=0.24];
+
+        \fill (O) circle (0.018);
+        \fill (A) circle (0.018);
+        \fill (P) circle (0.018);
+        \fill (Q) circle (0.018);
+        \node[below left] at (O) {$O$};
+        \node[below] at (0.52,-0.03) {$1$};
+        \node[below right] at (A) {$A$};
+        \node[above left] at (P) {$P$};
+        \node[above right] at (Q) {$Q$};
+        \node at (0.55,0.20) {$\frac12\sin x$};
+        \node at (0.27,0.07) {$x$};
+
+        \node[anchor=east,align=right,text width=2.0cm] (sector-label)
+          at (-0.10,0.88) {扇形\\[-1pt]面積 $\frac12x$};
+        \draw[->,thin] (sector-label.east)--(0.94,0.342);
+        \node[anchor=west,align=left,text width=2.1cm] (outer-label)
+          at (1.33,0.62) {外接三角形\\[-1pt]面積 $\frac12\tan x$};
+        \draw[->,thin] (outer-label.west)--(0.91,0.55);
+      \end{tikzpicture}}}
       \BookFigureCaption{扇形と内接・外接三角形の面積比較}
     \end{center}
     \[
@@ -236,11 +278,19 @@
       \longrightarrow e.
     \end{align*}
     自然対数は正の数上で連続であり,\,$\log e=1$なので,
-    \[
+\BookMathLayout{\[
       \lim_{x\to0}\frac{\log(1+x)}{x}
       =\lim_{x\to0}\log\left\{(1+x)^\frac{1}{x}\right\}
       =\log e=1
-    \]
+    \]}{
+\[
+\begin{aligned}
+\lim_{x\to0}\frac{\log(1+x)}x
+&=\lim_{x\to0}\log\left\{(1+x)^{1/x}\right\}\\
+&=\log e=1
+\end{aligned}
+\]
+}
     となる.
     この極限を用いて,\,$\lim_{n\to\infty}\left(1+\frac{a}{n}\right)^n$を求める.
     $a=0$の場合は,
