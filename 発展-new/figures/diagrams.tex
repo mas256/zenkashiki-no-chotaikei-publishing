@@ -1,0 +1,242 @@
+% 教科書の2段組内で使用するTikZ図（floatなし）。
+\usetikzlibrary{arrows.meta,calc,positioning,decorations.pathreplacing}
+\tikzset{box/.style={draw,rounded corners=2pt,align=center,inner sep=5pt,minimum height=.65cm}}
+\newcommand{\BookDiagram}[2]{%
+  \par\smallskip\noindent
+  \begin{minipage}{\linewidth}
+    \centering
+    \resizebox{\linewidth}{!}{%
+      \begin{tikzpicture}[>=Stealth,line cap=round,line join=round,
+        every node/.style={font=\small}]
+        #2
+      \end{tikzpicture}%
+    }%
+    \par{\footnotesize 図：#1}\par
+  \end{minipage}%
+  \par\smallskip
+}
+
+\newcommand{\BookFigRoadmap}{\BookDiagram{本書全体の読み方}{
+
+\node[box] (a) at (-3,0) {第2章\\計算の道具}; \node[box] (b) at (0,0) {第3章\\解法の原理}; \node[box] (c) at (3,0) {第4章\\演習と選択};
+\node[box] (d) at (0,-1.6) {第5章・付録\\数学的なつながり};
+\draw[->,thick](a)--(b);\draw[->,thick](b)--(c);\draw[<->,thick](b)--(d);\draw[->,dashed](c.south)|-(d.east);
+}}
+
+\newcommand{\BookFigArithmeticSum}{\BookDiagram{等差数列の順序を逆にすると各組の和がそろう}{
+
+\foreach \x/\top/\bot in {0/a/l,1/{a+d}/{l-d},2/{a+2d}/{l-2d},3/{\cdots}/{\cdots},4/l/a}{
+\node[box,minimum width=1.5cm] at (1.8*\x,0) {$\top$}; \node[box,minimum width=1.5cm] at (1.8*\x,-.9) {$\bot$}; \node at (1.8*\x,-1.65) {$a+l$};}
+\draw[thick](-.75,-1.25)--(7.95,-1.25);
+}}
+
+\newcommand{\BookFigTrigCircle}{\BookDiagram{単位円上の点と三角関数}{
+
+\draw[->](-1.6,0)--(2.6,0)node[right]{$x$};\draw[->](0,-1.4)--(0,1.8)node[above]{$y$};
+\draw(0,0)circle(1.25);\coordinate(P)at(42:1.25);\draw[very thick,->](0,0)--(P)node[above right]{$(\cos\theta,\sin\theta)$};
+\draw[dashed](P)--(P|-0,0);\draw(.5,0)arc(0:42:.5);\node at(.75,.26){$\theta$};
+}}
+
+\newcommand{\BookFigPolar}{\BookDiagram{複素数を距離と偏角で表す}{
+
+\draw[->](-.3,0)--(4.6,0)node[right]{実軸};\draw[->](0,-.25)--(0,3.4)node[above]{虚軸};
+\coordinate(P)at(3.4,2.3);\draw[very thick,->](0,0)--(P)node[above]{$z=x+iy$};
+\draw[dashed](P)--(3.4,0);\draw(.65,0)arc(0:34:.65);
+\node at(1.1,.4){$\theta$};\node at(1.65,1.35){$\rho$};\node[below]at(3.4,0){$x$};\node[left]at(0,2.3){$y$};
+}}
+
+\newcommand{\BookFigComplexRotation}{\BookDiagram{複素数の積は回転と伸縮を同時に表す}{
+
+\draw[->](-.3,0)--(4.7,0)node[right]{実軸};\draw[->](0,-.2)--(0,3.65)node[above]{虚軸};
+\draw[very thick,->](0,0)--(3.1,.7)node[right]{$z$};\draw[very thick,->](0,0)--(2.35,2.8)node[above]{$wz$};
+\draw[dashed,->](1.1,.25)arc(13:50:1.15);\node at(1.5,.95){回転};
+}}
+
+\newcommand{\BookFigClassification}{\BookDiagram{解法の系統と、それぞれの入口}{
+
+\node[box](a)at(0,0){漸化式}; \node[box](b)at(-2.7,-1.15){決まった手順};\node[box](c)at(2.7,-1.15){特殊な性質};
+\draw[->](a)--(b);\draw[->](a)--(c);
+\node[box](d)at(-4,-2.6){基本4型};\node[box](e)at(-2.25,-2.6){応用7型};\node[box](f)at(-.5,-2.6){発展型};\node[box](g)at(2.8,-2.6){特殊性質型};
+\draw[->](b)--(d);\draw[->](b)--(e);\draw[->](b)--(f);\draw[->](c)--(g);
+}}
+
+\newcommand{\BookFigApproach}{\BookDiagram{『きれいな形』へ帰着させるための一連の操作}{
+
+\node[box](a)at(0,0){元の漸化式};\node[box](b)at(2.6,0){特徴を観察};\node[box](c)at(5.2,0){新しい量 $b_n$};
+\node[box](d)at(5.2,-1.5){単純な更新};\node[box](e)at(2.6,-1.5){一般項を計算};\node[box](f)at(0,-1.5){元の項に戻す};
+\draw[->](a)--(b);\draw[->](b)--(c);\draw[->](c)--(d);\draw[->](d)--(e);\draw[->](e)--(f);
+\draw[->,dashed](f.west)to[out=180,in=180,looseness=1.45]node[left]{検算}(a.west);
+}}
+
+\newcommand{\BookFigBasicFour}{\BookDiagram{差と比に着目すると4つの基本型が並んで見える}{
+
+\node[anchor=west]at(0,0){等差型：$a_{n+1}-a_n=d$}; \node[anchor=west]at(7,0){差が一定};
+\node[anchor=west]at(0,-.9){等比型：$a_{n+1}/a_n=r$}; \node[anchor=west]at(7,-.9){比が一定};
+\node[anchor=west]at(0,-1.8){階差型：$a_{n+1}-a_n=f(n)$}; \node[anchor=west]at(7,-1.8){差を足す};
+\node[anchor=west]at(0,-2.7){階比型：$a_{n+1}/a_n=g(n)$}; \node[anchor=west]at(7,-2.7){比を掛ける};
+\foreach \y in {0,-.9,-1.8,-2.7}{\draw[->](6.3,\y)--(6.8,\y);}
+}}
+
+\newcommand{\BookFigMobius}{\BookDiagram{複素数の比は距離の比と偏角の差の両方を表す}{
+
+\draw[->](-2,0)--(4.2,0)node[right]{実軸};\draw[->](0,-2)--(0,2.1)node[above]{虚軸};
+\coordinate(A)at(-1.1,1.45);\coordinate(B)at(-1.1,-1.45);\coordinate(X)at(3,0);
+\fill(A)circle(2pt)node[above left]{$\alpha$};\fill(B)circle(2pt)node[below left]{$\beta$};\fill(X)circle(2pt)node[below right]{$a_n$};
+\draw[thick](A)--(X)--(B);\node at(1.2,1.07){$|a_n-\alpha|$};\node at(1.2,-1.07){$|a_n-\beta|$};\node at(1.75,.25){$\varphi$};
+}}
+
+\newcommand{\BookFigThreeTerm}{\BookDiagram{隣接3項間の更新には直前の二つの項が必要}{
+
+\node[box](a)at(0,0){$a_n$};\node[box](b)at(0,-1.5){$a_{n+1}$};\node[box](c)at(3,-.75){$a_{n+2}$};
+\draw[->](a)--(c);\draw[->](b)--(c);
+\node[box](d)at(6,-.75){$b_{n+1}$};\draw[->,dashed](c)--(d);
+\node at(4.5,-1.75){$b_n=a_{n+1}-\alpha a_n$};
+}}
+
+\newcommand{\BookFigSystem}{\BookDiagram{和と差への分解によって連立更新を独立させる}{
+
+\draw[->](-2,0)--(3.2,0)node[right]{$a$};\draw[->](0,-2.2)--(0,2.3)node[above]{$b$};
+\draw[very thick,->](0,0)--(2.2,1.05)node[right]{$(a_n,b_n)$};
+\draw[thick,->](0,0)--(1.55,1.55)node[above]{$a+b$};
+\draw[thick,->](0,0)--(1.55,-1.55)node[right]{$a-b$};
+\draw[dashed](-1.6,-1.6)--(2,2);\draw[dashed](-1.6,1.6)--(2,-2);
+}}
+
+\newcommand{\BookFigFloorGraph}{\BookDiagram{床関数は各整数区間で値が一定になる}{
+
+\draw[->](-2.5,0)--(3.3,0)node[right]{$x$};\draw[->](0,-2.4)--(0,3.2)node[above]{$y$};
+\foreach \k in {-2,-1,0,1,2}{
+\draw[very thick](\k,\k)--({\k+1},\k);
+\fill(\k,\k)circle(2.3pt);\draw[fill=white]({\k+1},\k)circle(2.3pt);
+}
+}}
+
+\newcommand{\BookFigFloorGroups}{\BookDiagram{$lfloorsqrt nfloor$ は同じ値が $1,3,5,ldots$ 項ずつ続く}{
+
+\foreach \x/\v in {0/1,1/2,2/2,3/2,4/3,5/3,6/3,7/3,8/3}{
+\node[box,minimum width=.65cm]at(.84*\x,0){$\v$};
+}
+\draw[decorate,decoration={brace,mirror,amplitude=4pt}](-.3,-.55)--(.3,-.55)node[midway,below=7pt]{1項};
+\draw[decorate,decoration={brace,mirror,amplitude=4pt}](.52,-.55)--(2.83,-.55)node[midway,below=7pt]{3項};
+\draw[decorate,decoration={brace,mirror,amplitude=4pt}](2.92,-.55)--(7.04,-.55)node[midway,below=7pt]{5項};
+}}
+
+\newcommand{\BookFigNonadjacent}{\BookDiagram{非隣接型は二つの独立した更新列に分けられる}{
+
+\foreach \i/\x in {1/0,3/2,5/4,7/6}{\node[box](o\i)at(\x,0){$a_{\i}$};}
+\foreach \i/\x in {2/0,4/2,6/4,8/6}{\node[box](e\i)at(\x,-1.5){$a_{\i}$};}
+\draw[->,thick](o1)--(o3);\draw[->,thick](o3)--(o5);\draw[->,thick](o5)--(o7);
+\draw[->,thick](e2)--(e4);\draw[->,thick](e4)--(e6);\draw[->,thick](e6)--(e8);
+}}
+
+\newcommand{\BookFigComplexRoots}{\BookDiagram{特性根の累乗は回転と伸縮の繰り返しになる}{
+
+\draw[->](-3.5,0)--(3.2,0)node[right]{実軸};\draw[->](0,-2.7)--(0,3.15)node[above]{虚軸};
+\foreach \k in {0,1,2,3,4}{
+\coordinate(P\k)at({2*pow(1.12,\k)*cos(42*\k)},{2*pow(1.12,\k)*sin(42*\k)});
+\draw[->,gray](0,0)--(P\k);\fill(P\k)circle(2pt);
+}
+\draw[->,thick](P0)--(P1)--(P2)--(P3)--(P4);
+\node[below]at(P0){$1$};\node[right]at(P1){$\alpha$};\node[above]at(P2){$\alpha^2$};\node[left]at(P3){$\alpha^3$};
+}}
+
+\newcommand{\BookFigNewton}{\BookDiagram{接線の $x$ 軸との交点を次の近似値にする}{
+
+\draw[->](-.1,0)--(2.65,0)node[right]{$x$};\draw[->](0,-2.15)--(0,3.05)node[above]{$y$};
+\draw[thick,domain=.15:2.18,samples=40]plot(\x,{\x*\x-2});
+\draw[very thick,domain=1.05:2.2]plot(\x,{4*\x-6});
+\draw[dashed](2,0)--(2,2);\fill(2,2)circle(2pt)node[above left]{$(a_n,f(a_n))$};
+\fill(1.5,0)circle(2pt)node[above left]{$a_{n+1}$};\node[below]at(2,0){$a_n$};
+}}
+
+\newcommand{\BookFigCobweb}{\BookDiagram{異なる初項からの反復をグラフ上で追う}{
+
+\draw[->](-.1,0)--(1.42,0)node[right]{$x$};\draw[->](0,-.1)--(0,1.44)node[above]{$y$};
+\draw[dashed](0,0)--(1.25,1.25)node[above]{$y=x$};
+\draw[thick,domain=0:1.16,samples=40]plot(\x,{\x*\x})node[right]{$y=x^2$};
+\draw[very thick](.8,0)--(.8,.64)--(.64,.64)--(.64,.4096)--(.4096,.4096)--(.4096,.1678);
+\fill(.8,0)circle(2pt)node[below]{$a_1$};
+}}
+
+\newcommand{\BookFigFlowchart}{\BookDiagram{式全体・項・付加項の観察から解法候補を選ぶ}{
+
+\node[box](a)at(0,0){式全体\\総和・分母・隣接性};
+\node[box](b)at(3.1,0){数列の項\\係数と指数};
+\node[box](c)at(6.2,0){付加項\\定数・多項式・指数};
+\node[box](d)at(6.2,-1.65){候補を立てる\\差・比・逆数・対数};
+\node[box](e)at(3.1,-1.65){定義域・初期条件};
+\node[box](f)at(0,-1.65){変形と再評価};
+\draw[->](a)--(b);\draw[->](b)--(c);\draw[->](c)--(d);
+\draw[->](d)--(e);\draw[->](e)--(f);
+\draw[->,dashed](f.west)to[out=180,in=180,looseness=1.4]node[left]{もう一度}(a.west);
+}}
+
+\newcommand{\BookFigFallback}{\BookDiagram{行き詰まりの理由を次の方針の手掛かりにする}{
+
+\node[box](a)at(0,0){候補A};\node[box](b)at(2.5,0){単純にならない};\node[box](c)at(5,0){原因を特定};
+\node[box](d)at(5,-1.4){候補B};\node[box](e)at(2.5,-1.4){変形して検証};
+\draw[->](a)--(b);\draw[->](b)--(c);\draw[->](c)--(d);\draw[->](d)--(e);\draw[->,dashed](e)--(a);
+}}
+
+\newcommand{\BookFigMatrixMap}{\BookDiagram{行列の作用を平面上のベクトルとして表す}{
+
+\draw[->](-.2,0)--(4.7,0)node[right]{$x$};\draw[->](0,-.2)--(0,3.1)node[above]{$y$};
+\draw[very thick,->](0,0)--(1.4,1.15)node[above]{$\boldsymbol v$};
+\draw[very thick,->](0,0)--(3.05,2.3)node[right]{$A\boldsymbol v$};
+\draw[->,dashed](1.65,1.45)to[out=50,in=160]node[above]{$A$}(2.65,2.15);
+}}
+
+\newcommand{\BookFigEigen}{\BookDiagram{固有ベクトルだけは作用後も元と同じ直線上にある}{
+
+\draw[->](-.2,0)--(4.85,0)node[right]{$x$};\draw[->](0,-.2)--(0,2.8)node[above]{$y$};
+\draw[->,very thick](0,0)--(1.6,0)node[below]{$\boldsymbol v$};
+\draw[->,very thick](0,0)--(3.7,0)node[below right]{$A\boldsymbol v$};
+\draw[->](0,0)--(.9,1.65)node[left]{$\boldsymbol u$};
+\draw[->,dashed](0,0)--(2.3,.95)node[above]{$A\boldsymbol u$};
+}}
+
+\newcommand{\BookFigMatrixState}{\BookDiagram{一段の更新を行列で表せば反復は行列の累乗となる}{
+
+\node[box](a)at(0,0){$\binom{a_n}{1}$};
+\node[box](m)at(2.55,0){$\begin{pmatrix}p&q\\0&1\end{pmatrix}$};
+\node[box](b)at(5.15,0){$\binom{a_{n+1}}{1}$};
+\draw[->](a)--(m);\draw[->](m)--(b);
+\node at(2.55,-1.25){$\boldsymbol x_{n+1}=A\boldsymbol x_n,\quad \boldsymbol x_n=A^{n-1}\boldsymbol x_1$};
+}}
+
+\newcommand{\BookFigChebyshev}{\BookDiagram{角の倍化とチェビシェフ多項式の対応}{
+
+\draw[->](-1.6,0)--(1.75,0)node[right]{$x$};\draw[->](0,-1.35)--(0,1.5);
+\draw(0,0)circle(1.15);\coordinate(P)at(33:1.15);\coordinate(Q)at(66:1.15);
+\draw[very thick,->](0,0)--(P)node[right]{$\theta$};\draw[very thick,->](0,0)--(Q)node[above]{$2\theta$};
+\draw[dashed](P)--(P|-0,0);\draw[dashed](Q)--(Q|-0,0);
+\node at(0,-1.8){$T_2(\cos\theta)=\cos 2\theta$};
+}}
+
+\newcommand{\BookFigLagrange}{\BookDiagram{有限個の点を通る式は複数作れる}{
+
+\draw[->](-.1,0)--(3.0,0)node[right]{$x$};\draw[->](0,-.3)--(0,1.6)node[above]{$y$};
+\draw[very thick,domain=0:2.5,samples=40]plot(\x,{1-(\x-1)*(\x-1)});
+\draw[dashed,very thick,domain=0:2.5,samples=40]plot(\x,{1-(\x-1)*(\x-1)+.7*\x*(\x-1)*(\x-2)});
+\fill(0,0)circle(2pt);\fill(1,1)circle(2pt);\fill(2,0)circle(2pt);
+\node at(1.45,1.66){同じ3点、異なる曲線};
+}}
+
+\newcommand{\BookFigDifference}{\BookDiagram{離散的な差分・総和と連続的な微分・積分}{
+
+\node at(1.15,2){離散：数列};\node at(5,2){連続：関数};
+\draw[->](0,0)--(2.55,0)node[right]{$n$};\draw[->](0,0)--(0,1.7);
+\foreach \x/\y in {.4/.3,.9/.55,1.4/.95,1.9/1.5}{\draw[dashed](\x,0)--(\x,\y);\fill(\x,\y)circle(2pt);}
+\draw[->](3.55,0)--(6.35,0)node[right]{$x$};\draw[->](3.55,0)--(3.55,1.7);
+\draw[thick,domain=3.65:6.1,samples=35]plot(\x,{.2*(\x-3.55)*(\x-3.55)+.2});
+\node at(1.1,-.72){$\Delta,\ \sum$};\node at(4.95,-.72){$d/dx,\ \int$};\draw[<->,dashed](2.7,1)--(3.4,1);
+}}
+
+\newcommand{\BookFigGenerating}{\BookDiagram{母関数への $x$ の乗算は係数列の右シフト}{
+
+\node[anchor=east]at(-.2,0){$A(x)$};\node[anchor=east]at(-.2,-1.35){$xA(x)$};
+\foreach \x/\v in {0/{a_0},1/{a_1},2/{a_2},3/{a_3},4/{\cdots}}{\node[box](t\x)at(1.15*\x,0){$\v$};}
+\node[box](b0)at(0,-1.35){$0$};
+\foreach \x/\v in {1/{a_0},2/{a_1},3/{a_2},4/{a_3}}{\node[box](b\x)at(1.15*\x,-1.35){$\v$};}
+\draw[->,dashed](t0)--(b1);\draw[->,dashed](t1)--(b2);\draw[->,dashed](t2)--(b3);\draw[->,dashed](t3)--(b4);
+}}
