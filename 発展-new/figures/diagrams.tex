@@ -1,6 +1,13 @@
 % 教科書の2段組内で使用するTikZ図（floatなし）。
 \usetikzlibrary{arrows.meta,calc,positioning,decorations.pathreplacing}
 \tikzset{box/.style={draw,rounded corners=2pt,align=center,inner sep=5pt,minimum height=.65cm}}
+\newcommand{\BookFigureCaption}[1]{%
+  \refstepcounter{figure}%
+  \par\smallskip
+  {\footnotesize 図\thefigure\quad #1}\par
+}
+% Concept maps may fill the column; ordinary graphs retain the
+% scale=0.8 convention used in the characteristic-equation section.
 \newcommand{\BookDiagram}[2]{%
   \par\smallskip\noindent
   \begin{minipage}{\linewidth}
@@ -11,7 +18,19 @@
         #2
       \end{tikzpicture}%
     }%
-    \par{\footnotesize 図：#1}\par
+    \BookFigureCaption{#1}%
+  \end{minipage}%
+  \par\smallskip
+}
+\newcommand{\BookGraph}[2]{%
+  \par\smallskip\noindent
+  \begin{minipage}{\linewidth}
+    \centering
+    \begin{tikzpicture}[scale=0.8,>=Stealth,line cap=round,line join=round,
+      every node/.style={font=\small}]
+      #2
+    \end{tikzpicture}%
+    \BookFigureCaption{#1}%
   \end{minipage}%
   \par\smallskip
 }
@@ -30,14 +49,14 @@
 \draw[thick](-.75,-1.25)--(7.95,-1.25);
 }}
 
-\newcommand{\BookFigTrigCircle}{\BookDiagram{単位円上の点と三角関数}{
+\newcommand{\BookFigTrigCircle}{\BookGraph{単位円上の点と三角関数}{
 
 \draw[->](-1.6,0)--(2.6,0)node[right]{$x$};\draw[->](0,-1.4)--(0,1.8)node[above]{$y$};
 \draw(0,0)circle(1.25);\coordinate(P)at(42:1.25);\draw[very thick,->](0,0)--(P)node[above right]{$(\cos\theta,\sin\theta)$};
 \draw[dashed](P)--(P|-0,0);\draw(.5,0)arc(0:42:.5);\node at(.75,.26){$\theta$};
 }}
 
-\newcommand{\BookFigPolar}{\BookDiagram{複素数を距離と偏角で表す}{
+\newcommand{\BookFigPolar}{\BookGraph{複素数を距離と偏角で表す}{
 
 \draw[->](-.3,0)--(4.6,0)node[right]{実軸};\draw[->](0,-.25)--(0,3.4)node[above]{虚軸};
 \coordinate(P)at(3.4,2.3);\draw[very thick,->](0,0)--(P)node[above]{$z=x+iy$};
@@ -45,7 +64,7 @@
 \node at(1.1,.4){$\theta$};\node at(1.65,1.35){$\rho$};\node[below]at(3.4,0){$x$};\node[left]at(0,2.3){$y$};
 }}
 
-\newcommand{\BookFigComplexRotation}{\BookDiagram{複素数の積は回転と伸縮を同時に表す}{
+\newcommand{\BookFigComplexRotation}{\BookGraph{複素数の積は回転と伸縮を同時に表す}{
 
 \draw[->](-.3,0)--(4.7,0)node[right]{実軸};\draw[->](0,-.2)--(0,3.65)node[above]{虚軸};
 \draw[very thick,->](0,0)--(3.1,.7)node[right]{$z$};\draw[very thick,->](0,0)--(2.35,2.8)node[above]{$wz$};
@@ -77,7 +96,7 @@
 \foreach \y in {0,-.9,-1.8,-2.7}{\draw[->](6.3,\y)--(6.8,\y);}
 }}
 
-\newcommand{\BookFigMobius}{\BookDiagram{複素数の比は距離の比と偏角の差の両方を表す}{
+\newcommand{\BookFigMobius}{\BookGraph{複素数の比は距離の比と偏角の差の両方を表す}{
 
 \draw[->](-2,0)--(4.2,0)node[right]{実軸};\draw[->](0,-2)--(0,2.1)node[above]{虚軸};
 \coordinate(A)at(-1.1,1.45);\coordinate(B)at(-1.1,-1.45);\coordinate(X)at(3,0);
@@ -93,7 +112,7 @@
 \node at(4.5,-1.75){$b_n=a_{n+1}-\alpha a_n$};
 }}
 
-\newcommand{\BookFigSystem}{\BookDiagram{和と差への分解によって連立更新を独立させる}{
+\newcommand{\BookFigSystem}{\BookGraph{和と差への分解によって連立更新を独立させる}{
 
 \draw[->](-2,0)--(3.2,0)node[right]{$a$};\draw[->](0,-2.2)--(0,2.3)node[above]{$b$};
 \draw[very thick,->](0,0)--(2.2,1.05)node[right]{$(a_n,b_n)$};
@@ -102,7 +121,7 @@
 \draw[dashed](-1.6,-1.6)--(2,2);\draw[dashed](-1.6,1.6)--(2,-2);
 }}
 
-\newcommand{\BookFigFloorGraph}{\BookDiagram{床関数は各整数区間で値が一定になる}{
+\newcommand{\BookFigFloorGraph}{\BookGraph{床関数は各整数区間で値が一定になる}{
 
 \draw[->](-2.5,0)--(3.3,0)node[right]{$x$};\draw[->](0,-2.4)--(0,3.2)node[above]{$y$};
 \foreach \k in {-2,-1,0,1,2}{
@@ -127,7 +146,7 @@
 \draw[->,thick](e2)--(e4);\draw[->,thick](e4)--(e6);\draw[->,thick](e6)--(e8);
 }}
 
-\newcommand{\BookFigComplexRoots}{\BookDiagram{特性根の累乗は回転と伸縮の繰り返しになる}{
+\newcommand{\BookFigComplexRoots}{\BookGraph{特性根の累乗は回転と伸縮の繰り返しになる}{
 
 \draw[->](-3.5,0)--(3.2,0)node[right]{実軸};\draw[->](0,-2.7)--(0,3.15)node[above]{虚軸};
 \foreach \k in {0,1,2,3,4}{
@@ -138,7 +157,7 @@
 \node[below]at(P0){$1$};\node[right]at(P1){$\alpha$};\node[above]at(P2){$\alpha^2$};\node[left]at(P3){$\alpha^3$};
 }}
 
-\newcommand{\BookFigNewton}{\BookDiagram{接線の $x$ 軸との交点を次の近似値にする}{
+\newcommand{\BookFigNewton}{\BookGraph{接線の $x$ 軸との交点を次の近似値にする}{
 
 \draw[->](-.1,0)--(2.65,0)node[right]{$x$};\draw[->](0,-2.15)--(0,3.05)node[above]{$y$};
 \draw[thick,domain=.15:2.18,samples=40]plot(\x,{\x*\x-2});
@@ -147,7 +166,7 @@
 \fill(1.5,0)circle(2pt)node[above left]{$a_{n+1}$};\node[below]at(2,0){$a_n$};
 }}
 
-\newcommand{\BookFigCobweb}{\BookDiagram{異なる初項からの反復をグラフ上で追う}{
+\newcommand{\BookFigCobweb}{\BookGraph{異なる初項からの反復をグラフ上で追う}{
 
 \draw[->](-.1,0)--(1.42,0)node[right]{$x$};\draw[->](0,-.1)--(0,1.44)node[above]{$y$};
 \draw[dashed](0,0)--(1.25,1.25)node[above]{$y=x$};
@@ -176,7 +195,7 @@
 \draw[->](a)--(b);\draw[->](b)--(c);\draw[->](c)--(d);\draw[->](d)--(e);\draw[->,dashed](e)--(a);
 }}
 
-\newcommand{\BookFigMatrixMap}{\BookDiagram{行列の作用を平面上のベクトルとして表す}{
+\newcommand{\BookFigMatrixMap}{\BookGraph{行列の作用を平面上のベクトルとして表す}{
 
 \draw[->](-.2,0)--(4.7,0)node[right]{$x$};\draw[->](0,-.2)--(0,3.1)node[above]{$y$};
 \draw[very thick,->](0,0)--(1.4,1.15)node[above]{$\boldsymbol v$};
@@ -184,7 +203,7 @@
 \draw[->,dashed](1.65,1.45)to[out=50,in=160]node[above]{$A$}(2.65,2.15);
 }}
 
-\newcommand{\BookFigEigen}{\BookDiagram{固有ベクトルだけは作用後も元と同じ直線上にある}{
+\newcommand{\BookFigEigen}{\BookGraph{固有ベクトルだけは作用後も元と同じ直線上にある}{
 
 \draw[->](-.2,0)--(4.85,0)node[right]{$x$};\draw[->](0,-.2)--(0,2.8)node[above]{$y$};
 \draw[->,very thick](0,0)--(1.6,0)node[below]{$\boldsymbol v$};
@@ -202,7 +221,7 @@
 \node at(2.55,-1.25){$\boldsymbol x_{n+1}=A\boldsymbol x_n,\quad \boldsymbol x_n=A^{n-1}\boldsymbol x_1$};
 }}
 
-\newcommand{\BookFigChebyshev}{\BookDiagram{角の倍化とチェビシェフ多項式の対応}{
+\newcommand{\BookFigChebyshev}{\BookGraph{角の倍化とチェビシェフ多項式の対応}{
 
 \draw[->](-1.6,0)--(1.75,0)node[right]{$x$};\draw[->](0,-1.35)--(0,1.5);
 \draw(0,0)circle(1.15);\coordinate(P)at(33:1.15);\coordinate(Q)at(66:1.15);
@@ -211,7 +230,7 @@
 \node at(0,-1.8){$T_2(\cos\theta)=\cos 2\theta$};
 }}
 
-\newcommand{\BookFigLagrange}{\BookDiagram{有限個の点を通る式は複数作れる}{
+\newcommand{\BookFigLagrange}{\BookGraph{有限個の点を通る式は複数作れる}{
 
 \draw[->](-.1,0)--(3.0,0)node[right]{$x$};\draw[->](0,-.3)--(0,1.6)node[above]{$y$};
 \draw[very thick,domain=0:2.5,samples=40]plot(\x,{1-(\x-1)*(\x-1)});
@@ -220,7 +239,7 @@
 \node at(1.45,1.66){同じ3点、異なる曲線};
 }}
 
-\newcommand{\BookFigDifference}{\BookDiagram{離散的な差分・総和と連続的な微分・積分}{
+\newcommand{\BookFigDifference}{\BookGraph{離散的な差分・総和と連続的な微分・積分}{
 
 \node at(1.15,2){離散：数列};\node at(5,2){連続：関数};
 \draw[->](0,0)--(2.55,0)node[right]{$n$};\draw[->](0,0)--(0,1.7);
