@@ -71,9 +71,9 @@
 \newcommand{\BookFigBasicFour}{\BookDiagram{差と比に着目すると4つの基本型が並んで見える}{
 
 \node[anchor=west]at(0,0){等差型：$a_{n+1}-a_n=d$}; \node[anchor=west]at(7,0){差が一定};
-\node[anchor=west]at(0,-.9){等比型：$a_{n+1}/a_n=r$}; \node[anchor=west]at(7,-.9){比が一定};
+\node[anchor=west]at(0,-.9){等比型：$\frac{a_{n+1}}{a_n}=r$}; \node[anchor=west]at(7,-.9){比が一定};
 \node[anchor=west]at(0,-1.8){階差型：$a_{n+1}-a_n=f(n)$}; \node[anchor=west]at(7,-1.8){差を足す};
-\node[anchor=west]at(0,-2.7){階比型：$a_{n+1}/a_n=g(n)$}; \node[anchor=west]at(7,-2.7){比を掛ける};
+\node[anchor=west]at(0,-2.7){階比型：$\frac{a_{n+1}}{a_n}=g(n)$}; \node[anchor=west]at(7,-2.7){比を掛ける};
 \foreach \y in {0,-.9,-1.8,-2.7}{\draw[->](6.3,\y)--(6.8,\y);}
 }}
 
@@ -227,7 +227,7 @@
 \foreach \x/\y in {.4/.3,.9/.55,1.4/.95,1.9/1.5}{\draw[dashed](\x,0)--(\x,\y);\fill(\x,\y)circle(2pt);}
 \draw[->](3.55,0)--(6.35,0)node[right]{$x$};\draw[->](3.55,0)--(3.55,1.7);
 \draw[thick,domain=3.65:6.1,samples=35]plot(\x,{.2*(\x-3.55)*(\x-3.55)+.2});
-\node at(1.1,-.72){$\Delta,\ \sum$};\node at(4.95,-.72){$d/dx,\ \int$};\draw[<->,dashed](2.7,1)--(3.4,1);
+\node at(1.1,-.72){$\Delta,\ \sum$};\node at(4.95,-.72){$\frac{\mathrm{d}}{\mathrm{d}x},\ \int$};\draw[<->,dashed](2.7,1)--(3.4,1);
 }}
 
 \newcommand{\BookFigGenerating}{\BookDiagram{母関数への $x$ の乗算は係数列の右シフト}{
