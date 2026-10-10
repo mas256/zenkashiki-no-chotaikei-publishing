@@ -59,6 +59,13 @@
 
 \tcbuselibrary{breakable}
 
+% 発想・条件・結論を短く読み返すための左罫線。本文の証明は外に置く。
+\newtcolorbox{bookpoint}{breakable,sharp corners,
+  colback=black!3,colframe=black!55,boxrule=0pt,leftrule=1.2pt,
+  left=5pt,right=3pt,top=3pt,bottom=3pt,
+  before skip=6pt,after skip=6pt}
+\newcommand{\bookstep}[1]{\par\medskip\noindent\textbf{#1}\par\nobreak\smallskip}
+
 \definecolor{shadecolor}{gray}{0.80}
 
 
@@ -268,7 +275,7 @@
 \tableofcontents
 \pagebreak
 \input{第1章 はじめに/はじめに.tex}
-\input{第2章 計算の基本/計算の基本.tex}
+\input{第2章 計算の基本/前提知識と計算の基本.tex}
 \input{第3章 漸化式の解説/漸化式の解説.tex}
 \input{第4章 実際の解き方/実際の解き方.tex}
 \input{第5章 付録/付録.tex}

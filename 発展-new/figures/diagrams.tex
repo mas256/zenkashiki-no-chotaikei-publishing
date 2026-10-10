@@ -276,3 +276,30 @@
 \node at(1.1,-.72){$\Delta,\ \sum$};\node at(4.95,-.72){$\frac{\mathrm{d}}{\mathrm{d}x},\ \int$};\draw[<->,dashed](2.7,1)--(3.4,1);
 }}
 
+
+% Issue #26: new diagrams show the operation named by their captions.
+\newcommand{\BookFigLatticeRecurrence}{\BookDiagram{最後の一歩で格子経路を二つに分ける}{
+  \draw[step=1,black!25] (0,0) grid (3,2);
+  \node[below left] at (0,0) {$(0,0)$};
+  \fill (3,2) circle (2pt);\node[above right] at (3,2) {$(n,m)$};
+  \draw[->,very thick] (2,2)--(3,2);
+  \draw[->,very thick] (3,1)--(3,2);
+  \node[above] at (2,2) {$(n-1,m)$};
+  \node[right] at (3,1) {$(n,m-1)$};
+}}
+\newcommand{\BookFigBinomialDifference}{\BookDiagram{二項係数では差分を取ると添字が一つ下がる}{
+  \node[box] (a) at (0,0) {$\binom n3$};
+  \node[box] (b) at (2.6,0) {$\binom n2$};
+  \node[box] (c) at (5.2,0) {$\binom n1$};
+  \draw[->,thick] (a)--node[above]{$\Delta$}(b);
+  \draw[->,thick] (b)--node[above]{$\Delta$}(c);
+  \node at (2.6,-1) {和を取ると,逆向きに戻る};
+}}
+\newcommand{\BookFigPellDoubling}{\BookDiagram{ニュートン法はペル解の添字を倍に進める}{
+  \node[box] (a) at (0,0) {$r_1=\frac32$};
+  \node[box] (b) at (3.2,0) {$r_2=\frac{17}{12}$};
+  \node[box] (c) at (6.4,0) {$r_4=\frac{577}{408}$};
+  \draw[->,thick] (a)--node[above]{$N$}(b);
+  \draw[->,thick] (b)--node[above]{$N$}(c);
+  \node at (3.2,-1) {$N(r)=\frac12\left(r+\frac2r\right)$};
+}}
