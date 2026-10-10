@@ -1,14 +1,9 @@
 % jsbook の 11pt で用いられる拡大率 (\mag) が用紙にも及ぶのを防ぎ、
 % PDF の実寸を A4 (210 mm × 297 mm) に保つ。
-% 紙版は文字を少し大きくする。スマホ版は既存の10ptを保つ。
-\ifdefined\BookMobile
-  \PassOptionsToClass{10pt}{jsbook}
-\else
-  \PassOptionsToClass{11pt}{jsbook}
-\fi
 \documentclass[
   dvipdfmx,
   a4paper,
+  10pt,
   nomag,
   fleqn,
   openany
@@ -20,7 +15,8 @@
 
 \usepackage{amsmath,amsthm,amssymb,amsfonts}
 
-% 本文中は通常の数式サイズ、独立した数式は表示用サイズ。
+% インライン数式は本文中でも displaystyle で統一する。
+\everymath{\displaystyle}
 \usepackage{refcount}
 \usepackage{tikz}
 \usepackage{graphicx}
@@ -34,13 +30,18 @@
 \ifdefined\BookMobile
   \usepackage[paperwidth=90truemm,paperheight=160truemm,margin=8truemm,headheight=8.5truemm,headsep=1truemm]{geometry}
 \else
-  \usepackage[left=35truemm,right=35truemm,top=20truemm,bottom=20truemm]{geometry}
+  \usepackage[margin=20truemm]{geometry}
 \fi
 
 \usepackage{multicol}
-% 両版とも一段組。A4は読みやすい行長、スマホ版は画面幅を使う。
-\newenvironment{bookcolumns}{\par}{\par}
+% 本文は同じ原稿を使用し、スマホ版だけ1段組にする。
+\ifdefined\BookMobile
+  \newenvironment{bookcolumns}{\par}{\par}
+\else
+  \newenvironment{bookcolumns}{\begin{multicols*}{2}}{\end{multicols*}}
+\fi
 \usepackage{enumitem}
+\usepackage{etoolbox}
 \usepackage{url}
 
 % =========================================================
@@ -75,12 +76,13 @@
 
 % ページの高さを無理にそろえず、上から順に流す
 \raggedbottom
+\raggedcolumns
 
 % 参照用の段組を使う場合の段間
 \setlength{\columnsep}{12pt}
 
 % 段組の中央線
-\setlength{\columnseprule}{0pt}
+\setlength{\columnseprule}{0.4pt}
 
 % 段落間隔
 \setlength{\parskip}{0.35\baselineskip plus 1pt}
@@ -129,6 +131,7 @@
 \setlength{\smallquotemargin}{0.5\leftmargini}
 
 \makeatletter
+\AtBeginEnvironment{quote}{\@beginparpenalty=10000}
 \newenvironment{smallquote}
   {%
     \begin{list}{}{%
@@ -178,11 +181,10 @@
 % 目次・見出し番号
 % =========================================================
 
-\setcounter{tocdepth}{2}
+\setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{4}
 
 \input{../tex/book-links.tex}
-\hypersetup{bookmarksdepth=4}
 % 用語は本文と同じ見た目で、巻末の意味と参照先へリンクする。
 \DeclareRobustCommand{\bookterm}[2]{\hyperlink{term:#1}{#2}}
 \pdfstringdefDisableCommands{\def\bookterm#1#2{#2}}
