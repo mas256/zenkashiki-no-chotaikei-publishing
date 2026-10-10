@@ -284,8 +284,14 @@
 \author{MAS256}
 \maketitle
 
-\tableofcontents
-\pagebreak
+% 目次の段落間隔・折り返し行の行送りは元の設定を維持する。
+% 本文の段落間隔と行送りの調整は目次に適用しない。
+\begingroup
+  \setlength{\parskip}{0pt}
+  \linespread{1}\selectfont
+  \tableofcontents
+  \pagebreak
+\endgroup
 \input{第1章 はじめに/はじめに.tex}
 \input{第2章 計算の基本/前提知識と計算の基本.tex}
 \input{第3章 漸化式の解説/漸化式の解説.tex}
