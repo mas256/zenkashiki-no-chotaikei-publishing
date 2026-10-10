@@ -33,9 +33,7 @@
     \[
       b_{n+1}=\frac{(p-r\alpha)b_n}{rb_n+r\alpha+s}
     \]
-    という逆数型に帰着できる。
-    \footnote{$r\alpha+s=0$なら、上の方程式から$p\alpha+q=0$も成り立つ。
-    すると$ps-qr=0$となり、仮定に反する。}
+    という逆数型に帰着できる.
     定数項を消すための条件は,
     \[
       r\alpha^2+(s-p)\alpha-q=0
@@ -43,8 +41,7 @@
       \alpha=\frac{p\alpha+q}{r\alpha+s}
     \]
     と書けるので,この$\alpha$はもとの\bookterm{recurrence}{漸化式}の\bookterm{fixed}{不動点}でもある.
-    この\bookterm{fixed}{不動点}では、分母$r\alpha+s$も零ではない。
-
+    なお,この分母は$0$ではない.\footnote{$r\alpha+s=0$なら上の方程式から$p\alpha+q=0$も成り立ち,\, $ps-qr=0$となって仮定に反するので,この分母は$0$ではない.}
 
     ここまでで逆数型として解くことができるが,定数項を消せる値を求める問題は,
     \[
@@ -67,7 +64,7 @@
     \end{align*}
     となる.
 
-    二つの式には、共通の分母がある。比を取ると、その分母が消える。
+    この二つの式から,さらに単純な法則を取り出せないだろうか.
     それぞれの差に掛かる倍率には$a_n$が含まれているので,差そのものは一般には\bookterm{geometric}{等比数列}にならない.
     しかし,二つの倍率には同じ分母$ra_n+s$が現れている.
     そこで二つの式の比を取れば,この分母が消え,一定の倍率だけが残りそうである.
@@ -401,7 +398,7 @@ b_1&=\frac{a_1-2}{a_1+2}=\frac{-2}{2}=-1\\
       \]
       を満たす\bookterm{sequence}{数列}$a_n$の\bookterm{general}{一般項}を帰納法を用いて求めよ.
     \end{quote}
-    \par\noindent\bookblocklink{example-mobius-2}{hint}{problem}{【方針】}\par\nobreak
+    \bookblocklink{example-mobius-2}{hint}{problem}{【方針】}
     \begin{quote}
       実験的に代入計算をしてみると,
       \[
@@ -413,7 +410,7 @@ b_1&=\frac{a_1-2}{a_1+2}=\frac{-2}{2}=-1\\
       \]
       と予想する.
     \end{quote}
-    \par\noindent\bookblocklink{example-mobius-2}{answer}{problem}{【解答】}\par\nobreak
+    \bookblocklink{example-mobius-2}{answer}{problem}{【解答】}
     \begin{quote}
       \bookterm{general}{一般項}$a_n$が
       \[

@@ -5,7 +5,11 @@
     \textbf{何を引くか}\par
     更新の前後で変わらない値を基準にすると,そこからの差が等比型になる.倍率が1の場合は先に分ける.
   \end{bookpoint}
-  \bookstep{定数項を取り除く}
+  \bookstep{学ぶこと}
+  \sectionref*{節：等比型}への帰着を使う.
+  定数項を消すために何を引くかを求め,初項がその値に等しい場合も説明できることを目標とする.
+
+  \bookstep{観察と発想}
   \[
     a_{n+1}=pa_n+q
   \]
@@ -29,7 +33,7 @@
   また,\,$\alpha=p\alpha+q$は,その値から出発すると更新しても変わらないことを表す.
   このような値を\bookterm{fixed}{不動点}という.
 
-  \bookstep{差を求めて、元の項へ戻す}
+  \bookstep{式変形と元への戻し方}
   元の更新式から\bookterm{fixed}{不動点}の式を引くと,
   \[
     \begin{array}{rrl}
@@ -73,9 +77,9 @@
 
 \noindent\bookblocklink{example-characteristic-1}{hint}{problem}{【方針】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-characteristic-1}{hint}{problem}]
-  \item 定数項を消す値$\alpha$を求め、そこからの差を等比型で追います。
-  \item 同じ方法です。倍率が分数でも、同じ更新をする定数を引けます。
-  \item 倍率が$1$なので、等差型です。定数項を消す値は存在せず、差を足す方法に戻ります。
+  \item まずは,\,$\alpha$を求めて等比型に帰着させる方法で解きましょう.
+  \item 同じく,\,$\alpha$を求めて等比型に帰着させる方法で解きましょう.
+  \item この\bookterm{recurrence}{漸化式}は等差型ですが,試しに\bookterm{characteristic}{特性方程式}型に帰着させることを考えてみましょう.\,$\alpha$は存在しますか?
 \end{enumerate}
 
 \noindent\bookblocklink{example-characteristic-1}{answer}{problem}{【解答】}\par\nobreak
@@ -146,8 +150,8 @@
 
 
 \bookstep{引いた値を、グラフから見る}\label{解釈：不動点と差分}
-  例題で引いた値$\alpha$は、グラフの上にも現れる。
-  同じ引き算を、座標の移動として見直す。
+  もう少し数学の世界に深入りしていこう.
+  \,$\alpha$を求めるというのはどういった意味合いを持つだろうか.
   \bookterm{recurrence}{漸化式}を
   \[
     a_{n+1}=f(a_n)
@@ -211,7 +215,7 @@
     &b_{n+1}=pb_n
   \end{align*}
   このようにすることで,\bookterm{recurrence}{漸化式}は\bookterm{geometric}{等比数列}に帰着する.
-  得られた差を初項から足し戻すと、元の\bookterm{sequence}{数列}が求まる。
+  この後の処理は読者に委ねる.
 
   こちらの図形的解釈は先程の交点を考えるものとは違う.傾き$p$の平行な2直線$y=px$と$y=px+q$の間には,常に高さ$q$の差が生じている.\,(2)から(1)を引く操作は,この共通の$q$だけを打ち消す操作に対応している.つまり隣接する2つの式を「ずらして引く」ことで,\,$a_n$に無関係な定数項$q$だけを消してしまうのである.これは付録\sectionref{節：差分から始まる離散的な微積分}で扱う\bookterm{difference-operator}{差分}の考え方と同じ発想である.
   これらの前提を元に図示すると

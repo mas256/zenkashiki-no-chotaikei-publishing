@@ -5,9 +5,10 @@
     \textbf{差を追う}\par
     一回ごとに足す量が一定なら,初項に増分を足し戻す.項の番号と更新の回数の違いを確かめよう.
   \end{bookpoint}
-    初項$a_1$から、一歩ごとに$d$を足す。
-    同じ数を足し続けるので、足した回数が分かれば、どの項も求められる。
-    直前の項を順に代入すると、
+    まずはもっともシンプルな\bookterm{recurrence}{漸化式}であろう,等差型について説明していく.
+    この\bookterm{recurrence}{漸化式}は$a_1$に対して$d$がどんどんと足されていく\bookterm{recurrence}{漸化式}である.
+    \bookterm{general}{一般項}は簡単な代入計算によって容易に示せる.
+    実際にやってみると
     \begin{align*}
       &a_{n+1}=a_n+d\\
       &a_{n+1}=(a_{n-1}+d)+d\\
@@ -17,11 +18,12 @@
       &a_{n+1}=a_1+nd\\
       &\therefore \quad a_n=a_1+(n-1)d
     \end{align*}
-    となる。$a_{n+1}$に至るまでに、$d$を$n$回足している。
-    途中の各行でも、$d$の個数と$a$の添字の和は$n+1$である。
-    小さな$n$で書き下すと、足した回数と添字の関係を確かめられる。
+    となり\bookterm{general}{一般項}が示される.
+    1つ前の項をどんどん代入していくのだ.
+    数式の3行目から5行目周辺の式変形が少し心配かもしれないが,\,$d$の個数と$a$の添字部分の和は常に$n+1$となることから考えれば分かるだろう.
+    実際,\,$a_{n+1}$に至るまでに何度$d$が足されたかを考えているわけだから,心配であれば実際に適当な$n$で何度か実験してみるのもいい手だろう.
 
-    次の三題では、整数・分数・負の数を同じ式で扱う。
+    実際に例題を与えよう.
 
     \noindent \bookblocklink{example-arithmetic-1}{problem}{answer}{【例題】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-arithmetic-1}{problem}{answer}]

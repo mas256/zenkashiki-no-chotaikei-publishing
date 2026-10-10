@@ -5,9 +5,9 @@
     \textbf{変化を足す}\par
     差が添字ごとに変わっても,初項からの変化を足せば元の項に戻る.和の範囲は実際の更新の回数に合わせる.
   \end{bookpoint}
-    足す量が一定でなくても、初項からの変化を足し戻せる。
-    一歩目では$f(1)$、二歩目では$f(2)$を足す。
-    直前の項を代入すると、その変化が順に並ぶ。
+    \bookterm{difference}{階差}型は先の2つに比べて一段階難易度が高い.
+    しかしきちんと先程の議論を理解して,丁寧に式を追うことで理解することができるものである.
+    兎にも角にも解法を見てみよう.
     \begin{align*}
       &a_{n+1}=a_n+f(n)\\
       &a_{n+1}=\{a_{n-1}+f(n-1)\}+f(n)\\
@@ -17,9 +17,8 @@
       &a_{n+1}=a_1+\sum_{k=1}^{n} f(k)\\
       &\therefore \quad a_n=a_1+\sum_{k=1}^{n-1} f(k)
     \end{align*}
-    変化を足すところまでで、元の\bookterm{sequence}{数列}は和の形に表せた。
-    残るのは、その和の計算である。
-    $f(n)$の形に合わせて、\bookterm{arithmetic}{等差数列}の和、\bookterm{geometric}{等比数列}の和、\bookterm{partial}{部分分数分解}を使う。
+    $f(n)$によってこの後の処理が変わるものの,\bookterm{recurrence}{漸化式}の解法としてはここまでである.
+    ここからは\bookterm{sigma}{シグマ}の計算の能力が問われる話で,この後にやることは\bookterm{arithmetic}{等差数列}の総和を求めることであったり,\bookterm{geometric}{等比数列}の総和を求めることであったり,あるいは\bookterm{partial}{部分分数分解}を用いて解くことなどが考えられる.
 
     \noindent \bookblocklink{example-difference-1}{problem}{answer}{【例題】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-difference-1}{problem}{answer}]
@@ -31,10 +30,10 @@
 
     \noindent\bookblocklink{example-difference-1}{hint}{problem}{【方針】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-difference-1}{hint}{problem}]
-      \item 足す量は$n$です。初項からの変化を、一次式の和にまとめます。
+      \item 最もシンプルな形の\bookterm{difference}{階差}\bookterm{sequence}{数列}です.先程の議論を踏まえて解きましょう.
       \item もちろん,\,$f(n)$となる関数には指数関数も含まれます.何にせよやることは\,(1)と同じです.
       \item \bookterm{sigma}{シグマ}は\bookterm{partial}{部分分数分解}で処理しましょう.
-      \item 足す量は$(n+1)^2$です。初項を含めて、平方の和としてまとめます。
+      \item 勘の良い人であれば式を見た瞬間に答えがわかるかもしれませんね.これは"あの\bookterm{sequence}{数列}"の総和と同じ見た目になりませんか?.
     \end{enumerate}
 
     \noindent\bookblocklink{example-difference-1}{answer}{problem}{【解答】}\par\nobreak

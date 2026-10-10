@@ -2,15 +2,15 @@
 
 \section{解を組み合わせる見方}\label{節：解を組み合わせる見方}
   基本4型では,一つの\bookterm{sequence}{数列}を初項から求めた.
-  次は、\bookterm{initial}{初期条件}を変えたときに生まれる解を、まとめて見る。
-  同じ式を満たす\bookterm{sequence}{数列}を、定数倍して足す。
-  その操作から、隣接多項間・連立型・虚数解型と、付録の\bookterm{matrix}{行列}がつながる。
+  ここからは,\bookterm{initial}{初期条件}を変えたときに生まれる解の\bookterm{sequence}{数列}をまとめて見よう.
+  「いくつかの解を組み合わせて,ほかの解を作れるか」という問いは,
+  隣接多項間・連立型・虚数解型と,付録の\bookterm{matrix}{行列}に共通する.
   まず具体例で組み合わせ方を確かめ,その後に用語を紹介する.
 
   \begin{bookpoint}
-    \textbf{解を組み合わせる}\par
-    同じ式を満たす\bookterm{sequence}{数列}を組み合わせ、\bookterm{initial}{初期条件}を合わせる。
-    必要な\bookterm{sequence}{数列}の個数は、自由に選べる初期値の個数とつながる。
+    \textbf{ここで追う問い}\par
+    同じ更新をする解を組み合わせられるか.
+    何個の独立な解があれば,\bookterm{initial}{初期条件}の自由度をすべて表せるか.
   \end{bookpoint}
 
   \subsection{解に定数を掛けて足す}\label{節：線形結合}
@@ -19,7 +19,7 @@
       a_{n+2}=a_n\qquad(n\ge1)
     \]
     を考える.初めの二項を$(1,0)$とすると,\bookterm{sequence}{数列}は$1,0,1,0,\ldots$となる.
-    $(0,1)$とすると、$0,1,0,1,\ldots$となる。それぞれを$u_n,v_n$と書く。
+    $(0,1)$とすると,$0,1,0,1,\ldots$となる.それぞれを$u_n,v_n$と書こう.
     \[
       \begin{array}{c|rrrr}
         n&1&2&3&4\\ \hline
@@ -80,7 +80,7 @@
     \]
     であり,二つの係数の選び方は一意ではない.一つの係数にまとめられる.
 
-    ここまでの違いを表す名前もある。
+    ここまでの違いに名前を付けよう.
     \bookterm{sequence}{数列}の組
     \[
       u^{(1)}_n,\ldots,u^{(m)}_n
@@ -112,8 +112,7 @@
     それらの\bookterm{combination}{線形結合}でどんな\bookterm{initial}{初期条件}にも合わせられる.
     係数の一意性も初めの$k$項を比べれば分かるので,解全体は$k$\bookterm{dimension}{次元}である.
     \bookterm{initial}{初期条件}を指定した後は,その中から一つの解を選んでいる.
-    この結論は、\bookterm{homogeneous}{同次}\bookterm{linear}{線形}の式で、更新が続けられることを使っている。
-    \bookterm{nonlinear}{非線形}の式や、途中で更新できなくなる式では、その条件から調べる必要がある。
+    \bookterm{nonlinear}{非線形}の式や,途中で更新が定義されなくなる式に,この結論をそのまま当てはめないようにしよう.
 
   \subsection{同じ更新をする量を引くと,何が残るか}\label{節：非同次と解の組合せ}
     $a_{n+1}=2a_n+3$の二つの解を足すと,次の項には付加項$6$が現れる.
