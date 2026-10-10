@@ -1,0 +1,27 @@
+\section{計算と検算の確認}\label{節：読む前の確認}
+ここまでに使った、添字・和・式変形・検算を確かめる五題である。
+解答には、計算の理由を読み返す場所も示した。
+
+    \noindent\bookblocklink{reading-check}{problem}{answer}{【確認問題】}\par\nobreak
+    \begin{enumerate}[format=\bookitemlink{reading-check}{problem}{answer}]
+      \item $a_{n+1}=2a_n+n$の添字$n$を$n+1$に置き換えた式を書け.
+      \item $\displaystyle\frac1{x(x+1)}=\frac1x-\frac1{x+1}$を確かめ,使える$x$の範囲を述べよ.
+      \item $\displaystyle\sum_{k=1}^{3}k$と$\displaystyle\sum_{k=1}^{3}2^{k-1}$を計算せよ.
+      \item $b_n=a_n+3$,\,$b_1=4$,\,$b_{n+1}=2b_n$から$a_n$を求めよ.
+      \item $a_1=1$,\,$a_{n+1}=a_n+2$について,最初の3項が$1,3,5$であることだけで$a_n=2n-1$を証明できるか.すべての項で示すために何を確かめるか.
+    \end{enumerate}
+
+    \noindent\bookblocklink{reading-check}{answer}{problem}{【解答と戻り先】}\par\nobreak
+    \begin{enumerate}[format=\bookitemlink{reading-check}{answer}{problem}]
+      \item $a_{n+2}=2a_{n+1}+n+1$.
+            項と付加項の添字を両方ずらす.\sectionref*{節：シグマの計算}では添字の役割を確認する.
+      \item 通分すると右辺は$\displaystyle\frac{(x+1)-x}{x(x+1)}$となる.
+            $x\ne0,-1$が必要である.\sectionref*{節：式の変形}へ.
+      \item $6$と$7$.
+            \sectionref*{節：シグマの計算},\sectionref*{節：等差数列とその総和の導出},\sectionref*{節：等比数列の総和とその導出}へ.
+      \item $b_n=4\cdot2^{n-1}$より$a_n=4\cdot2^{n-1}-3$.
+            元へ戻す際は$a_n=b_n-3$である.\sectionref*{節：等比型}へ.
+      \item 3項の一致は予想の手掛かりである.
+            初項の一致と,任意の$n\ge1$について$a_n=2n-1$なら$a_{n+1}=2(n+1)-1$となることを確かめる.
+            \sectionref*{節：数学的帰納法}へ.
+    \end{enumerate}

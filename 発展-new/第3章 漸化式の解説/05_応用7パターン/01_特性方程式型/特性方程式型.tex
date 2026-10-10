@@ -1,11 +1,15 @@
 % subsection: 特性方程式型 \, $a_{n+1}=pa_n+q$
 
 \subsection{\texorpdfstring{特性方程式型 \, $a_{n+1}=pa_n+q$}{特性方程式型}}\label{節：特性方程式型}
-  \noindent\textbf{【学ぶこと】}\par
+  \begin{bookpoint}
+    \textbf{何を引くか}\par
+    更新の前後で変わらない値を基準にすると,そこからの差が等比型になる.倍率が1の場合は先に分ける.
+  \end{bookpoint}
+  \bookstep{学ぶこと}
   \sectionref*{節：等比型}への帰着を使う.
   定数項を消すために何を引くかを求め,初項がその値に等しい場合も説明できることを目標とする.
 
-  \noindent\textbf{【観察と発想】}\par
+  \bookstep{観察と発想}
   \[
     a_{n+1}=pa_n+q
   \]
@@ -14,7 +18,7 @@
   ただし$p=1$なら等差型であり,\,$p=0$なら直接$n\ge2$で$a_n=q$と分かる.
   以下では$p\ne0,1$を考える.
 
-  数列全体から同じ数$\alpha$を引き,
+  \bookterm{sequence}{数列}全体から同じ数$\alpha$を引き,
   \[
     a_{n+1}-\alpha=p(a_n-\alpha)
   \]
@@ -24,13 +28,13 @@
     \quad\Longleftrightarrow\quad
     \alpha=p\alpha+q
   \]
-  である.この方程式を本書では特性方程式と呼ぶ.
+  である.この方程式を本書では\bookterm{characteristic}{特性方程式}と呼ぶ.
   解は$\alpha=\frac{q}{1-p}$であり,これが引くべき値である.
   また,\,$\alpha=p\alpha+q$は,その値から出発すると更新しても変わらないことを表す.
-  このような値を不動点という.
+  このような値を\bookterm{fixed}{不動点}という.
 
-  \noindent\textbf{【式変形と元への戻し方】}\par
-  元の更新式から不動点の式を引くと,
+  \bookstep{式変形と元への戻し方}
+  元の更新式から\bookterm{fixed}{不動点}の式を引くと,
   \[
     \begin{array}{rrl}
        &a_{n+1}={}&pa_n+q\\
@@ -42,7 +46,7 @@
   \[
     b_{n+1}=pb_n,\qquad b_1=a_1-\alpha.
   \]
-  等比型の一般項から
+  等比型の\bookterm{general}{一般項}から
   \[
     b_n=(a_1-\alpha)p^{n-1}
   \]
@@ -51,22 +55,104 @@
     a_n=(a_1-\alpha)p^{n-1}+\alpha
   \]
   を得る.大切なのは最終式だけでなく,同じ定数項を持つ二つの式を引いた理由である.
-  初項が不動点なら$b_1=0$となり,\,$a_n=\alpha$という定数解もこの式に含まれる.
+  初項が\bookterm{fixed}{不動点}なら$b_1=0$となり,\,$a_n=\alpha$という定数解もこの式に含まれる.
 
-  \noindent\bookblocklink{check-fixed}{problem}{answer}{【確認問題】}
+  \noindent\bookblocklink{check-fixed}{problem}{answer}{【確認問題】}\par\nobreak
   \begin{enumerate}[format=\bookitemlink{check-fixed}{problem}{answer}]
     \item $a_{n+1}=3a_n-4$で,何を引くと等比型になるか.
-          $a_1=5$と$a_1=2$の場合の一般項をそれぞれ求めよ.
+          $a_1=5$と$a_1=2$の場合の\bookterm{general}{一般項}をそれぞれ求めよ.
   \end{enumerate}
-  \noindent\bookblocklink{check-fixed}{answer}{problem}{【確認の解答】}
+  \noindent\bookblocklink{check-fixed}{answer}{problem}{【確認の解答】}\par\nobreak
   \begin{enumerate}[format=\bookitemlink{check-fixed}{answer}{problem}]
     \item $\alpha=3\alpha-4$より$\alpha=2$を引く.
           $a_1=5$なら$a_n=2+3^n$であり,\,$a_1=2$なら$a_n=2$である.
   \end{enumerate}
 
+\noindent \bookblocklink{example-characteristic-1}{problem}{answer}{【例題】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-characteristic-1}{problem}{answer}]
+  \item $\displaystyle a_1=1,\, a_{n+1}=2a_n+1$
+  \item $\displaystyle a_1=1,\, a_{n+1}=\frac{1}{2}a_n+2$
+  \item $\displaystyle a_1=1,\, a_{n+1}=a_n+2$
+\end{enumerate}
+
+\noindent\bookblocklink{example-characteristic-1}{hint}{problem}{【方針】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-characteristic-1}{hint}{problem}]
+  \item まずは,\,$\alpha$を求めて等比型に帰着させる方法で解きましょう.
+  \item 同じく,\,$\alpha$を求めて等比型に帰着させる方法で解きましょう.
+  \item この\bookterm{recurrence}{漸化式}は等差型ですが,試しに\bookterm{characteristic}{特性方程式}型に帰着させることを考えてみましょう.\,$\alpha$は存在しますか?
+\end{enumerate}
+
+\noindent\bookblocklink{example-characteristic-1}{answer}{problem}{【解答】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-characteristic-1}{answer}{problem}]
+  \item $\displaystyle a_n=2^n-1$
+  \item $\displaystyle a_n=4-3\cdot\left(\frac{1}{2}\right)^{n-1}$
+  \item $\displaystyle a_n=1+2(n-1)$
+\end{enumerate}
+
+\noindent\bookblocklink{example-characteristic-1}{solution}{problem}{【解法】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-characteristic-1}{solution}{problem}]
+  \item $\displaystyle a_1=1,\,a_{n+1}=2a_n+1$\\
+        \bookterm{characteristic}{特性方程式}を考えると,
+        \[
+          \alpha=2\alpha+1
+          \quad\Longleftrightarrow\quad
+          \alpha=-1
+        \]
+        である.
+
+        $b_n=a_n-\alpha=a_n+1$とおくと,
+        \begin{align*}
+          b_{n+1}
+            &=a_{n+1}+1\\
+            &=2a_n+2\\
+            &=2(a_n+1)\\
+            &=2b_n
+        \end{align*}
+        また,\,$b_1=a_1+1=2$であるから,
+        \[
+          b_n=2^n
+        \]
+        よって,
+        \[
+          a_n=b_n-1=2^n-1
+        \]
+
+  \item $\displaystyle a_1=1,\,a_{n+1}=\frac12a_n+2$\\
+          \bookterm{characteristic}{特性方程式}を考えると,
+          \[
+            \alpha=\frac12\alpha+2
+            \quad\Longleftrightarrow\quad
+            \alpha=4
+          \]
+          である.
+
+          $b_n=a_n-\alpha=a_n-4$とおくと,
+          \begin{align*}
+            b_{n+1}
+              &=a_{n+1}-4\\
+              &=\frac12a_n+2-4\\
+              &=\frac12(a_n-4)\\
+              &=\frac12b_n
+          \end{align*}
+          また,\,$b_1=a_1-4=-3$であるから,
+          \[
+            b_n=-3\left(\frac12\right)^{n-1}
+          \]
+          よって,
+          \[
+            a_n=b_n+4
+            =4-3\left(\frac12\right)^{n-1}
+          \]
+   \item $\displaystyle a_1=1,\, a_{n+1}=a_n+2$\\
+         $\alpha$は存在しないので,\bookterm{characteristic}{特性方程式}型に帰着させることはできない.
+         これが意味することは,\bookterm{fixed}{不動点}を持たないということである.
+\end{enumerate}
+
+
+\bookstep{引いた値を、グラフから見る}\label{解釈：不動点と差分}
   もう少し数学の世界に深入りしていこう.
   \,$\alpha$を求めるというのはどういった意味合いを持つだろうか.
-  漸化式を
+  \bookterm{recurrence}{漸化式}を
   \[
     a_{n+1}=f(a_n)
   \]
@@ -103,18 +189,18 @@
     \node[left=3pt] at (0,2) {$\alpha$};
   \end{tikzpicture}
   \begin{center}
-    \BookFigureCaption{直線の交点として捉える不動点}
+    \BookFigureCaption{直線の交点として捉える\bookterm{fixed}{不動点}}
   \end{center}
 
   というような状況である.
   この交点$(\alpha,\alpha)$を原点と思ってグラフをみると,この座標平面は$y=px$と$y=x$のグラフが原点から始まって進んでいくようなものに見える.
-  言い換えれば等比型漸化式に帰着させたということである.
-  この交点の$x$座標$\alpha$が,更新$f$の不動点である.
+  言い換えれば等比型\bookterm{recurrence}{漸化式}に帰着させたということである.
+  この交点の$x$座標$\alpha$が,更新$f$の\bookterm{fixed}{不動点}である.
 
-  この不動点を知ることによって,複雑な値の変化をより簡素な値の変化に置き換えることができる.
-  また,この話から,\,$|p|>1$のときは一般に項数を重ねるにつれて$p$が生み出す等比的な増大が支配的になる一方,\,$|p|<1$のときは$a_n$は$n\to\infty$で$\alpha=\dfrac{q}{1-p}$に収束し,その極限値は$q$(と$p$)によって決まることが分かる.例題(2)(\,$p=\frac12$)が$4$に収束するのはこのためである.
+  この\bookterm{fixed}{不動点}を知ることによって,複雑な値の変化をより簡素な値の変化に置き換えることができる.
+  また,この話から,\,$|p|>1$のときは一般に項数を重ねるにつれて$p$が生み出す等比的な増大が支配的になる一方,\,$|p|<1$のときは$a_n$は$n\to\infty$で$\alpha=\dfrac{q}{1-p}$に収束し,その\bookterm{limit}{極限}値は$q$(と$p$)によって決まることが分かる.例題(2)(\,$p=\frac12$)が$4$に収束するのはこのためである.
 
-  また,特性方程式型漸化式には別の解法が存在する.
+  また,\bookterm{characteristic}{特性方程式}型\bookterm{recurrence}{漸化式}には別の解法が存在する.
   以下に示す.
   \begin{align*}
     &a_{n+1}=pa_n+q \tag*{\(\cdots\) (1)}\\
@@ -128,10 +214,10 @@
   \begin{align*}
     &b_{n+1}=pb_n
   \end{align*}
-  このようにすることで,漸化式は等比数列に帰着する.
+  このようにすることで,\bookterm{recurrence}{漸化式}は\bookterm{geometric}{等比数列}に帰着する.
   この後の処理は読者に委ねる.
 
-  こちらの図形的解釈は先程の交点を考えるものとは違う.傾き$p$の平行な2直線$y=px$と$y=px+q$の間には,常に高さ$q$の差が生じている.\,(2)から(1)を引く操作は,この共通の$q$だけを打ち消す操作に対応している.つまり隣接する2つの式を「ずらして引く」ことで,\,$a_n$に無関係な定数項$q$だけを消してしまうのである.これは付録\sectionref{節：差分から始まる離散的な微積分}で扱う差分の考え方と同じ発想である.
+  こちらの図形的解釈は先程の交点を考えるものとは違う.傾き$p$の平行な2直線$y=px$と$y=px+q$の間には,常に高さ$q$の差が生じている.\,(2)から(1)を引く操作は,この共通の$q$だけを打ち消す操作に対応している.つまり隣接する2つの式を「ずらして引く」ことで,\,$a_n$に無関係な定数項$q$だけを消してしまうのである.これは付録\sectionref{節：差分から始まる離散的な微積分}で扱う\bookterm{difference-operator}{差分}の考え方と同じ発想である.
   これらの前提を元に図示すると
 
   \begin{tikzpicture}[scale=0.8]
@@ -152,98 +238,17 @@
   \begin{center}
     \BookFigureCaption{定数項の違いを表す平行な直線}
   \end{center}
-  
+
   常に関数の差が$q$と一定になっていることが図からわかる.
 
-  なお,先ほどの等比的な増大について,初項を不動点に選んだ場合は例外になる.
-  不動点から出発すれば値は変わらず,\,$a_n=\alpha$という定数列になるからである.
+  なお,先ほどの等比的な増大について,初項を\bookterm{fixed}{不動点}に選んだ場合は例外になる.
+  \bookterm{fixed}{不動点}から出発すれば値は変わらず,\,$a_n=\alpha$という定\bookterm{sequence}{数列}になるからである.
   式で確かめると,\,$p\ne1$のときは
   \[
     a_n-\alpha=(a_1-\alpha)p^{n-1}
   \]
-  である.したがって,\,$|p|>1$でも$a_1=\alpha$ならずれは常に$0$であり,\,$a_1\ne\alpha$の場合に不動点からのずれの絶対値が等比的に増大する.
+  である.したがって,\,$|p|>1$でも$a_1=\alpha$ならずれは常に$0$であり,\,$a_1\ne\alpha$の場合に\bookterm{fixed}{不動点}からのずれの絶対値が等比的に増大する.
 
-  今後,特性方程式を用いた解法を多数扱う.
-  特性方程式は漸化式を解く中で重要な概念なのである.
-  その背景には行列や線形代数が深く絡んでいる.
-
-\noindent \bookblocklink{example-characteristic-1}{problem}{answer}{【例題】}
-\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-characteristic-1}{problem}{answer}]
-  \item $\displaystyle a_1=1,\, a_{n+1}=2a_n+1$
-  \item $\displaystyle a_1=1,\, a_{n+1}=\frac{1}{2}a_n+2$
-  \item $\displaystyle a_1=1,\, a_{n+1}=a_n+2$
-\end{enumerate}
-
-\noindent\bookblocklink{example-characteristic-1}{hint}{problem}{【方針】}
-\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-characteristic-1}{hint}{problem}]
-  \item まずは,\,$\alpha$を求めて等比型に帰着させる方法で解きましょう.
-  \item 同じく,\,$\alpha$を求めて等比型に帰着させる方法で解きましょう.
-  \item この漸化式は等差型ですが,試しに特性方程式型に帰着させることを考えてみましょう.\,$\alpha$は存在しますか?
-\end{enumerate}
-
-\noindent\bookblocklink{example-characteristic-1}{answer}{problem}{【解答】}
-\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-characteristic-1}{answer}{problem}]
-  \item $\displaystyle a_n=2^n-1$
-  \item $\displaystyle a_n=4-3\cdot\left(\frac{1}{2}\right)^{n-1}$
-  \item $\displaystyle a_n=1+2(n-1)$
-\end{enumerate}
-
-\noindent\bookblocklink{example-characteristic-1}{solution}{problem}{【解法】}
-\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-characteristic-1}{solution}{problem}]
-  \item $\displaystyle a_1=1,\,a_{n+1}=2a_n+1$\\
-        特性方程式を考えると,
-        \[
-          \alpha=2\alpha+1
-          \quad\Longleftrightarrow\quad
-          \alpha=-1
-        \]
-        である.
-
-        $b_n=a_n-\alpha=a_n+1$とおくと,
-        \begin{align*}
-          b_{n+1}
-            &=a_{n+1}+1\\
-            &=2a_n+2\\
-            &=2(a_n+1)\\
-            &=2b_n
-        \end{align*}
-        また,\,$b_1=a_1+1=2$であるから,
-        \[
-          b_n=2^n
-        \]
-        よって,
-        \[
-          a_n=b_n-1=2^n-1
-        \]
-
-  \item $\displaystyle a_1=1,\,a_{n+1}=\frac12a_n+2$\\
-          特性方程式を考えると,
-          \[
-            \alpha=\frac12\alpha+2
-            \quad\Longleftrightarrow\quad
-            \alpha=4
-          \]
-          である.
-
-          $b_n=a_n-\alpha=a_n-4$とおくと,
-          \begin{align*}
-            b_{n+1}
-              &=a_{n+1}-4\\
-              &=\frac12a_n+2-4\\
-              &=\frac12(a_n-4)\\
-              &=\frac12b_n
-          \end{align*}
-          また,\,$b_1=a_1-4=-3$であるから,
-          \[
-            b_n=-3\left(\frac12\right)^{n-1}
-          \]
-          よって,
-          \[
-            a_n=b_n+4
-            =4-3\left(\frac12\right)^{n-1}
-          \]
-   \item $\displaystyle a_1=1,\, a_{n+1}=a_n+2$\\
-         $\alpha$は存在しないので,特性方程式型に帰着させることはできない.
-         これが意味することは,不動点を持たないということである.
-\end{enumerate}
-
+  今後,\bookterm{characteristic}{特性方程式}を用いた解法を多数扱う.
+  \bookterm{characteristic}{特性方程式}は\bookterm{recurrence}{漸化式}を解く中で重要な概念なのである.
+  その背景には\bookterm{matrix}{行列}や\bookterm{linear}{線形}代数が深く絡んでいる.

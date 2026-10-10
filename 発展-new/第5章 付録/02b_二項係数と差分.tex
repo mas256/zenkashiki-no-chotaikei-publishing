@@ -1,0 +1,59 @@
+\subsection{差分を取りやすい部品で,同じ多項式を表す}\label{節：二項係数と差分}
+  先ほどは$n^2$の和を,三次式の係数比較で求めた.
+  今度は\sectionref*{節：二項定理}に戻り,二項係数という別の部品を使ってみよう.
+  ここでは$n,k$は非負整数とし,
+  \[
+    \binom nk=\frac{n!}{k!(n-k)!}\quad(0\le k\le n)
+  \]
+  とする.$0!=1$, $k>n$では$\binom nk=0$と約束する.
+
+  \bookstep{差を取ると,添字が一つ下がる}
+  $n+1$個から$k$個を選ぶとき,特定の一個を選ぶかどうかで分ければ,
+  \[
+    \binom{n+1}{k}=\binom nk+\binom n{k-1}\quad(k\ge1)
+  \]
+  である.従って
+  \[
+    \Delta\binom nk=\binom n{k-1}\quad(k\ge1)
+  \]
+  となる.$\Delta$は先ほど定義した前進の差である.
+  $\binom n0=1$の差は零であり,この場合に上の式をそのまま使わない.
+
+  \BookFigBinomialDifference
+  逆に差を足すと,途中の項が消えるので,
+  \[
+    \sum_{j=0}^{N-1}\binom jk=\binom N{k+1}
+    \quad(N,k\ge0)
+  \]
+  となる.$N=0$の和は空和$0$であり,右辺も零である.
+  $k=0$の場合にも,和は$N$となって式と一致する.
+
+  \bookstep{平方和を,部品ごとに足す}
+  $n^2=n(n-1)+n$だから,
+  \[
+    n^2=2\binom n2+\binom n1
+  \]
+  と表せる.従って
+  \BookMathLayout{\[
+    \sum_{j=0}^{N-1}j^2=2\binom N3+\binom N2
+     =\frac{N(N-1)(2N-1)}6.
+  \]}{\[
+    \begin{aligned}
+      \sum_{j=0}^{N-1}j^2&=2\binom N3+\binom N2\\
+      &=\frac{N(N-1)(2N-1)}6.
+    \end{aligned}
+  \]}
+  $N=n+1$とすれば,先ほどの$1^2+\cdots+n^2$の公式に戻る.
+  元の表示では差を取ると複数の次数が混ざったが,
+  二項係数では添字を一つ下げるだけで差が表せた.
+
+  \begin{bookpoint}
+    \textbf{式を表す部品も選べる}\par
+    同じ多項式でも,目的の操作が簡単になる表し方がある.
+    \bookterm{basis}{基底}を選ぶという\sectionref*{節：一次独立・基底・次元}の考え方が,
+    今度は解の\bookterm{sequence}{数列}だけでなく多項式の表示にも現れた.
+  \end{bookpoint}
+  実際,$\binom n0,\ldots,\binom nd$はそれぞれ次数が$0,\ldots,d$で,
+  最高次係数が非零である.高い次数から係数を合わせれば,
+  $d$次以下の多項式を一意にその\bookterm{combination}{線形結合}で表せる.
+  三乗和は\bookproblemref{practice-connections}{7}{接続演習問7}で試そう.

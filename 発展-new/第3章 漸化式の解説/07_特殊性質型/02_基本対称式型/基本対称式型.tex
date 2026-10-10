@@ -1,9 +1,9 @@
 \subsection{基本対称式型}\label{節：基本対称式型}
-導入に続いて,先程の漸化式を考えていこう.
+導入に続いて,先程の\bookterm{recurrence}{漸化式}を考えていこう.
 \[
   a_1=3, \quad a_{n+1}=a_n^2-2
 \]
-この漸化式を解くに当たって邪魔をしているのは$-2$の項である.
+この\bookterm{recurrence}{漸化式}を解くに当たって邪魔をしているのは$-2$の項である.
 これをうまく消せるような操作を考えたい.
 また,\,2乗があることからうまく因数分解できないか考えてみよう.
 
@@ -26,27 +26,27 @@
 が残るから,成り立ちそうなことが分かる.
 この実験を元に解答に移る.
 
-\noindent \bookblocklink{example-symmetric-1}{problem}{answer}{【問題】}
+\noindent \bookblocklink{example-symmetric-1}{problem}{answer}{【問題】}\par\nobreak
 \begin{smallquote}
-  次の漸化式で定義される数列の一般項を求めよ.
+  次の\bookterm{recurrence}{漸化式}で定義される\bookterm{sequence}{数列}の\bookterm{general}{一般項}を求めよ.
   \[
     a_1=3, \quad a_{n+1}=a_n^2-2
   \]
 \end{smallquote}
 \bookblocklink{example-symmetric-1}{answer}{problem}{【解答】}
   \begin{smallquote}
-  一般項が
+  \bookterm{general}{一般項}が
     \[
       b_n=\alpha^{2^{n-1}}+\alpha^{-2^{n-1}}
     \]
-    で表される数列$b_n$を考える.
+    で表される\bookterm{sequence}{数列}$b_n$を考える.
     \begin{align*}
       b_{n+1}&=\alpha^{2^{n}}+\alpha^{-2^{n}}\\
       &=\left(\alpha^{2^{n-1}}\right)^2+\left(\alpha^{-2^{n-1}}\right)^2\\
       &=\left(\alpha^{2^{n-1}}+\alpha^{-2^{n-1}}\right)^2-2\\
       &=b_n^2-2
     \end{align*}
-    これは与式の漸化式と一致する.また,
+    これは与式の\bookterm{recurrence}{漸化式}と一致する.また,
     \[
       b_1=a_1=\alpha+\alpha^{-1}
     \]
@@ -76,7 +76,7 @@
 となる.しかし,次の項として欲しい形は $u^2+u^{-2}$ である.
 余分な $1$ が残るため,同じ対称式の族の中に戻ってこない.
 
-漸化式の $-2$ と $-1$ は,見た目には小さな違いである.
+\bookterm{recurrence}{漸化式}の $-2$ と $-1$ は,見た目には小さな違いである.
 しかし,対称式を保つ恒等式にとっては,その違いが決定的になる.
 「ほとんど同じ式だから,ほとんど同じ方法で解ける」とは限らない.
 解法が成立するかどうかは,係数の大きさではなく,恒等式が完全に一致
@@ -92,19 +92,19 @@
 再び同じ種類の式へ戻る.ただし,恒等式が少しでもずれると,その閉じた
 構造は失われる.これが基本対称式型の面白さである.
 
-これを発想にもつ漸化式を例題としよう.
+これを発想にもつ\bookterm{recurrence}{漸化式}を例題としよう.
 
-\noindent\bookblocklink{example-symmetric-2}{problem}{answer}{【問題】}
+\noindent\bookblocklink{example-symmetric-2}{problem}{answer}{【問題】}\par\nobreak
 \begin{smallquote}
   $\displaystyle a_1=\frac{8}{3},\quad a_{n+1}=a_n^3+3a_n$
 \end{smallquote}
 \bookblocklink{example-symmetric-2}{answer}{problem}{【解答】}
 \begin{smallquote}
-  一般項が
+  \bookterm{general}{一般項}が
     \[
       b_n=\alpha^{3^{n-1}}-\alpha^{-3^{n-1}}
     \]
-    で表される数列$b_n$を考える.
+    で表される\bookterm{sequence}{数列}$b_n$を考える.
     \begin{align*}
       b_{n+1}&=\alpha^{3^{n}}-\alpha^{-3^{n}}\\
       &=\left(\alpha^{3^{n-1}}\right)^3-\left(\alpha^{-3^{n-1}}\right)^3\\
@@ -112,7 +112,7 @@
       &\qquad +3\left(\alpha^{3^{n-1}}-\alpha^{-3^{n-1}}\right)\\
       &=b_n^3+3b_n
     \end{align*}
-    これは与式の漸化式と一致する.また,
+    これは与式の\bookterm{recurrence}{漸化式}と一致する.また,
     \[
       b_1=a_1=\alpha-\alpha^{-1}=\frac{8}{3}
     \]

@@ -2,10 +2,10 @@
 
 \section{特性方程式を行列で見直す}\label{節：特性方程式を行列で見直す}
 
-本編では,定数を引いたり,二つの式を組み合わせたりして,等比数列になる量を探した.
-ここでは,その量が行列の中でどう見えるかを考えてみよう.
-まず\sectionref{節：特性方程式型}の不動点から出発し,一次分数型,隣接3項間漸化式型,連立型へと同じ見方を広げる.
-以下でいう「二階の漸化式」は,次の項を求めるのに直前の二項を必要とする漸化式であり,本編の隣接3項間漸化式型に対応する.
+本編では,定数を引いたり,二つの式を組み合わせたりして,\bookterm{geometric}{等比数列}になる量を探した.
+ここでは,その量が\bookterm{matrix}{行列}の中でどう見えるかを考えてみよう.
+まず\sectionref{節：特性方程式型}の\bookterm{fixed}{不動点}から出発し,一次分数型,隣接3項間\bookterm{recurrence}{漸化式}型,連立型へと同じ見方を広げる.
+以下でいう「二階の\bookterm{recurrence}{漸化式}」は,次の項を求めるのに直前の二項を必要とする\bookterm{recurrence}{漸化式}であり,本編の隣接3項間\bookterm{recurrence}{漸化式}型に対応する.
 
 \subsection{一つの値の更新を行列で書く}\label{節：一つの値の更新を行列で書く}
 
@@ -34,8 +34,8 @@ $a_{n+1}=pa_n+q$ $(p\ne1)$ では,次の項を決めるのに必要なのは $a_
   A=\begin{pmatrix}p&q\\0&1\end{pmatrix}
 \]
 と書ける.
-これは新しい漸化式を仮定したのではない.
-もとの漸化式と,変わらず残る成分 $1$ を一つの行列にまとめただけである.
+これは新しい\bookterm{recurrence}{漸化式}を仮定したのではない.
+もとの\bookterm{recurrence}{漸化式}と,変わらず残る成分 $1$ を一つの\bookterm{matrix}{行列}にまとめただけである.
 同じ更新を繰り返すことは
 \[
   \boldsymbol{x}_n=A^{n-1}\boldsymbol{x}_1
@@ -55,7 +55,7 @@ $a_{n+1}=pa_n+q$ $(p\ne1)$ では,次の項を決めるのに必要なのは $a_
       &=(p,-p\alpha)=p(1,-\alpha).
   \end{aligned}
 \]
-したがって,本編の$b_{n+1}=pb_n$は,左固有ベクトル$(1,-\alpha)$で取り出した量が$p$倍されるという式である.
+したがって,本編の$b_{n+1}=pb_n$は,\bookterm{left-eigen}{左固有ベクトル}$(1,-\alpha)$で取り出した量が$p$倍されるという式である.
 ここからは,同じ置き換えを状態そのものの分け方として見てみよう.
 $\alpha=p\alpha+q$ だから,
 \[
@@ -63,14 +63,14 @@ $\alpha=p\alpha+q$ だから,
   =
   \begin{pmatrix}\alpha\\1\end{pmatrix}.
 \]
-不動点 $\alpha$ は,状態ベクトルに直すと更新しても変わらない方向を表す.
+\bookterm{fixed}{不動点} $\alpha$ は,状態ベクトルに直すと更新しても変わらない方向を表す.
 一方,
 \[
   A\begin{pmatrix}1\\0\end{pmatrix}
   =
   p\begin{pmatrix}1\\0\end{pmatrix}.
 \]
-不動点からのずれは,一歩ごとに $p$ 倍される方向にある.
+\bookterm{fixed}{不動点}からのずれは,一歩ごとに $p$ 倍される方向にある.
 実際,初期状態は
 \[
   \begin{pmatrix}a_1\\1\end{pmatrix}
@@ -90,10 +90,10 @@ $\alpha=p\alpha+q$ だから,
   a_n=\alpha+(a_1-\alpha)p^{n-1}
 \]
 となる.
-本編の解法で別々に追っていた「不動点」と「そこからのずれ」は,行列では更新倍率の異なる二つの方向として一緒に記録されている.
+本編の解法で別々に追っていた「\bookterm{fixed}{不動点}」と「そこからのずれ」は,\bookterm{matrix}{行列}では更新倍率の異なる二つの方向として一緒に記録されている.
 
-上の例では $\begin{pmatrix}\alpha\\1\end{pmatrix}$ の固有値が $1$ で,\,\,$\begin{pmatrix}1\\0\end{pmatrix}$ の固有値が $p$ である.
-行列の固有値を求める方程式は,この行列の場合
+上の例では $\begin{pmatrix}\alpha\\1\end{pmatrix}$ の\bookterm{eigenvalue}{固有値}が $1$ で,\,\,$\begin{pmatrix}1\\0\end{pmatrix}$ の\bookterm{eigenvalue}{固有値}が $p$ である.
+\bookterm{matrix}{行列}の\bookterm{eigenvalue}{固有値}を求める方程式は,この\bookterm{matrix}{行列}の場合
 \BookMathLayout{\[
   \det(\lambda I-A)
   =
@@ -108,12 +108,12 @@ $\alpha=p\alpha+q$ だから,
 \]
 }
 となる.
-なお,本編で「特性方程式」と呼んだ $\alpha=p\alpha+q$ は不動点を求める式であり,ここでの行列の特性方程式とは別の式である.
+なお,本編で「\bookterm{characteristic}{特性方程式}」と呼んだ $\alpha=p\alpha+q$ は\bookterm{fixed}{不動点}を求める式であり,ここでの\bookterm{matrix}{行列}の\bookterm{characteristic}{特性方程式}とは別の式である.
 ただし両者は無関係ではない.
-不動点は固有値 $1$ の方向に,不動点からのずれは固有値 $p$ の方向に対応していた.
+\bookterm{fixed}{不動点}は\bookterm{eigenvalue}{固有値} $1$ の方向に,\bookterm{fixed}{不動点}からのずれは\bookterm{eigenvalue}{固有値} $p$ の方向に対応していた.
 
 本編では $p=1$ の場合を等差型として分けて扱った.
-行列で書けば
+\bookterm{matrix}{行列}で書けば
 \[
   A=\begin{pmatrix}1&q\\0&1\end{pmatrix},
   \qquad
@@ -124,13 +124,13 @@ $\alpha=p\alpha+q$ だから,
   a_n=a_1+(n-1)q
 \]
 となる.
-この場合は $q\ne0$ なら不動点はないが,更新の倍率は $1$ のまま,足し算が少しずつ積み重なっていく.
-重なった固有値から $n$ が現れる例を,ここでは具体的に見ることができた.
+この場合は $q\ne0$ なら\bookterm{fixed}{不動点}はないが,更新の倍率は $1$ のまま,足し算が少しずつ積み重なっていく.
+重なった\bookterm{eigenvalue}{固有値}から $n$ が現れる例を,ここでは具体的に見ることができた.
 
 
-\sectionref{節：1次分数型}では,不動点からの二つの差の比を取ることで,共通の分母を消した.
-なぜその比が等比数列になるのかを,今度は行列で見てみよう.
-一次分数型の更新も,二成分の列ベクトルを使って表せる.
+\sectionref{節：1次分数型}では,\bookterm{fixed}{不動点}からの二つの差の比を取ることで,共通の分母を消した.
+なぜその比が\bookterm{geometric}{等比数列}になるのかを,今度は\bookterm{matrix}{行列}で見てみよう.
+一次分数型の更新も,二成分の\bookterm{column-vector}{列ベクトル}を使って表せる.
 \[
   a_{n+1}=\frac{pa_n+q}{ra_n+s}
 \]
@@ -150,18 +150,18 @@ $\displaystyle a_n=\frac{x_n}{y_n}$とすると
   =\frac{px_n+qy_n}{rx_n+sy_n}
   =\frac{pa_n+q}{ra_n+s}.
 \]
-また,\,$y_{n+1}=(ra_n+s)y_n$なので,もとの漸化式の分母が零にならない限り,\,$y_n\ne0$が保たれる.
+また,\,$y_{n+1}=(ra_n+s)y_n$なので,もとの\bookterm{recurrence}{漸化式}の分母が零にならない限り,\,$y_n\ne0$が保たれる.
 このように,分数を一つの値として更新する代わりに,分子と分母を一組の値として更新できる.
 $(x_n,y_n)$を同じ零でない数で倍しても比は変わらないので,ここで必要なのはベクトルの大きさではなく成分比である.
-この比を通して行列の作用を見る考え方を,射影変換という.
+この比を通して\bookterm{matrix}{行列}の作用を見る考え方を,射影変換という.
 
-不動点 $\alpha$ では
+\bookterm{fixed}{不動点} $\alpha$ では
 \[
   M\begin{pmatrix}\alpha\\1\end{pmatrix}
   =(r\alpha+s)\begin{pmatrix}\alpha\\1\end{pmatrix}.
 \]
-つまり不動点は固有値ではなく,固有ベクトルの成分比である.
-異なる二つの不動点 $\alpha,\beta$ があり,対応する倍率を
+つまり\bookterm{fixed}{不動点}は\bookterm{eigenvalue}{固有値}ではなく,\bookterm{eigenvector}{固有ベクトル}の成分比である.
+異なる二つの\bookterm{fixed}{不動点} $\alpha,\beta$ があり,対応する倍率を
 $\lambda_\alpha=r\alpha+s,\ \lambda_\beta=r\beta+s$ とする.
 状態を
 \[
@@ -170,8 +170,8 @@ $\lambda_\alpha=r\alpha+s,\ \lambda_\beta=r\beta+s$ とする.
   +d_n\begin{pmatrix}\beta\\1\end{pmatrix}
 \]
 と分けると,\,$\,c_n,d_n$ はそれぞれ $\lambda_\alpha,\lambda_\beta$ 倍される.
-以下の比を取る際は$a_1\ne\beta$とする.不動点$\beta$を初項とする場合は$a_n=\beta$という定数列になる.
-行列$M$は可逆で,\,\,$\lambda_\alpha\ne0$だから,\,\,$a_1\ne\beta$なら$c_n\ne0$,すなわち$a_n\ne\beta$が保たれる.
+以下の比を取る際は$a_1\ne\beta$とする.\bookterm{fixed}{不動点}$\beta$を初項とする場合は$a_n=\beta$という定\bookterm{sequence}{数列}になる.
+\bookterm{matrix}{行列}$M$は可逆で,\,\,$\lambda_\alpha\ne0$だから,\,\,$a_1\ne\beta$なら$c_n\ne0$,すなわち$a_n\ne\beta$が保たれる.
 成分を比較すると
 \[
   \begin{aligned}
@@ -188,7 +188,7 @@ $\lambda_\alpha=r\alpha+s,\ \lambda_\beta=r\beta+s$ とする.
   =\frac{\lambda_\beta}{\lambda_\alpha}
    \frac{a_n-\alpha}{a_n-\beta}.
 \]
-本編の不動点を求める方程式は$rx^2+(s-p)x-q=0$である.
+本編の\bookterm{fixed}{不動点}を求める方程式は$rx^2+(s-p)x-q=0$である.
 解と係数の関係より$r(\alpha+\beta)=p-s$なので
 \[
   \begin{aligned}
@@ -206,9 +206,9 @@ $\lambda_\alpha=r\alpha+s,\ \lambda_\beta=r\beta+s$ とする.
   \qquad
   M=\begin{pmatrix}2&0\\-1&1\end{pmatrix}
 \]
-では,不動点 $0,-1$ に対応する固有値はそれぞれ $1,2$ である.
+では,\bookterm{fixed}{不動点} $0,-1$ に対応する\bookterm{eigenvalue}{固有値}はそれぞれ $1,2$ である.
 したがって本編の置き換えに合わせた $\displaystyle b_n=\frac{a_n}{a_n+1}$ は,\,$a_1\ne-1$なら $b_{n+1}=2b_n$ を満たす.
-一次分数型の計算を繰り返す代わりに,行列の二つの方向の倍率の比を追っている.
+一次分数型の計算を繰り返す代わりに,\bookterm{matrix}{行列}の二つの方向の倍率の比を追っている.
 
 
 \subsection{状態を二つ持つと,二階の漸化式になる}\label{節：状態を二つ持つと,二階の漸化式になる}
@@ -227,22 +227,22 @@ $\lambda_\alpha=r\alpha+s,\ \lambda_\beta=r\beta+s$ とする.
   \begin{pmatrix}1&1\\1&0\end{pmatrix}
   \begin{pmatrix}x_n\\y_n\end{pmatrix}
 \]
-と一つの行列で表せる.
+と一つの\bookterm{matrix}{行列}で表せる.
 初めを $(x_0,y_0)=(1,0)$ とすると,
 \[
   (1,0),\ (1,1),\ (2,1),\ (3,2),\ldots
 \]
 と進み,\,$\,x_n=F_{n+1},\,y_n=F_n$ となる.
-ここで $F_0=0,\,F_1=1$ はフィボナッチ数列である.
+ここで $F_0=0,\,F_1=1$ はフィボナッチ\bookterm{sequence}{数列}である.
 二つ目の規則 $y_{n+1}=x_n$ は,一歩前の $x$ をもう一方の成分に残している.
 そのため $x$ だけを見れば
 \[
   x_{n+2}=x_{n+1}+x_n
 \]
-という二階の漸化式が現れる.
-「次を決めるのに二つの項が要る」漸化式を,「二つの成分を一度に更新する」行列で表したわけだ.
+という二階の\bookterm{recurrence}{漸化式}が現れる.
+「次を決めるのに二つの項が要る」\bookterm{recurrence}{漸化式}を,「二つの成分を一度に更新する」\bookterm{matrix}{行列}で表したわけだ.
 
-\sectionref{節：隣接3項間漸化式型}も,このように直前の二項を組にして持てば,行列による更新になる.
+\sectionref{節：隣接3項間漸化式型}も,このように直前の二項を組にして持てば,\bookterm{matrix}{行列}による更新になる.
 一般に
 \[
   a_{n+2}=s a_{n+1}+t a_n
@@ -269,11 +269,11 @@ $\lambda_\alpha=r\alpha+s,\ \lambda_\beta=r\beta+s$ とする.
 \[
   \boldsymbol{v}_{n+1}=B\boldsymbol{v}_n
 \]
-は,二階の漸化式を二成分の一階更新に書き直したものである.
+は,二階の\bookterm{recurrence}{漸化式}を二成分の一階更新に書き直したものである.
 なお本編の形 $a_{n+2}+pa_{n+1}+qa_n=0$ で書く場合は,ここで $s=-p,\,t=-q$ とすればよい.
 
-行列からも同じ特性方程式が出ることを見よう.
-固有ベクトルを $\begin{pmatrix}x\\y\end{pmatrix}$ とすると
+\bookterm{matrix}{行列}からも同じ\bookterm{characteristic}{特性方程式}が出ることを見よう.
+\bookterm{eigenvector}{固有ベクトル}を $\begin{pmatrix}x\\y\end{pmatrix}$ とすると
 \[
   B\begin{pmatrix}x\\y\end{pmatrix}
   =
@@ -281,18 +281,18 @@ $\lambda_\alpha=r\alpha+s,\ \lambda_\beta=r\beta+s$ とする.
 \]
 である.
 二行目から $x=\lambda y$ と分かる.
-もし $y=0$ なら $x=0$ となり固有ベクトルでなくなるので,倍率を調整して $y=1$ と置ける.
-つまり固有ベクトルは $\begin{pmatrix}\lambda\\1\end{pmatrix}$ の形であり,一行目から
+もし $y=0$ なら $x=0$ となり\bookterm{eigenvector}{固有ベクトル}でなくなるので,倍率を調整して $y=1$ と置ける.
+つまり\bookterm{eigenvector}{固有ベクトル}は $\begin{pmatrix}\lambda\\1\end{pmatrix}$ の形であり,一行目から
 \[
   s\lambda+t=\lambda^2,
   \qquad
   \lambda^2-s\lambda-t=0
 \]
 を得る.
-これは $a_n=\lambda^n$ をもとの漸化式に代入して得る特性方程式と一致する.
+これは $a_n=\lambda^n$ をもとの\bookterm{recurrence}{漸化式}に代入して得る\bookterm{characteristic}{特性方程式}と一致する.
 本編の符号で書けば $\lambda^2+p\lambda+q=0$ である.
 
-この条件は線形代数では
+この条件は\bookterm{linear}{線形}代数では
 \BookMathLayout{\[
   \det(\lambda I-B)
   =
@@ -307,9 +307,9 @@ $\lambda_\alpha=r\alpha+s,\ \lambda_\beta=r\beta+s$ とする.
 \]
 }
 とも書く.
-この見方から,特性方程式の根が行列の固有値になる理由が分かる.
+この見方から,\bookterm{characteristic}{特性方程式}の根が\bookterm{matrix}{行列}の\bookterm{eigenvalue}{固有値}になる理由が分かる.
 
-二つの異なる特性根 $\lambda_1,\lambda_2$ があるとき,対応する固有ベクトル
+二つの異なる\bookterm{root}{特性根} $\lambda_1,\lambda_2$ があるとき,対応する\bookterm{eigenvector}{固有ベクトル}
 \[
   \begin{pmatrix}\lambda_1\\1\end{pmatrix},
   \qquad
@@ -317,9 +317,9 @@ $\lambda_\alpha=r\alpha+s,\ \lambda_\beta=r\beta+s$ とする.
 \]
 は同じ直線上にはない.
 初めの状態を二つの方向に分けておけば,\,$k$回の更新でそれぞれの部分が $\lambda_1^k,\,\lambda_2^k$ 倍される.
-こうして一般項に特性根の冪が現れる.
+こうして\bookterm{general}{一般項}に\bookterm{root}{特性根}の冪が現れる.
 
-さらに,本編で作った$a_{n+1}-\lambda_1a_n$という量も,同じ行列の中に見つかる.
+さらに,本編で作った$a_{n+1}-\lambda_1a_n$という量も,同じ\bookterm{matrix}{行列}の中に見つかる.
 解と係数の関係$\lambda_1+\lambda_2=s$, $\lambda_1\lambda_2=-t$を使うと
 \[
   \begin{aligned}
@@ -337,12 +337,12 @@ $\lambda_\alpha=r\alpha+s,\ \lambda_\beta=r\beta+s$ とする.
     b_{n+1}&=\lambda_2 b_n.
   \end{aligned}
 \]
-これは本編で導いた等比数列そのものである.
-$\lambda_1,\lambda_2$を入れ替えれば,もう一方の等比数列も得られる.
-たとえば本編の例題$a_{n+2}=5a_{n+1}-6a_n$で作った$a_{n+1}-2a_n$は,行ベクトル$(1,-2)$で取り出され,一歩ごとに$3$倍される量だった.
-固有ベクトルで状態を分ける方法と,左固有ベクトルで等比数列を取り出す方法は,同じ更新の二通りの見方なのである.
+これは本編で導いた\bookterm{geometric}{等比数列}そのものである.
+$\lambda_1,\lambda_2$を入れ替えれば,もう一方の\bookterm{geometric}{等比数列}も得られる.
+たとえば本編の例題$a_{n+2}=5a_{n+1}-6a_n$で作った$a_{n+1}-2a_n$は,\bookterm{row-vector}{行ベクトル}$(1,-2)$で取り出され,一歩ごとに$3$倍される量だった.
+\bookterm{eigenvector}{固有ベクトル}で状態を分ける方法と,\bookterm{left-eigen}{左固有ベクトル}で\bookterm{geometric}{等比数列}を取り出す方法は,同じ更新の二通りの見方なのである.
 二つの根が複素数でも,成分を複素数まで広げて同じ計算を行える.
-実数の初期値から出発した場合,複素共役な二方向の寄与が組になり,数列の項は実数のままになる.
+実数の初期値から出発した場合,複素\bookterm{conjugate}{共役}な二方向の寄与が組になり,\bookterm{sequence}{数列}の項は実数のままになる.
 
 
 この二通りの見方は,\sectionref{節：連立型}にも現れている.
@@ -359,8 +359,8 @@ $\lambda_1,\lambda_2$を入れ替えれば,もう一方の等比数列も得ら�
 \]
 となる.
 ここで$A=\begin{pmatrix}2&1\\1&2\end{pmatrix}$とする.
-行列で書けば $(1,1)A=3(1,1),\ (1,-1)A=(1,-1)$ である.
-状態の方向を保つ固有ベクトルに対し,\,$\, (1,1)$ や $(1,-1)$ は状態から等比型の量を取り出す行ベクトルになっている.
+\bookterm{matrix}{行列}で書けば $(1,1)A=3(1,1),\ (1,-1)A=(1,-1)$ である.
+状態の方向を保つ\bookterm{eigenvector}{固有ベクトル}に対し,\,$\, (1,1)$ や $(1,-1)$ は状態から等比型の量を取り出す\bookterm{row-vector}{行ベクトル}になっている.
 
 
 \BookFigSystem
@@ -369,8 +369,8 @@ $\lambda_1,\lambda_2$を入れ替えれば,もう一方の等比数列も得ら�
 $(x_n,y_n)$をこの二つの方向に分けて考えることは,
 座標軸を$45^\circ$回して見ることに相当する.
 ただし,ここで回転させているのは\textbf{座標の見方}であり,
-更新を表す行列$A$自体が回転行列なのではない.
-向きをそろえて回転行列
+更新を表す\bookterm{matrix}{行列}$A$自体が回転\bookterm{matrix}{行列}なのではない.
+向きをそろえて回転\bookterm{matrix}{行列}
 \[
   Q=\frac{1}{\sqrt2}
   \begin{pmatrix}
@@ -386,7 +386,7 @@ $(x_n,y_n)$をこの二つの方向に分けて考えることは,
   \begin{pmatrix}u_n\\-v_n\end{pmatrix}
 \]
 となる.
-この新しい座標では,同じ行列$A$による更新が
+この新しい座標では,同じ\bookterm{matrix}{行列}$A$による更新が
 \[
   Q^{\mathsf T}AQ=
   \begin{pmatrix}3&0\\0&1\end{pmatrix}
@@ -394,7 +394,7 @@ $(x_n,y_n)$をこの二つの方向に分けて考えることは,
 と表される.
 つまり一方の方向の成分は毎回$3$倍され,
 もう一方の方向の成分は変わらない.
-図の斜めの軸を使うと,元の連立漸化式が二つの等比型に分かれる理由を
+図の斜めの軸を使うと,元の連立\bookterm{recurrence}{漸化式}が二つの等比型に分かれる理由を
 目で確かめられるのである.
 
 実際に計算へ戻せば,
@@ -412,11 +412,11 @@ $(x_n,y_n)$をこの二つの方向に分けて考えることは,
   x_n=\frac{3^{n-1}+1}{2},\qquad
   y_n=\frac{3^{n-1}-1}{2}.
 \]
-これは行列を毎回掛けて直接計算する代わりに,
+これは\bookterm{matrix}{行列}を毎回掛けて直接計算する代わりに,
 斜めの二方向の伸び方を調べてから元の座標へ戻した結果である.
 
 
-一般に連立漸化式を
+一般に連立\bookterm{recurrence}{漸化式}を
 \BookMathLayout{\[
   \boldsymbol{z}_{n+1}=A\boldsymbol{z}_n,
   \qquad
@@ -432,28 +432,28 @@ A=\begin{pmatrix}p&q\\r&s\end{pmatrix}
 \end{aligned}
 \]
 }
-とし,零でない列ベクトル$\boldsymbol{\ell}$を用いて$\,c_n=\boldsymbol{\ell}^{\mathsf T}\boldsymbol{z}_n$ とおく.
+とし,零でない\bookterm{column-vector}{列ベクトル}$\boldsymbol{\ell}$を用いて$\,c_n=\boldsymbol{\ell}^{\mathsf T}\boldsymbol{z}_n$ とおく.
 もし
 \[
   \boldsymbol{\ell}^{\mathsf T}A
   =\gamma\boldsymbol{\ell}^{\mathsf T}
 \]
 なら,\,$\,c_{n+1}=\gamma c_n$ となる.
-本編の連立型で $c_n=\alpha a_n+\beta b_n$ が等比数列となるよう $\alpha,\beta$ を選ぶ計算は,左固有ベクトルを求めていたのである.
+本編の連立型で $c_n=\alpha a_n+\beta b_n$ が\bookterm{geometric}{等比数列}となるよう $\alpha,\beta$ を選ぶ計算は,\bookterm{left-eigen}{左固有ベクトル}を求めていたのである.
 この関係を満たす零でないベクトル$\boldsymbol{\ell}$が存在するための条件
 \[
   \det(\gamma I-A)
   =\gamma^2-(p+s)\gamma+(ps-qr)=0
 \]
-は,本編で現れた特性方程式と一致する.
-異なる二つの固有値があれば,対応する左固有ベクトルは比例しないので,取り出した二つの量から$a_n,b_n$を求め直せる.
-したがって,本編の解法では状態から等比型の量を取り出し,その二つを用いて元の連立漸化式を解いている.
-二階の漸化式も二成分の状態に直せば同じ行列の枠組みに入る.
-フィボナッチ数列では $s=t=1$ なので
+は,本編で現れた\bookterm{characteristic}{特性方程式}と一致する.
+異なる二つの\bookterm{eigenvalue}{固有値}があれば,対応する\bookterm{left-eigen}{左固有ベクトル}は比例しないので,取り出した二つの量から$a_n,b_n$を求め直せる.
+したがって,本編の解法では状態から等比型の量を取り出し,その二つを用いて元の連立\bookterm{recurrence}{漸化式}を解いている.
+二階の\bookterm{recurrence}{漸化式}も二成分の状態に直せば同じ\bookterm{matrix}{行列}の枠組みに入る.
+フィボナッチ\bookterm{sequence}{数列}では $s=t=1$ なので
 \[
   B=\begin{pmatrix}1&1\\1&0\end{pmatrix}
 \]
-であり,特性根は
+であり,\bookterm{root}{特性根}は
 \[
   \varphi=\frac{1+\sqrt5}{2},
   \qquad
@@ -465,12 +465,12 @@ A=\begin{pmatrix}p&q\\r&s\end{pmatrix}
   F_n=\frac{\varphi^n-\psi^n}{\sqrt5}
 \]
 を得る.
-$|\psi|<1<\varphi$ なので,歩みを重ねるにつれて $\psi^n$ の成分は小さくなり,\,$\,\varphi^n$ の成分が数列の大きさを支配する.
+$|\psi|<1<\varphi$ なので,歩みを重ねるにつれて $\psi^n$ の成分は小さくなり,\,$\,\varphi^n$ の成分が\bookterm{sequence}{数列}の大きさを支配する.
 また $\psi<0$ なので,小さくなる成分は符号を交互に変える.
-特性根は,一般項の計算だけでなく,数列が長い目でどう育つかも教えている.
+\bookterm{root}{特性根}は,\bookterm{general}{一般項}の計算だけでなく,\bookterm{sequence}{数列}が長い目でどう育つかも教えている.
 
-特性方程式が重解 $r\ne0$ を持つ場合には,二つの異なる倍率の方向に分けられない.
-一般項に $n$ が現れる理由は,漸化式に直接戻ると見やすい.
+\bookterm{characteristic}{特性方程式}が重解 $r\ne0$ を持つ場合には,二つの異なる倍率の方向に分けられない.
+\bookterm{general}{一般項}に $n$ が現れる理由は,\bookterm{recurrence}{漸化式}に直接戻ると見やすい.
 重解のときは
 \[
   a_{n+2}=2r a_{n+1}-r^2a_n
@@ -503,20 +503,20 @@ a_{n+2}-2a_{n+1}+a_n\\
 \]
 }
 より,隣り合う項の差が一定で $a_n=C+Dn$ となる.
-重解が $r=0$ の場合は $a_{n+2}=0$ となる退化した漸化式であり,直接調べればよい.
+重解が $r=0$ の場合は $a_{n+2}=0$ となる退化した\bookterm{recurrence}{漸化式}であり,直接調べればよい.
 
 \subsection{三角関数型漸化式からチェビシェフ多項式へ}\label{節：三角関数型漸化式からチェビシェフ多項式へ}
   \BookFigChebyshev
 
 
-\sectionref{節：虚数解型隣接3項間漸化式}では,複素数の特性根の冪を組み合わせて実数の一般項へ直し,
-倍率をそろえた更新と加法定理からも同じ形を確かめた.
-\sectionref*{節：一次独立・基底・次元}の見方では,複素数の冪と正弦・余弦という基底を使い分けていたのである.
+\sectionref{節：虚数解型隣接3項間漸化式}では,複素数の\bookterm{root}{特性根}の冪を組み合わせて実数の\bookterm{general}{一般項}へ直し,
+倍率をそろえた更新と\bookterm{addition}{加法定理}からも同じ形を確かめた.
+\sectionref*{節：一次独立・基底・次元}の見方では,複素数の冪と正弦・余弦という\bookterm{basis}{基底}を使い分けていたのである.
 \sectionref{節：三角関数型}では,倍角公式に合う置き換えによって,値の更新を角度の更新へ直した.
 ここでは,その二つの話を「整数倍の角を表す多項式」でつなげてみよう.
 
 まず,一定の角$\theta$だけ回す操作を考える.
-加法定理より
+\bookterm{addition}{加法定理}より
 \[
   R=\begin{pmatrix}\cos\theta&-\sin\theta\\
                   \sin\theta&\cos\theta\end{pmatrix}
@@ -526,25 +526,25 @@ a_{n+2}-2a_{n+1}+a_n\\
   \begin{pmatrix}\cos((n+1)\theta)\\\sin((n+1)\theta)\end{pmatrix}
   =R\begin{pmatrix}\cos(n\theta)\\\sin(n\theta)\end{pmatrix}.
 \]
-回転を行列で表すと,二つの成分を同時に更新する規則になる.
-この行列の特性方程式は
+回転を\bookterm{matrix}{行列}で表すと,二つの成分を同時に更新する規則になる.
+この\bookterm{matrix}{行列}の\bookterm{characteristic}{特性方程式}は
 \[
   \lambda^2-2\cos\theta\,\lambda+1=0
 \]
-であり,\,$0<\theta<\pi$なら固有値は$\cos\theta\pm i\sin\theta$である.
-本編で複素数の冪を回転として見たことが,行列の固有値にも現れている.
+であり,\,$0<\theta<\pi$なら\bookterm{eigenvalue}{固有値}は$\cos\theta\pm i\sin\theta$である.
+本編で複素数の冪を回転として見たことが,\bookterm{matrix}{行列}の\bookterm{eigenvalue}{固有値}にも現れている.
 
-横座標だけを追うと,余弦の加法定理より
+横座標だけを追うと,余弦の\bookterm{addition}{加法定理}より
 \[
   a_{n+2}=2\cos\theta\,a_{n+1}-a_n
 \]
-という隣接3項間漸化式になる.
-本編の三角関数型で扱った「現在の角度を二倍にする」更新とは,回す角度の決め方が異なることに注意しよう.
+という隣接3項間\bookterm{recurrence}{漸化式}になる.
+本編の\bookterm{trigonometric}{三角関数}型で扱った「現在の角度を二倍にする」更新とは,回す角度の決め方が異なることに注意しよう.
 前者は毎回同じ角だけ回り,後者はその時点の角と同じ角だけさらに回る.
 以下の多項式は,どちらの場合にも整数倍の角を表す道具になる.
 
 ここで $x=\cos\theta$ と書き,角度の整数倍を $x$ の多項式で表せないか考えてみよう.
-余弦の加法定理
+余弦の\bookterm{addition}{加法定理}
 \[
   \cos((n+1)\theta)+\cos((n-1)\theta)
   =2\cos\theta\cos(n\theta)
@@ -565,7 +565,7 @@ a_{n+2}-2a_{n+1}+a_n\\
 
 と定める.
 最初の二つが多項式で,次も足し算と掛け算だけで作られるので,すべての $T_n(x)$ は多項式になる.
-この列をチェビシェフ多項式という.
+この列を\bookterm{chebyshev}{チェビシェフ多項式}という.
 
 この定義から
 \[
@@ -586,19 +586,19 @@ $n=0,1$ では
   T_1(\cos\theta)=\cos\theta
 \]
 で一致する.
-また余弦の加法定理から
+また余弦の\bookterm{addition}{加法定理}から
 \[
   \cos((n+1)\theta)
   =2\cos\theta\cos(n\theta)-\cos((n-1)\theta)
 \]
 である.
-これは $T_{n+1}(\cos\theta)$ を作る漸化式と同じである.
+これは $T_{n+1}(\cos\theta)$ を作る\bookterm{recurrence}{漸化式}と同じである.
 したがって,二つの初めの値が一致し,次の値を作る規則も一致しているので,帰納法によりすべての $n$ で
 \[
   T_n(\cos\theta)=\cos(n\theta)
 \]
 となる.
-チェビシェフ多項式は,余弦の整数倍の角を,角度を使わずに $x=\cos\theta$ の多項式として記録している.
+\bookterm{chebyshev}{チェビシェフ多項式}は,余弦の整数倍の角を,角度を使わずに $x=\cos\theta$ の多項式として記録している.
 
 ここで本編の$\displaystyle a_1=\frac{\sqrt3}{2}$, $a_{n+1}=2a_n^2-1$に戻ろう.
 本編では$\displaystyle a_1=\cos(\frac{\pi}{6})$から角度を二倍ずつ進めたが,多項式の言葉では
@@ -607,7 +607,7 @@ $n=0,1$ では
   a_n=T_{2^{n-1}}(a_1)
 \]
 と書ける.
-角度を通して求めた一般項を,初項そのものの多項式としても表せたのである.
+角度を通して求めた\bookterm{general}{一般項}を,初項そのものの多項式としても表せたのである.
 このように書ける理由は,多項式の合成を考えると分かる.
 
 より一般に,\,$\,T_m(T_k(x))=T_{mk}(x)$ という合成の関係も,同じ角度の式から分かる.
@@ -634,14 +634,14 @@ T_m(T_k(x))&=T_m(\cos(k\theta))\\
 \]
 である.
 $-1\le a_1\le1$なら$a_1=\cos\theta$と表せるため,これは本編の$a_n=\cos(m^{n-1}\theta)$と一致する.
-多項式としての式は,三角関数で表せない初項についても成り立つ.
+多項式としての式は,\bookterm{trigonometric}{三角関数}で表せない初項についても成り立つ.
 
-多項式列を漸化式で作る例は,チェビシェフ多項式だけではない.
-ルジャンドル多項式 $P_n(x)$ は,初期値
+多項式列を\bookterm{recurrence}{漸化式}で作る例は,\bookterm{chebyshev}{チェビシェフ多項式}だけではない.
+\bookterm{legendre}{ルジャンドル多項式} $P_n(x)$ は,初期値
 \[
   P_0(x)=1,\qquad P_1(x)=x
 \]
-と三項漸化式
+と三項\bookterm{recurrence}{漸化式}
 \BookMathLayout{\[
   (n+1)P_{n+1}(x)
   =(2n+1)xP_n(x)-nP_{n-1}(x)
@@ -660,16 +660,16 @@ $-1\le a_1\le1$なら$a_1=\cos\theta$と表せるため,これは本編の$a_n=\
   P_2(x)=\frac{3x^2-1}{2}
 \]
 である.
-チェビシェフ多項式と同じく三項漸化式から作られるが,ルジャンドル多項式では係数が $n$ にも依存する.
+\bookterm{chebyshev}{チェビシェフ多項式}と同じく三項\bookterm{recurrence}{漸化式}から作られるが,\bookterm{legendre}{ルジャンドル多項式}では係数が $n$ にも依存する.
 
-ルジャンドル多項式は,区間 $[-1,1]$ 上で重み $1$ に関して直交する.
+\bookterm{legendre}{ルジャンドル多項式}は,区間 $[-1,1]$ 上で重み $1$ に関して直交する.
 ここでいう直交性とは,異なる次数の二つを掛けて区間全体で積分すると $0$ になる性質である.
 \[
   \int_{-1}^{1}P_m(x)P_n(x)\,dx=0
   \qquad(m\ne n)
 \]
 この性質は,関数を多項式の和で表したり近似したりする際に役立つ.
-ここでは直交性の証明や応用には立ち入らず,三項漸化式が別の性質をもつ多項式列も生み出す例として紹介するにとどめる.
+ここでは直交性の証明や応用には立ち入らず,三項\bookterm{recurrence}{漸化式}が別の性質をもつ多項式列も生み出す例として紹介するにとどめる.
 
 \subsection*{コラム：有限個の項から作るラグランジュ補間多項式}
   \BookFigLagrange
@@ -691,21 +691,21 @@ $x$ と $x+(x-1)(x-2)(x-3)$ はどちらもその三項に一致するが,
 $n=4$ ではそれぞれ $4$ と $10$ になる.
 一般にも, $L(x)+c\prod_{j=1}^{N}(x-j)$ は任意の定数 $c$ に対して最初の $N$ 個の値を保つので,続きを無数に作れる.
 
-ラグランジュ補間は有限個の値を通る多項式を作る方法であると同時に,
-最初の有限個の項だけから数列の規則は決まらないことを明らかにする例でもある.
+\bookterm{interpolation}{ラグランジュ補間}は有限個の値を通る多項式を作る方法であると同時に,
+最初の有限個の項だけから\bookterm{sequence}{数列}の規則は決まらないことを明らかにする例でもある.
 補間で得た多項式は一つの延長候補であり,
-それが数列を生んだ規則だと結論づけるには,次数や漸化式など追加の条件が要る.
+それが\bookterm{sequence}{数列}を生んだ規則だと結論づけるには,次数や\bookterm{recurrence}{漸化式}など追加の条件が要る.
 
 \subsection{非線形な更新も,不動点の近くでは線形に見える}\label{節：非線形な更新も,不動点の近くでは線形に見える}
 
-本編の特性方程式型では,不動点からのずれが正確に$p$倍され,\,$|p|<1$なら不動点に近づいた.
-最後に,一次分数型のような非線形の更新規則でも,不動点の近くでは同じ見方ができることを確かめよう.
-ここからは,本編のニュートン法型でも使った微分係数と一次近似を用いる.
-一項前から次が決まる漸化式
+本編の\bookterm{characteristic}{特性方程式}型では,\bookterm{fixed}{不動点}からのずれが正確に$p$倍され,\,$|p|<1$なら\bookterm{fixed}{不動点}に近づいた.
+最後に,一次分数型のような\bookterm{nonlinear}{非線形}の更新規則でも,\bookterm{fixed}{不動点}の近くでは同じ見方ができることを確かめよう.
+ここからは,本編の\bookterm{newton}{ニュートン法}型でも使った微分係数と一次近似を用いる.
+一項前から次が決まる\bookterm{recurrence}{漸化式}
 \[
   a_{n+1}=f(a_n)
 \]
-を考え,\,$\,\alpha$ を不動点 $f(\alpha)=\alpha$ とする.
+を考え,\,$\,\alpha$ を\bookterm{fixed}{不動点} $f(\alpha)=\alpha$ とする.
 そこからのずれを $e_n=a_n-\alpha$ と置くと
 \[
   e_{n+1}=f(\alpha+e_n)-f(\alpha)
@@ -722,7 +722,7 @@ $f$ が $\alpha$ で微分可能なら,微分係数の定義から
   f(\alpha+e)-f(\alpha)\approx f'(\alpha)e
 \]
 となる.
-曲線を不動点のすぐ近くまで拡大すると接線に見える,という一次近似を使ったのである.
+曲線を\bookterm{fixed}{不動点}のすぐ近くまで拡大すると接線に見える,という一次近似を使ったのである.
 
 この近似は,収束についても手がかりを与える.
 もし $|f'(\alpha)|<1$ なら,\,$\,|f'(\alpha)|$ より大きく $1$ より小さい数 $c$ を選べる.
@@ -734,10 +734,10 @@ $f$ が $\alpha$ で微分可能なら,微分係数の定義から
 \]
 となる.
 誤差は一歩ごとに少なくとも一定の割合で縮み,いったん十分近くに入ればその近くにとどまって $\alpha$ へ近づく.
-したがって $|f'(\alpha)|<1$ は,不動点が近くの初期値を引き寄せることを示す.
-先ほどの行列では固有値が各方向の倍率を表していた.
-ここでは微分係数$f'(\alpha)$が,不動点近くでのずれの倍率を表している.
-一次分数型で先ほどの二つの異なる不動点がある場合には
+したがって $|f'(\alpha)|<1$ は,\bookterm{fixed}{不動点}が近くの初期値を引き寄せることを示す.
+先ほどの\bookterm{matrix}{行列}では\bookterm{eigenvalue}{固有値}が各方向の倍率を表していた.
+ここでは微分係数$f'(\alpha)$が,\bookterm{fixed}{不動点}近くでのずれの倍率を表している.
+一次分数型で先ほどの二つの異なる\bookterm{fixed}{不動点}がある場合には
 \[
   \begin{aligned}
     f'(\alpha)
@@ -746,7 +746,9 @@ $f$ が $\alpha$ で微分可能なら,微分係数の定義から
        =\frac{\lambda_\beta}{\lambda_\alpha}.
   \end{aligned}
 \]
-行列式$ps-qr$が二つの固有値の積になることは,行列の特性方程式から分かる.
-つまり,本編の比の置き換えで得た公比は,不動点の近くでずれが変わる倍率にもなっている.
-比を使う式は正確な等式で,微分を使う式は不動点近くの近似であるが,同じ更新の性質を捉えている.
-線形代数と微分は別々の話に見えるが,どちらも「一歩ごとの変化を倍率で測る」道具としてつながっている.
+\bookterm{matrix}{行列}式$ps-qr$が二つの\bookterm{eigenvalue}{固有値}の積になることは,\bookterm{matrix}{行列}の\bookterm{characteristic}{特性方程式}から分かる.
+つまり,本編の比の置き換えで得た公比は,\bookterm{fixed}{不動点}の近くでずれが変わる倍率にもなっている.
+比を使う式は正確な等式で,微分を使う式は\bookterm{fixed}{不動点}近くの近似であるが,同じ更新の性質を捉えている.
+\bookterm{linear}{線形}代数と微分は別々の話に見えるが,どちらも「一歩ごとの変化を倍率で測る」道具としてつながっている.
+
+\input{第5章 付録/01b_ペルと近似分数.tex}

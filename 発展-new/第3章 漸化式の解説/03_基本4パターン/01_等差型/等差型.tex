@@ -1,9 +1,13 @@
 % subsection: 等差型 \, $a_{n+1}=a_n+d$
 
   \subsection{\texorpdfstring{等差型 \, $a_{n+1}=a_n+d$}{等差型}}\label{節：等差型}
-    まずはもっともシンプルな漸化式であろう,等差型について説明していく.
-    この漸化式は$a_1$に対して$d$がどんどんと足されていく漸化式である.
-    一般項は簡単な代入計算によって容易に示せる.
+  \begin{bookpoint}
+    \textbf{差を追う}\par
+    一回ごとに足す量が一定なら,初項に増分を足し戻す.項の番号と更新の回数の違いを確かめよう.
+  \end{bookpoint}
+    まずはもっともシンプルな\bookterm{recurrence}{漸化式}であろう,等差型について説明していく.
+    この\bookterm{recurrence}{漸化式}は$a_1$に対して$d$がどんどんと足されていく\bookterm{recurrence}{漸化式}である.
+    \bookterm{general}{一般項}は簡単な代入計算によって容易に示せる.
     実際にやってみると
     \begin{align*}
       &a_{n+1}=a_n+d\\
@@ -14,32 +18,32 @@
       &a_{n+1}=a_1+nd\\
       &\therefore \quad a_n=a_1+(n-1)d
     \end{align*}
-    となり一般項が示される.
+    となり\bookterm{general}{一般項}が示される.
     1つ前の項をどんどん代入していくのだ.
     数式の3行目から5行目周辺の式変形が少し心配かもしれないが,\,$d$の個数と$a$の添字部分の和は常に$n+1$となることから考えれば分かるだろう.
     実際,\,$a_{n+1}$に至るまでに何度$d$が足されたかを考えているわけだから,心配であれば実際に適当な$n$で何度か実験してみるのもいい手だろう.
 
     実際に例題を与えよう.
 
-    \noindent \bookblocklink{example-arithmetic-1}{problem}{answer}{【例題】}
+    \noindent \bookblocklink{example-arithmetic-1}{problem}{answer}{【例題】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-arithmetic-1}{problem}{answer}]
       \item $\displaystyle a_1=1,\, a_{n+1}=a_n+1$
       \item $\displaystyle a_1=\frac{1}{2},\, a_{n+1}=a_n+\frac{1}{4}$
       \item $\displaystyle a_1=-\sqrt{3},\, a_{n+1}=a_n-\sqrt{2}$
     \end{enumerate}
 
-    \noindent\bookblocklink{example-arithmetic-1}{hint}{problem}{【方針】}
+    \noindent\bookblocklink{example-arithmetic-1}{hint}{problem}{【方針】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-arithmetic-1}{hint}{problem}]
-      \item 等差型の一般項
+      \item 等差型の\bookterm{general}{一般項}
             $\displaystyle a_n=a_1+(n-1)d$
             を用います.
       \item 公差は$\displaystyle d=\frac14$です.
-            等差型の一般項に代入します.
+            等差型の\bookterm{general}{一般項}に代入します.
       \item 公差は$\displaystyle d=-\sqrt2$です.
             負の公差の場合も同じ公式を使います.
     \end{enumerate}
 
-    \noindent\bookblocklink{example-arithmetic-1}{answer}{problem}{【解答】}
+    \noindent\bookblocklink{example-arithmetic-1}{answer}{problem}{【解答】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-arithmetic-1}{answer}{problem}]
       \item $\displaystyle a_n=1+(n-1)=n$
       \item $\displaystyle a_n=\frac12+\frac{n-1}{4}
@@ -47,5 +51,5 @@
       \item $\displaystyle a_n=-\sqrt3-(n-1)\sqrt2$
     \end{enumerate}
 
-    \noindent\bookblocklink{example-arithmetic-1}{solution}{problem}{【解法】}\\
+    \noindent\bookblocklink{example-arithmetic-1}{solution}{problem}{【解法】}\par\nobreak
     解法略.

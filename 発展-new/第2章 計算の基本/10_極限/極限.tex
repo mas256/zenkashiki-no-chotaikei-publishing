@@ -2,7 +2,7 @@
 
 \section{極限}\label{節：極限}
   \noindent\textbf{【本編で使う場面】}\par
-  数列や関数が近づく値を表す記法と計算を確認する.\sectionref*{節：ニュートン法型},発展演習の極限問題,付録で使う.基本・応用パターンの一般項を求める段階では後回しにできる.
+  \bookterm{sequence}{数列}や関数が近づく値を表す記法と計算を確認する.\sectionref*{節：ニュートン法型},発展演習の\bookterm{limit}{極限}問題,付録で使う.基本・応用パターンの\bookterm{general}{一般項}を求める段階では後回しにできる.
 
   \subsection{極限}\label{節：極限：極限}
     ある関数$f(x)$について\,$x$を$a$に限りなく近づける操作を数学的には
@@ -19,12 +19,12 @@
     一見シンプルな代入計算に見えるかもしれないが,これが今後重要な役割を果たす.
 
   \subsection{数列の極限}\label{節：数列の極限}
-    数列$\{a_n\}$の番号$n$を大きくしていくとき,\,$a_n$がある値$L$に限りなく近づくなら,\,$a_n$は$L$に収束するといい,
+    \bookterm{sequence}{数列}$\{a_n\}$の番号$n$を大きくしていくとき,\,$a_n$がある値$L$に限りなく近づくなら,\,$a_n$は$L$に収束するといい,
     \[
       \lim_{n\to\infty}a_n=L
     \]
     と書く.
-    
+
     例えば,\,$n>0$のとき
     \[
       a_n=\frac{1}{n}
@@ -43,7 +43,7 @@
     と書く.
     このとき,\,$x=a$での関数の値そのものではなく,\,$a$の近くでの値の変化に注目する.
 
-    極限の計算では,既に求めた極限を組み合わせたり,不等式で上下から挟んだりする.
+    \bookterm{limit}{極限}の計算では,既に求めた\bookterm{limit}{極限}を組み合わせたり,不等式で上下から挟んだりする.
     例えば,
     \[
       a_n\le b_n\le c_n
@@ -56,11 +56,11 @@
     これをはさみうちの原理という.
 
   \subsection{片側極限とその記法}\label{節：片側極限}
-    $x$を$a$に近づけるとき,近づく側を限定した極限を\textbf{片側極限}という.
-    $x<a$の範囲で$a$に近づける場合を\textbf{左側極限},\,$x>a$の範囲で$a$に近づける場合を\textbf{右側極限}という.
+    $x$を$a$に近づけるとき,近づく側を限定した\bookterm{limit}{極限}を\textbf{\bookterm{one-sided}{片側極限}}という.
+    $x<a$の範囲で$a$に近づける場合を\textbf{\bookterm{left-limit}{左側極限}},\,$x>a$の範囲で$a$に近づける場合を\textbf{\bookterm{right-limit}{右側極限}}という.
     数直線で考えると,それぞれ$a$の左側・右側から近づけることに対応する.
 
-    左側極限には,次のような複数の記法がある.
+    \bookterm{left-limit}{左側極限}には,次のような複数の記法がある.
     \[
       \boxed{
         \begin{aligned}
@@ -71,11 +71,11 @@
         \end{aligned}
       }
     \]
-    これらは同じ左側極限を表す記法である.
+    これらは同じ\bookterm{left-limit}{左側極限}を表す記法である.
     $a^-$の$-$は,\,$x<a$の側から近づけることを示す.
     また,\,$x\uparrow a$も$a$より小さい側から$a$に近づけることを表す.
 
-    同様に,右側極限には次の記法がある.
+    同様に,\bookterm{right-limit}{右側極限}には次の記法がある.
     \[
       \boxed{
         \begin{aligned}
@@ -91,7 +91,7 @@
     特に$a=0$のときは,\,$x\to0^+$を$x\to+0$,\,$x\to0^-$を$x\to-0$と書くこともある.
     $+0$や$-0$は近づく側を表す記法であり,異なる二つの数を表しているわけではない.
 
-    左右の両側から近づけることができる場合,通常の極限$\lim_{x\to a}f(x)$が有限の値$L$になるための必要十分条件は,左右の片側極限がともに存在し,同じ値$L$になることである.
+    左右の両側から近づけることができる場合,通常の\bookterm{limit}{極限}$\lim_{x\to a}f(x)$が有限の値$L$になるための必要十分条件は,左右の\bookterm{one-sided}{片側極限}がともに存在し,同じ値$L$になることである.
     つまり,
     \[
       \lim_{x\to a^-}f(x)
@@ -106,9 +106,9 @@
         1 & (x\ge0)
       \end{cases}
     \]
-    の場合,左側極限は$-1$,右側極限は$1$となる.
+    の場合,\bookterm{left-limit}{左側極限}は$-1$,\bookterm{right-limit}{右側極限}は$1$となる.
     左右の値が異なるので,\,$\lim_{x\to0}f(x)$は存在しない.
-    また,片側極限でも$x=a$での関数の値そのものは関係しない.
+    また,\bookterm{one-sided}{片側極限}でも$x=a$での関数の値そのものは関係しない.
 
   \subsection{\texorpdfstring{ネイピア数$e$の定義}{ネイピア数eの定義}}\label{節：ネイピア数eの定義}
     ネイピア数$e$は,ベルヌーイの定義によって,
@@ -116,7 +116,7 @@
       e=\lim_{n\to\infty}\left(1+\frac{1}{n}\right)^n
     \]
     と定める.
-    以下では,この定義と数列・関数の極限を用いて,オイラーの公式の導出に必要な関係を確認する.
+    以下では,この定義と\bookterm{sequence}{数列}・関数の\bookterm{limit}{極限}を用いて,\bookterm{euler}{オイラーの公式}の導出に必要な関係を確認する.
 
   \subsection{三角関数の基本極限}\label{節：三角関数の基本極限}
     角度は弧度法で表す.
@@ -227,7 +227,7 @@
       \lim_{x\to+0}\frac{\sin x}{x}=1
     \]
     を得る.
-    また,\,$\dfrac{\sin x}{x}$は偶関数であるから,左側から近づけた場合にも同じ極限となる.
+    また,\,$\dfrac{\sin x}{x}$は偶関数であるから,左側から近づけた場合にも同じ\bookterm{limit}{極限}となる.
     よって,
     \[
       \lim_{x\to0}\frac{\sin x}{x}=1
@@ -250,21 +250,21 @@
     となる.
 
   \subsection{自然対数と指数関数の基本極限}\label{節：自然対数と指数関数の基本極限}
-    以下では,\,$\log x$を自然対数$\log_e x$の意味で用いる.
+    以下では,\,$\log x$を自然\bookterm{logarithm}{対数}$\log_e x$の意味で用いる.
     \[
       \lim_{x\to0}\frac{\log(1+x)}{x}
     \]
     について考える.
-    $x$が$0$に十分近く,\,$x\ne0$のとき,対数の性質から
+    $x$が$0$に十分近く,\,$x\ne0$のとき,\bookterm{logarithm}{対数}の性質から
     \[
       \frac{\log(1+x)}{x}
       =\log\left((1+x)^\frac{1}{x}\right)
     \]
-    である.右辺の極限を求めるには,
+    である.右辺の\bookterm{limit}{極限}を求めるには,
     \[
       \lim_{x\to0}(1+x)^\frac{1}{x}=e
     \]
-    を使う.これは,先に指数対数の節で定めた$e$の極限表示から確認できる.
+    を使う.これは,先に指数\bookterm{logarithm}{対数}の節で定めた$e$の\bookterm{limit}{極限}表示から確認できる.
     $x\to 0^+$では,\,$\displaystyle t=\frac{1}{x}\to\infty$と置くと
     \[
       (1+x)^\frac{1}{x}=\left(1+\frac1t\right)^t\longrightarrow e.
@@ -277,7 +277,7 @@
        \left(1+\frac1{t-1}\right)
       \longrightarrow e.
     \end{align*}
-    自然対数は正の数上で連続であり,\,$\log e=1$なので,
+    自然\bookterm{logarithm}{対数}は正の数上で連続であり,\,$\log e=1$なので,
 \BookMathLayout{\[
       \lim_{x\to0}\frac{\log(1+x)}{x}
       =\lim_{x\to0}\log\left\{(1+x)^\frac{1}{x}\right\}
@@ -292,7 +292,7 @@
 \]
 }
     となる.
-    この極限を用いて,\,$\lim_{n\to\infty}\left(1+\frac{a}{n}\right)^n$を求める.
+    この\bookterm{limit}{極限}を用いて,\,$\lim_{n\to\infty}\left(1+\frac{a}{n}\right)^n$を求める.
     $a=0$の場合は,
     \[
       \lim_{n\to\infty}\left(1+\frac{0}{n}\right)^n=1=e^0

@@ -1,7 +1,7 @@
 % subsubsection: 逆数型  \, $\displaystyle a_{n+1}=\frac{pa_n}{qa_n+r}$
 
 \subsubsection{\texorpdfstring{逆数型  \, $\displaystyle a_{n+1}=\frac{pa_n}{qa_n+r}$}{逆数型}}
-    では逆数型の漸化式について扱っていこう.
+    では逆数型の\bookterm{recurrence}{漸化式}について扱っていこう.
     分子が$a_n$の定数倍であることに注目する.
     逆数を取れば,分母にあった一次式を$a_n$で割り,定数と$\frac1{a_n}$の和に分けられる.
     以下では,$p\ne0$かつ$a_n\ne0$であり,$qa_n+r\ne0$として議論する.
@@ -18,27 +18,27 @@
     \begin{align*}
       &b_{n+1}=\frac{r}{p}b_n+\frac{q}{p}
     \end{align*}
-    このようにすることで,特性方程式型の漸化式に帰着できる.
+    このようにすることで,\bookterm{characteristic}{特性方程式}型の\bookterm{recurrence}{漸化式}に帰着できる.
 
-    \noindent \bookblocklink{example-reciprocal-1}{problem}{answer}{【例題】}
+    \noindent \bookblocklink{example-reciprocal-1}{problem}{answer}{【例題】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-reciprocal-1}{problem}{answer}]
       \item $\displaystyle a_1=1,\, a_{n+1}=\frac{a_n}{a_n+1}$
       \item $\displaystyle a_1=1,\, a_{n+1}=\frac{-a_n}{2a_n+1}$
     \end{enumerate}
 
-    \noindent\bookblocklink{example-reciprocal-1}{hint}{problem}{【方針】}
+    \noindent\bookblocklink{example-reciprocal-1}{hint}{problem}{【方針】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-reciprocal-1}{hint}{problem}]
       \item とにかく基本に忠実に解きましょう.
-      \item 逆数を取って一次の漸化式に帰着させましょう.
+      \item 逆数を取って一次の\bookterm{recurrence}{漸化式}に帰着させましょう.
     \end{enumerate}
 
-    \noindent\bookblocklink{example-reciprocal-1}{answer}{problem}{【解答】}
+    \noindent\bookblocklink{example-reciprocal-1}{answer}{problem}{【解答】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-reciprocal-1}{answer}{problem}]
       \item $\displaystyle a_n=\frac{1}{n}$
       \item $\displaystyle a_n=\frac{1}{2(-1)^{n-1}-1}$
     \end{enumerate}
 
-    \noindent\bookblocklink{example-reciprocal-1}{solution}{problem}{【解法】}
+    \noindent\bookblocklink{example-reciprocal-1}{solution}{problem}{【解法】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-reciprocal-1}{solution}{problem}]
       \item $\displaystyle a_1=1,\, a_{n+1}=\frac{a_n}{a_n+1}$\\
             両辺の逆数を取って,
@@ -60,7 +60,7 @@
             \begin{align*}
               &b_{n+1}=-b_n-2,\quad b_1=1
             \end{align*}
-            特性方程式型として$\alpha$を求めると,
+            \bookterm{characteristic}{特性方程式}型として$\alpha$を求めると,
             \[
               \alpha=-\alpha-2 \ \Leftrightarrow\ \alpha=-1
             \]

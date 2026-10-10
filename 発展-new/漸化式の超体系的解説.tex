@@ -15,7 +15,7 @@
 
 \usepackage{amsmath,amsthm,amssymb,amsfonts}
 
-% インライン数式は本文中でも displaystyle で統一する
+% インライン数式は本文中でも displaystyle で統一する。
 \everymath{\displaystyle}
 \usepackage{refcount}
 \usepackage{tikz}
@@ -41,6 +41,7 @@
   \newenvironment{bookcolumns}{\begin{multicols*}{2}}{\end{multicols*}}
 \fi
 \usepackage{enumitem}
+\usepackage{etoolbox}
 \usepackage{url}
 
 % =========================================================
@@ -59,6 +60,13 @@
 
 \tcbuselibrary{breakable}
 
+% 発想・条件・結論を短く読み返すための左罫線。本文の証明は外に置く。
+\newtcolorbox{bookpoint}{breakable,sharp corners,
+  colback=black!3,colframe=black!55,boxrule=0pt,leftrule=1.2pt,
+  left=5pt,right=3pt,top=3pt,bottom=3pt,
+  before skip=6pt,after skip=6pt}
+\newcommand{\bookstep}[1]{\par\medskip\noindent\textbf{#1}\par\nobreak\smallskip}
+
 \definecolor{shadecolor}{gray}{0.80}
 
 
@@ -66,20 +74,22 @@
 % 全体の組版
 % =========================================================
 
-% 段の高さを無理にそろえず、上から順に流す
+% ページの高さを無理にそろえず、上から順に流す
+\raggedbottom
 \raggedcolumns
 
-% 2段組の段間
+% 参照用の段組を使う場合の段間
 \setlength{\columnsep}{12pt}
 
-% 2段組の中央線
+% 段組の中央線
 \setlength{\columnseprule}{0.4pt}
 
 % 段落間隔
-\setlength{\parskip}{0pt}
+\setlength{\parskip}{0.35\baselineskip plus 1pt}
 
 % 行送りの不自然な拡張を必要な箇所だけ許容
 \setlength{\emergencystretch}{1em}
+\linespread{1.05}
 
 
 % =========================================================
@@ -105,7 +115,8 @@
 \setlist[enumerate,1]{
   label=(\arabic*),
   leftmargin=\leftmargini,
-  parsep=3pt
+  parsep=3pt,
+  beginpenalty=10000
 }
 
 
@@ -119,9 +130,12 @@
 
 \setlength{\smallquotemargin}{0.5\leftmargini}
 
+\makeatletter
+\AtBeginEnvironment{quote}{\@beginparpenalty=10000}
 \newenvironment{smallquote}
   {%
     \begin{list}{}{%
+      \@beginparpenalty=10000%
       \setlength{\leftmargin}{\smallquotemargin}%
       \setlength{\rightmargin}{\smallquotemargin}%
       \setlength{\topsep}{0.35\baselineskip}%
@@ -132,6 +146,7 @@
     \item[]%
   }
   {\end{list}}
+\makeatother
 
 
 % =========================================================
@@ -170,6 +185,10 @@
 \setcounter{secnumdepth}{4}
 
 \input{../tex/book-links.tex}
+% 用語は本文と同じ見た目で、巻末の意味と参照先へリンクする。
+\DeclareRobustCommand{\bookterm}[2]{\hyperlink{term:#1}{#2}}
+\pdfstringdefDisableCommands{\def\bookterm#1#2{#2}}
+
 \hypersetup{
   pdftitle={漸化式の超体系的解説},
   pdfauthor={MAS256},
@@ -265,13 +284,20 @@
 \author{MAS256}
 \maketitle
 
-\tableofcontents
-\pagebreak
+% 目次の段落間隔・折り返し行の行送りは元の設定を維持する。
+% 本文の段落間隔と行送りの調整は目次に適用しない。
+\begingroup
+  \setlength{\parskip}{0pt}
+  \linespread{1}\selectfont
+  \tableofcontents
+  \pagebreak
+\endgroup
 \input{第1章 はじめに/はじめに.tex}
-\input{第2章 計算の基本/計算の基本.tex}
+\input{第2章 計算の基本/前提知識と計算の基本.tex}
 \input{第3章 漸化式の解説/漸化式の解説.tex}
 \input{第4章 実際の解き方/実際の解き方.tex}
 \input{第5章 付録/付録.tex}
+\input{第7章 用語と計算の参照/用語と計算の参照.tex}
 \input{第6章 参考文献/参考文献.tex}
 
 \end{document}

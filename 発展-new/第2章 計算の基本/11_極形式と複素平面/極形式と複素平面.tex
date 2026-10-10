@@ -2,9 +2,9 @@
 
 \section{極形式と複素平面}\label{節：極形式と複素平面}
   \noindent\textbf{【本編で使う場面】}\par
-  複素数の積を回転と拡大・縮小として読む.\sectionref*{節：1次分数型}の図形的解釈と\sectionref*{節：虚数解型隣接3項間漸化式}で使う.極形式の計算には三角関数を,オイラーの公式の導出には二項定理と極限を使う.
+  複素数の積を回転と拡大・縮小として読む.\sectionref*{節：1次分数型}の図形的解釈と\sectionref*{節：虚数解型隣接3項間漸化式}で使う.\bookterm{polar}{極形式}の計算には\bookterm{trigonometric}{三角関数}を,\bookterm{euler}{オイラーの公式}の導出には\bookterm{binomial}{二項定理}と\bookterm{limit}{極限}を使う.
 
-本節では,座標平面における回転,移動,縮小,拡大およびド・モアブルの定理,オイラーの公式について扱う.
+本節では,座標平面における回転,移動,縮小,拡大および\bookterm{de-moivre}{ド・モアブルの定理},\bookterm{euler}{オイラーの公式}について扱う.
 
   \subsection{複素平面と極形式}\label{節：複素平面と極形式}
   \BookFigPolar
@@ -14,7 +14,7 @@
       z=x+iy
     \]
     と表される.
-    この複素数$z$を座標平面上の点$(x,y)$に対応させたものを複素平面という.
+    この複素数$z$を座標平面上の点$(x,y)$に対応させたものを\bookterm{complex-plane}{複素平面}という.
     横軸を実軸,縦軸を虚軸とする.
 
     点$(x,y)$と原点との距離は
@@ -33,12 +33,12 @@
       z=\rho(\cos\theta+i\sin\theta)
     \]
     と表される.
-    この表し方を複素数の極形式という.
+    この表し方を複素数の\bookterm{polar}{極形式}という.
 
     $\rho$は$z$の絶対値であり,\,$|z|=\rho$と書く.
-    $z\ne0$のとき,\,$\theta$を$z$の偏角という.
-    偏角には$2\pi$の整数倍を加えても同じ点を表すため,一意には定まらない.
-    $z=0$では$\rho=0$となり,偏角は定まらない.
+    $z\ne0$のとき,\,$\theta$を$z$の\bookterm{argument}{偏角}という.
+    \bookterm{argument}{偏角}には$2\pi$の整数倍を加えても同じ点を表すため,一意には定まらない.
+    $z=0$では$\rho=0$となり,\bookterm{argument}{偏角}は定まらない.
 
     例えば,\,$\rho=2,\,\theta=\dfrac{\pi}{3}$の点は
     \[
@@ -52,7 +52,7 @@
       (1,\sqrt{3})
     \]
     である.
-    直交座標では$(1,\sqrt{3})$,極形式では
+    直交座標では$(1,\sqrt{3})$,\bookterm{polar}{極形式}では
     \[
       2\left(
         \cos\frac{\pi}{3}
@@ -79,7 +79,7 @@
       \qquad(s>0)
     \]
     を掛ける.
-    三角関数の加法定理より,
+    \bookterm{trigonometric}{三角関数}の\bookterm{addition}{加法定理}より,
     \begin{align*}
       cz
         &=s\rho
@@ -88,7 +88,7 @@
         &=s\rho
           \{\cos(\theta+\phi)+i\sin(\theta+\phi)\}.
     \end{align*}
-    したがって,絶対値は$s$倍され,偏角は$\phi$だけ増える.
+    したがって,絶対値は$s$倍され,\bookterm{argument}{偏角}は$\phi$だけ増える.
 
     特に,\,$s=1$なら原点を中心とする角$\phi$の回転である.
     $s>1$なら原点からの距離が$s$倍される拡大,\,$0<s<1$なら原点からの距離が$s$倍される縮小となる.
@@ -102,8 +102,8 @@
     まず中心からの差$z-z_0$に$c$を掛けて回転・拡大縮小し,その後$w_0$を加えて中心を移す.
 
   \subsection{ド・モアブルの定理}\label{節：ド・モアブルの定理}
-    まず,極形式どうしの積を考える.
-    三角関数の加法定理から,
+    まず,\bookterm{polar}{極形式}どうしの積を考える.
+    \bookterm{trigonometric}{三角関数}の\bookterm{addition}{加法定理}から,
     \begin{align*}
       &(\cos\alpha+i\sin\alpha)
        (\cos\beta+i\sin\beta)\\
@@ -115,7 +115,7 @@
        \cos(\alpha+\beta)+i\sin(\alpha+\beta)
     \end{align*}
     となる.
-    つまり,絶対値が$1$の複素数どうしを掛けると,偏角が加わる.
+    つまり,絶対値が$1$の複素数どうしを掛けると,\bookterm{argument}{偏角}が加わる.
 
     これを繰り返すと,任意の整数$n$について
     \[
@@ -124,9 +124,9 @@
       \cos(n\theta)+i\sin(n\theta)
     \]
     が成り立つ.
-    これをド・モアブルの定理という.
+    これを\bookterm{de-moivre}{ド・モアブルの定理}という.
 
-    正の整数$n$については,数学的帰納法で確かめられる.
+    正の整数$n$については,\bookterm{induction}{数学的帰納法}で確かめられる.
     $n=1$では明らかであり,\,$n$で成り立つと仮定すると,
     \begin{align*}
       &(\cos\theta+i\sin\theta)^{n+1}\\
@@ -136,7 +136,7 @@
     \end{align*}
     となる.
     また,\,$n=0$では両辺とも$1$である.
-    $n<0$の場合は,加法定理より
+    $n<0$の場合は,\bookterm{addition}{加法定理}より
     \[
       (\cos\theta+i\sin\theta)
       (\cos(-\theta)+i\sin(-\theta))=1
@@ -161,10 +161,10 @@
       -1
     \]
     である.
-    このように極形式で表すと,累乗では絶対値を累乗し,偏角を指数倍すればよい.
+    このように\bookterm{polar}{極形式}で表すと,累乗では絶対値を累乗し,\bookterm{argument}{偏角}を指数倍すればよい.
 
   \subsection{オイラーの公式}\label{節：オイラーの公式}
-    次に,複素数の指数表示$e^{i\theta}$を極限を用いて考える.
+    次に,複素数の指数表示$e^{i\theta}$を\bookterm{limit}{極限}を用いて考える.
     ここでは
     \[
       e^{i\theta}
@@ -173,7 +173,7 @@
       \left(1+\frac{i\theta}{n}\right)^n
     \]
     と定める.
-    前節で準備した極限を用いて,この値を求める.
+    前節で準備した\bookterm{limit}{極限}を用いて,この値を求める.
 
     $\theta\ne0$とし,\,$\phi_n$を
     \[
@@ -199,10 +199,10 @@
       =
       r_n(\cos\phi_n+i\sin\phi_n)
     \]
-    と極形式で表せる.
+    と\bookterm{polar}{極形式}で表せる.
 
-    まず,\,$r_n^n$の極限を求める.
-    自然対数の基本極限より,
+    まず,\,$r_n^n$の\bookterm{limit}{極限}を求める.
+    自然\bookterm{logarithm}{対数}の基本\bookterm{limit}{極限}より,
     \begin{align*}
       \log(r_n^n)
         &=
@@ -223,7 +223,7 @@
     \]
     である.
 
-    次に,\,$n\phi_n$の極限を求める.
+    次に,\,$n\phi_n$の\bookterm{limit}{極限}を求める.
     $\tan\phi_n=\dfrac{\theta}{n}\to0$より$\phi_n\to0$であり,
     \[
       n\phi_n
@@ -234,7 +234,7 @@
     となる.
     ここでは,\,$\lim_{x\to0}\dfrac{x}{\tan x}=1$を用いた.
 
-    ド・モアブルの定理により,
+    \bookterm{de-moivre}{ド・モアブルの定理}により,
     \[
       \left(1+\frac{i\theta}{n}\right)^n
       =
@@ -242,7 +242,7 @@
       \{\cos(n\phi_n)+i\sin(n\phi_n)\}
     \]
     である.
-    $r_n^n\to1,\,n\phi_n\to\theta$と三角関数の連続性から,
+    $r_n^n\to1,\,n\phi_n\to\theta$と\bookterm{trigonometric}{三角関数}の連続性から,
     \[
       e^{i\theta}
       =
@@ -253,9 +253,9 @@
     \]
     を得る.
     $\theta=0$の場合も両辺が$1$であり,同じ式が成り立つ.
-    これをオイラーの公式という.
+    これを\bookterm{euler}{オイラーの公式}という.
 
-    オイラーの公式により,複素数の極形式
+    \bookterm{euler}{オイラーの公式}により,複素数の\bookterm{polar}{極形式}
     \[
       z=\rho(\cos\theta+i\sin\theta)
     \]
@@ -264,7 +264,7 @@
       z=\rho e^{i\theta}
     \]
     とも表せる.
-    さらに,ド・モアブルの定理は
+    さらに,\bookterm{de-moivre}{ド・モアブルの定理}は
 \BookMathLayout{\[
       z^n
       =
@@ -284,7 +284,7 @@ z^n&=\rho^n e^{in\theta}\\
     と書ける.
 
   \subsection{複素数の実数乗}\label{節：複素数の実数乗}
-    $z=\rho e^{i\theta}$で$\rho>0$とし,偏角$\theta$を一つ選んで固定する.
+    $z=\rho e^{i\theta}$で$\rho>0$とし,\bookterm{argument}{偏角}$\theta$を一つ選んで固定する.
     この選び方に基づいて,実数$x$に対する複素数のべき乗を
     \[
       z^x=\rho^x e^{ix\theta}
@@ -293,8 +293,8 @@ z^n&=\rho^n e^{in\theta}\\
     \]
     と定めることができる.
 
-    ただし,偏角は$\theta+2\pi k$とも表せるため,整数でない$x$に対する$z^x$の値は,どの偏角を選ぶかによって変わる.
-    $x$が整数なら,選ぶ偏角によらず同じ値になる.
+    ただし,\bookterm{argument}{偏角}は$\theta+2\pi k$とも表せるため,整数でない$x$に対する$z^x$の値は,どの\bookterm{argument}{偏角}を選ぶかによって変わる.
+    $x$が整数なら,選ぶ\bookterm{argument}{偏角}によらず同じ値になる.
     また,\,$x=\dfrac{m}{n}$を有理数とし,\,$n\ge1$として上の定義で得た値を$n$乗すると,
     \[
       (z^{\frac{m}{n}})^n=z^m
@@ -306,17 +306,17 @@ z^n&=\rho^n e^{in\theta}\\
     ここまでの議論が長くなったので,扱った内容をまとめる.
 
     複素数$z=x+iy$を座標平面上の点$(x,y)$に対応させると,複素数を平面上の点として考えられる.
-    極形式
+    \bookterm{polar}{極形式}
     \[
       z=\rho(\cos\theta+i\sin\theta)
     \]
-    では,\,$\rho$が原点からの距離を表し,\,$\theta$が偏角を表す.
+    では,\,$\rho$が原点からの距離を表し,\,$\theta$が\bookterm{argument}{偏角}を表す.
 
-    複素数に一定の数を加えることは平行移動に対応し,極形式で表した複素数を掛けることは回転と拡大縮小に対応する.
-    積を繰り返すと偏角が加わるため,ド・モアブルの定理が得られる.
-    また,\,\sectionref{節：極限}で準備した極限を用いるとオイラーの公式
+    複素数に一定の数を加えることは平行移動に対応し,\bookterm{polar}{極形式}で表した複素数を掛けることは回転と拡大縮小に対応する.
+    積を繰り返すと\bookterm{argument}{偏角}が加わるため,\bookterm{de-moivre}{ド・モアブルの定理}が得られる.
+    また,\,\sectionref{節：極限}で準備した\bookterm{limit}{極限}を用いると\bookterm{euler}{オイラーの公式}
     \[
       e^{i\theta}=\cos\theta+i\sin\theta
     \]
     が導かれる.
-    このように,複素数を極形式で表すことで,座標平面上の変換と複素数の計算を結び付けられる.
+    このように,複素数を\bookterm{polar}{極形式}で表すことで,座標平面上の変換と複素数の計算を結び付けられる.

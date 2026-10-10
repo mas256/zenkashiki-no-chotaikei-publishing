@@ -1,0 +1,26 @@
+\section{漸化式と数列の基本性質}\label{節：数列と漸化式}
+  まずは\bookterm{recurrence}{漸化式}についてきちんと定義しておこう.
+
+数を順に並べたものを\bookterm{sequence}{数列}という。各項を$a_1,a_2,a_3,\ldots$と書く。
+添字は、\bookterm{sequence}{数列}の中での位置を表す。
+
+例えば、$a_1=1$から始めて、直前の項に$2$を足すと、
+\[
+  1,\ 3,\ 5,\ 7,\ \ldots
+\]
+という\bookterm{sequence}{数列}ができる。この規則を式で書けば、
+\[
+  a_{n+1}=a_n+2\qquad(n\ge1)
+\]
+となる。項どうしの関係によって\bookterm{sequence}{数列}を定める式を、\bookterm{recurrence}{漸化式}という。
+最初に与える値は\bookterm{initial}{初期条件}と呼ばれる。
+
+この例では、$a_1$が決まると$a_2$が決まり、その値から$a_3$が決まる。
+次の項が一意に計算できる限り、同じ\bookterm{initial}{初期条件}と同じ規則から同じ\bookterm{sequence}{数列}ができる。
+直前の二項を使う規則では、通常、初めの二項を与える。
+分母が零になるなど、途中で計算できなくなる場合は、その範囲を確かめる。
+
+番号$n$から$a_n$を直接求める式が\bookterm{general}{一般項}である。
+上の\bookterm{sequence}{数列}なら$a_n=2n-1$となる。
+\bookterm{recurrence}{漸化式}は一歩ずつ\bookterm{sequence}{数列}を作り、\bookterm{general}{一般項}はその結果を番号から表す。
+本編では、差や比を追い、元の\bookterm{sequence}{数列}とは別の量を作ることで、この二つを結び付けていく。

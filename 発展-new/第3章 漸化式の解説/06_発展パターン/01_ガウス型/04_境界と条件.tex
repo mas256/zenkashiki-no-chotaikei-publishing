@@ -10,7 +10,7 @@
     \]
     となる.商の整数部分が増える境界を検出しているのである.
     同様に,\,$\lfloor\sqrt n\rfloor-\lfloor\sqrt{n-1}\rfloor$は$n$が平方数のときだけ1になる.
-    \textbf{式の形で条件を表し,条件に応じて変化する漸化式を作れる}という使い方である.
+    \textbf{式の形で条件を表し,条件に応じて変化する\bookterm{recurrence}{漸化式}を作れる}という使い方である.
 
     二つの数の和でも,整数の境界を越えたかを調べられる.
     小数部分を$\{x\}=x-\lfloor x\rfloor$と書けば,
@@ -19,11 +19,11 @@
       &\qquad=\lfloor\{x\}+\{y\}\rfloor\in\{0,1\}.
     \end{align*}
     これは小数部分の和で繰り上がりが起きたときだけ1になる.
-    床関数は一般には和に分配できないが,その差には意味がある.
+    \bookterm{floor-function}{床関数}は一般には和に分配できないが,その差には意味がある.
 
-    \noindent \bookblocklink{example-gauss-role-4}{problem}{answer}{【例題】}
+    \noindent \bookblocklink{example-gauss-role-4}{problem}{answer}{【例題】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-4}{problem}{answer}]
-      \item 数列を次のように定める.一般項を求め,階差の意味を説明せよ.
+      \item \bookterm{sequence}{数列}を次のように定める.\bookterm{general}{一般項}を求め,\bookterm{difference}{階差}の意味を説明せよ.
             \[
               a_0=0,\qquad a_n=a_{n-1}+d_n\quad(n\ge1),
             \]
@@ -37,13 +37,13 @@
             \]
     \end{enumerate}
 
-    \noindent \bookblocklink{example-gauss-role-4}{hint}{problem}{【方針】}
+    \noindent \bookblocklink{example-gauss-role-4}{hint}{problem}{【方針】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-4}{hint}{problem}]
       \item 各差を倍数かどうかの判定として読みます.
-            和を取ると,途中の床関数が打ち消し合います.
+            和を取ると,途中の\bookterm{floor-function}{床関数}が打ち消し合います.
     \end{enumerate}
 
-    \noindent \bookblocklink{example-gauss-role-4}{answer}{problem}{【解答】}
+    \noindent \bookblocklink{example-gauss-role-4}{answer}{problem}{【解答】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-4}{answer}{problem}]
       \item \[
               a_n=\left\lfloor\frac n4\right\rfloor
@@ -52,9 +52,9 @@
             \,$d_n$は4の倍数だけなら1,6の倍数だけなら$-1$,両方またはいずれでもないなら0である.
     \end{enumerate}
 
-    \noindent \bookblocklink{example-gauss-role-4}{solution}{problem}{【解法】}
+    \noindent \bookblocklink{example-gauss-role-4}{solution}{problem}{【解法】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-4}{solution}{problem}]
-      \item 床関数の差の性質から,\,$d_n$は【解答】に述べた条件を表す.
+      \item \bookterm{floor-function}{床関数}の差の性質から,\,$d_n$は【解答】に述べた条件を表す.
             また,\,$a_n=\sum_{k=1}^{n}d_k$であり,
             \begin{align*}
               \sum_{k=1}^{n}\left(
@@ -66,7 +66,6 @@
                 \left\lfloor\frac{k-1}{6}\right\rfloor\right)
                 &=\left\lfloor\frac n6\right\rfloor.
             \end{align*}
-            両式の差から一般項を得る.\,$n=0$でも両辺は0である.
+            両式の差から\bookterm{general}{一般項}を得る.\,$n=0$でも両辺は0である.
             条件を一つずつ場合分けして値を追う方法と,差を足して一度に求める方法がある.
     \end{enumerate}
-

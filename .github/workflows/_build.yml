@@ -100,6 +100,12 @@ jobs:
       - name: Verify learning paths, examples, and PDF destinations
         run: node scripts/verify-learning-design.mjs --pdf
 
+      - name: Verify recurrence connections with exact arithmetic
+        run: python3 scripts/verify-issue26-connections.py
+
+      - name: Verify glossary and exercise navigation
+        run: python3 scripts/verify-reading-navigation.py --pdf '発展-new/漸化式の超体系的解説.pdf'
+
       - name: Collect outputs and build-info
         working-directory: 発展-new
         run: |

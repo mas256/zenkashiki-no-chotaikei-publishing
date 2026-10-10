@@ -1,18 +1,22 @@
 % subsection: 階比型 \, $a_{n+1}=f(n)a_n$
 
   \subsection{\texorpdfstring{階比型 \, $a_{n+1}=f(n)a_n$}{階比型}}\label{節：階比型}
-    階差型では変化を足した.ここでは,各段階の倍率を掛け合わせる.
+  \begin{bookpoint}
+    \textbf{倍率を掛ける}\par
+    添字ごとの倍率を掛け合わせる方法と,その倍率に合う因子で割る方法を比べよう.零で割らない条件は共通である.
+  \end{bookpoint}
+    \bookterm{difference}{階差}型では変化を足した.ここでは,各段階の倍率を掛け合わせる.
     難しい点は,積を計算することと,倍率をそろえる因子を見つけることに分かれる.
-    まず積の表示を学び,その後に正規化の因子を選ぶ理由を見る.
+    まず積の表示を学び,その後に\bookterm{normalize}{正規化}の因子を選ぶ理由を見る.
 
     具体的な説明の前に1つだけ記号を新たに導入しておく.
-    適当な数が並べられた数列$x_n$が存在した時,
+    適当な数が並べられた\bookterm{sequence}{数列}$x_n$が存在した時,
     \[
       \prod_{i=1}^n x_i
       =x_1\times x_2\times\cdots\times x_n
     \]
     となるような記号$\prod$（ラージパイ）を定義する.
-    これを総積記号といい,積を表す.
+    これを\bookterm{product}{総積}記号といい,積を表す.
     また,一般に以下が成り立つ.
     \begin{align*}
       &\prod_{i=1}^{n}i=n!\\
@@ -21,9 +25,9 @@
       &\prod_{i=1}^{n}a_i=\displaystyle\prod_{i=1+k}^{n+k}a_{i-k}\\
       &\prod_{i=1}^{n}(i+k)=\dfrac{(n+k)!}{k!}
     \end{align*}
-    ここでの$a_i$や$b_i$は漸化式等によって定義されるような,法則性を持った数列である必要はなく,
+    ここでの$a_i$や$b_i$は\bookterm{recurrence}{漸化式}等によって定義されるような,法則性を持った\bookterm{sequence}{数列}である必要はなく,
     「1から順に番号が振られた,数の並び」ぐらいのイメージで問題ない.
-    では再び, \,$a_n$の一般項を求めていく.
+    では再び, \,$a_n$の\bookterm{general}{一般項}を求めていく.
     \begin{align*}
       &a_{n+1}=f(n)a_n\\
       &a_{n+1}=f(n)\{f(n-1)a_{n-1}\}\\
@@ -34,7 +38,91 @@
       &\therefore \quad a_n=a_1 \prod_{k=1}^{n-1} f(k)
     \end{align*}
     この積による表示は$f(k)=0$となる場合も成り立つ(空積は$1$とする).
-    一方,以下では非零の因子を掛けて倍率をそろえる.これは\sectionref*{節：補助数列・正規化}の正規化に当たる.
+    \noindent \bookblocklink{example-ratio-1}{problem}{answer}{【例題】}\par\nobreak
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-ratio-1}{problem}{answer}]
+      \item $\displaystyle a_1=1,\, a_{n+1}=2na_n$
+      \item $\displaystyle a_1=2,\, a_{n+1}=\frac{n+2}{n}a_n$
+      \item $\displaystyle a_1=1,\, a_{n+1}=n(n+1)a_n$
+    \end{enumerate}
+
+    \noindent\bookblocklink{example-ratio-1}{hint}{problem}{【方針】}\par\nobreak
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-ratio-1}{hint}{problem}]
+      \item 係数$2n$のうち$n$を階乗で吸収すれば,一定の倍率$2$だけが残ります.
+      \item $n(n+1)$を一つのまとまりとして,隣の添字にずらした比を計算してみましょう.倍率$\frac{n+2}{n}$が現れます.
+      \item ちょっと頭を捻ってみましょう.先程までは$n!$で割りましたが,今回はうまくいくでしょうか.\,$f(n)=n(n+1)$の形に合わせて,どのように階乗を組み合わせれば「きれい」になるか考えてみてください.
+    \end{enumerate}
+
+    \noindent\bookblocklink{example-ratio-1}{answer}{problem}{【解答】}\par\nobreak
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-ratio-1}{answer}{problem}]
+      \item $\displaystyle a_n=(n-1)!\cdot 2^{n-1}$
+      \item $\displaystyle a_n=n(n+1)$
+      \item $\displaystyle a_n=n!(n-1)!$
+    \end{enumerate}
+
+    \noindent\bookblocklink{example-ratio-1}{solution}{problem}{【解法】}\par\nobreak
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-ratio-1}{solution}{problem}]
+      \item $\displaystyle a_1=1,\, a_{n+1}=2na_n$\\
+            両辺を$n!$で割って,
+            \begin{align*}
+              &a_{n+1}=2na_n\\
+              &\frac{a_{n+1}}{n!}=2\frac{a_n}{(n-1)!}
+            \end{align*}
+            ここで
+            \[
+              b_n=\frac{a_n}{(n-1)!}
+            \]
+            と置くと,
+            \begin{align*}
+              &b_{n+1}=2b_n\\
+              &b_n=b_1\cdot 2^{n-1}
+            \end{align*}
+            $b_n$を$a_n$に戻して
+            \begin{align*}
+              &\frac{a_n}{(n-1)!}=\frac{a_1}{(1-1)!}2^{n-1}\\
+              &\therefore \quad a_n=a_1 \cdot (n-1)! \cdot 2^{n-1}
+            \end{align*}
+
+      \item $\displaystyle a_1=2,\, a_{n+1}=\frac{n+2}{n}a_n$
+            \begin{align*}
+              &a_{n+1}=\frac{n+2}{n}a_n\\
+              &na_{n+1}=(n+2)a_n\\
+            \end{align*}
+            両辺を
+            \[
+              n(n+1)(n+2)
+            \]
+            で割って,
+            \begin{align*}
+              &\frac{a_{n+1}}{(n+1)(n+2)}=\frac{a_{n}}{n(n+1)}
+            \end{align*}
+            $a_n$について遡っていくと
+            \begin{align*}
+              &\frac{a_{n}}{n(n+1)}=\frac{a_{n-1}}{(n-1)(n)}=\\
+              &\frac{a_{n-2}}{(n-2)(n-1)}=\cdots=\frac{a_{1}}{1(1+1)}\\
+              &\therefore \quad \frac{a_{n}}{n(n+1)}=\frac{a_{1}}{1(1+1)}\\
+              &a_n=n(n+1)
+            \end{align*}
+      \item $\displaystyle a_1=1,\, a_{n+1}=n(n+1)a_n$\\
+              両辺を$n!(n+1)!$で割って,
+            \begin{align*}
+              &a_{n+1}=n(n+1)a_n\\
+              &\frac{a_{n+1}}{n!(n+1)!}=\frac{n(n+1)a_n}{n!(n+1)!}\\
+              &\frac{a_{n+1}}{n!(n+1)!}=\frac{a_n}{n!(n-1)!}\\
+              &\therefore \quad \frac{a_n}{n!(n-1)!}=\frac{a_1}{1!(1-1)!}\\
+              &a_n=n!(n-1)!
+            \end{align*}
+    \end{enumerate}
+
+    因子を見つけにくければ,先に倍率の積を書き,隣り合う分子と分母が相殺するかを調べるとよい.
+    \bookterm{normalize}{正規化}はその積の計算を,一歩ずつの更新として表したものである.
+
+    なお,ここでは\bookterm{ratio}{階比}型\bookterm{recurrence}{漸化式}$a_{n+1}=f(n)a_n$について,\,$f(n)$が指数関数でない場合について扱ったが,
+    より複雑な関数であったり指数関数を用いたりする場合は\bookterm{logarithm}{対数}を用いることがある.
+    それら次節応用7パターンで解説する.
+
+
+\bookstep{掛ける量を選び、倍率をそろえる}\label{解釈：階比と正規化}
+    一方,以下では非零の因子を掛けて倍率をそろえる.これは\sectionref*{節：補助数列・正規化}の\bookterm{normalize}{正規化}に当たる.
     $f(k)\ne0$を仮定し,常に$g(n)\ne0$となるように選ぶ.
     探すのは,\,$\frac{g(n+1)}{g(n)}$が元の倍率$f(n)$の逆数になる因子である.
     与式の両辺に$g(n+1)$を掛けると,
@@ -59,86 +147,3 @@
     \end{align*}
     が言える.
     多くはこの場合が出題されるため,演習問題はこの手法を使って解くものを揃えた.
-    
-    \noindent \bookblocklink{example-ratio-1}{problem}{answer}{【例題】}
-    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-ratio-1}{problem}{answer}]
-      \item $\displaystyle a_1=1,\, a_{n+1}=2na_n$
-      \item $\displaystyle a_1=2,\, a_{n+1}=\frac{n+2}{n}a_n$
-      \item $\displaystyle a_1=1,\, a_{n+1}=n(n+1)a_n$
-    \end{enumerate}
-
-    \noindent\bookblocklink{example-ratio-1}{hint}{problem}{【方針】}
-    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-ratio-1}{hint}{problem}]
-      \item 係数$2n$のうち$n$を階乗で吸収すれば,一定の倍率$2$だけが残ります.
-      \item $n(n+1)$を一つのまとまりとして,隣の添字にずらした比を計算してみましょう.倍率$\frac{n+2}{n}$が現れます.
-      \item ちょっと頭を捻ってみましょう.先程までは$n!$で割りましたが,今回はうまくいくでしょうか.\,$f(n)=n(n+1)$の形に合わせて,どのように階乗を組み合わせれば「きれい」になるか考えてみてください.
-    \end{enumerate}
-
-    \noindent\bookblocklink{example-ratio-1}{answer}{problem}{【解答】}
-    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-ratio-1}{answer}{problem}]
-      \item $\displaystyle a_n=(n-1)!\cdot 2^{n-1}$
-      \item $\displaystyle a_n=n(n+1)$
-      \item $\displaystyle a_n=n!(n-1)!$
-    \end{enumerate}
-
-    \noindent\bookblocklink{example-ratio-1}{solution}{problem}{【解法】}
-    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-ratio-1}{solution}{problem}]
-      \item $\displaystyle a_1=1,\, a_{n+1}=2na_n$\\
-            両辺を$n!$で割って,
-            \begin{align*}
-              &a_{n+1}=2na_n\\
-              &\frac{a_{n+1}}{n!}=2\frac{a_n}{(n-1)!}
-            \end{align*}
-            ここで
-            \[
-              b_n=\frac{a_n}{(n-1)!}
-            \]
-            と置くと,
-            \begin{align*} 
-              &b_{n+1}=2b_n\\
-              &b_n=b_1\cdot 2^{n-1}
-            \end{align*}
-            $b_n$を$a_n$に戻して
-            \begin{align*} 
-              &\frac{a_n}{(n-1)!}=\frac{a_1}{(1-1)!}2^{n-1}\\
-              &\therefore \quad a_n=a_1 \cdot (n-1)! \cdot 2^{n-1}
-            \end{align*}
-            
-      \item $\displaystyle a_1=2,\, a_{n+1}=\frac{n+2}{n}a_n$
-            \begin{align*}
-              &a_{n+1}=\frac{n+2}{n}a_n\\
-              &na_{n+1}=(n+2)a_n\\
-            \end{align*}
-            両辺を
-            \[
-              n(n+1)(n+2)
-            \]
-            で割って,
-            \begin{align*}        
-              &\frac{a_{n+1}}{(n+1)(n+2)}=\frac{a_{n}}{n(n+1)}
-            \end{align*}
-            $a_n$について遡っていくと
-            \begin{align*}
-              &\frac{a_{n}}{n(n+1)}=\frac{a_{n-1}}{(n-1)(n)}=\\
-              &\frac{a_{n-2}}{(n-2)(n-1)}=\cdots=\frac{a_{1}}{1(1+1)}\\
-              &\therefore \quad \frac{a_{n}}{n(n+1)}=\frac{a_{1}}{1(1+1)}\\
-              &a_n=n(n+1)
-            \end{align*}
-      \item $\displaystyle a_1=1,\, a_{n+1}=n(n+1)a_n$\\
-              両辺を$n!(n+1)!$で割って,
-            \begin{align*}
-              &a_{n+1}=n(n+1)a_n\\
-              &\frac{a_{n+1}}{n!(n+1)!}=\frac{n(n+1)a_n}{n!(n+1)!}\\
-              &\frac{a_{n+1}}{n!(n+1)!}=\frac{a_n}{n!(n-1)!}\\
-              &\therefore \quad \frac{a_n}{n!(n-1)!}=\frac{a_1}{1!(1-1)!}\\
-              &a_n=n!(n-1)!
-            \end{align*}
-    \end{enumerate}
-
-    因子を見つけにくければ,先に倍率の積を書き,隣り合う分子と分母が相殺するかを調べるとよい.
-    正規化はその積の計算を,一歩ずつの更新として表したものである.
-
-    なお,ここでは階比型漸化式$a_{n+1}=f(n)a_n$について,\,$f(n)$が指数関数でない場合について扱ったが,
-    より複雑な関数であったり指数関数を用いたりする場合は対数を用いることがある.
-    それら次節応用7パターンで解説する.
-    

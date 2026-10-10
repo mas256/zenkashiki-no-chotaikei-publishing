@@ -1,0 +1,70 @@
+\subsection{変わらない量から線形の関係を取り出す}\label{節：不変量から線形の関係}
+  \sectionref*{節：基本対称式型}では,恒等式に合う量へ置き換えた.
+  ここでは,\textbf{更新しても変わらない関係}を見つけ,
+  \bookterm{nonlinear}{非線形}の式を\sectionref*{節：隣接3項間漸化式型}へ戻す.
+
+  \subsubsection{数項の計算から,候補を作る}
+  \[
+    a_1=a_2=1,\qquad
+    a_{n+2}=\frac{a_{n+1}^2+1}{a_n}\quad(n\ge1)
+  \]
+  を考える.初めの数項は$1,1,2,5,13,\ldots$である.
+  正の二項から次の項も正になるので,すべての分母は非零である.
+  数項から$a_{n+2}=3a_{n+1}-a_n$を予想できるが,これだけでは証明にならない.
+
+  分母を払った$a_na_{n+2}=a_{n+1}^2+1$を見る.
+  $x=a_n$, $y=a_{n+1}$, $z=a_{n+2}$と書くと$xz=y^2+1$であり,
+  前後の$x,z$が対称に現れる.
+  \bookterm{linear}{線形}の関係$x+z=Ky$を探すなら,係数の候補は
+  \[
+    K=\frac{x+z}{y}=\frac{x^2+y^2+1}{xy}
+  \]
+  となる.\textbf{目標とする\bookterm{linear}{線形}の形から,一定であってほしい量を作った}のである.
+
+  \subsubsection{更新の前後で,同じ値になることを示す}
+  作った量を
+  \BookMathLayout{\[
+    I_n=\frac{a_n^2+a_{n+1}^2+1}{a_na_{n+1}}
+  \]}{\[
+    \begin{aligned}
+      I_n=\frac{a_n^2+a_{n+1}^2+1}{a_na_{n+1}}
+    \end{aligned}
+  \]}
+  とする.$xz=y^2+1$より,
+  \[
+    \begin{aligned}
+      \frac{x^2+y^2+1}{xy}&=\frac{x+z}{y},\\
+      \frac{y^2+z^2+1}{yz}&=\frac{x+z}{y}
+    \end{aligned}
+  \]
+  なので$I_{n+1}=I_n$である.更新の前後で値が変わらないこの量を\textbf{\bookterm{invariant}{不変量}}という.
+  $I_1=3$だから,すべての$n$について
+  \[
+    a_n+a_{n+2}=3a_{n+1}
+  \]
+  を得る.初めの二項を保ったまま\bookterm{linear}{線形}の\bookterm{recurrence}{漸化式}へ帰着できた.
+  この\bookterm{linear}{線形}の式と元の式が全く同じ条件を表すと無条件に主張したわけではなく,
+  元の\bookterm{sequence}{数列}について保存の証明からこの関係を導いた点に注意しよう.
+
+  \subsubsection{既習の解法で求め,元の問いへ戻す}
+  $\alpha=\frac{3+\sqrt5}{2}$, $\beta=\frac{3-\sqrt5}{2}$とすると,
+  \bookterm{characteristic}{特性方程式}$x^2-3x+1=0$から
+  \[
+    a_n=\frac{\alpha^{n-1}+\beta^{n-1}}2
+       -\frac{\alpha^{n-1}-\beta^{n-1}}{2\sqrt5}
+  \]
+  である.初めの二項はともに$1$になる.
+  元の\bookterm{sequence}{数列}から\bookterm{linear}{線形}の更新が導かれ,\bookterm{linear}{線形}の更新と初期値で解が一意に決まるため,
+  この\bookterm{general}{一般項}は元の\bookterm{sequence}{数列}にも一致する.
+  また\bookterm{linear}{線形}の式から整数性も帰納的に分かる.
+
+  \begin{bookpoint}
+    \textbf{\bookterm{invariant}{不変量}の使い方}\par
+    保存される式を見つけることが終点ではない.
+    初期値でその値を決め,元の更新と合わせて,解きやすい関係を取り出す.
+    \bookterm{invariant}{不変量}が常に見つかるわけでも,あれば必ず\bookterm{general}{一般項}が求まるわけでもない.
+  \end{bookpoint}
+  初期値を変えたときの係数は\bookproblemref{practice-connections}{2}{接続演習問2},
+  整数方程式を保つ更新は\bookproblemref{practice-entrance}{9}{発展問9}へ.
+  付録の\sectionref*{節：演習の操作を別の表現で見直す}では,
+  発展問9で同じ見方を使い直す.

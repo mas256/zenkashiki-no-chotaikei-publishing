@@ -1,7 +1,11 @@
 % subsection: 階差型 \, $a_{n+1}=a_n+f(n)$
 
   \subsection{\texorpdfstring{階差型 \, $a_{n+1}=a_n+f(n)$}{階差型}}\label{節：階差型}
-    階差型は先の2つに比べて一段階難易度が高い.
+  \begin{bookpoint}
+    \textbf{変化を足す}\par
+    差が添字ごとに変わっても,初項からの変化を足せば元の項に戻る.和の範囲は実際の更新の回数に合わせる.
+  \end{bookpoint}
+    \bookterm{difference}{階差}型は先の2つに比べて一段階難易度が高い.
     しかしきちんと先程の議論を理解して,丁寧に式を追うことで理解することができるものである.
     兎にも角にも解法を見てみよう.
     \begin{align*}
@@ -13,10 +17,10 @@
       &a_{n+1}=a_1+\sum_{k=1}^{n} f(k)\\
       &\therefore \quad a_n=a_1+\sum_{k=1}^{n-1} f(k)
     \end{align*}
-    $f(n)$によってこの後の処理が変わるものの,漸化式の解法としてはここまでである.
-    ここからはシグマの計算の能力が問われる話で,この後にやることは等差数列の総和を求めることであったり,等比数列の総和を求めることであったり,あるいは部分分数分解を用いて解くことなどが考えられる.
+    $f(n)$によってこの後の処理が変わるものの,\bookterm{recurrence}{漸化式}の解法としてはここまでである.
+    ここからは\bookterm{sigma}{シグマ}の計算の能力が問われる話で,この後にやることは\bookterm{arithmetic}{等差数列}の総和を求めることであったり,\bookterm{geometric}{等比数列}の総和を求めることであったり,あるいは\bookterm{partial}{部分分数分解}を用いて解くことなどが考えられる.
 
-    \noindent \bookblocklink{example-difference-1}{problem}{answer}{【例題】}
+    \noindent \bookblocklink{example-difference-1}{problem}{answer}{【例題】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-difference-1}{problem}{answer}]
       \item $\displaystyle a_1=1,\, a_{n+1}=a_n+n$
       \item $\displaystyle a_1=1,\, a_{n+1}=a_n+2^n$
@@ -24,15 +28,15 @@
       \item $\displaystyle a_1=1,\, a_{n+1}=a_n+(n+1)^2$
     \end{enumerate}
 
-    \noindent\bookblocklink{example-difference-1}{hint}{problem}{【方針】}
+    \noindent\bookblocklink{example-difference-1}{hint}{problem}{【方針】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-difference-1}{hint}{problem}]
-      \item 最もシンプルな形の階差数列です.先程の議論を踏まえて解きましょう.
+      \item 最もシンプルな形の\bookterm{difference}{階差}\bookterm{sequence}{数列}です.先程の議論を踏まえて解きましょう.
       \item もちろん,\,$f(n)$となる関数には指数関数も含まれます.何にせよやることは\,(1)と同じです.
-      \item シグマは部分分数分解で処理しましょう.
-      \item 勘の良い人であれば式を見た瞬間に答えがわかるかもしれませんね.これは"あの数列"の総和と同じ見た目になりませんか?.
+      \item \bookterm{sigma}{シグマ}は\bookterm{partial}{部分分数分解}で処理しましょう.
+      \item 勘の良い人であれば式を見た瞬間に答えがわかるかもしれませんね.これは"あの\bookterm{sequence}{数列}"の総和と同じ見た目になりませんか?.
     \end{enumerate}
 
-    \noindent\bookblocklink{example-difference-1}{answer}{problem}{【解答】}
+    \noindent\bookblocklink{example-difference-1}{answer}{problem}{【解答】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-difference-1}{answer}{problem}]
       \item $\displaystyle a_n=1+\frac{n(n-1)}{2}$
       \item $\displaystyle a_n=2^n-1$
@@ -40,10 +44,10 @@
       \item $\displaystyle a_n=\frac{1}{6}n(n+1)(2n+1)$
     \end{enumerate}
 
-    \noindent\bookblocklink{example-difference-1}{solution}{problem}{【解法】}
+    \noindent\bookblocklink{example-difference-1}{solution}{problem}{【解法】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-difference-1}{solution}{problem}]
       \item $\displaystyle a_1=1,\,a_{n+1}=a_n+n$\\
-            階差型の一般項
+            \bookterm{difference}{階差}型の\bookterm{general}{一般項}
             \[
               a_n=a_1+\sum_{k=1}^{n-1}f(k)
             \]
@@ -65,7 +69,7 @@
             \end{align*}
 
       \item $\displaystyle a_1=0,\,a_{n+1}=a_n+\frac{1}{n(n+1)}$\\
-            部分分数分解を用いると,
+            \bookterm{partial}{部分分数分解}を用いると,
             \[
               \frac{1}{k(k+1)}
               =\frac{1}{k}-\frac{1}{k+1}
@@ -83,7 +87,7 @@
             \end{align*}
 
       \item $\displaystyle a_1=1,\,a_{n+1}=a_n+(n+1)^2$\\
-            階差型の一般項を用いると,
+            \bookterm{difference}{階差}型の\bookterm{general}{一般項}を用いると,
             \begin{align*}
               a_n
                 &=1+\sum_{k=1}^{n-1}(k+1)^2\\
