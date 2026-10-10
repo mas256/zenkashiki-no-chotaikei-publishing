@@ -1,20 +1,20 @@
 \subsection{虚数解型隣接3項間漸化式}\label{節：虚数解型隣接3項間漸化式}
   \BookFigComplexRoots
 
-  今までの隣接3\,項間漸化式(\sectionref{節：隣接3項間漸化式型})では,特性方程式の解$\alpha,\beta$が異なれば$a_n=A\alpha^{n-1}+B\beta^{n-1}$という式自体は虚数解の場合でもそのまま成り立つ.
-  ここでは,特性方程式が虚数解をもつ場合に,この式を三角関数を用いた実数の形に書き直す方法を考える.
+  今までの隣接3\,項間\bookterm{recurrence}{漸化式}(\sectionref{節：隣接3項間漸化式型})では,\bookterm{characteristic}{特性方程式}の解$\alpha,\beta$が異なれば$a_n=A\alpha^{n-1}+B\beta^{n-1}$という式自体は虚数解の場合でもそのまま成り立つ.
+  ここでは,\bookterm{characteristic}{特性方程式}が虚数解をもつ場合に,この式を\bookterm{trigonometric}{三角関数}を用いた実数の形に書き直す方法を考える.
 
   まず,
   \[
     a_{n+2}+pa_{n+1}+qa_n=0
   \]
-  を考える.特性方程式は
+  を考える.\bookterm{characteristic}{特性方程式}は
   \[
     x^2+px+q=0
   \]
   である.
 
-  これまで,特性方程式の解が異なる零でない実数
+  これまで,\bookterm{characteristic}{特性方程式}の解が異なる零でない実数
   \[
     x=\alpha,\beta
   \]
@@ -22,13 +22,14 @@
   \[
     a_n=A\alpha^n+B\beta^n
   \]
-  という形の一般項が得られることを学んだ(\sectionref{節：二次特性方程式型}では指数が$n-1$であったが,\,$A,B$は適当な定数のため自由に$\alpha,\beta$を掛けても良い).
+  という形の\bookterm{general}{一般項}が得られることを学んだ(\sectionref{節：二次特性方程式型}では指数が$n-1$であったが,\,$A,B$は適当な定数のため自由に$\alpha,\beta$を掛けても良い).
 
-  では,特性方程式が実数解をもたず,
+  \bookterm{characteristic}{特性方程式}が実数解をもたず、
   \[
     x=\alpha,\overline{\alpha}
   \]
-  という互いに共役な解をもつ場合には,一般項はどのような形になるだろうか.
+  という互いに\bookterm{conjugate}{共役}な解をもつ場合も、二つの冪から\bookterm{general}{一般項}を作れる。
+  次に、その式を実数だけで表す。
 
   例えば,
   \[
@@ -38,23 +39,23 @@
   \[
     x=1\pm i
   \]
-  である.したがって,漸化式
+  である.したがって,\bookterm{recurrence}{漸化式}
   \[
     a_{n+2}=2a_{n+1}-2a_n
   \]
-  の特性方程式は虚数解をもつ.
+  の\bookterm{characteristic}{特性方程式}は虚数解をもつ.
 
-  形式的には,一般項を
+  形式的には,\bookterm{general}{一般項}を
   \[
     a_n=A(1+i)^n+B(1-i)^n
   \]
-  と書くことができる.しかし,\,$a_n$が実数列である場合,このままでは一般項の実数性が分かりにくい.そこで,複素数の極形式を利用する.
+  と書くことができる.しかし,\,$a_n$が実\bookterm{sequence}{数列}である場合,このままでは\bookterm{general}{一般項}の実数性が分かりにくい.そこで,複素数の\bookterm{polar}{極形式}を利用する.
 
-  一般に,特性方程式の解を
+  一般に,\bookterm{characteristic}{特性方程式}の解を
   \[
     \alpha=\rho(\cos\theta+i\sin\theta)=\rho e^{i\theta}
   \]
-  とすると,共役解は
+  とすると,\bookterm{conjugate}{共役}解は
   \[
     \overline{\alpha}=\rho(\cos\theta-i\sin\theta)=\rho e^{-i\theta}
   \]
@@ -71,7 +72,7 @@
   \]
   となる.
 
-  ここで,\,$a_n$は実数列だから,\,$A\alpha^n+B\overline{\alpha}^{\,n}$が全ての$n$で実数になるためには$B=\overline{A}$(すなわち$A,B$が互いに共役)でなければならない.実際,\,$A=\dfrac{C-iD}{2},\ B=\dfrac{C+iD}{2}$(\,$C,D$は実数)とおくと,
+  ここで,\,$a_n$は実\bookterm{sequence}{数列}だから,\,$A\alpha^n+B\overline{\alpha}^{\,n}$が全ての$n$で実数になるためには$B=\overline{A}$(すなわち$A,B$が互いに\bookterm{conjugate}{共役})でなければならない.実際,\,$A=\dfrac{C-iD}{2},\ B=\dfrac{C+iD}{2}$(\,$C,D$は実数)とおくと,
 \BookMathLayout{\begin{align*}
     A\alpha^n+B\overline{\alpha}^{\,n}
     &=\frac{C-iD}{2}\rho^n(\cos n\theta+i\sin n\theta)\\
@@ -93,19 +94,19 @@ A\alpha^n+B\overline\alpha^{\,n}\\
   \]
   という実数の形に書き直せることが分かる.
 
-  したがって,虚数解をもつ隣接3\,項間漸化式では,
+  したがって,虚数解をもつ隣接3\,項間\bookterm{recurrence}{漸化式}では,
   \[
     a_n=\rho^n(C\cos n\theta+D\sin n\theta)
   \]
-  という形が基本的な一般項となる.ここで,\,$\rho$は特性根の絶対値,\,$\theta$はその偏角である.
+  という形が基本的な\bookterm{general}{一般項}となる.ここで,\,$\rho$は\bookterm{root}{特性根}の絶対値,\,$\theta$はその\bookterm{argument}{偏角}である.
 
-  では,一般項
+  \bookterm{general}{一般項}
   \[
     a_n=\rho^n(C\cos n\theta+D\sin n\theta)
   \]
-  に含まれる定数$C,D$をどのように決定すればよいだろうか.
+  に含まれる定数$C,D$は、\bookterm{initial}{初期条件}から決まる。
 
-  これまでの漸化式と同様に,初期条件を代入することで$C,D$を決定することができる.例えば,\,$a_1,a_2$が与えられているとする.一般項に$n=1,2$を代入すると,
+  これまでの\bookterm{recurrence}{漸化式}と同様に,\bookterm{initial}{初期条件}を代入することで$C,D$を決定することができる.例えば,\,$a_1,a_2$が与えられているとする.\bookterm{general}{一般項}に$n=1,2$を代入すると,
   \[
     a_1=\rho(C\cos\theta+D\sin\theta)
   \]
@@ -117,7 +118,7 @@ A\alpha^n+B\overline\alpha^{\,n}\\
 
   これは$C,D$についての連立方程式である.したがって,この2つの方程式を解けば$C,D$が決定される.
 
-  特に,$a_0,a_1$から始め,漸化式を$n\ge0$で使う場合には,より簡単になる.一般項に$n=0$を代入すると,
+  特に,$a_0,a_1$から始め,\bookterm{recurrence}{漸化式}を$n\ge0$で使う場合には,より簡単になる.\bookterm{general}{一般項}に$n=0$を代入すると,
   \[
     a_0=C
   \]
@@ -136,7 +137,7 @@ A\alpha^n+B\overline\alpha^{\,n}\\
     D=
     \cfrac{\frac{a_1}{\rho}-C\cos\theta}{\sin\theta}
   \]
-  となる.ここで,\,$\sin\theta\neq0$であることに注意する.特性根が実数ではなく虚部をもつ場合には,\,$\theta$は$0$や$\pi$ではないため,
+  となる.ここで,\,$\sin\theta\neq0$であることに注意する.\bookterm{root}{特性根}が実数ではなく虚部をもつ場合には,\,$\theta$は$0$や$\pi$ではないため,
   \[
     \sin\theta\neq0
   \]
@@ -153,7 +154,7 @@ A\alpha^n+B\overline\alpha^{\,n}\\
   \[
     a_{n+2}=2a_{n+1}-2a_n
   \]
-  を考える.特性根は
+  を考える.\bookterm{root}{特性根}は
   \[
     1+i
     =\sqrt{2}
@@ -167,7 +168,7 @@ A\alpha^n+B\overline\alpha^{\,n}\\
     \rho=\sqrt{2},\qquad
     \theta=\frac{\pi}{4}
   \]
-  である.したがって一般項は
+  である.したがって\bookterm{general}{一般項}は
   \[
     a_n=(\sqrt{2})^n
     \left(
@@ -177,7 +178,7 @@ A\alpha^n+B\overline\alpha^{\,n}\\
   \]
   となる.
 
-  例えば初期条件
+  例えば\bookterm{initial}{初期条件}
   \[
     a_0=1,\qquad a_1=2
   \]
@@ -208,7 +209,7 @@ A\alpha^n+B\overline\alpha^{\,n}\\
   \]
   を得る.
 
-  よって,この場合の一般項は
+  よって,この場合の\bookterm{general}{一般項}は
   \[
     a_n=(\sqrt{2})^n
     \left(
@@ -218,23 +219,162 @@ A\alpha^n+B\overline\alpha^{\,n}\\
   \]
   となる.
 
-  このように,虚数解をもつ場合でも,基本的な流れは実数解の場合と変わらない.まず特性根から$\rho,\theta$を求め,
+  このように,虚数解をもつ場合でも,基本的な流れは実数解の場合と変わらない.まず\bookterm{root}{特性根}から$\rho,\theta$を求め,
   \[
     a_n=\rho^n(C\cos n\theta+D\sin n\theta)
   \]
-  とおき,初期条件を代入して$C,D$を決定すればよい.
+  とおき,\bookterm{initial}{初期条件}を代入して$C,D$を決定すればよい.
 
-  ここまででは,特性方程式の解を利用して一般項の形を導いた.実は,特性方程式の解が複素数である場合には,漸化式そのものを変形することによっても,
+  \noindent \bookblocklink{example-complex-1}{problem}{answer}{【例題】}\par\nobreak
+  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-complex-1}{problem}{answer}]
+    \item $\displaystyle a_1=1,\,a_2=0,\quad a_{n+2}=-a_n\quad(n\ge1)$
+\item \BookMathLayout{$\displaystyle a_1=0,\,a_2=1,\quad a_{n+2}=2a_{n+1}-2a_n\quad(n\ge1)$}{$\displaystyle a_1=0,\,a_2=1$\\ $\displaystyle a_{n+2}=2a_{n+1}-2a_n$\\ $\displaystyle(n\ge1)$}
+    \item $\displaystyle a_1=1,\,a_2=2,\quad a_{n+2}=-4a_n\quad(n\ge1)$
+\item \BookMathLayout{$\displaystyle a_1=1,\,a_2=0,\quad a_{n+2}=2a_{n+1}-4a_n\quad(n\ge1)$}{$\displaystyle a_1=1,\,a_2=0$\\ $\displaystyle a_{n+2}=2a_{n+1}-4a_n$\\ $\displaystyle(n\ge1)$}
+  \end{enumerate}
+
+  \noindent\bookblocklink{example-complex-1}{hint}{problem}{【方針】}\par\nobreak
+  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-complex-1}{hint}{problem}]
+    \item 初項から数項を計算して\bookterm{periodic}{周期性}を見つけ,\bookterm{general}{一般項}を予想します.その後,\bookterm{induction}{数学的帰納法}で証明します.
+    \item \bookterm{root}{特性根}を\bookterm{polar}{極形式}で表し,$\rho=\sqrt2,\,\theta=\dfrac{\pi}{4}$を用いて\bookterm{general}{一般項}を置きます.
+    \item \bookterm{root}{特性根}は$\pm2i$です.$\rho=2,\,\theta=\dfrac{\pi}{2}$として\bookterm{initial}{初期条件}を代入します.
+    \item \bookterm{root}{特性根}を\bookterm{polar}{極形式}で表し,$\rho=2,\,\theta=\dfrac{\pi}{3}$として係数を決定します.
+  \end{enumerate}
+
+  \noindent\bookblocklink{example-complex-1}{answer}{problem}{【解答】}\par\nobreak
+  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-complex-1}{answer}{problem}]
+    \item $\displaystyle a_n=\cos\frac{(n-1)\pi}{2}$
+    \item $\displaystyle a_n=(\sqrt2)^{n-1}\sin\frac{(n-1)\pi}{4}$
+    \item $\displaystyle a_n=2^{n-1}\left(\cos\frac{(n-1)\pi}{2}+\sin\frac{(n-1)\pi}{2}\right)$
+\item \BookMathLayout{$\displaystyle a_n=2^{n-1}\left(\cos\frac{(n-1)\pi}{3}-\frac1{\sqrt3}\sin\frac{(n-1)\pi}{3}\right)$}{$\displaystyle a_n=2^{n-1}\Bigl(\cos\frac{(n-1)\pi}{3}$\\
+$\displaystyle\hspace{3zw}-\frac1{\sqrt3}\sin\frac{(n-1)\pi}{3}\Bigr)$}
+  \end{enumerate}
+
+  \noindent\bookblocklink{example-complex-1}{solution}{problem}{【解法】}\par\nobreak
+  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-complex-1}{solution}{problem}]
+    \item 初項から数項を計算すると,
+          \begin{align*}
+            &a_1=1,\quad a_2=0,\quad a_3=-1,\quad a_4=0,\\
+            &a_5=1,\quad a_6=0,\quad a_7=-1,\quad a_8=0
+          \end{align*}
+          となる.この並びから,
+          \[
+            a_n=\cos\frac{(n-1)\pi}{2}
+          \]
+          と予想できる.これを\bookterm{induction}{数学的帰納法}で証明する.
+          $n=1,2$では
+          \[
+            a_1=1=\cos0,\qquad a_2=0=\cos\frac{\pi}{2}
+          \]
+          となり,主張が成り立つ.
+          ある$k\ge1$で,$n=k,k+1$に対して
+          \[
+            a_k=\cos\frac{(k-1)\pi}{2},\qquad
+            a_{k+1}=\cos\frac{k\pi}{2}
+          \]
+          が成り立つと仮定する.\bookterm{recurrence}{漸化式}と$-\cos x=\cos(x+\pi)$より,
+          \[
+            \begin{aligned}
+              a_{k+2}
+              &=-a_k\\
+              &=-\cos\frac{(k-1)\pi}{2}\\
+              &=\cos\left(\frac{(k-1)\pi}{2}+\pi\right)\\
+              &=\cos\frac{(k+1)\pi}{2}
+            \end{aligned}
+          \]
+          である.したがって,$n=k+1,k+2$でも主張が成り立つ.初めの2項で成り立つことと合わせ,\bookterm{induction}{数学的帰納法}により
+          \[
+            a_n=\cos\frac{(n-1)\pi}{2}
+          \]
+          がすべての$n\ge1$で成り立つ.
+    \item \bookterm{characteristic}{特性方程式}は
+          \[
+            x^2-2x+2=0
+          \]
+          であり,\bookterm{root}{特性根}は$1\pm i$である.したがって
+          \[
+            \rho=\sqrt2,\qquad\theta=\frac{\pi}{4}
+          \]
+          として,
+\BookMathLayout{\[
+            a_n=(\sqrt2)^{n-1}
+            \left(
+              C\cos\frac{(n-1)\pi}{4}
+              +D\sin\frac{(n-1)\pi}{4}
+            \right)
+          \]}{
+\[
+\begin{aligned}
+a_n&=(\sqrt2)^{n-1}\Bigl(C\cos\frac{(n-1)\pi}{4}\\
+&\hspace{4zw}+D\sin\frac{(n-1)\pi}{4}\Bigr)
+\end{aligned}
+\]
+}
+          とおける.$a_1=0$より$C=0$であり,$a_2=1$より$D=1$である.よって,
+          \[
+            a_n=(\sqrt2)^{n-1}\sin\frac{(n-1)\pi}{4}
+          \]
+          を得る.
+    \item \bookterm{characteristic}{特性方程式}は$x^2+4=0$であり,\bookterm{root}{特性根}は$2i,-2i$である.したがって
+          \[
+            a_n=2^{n-1}
+            \left(
+              C\cos\frac{(n-1)\pi}{2}
+              +D\sin\frac{(n-1)\pi}{2}
+            \right)
+          \]
+          とおける.$a_1=1$より$C=1$であり,$a_2=2$より$2D=2$,すなわち$D=1$である.よって,
+          \[
+            a_n=2^{n-1}
+            \left(
+              \cos\frac{(n-1)\pi}{2}
+              +\sin\frac{(n-1)\pi}{2}
+            \right)
+          \]
+          を得る.
+    \item \bookterm{characteristic}{特性方程式}は
+          \[
+            x^2-2x+4=0
+          \]
+          であり,\bookterm{root}{特性根}は$1\pm\sqrt3\,i$である.したがって
+          \[
+            \rho=2,\qquad\theta=\frac{\pi}{3}
+          \]
+          として,
+          \[
+            a_n=2^{n-1}
+            \left(
+              C\cos\frac{(n-1)\pi}{3}
+              +D\sin\frac{(n-1)\pi}{3}
+            \right)
+          \]
+          とおける.$a_1=1$より$C=1$であり,$a_2=0$より
+          \[
+            0=2\left(\frac12+D\frac{\sqrt3}{2}\right)
+          \]
+          となるので$D=-\dfrac1{\sqrt3}$である.よって,
+          \[
+            a_n=2^{n-1}
+            \left(
+              \cos\frac{(n-1)\pi}{3}
+              -\frac1{\sqrt3}\sin\frac{(n-1)\pi}{3}
+            \right)
+          \]
+          を得る.
+  \end{enumerate}
+
+\bookstep{同じ一般項を、加法定理から見る}\label{解釈：虚数解と加法定理}
+  ここまででは,\bookterm{characteristic}{特性方程式}の解を利用して\bookterm{general}{一般項}の形を導いた.実は,\bookterm{characteristic}{特性方程式}の解が複素数である場合には,\bookterm{recurrence}{漸化式}そのものを変形することによっても,
   \[
     a_n=\rho^n(C\cos n\theta+D\sin n\theta)
   \]
   という形を自然に導くことができる.
 
-  特性方程式の解を極形式を用いて
+  \bookterm{characteristic}{特性方程式}の解を\bookterm{polar}{極形式}を用いて
   \[
     \alpha=\rho(\cos\theta+i\sin\theta)
   \]
-  とすると,共役な解は
+  とすると,\bookterm{conjugate}{共役}な解は
   \[
     \overline{\alpha}
     =\rho(\cos\theta-i\sin\theta)
@@ -254,7 +394,7 @@ A\alpha^n+B\overline\alpha^{\,n}\\
   \]
   を得る.
 
-  したがって,もとの漸化式
+  したがって,もとの\bookterm{recurrence}{漸化式}
   \[
     a_{n+2}+pa_{n+1}+qa_n=0
   \]
@@ -293,7 +433,7 @@ A\alpha^n+B\overline\alpha^{\,n}\\
   \]
   を得る.
 
-  この式は,三角関数の加法定理
+  この式は,\bookterm{trigonometric}{三角関数}の\bookterm{addition}{加法定理}
   \[
     \cos(x+\theta)+\cos(x-\theta)
     =2\cos\theta\cos x
@@ -323,7 +463,7 @@ A\alpha^n+B\overline\alpha^{\,n}\\
     2\cos\theta\,b_{n+1}
   \end{aligned}
   \]
-  となり,確かに漸化式を満たす.
+  となり,確かに\bookterm{recurrence}{漸化式}を満たす.
 
   同様に,
   \[
@@ -345,7 +485,7 @@ A\alpha^n+B\overline\alpha^{\,n}\\
   \]
   となる.
 
-  したがって,この漸化式では
+  したがって,この\bookterm{recurrence}{漸化式}では
   \[
     \cos n\theta
   \]
@@ -355,7 +495,7 @@ A\alpha^n+B\overline\alpha^{\,n}\\
   \]
   が基本的な解として現れる.
 
-  漸化式は2階の漸化式であるから,解の全体は2次元のベクトル空間をなし,初期条件を2つ与えることで数列が一意に定まる.$\cos n\theta$の初期値は$(b_0,b_1)=(1,\cos\theta)$, $\sin n\theta$の初期値は$(b_0,b_1)=(0,\sin\theta)$であり,\,$\sin\theta\ne0$であることからこの2組は比例しない,すなわち独立である.したがって任意の初期条件はこの2つの解の線形結合で表せるから,この2つの基本的な解を組み合わせると,
+  \bookterm{recurrence}{漸化式}は2階の\bookterm{recurrence}{漸化式}であるから,解の全体は2\bookterm{dimension}{次元}の\bookterm{vector-space}{ベクトル空間}をなし,\bookterm{initial}{初期条件}を2つ与えることで\bookterm{sequence}{数列}が一意に定まる.$\cos n\theta$の初期値は$(b_0,b_1)=(1,\cos\theta)$, $\sin n\theta$の初期値は$(b_0,b_1)=(0,\sin\theta)$であり,\,$\sin\theta\ne0$であることからこの2組は比例しない,すなわち独立である.したがって任意の\bookterm{initial}{初期条件}はこの2つの解の\bookterm{combination}{線形結合}で表せるから,この2つの基本的な解を組み合わせると,
   \[
     b_n=C\cos n\theta+D\sin n\theta
   \]
@@ -376,26 +516,26 @@ A\alpha^n+B\overline\alpha^{\,n}\\
   \]
   を得る.
 
-  このように,複素数解を直接べき乗することなく,特性根から得られる
+  このように,複素数解を直接べき乗することなく,\bookterm{root}{特性根}から得られる
   \[
     p=-2\rho\cos\theta,\qquad q=\rho^2
   \]
-  を用いて漸化式を変形すると,三角関数の加法定理が現れ,そこから
+  を用いて\bookterm{recurrence}{漸化式}を変形すると,\bookterm{trigonometric}{三角関数}の\bookterm{addition}{加法定理}が現れ,そこから
   \[
     \rho^n\cos n\theta,\qquad
     \rho^n\sin n\theta
   \]
   という2つの基本的な形が自然に導かれる.
 
-  なお,\,$C=D=0$なら$a_n=0$という定数列となり,振動も増減も生じない.
-  以下の振動と周期性の説明では,\,$C,D$の少なくとも一方が$0$でない場合を考える.
+  なお,\,$C=D=0$なら$a_n=0$という定\bookterm{sequence}{数列}となり,振動も増減も生じない.
+  以下の振動と\bookterm{periodic}{周期性}の説明では,\,$C,D$の少なくとも一方が$0$でない場合を考える.
 
-  ここまでの議論から分かるように,虚数解をもつ漸化式の一般項には
+  ここまでの議論から分かるように,虚数解をもつ\bookterm{recurrence}{漸化式}の\bookterm{general}{一般項}には
   \[
     \cos n\theta,\qquad \sin n\theta
   \]
-  という三角関数が現れる.このことから,数列$\{a_n\}$には三角関数に由来する振動する形が現れることが分かる.
-  ただし,三角関数が現れることだけから,整数添字の数列が周期的であるとはいえない.
+  という\bookterm{trigonometric}{三角関数}が現れる.このことから,\bookterm{sequence}{数列}$\{a_n\}$には\bookterm{trigonometric}{三角関数}に由来する振動する形が現れることが分かる.
+  ただし,\bookterm{trigonometric}{三角関数}が現れることだけから,整数添字の\bookterm{sequence}{数列}が周期的であるとはいえない.
 
   特に,
   \[
@@ -405,7 +545,7 @@ A\alpha^n+B\overline\alpha^{\,n}\\
   \[
     a_n=C\cos n\theta+D\sin n\theta
   \]
-  となるため,数列そのものが周期的になる場合がある.
+  となるため,\bookterm{sequence}{数列}そのものが周期的になる場合がある.
 
   実際,
   \[
@@ -427,24 +567,24 @@ A\alpha^n+B\overline\alpha^{\,n}\\
   \[
     a_{n+T}=a_n
   \]
-  となる.よって,この場合には数列$\{a_n\}$は周期的である.
+  となる.よって,この場合には\bookterm{sequence}{数列}$\{a_n\}$は周期的である.
 
   一方,\,$\rho\neq1$の場合には,
   \[
     a_n=\rho^n
     (C\cos n\theta+D\sin n\theta)
   \]
-  であるため,\,$\rho^n$によって数列全体の大きさが変化する.
-  また,\,$\displaystyle \frac{\theta}{2\pi}$が無理数なら,三角関数の部分も整数添字について周期的ではない.
-  したがって,一般には数列そのものは周期的ではないが,\,$\cos n\theta$や$\sin n\theta$に由来する振動する形は現れる.
+  であるため,\,$\rho^n$によって\bookterm{sequence}{数列}全体の大きさが変化する.
+  また,\,$\displaystyle \frac{\theta}{2\pi}$が無理数なら,\bookterm{trigonometric}{三角関数}の部分も整数添字について周期的ではない.
+  したがって,一般には\bookterm{sequence}{数列}そのものは周期的ではないが,\,$\cos n\theta$や$\sin n\theta$に由来する振動する形は現れる.
 
-  さらに,このような三角関数の性質に着目すると,一般項をあらかじめ仮定することなく,数学的帰納法によってその形を確かめることもできる.
+  さらに,このような\bookterm{trigonometric}{三角関数}の性質に着目すると,\bookterm{general}{一般項}をあらかじめ仮定することなく,\bookterm{induction}{数学的帰納法}によってその形を確かめることもできる.
 
   例えば,
   \[
     b_{n+2}-2\cos\theta\,b_{n+1}+b_n=0
   \]
-  を考える.三角関数の加法定理より,
+  を考える.\bookterm{trigonometric}{三角関数}の\bookterm{addition}{加法定理}より,
   \[
     \cos(n+2)\theta+\cos n\theta
     =2\cos\theta\cos(n+1)\theta
@@ -464,9 +604,9 @@ A\alpha^n+B\overline\alpha^{\,n}\\
   \[
     b_n=\cos n\theta
   \]
-  が成り立つことを数学的帰納法によって示すことができる.
+  が成り立つことを\bookterm{induction}{数学的帰納法}によって示すことができる.
 
-  実際,\,$b_n=\cos n\theta$および$b_{n+1}=\cos(n+1)\theta$が成り立つと仮定すると,漸化式より,
+  実際,\,$b_n=\cos n\theta$および$b_{n+1}=\cos(n+1)\theta$が成り立つと仮定すると,\bookterm{recurrence}{漸化式}より,
   \[
   \begin{aligned}
     b_{n+2}
@@ -475,7 +615,7 @@ A\alpha^n+B\overline\alpha^{\,n}\\
     &=\cos(n+2)\theta
   \end{aligned}
   \]
-  となる.したがって,数学的帰納法により,
+  となる.したがって,\bookterm{induction}{数学的帰納法}により,
   \[
     b_n=\cos n\theta
   \]
@@ -494,27 +634,27 @@ A\alpha^n+B\overline\alpha^{\,n}\\
   \[
     b_n=\sin n\theta
   \]
-  が数学的帰納法によって示される.
+  が\bookterm{induction}{数学的帰納法}によって示される.
 
-  このように,三角関数の加法定理を利用することで,
+  このように,\bookterm{trigonometric}{三角関数}の\bookterm{addition}{加法定理}を利用することで,
   \[
     \cos n\theta,\qquad \sin n\theta
   \]
-  が漸化式を満たすことを直接確認できる.さらに,初期条件によってこれらを適切に組み合わせることで,
+  が\bookterm{recurrence}{漸化式}を満たすことを直接確認できる.さらに,\bookterm{initial}{初期条件}によってこれらを適切に組み合わせることで,
   \[
     a_n=\rho^n
     (C\cos n\theta+D\sin n\theta)
   \]
   という形が得られる.
 
-  したがって,虚数解をもつ漸化式では,特性方程式から形式的に一般項を求めるだけでなく,三角関数の振動する形や加法定理に着目することで,数列の振る舞いを直接捉えることができる.
-  数列そのものの周期性を主張するときには,\,$\rho=1$であり,かつ$\displaystyle \frac{\theta}{2\pi}$が有理数であることを確認する.
+  したがって,虚数解をもつ\bookterm{recurrence}{漸化式}では,\bookterm{characteristic}{特性方程式}から形式的に\bookterm{general}{一般項}を求めるだけでなく,\bookterm{trigonometric}{三角関数}の振動する形や\bookterm{addition}{加法定理}に着目することで,\bookterm{sequence}{数列}の振る舞いを直接捉えることができる.
+  \bookterm{sequence}{数列}そのものの\bookterm{periodic}{周期性}を主張するときには,\,$\rho=1$であり,かつ$\displaystyle \frac{\theta}{2\pi}$が有理数であることを確認する.
 
-  これらの議論を踏まえると,特性方程式の解が実数解の場合には$\alpha^n$や$\beta^n$による指数的な増減が中心となるのに対し,虚数解の場合には
+  これらの議論を踏まえると,\bookterm{characteristic}{特性方程式}の解が実数解の場合には$\alpha^n$や$\beta^n$による指数的な増減が中心となるのに対し,虚数解の場合には
   \[
     \cos n\theta,\qquad\sin n\theta
   \]
-  が現れるため,数列に振動する形が生じる.さらに,\,$\rho$の大きさによってその振幅が変化する.このとき,\,$\rho$によって
+  が現れるため,\bookterm{sequence}{数列}に振動する形が生じる.さらに,\,$\rho$の大きさによってその振幅が変化する.このとき,\,$\rho$によって
   \[
     \begin{cases}
       0<\rho<1 & \text{振幅が減衰する}\\
@@ -522,32 +662,32 @@ A\alpha^n+B\overline\alpha^{\,n}\\
       \rho>1 & \text{振幅が増大する}
     \end{cases}
   \]
-  という違いが生じる(\,$\rho=1$のときに数列自身が周期的になりうることは,先に見た通りである).
+  という違いが生じる(\,$\rho=1$のときに\bookterm{sequence}{数列}自身が周期的になりうることは,先に見た通りである).
 
-  \noindent\textbf{【補足：共通の見方から,ここまでの変形を解釈する】}\par
-  ここまでの導出を,前に学んだ補助数列と解の組み合わせ方につなげてみよう.
+  \bookstep{正規化と、解の組み合わせへつなぐ}
+  ここまでの導出を,前に学んだ\bookterm{auxiliary}{補助数列}と解の組み合わせ方につなげてみよう.
 
   \sectionref*{節：補助数列の設計}では,先に目標とする更新を決め,それに合う量を作った.
   先ほど$b_n=\frac{a_n}{\rho^n}$と置いたのも,添字一つにつき$\rho$倍される量を基準にして,
-  係数の$\rho,\rho^2$を取り除くためである.特性根の絶対値を見たことで,
-  どの倍率で正規化すればよいかを選べた.
-  正規化した後の$b_{n+2}+b_n=2\cos\theta\,b_{n+1}$には加法定理の形が残る.
-  複素数の冪を実数の式へ直すことと,倍率をそろえて加法定理を使うことは,
+  係数の$\rho,\rho^2$を取り除くためである.\bookterm{root}{特性根}の絶対値を見たことで,
+  どの倍率で\bookterm{normalize}{正規化}すればよいかを選べた.
+  \bookterm{normalize}{正規化}した後の$b_{n+2}+b_n=2\cos\theta\,b_{n+1}$には\bookterm{addition}{加法定理}の形が残る.
+  複素数の冪を実数の式へ直すことと,倍率をそろえて\bookterm{addition}{加法定理}を使うことは,
   同じ更新を別の入口から捉えた操作だったのである.
 
-  \sectionref*{節：一次独立・基底・次元}の見方では,二つの特性根の冪を使うことは,
-  解全体を表す基底を選ぶことに当たる.
+  \sectionref*{節：一次独立・基底・次元}の見方では,二つの\bookterm{root}{特性根}の冪を使うことは,
+  解全体を表す\bookterm{basis}{基底}を選ぶことに当たる.
   ここでは実数の係数$p,q$について$p^2-4q<0$だから,$q>0$であり,
   $\alpha,\overline\alpha$は異なる非零の根である.
   初項を$0$と数えると,$\alpha^n,\overline\alpha^{\,n}$の初めの二項は
   $(1,\alpha),(1,\overline\alpha)$である.
-  これらの線形結合が零数列なら,初めの二項を比較して
+  これらの\bookterm{combination}{線形結合}が零\bookterm{sequence}{数列}なら,初めの二項を比較して
   \[
     U+V=0,\qquad U\alpha+V\overline\alpha=0
   \]
-  を得る.$\alpha\ne\overline\alpha$なので$U=V=0$となり,一次独立である.
-  どんな初期条件も二つの係数で合わせられ,同じ更新からその後の項も一致する.
-  従って二つの冪は,複素数係数で考えた解全体の基底になる.
+  を得る.$\alpha\ne\overline\alpha$なので$U=V=0$となり,\bookterm{independent}{一次独立}である.
+  どんな\bookterm{initial}{初期条件}も二つの係数で合わせられ,同じ更新からその後の項も一致する.
+  従って二つの冪は,複素数係数で考えた解全体の\bookterm{basis}{基底}になる.
   $a_1,a_2$から始める場合も,根が非零なので同じ判定ができる.
 
   この係数の一意性から,実数の解で$B=\overline A$が必要な理由も読み取れる.
@@ -556,11 +696,11 @@ A\alpha^n+B\overline\alpha^{\,n}\\
     A\alpha^n+B\overline\alpha^{\,n}
     =\overline B\alpha^n+\overline A\,\overline\alpha^{\,n}
   \]
-  である.二つの基底での係数を比べると,$A=\overline B,B=\overline A$となる.
+  である.二つの\bookterm{basis}{基底}での係数を比べると,$A=\overline B,B=\overline A$となる.
   一方,$\rho^n\cos n\theta,\rho^n\sin n\theta$は実数の解であり,
   その初めの二項は,それぞれ$(1,\rho\cos\theta)$と$(0,\rho\sin\theta)$である.
-  $\rho\sin\theta\ne0$なので,これらは実数係数で考えた解全体の基底になる.
-  先ほどの虚部を打ち消す計算は,実数の解を表すために基底を選び直す計算でもあった.
+  $\rho\sin\theta\ne0$なので,これらは実数係数で考えた解全体の\bookterm{basis}{基底}になる.
+  先ほどの虚部を打ち消す計算は,実数の解を表すために\bookterm{basis}{基底}を選び直す計算でもあった.
 
   また,$a_1,a_2$が与えられているときは,初項に合わせて指数を一つずらし,
   \BookMathLayout{\[
@@ -578,153 +718,15 @@ A\alpha^n+B\overline\alpha^{\,n}\\
   \]
   と決まる.初めの二項を合わせて一つの解を選ぶという考え方は同じである.
 
-  周期性については,零数列を除けば,先ほどの条件が必要であることも一次独立性から分かる.
+  \bookterm{periodic}{周期性}については,零\bookterm{sequence}{数列}を除けば,先ほどの条件が必要であることも\bookterm{independent}{一次独立}性から分かる.
   周期$T$を仮定すると,
   \[
     A(\alpha^T-1)\alpha^n
     +\overline A(\overline\alpha^{\,T}-1)\overline\alpha^{\,n}=0
   \]
-  である.二つの冪は一次独立なので,両方の係数が零になる.
+  である.二つの冪は\bookterm{independent}{一次独立}なので,両方の係数が零になる.
   非零の実数解では$A,\overline A$も零でないため,$\alpha^T=\overline\alpha^{\,T}=1$となる.
   従って$\rho=1$であり,$\frac{\theta}{2\pi}$は有理数である.
-  一般項を作るときに使った独立性が,数列の性質を確かめるときにも役立っている.
+  \bookterm{general}{一般項}を作るときに使った独立性が,\bookterm{sequence}{数列}の性質を確かめるときにも役立っている.
 
-  次の数列の一般項を求めてみよう.
-
-  \noindent \bookblocklink{example-complex-1}{problem}{answer}{【例題】}
-  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-complex-1}{problem}{answer}]
-    \item $\displaystyle a_1=1,\,a_2=0,\quad a_{n+2}=-a_n\quad(n\ge1)$
-\item \BookMathLayout{$\displaystyle a_1=0,\,a_2=1,\quad a_{n+2}=2a_{n+1}-2a_n\quad(n\ge1)$}{$\displaystyle a_1=0,\,a_2=1$\\ $\displaystyle a_{n+2}=2a_{n+1}-2a_n$\\ $\displaystyle(n\ge1)$}
-    \item $\displaystyle a_1=1,\,a_2=2,\quad a_{n+2}=-4a_n\quad(n\ge1)$
-\item \BookMathLayout{$\displaystyle a_1=1,\,a_2=0,\quad a_{n+2}=2a_{n+1}-4a_n\quad(n\ge1)$}{$\displaystyle a_1=1,\,a_2=0$\\ $\displaystyle a_{n+2}=2a_{n+1}-4a_n$\\ $\displaystyle(n\ge1)$}
-  \end{enumerate}
-
-  \noindent\bookblocklink{example-complex-1}{hint}{problem}{【方針】}
-  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-complex-1}{hint}{problem}]
-    \item 初項から数項を計算して周期性を見つけ,一般項を予想します.その後,数学的帰納法で証明します.
-    \item 特性根を極形式で表し,$\rho=\sqrt2,\,\theta=\dfrac{\pi}{4}$を用いて一般項を置きます.
-    \item 特性根は$\pm2i$です.$\rho=2,\,\theta=\dfrac{\pi}{2}$として初期条件を代入します.
-    \item 特性根を極形式で表し,$\rho=2,\,\theta=\dfrac{\pi}{3}$として係数を決定します.
-  \end{enumerate}
-
-  \noindent\bookblocklink{example-complex-1}{answer}{problem}{【解答】}
-  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-complex-1}{answer}{problem}]
-    \item $\displaystyle a_n=\cos\frac{(n-1)\pi}{2}$
-    \item $\displaystyle a_n=(\sqrt2)^{n-1}\sin\frac{(n-1)\pi}{4}$
-    \item $\displaystyle a_n=2^{n-1}\left(\cos\frac{(n-1)\pi}{2}+\sin\frac{(n-1)\pi}{2}\right)$
-\item \BookMathLayout{$\displaystyle a_n=2^{n-1}\left(\cos\frac{(n-1)\pi}{3}-\frac1{\sqrt3}\sin\frac{(n-1)\pi}{3}\right)$}{$\displaystyle a_n=2^{n-1}\Bigl(\cos\frac{(n-1)\pi}{3}$\\
-$\displaystyle\hspace{3zw}-\frac1{\sqrt3}\sin\frac{(n-1)\pi}{3}\Bigr)$}
-  \end{enumerate}
-
-  \noindent\bookblocklink{example-complex-1}{solution}{problem}{【解法】}
-  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-complex-1}{solution}{problem}]
-    \item 初項から数項を計算すると,
-          \begin{align*}
-            &a_1=1,\quad a_2=0,\quad a_3=-1,\quad a_4=0,\\
-            &a_5=1,\quad a_6=0,\quad a_7=-1,\quad a_8=0
-          \end{align*}
-          となる.この並びから,
-          \[
-            a_n=\cos\frac{(n-1)\pi}{2}
-          \]
-          と予想できる.これを数学的帰納法で証明する.
-          $n=1,2$では
-          \[
-            a_1=1=\cos0,\qquad a_2=0=\cos\frac{\pi}{2}
-          \]
-          となり,主張が成り立つ.
-          ある$k\ge1$で,$n=k,k+1$に対して
-          \[
-            a_k=\cos\frac{(k-1)\pi}{2},\qquad
-            a_{k+1}=\cos\frac{k\pi}{2}
-          \]
-          が成り立つと仮定する.漸化式と$-\cos x=\cos(x+\pi)$より,
-          \[
-            \begin{aligned}
-              a_{k+2}
-              &=-a_k\\
-              &=-\cos\frac{(k-1)\pi}{2}\\
-              &=\cos\left(\frac{(k-1)\pi}{2}+\pi\right)\\
-              &=\cos\frac{(k+1)\pi}{2}
-            \end{aligned}
-          \]
-          である.したがって,$n=k+1,k+2$でも主張が成り立つ.初めの2項で成り立つことと合わせ,数学的帰納法により
-          \[
-            a_n=\cos\frac{(n-1)\pi}{2}
-          \]
-          がすべての$n\ge1$で成り立つ.
-    \item 特性方程式は
-          \[
-            x^2-2x+2=0
-          \]
-          であり,特性根は$1\pm i$である.したがって
-          \[
-            \rho=\sqrt2,\qquad\theta=\frac{\pi}{4}
-          \]
-          として,
-\BookMathLayout{\[
-            a_n=(\sqrt2)^{n-1}
-            \left(
-              C\cos\frac{(n-1)\pi}{4}
-              +D\sin\frac{(n-1)\pi}{4}
-            \right)
-          \]}{
-\[
-\begin{aligned}
-a_n&=(\sqrt2)^{n-1}\Bigl(C\cos\frac{(n-1)\pi}{4}\\
-&\hspace{4zw}+D\sin\frac{(n-1)\pi}{4}\Bigr)
-\end{aligned}
-\]
-}
-          とおける.$a_1=0$より$C=0$であり,$a_2=1$より$D=1$である.よって,
-          \[
-            a_n=(\sqrt2)^{n-1}\sin\frac{(n-1)\pi}{4}
-          \]
-          を得る.
-    \item 特性方程式は$x^2+4=0$であり,特性根は$2i,-2i$である.したがって
-          \[
-            a_n=2^{n-1}
-            \left(
-              C\cos\frac{(n-1)\pi}{2}
-              +D\sin\frac{(n-1)\pi}{2}
-            \right)
-          \]
-          とおける.$a_1=1$より$C=1$であり,$a_2=2$より$2D=2$,すなわち$D=1$である.よって,
-          \[
-            a_n=2^{n-1}
-            \left(
-              \cos\frac{(n-1)\pi}{2}
-              +\sin\frac{(n-1)\pi}{2}
-            \right)
-          \]
-          を得る.
-    \item 特性方程式は
-          \[
-            x^2-2x+4=0
-          \]
-          であり,特性根は$1\pm\sqrt3\,i$である.したがって
-          \[
-            \rho=2,\qquad\theta=\frac{\pi}{3}
-          \]
-          として,
-          \[
-            a_n=2^{n-1}
-            \left(
-              C\cos\frac{(n-1)\pi}{3}
-              +D\sin\frac{(n-1)\pi}{3}
-            \right)
-          \]
-          とおける.$a_1=1$より$C=1$であり,$a_2=0$より
-          \[
-            0=2\left(\frac12+D\frac{\sqrt3}{2}\right)
-          \]
-          となるので$D=-\dfrac1{\sqrt3}$である.よって,
-          \[
-            a_n=2^{n-1}
-            \left(
-              \cos\frac{(n-1)\pi}{3}
-              -\frac1{\sqrt3}\sin\frac{(n-1)\pi}{3}
-            \right)
-          \]
-          を得る.
-  \end{enumerate}
+  次の\bookterm{sequence}{数列}の\bookterm{general}{一般項}を求めてみよう.

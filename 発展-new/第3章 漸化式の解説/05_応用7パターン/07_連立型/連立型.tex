@@ -3,7 +3,7 @@
 \subsection{連立型}\label{節：連立型}
   \begin{bookpoint}
     \textbf{追う量を組み替える}\par
-    和・差など,一つずつ更新できる組合せを選ぶ.元の二つの数列へ戻せる関係と初期値も確かめる.
+    和・差など,一つずつ更新できる組合せを選ぶ.元の二つの\bookterm{sequence}{数列}へ戻せる関係と初期値も確かめる.
   \end{bookpoint}
   \subsubsection{加減法型}
     一般形が
@@ -13,7 +13,7 @@
         b_{n+1}=qa_{n}+pb_{n}
       \end{cases}
     \]
-    の形で表される漸化式の解き方について考えよう.
+    の形で表される\bookterm{recurrence}{漸化式}の解き方について考えよう.
     二つの式では係数$p,q$の位置が入れ替わっている.
     足すと両方の係数が$p+q$になり,引くと$p-q$とその符号反転が現れる.
     そこで,和と差がそれぞれ単独で更新されないか調べる.
@@ -55,7 +55,7 @@ b_n&=\frac{1}{2}\bigl\{(a_1+b_1)(p+q)^{n-1}\\
 \end{aligned}
 \]
 }
-    \sectionref*{節：一次独立・基底・次元}で,初期条件を独立な二つの解に分けたことを思い出そう.
+    \sectionref*{節：一次独立・基底・次元}で,\bookterm{initial}{初期条件}を独立な二つの解に分けたことを思い出そう.
     ここでは初期の組$(a_1,b_1)$を
     \[
       \begin{aligned}
@@ -65,19 +65,19 @@ b_n&=\frac{1}{2}\bigl\{(a_1+b_1)(p+q)^{n-1}\\
       \end{aligned}
     \]
     と分けた.$(1,1)$から始まる部分は$p+q$倍,$(1,-1)$から始まる部分は$p-q$倍される.
-    上の一般項は,二つの解を線形結合して元の初期条件に合わせた式である.
+    上の\bookterm{general}{一般項}は,二つの解を\bookterm{combination}{線形結合}して元の\bookterm{initial}{初期条件}に合わせた式である.
     和と差という補助量を取り出すことが,解を独立な二つの部分に分けることにつながっていた.
     別解及び演習は一般型の方で行う.
   \subsubsection{一般型}
-    連立一般型の漸化式は,
+    連立一般型の\bookterm{recurrence}{漸化式}は,
     \[
       \begin{cases}
         a_{n+1}=pa_{n}+qb_{n} \\
         b_{n+1}=ra_{n}+sb_{n}
       \end{cases}
     \]
-    で表される漸化式である.
-    いつものように等比数列型への帰着を目指そう.
+    で表される\bookterm{recurrence}{漸化式}である.
+    いつものように\bookterm{geometric}{等比数列}型への帰着を目指そう.
     $a_n$と$b_n$が互いに影響し合っているため,独立させて解くことは難しそうだ.
     ならばそれぞれについて求めるのではなく,いっそのこと合わせて求めてしまおうというのが解法の思想である.
     その流れは,
@@ -150,8 +150,8 @@ b_n&=\frac{1}{2}\bigl\{(a_1+b_1)(p+q)^{n-1}\\
       \gamma^2-(p+s)\gamma+(ps-qr)=0
     \]
     となる.
-    この二次方程式を,この連立漸化式の特性方程式と呼ぶ.
-    特性方程式の解を$\gamma_1,\gamma_2$とする.
+    この二次方程式を,この連立\bookterm{recurrence}{漸化式}の\bookterm{characteristic}{特性方程式}と呼ぶ.
+    \bookterm{characteristic}{特性方程式}の解を$\gamma_1,\gamma_2$とする.
     まず$\gamma=\gamma_1$を上の連立方程式に代入し,
     \[
       \begin{cases}
@@ -175,7 +175,7 @@ b_n&=\frac{1}{2}\bigl\{(a_1+b_1)(p+q)^{n-1}\\
     \[
       c_n=c_1\gamma_1^{\,n-1}
     \]
-    という等比数列が得られる.
+    という\bookterm{geometric}{等比数列}が得られる.
     同様に,\,$\gamma=\gamma_2$に対しても$\alpha,\beta$を求めれば,
     \[
       d_n=\alpha' a_n+\beta' b_n
@@ -184,8 +184,8 @@ b_n&=\frac{1}{2}\bigl\{(a_1+b_1)(p+q)^{n-1}\\
     \[
       d_n=d_1\gamma_2^{\,n-1}
     \]
-    という等比数列が得られる.
-    なお,ここで得られた2つの等比数列から$a_n,b_n$を求めるには,
+    という\bookterm{geometric}{等比数列}が得られる.
+    なお,ここで得られた2つの\bookterm{geometric}{等比数列}から$a_n,b_n$を求めるには,
     \[
       \begin{cases}
       c_n=\alpha a_n+\beta b_n\\
@@ -198,27 +198,27 @@ b_n&=\frac{1}{2}\bigl\{(a_1+b_1)(p+q)^{n-1}\\
     重解の場合でも,例えば$a_{n+1}=2a_n,\,b_{n+1}=2b_n$では$(1,0),(0,1)$を選べる.
     一方,重解に対して比例しない2組を取れない場合は,別の工夫が必要になる(\sectionref{節：二次特性方程式型}の重解の場合と同様の考え方を用いる).
     また,$\,\gamma_1,\gamma_2$が虚数になる場合もこの手法は形式的には成り立つが,実数の形に書き直すには\sectionref{節：虚数解型隣接3項間漸化式}で扱う手法が必要になる.
-    このように,\,$a_n,b_n$をそれぞれ直接求めるのではなく,\,$a_n,b_n$の和の形を作ることで,連立していた漸化式を等比数列へと分離することができる.
+    このように,\,$a_n,b_n$をそれぞれ直接求めるのではなく,\,$a_n,b_n$の和の形を作ることで,連立していた\bookterm{recurrence}{漸化式}を\bookterm{geometric}{等比数列}へと分離することができる.
 
-    \noindent \bookblocklink{example-system-1}{problem}{answer}{【例題】}
+    \noindent \bookblocklink{example-system-1}{problem}{answer}{【例題】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-system-1}{problem}{answer}]
       \item $\displaystyle a_1=1,\,b_1=1.\ \begin{cases}a_{n+1}=3a_n+b_n\\ b_{n+1}=a_n+3b_n\end{cases}$
       \item $\displaystyle a_1=1,\,b_1=0,\ \begin{cases}a_{n+1}=3a_n+b_n\\ b_{n+1}=2a_n+2b_n\end{cases}$
     \end{enumerate}
 
-    \noindent\bookblocklink{example-system-1}{hint}{problem}{【方針】}
+    \noindent\bookblocklink{example-system-1}{hint}{problem}{【方針】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-system-1}{hint}{problem}]
       \item 前節で述べた問題です.一般型,加減法型,どちらのやり方でも問題ありません.
       \item これはこの節で述べたものです.
     \end{enumerate}
 
-    \noindent\bookblocklink{example-system-1}{answer}{problem}{【解答】}
+    \noindent\bookblocklink{example-system-1}{answer}{problem}{【解答】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-system-1}{answer}{problem}]
       \item $\displaystyle a_n=4^{n-1},\qquad b_n=a_n=4^{n-1}$
       \item $\displaystyle a_n=\frac{2\cdot4^{n-1}+1}{3},\qquad b_n=\frac{2\cdot4^{n-1}-2}{3}$
     \end{enumerate}
 
-    \noindent\bookblocklink{example-system-1}{solution}{problem}{【解法】}
+    \noindent\bookblocklink{example-system-1}{solution}{problem}{【解法】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-system-1}{solution}{problem}]
     \item $\displaystyle a_1=1,\,b_1=1.\ \begin{cases}a_{n+1}=3a_n+b_n\\ b_{n+1}=a_n+3b_n\end{cases}$\\
           \begin{enumerate}
@@ -533,4 +533,3 @@ b_n&=\frac{1}{2}\bigl\{(a_1+b_1)(p+q)^{n-1}\\
             b_n=\frac{2\cdot4^{n-1}-2}{3}
           \]
     \end{enumerate}
-

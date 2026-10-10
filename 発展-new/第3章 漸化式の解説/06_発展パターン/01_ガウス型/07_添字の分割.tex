@@ -1,5 +1,5 @@
   \subsubsection{床関数で添字を二つに分割する}\label{節：ガウス型の添字の分割}
-    ここからは,床関数が数列の値ではなく,\textbf{どの項を参照するか}を指定する使い方を考える.
+    ここからは,\bookterm{floor-function}{床関数}が\bookterm{sequence}{数列}の値ではなく,\textbf{どの項を参照するか}を指定する使い方を考える.
     正整数$n$に対して,
     \[
       \left\lfloor\frac{n+1}{2}\right\rfloor
@@ -8,31 +8,38 @@
     であり,二つの添字は$n$をできるだけ等しく分けた大きさになる.
     偶数では両方が同じ添字になり,奇数では隣り合う添字になることが手掛かりである.
 
-    この形の問題では,まず偶奇で分けて床関数を外し,それから階差を取る方法がある.
+    この形の問題では,まず偶奇で分けて\bookterm{floor-function}{床関数}を外し,それから\bookterm{difference}{階差}を取る方法がある.
     半分の添字との関係が得られれば,\,$1,\ 2\le n<4,\ 4\le n<8,\ldots$のように,
     2の累乗ごとの群で整理できる.
     定義の確認も必要で,例えば$n=1$で元と同じ添字を参照する式は,
     そのまま初項を決める式として使えないことがある.
 
-    \noindent \bookblocklink{example-gauss-role-7}{problem}{answer}{【例題】}
+    \noindent \bookblocklink{example-gauss-role-7}{problem}{answer}{【例題】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-7}{problem}{answer}]
-      \item 数列を次のように定める.一般項を求めよ.
-            \[
+      \item \bookterm{sequence}{数列}を次のように定める.\bookterm{general}{一般項}を求めよ.
+\BookMathLayout{            \[
               a_1=2,\qquad
               a_n=a_{\left\lfloor\frac{n+1}{2}\right\rfloor}
                   +a_{\left\lfloor\frac n2\right\rfloor}+n-1
               \quad(n\ge2).
-            \]
+            \]}{            \[
+              \begin{aligned}
+              a_1&=2,\\
+              a_n&=a_{\left\lfloor\frac{n+1}{2}\right\rfloor}
+                  +a_{\left\lfloor\frac n2\right\rfloor}+n-1
+              \\              &\quad(n\ge2).
+              \end{aligned}
+            \]}
             必要ならば,\,$2^m\le n<2^{m+1}$を満たす整数$m\ge0$を用いてよい.
     \end{enumerate}
 
-    \noindent \bookblocklink{example-gauss-role-7}{hint}{problem}{【方針】}
+    \noindent \bookblocklink{example-gauss-role-7}{hint}{problem}{【方針】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-7}{hint}{problem}]
       \item 偶奇で式を分け,\,$b_n=a_{n+1}-a_n$を考えます.
             \,$b_{2k}$と$b_{2k+1}$が$b_k+1$になることを示し,群ごとに足しましょう.
     \end{enumerate}
 
-    \noindent \bookblocklink{example-gauss-role-7}{answer}{problem}{【解答】}
+    \noindent \bookblocklink{example-gauss-role-7}{answer}{problem}{【解答】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-7}{answer}{problem}]
       \item \,$2^m\le n<2^{m+1}$を満たす整数$m\ge0$に対して,
             \[
@@ -40,9 +47,9 @@
             \]
     \end{enumerate}
 
-    \noindent \bookblocklink{example-gauss-role-7}{solution}{problem}{【解法】}
+    \noindent \bookblocklink{example-gauss-role-7}{solution}{problem}{【解法】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-7}{solution}{problem}]
-      \item \,$n\ge2$では二つの添字は1以上$n-1$以下なので,数列は順に定義できる.
+      \item \,$n\ge2$では二つの添字は1以上$n-1$以下なので,\bookterm{sequence}{数列}は順に定義できる.
             偶奇で分けると,\,$k\ge1$について,
             \[
               \begin{aligned}
@@ -80,6 +87,5 @@
             \[
               a_n=(m+3)n-2^{m+1}+1
             \]
-            を得る.添字を分割する問題から,階差を通じて群数列へ戻ることができた.
+            を得る.添字を分割する問題から,\bookterm{difference}{階差}を通じて群\bookterm{sequence}{数列}へ戻ることができた.
     \end{enumerate}
-

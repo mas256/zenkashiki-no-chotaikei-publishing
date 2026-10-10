@@ -5,8 +5,9 @@
     \textbf{倍率を追う}\par
     一回ごとの倍率が一定なら,更新の回数だけ掛ける.公比が零の場合も,比で割らず更新の式から読む.
   \end{bookpoint}
-    次に説明するのは等比型である.
-    一般的な解法も先ほどと同じで,\,$a_{n+1}$から順に$a_1$に向けて書き下して行くことで求めることができる.
+    次は、一歩ごとに同じ数$r$を掛ける。
+    足した回数を数えたのと同じように、掛けた回数を数える。
+    $a_{n+1}$から$a_1$へ順にたどると、
     \begin{align*}
       &a_{n+1}=ra_n\\
       &a_{n+1}=r(ra_{n-1})\\
@@ -17,30 +18,29 @@
       &\therefore \quad a_n=a_1r^{n-1}
     \end{align*}
 
-    \noindent \bookblocklink{example-geometric-1}{problem}{answer}{【例題】}
+    \noindent \bookblocklink{example-geometric-1}{problem}{answer}{【例題】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-geometric-1}{problem}{answer}]
       \item $\displaystyle a_1=1,\, a_{n+1}=2a_n$
       \item $\displaystyle a_1=1,\, a_{n+1}=-a_n$
       \item $\displaystyle a_1=2,\, a_{n+1}=\frac{1}{2}a_n$
     \end{enumerate}
 
-    \noindent\bookblocklink{example-geometric-1}{hint}{problem}{【方針】}
+    \noindent\bookblocklink{example-geometric-1}{hint}{problem}{【方針】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-geometric-1}{hint}{problem}]
-      \item 等比型の一般項
+      \item 等比型の\bookterm{general}{一般項}
             $\displaystyle a_n=a_1r^{n-1}$
             を用います.
       \item 公比は$r=-1$です.
             符号が交互に変化することに注意します.
-      \item 初項と公比を一般項に代入します.
+      \item 初項と公比を\bookterm{general}{一般項}に代入します.
     \end{enumerate}
 
-    \noindent\bookblocklink{example-geometric-1}{answer}{problem}{【解答】}
+    \noindent\bookblocklink{example-geometric-1}{answer}{problem}{【解答】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-geometric-1}{answer}{problem}]
       \item $\displaystyle a_n=2^{n-1}$
       \item $\displaystyle a_n=(-1)^{n-1}$
       \item $\displaystyle a_n=2\left(\frac12\right)^{n-1}$
     \end{enumerate}
 
-    \noindent\bookblocklink{example-geometric-1}{solution}{problem}{【解法】}\\
+    \noindent\bookblocklink{example-geometric-1}{solution}{problem}{【解法】}\par\nobreak
     解法略.
-

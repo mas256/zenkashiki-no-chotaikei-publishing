@@ -1,4 +1,4 @@
-% 教科書の2段組内で使用するTikZ図（floatなし）。
+% 教科書の本文幅に合わせて使用するTikZ図（floatなし）。
 \usetikzlibrary{arrows.meta,calc,positioning,decorations.pathreplacing}
 \tikzset{box/.style={draw,rounded corners=2pt,align=center,inner sep=5pt,minimum height=.65cm}}
 \newcommand{\BookFigureCaption}[1]{%
@@ -39,7 +39,9 @@
 
 \node[box] (a) at (-3,0) {第2章\\前提知識と\\計算の基本}; \node[box] (b) at (0,0) {第3章\\解法の原理}; \node[box] (c) at (3,0) {第4章\\演習と選択};
 \node[box] (d) at (0,-1.6) {第5章・付録\\数学的なつながり};
+\node[box] (e) at (-3,-1.6) {第6章\\用語と計算の参照};
 \draw[->,thick](a)--(b);\draw[->,thick](b)--(c);\draw[<->,thick](b)--(d);\draw[->,dashed](c.south)|-(d.east);
+\draw[<->,dashed](a)--(e);\draw[<->,dashed](b.south west)--(e.north east);
 }}
 
 \newcommand{\BookFigArithmeticSum}{\BookGraph{等差数列の増分を正順と逆順で組み合わせる}{

@@ -5,27 +5,27 @@
     区間の両端をつないで円周と見れば,毎回同じ割合だけ進む回転として解釈できる.
 
     \textbf{小数部分を追うと,整数の境界を越えても運動の規則が残る}.
-    途中で何回境界を越えたかは,床関数で記録できる.
+    途中で何回境界を越えたかは,\bookterm{floor-function}{床関数}で記録できる.
     有理数の割合なら繰り返しが生じるが,無理数の場合については,周期があるかを別に証明しよう.
 
-    \noindent \bookblocklink{example-gauss-role-9}{problem}{answer}{【例題】}
+    \noindent \bookblocklink{example-gauss-role-9}{problem}{answer}{【例題】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-9}{problem}{answer}]
-      \item \,$\alpha=\sqrt2-1$とし,数列を次のように定める.
+      \item \,$\alpha=\sqrt2-1$とし,\bookterm{sequence}{数列}を次のように定める.
             \[
               a_0=0,\qquad
               a_{n+1}=a_n+\alpha-\lfloor a_n+\alpha\rfloor
               \quad(n\ge0).
             \]
-            一般項を求め,異なる添字の項が同じ値になるか調べよ.
+            \bookterm{general}{一般項}を求め,異なる添字の項が同じ値になるか調べよ.
     \end{enumerate}
 
-    \noindent \bookblocklink{example-gauss-role-9}{hint}{problem}{【方針】}
+    \noindent \bookblocklink{example-gauss-role-9}{hint}{problem}{【方針】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-9}{hint}{problem}]
       \item 整数部分を捨てると小数部分だけが残ることから,\,$n\alpha$の小数部分を予想します.
             一致する二項があれば,添字の差と$\alpha$の積が整数になることを使いましょう.
     \end{enumerate}
 
-    \noindent \bookblocklink{example-gauss-role-9}{answer}{problem}{【解答】}
+    \noindent \bookblocklink{example-gauss-role-9}{answer}{problem}{【解答】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-9}{answer}{problem}]
       \item \[
               a_n=n\alpha-\lfloor n\alpha\rfloor\quad(n\ge0).
@@ -33,7 +33,7 @@
             異なる添字の項は同じ値にならず,周期的ではない.
     \end{enumerate}
 
-    \noindent \bookblocklink{example-gauss-role-9}{solution}{problem}{【解法】}
+    \noindent \bookblocklink{example-gauss-role-9}{solution}{problem}{【解法】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-9}{solution}{problem}]
       \item \,$n=0$では予想した式は$a_0=0$を与える.
             \,$a_n=n\alpha-\lfloor n\alpha\rfloor$とすると,整数との和の性質から,
@@ -43,7 +43,7 @@
               a_{n+1}
                 &=(n+1)\alpha-\lfloor(n+1)\alpha\rfloor.
             \end{align*}
-            よって帰納法により一般項が示された.すべての項は$[0,1)$に属する.
+            よって帰納法により\bookterm{general}{一般項}が示された.すべての項は$[0,1)$に属する.
 
             \,$a_{n+p}=a_n\ (p\ge1)$とすると,
             \[
@@ -52,9 +52,8 @@
             が整数になり,\,$\alpha$が有理数となる.これは$\alpha=\sqrt2-1$が無理数であることに矛盾する.
             従って異なる添字の項は一致しない.
 
-            同じ漸化式で$\alpha$が有理数$\frac pq\ (0<p<q)$であり,\,$p,q$が互いに素なら,
+            同じ\bookterm{recurrence}{漸化式}で$\alpha$が有理数$\frac pq\ (0<p<q)$であり,\,$p,q$が互いに素なら,
             最小の正の周期は$q$となる.\,$q\alpha$が整数なので$q$項後に戻り,
             戻るまでの項数$T$は$T\alpha$が整数となる条件から$q$の倍数だからである.
             回転の見方と,有理数・無理数という整数問題の考え方が結びついている.
     \end{enumerate}
-

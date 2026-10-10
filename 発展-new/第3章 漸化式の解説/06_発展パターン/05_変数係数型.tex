@@ -45,7 +45,7 @@
     b_n=\frac{a_n}{h_n},\qquad
     b_{n+1}-b_n=\frac{q_n}{h_{n+1}}
   \]
-  だから,階差を足して
+  だから,\bookterm{difference}{階差}を足して
   \[
     a_n=h_n\left(a_1+\sum_{k=1}^{n-1}\frac{q_k}{h_{k+1}}\right)
   \]
@@ -53,7 +53,7 @@
   その場合の$b_1$を正しく合わせれば同じ答えになる.
 
   \begin{bookpoint}
-    \textbf{正規化の役割}\par
+    \textbf{\bookterm{normalize}{正規化}の役割}\par
     倍率を取り除くと,残った付加項を足す問題になる.
     積・和の表示を得ることと,最後まで簡単な式で計算できることは別である.
   \end{bookpoint}
@@ -63,16 +63,16 @@
 
   \subsubsection{同じ更新をする量を引く別解}
   先ほどの例では,$v_n=n^2(n+1)$が元の更新を満たすことを直接確かめられる.
-  この候補は,正規化後の$b_n=n$から見つけたものである.
+  この候補は,\bookterm{normalize}{正規化}後の$b_n=n$から見つけたものである.
   $d_n=a_n-v_n$と置くと,
   \[
     d_{n+1}=\frac{n+2}{n}d_n
   \]
-  となり,階比型へ戻る.初項を一般の$a_1=s$に変えると,
+  となり,\bookterm{ratio}{階比}型へ戻る.初項を一般の$a_1=s$に変えると,
   \[
     a_n=n(n+1)\left(n+\frac{s-2}{2}\right)
   \]
-  である.一つの解$v_n$と,同次の解の定数倍に分かれている.
+  である.一つの解$v_n$と,\bookterm{homogeneous}{同次}の解の定数倍に分かれている.
   これは\sectionref*{節：非同次と解の組合せ}の見方そのものである.
 
   \begin{bookpoint}
@@ -82,4 +82,4 @@
     どちらも,付加項と倍率を分けて扱うための操作である.
   \end{bookpoint}
   操作だけの比較は\sectionref*{節：操作を選ぶ練習},
-  一般項まで求める練習は\bookproblemref{practice-connections}{1}{接続演習問1}へ進もう.
+  \bookterm{general}{一般項}まで求める練習は\bookproblemref{practice-connections}{1}{接続演習問1}へ進もう.

@@ -1,14 +1,14 @@
 \subsection{隣接4項間漸化式型}\label{節：隣接4項間漸化式型}
-隣接2項間や隣接3項間の漸化式を今まで扱った.
+隣接2項間や隣接3項間の\bookterm{recurrence}{漸化式}を今まで扱った.
 これをより広い範囲に適用してみよう.
 例えば
 \[
   a_{n+3}+pa_{n+2}+qa_{n+1}+ra_n=0
 \]
-のような漸化式を考える.
-これは三階の同次線形漸化式なので,\sectionref*{節：一次独立・基底・次元}で述べたように,
-初めの三項を自由に選ぶ解全体は3次元である.
-ここでは一つの補助数列を先に求めることで,残りの計算を二階の式へ分ける.
+のような\bookterm{recurrence}{漸化式}を考える.
+これは三階の\bookterm{homogeneous}{同次}\bookterm{linear}{線形}\bookterm{recurrence}{漸化式}なので,\sectionref*{節：一次独立・基底・次元}で述べたように,
+初めの三項を自由に選ぶ解全体は3\bookterm{dimension}{次元}である.
+ここでは一つの\bookterm{auxiliary}{補助数列}を先に求めることで,残りの計算を二階の式へ分ける.
 \sectionref*{節：補助数列の設計}で述べたように,先に単純な更新を決め,それをする量を探そう.
 3項をまとめた$d_n=a_{n+2}+\alpha a_{n+1}+\beta a_n$を作り,
 $d_{n+1}=\gamma d_n$となることを目指す.
@@ -23,7 +23,7 @@ a_{n+3}+\alpha a_{n+2}+\beta a_{n+1}\\
 \end{aligned}
 \]
 }
-である.両辺を左側に集め,元の漸化式と係数を比べると,
+である.両辺を左側に集め,元の\bookterm{recurrence}{漸化式}と係数を比べると,
 \[
   \alpha-\gamma=p,\qquad
   \beta-\gamma\alpha=q,\qquad
@@ -40,23 +40,23 @@ a_{n+3}+\alpha a_{n+2}+\beta a_{n+1}\\
 \]
 を得る.この三次方程式の実数解を一つ選べば,$\alpha,\beta$も決まる.
 三次方程式は少なくとも一つ実数解を持つが,計算しやすい値を見つけられるかは別の問題である.
-以下の例題では因数分解や階差の形を手掛かりに選ぶ.
+以下の例題では因数分解や\bookterm{difference}{階差}の形を手掛かりに選ぶ.
 これによって,\,$d_n=a_{n+2}+\alpha a_{n+1}+\beta a_n$とおくと$d_{n+1}=\gamma d_n$が成り立つので,
 \[
   a_{n+2}+\alpha a_{n+1}+\beta a_n=d_1\gamma^{\,n-1}
 \]
-という3項間漸化式が得られる.
+という3項間\bookterm{recurrence}{漸化式}が得られる.
 ただし,\,\sectionref{節：等差二次特性方程式型}で扱ったのは右辺が定数$r$の場合であり,ここでは右辺が指数関数$d_1\gamma^{n-1}$になる点が異なる.
 この形は\sectionref{節：階差等比複合型}の考え方を3項間に応用することで解くことができる.
 ここでさらに同じ更新をする既知の量を引くと,右辺の指数関数を消せる場合がある.
 例えば第1問では,$p=-3,q=3,r=-1$なので上の方程式は$(\gamma-1)^3=0$となり,
 $\gamma=1,\alpha=-2,\beta=1$を得る.
-補助数列が$d_n=a_{n+2}-2a_{n+1}+a_n$となる理由は,この係数の一致にある.
-元の式が三階差の形であると気付けば,同じ量を階差からも作れる.
+\bookterm{auxiliary}{補助数列}が$d_n=a_{n+2}-2a_{n+1}+a_n$となる理由は,この係数の一致にある.
+元の式が三\bookterm{difference}{階差}の形であると気付けば,同じ量を\bookterm{difference}{階差}からも作れる.
 
-  次の数列の一般項を求めてみよう.
+  次の\bookterm{sequence}{数列}の\bookterm{general}{一般項}を求めてみよう.
 
-  \noindent \bookblocklink{example-four-term-1}{problem}{answer}{【例題】}
+  \noindent \bookblocklink{example-four-term-1}{problem}{answer}{【例題】}\par\nobreak
   \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-four-term-1}{problem}{answer}]
     \item $\displaystyle a_1=1,\,a_2=2,\,a_3=4$\\
           $a_{n+3}=3a_{n+2}-3a_{n+1}+a_n\quad(n\ge1)$
@@ -66,23 +66,23 @@ $\gamma=1,\alpha=-2,\beta=1$を得る.
           $a_{n+3}=5a_{n+2}-7a_{n+1}+3a_n\quad(n\ge1)$
   \end{enumerate}
 
-  \noindent\bookblocklink{example-four-term-1}{hint}{problem}{【方針】}
+  \noindent\bookblocklink{example-four-term-1}{hint}{problem}{【方針】}\par\nobreak
   \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-four-term-1}{hint}{problem}]
-    \item $d_n=a_{n+2}-2a_{n+1}+a_n$とおき,階差をさらにとると一定になることを利用します.
-    \item $d_n=a_{n+2}-a_{n+1}-2a_n$とおくと$d_{n+1}=d_n$となります.初期条件から$d_n=0$を導き,3項間漸化式として解きます.
-    \item $d_n=a_{n+2}-2a_{n+1}+a_n$とおくと$d_{n+1}=3d_n$となります.得られた右辺を満たす数列を引き,階差が一定の形に帰着させます.
+    \item $d_n=a_{n+2}-2a_{n+1}+a_n$とおき,\bookterm{difference}{階差}をさらにとると一定になることを利用します.
+    \item $d_n=a_{n+2}-a_{n+1}-2a_n$とおくと$d_{n+1}=d_n$となります.\bookterm{initial}{初期条件}から$d_n=0$を導き,3項間\bookterm{recurrence}{漸化式}として解きます.
+    \item $d_n=a_{n+2}-2a_{n+1}+a_n$とおくと$d_{n+1}=3d_n$となります.得られた右辺を満たす\bookterm{sequence}{数列}を引き,\bookterm{difference}{階差}が一定の形に帰着させます.
   \end{enumerate}
 
-  \noindent\bookblocklink{example-four-term-1}{answer}{problem}{【解答】}
+  \noindent\bookblocklink{example-four-term-1}{answer}{problem}{【解答】}\par\nobreak
   \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-four-term-1}{answer}{problem}]
     \item $\displaystyle a_n=\frac{n^2-n+2}{2}$
     \item $\displaystyle a_n=2^{n-1}+(-1)^{n-1}$
     \item $\displaystyle a_n=n-1+3^{n-1}$
   \end{enumerate}
 
-  \noindent\bookblocklink{example-four-term-1}{solution}{problem}{【解法】}
+  \noindent\bookblocklink{example-four-term-1}{solution}{problem}{【解法】}\par\nobreak
   \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-four-term-1}{solution}{problem}]
-    \item 漸化式を移項すると,
+    \item \bookterm{recurrence}{漸化式}を移項すると,
           \[
             a_{n+3}-3a_{n+2}+3a_{n+1}-a_n=0
           \]
@@ -94,7 +94,7 @@ $\gamma=1,\alpha=-2,\beta=1$を得る.
           \[
             d_{n+1}-d_n=a_{n+3}-3a_{n+2}+3a_{n+1}-a_n=0
           \]
-          より$d_n$は一定である.初期条件から$d_1=4-2\cdot2+1=1$なので,
+          より$d_n$は一定である.\bookterm{initial}{初期条件}から$d_1=4-2\cdot2+1=1$なので,
           \[
             a_{n+2}-2a_{n+1}+a_n=1
           \]
@@ -117,20 +117,20 @@ $\gamma=1,\alpha=-2,\beta=1$を得る.
           \[
             a_{n+2}-a_{n+1}-2a_n=0
           \]
-          となる.特性方程式$x^2-x-2=0$の解は$2,-1$なので,
+          となる.\bookterm{characteristic}{特性方程式}$x^2-x-2=0$の解は$2,-1$なので,
           \[
             a_n=A\,2^{n-1}+B(-1)^{n-1}
           \]
-          とおける.初期条件より$A+B=2,\,2A-B=1$であるから$A=B=1$を得る.
+          とおける.\bookterm{initial}{初期条件}より$A+B=2,\,2A-B=1$であるから$A=B=1$を得る.
     \item
           \[
             d_n=a_{n+2}-2a_{n+1}+a_n
           \]
-          とおくと,与えられた漸化式から$d_{n+1}=3d_n$である.初期条件より$d_1=11-2\cdot4+1=4$なので,
+          とおくと,与えられた\bookterm{recurrence}{漸化式}から$d_{n+1}=3d_n$である.\bookterm{initial}{初期条件}より$d_1=11-2\cdot4+1=4$なので,
           \[
             a_{n+2}-2a_{n+1}+a_n=4\cdot3^{n-1}
           \]
-          となる.一方,$3^{n-1}$の2階差も$4\cdot3^{n-1}$である.そこで$b_n=a_n-3^{n-1}$とおくと,
+          となる.一方,$3^{n-1}$の2\bookterm{difference}{階差}も$4\cdot3^{n-1}$である.そこで$b_n=a_n-3^{n-1}$とおくと,
           \[
             b_{n+2}-2b_{n+1}+b_n=0
           \]

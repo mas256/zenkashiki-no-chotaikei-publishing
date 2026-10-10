@@ -10,11 +10,11 @@
 
     係数$\lambda$が2次方程式を満たす場合は,\,$\lambda^2$を$\lambda$と整数で表せることが手掛かりになる.
     ただし,最後に現れる誤差がどの整数の間にあるかを示す必要がある.
-    どの無理数の係数でも同じ隣接3項間漸化式へ帰着できるわけではない.
+    どの無理数の係数でも同じ隣接3項間\bookterm{recurrence}{漸化式}へ帰着できるわけではない.
 
-    \noindent \bookblocklink{example-gauss-role-5}{problem}{answer}{【例題】}
+    \noindent \bookblocklink{example-gauss-role-5}{problem}{answer}{【例題】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-5}{problem}{answer}]
-      \item 数列を次のように定める.ガウス記号を含まない漸化式に帰着させ,一般項を求めよ.
+      \item \bookterm{sequence}{数列}を次のように定める.\bookterm{floor}{ガウス記号}を含まない\bookterm{recurrence}{漸化式}に帰着させ,\bookterm{general}{一般項}を求めよ.
             \[
               a_1=1,\qquad
               a_{n+1}=\lfloor(1+\sqrt2)a_n\rfloor
@@ -22,13 +22,13 @@
             \]
     \end{enumerate}
 
-    \noindent \bookblocklink{example-gauss-role-5}{hint}{problem}{【方針】}
+    \noindent \bookblocklink{example-gauss-role-5}{hint}{problem}{【方針】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-5}{hint}{problem}]
       \item \,$\lambda=1+\sqrt2$とおき,\,$\lambda^2=2\lambda+1$を使います.
-            整数から正の1未満の誤差を引く形にして,床関数の値を確定しましょう.
+            整数から正の1未満の誤差を引く形にして,\bookterm{floor-function}{床関数}の値を確定しましょう.
     \end{enumerate}
 
-    \noindent \bookblocklink{example-gauss-role-5}{answer}{problem}{【解答】}
+    \noindent \bookblocklink{example-gauss-role-5}{answer}{problem}{【解答】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-5}{answer}{problem}]
       \item \[
               a_1=1,\quad a_2=2,\qquad
@@ -40,7 +40,7 @@
             \]
     \end{enumerate}
 
-    \noindent \bookblocklink{example-gauss-role-5}{solution}{problem}{【解法】}
+    \noindent \bookblocklink{example-gauss-role-5}{solution}{problem}{【解法】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-5}{solution}{problem}]
       \item \,$\lambda=1+\sqrt2>2$とおく.正整数$a_n$から次の項も正整数となる.
             また,\,$\lambda a_n$は無理数なので,
@@ -59,22 +59,21 @@
             \[
               M_n-1<\lambda a_{n+1}<M_n.
             \]
-            従って$a_{n+2}=M_n-1$となり,【解答】の隣接3項間漸化式を得る.
-            初期条件は$a_2=\lfloor1+\sqrt2\rfloor=2$である.
+            従って$a_{n+2}=M_n-1$となり,【解答】の隣接3項間\bookterm{recurrence}{漸化式}を得る.
+            \bookterm{initial}{初期条件}は$a_2=\lfloor1+\sqrt2\rfloor=2$である.
 
             定数項を消すため$b_n=a_n-\frac12$とおくと,
             \[
               b_{n+2}=2b_{n+1}+b_n,
               \qquad b_1=\frac12,\quad b_2=\frac32.
             \]
-            \sectionref{節：隣接3項間漸化式型}で学んだ特性方程式は$x^2-2x-1=0$で,
+            \sectionref{節：隣接3項間漸化式型}で学んだ\bookterm{characteristic}{特性方程式}は$x^2-2x-1=0$で,
             その解が$\alpha,\beta$である.
             \,$\alpha+\beta=2,\ \alpha^2+\beta^2=6$より,
             \[
               b_n=\frac{\alpha^n+\beta^n}{4}
             \]
-            は初期条件と漸化式を満たす.
-            二つの初期値から各項は一意に決まるので,この式が一般項である.
-            丸め誤差を評価した後は,既習の線形の漸化式に戻ることができた.
+            は\bookterm{initial}{初期条件}と\bookterm{recurrence}{漸化式}を満たす.
+            二つの初期値から各項は一意に決まるので,この式が\bookterm{general}{一般項}である.
+            丸め誤差を評価した後は,既習の\bookterm{linear}{線形}の\bookterm{recurrence}{漸化式}に戻ることができた.
     \end{enumerate}
-

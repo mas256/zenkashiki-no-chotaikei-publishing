@@ -1,8 +1,8 @@
   \subsubsection{整数への丸めで不動点と停止を調べる}\label{節：ガウス型の不動点と停止}
-    丸めを繰り返す数列では,一般項だけでなく,どの整数で止まるかにも注目しよう.
-    次の値が今の値と等しくなる値を不動点という.
-    不動点に到達すると,その後は同じ値が続く.
-    ただし,丸めを外した実数の漸化式と,不動点が同じとは限らない.
+    丸めを繰り返す\bookterm{sequence}{数列}では,\bookterm{general}{一般項}だけでなく,どの整数で止まるかにも注目しよう.
+    次の値が今の値と等しくなる値を\bookterm{fixed}{不動点}という.
+    \bookterm{fixed}{不動点}に到達すると,その後は同じ値が続く.
+    ただし,丸めを外した実数の\bookterm{recurrence}{漸化式}と,\bookterm{fixed}{不動点}が同じとは限らない.
 
     整数$K$を引いて,
     \[
@@ -17,29 +17,29 @@
     が成り立つので,繰り返すと分母をまとめられる.
     この性質を確かめよう.\,$k=\lfloor x\rfloor$を$m$で割り,\,$k=mq+r$と書くと,
     \,$0\le r\le m-1$であり,\,$x=mq+r+t\ (0\le t<1)$となる.
-    これより$0\le r+t<m$だから,どちらの床関数も$q$になる.
+    これより$0\le r+t<m$だから,どちらの\bookterm{floor-function}{床関数}も$q$になる.
 
-    \textbf{初項の位置と,負の数の床関数の値}も重要である.
+    \textbf{初項の位置と,負の数の\bookterm{floor-function}{床関数}の値}も重要である.
     例えば,\,$-1<x<0$なら$\lfloor x\rfloor=-1$であって0ではない.
 
-    \noindent \bookblocklink{example-gauss-role-6}{problem}{answer}{【例題】}
+    \noindent \bookblocklink{example-gauss-role-6}{problem}{answer}{【例題】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-6}{problem}{answer}]
-      \item 非負整数$M$に対し,数列を次のように定める.
+      \item 非負整数$M$に対し,\bookterm{sequence}{数列}を次のように定める.
             \[
               a_1=M,\qquad
               a_{n+1}=\left\lfloor\frac{a_n+6}{2}\right\rfloor
               \quad(n\ge1).
             \]
-            一般項と,最終的に一定になる値を求めよ.
+            \bookterm{general}{一般項}と,最終的に一定になる値を求めよ.
     \end{enumerate}
 
-    \noindent \bookblocklink{example-gauss-role-6}{hint}{problem}{【方針】}
+    \noindent \bookblocklink{example-gauss-role-6}{hint}{problem}{【方針】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-6}{hint}{problem}]
-      \item 6を引くと,床関数によって半分にする漸化式になります.
-            初項が6より小さい場合は,負の数の床関数を使って考えましょう.
+      \item 6を引くと,\bookterm{floor-function}{床関数}によって半分にする\bookterm{recurrence}{漸化式}になります.
+            初項が6より小さい場合は,負の数の\bookterm{floor-function}{床関数}を使って考えましょう.
     \end{enumerate}
 
-    \noindent \bookblocklink{example-gauss-role-6}{answer}{problem}{【解答】}
+    \noindent \bookblocklink{example-gauss-role-6}{answer}{problem}{【解答】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-6}{answer}{problem}]
       \item \[
               a_n=6+\left\lfloor\frac{M-6}{2^{n-1}}\right\rfloor.
@@ -47,16 +47,16 @@
             有限回の操作の後で,\,$M<6$なら5,\,$M\ge6$なら6に固定される.
     \end{enumerate}
 
-    \noindent \bookblocklink{example-gauss-role-6}{solution}{problem}{【解法】}
+    \noindent \bookblocklink{example-gauss-role-6}{solution}{problem}{【解法】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-6}{solution}{problem}]
       \item 初項からすべての項が非負整数となる.
-            \,$b_n=a_n-6$とおくと,整数6を床関数の外に出せるので,
+            \,$b_n=a_n-6$とおくと,整数6を\bookterm{floor-function}{床関数}の外に出せるので,
             \begin{align*}
               b_{n+1}
                 &=\left\lfloor\frac{b_n+12}{2}\right\rfloor-6\\
                 &=\left\lfloor\frac{b_n}{2}\right\rfloor.
             \end{align*}
-            床関数の合成の性質と帰納法により,
+            \bookterm{floor-function}{床関数}の合成の性質と帰納法により,
             \[
               b_n=\left\lfloor\frac{M-6}{2^{n-1}}\right\rfloor.
             \]
@@ -64,12 +64,11 @@
             \,$M<6$では,十分大きな$n$で中身が$(-1,0)$に入り,床は$-1$になる.
             これより【解答】の値に有限回で到達する.
 
-            実際,整数$x$が不動点となる条件は,
+            実際,整数$x$が\bookterm{fixed}{不動点}となる条件は,
             \[
               x\le\frac{x+6}{2}<x+1
               \iff 4<x\le6
             \]
-            なので,不動点は5と6の二つである.
-            初項によって到達する不動点が分かれることは,この後の\sectionref{節：初項依存型}ともつながる.
+            なので,\bookterm{fixed}{不動点}は5と6の二つである.
+            初項によって到達する\bookterm{fixed}{不動点}が分かれることは,この後の\sectionref{節：初項依存型}ともつながる.
     \end{enumerate}
-

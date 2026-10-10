@@ -8,9 +8,9 @@
   \BookFigThreeTerm
 
   \subsubsection{\texorpdfstring{二次特性方程式型 \, $\displaystyle a_{n+2}+pa_{n+1}+qa_n=0$}{二次特性方程式型}}\label{節：二次特性方程式型}
-    節は変われど,特性方程式を使って考える.
-    結局,大方の場合,等比数列に変形できればいいのだから,これを等比数列に変形できないかといくつかの試行錯誤を重ねるのが王道の解き方である.
-    結果から言ってしまえば,特性方程式型のところで少し触れた式を生み出すことで等比数列を作ることができる.
+    節は変われど,\bookterm{characteristic}{特性方程式}を使って考える.
+    結局,大方の場合,\bookterm{geometric}{等比数列}に変形できればいいのだから,これを\bookterm{geometric}{等比数列}に変形できないかといくつかの試行錯誤を重ねるのが王道の解き方である.
+    結果から言ってしまえば,\bookterm{characteristic}{特性方程式}型のところで少し触れた式を生み出すことで\bookterm{geometric}{等比数列}を作ることができる.
     \[
       a_{n+2}+pa_{n+1}+qa_n=0
     \]
@@ -24,7 +24,7 @@
       &a_{n+2}-\alpha a_{n+1}=\beta(a_{n+1}-\alpha a_{n})\\
       &\therefore \quad a_{n+2}-(\alpha+\beta)a_{n+1}+\alpha\beta a_n=0
     \end{align*}
-    である.これが元の漸化式
+    である.これが元の\bookterm{recurrence}{漸化式}
     \[
       a_{n+2}+pa_{n+1}+qa_n=0
     \]
@@ -38,20 +38,20 @@
     \]
     の2解として得られる.
 
-    \,$x^2+px+q=0$の2解を$\alpha,\beta$とすると,元の漸化式は
+    \,$x^2+px+q=0$の2解を$\alpha,\beta$とすると,元の\bookterm{recurrence}{漸化式}は
     \[
       \begin{cases}
         a_{n+1}-\alpha a_n=\beta(a_n-\alpha a_{n-1})\\
         a_{n+1}-\beta a_n=\alpha(a_n-\beta a_{n-1})
       \end{cases}
     \]
-    という2つの等比数列を生む(添字は1つずれているが本質的には先程と同じ議論である).
+    という2つの\bookterm{geometric}{等比数列}を生む(添字は1つずれているが本質的には先程と同じ議論である).
 
     $\alpha\ne\beta$の時,
     \[
       b_n=a_{n+1}-\alpha a_n
     \]
-    は公比$\beta$の等比数列であるから,
+    は公比$\beta$の\bookterm{geometric}{等比数列}であるから,
     \[
       b_n=b_1\beta^{n-1}
     \]
@@ -70,7 +70,7 @@
     \[
       c_n=a_{n+1}-\beta a_n
     \]
-    は公比$\alpha$の等比数列であるから,
+    は公比$\alpha$の\bookterm{geometric}{等比数列}であるから,
     \[
       c_n=c_1\alpha^{n-1}
     \]
@@ -110,38 +110,35 @@
       a_n=A\alpha^{n-1}+B\beta^{n-1}
     \]
     と書くことができる.
-    これは\sectionref*{節：解を組み合わせる見方}で学んだ,二つの解の線形結合である.
-    非零の異なる根なら,$\alpha^{n-1}$と$\beta^{n-1}$の初めの二項は$(1,\alpha)$と$(1,\beta)$であり,
-    一次独立なので基底になる.係数$A,B$を初期条件で選ぶことは,2次元の解全体から一つを選ぶことに当たる.
     \,$\alpha=\beta$(重解)の場合は上の議論がそのままは使えないため,別に扱う.
-    同じ冪を二つ並べても一次独立にはならないので,別の形の解が必要になる.
-    このときは$b_n=a_{n+1}-\alpha a_n$のみを考え,\,$b_{n+1}=\alpha b_n$という等比数列に帰着させてから,さらに階差型または等比複合型として解く(具体的な手順は例題(2)を参照).
+    同じ冪を二つ並べても\bookterm{independent}{一次独立}にはならないので,別の形の解が必要になる.
+    このときは$b_n=a_{n+1}-\alpha a_n$のみを考え,\,$b_{n+1}=\alpha b_n$という\bookterm{geometric}{等比数列}に帰着させてから,さらに\bookterm{difference}{階差}型または等比複合型として解く(具体的な手順は例題(2)を参照).
 
-    \noindent \bookblocklink{example-three-term-1}{problem}{answer}{【例題】}
+    \noindent \bookblocklink{example-three-term-1}{problem}{answer}{【例題】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-three-term-1}{problem}{answer}]
       \item $\displaystyle a_1=1,\,a_2=1,\, a_{n+2}=5a_{n+1}-6a_n$
       \item $\displaystyle a_1=1,\,a_2=4,\, a_{n+2}=4a_{n+1}-4a_n$
       \item $\displaystyle a_1=2,\,a_2=1,\, a_{n+2}=a_{n+1}+6a_n$
     \end{enumerate}
 
-    \noindent\bookblocklink{example-three-term-1}{hint}{problem}{【方針】}
+    \noindent\bookblocklink{example-three-term-1}{hint}{problem}{【方針】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-three-term-1}{hint}{problem}]
-      \item 特性方程式$x^2-5x+6=0$の解は異なる2つの実数解です.素直に2本の等比数列を作りましょう.
-      \item 特性方程式$x^2-4x+4=0$を解くと重解になります.等比数列は1本しか作れないことに注意しましょう.
-      \item 特性方程式の解の1つが負になるパターンです.符号に注意して計算しましょう.
+      \item \bookterm{characteristic}{特性方程式}$x^2-5x+6=0$の解は異なる2つの実数解です.素直に2本の\bookterm{geometric}{等比数列}を作りましょう.
+      \item \bookterm{characteristic}{特性方程式}$x^2-4x+4=0$を解くと重解になります.\bookterm{geometric}{等比数列}は1本しか作れないことに注意しましょう.
+      \item \bookterm{characteristic}{特性方程式}の解の1つが負になるパターンです.符号に注意して計算しましょう.
     \end{enumerate}
 
-    \noindent\bookblocklink{example-three-term-1}{answer}{problem}{【解答】}
+    \noindent\bookblocklink{example-three-term-1}{answer}{problem}{【解答】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-three-term-1}{answer}{problem}]
       \item $\displaystyle a_n=2^n-3^{n-1}$
       \item $\displaystyle a_n=n\cdot2^{n-1}$
       \item $\displaystyle a_n=(-2)^{n-1}+3^{n-1}$
     \end{enumerate}
 
-    \noindent\bookblocklink{example-three-term-1}{solution}{problem}{【解法】}
+    \noindent\bookblocklink{example-three-term-1}{solution}{problem}{【解法】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-three-term-1}{solution}{problem}]
       \item $\displaystyle a_1=1,\,a_2=1,\, a_{n+2}=5a_{n+1}-6a_n$\\
-            特性方程式
+            \bookterm{characteristic}{特性方程式}
             \[
               x^2-5x+6=0
             \]
@@ -173,7 +170,7 @@
               a_n=-3^{n-1}-(-2^n)=2^n-3^{n-1}
             \]
       \item $\displaystyle a_1=1,\,a_2=4,\, a_{n+2}=4a_{n+1}-4a_n$\\
-            特性方程式
+            \bookterm{characteristic}{特性方程式}
             \[
               x^2-4x+4=0
             \]
@@ -219,7 +216,7 @@
               &\therefore \quad a_n=2^n\cdot c_n=n\cdot2^{n-1}
             \end{align*}
       \item $\displaystyle a_1=2,\,a_2=1,\, a_{n+2}=a_{n+1}+6a_n$\\
-            特性方程式
+            \bookterm{characteristic}{特性方程式}
             \[
               x^2-x-6=0
             \]
@@ -261,10 +258,15 @@ c_n&=c_1\cdot3^{n-1},\\ c_1&=a_2+2a_1=5\\
             \end{align*}
     \end{enumerate}
 
+\bookstep{二つの解から、一つの数列を作る}\label{解釈：三項間と解全体}
+    これは\sectionref*{節：解を組み合わせる見方}で学んだ,二つの解の\bookterm{combination}{線形結合}である.
+    非零の異なる根なら,$\alpha^{n-1}$と$\beta^{n-1}$の初めの二項は$(1,\alpha)$と$(1,\beta)$であり,
+    \bookterm{independent}{一次独立}なので\bookterm{basis}{基底}になる.係数$A,B$を\bookterm{initial}{初期条件}で選ぶことは,2\bookterm{dimension}{次元}の解全体から一つを選ぶことに当たる.
+
   \subsubsection{\texorpdfstring{等差二次特性方程式型 \, $\displaystyle a_{n+2}+pa_{n+1}+qa_n=r$}{等差二次特性方程式型}}\label{節：等差二次特性方程式型}
     今度は右辺が0ではなく$r$となった.
     つまり$r$だけズレたのである.
-    ズレたらもとに戻す,つまり不動点を探すのである.
+    ズレたらもとに戻す,つまり\bookterm{fixed}{不動点}を探すのである.
     \[
       b_n=a_n-\alpha
     \]
@@ -275,28 +277,28 @@ c_n&=c_1\cdot3^{n-1},\\ c_1&=a_2+2a_1=5\\
       &\therefore \quad r=\alpha +p\alpha +q\alpha\\
       &\Leftrightarrow \quad \alpha=\frac{r}{p+q+1}\quad(p+q+1\ne0)
     \end{align*}
-    ただし$p+q+1=0$かつ$r\ne0$のときは定数解$\alpha$が存在しない.\,$p+q+1=0$かつ$r=0$なら任意の定数が条件を満たし,元の漸化式はすでに前節の形である.定数解が存在しない場合は$d_n=a_{n+1}-a_n$とおくと,元の漸化式から$d_{n+1}=qd_n+r$となり,特性方程式型または階差型に帰着できる.
-    あとは前節で述べた隣接3項間漸化式の問題である.
+    ただし$p+q+1=0$かつ$r\ne0$のときは定数解$\alpha$が存在しない.\,$p+q+1=0$かつ$r=0$なら任意の定数が条件を満たし,元の\bookterm{recurrence}{漸化式}はすでに前節の形である.定数解が存在しない場合は$d_n=a_{n+1}-a_n$とおくと,元の\bookterm{recurrence}{漸化式}から$d_{n+1}=qd_n+r$となり,\bookterm{characteristic}{特性方程式}型または\bookterm{difference}{階差}型に帰着できる.
+    あとは前節で述べた隣接3項間\bookterm{recurrence}{漸化式}の問題である.
 
-    \noindent \bookblocklink{example-three-term-2}{problem}{answer}{【例題】}
+    \noindent \bookblocklink{example-three-term-2}{problem}{answer}{【例題】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-three-term-2}{problem}{answer}]
       \item $\displaystyle a_1=2,\,a_2=2,\, a_{n+2}=5a_{n+1}-6a_n+2$
       \item $\displaystyle a_1=1,\,a_2=2,\, a_{n+2}=4a_{n+1}-4a_n+3$
     \end{enumerate}
 
-    \noindent\bookblocklink{example-three-term-2}{hint}{problem}{【方針】}
+    \noindent\bookblocklink{example-three-term-2}{hint}{problem}{【方針】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-three-term-2}{hint}{problem}]
-      \item まず不動点$\alpha$を求め,\,$b_n=a_n-\alpha$と置いて前節の二次特性方程式型に帰着させましょう.
+      \item まず\bookterm{fixed}{不動点}$\alpha$を求め,\,$b_n=a_n-\alpha$と置いて前節の二次\bookterm{characteristic}{特性方程式}型に帰着させましょう.
       \item こちらは重解のパターンです.同じ手順で$\alpha$を求めてから前節の重解の場合の処理を行いましょう.
     \end{enumerate}
 
-    \noindent\bookblocklink{example-three-term-2}{answer}{problem}{【解答】}
+    \noindent\bookblocklink{example-three-term-2}{answer}{problem}{【解答】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-three-term-2}{answer}{problem}]
       \item $\displaystyle a_n=1+2^n-3^{n-1}$
       \item $\displaystyle a_n=3+2^{n-2}(3n-7)$
     \end{enumerate}
 
-    \noindent\bookblocklink{example-three-term-2}{solution}{problem}{【解法】}
+    \noindent\bookblocklink{example-three-term-2}{solution}{problem}{【解法】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-three-term-2}{solution}{problem}]
       \item $\displaystyle a_1=2,\,a_2=2,\, a_{n+2}=5a_{n+1}-6a_n+2$
             \begin{align*}
@@ -305,7 +307,7 @@ c_n&=c_1\cdot3^{n-1},\\ c_1&=a_2+2a_1=5\\
             \end{align*}
             ここで
             \[
-              (a_{n+2}-\alpha)-5(a_{n+1}-\alpha)+6(a_n-\alpha)=0 
+              (a_{n+2}-\alpha)-5(a_{n+1}-\alpha)+6(a_n-\alpha)=0
             \]
             を満たす$\alpha$を求めると,
             \[
@@ -316,7 +318,7 @@ c_n&=c_1\cdot3^{n-1},\\ c_1&=a_2+2a_1=5\\
               &b_{n+2}=5b_{n+1}-6b_n\\
               &b_1=1,\, b_2=1
             \end{align*}
-            （答案中略。先ほどの二次特性方程式型の例題(1)と同じ漸化式に帰着する.全く同じ計算を$b_n$に対して行う）
+            （答案中略。先ほどの二次\bookterm{characteristic}{特性方程式}型の例題(1)と同じ\bookterm{recurrence}{漸化式}に帰着する.全く同じ計算を$b_n$に対して行う）
             \[
               b_n=2^n-3^{n-1}
             \]
@@ -331,7 +333,7 @@ c_n&=c_1\cdot3^{n-1},\\ c_1&=a_2+2a_1=5\\
             \end{align*}
             ここで
             \[
-              (a_{n+2}-\alpha)-4(a_{n+1}-\alpha)+4(a_n-\alpha)=0 
+              (a_{n+2}-\alpha)-4(a_{n+1}-\alpha)+4(a_n-\alpha)=0
             \]
             を満たす$\alpha$を求めると,
             \[
@@ -341,9 +343,9 @@ c_n&=c_1\cdot3^{n-1},\\ c_1&=a_2+2a_1=5\\
             \begin{align*}
               &b_{n+2}=4b_{n+1}-4b_n\\
               &b_1=a_1-3=-2\\
-              &b_2=a_2-3=-1                
+              &b_2=a_2-3=-1
             \end{align*}
-            特性方程式$x^2-4x+4=0$は重解$\alpha'=2$を持つから,\,$c_n=b_{n+1}-2b_n$と置くと,
+            \bookterm{characteristic}{特性方程式}$x^2-4x+4=0$は重解$\alpha'=2$を持つから,\,$c_n=b_{n+1}-2b_n$と置くと,
             \begin{align*}
               &c_{n+1}=2c_n\\
               &c_1=b_2-2b_1=-1-2(-2)=3\\

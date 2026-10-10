@@ -1,10 +1,10 @@
     \subsection{発展入門}\label{節：発展入門}
-      ここでは,漸化式を自分で立てて数学の対象を調べる練習として,\,10題を扱う.
+      ここでは,\bookterm{recurrence}{漸化式}を自分で立てて数学の対象を調べる練習として,\,10題を扱う.
       追う量や場合分けを小問で示し,基本的な解法を一つか二つ使えば解けるようにした.
       まず「操作を1回増やすと何が変わるか」を言葉で説明し,それを式にしよう.
-      問8では一般項を求めずに項の範囲を調べ,問9では整数方程式の解を作る.
+      問8では\bookterm{general}{一般項}を求めずに項の範囲を調べ,問9では整数方程式の解を作る.
       問10のみ数学IIIの指数関数の積分・部分積分を前提とする.
-      それ以外は,場合の数・確率・整数・ベクトル・数列の既習事項を使う.
+      それ以外は,場合の数・確率・整数・ベクトル・\bookterm{sequence}{数列}の既習事項を使う.
       この10題で立式に慣れたら,\sectionref{節：発展難易度}へ進もう.
 
       \subsubsection{問題}\label{節：発展入門：問題}
@@ -41,9 +41,9 @@
                 ただし,\,$\displaystyle n\ge2$とする.
                 \par\smallskip\noindent
                 (3) $\displaystyle \alpha=\frac{1+\sqrt5}{2}$,\,$\displaystyle \beta=\frac{1-\sqrt5}{2}$とおく.
-                特性方程式を使って$\displaystyle c_n$を求めよ.
+                \bookterm{characteristic}{特性方程式}を使って$\displaystyle c_n$を求めよ.
           % B4: 大きな項を計算せずに整数の性質を調べる
-          \item 数列$\displaystyle \{a_n\}$を
+          \item \bookterm{sequence}{数列}$\displaystyle \{a_n\}$を
                 \[
                   a_0=1,\qquad a_{n+1}=2a_n^2+1
                   \quad(n=0,1,2,\ldots)
@@ -96,11 +96,12 @@
                 \par\smallskip\noindent
                 (1) $\displaystyle x_{n+1},y_{n+1}$を$\displaystyle x_n,y_n$で表せ.
                 \par\smallskip\noindent
-                (2) $\displaystyle x_n+y_n,x_n-y_n$の漸化式を作り,\,$\displaystyle x_n,y_n$を求めよ.
+                (2) $\displaystyle x_n+y_n$と$\displaystyle x_n-y_n$の\bookterm{recurrence}{漸化式}を作れ。
+                これらを使って$\displaystyle x_n,y_n$を求めよ。
                 \par\smallskip\noindent
-                (3) $\displaystyle x_n,y_n$の極限を求めよ.
+                (3) $\displaystyle x_n,y_n$の\bookterm{limit}{極限}を求めよ.
           % B8: 一般項を求めずに減少と極限を調べる
-          \item 数列$\displaystyle \{a_n\}$を
+          \item \bookterm{sequence}{数列}$\displaystyle \{a_n\}$を
                 \[
                   a_1=1,\qquad a_{n+1}=a_n-\frac12a_n^2
                   \quad(n\ge1)
@@ -122,7 +123,7 @@
                 \]
                 を示せ.さらに,\,$\displaystyle \lim_{n\to\infty}a_n$を求めよ.
           % B9: 整数方程式の解を作る
-          \item 二つの数列$\displaystyle \{x_n\},\{y_n\}$を
+          \item 二つの\bookterm{sequence}{数列}$\displaystyle \{x_n\},\{y_n\}$を
                 \[
                   x_0=1,\qquad y_0=0,
                 \]
@@ -144,10 +145,10 @@
                 (2) $\displaystyle z_n=x_n+\sqrt3\,y_n$,\,$\displaystyle w_n=x_n-\sqrt3\,y_n$とおく.\,
                 $\displaystyle z_n,w_n$を求め,\,$\displaystyle x_n,y_n$を求めよ.
                 \par\smallskip\noindent
-                (3) 方程式$\displaystyle x^2-3y^2=1$に正の整数解が無限個あることを,この二つの数列を用いて示せ.
+                (3) 方程式$\displaystyle x^2-3y^2=1$に正の整数解が無限個あることを,この二つの\bookterm{sequence}{数列}を用いて示せ.
           % B10: 積分の指数を添字にする
           \item この問題では数学IIIの指数関数の積分・部分積分を用いる.\,
-                $\displaystyle e$は自然対数の底とし,
+                $\displaystyle e$は自然\bookterm{logarithm}{対数}の底とし,
                 \[
                   I_n=\int_0^1 x^n e^x\,dx
                   \quad(n=0,1,2,\ldots)
@@ -168,7 +169,7 @@
       \subsubsection{方針}\label{節：発展入門：方針}
         \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-bridge}{hint}{problem}]
           % B1
-          \item 新しい直線上の交点は$\displaystyle n-1$個で,すべて異なる.その間の各部分が領域を一つずつ分ける.増える個数を階差として足し合わせる.
+          \item 新しい直線上の交点は$\displaystyle n-1$個で,すべて異なる.その間の各部分が領域を一つずつ分ける.増える個数を\bookterm{difference}{階差}として足し合わせる.
           % B2
           \item 偶数回から偶数回になるには青,奇数回から偶数回になるには赤が必要である.「奇数回である確率」は$\displaystyle 1-p_n$と書ける.立式後は定数の解を引く.
           % B3
@@ -191,7 +192,7 @@
                 (3)では整数性・正値に加え,同じ解を繰り返していないことを示す.
           % B10
           \item $\displaystyle x^n$を微分し,\,$\displaystyle e^x$を積分するように部分積分する.
-                極限には一般項を使わず,被積分関数を上から押さえればよい.
+                \bookterm{limit}{極限}には\bookterm{general}{一般項}を使わず,被積分関数を上から押さえればよい.
         \end{enumerate}
 
       \subsubsection{解答}\label{節：発展入門：解答}
@@ -215,7 +216,7 @@
                 \[
                   p_n=\frac12+\frac12\left(-\frac13\right)^n.
                 \]
-                (3) 極限は$\displaystyle \frac12$である.
+                (3) \bookterm{limit}{極限}は$\displaystyle \frac12$である.
           % B3
           \item (1) $\displaystyle c_1=2,c_2=3,c_3=5$.
                 \par\smallskip\noindent
@@ -277,7 +278,7 @@
                   x_n=5+\frac5{2^n},\qquad
                   y_n=5-\frac5{2^n}.
                 \]
-                (3) 極限はともに$\displaystyle 5$（単位$\displaystyle \mathrm{g}$）である.
+                (3) \bookterm{limit}{極限}はともに$\displaystyle 5$（単位$\displaystyle \mathrm{g}$）である.
           % B8
           \item (1) $\displaystyle 0<a_n\le1$を仮定すると,\,$\displaystyle 0<a_{n+1}<a_n\le1$となるので帰納法で示せる.
                 \par\smallskip\noindent
@@ -287,7 +288,7 @@
                 \]
                 よって$\displaystyle \frac12\le b_{n+1}-b_n\le1$である.
                 \par\smallskip\noindent
-                (3) $\displaystyle \frac{n+1}{2}\le b_n\le n$から設問の評価が得られ,極限は$\displaystyle 0$である.
+                (3) $\displaystyle \frac{n+1}{2}\le b_n\le n$から設問の評価が得られ,\bookterm{limit}{極限}は$\displaystyle 0$である.
           % B9
           \item (1) $\displaystyle (x_1,y_1)=(2,1),(x_2,y_2)=(7,4)$.
                 展開すると設問の等式が成り立つ.
@@ -313,7 +314,7 @@
                 \[
                   I_1=1,\quad I_2=e-2,\quad I_3=6-2e.
                 \]
-                (3) 設問の評価から,極限は$\displaystyle 0$である.
+                (3) 設問の評価から,\bookterm{limit}{極限}は$\displaystyle 0$である.
         \end{enumerate}
 
       \subsubsection{解法}\label{節：発展入門：解法}
@@ -333,7 +334,7 @@
                 となる.
 
                 \smallskip
-                \textbf{(3)~階差を足して元の個数に戻す.}
+                \textbf{(3)~\bookterm{difference}{階差}を足して元の個数に戻す.}
                 チャートの「付加項の総和」に沿って,
                 \[
                   R_n=R_0+\sum_{k=1}^{n}k
@@ -353,7 +354,7 @@
 
                 \smallskip
                 \textbf{(2)(3)~定数を引いて等比型にする.}
-                チャートの「係数・付加項が定数」に対応する特性方程式型である.
+                チャートの「係数・付加項が定数」に対応する\bookterm{characteristic}{特性方程式}型である.
                 定数の解$\displaystyle \frac12$を引けば,
                 \[
                   p_{n+1}-\frac12
@@ -363,7 +364,7 @@
                 \[
                   p_n-\frac12=\frac12\left(-\frac13\right)^n.
                 \]
-                公比の絶対値が$\displaystyle 1$未満だから極限は$\displaystyle \frac12$となる.
+                公比の絶対値が$\displaystyle 1$未満だから\bookterm{limit}{極限}は$\displaystyle \frac12$となる.
                 「偶数か奇数か」だけを記録すれば,赤の正確な個数をすべて追う必要はない.
           % B3
           \item \textbf{(1)(2)~末尾を取り除いて短い問題に戻す.}
@@ -381,7 +382,7 @@
 
                 \smallskip
                 \textbf{(3)~隣接3項間の解法を使う.}
-                チャートの「何項間か」に沿って特性方程式
+                チャートの「何項間か」に沿って\bookterm{characteristic}{特性方程式}
                 \[
                   t^2-t-1=0
                 \]
@@ -418,7 +419,7 @@
                 奇数の平方を$\displaystyle 4$で割った余りは$\displaystyle 1$なので,\,$\displaystyle n\ge1$の$\displaystyle a_n$の余りは$\displaystyle 2\cdot1+1=3$になる.
                 一方,整数の平方の余りは,偶数を平方すれば$\displaystyle 0$,奇数を平方すれば$\displaystyle 1$である.
                 したがって,\,$\displaystyle a_n$は整数の平方ではない.
-                ここで立てたのは,元の数列の一般項ではなく,余りを追う漸化式である.
+                ここで立てたのは,元の\bookterm{sequence}{数列}の\bookterm{general}{一般項}ではなく,余りを追う\bookterm{recurrence}{漸化式}である.
           % B5
           \item \textbf{(1)~図形操作をベクトルの更新にする.}
                 $\displaystyle \boldsymbol b_n=\overrightarrow{OB_n}$,\,$\displaystyle \boldsymbol c_n=\overrightarrow{OC_n}$ともおく.
@@ -466,7 +467,7 @@
                 \]
 
                 \smallskip
-                \textbf{(3)~和そのものの階差を作る.}
+                \textbf{(3)~和そのものの\bookterm{difference}{階差}を作る.}
                 チャートの「総和があるか」に沿って,添字を一つずらした和を引く.\,
                 $\displaystyle n\ge1$で,
                 \[
@@ -487,7 +488,7 @@
                 \[
                   T_n=\frac{(n+1)(n+2)(n+3)}6
                 \]
-                を得る.各項の総和を展開する代わりに,求めたい和の漸化式を作ったのである.
+                を得る.各項の総和を展開する代わりに,求めたい和の\bookterm{recurrence}{漸化式}を作ったのである.
 
                 \noindent \textbf{【別解】}\\
                 玉$\displaystyle n$個と仕切り3本を一列に並べ,仕切りの間にある玉の数を順に$\displaystyle A,B,C,D$の個数とする.
@@ -510,7 +511,7 @@
 
                 \smallskip
                 \textbf{(2)(3)~総量と偏りを追う.}
-                チャートの「複数の数列の関係」に沿って,連立型の和と差を試す.\,
+                チャートの「複数の\bookterm{sequence}{数列}の関係」に沿って,連立型の和と差を試す.\,
                 $\displaystyle s_n=x_n+y_n,d_n=x_n-y_n$とおけば,
                 \[
                   s_{n+1}=s_n,\qquad d_{n+1}=\frac12d_n.
@@ -527,7 +528,7 @@ $\displaystyle x_n=\frac{s_n+d_n}{2}$,$\displaystyle y_n=\frac{s_n-d_n}{2}$か�
                 \[
                   x_{n+1}=\frac12x_n+\frac52
                 \]
-                となる.特性方程式型として定数の解$\displaystyle 5$を引けば,同じ答えが得られる.
+                となる.\bookterm{characteristic}{特性方程式}型として定数の解$\displaystyle 5$を引けば,同じ答えが得られる.
           % B8
           \item \textbf{(1)~変形の前に正値を確保する.}
                 $\displaystyle a_1=1$である.\,$\displaystyle 0<a_n\le1$を仮定すると,
@@ -553,10 +554,10 @@ $\displaystyle x_n=\frac{s_n+d_n}{2}$,$\displaystyle y_n=\frac{s_n-d_n}{2}$か�
                 \[
                   \frac12\le b_{n+1}-b_n\le1.
                 \]
-                厳密な階差の一般項を求めなくても,上下から押さえられる.
+                厳密な\bookterm{difference}{階差}の\bookterm{general}{一般項}を求めなくても,上下から押さえられる.
 
                 \smallskip
-                \textbf{(3)~不等式を足して元の数列へ戻す.}
+                \textbf{(3)~不等式を足して元の\bookterm{sequence}{数列}へ戻す.}
                 $\displaystyle b_1=1$である.\,$\displaystyle n\ge2$では,(2)を$\displaystyle k=1,\ldots,n-1$について足すと,
                 \[
                   \frac{n-1}{2}\le b_n-1\le n-1.
@@ -567,10 +568,11 @@ $\displaystyle x_n=\frac{s_n+d_n}{2}$,$\displaystyle y_n=\frac{s_n-d_n}{2}$か�
                   \frac1n\le a_n\le\frac2{n+1}.
                 \]
                 両端が$\displaystyle 0$に近づくから,はさみうちの原理で$\displaystyle a_n\to0$を得る.
-                本編の逆数化と階差の考え方を,一般項の計算から不等式の評価へ広げている.
+                本編の逆数化と\bookterm{difference}{階差}の考え方を,\bookterm{general}{一般項}の計算から不等式の評価へ広げている.
           % B9
           \item \textbf{(1)~操作をしても変わらない量を調べる.}
-                代入すると,\,$\displaystyle (x_1,y_1)=(2,1),(x_2,y_2)=(7,4)$となる.
+                代入すると、$\displaystyle (x_1,y_1)=(2,1)$となる。
+                次の組は$\displaystyle (x_2,y_2)=(7,4)$である。
                 また,
                 \begin{align*}
                   x_{n+1}^2-3y_{n+1}^2
@@ -578,12 +580,12 @@ $\displaystyle x_n=\frac{s_n+d_n}{2}$,$\displaystyle y_n=\frac{s_n-d_n}{2}$か�
                     &\quad-3(x_n+2y_n)^2\\
                     &=x_n^2-3y_n^2.
                 \end{align*}
-                操作を繰り返しても値が変わらない量を\textbf{不変量}という.
+                操作を繰り返しても値が変わらない量を\textbf{\bookterm{invariant}{不変量}}という.
                 初期値から,\,$\displaystyle x_n^2-3y_n^2=x_0^2-3y_0^2=1$である.
 
                 \smallskip
                 \textbf{(2)~重みを付けた和と差で連立を分ける.}
-                チャートの「複数の数列の関係」に沿って,今度は$\displaystyle \sqrt3$の重みを付けた和と差を使う.
+                チャートの「複数の\bookterm{sequence}{数列}の関係」に沿って,今度は$\displaystyle \sqrt3$の重みを付けた和と差を使う.
                 実際に次項を作ると,
                 \begin{align*}
                   z_{n+1}
@@ -591,7 +593,7 @@ $\displaystyle x_n=\frac{s_n+d_n}{2}$,$\displaystyle y_n=\frac{s_n-d_n}{2}$か�
                     &=(2+\sqrt3)z_n.
                 \end{align*}
                 同様に$\displaystyle w_{n+1}=(2-\sqrt3)w_n$である.\,
-                $\displaystyle z_0=w_0=1$から二つの等比数列を求め,
+                $\displaystyle z_0=w_0=1$から二つの\bookterm{geometric}{等比数列}を求め,
                 \[
                   x_n=\frac{z_n+w_n}{2},\qquad
                   y_n=\frac{z_n-w_n}{2\sqrt3}
@@ -607,9 +609,9 @@ $\displaystyle x_n=\frac{s_n+d_n}{2}$,$\displaystyle y_n=\frac{s_n-d_n}{2}$か�
                   x_{n+1}-x_n=x_n+3y_n>0
                 \]
                 なので,同じ解は繰り返されない.
-                (1)の不変量からすべて$\displaystyle x^2-3y^2=1$を満たすため,正の整数解が無限個得られる.
-                一般項に無理数が含まれていても,整数性は元の漸化式から確実に分かる.
-                この漸化式が,正の整数解を無限個生成する仕組みになっている.
+                (1)の\bookterm{invariant}{不変量}からすべて$\displaystyle x^2-3y^2=1$を満たすため,正の整数解が無限個得られる.
+                \bookterm{general}{一般項}に無理数が含まれていても,整数性は元の\bookterm{recurrence}{漸化式}から確実に分かる.
+                この\bookterm{recurrence}{漸化式}が,正の整数解を無限個生成する仕組みになっている.
           % B10
           \item \textbf{(1)(2)~指数を一つ下げる操作を作る.}
                 $\displaystyle I_0=\int_0^1e^x\,dx=e-1$である.\,
@@ -624,16 +626,16 @@ $\displaystyle x_n=\frac{s_n+d_n}{2}$,$\displaystyle y_n=\frac{s_n-d_n}{2}$か�
                 \[
                   I_1=1,\quad I_2=e-2,\quad I_3=6-2e.
                 \]
-                一つの積分を単独で計算するのではなく,同じ形の積分を指数$\displaystyle n$で並べると,漸化式で前の計算を使える.
+                一つの積分を単独で計算するのではなく,同じ形の積分を指数$\displaystyle n$で並べると,\bookterm{recurrence}{漸化式}で前の計算を使える.
 
                 \smallskip
-                \textbf{(3)~極限には積分の大きさを使う.}
+                \textbf{(3)~\bookterm{limit}{極限}には積分の大きさを使う.}
                 $\displaystyle 0<x<1$で$\displaystyle x^ne^x>0$なので,\,$\displaystyle I_n>0$である.
                 また,\,$\displaystyle 0\le x\le1$で$\displaystyle x^ne^x\le ex^n$であるから,
                 \[
                   I_n\le e\int_0^1x^n\,dx=\frac{e}{n+1}.
                 \]
                 右辺が$\displaystyle 0$に近づくので,はさみうちの原理から$\displaystyle I_n\to0$となる.
-                低い次数の値には漸化式が役立ち,極限には積分の評価が役立つ.
+                低い次数の値には\bookterm{recurrence}{漸化式}が役立ち,\bookterm{limit}{極限}には積分の評価が役立つ.
                 求めたいものに合わせて使う式を選ぼう.
         \end{enumerate}

@@ -1,9 +1,14 @@
 % jsbook の 11pt で用いられる拡大率 (\mag) が用紙にも及ぶのを防ぎ、
 % PDF の実寸を A4 (210 mm × 297 mm) に保つ。
+% 紙版は文字を少し大きくする。スマホ版は既存の10ptを保つ。
+\ifdefined\BookMobile
+  \PassOptionsToClass{10pt}{jsbook}
+\else
+  \PassOptionsToClass{11pt}{jsbook}
+\fi
 \documentclass[
   dvipdfmx,
   a4paper,
-  10pt,
   nomag,
   fleqn,
   openany
@@ -15,8 +20,7 @@
 
 \usepackage{amsmath,amsthm,amssymb,amsfonts}
 
-% インライン数式は本文中でも displaystyle で統一する
-\everymath{\displaystyle}
+% 本文中は通常の数式サイズ、独立した数式は表示用サイズ。
 \usepackage{refcount}
 \usepackage{tikz}
 \usepackage{graphicx}
@@ -30,16 +34,12 @@
 \ifdefined\BookMobile
   \usepackage[paperwidth=90truemm,paperheight=160truemm,margin=8truemm,headheight=8.5truemm,headsep=1truemm]{geometry}
 \else
-  \usepackage[margin=20truemm]{geometry}
+  \usepackage[left=35truemm,right=35truemm,top=20truemm,bottom=20truemm]{geometry}
 \fi
 
 \usepackage{multicol}
-% 本文は同じ原稿を使用し、スマホ版だけ1段組にする。
-\ifdefined\BookMobile
-  \newenvironment{bookcolumns}{\par}{\par}
-\else
-  \newenvironment{bookcolumns}{\begin{multicols*}{2}}{\end{multicols*}}
-\fi
+% 両版とも一段組。A4は読みやすい行長、スマホ版は画面幅を使う。
+\newenvironment{bookcolumns}{\par}{\par}
 \usepackage{enumitem}
 \usepackage{url}
 
@@ -73,20 +73,21 @@
 % 全体の組版
 % =========================================================
 
-% 段の高さを無理にそろえず、上から順に流す
-\raggedcolumns
+% ページの高さを無理にそろえず、上から順に流す
+\raggedbottom
 
-% 2段組の段間
+% 参照用の段組を使う場合の段間
 \setlength{\columnsep}{12pt}
 
-% 2段組の中央線
-\setlength{\columnseprule}{0.4pt}
+% 段組の中央線
+\setlength{\columnseprule}{0pt}
 
 % 段落間隔
-\setlength{\parskip}{0pt}
+\setlength{\parskip}{0.35\baselineskip plus 1pt}
 
 % 行送りの不自然な拡張を必要な箇所だけ許容
 \setlength{\emergencystretch}{1em}
+\linespread{1.05}
 
 
 % =========================================================
@@ -112,7 +113,8 @@
 \setlist[enumerate,1]{
   label=(\arabic*),
   leftmargin=\leftmargini,
-  parsep=3pt
+  parsep=3pt,
+  beginpenalty=10000
 }
 
 
@@ -126,9 +128,11 @@
 
 \setlength{\smallquotemargin}{0.5\leftmargini}
 
+\makeatletter
 \newenvironment{smallquote}
   {%
     \begin{list}{}{%
+      \@beginparpenalty=10000%
       \setlength{\leftmargin}{\smallquotemargin}%
       \setlength{\rightmargin}{\smallquotemargin}%
       \setlength{\topsep}{0.35\baselineskip}%
@@ -139,6 +143,7 @@
     \item[]%
   }
   {\end{list}}
+\makeatother
 
 
 % =========================================================
@@ -173,10 +178,15 @@
 % 目次・見出し番号
 % =========================================================
 
-\setcounter{tocdepth}{3}
+\setcounter{tocdepth}{2}
 \setcounter{secnumdepth}{4}
 
 \input{../tex/book-links.tex}
+\hypersetup{bookmarksdepth=4}
+% 用語は本文と同じ見た目で、巻末の意味と参照先へリンクする。
+\DeclareRobustCommand{\bookterm}[2]{\hyperlink{term:#1}{#2}}
+\pdfstringdefDisableCommands{\def\bookterm#1#2{#2}}
+
 \hypersetup{
   pdftitle={漸化式の超体系的解説},
   pdfauthor={MAS256},
@@ -279,6 +289,7 @@
 \input{第3章 漸化式の解説/漸化式の解説.tex}
 \input{第4章 実際の解き方/実際の解き方.tex}
 \input{第5章 付録/付録.tex}
+\input{第7章 用語と計算の参照/用語と計算の参照.tex}
 \input{第6章 参考文献/参考文献.tex}
 
 \end{document}

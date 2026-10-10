@@ -3,7 +3,7 @@
 \subsubsection{極形式による図形的解釈}
   \BookFigMobius
 
-  図では,点$a_n$と二つの不動点$\alpha,\beta$を結ぶ線分を描いた.
+  図では,点$a_n$と二つの\bookterm{fixed}{不動点}$\alpha,\beta$を結ぶ線分を描いた.
   上の線分の長さを下の線分の長さで割ると,
   \[
     \frac{|a_n-\alpha|}{|a_n-\beta|}
@@ -11,28 +11,28 @@
     =|b_n|
   \]
   となる.また,二つの線分の向きの差は,
-  $b_n$の偏角$\arg b_n$に対応する.
+  $b_n$の\bookterm{argument}{偏角}$\arg b_n$に対応する.
   したがって,図で見ている\textbf{長さの比と角度の差}は,
-  計算で導入する一つの複素数$b_n$の絶対値と偏角に他ならない.
+  計算で導入する一つの複素数$b_n$の絶対値と\bookterm{argument}{偏角}に他ならない.
   さらに$b_{n+1}=\lambda b_n$となったときは,
   長さの比が$|\lambda|$倍され,角度の差が$\arg\lambda$だけ増える.
-  特に$|\lambda|=1$なら,長さの比を保ったまま偏角だけが変わり,
-  複素平面上の回転として理解できる.
+  特に$|\lambda|=1$なら,長さの比を保ったまま\bookterm{argument}{偏角}だけが変わり,
+  \bookterm{complex-plane}{複素平面}上の回転として理解できる.
 
 
-  ここまででは,\,$\alpha,\beta$を不動点として
+  ここまででは,\,$\alpha,\beta$を\bookterm{fixed}{不動点}として
   \[
     b_n=\frac{a_n-\alpha}{a_n-\beta}
   \]
-  と置くことで,1次分数型の漸化式を等比数列に帰着できることを示した.
+  と置くことで,1次分数型の\bookterm{recurrence}{漸化式}を\bookterm{geometric}{等比数列}に帰着できることを示した.
 
-  ここでは,この変形を複素平面上で考えてみよう.
+  ここでは,この変形を\bookterm{complex-plane}{複素平面}上で考えてみよう.
   まず注意したいのは,
   \[
     \frac{a_n-\alpha}{a_n-\beta}
   \]
   そのものを「距離の比」と呼ぶのは正確ではないという点である.
-  実数上でも符号の情報を含み,複素平面上では偏角の情報まで含む.
+  実数上でも符号の情報を含み,\bookterm{complex-plane}{複素平面}上では\bookterm{argument}{偏角}の情報まで含む.
   実際に距離の比を表すのは絶対値を取った
   \[
     \left|\frac{a_n-\alpha}{a_n-\beta}\right|
@@ -40,15 +40,15 @@
     \frac{|a_n-\alpha|}{|a_n-\beta|}
   \]
   であり,これは点$a_n$から$\alpha,\beta$までの距離の比である.
-  一方,もとの複素数の比には,この距離の比に加えて二つの差の偏角の差も記録されている.
+  一方,もとの複素数の比には,この距離の比に加えて二つの差の\bookterm{argument}{偏角}の差も記録されている.
 
-  特に,\,$\alpha,\beta$が実数ではなく複素数となる場合には,この変形によって漸化式を「回転」として解釈することができる.
+  特に,\,$\alpha,\beta$が実数ではなく複素数となる場合には,この変形によって\bookterm{recurrence}{漸化式}を「回転」として解釈することができる.
 
   $p,q,r,s$が実数であるとき,
   \[
     rx^2+(s-p)x-q=0
   \]
-  の2解が実数でなければ,解と係数の関係から,2解は互いに共役な複素数となる.
+  の2解が実数でなければ,解と係数の関係から,2解は互いに\bookterm{conjugate}{共役}な複素数となる.
   そこで,その2解を
   \[
     \beta=\overline{\alpha}
@@ -83,13 +83,13 @@
   \]
   である.
 
-  したがって,\,$\lambda$は極形式を用いて
+  したがって,\,$\lambda$は\bookterm{polar}{極形式}を用いて
   \[
     \lambda=\cos\theta+i\sin\theta
   \]
   と表すことができる.
 
-  一方,\,$b_n$も極形式を用いて
+  一方,\,$b_n$も\bookterm{polar}{極形式}を用いて
   \[
     b_n=\rho_n(\cos\varphi_n+i\sin\varphi_n)
   \]
@@ -113,19 +113,19 @@
   \]
   となる.
 
-  つまり,$b_n$は複素平面上で原点からの距離を変えずに,\,$\theta$だけずつ回転している.
+  つまり,$b_n$は\bookterm{complex-plane}{複素平面}上で原点からの距離を変えずに,\,$\theta$だけずつ回転している.
 
   このことから,
   \[
     b_{n+1}=\lambda b_n
   \]
-  という等比数列への帰着は,単なる計算上の技巧ではなく,複素平面上の図形的な変化を表していることが分かる.
+  という\bookterm{geometric}{等比数列}への帰着は,単なる計算上の技巧ではなく,\bookterm{complex-plane}{複素平面}上の図形的な変化を表していることが分かる.
 
-  実際に,次の漸化式を考えてみよう.
+  実際に,次の\bookterm{recurrence}{漸化式}を考えてみよう.
   \[
     a_{n+1}=\frac{a_n+1}{1-a_n}
   \]
-  この漸化式の不動点は
+  この\bookterm{recurrence}{漸化式}の\bookterm{fixed}{不動点}は
   \[
     x=\frac{x+1}{1-x}
   \]
@@ -164,12 +164,12 @@
   \]
   を得る.
 
-  $i$は極形式で
+  $i$は\bookterm{polar}{極形式}で
   \[
     i=\cos\frac{\pi}{2}+i\sin\frac{\pi}{2}
   \]
   と表せる.
-  したがって,\,$b_n$は複素平面上で毎回反時計回りに$\dfrac{\pi}{2}$だけ回転する.
+  したがって,\,$b_n$は\bookterm{complex-plane}{複素平面}上で毎回反時計回りに$\dfrac{\pi}{2}$だけ回転する.
 
   例えば,\,$a_1=\dfrac12$とすると,
   \begin{align*}
@@ -205,11 +205,11 @@
   \[
     b_n=\frac{a_n-i}{a_n+i}
   \]
-  という変換によって,複素平面上で一定角度ずつ回転する点の運動として表される.
+  という変換によって,\bookterm{complex-plane}{複素平面}上で一定角度ずつ回転する点の運動として表される.
 
-  このように,異なる二つの不動点をもつ1次分数型漸化式では,
+  このように,異なる二つの\bookterm{fixed}{不動点}をもつ1次分数型\bookterm{recurrence}{漸化式}では,
   \[
     \frac{a_n-\alpha}{a_n-\beta}
   \]
-  という変換を用いることで,漸化式を等比数列に変形できる.
-  特に,係数が実数で不動点が非実の共役な二点であるときには,変換後の点の変化を複素平面上の回転として図形的に解釈することができる.
+  という変換を用いることで,\bookterm{recurrence}{漸化式}を\bookterm{geometric}{等比数列}に変形できる.
+  特に,係数が実数で\bookterm{fixed}{不動点}が非実の\bookterm{conjugate}{共役}な二点であるときには,変換後の点の変化を\bookterm{complex-plane}{複素平面}上の回転として図形的に解釈することができる.

@@ -3,21 +3,22 @@
 \subsection{\texorpdfstring{対数型 \, $a_{n+1}=pa_n^q$}{対数型}}\label{節：対数型}
   \begin{bookpoint}
     \textbf{積や冪を,和や定数倍へ移す}\par
-    対数を取る発想は指数の扱いを簡単にするためである.実数の対数を使う前に,項や底の条件を確認する.
+    \bookterm{logarithm}{対数}を取る発想は指数の扱いを簡単にするためである.実数の\bookterm{logarithm}{対数}を使う前に,項や底の条件を確認する.
   \end{bookpoint}
   \noindent\textbf{【観察と発想】}\par
   $a_n$の2乗などを含む更新は,そのままでは$a_n$について一次の式ではない.
   \sectionref*{節：指数対数}の公式$\log_t(x^q)=q\log_t x$を使えば,指数を係数として取り出せる.
-  積・商・累乗を和・差・定数倍へ変えることが,対数を選ぶ手掛かりである.
-  以下では,先に正値を確認してから対数を取る.
+  積・商・累乗を和・差・定数倍へ変えることが,\bookterm{logarithm}{対数}を選ぶ手掛かりである.
+  以下では,先に正値を確認してから\bookterm{logarithm}{対数}を取る.
 
   \[
     a_{n+1}=pa_n^q
   \]
-  ただし,$p>0,\,a_1>0$とする. このとき,$a_n>0$ならば$p a_n^q>0$であるから,
-  数学的帰納法によりすべての項が正となり,対数を取ることができる.
-  まず,$p\ne1$の場合を考え,$p$を対数の底に選ぶ.
-  この式について,両辺の対数を取ると
+  ただし、$p>0,\,a_1>0$とする。すべての項が正なので、実数の\bookterm{logarithm}{対数}を取れる。
+  \footnote{$a_n>0$ならば$p a_n^q>0$である。
+  初項も正なので、\bookterm{induction}{数学的帰納法}によりすべての項が正となる。}
+  まず,$p\ne1$の場合を考え,$p$を\bookterm{logarithm}{対数}の底に選ぶ.
+  この式について,両辺の\bookterm{logarithm}{対数}を取ると
   \begin{align*}
     \log_p{a_{n+1}}&=\log_p{pa_n^q}\\
     &=\log_p{p}+\log_p{a_n^q}\\
@@ -27,23 +28,23 @@
   \begin{align*}
     b_{n+1}=qb_n+1
   \end{align*}
-  $q\ne1$ならば特性方程式型として解くことができる.
+  $q\ne1$ならば\bookterm{characteristic}{特性方程式}型として解くことができる.
   $q=1$のときは$b_{n+1}=b_n+1$という等差型となり,$a_n=a_1p^{n-1}$を得る.
-  また,$p=1$のときは$p$を対数の底にできないが,底を$2$などに選べば
+  また,$p=1$のときは$p$を\bookterm{logarithm}{対数}の底にできないが,底を$2$などに選べば
   \[
     b_n=\log_2a_n,\qquad b_{n+1}=qb_n
   \]
   となり,$q\ne0$ならば$a_n=a_1^{q^{n-1}}$を得る.
   $q=0$の場合は$a_1$を別に扱い,$n\ge2$では$a_n=1$である.
-  対数の底は$0$より大きく$1$でない数なら自由に選べるが,$p$に関連する数だと扱いやすい.
+  \bookterm{logarithm}{対数}の底は$0$より大きく$1$でない数なら自由に選べるが,$p$に関連する数だと扱いやすい.
   たとえば$p=k^m$の時は$k$でとっておくことが多い.
   作問者側は解答がシンプルな形になるようにするため,より小さい底を取ることで答えが求めやすくなる.
 
-  また,対数の強みは積を和に,商を差にできるところにある.
-  漸化式が全て積や商のみで表される場合にその強みが現れる.
+  また,\bookterm{logarithm}{対数}の強みは積を和に,商を差にできるところにある.
+  \bookterm{recurrence}{漸化式}が全て積や商のみで表される場合にその強みが現れる.
   これはここで解説するよりも演習問題を通して経験するほうがわかりやすいと判断したため,この内容は(2)で取り扱っている.
 
-  \noindent\bookblocklink{example-logarithmic-1}{problem}{answer}{【例題】}
+  \noindent\bookblocklink{example-logarithmic-1}{problem}{answer}{【例題】}\par\nobreak
   \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-logarithmic-1}{problem}{answer}]
     \item $\displaystyle a_1=2,\quad a_{n+1}=2a_n^2$
     \item $\displaystyle a_1=\frac{1}{2},\quad a_{n+1}=\frac{1}{a_n}$
@@ -53,17 +54,17 @@
     \item $\displaystyle a_1=1,\quad a_{n+1}=(n+1)a_n$
   \end{enumerate}
 
-  \noindent\bookblocklink{example-logarithmic-1}{hint}{problem}{【方針】}
+  \noindent\bookblocklink{example-logarithmic-1}{hint}{problem}{【方針】}\par\nobreak
   \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-logarithmic-1}{hint}{problem}]
-    \item 両辺の底を$2$とする対数を取り,\,$b_n=\log_2a_n$とおいて一次の漸化式に変形します.その結果,漸化式は特性方程式型になります.
-    \item 一見すると分数型(後述)のように見えますが,対数型として解くことができます.
-    \item $f(n)=2^n$が指数関数なので,対数を取ると和の形に帰着できます.
-    \item 平方完成で$a_{n+1}-1=(a_n-1)^2$を作ります.対数を取る量は$a_n$ではなく$a_n-1$であり,その正値を先に確認します.
-    \item 両辺の底を$2$とする対数を取り,$b_n=\log_2a_n$と置きます. $b_n$から一次式$n+1$を引くと等比型に帰着できます.
-    \item 積を直接まとめる方法と,対数で和に変える方法を比べましょう.最後には同じ積$n!$を計算します.
+    \item 両辺の底を$2$とする\bookterm{logarithm}{対数}を取り,\,$b_n=\log_2a_n$とおいて一次の\bookterm{recurrence}{漸化式}に変形します.その結果,\bookterm{recurrence}{漸化式}は\bookterm{characteristic}{特性方程式}型になります.
+    \item 一見すると分数型(後述)のように見えますが,\bookterm{logarithm}{対数}型として解くことができます.
+    \item $f(n)=2^n$が指数関数なので,\bookterm{logarithm}{対数}を取ると和の形に帰着できます.
+    \item \bookterm{square}{平方完成}で$a_{n+1}-1=(a_n-1)^2$を作ります.\bookterm{logarithm}{対数}を取る量は$a_n$ではなく$a_n-1$であり,その正値を先に確認します.
+    \item 両辺の底を$2$とする\bookterm{logarithm}{対数}を取り,$b_n=\log_2a_n$と置きます. $b_n$から一次式$n+1$を引くと等比型に帰着できます.
+    \item 積を直接まとめる方法と,\bookterm{logarithm}{対数}で和に変える方法を比べましょう.最後には同じ積$n!$を計算します.
   \end{enumerate}
 
-  \noindent\bookblocklink{example-logarithmic-1}{answer}{problem}{【解答】}
+  \noindent\bookblocklink{example-logarithmic-1}{answer}{problem}{【解答】}\par\nobreak
   \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-logarithmic-1}{answer}{problem}]
     \item $\displaystyle a_n=2^{2^{n}-1}$
     \item $a_n=2^{(-1)^{n}}$
@@ -73,15 +74,15 @@
     \item $a_n=n!$
   \end{enumerate}
 
-  \noindent\bookblocklink{example-logarithmic-1}{solution}{problem}{【解法】}
+  \noindent\bookblocklink{example-logarithmic-1}{solution}{problem}{【解法】}\par\nobreak
 
   (1),(2),(3),(5),(6)では,初項が正であり,正の項から次の項も正となる.
-  従って数学的帰納法により,$a_n>0$がすべての$n\ge1$で成り立つ.
+  従って\bookterm{induction}{数学的帰納法}により,$a_n>0$がすべての$n\ge1$で成り立つ.
   (4)では$a_1-1=4>0$であり,$a_{n+1}-1=(a_n-1)^2$から同様に$a_n-1>0$が成り立つ.
-  以下では,これらの正の量に対して対数を取る.
+  以下では,これらの正の量に対して\bookterm{logarithm}{対数}を取る.
   \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-logarithmic-1}{solution}{problem}]
     \item $\displaystyle a_1=2,\quad a_{n+1}=2a_n^2$\\
-          両辺の底を$2$とする対数を取ると,
+          両辺の底を$2$とする\bookterm{logarithm}{対数}を取ると,
           \begin{align*}
             \log_2a_{n+1}
               &=\log_2{2a_n^2}\\
@@ -117,7 +118,7 @@
             &a_n=2^{2^{n}-1}
           \end{align*}
     \item $\displaystyle a_1=\frac12,\quad a_{n+1}=\frac{1}{a_n}$\\
-          与式の両辺の底を2とする対数を取ると,
+          与式の両辺の底を2とする\bookterm{logarithm}{対数}を取ると,
           \begin{align*}
             &\log_2{a_{n+1}}=\log_2{\frac{1}{a_n}}\\
             &\log_2{a_{n+1}}=\log_2{1}-\log_2{a_n}\\
@@ -128,7 +129,7 @@
             &\therefore \quad a_n=2^{(-1)^{n}}
           \end{align*}
     \item $\displaystyle a_1=1,\quad a_{n+1}=2^na_n$\\
-          両辺の自然対数を取ると
+          両辺の自然\bookterm{logarithm}{対数}を取ると
           \[
             \log a_{n+1}=n\log2+\log a_n
           \]
@@ -143,7 +144,7 @@
           \[
             a_{n+1}-1=(a_n-1)^2
           \]
-          両辺の底を2とする対数を取ると,
+          両辺の底を2とする\bookterm{logarithm}{対数}を取ると,
           \begin{align*}
             &\log_2{(a_{n+1}-1)}=\log_2{(a_n-1)^2}\\
             &\log_2{(a_{n+1}-1)}=2\log_2{(a_n-1)}\\
@@ -154,7 +155,7 @@
             &\therefore \quad a_n=2^{2^{n}}+1
           \end{align*}
     \item $\displaystyle a_1=2,\quad a_{n+1}=\frac{a_n^2}{2^n}$\\
-          両辺の底を$2$とする対数を取ると,
+          両辺の底を$2$とする\bookterm{logarithm}{対数}を取ると,
           \[
             \log_2a_{n+1}=2\log_2a_n-n
           \]
@@ -177,7 +178,7 @@
             \therefore\quad a_n&=2^{\,n+1-2^{n-1}}
           \end{align*}
     \item $\displaystyle a_1=1,\quad a_{n+1}=(n+1)a_n$\\
-          両辺の自然対数を取って,
+          両辺の自然\bookterm{logarithm}{対数}を取って,
           \[
             \log a_{n+1}=\log(n+1)+\log a_n
           \]
@@ -191,22 +192,21 @@
   \end{enumerate}
   \noindent\textbf{【補足】}
 
-  (3)では自然対数,すなわち底を$e$とする対数を用いたが,
+  (3)では自然\bookterm{logarithm}{対数},すなわち底を$e$とする\bookterm{logarithm}{対数}を用いたが,
   底は$0$より大きく$1$でない数なら任意である.
-  対数を取る際は,変形後の真数も正であることを確認する必要がある.
-  真数が$0$や負になる場合は,そのまま実数の対数を取ることはできない.
-  例えば(4)で初項が$1$ならば$a_n=1$という定数数列になるため,
+  \bookterm{logarithm}{対数}を取る際は,変形後の真数も正であることを確認する必要がある.
+  真数が$0$や負になる場合は,そのまま実数の\bookterm{logarithm}{対数}を取ることはできない.
+  例えば(4)で初項が$1$ならば$a_n=1$という定数\bookterm{sequence}{数列}になるため,
   $\log(a_n-1)$を取らずに別に扱う.
 
-  \noindent\bookblocklink{check-log-domain}{problem}{answer}{【確認問題】}
+  \noindent\bookblocklink{check-log-domain}{problem}{answer}{【確認問題】}\par\nobreak
   \begin{enumerate}[format=\bookitemlink{check-log-domain}{problem}{answer}]
     \item $a_{n+1}=a_n^2$で,初項が$2,0,-2$の場合を比較せよ.
-          最初から実数の対数を取れるのはどの場合か.取れない場合にも数列は定義されるか.
+          最初から実数の\bookterm{logarithm}{対数}を取れるのはどの場合か.取れない場合にも\bookterm{sequence}{数列}は定義されるか.
   \end{enumerate}
-  \noindent\bookblocklink{check-log-domain}{answer}{problem}{【確認の解答】}
+  \noindent\bookblocklink{check-log-domain}{answer}{problem}{【確認の解答】}\par\nobreak
   \begin{enumerate}[format=\bookitemlink{check-log-domain}{answer}{problem}]
     \item 初項$2$ならすべての項が正である.
           初項$0$なら零列,初項$-2$なら第2項以降が正である.
-          いずれも元の漸化式は定義される.対数を取る条件と,元の数列が存在する条件は区別する.
+          いずれも元の\bookterm{recurrence}{漸化式}は定義される.\bookterm{logarithm}{対数}を取る条件と,元の\bookterm{sequence}{数列}が存在する条件は区別する.
   \end{enumerate}
-

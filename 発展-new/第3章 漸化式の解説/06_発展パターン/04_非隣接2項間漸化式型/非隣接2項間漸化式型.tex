@@ -1,37 +1,37 @@
 \subsection{非隣接2項間漸化式型}\label{節：非隣接2項間漸化式型}
 
-  非隣接2項間漸化式とは,例えば
+  非隣接2項間\bookterm{recurrence}{漸化式}とは,例えば
   \[
     a_{n+2}=f(a_n)\qquad(n\ge1)
   \]
-  のように,隣り合わない2項の間に関係がある漸化式である.
+  のように,隣り合わない2項の間に関係がある\bookterm{recurrence}{漸化式}である.
   この形では,\,$a_1$から$a_3,a_5,\ldots$が決まり,\,$a_2$から$a_4,a_6,\ldots$が決まるため,奇数番目と偶数番目に分けて考えるとよい.
-  また,\,$a_{n+2}=qa_n$では,\,$a_{n+2}=0\cdot a_{n+1}+qa_n$と見て特性方程式を使うこともできる.
+  また,\,$a_{n+2}=qa_n$では,\,$a_{n+2}=0\cdot a_{n+1}+qa_n$と見て\bookterm{characteristic}{特性方程式}を使うこともできる.
 
-  次の数列の一般項を求めてみよう.
+  次の\bookterm{sequence}{数列}の\bookterm{general}{一般項}を求めてみよう.
 
-  \noindent \bookblocklink{example-nonadjacent-1}{problem}{answer}{【例題】}
+  \noindent \bookblocklink{example-nonadjacent-1}{problem}{answer}{【例題】}\par\nobreak
   \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-nonadjacent-1}{problem}{answer}]
     \item $\displaystyle a_1=2,\,a_2=3,\,a_{n+2}=a_n^2$
     \item $\displaystyle a_1=1,\,a_2=2,\,a_{n+2}=2a_n+1$
     \item $\displaystyle a_1=1,\,a_2=3,\,a_{n+2}=4a_n$
   \end{enumerate}
 
-  \noindent\bookblocklink{example-nonadjacent-1}{hint}{problem}{【方針】}
+  \noindent\bookblocklink{example-nonadjacent-1}{hint}{problem}{【方針】}\par\nobreak
   \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-nonadjacent-1}{hint}{problem}]
-    \item 奇数番目と偶数番目を別々の数列とみなし,それぞれの二乗関係を調べます.
+    \item 奇数番目と偶数番目を別々の\bookterm{sequence}{数列}とみなし,それぞれの二乗関係を調べます.
     \item $b_n=a_n+1$とおいて定数項を消してから,奇数番目と偶数番目に分けます.
-    \item $a_{n+2}=0\cdot a_{n+1}+4a_n$と見て,特性方程式を解きます.
+    \item $a_{n+2}=0\cdot a_{n+1}+4a_n$と見て,\bookterm{characteristic}{特性方程式}を解きます.
   \end{enumerate}
 
-  \noindent\bookblocklink{example-nonadjacent-1}{answer}{problem}{【解答】}
+  \noindent\bookblocklink{example-nonadjacent-1}{answer}{problem}{【解答】}\par\nobreak
   \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-nonadjacent-1}{answer}{problem}]
     \item $\displaystyle a_{2k-1}=2^{\,2^{k-1}},\quad a_{2k}=3^{\,2^{k-1}}\quad(k\ge1)$
     \item $\displaystyle a_{2k-1}=2^k-1,\quad a_{2k}=3\cdot2^{k-1}-1\quad(k\ge1)$
     \item $\displaystyle a_n=\frac54\,2^{n-1}-\frac14\,(-2)^{n-1}$
   \end{enumerate}
 
-  \noindent\bookblocklink{example-nonadjacent-1}{solution}{problem}{【解法】}
+  \noindent\bookblocklink{example-nonadjacent-1}{solution}{problem}{【解法】}\par\nobreak
   \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-nonadjacent-1}{solution}{problem}]
     \item $u_k=a_{2k-1},\,v_k=a_{2k}$とおくと,
           \[
@@ -57,7 +57,7 @@
             a_{2k-1}=2^k-1,\qquad a_{2k}=3\cdot2^{k-1}-1
           \]
           を得る.
-    \item 特性方程式は
+    \item \bookterm{characteristic}{特性方程式}は
           \[
             r^2-4=0
           \]
@@ -111,15 +111,15 @@
   \]
   となり,$P$は一周期の倍率の積,$Q$は付加項の寄与を合計した定数である.
   途中の項は元の一回ずつの更新から戻せる.
-  $P=0,1$の例外も,特性方程式型で学んだ条件に従って扱う.
+  $P=0,1$の例外も,\bookterm{characteristic}{特性方程式}型で学んだ条件に従って扱う.
 
   \begin{bookpoint}
     \textbf{更新を見る間隔も選べる}\par
     係数が繰り返すなら,一回ごとに追う代わりに一周期分をまとめる.
     係数が周期的でも,項の値が周期的になるとは限らない.
   \end{bookpoint}
-  付録の行列なら,$\binom{a_{n+1}}1=
+  付録の\bookterm{matrix}{行列}なら,$\binom{a_{n+1}}1=
   \begin{pmatrix}p_n&q_n\\0&1\end{pmatrix}\binom{a_n}1$と表せる.
-  二回の更新は,先に行う行列を右に置いた積になる.
+  二回の更新は,先に行う\bookterm{matrix}{行列}を右に置いた積になる.
   掛ける順序が計算結果に影響することを,上の$6x_k+5$で確かめよう.
   符号も変わる例は\bookproblemref{practice-connections}{4}{接続演習問4}へ.

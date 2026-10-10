@@ -3,20 +3,20 @@
 \subsection{総和型}\label{節：総和型}
   \begin{bookpoint}
     \textbf{和を消す}\par
-    添字を一つずらして引けば,総和の増分が一項として現れる.引き算で落とした初期条件も忘れずに戻す.
+    添字を一つずらして引けば,総和の増分が一項として現れる.引き算で落とした\bookterm{initial}{初期条件}も忘れずに戻す.
   \end{bookpoint}
   \subsubsection{\texorpdfstring{総和と一般項の漸化式型 \, $S_n=pa_n+f(n)$}{総和と一般項の漸化式型}}
-    ある漸化式によって定められる数列$a_n$によって,
+    ある\bookterm{recurrence}{漸化式}によって定められる\bookterm{sequence}{数列}$a_n$によって,
     \[
       S_n=\sum_{k=1}^{n} a_k
     \]
-    として定められる数列$S_n$について考えよう.
+    として定められる\bookterm{sequence}{数列}$S_n$について考えよう.
     $S_n$と$a_n$の関係を表した
     \[
       S_n=pa_n+f(n)
     \]
-    のような漸化式を考える.
-    このような漸化式は今まで取り扱った形にはない,未知のものである.
+    のような\bookterm{recurrence}{漸化式}を考える.
+    このような\bookterm{recurrence}{漸化式}は今まで取り扱った形にはない,未知のものである.
     であれば既知の形にするのが数学である.
     これまでのことをきちんと理解していれば,\,$a_{n+1}$と$a_n$の関係が分かっている時には解くことができる.
     $S_n$をうまく変形して$a_{n}$関連だけの式を産むには,\,$p \neq 1$の時,
@@ -36,7 +36,7 @@
     \begin{align*}
       &a_{n+1}=\frac{p}{p-1}a_n+g(n)
     \end{align*}
-    従って漸化式は階差等比複合型(\sectionref{節：階差等比複合型})に帰着する(係数$\frac{p}{p-1}$は$p=p-1$となることがないため,決して$1$にはならない).
+    従って\bookterm{recurrence}{漸化式}は\bookterm{difference}{階差}等比複合型(\sectionref{節：階差等比複合型})に帰着する(係数$\frac{p}{p-1}$は$p=p-1$となることがないため,決して$1$にはならない).
     $p=1$のときはこの割り算ができない.この場合,$S_n=a_n+f(n)$と$S_n=S_{n-1}+a_n$($n\ge2$)を比較すると,
     \[
       a_{n-1}=f(n)-f(n-1)\quad(n\ge2)
@@ -47,28 +47,28 @@
     \]
     を得る.なお,$n=1$のもとの式から$f(1)=0$が必要である.
 
-    \noindent \bookblocklink{example-summation-1}{problem}{answer}{【例題】}
+    \noindent \bookblocklink{example-summation-1}{problem}{answer}{【例題】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-summation-1}{problem}{answer}]
       \item $\displaystyle S_n=2a_n-n$
       \item $\displaystyle S_n=\frac12a_n+n$
       \item $\displaystyle S_n=a_n+\binom n2$
     \end{enumerate}
 
-    \noindent\bookblocklink{example-summation-1}{hint}{problem}{【方針】}
+    \noindent\bookblocklink{example-summation-1}{hint}{problem}{【方針】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-summation-1}{hint}{problem}]
-      \item まず$n=1$を代入して$a_1$を求めてから,本文の変形をなぞって$a_{n+1}$と$a_n$だけの漸化式を作りましょう.
-      \item 同様です.できた漸化式は特性方程式型に帰着します.
+      \item まず$n=1$を代入して$a_1$を求めてから,本文の変形をなぞって$a_{n+1}$と$a_n$だけの\bookterm{recurrence}{漸化式}を作りましょう.
+      \item 同様です.できた\bookterm{recurrence}{漸化式}は\bookterm{characteristic}{特性方程式}型に帰着します.
       \item $p=1$の場合です.$S_n-S_{n-1}=a_n$と比較して,$a_{n-1}$を直接求めましょう.
     \end{enumerate}
 
-    \noindent\bookblocklink{example-summation-1}{answer}{problem}{【解答】}
+    \noindent\bookblocklink{example-summation-1}{answer}{problem}{【解答】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-summation-1}{answer}{problem}]
       \item $\displaystyle a_n=2^n-1$
       \item $\displaystyle a_n=1+(-1)^{n-1}$
       \item $\displaystyle a_n=n$
     \end{enumerate}
 
-    \noindent\bookblocklink{example-summation-1}{solution}{problem}{【解法】}
+    \noindent\bookblocklink{example-summation-1}{solution}{problem}{【解法】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-summation-1}{solution}{problem}]
     \item $\displaystyle S_n=2a_n-n$
 
@@ -208,27 +208,27 @@ a_n&=S_n-S_{n-1}\\
       &a_{n+1}=pa_{n}+f(n)-f(n-1)
     \end{align*}
     ただし(2)は(1)の$n$を$n-1$に置き換えたものなので,この式は$n\ge2$の範囲でのみ成り立つ.\,$a_1$と$a_2$の関係は,別途$S_1,S_2$から直接求める必要がある.
-    あとは階差等比複合型の計算である(\,$p=1$なら階差数列型になる).
+    あとは\bookterm{difference}{階差}等比複合型の計算である(\,$p=1$なら\bookterm{difference}{階差}\bookterm{sequence}{数列}型になる).
 
-    \noindent \bookblocklink{example-summation-2}{problem}{answer}{【例題】}
+    \noindent \bookblocklink{example-summation-2}{problem}{answer}{【例題】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-summation-2}{problem}{answer}]
       \item $\displaystyle S_1=1,\ S_{n+1}=2S_n+n$
       \item $\displaystyle S_1=0,\ S_{n+1}=2S_n+n$
     \end{enumerate}
 
-    \noindent\bookblocklink{example-summation-2}{hint}{problem}{【方針】}
+    \noindent\bookblocklink{example-summation-2}{hint}{problem}{【方針】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-summation-2}{hint}{problem}]
       \item 本文の式は$n\ge2$でしか使えないことに注意し,$a_2$だけは$S_2=2S_1+1$から別に求めましょう.
-      \item 同様に$n\ge2$で漸化式を作り,$a_2$から解きます.$a_1$も含む一般項になるか最後に確認しましょう.
+      \item 同様に$n\ge2$で\bookterm{recurrence}{漸化式}を作り,$a_2$から解きます.$a_1$も含む\bookterm{general}{一般項}になるか最後に確認しましょう.
     \end{enumerate}
 
-    \noindent\bookblocklink{example-summation-2}{answer}{problem}{【解答】}
+    \noindent\bookblocklink{example-summation-2}{answer}{problem}{【解答】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-summation-2}{answer}{problem}]
       \item $\displaystyle a_1=1,\quad a_n=3\cdot2^{n-2}-1\ (n\ge2)$
       \item $\displaystyle a_n=2^{n-1}-1\ (n\ge1)$
     \end{enumerate}
 
-    \noindent\bookblocklink{example-summation-2}{solution}{problem}{【解法】}
+    \noindent\bookblocklink{example-summation-2}{solution}{problem}{【解法】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-summation-2}{solution}{problem}]
     \item $\displaystyle S_1=1,\ S_{n+1}=2S_n+n$
 
@@ -298,4 +298,3 @@ a_n&=S_n-S_{n-1}\\
         \]
         である.
     \end{enumerate}
-
