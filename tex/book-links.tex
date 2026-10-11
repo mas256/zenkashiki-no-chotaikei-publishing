@@ -10,7 +10,8 @@
 }
 \DeclareRobustCommand{\booknavref}[2]{\hyperref[#1]{\booklinkcue{#2}}}
 
-% 用語へのリンクはすべて残す。各節・項で最初に本文に現れる語だけを装飾する。
+% 用語へのリンクはすべて残す。各節で最初に本文に現れる語だけを装飾する。
+% subsection以下や改ページでは判定をリセットしない。
 % 見出し、目次、見出し参照での出現は本文の初出として数えない。
 \newif\ifbooktermcues
 \booktermcuestrue
@@ -62,7 +63,7 @@
     \else
       \ifbooktermcues
         \tl_set:Nx \l_book_term_key_tl
-          { \thechapter / \thesection / \thesubsection / #1 }
+          { \int_use:c {c@chapter} / \int_use:c {c@section} / #1 }
         \exp_args:NNV \prop_if_in:NnTF \g_book_seen_terms_prop \l_book_term_key_tl
           { \hyperlink{term:#1}{#2} }
           {

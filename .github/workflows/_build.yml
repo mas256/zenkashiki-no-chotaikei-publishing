@@ -106,6 +106,9 @@ jobs:
       - name: Verify glossary and exercise navigation
         run: python3 scripts/verify-reading-navigation.py --pdf '発展-new/漸化式の超体系的解説.pdf'
 
+      - name: Verify term first-use decoration
+        run: python3 scripts/verify-term-first-use.py
+
       - name: Collect outputs and build-info
         working-directory: 発展-new
         run: |
