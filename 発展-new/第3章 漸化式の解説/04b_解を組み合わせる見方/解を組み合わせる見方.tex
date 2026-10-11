@@ -5,7 +5,7 @@
   ここからは,\bookterm{initial}{初期条件}を変えたときに生まれる解の\bookterm{sequence}{数列}をまとめて見よう.
   「いくつかの解を組み合わせて,ほかの解を作れるか」という問いは,
   隣接多項間・連立型・虚数解型と,付録の\bookterm{matrix}{行列}に共通する.
-  まず具体例で組み合わせ方を確かめ,その後に用語を紹介する.
+  まず具体例で組み合わせ方を確かめ,その後に用語を紹介する.\footnote{\bookterm{homogeneous}{同次}・\bookterm{inhomogeneous}{非同次}の意味は\sectionref*{節：アフィン・同次・非同次}で確認できる.}
 
   \begin{bookpoint}
     \textbf{ここで追う問い}\par
@@ -61,7 +61,6 @@
     \]}
     である.掛けて足す操作と更新が両立するためである.
     この性質を\textbf{\bookterm{superposition}{重ね合わせの原理}}という.
-    \bookterm{homogeneous}{同次}・\bookterm{inhomogeneous}{非同次}の意味は\sectionref*{節：アフィン・同次・非同次}で確認できる.
 
   \subsection{必要な解の数と,初期条件の自由度}\label{節：一次独立・基底・次元}
     先ほどの$u_n,v_n$を使えば,どんな\bookterm{initial}{初期条件}$(a_1,a_2)$にも
@@ -96,13 +95,11 @@
     その\bookterm{basis}{基底}に必要な\bookterm{sequence}{数列}の個数を\textbf{\bookterm{dimension}{次元}}という.
     $a_{n+2}=a_n$の解全体は2\bookterm{dimension}{次元}であり,$a_{n+1}=2a_n$の解全体は1\bookterm{dimension}{次元}である.
 
-    \bookterm{homogeneous}{同次}\bookterm{linear}{線形}\bookterm{recurrence}{漸化式}の解全体には零\bookterm{sequence}{数列}が含まれ,足し算や定数倍をしても解のままである.
-    こうした操作のできる集合を\textbf{\bookterm{vector-space}{ベクトル空間}}という.
+    \bookterm{homogeneous}{同次}\bookterm{linear}{線形}\bookterm{recurrence}{漸化式}の解全体には零\bookterm{sequence}{数列}が含まれ,足し算や定数倍をしても解のままである.\footnote{こうした操作のできる集合を\textbf{\bookterm{vector-space}{ベクトル空間}}という.}
     \bookterm{sequence}{数列}も,矢印と同じように足したり定数倍したりする対象として扱えるのである.
-    ここでは係数を実数としている.後の虚数解型で複素数を使うときも,
-    係数を複素数にして同じ計算と判定を使える.どちらの係数で考えるかは区別する.
+    ここでは係数を実数としている.\footnote{後の虚数解型で複素数を使うときも,係数を複素数にして同じ計算と判定を使える.どちらの係数で考えるかは区別する.}
 
-    この「\bookterm{dimension}{次元}」は,更新ができる範囲で\bookterm{initial}{初期条件}を自由に選ぶ数とつながっている.
+    この「\bookterm{dimension}{次元}」は,更新ができる範囲で\bookterm{initial}{初期条件}を自由に選ぶ数とつながっている.\footnote{\bookterm{nonlinear}{非線形}の式や,途中で更新が定義されなくなる式に,この結論をそのまま当てはめないようにしよう.}
     例えば,すべての$n\ge1$で係数が定義された\bookterm{homogeneous}{同次}\bookterm{linear}{線形}\bookterm{recurrence}{漸化式}
     \[
       a_{n+k}=\sum_{j=0}^{k-1}c_j(n)a_{n+j}
@@ -112,7 +109,6 @@
     それらの\bookterm{combination}{線形結合}でどんな\bookterm{initial}{初期条件}にも合わせられる.
     係数の一意性も初めの$k$項を比べれば分かるので,解全体は$k$\bookterm{dimension}{次元}である.
     \bookterm{initial}{初期条件}を指定した後は,その中から一つの解を選んでいる.
-    \bookterm{nonlinear}{非線形}の式や,途中で更新が定義されなくなる式に,この結論をそのまま当てはめないようにしよう.
 
   \subsection{同じ更新をする量を引くと,何が残るか}\label{節：非同次と解の組合せ}
     $a_{n+1}=2a_n+3$の二つの解を足すと,次の項には付加項$6$が現れる.

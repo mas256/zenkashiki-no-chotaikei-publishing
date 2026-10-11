@@ -71,9 +71,8 @@
 
     初項が$\alpha$または$\beta$なら定数\bookterm{sequence}{数列}になるので,先に扱っておこう.
     以下では初項がどちらの\bookterm{fixed}{不動点}とも異なる場合を考える.
-    また,\, $p-r\beta=0$なら\bookterm{fixed}{不動点}の条件から$q=s\beta$となり,\, $ps-qr=0$となって仮定に反する.
-    よって,\, $p-r\beta\ne0$であり,上の式から$a_n\ne\beta$なら$a_{n+1}\ne\beta$である.
-    初項から順に考えると,すべての項で$a_n\ne\beta$なので,二つの差の比を取ることができる.
+    初項から順に考えると,すべての項で$a_n\ne\beta$なので,二つの差の比を取ることができる.\footnote{また,\, $p-r\beta=0$なら\bookterm{fixed}{不動点}の条件から$q=s\beta$となり,\, $ps-qr=0$となって仮定に反する.
+    よって,\, $p-r\beta\ne0$であり,上の式から$a_n\ne\beta$なら$a_{n+1}\ne\beta$である.}
     実際に,
     \begin{align*}
       \frac{a_{n+1}-\alpha}{a_{n+1}-\beta}
@@ -98,8 +97,7 @@
       =
       \frac{p-r\alpha}{p-r\beta}b_n
     \]
-    となる.したがって,\,$b_n$は\bookterm{geometric}{等比数列}である.
-    $\alpha$と$\beta$の大小関係は,解の大小関係を要求されていないことから自由に選んでよい.
+    となる.したがって,\,$b_n$は\bookterm{geometric}{等比数列}である.\footnote{$\alpha$と$\beta$の大小関係は,解の大小関係を要求されていないことから自由に選んでよい.}
     つまり,\,1次分数型\bookterm{recurrence}{漸化式}では,
     \[
       a_{n+1}=\frac{pa_n+q}{ra_n+s}
@@ -381,10 +379,9 @@ b_1&=\frac{a_1-2}{a_1+2}=\frac{-2}{2}=-1\\
             \end{align*}
     \end{enumerate}
   余談にはなるが,最後の問題はフィボナッチ\bookterm{sequence}{数列}の2項間の比の\bookterm{limit}{極限}値は黄金比$\dfrac{1+\sqrt{5}}{2}$に一致する.
-  実際,\,$a_n=\dfrac{F_{n+1}}{F_n}$(ただし$F_n$は$F_1=F_2=1$から定まるフィボナッチ\bookterm{sequence}{数列})であることが,同じ\bookterm{recurrence}{漸化式}$a_{n+1}=1+\dfrac1{a_n}$から確かめられる.
-  また,ここから派生したリュカ\bookterm{sequence}{数列}も同じ\bookterm{characteristic}{特性方程式}$x^2=x+1$を持ち,隣接項の比が同じ黄金比に収束する.
+  実際,\,$a_n=\dfrac{F_{n+1}}{F_n}$(ただし$F_n$は$F_1=F_2=1$から定まるフィボナッチ\bookterm{sequence}{数列})であることが,同じ\bookterm{recurrence}{漸化式}$a_{n+1}=1+\dfrac1{a_n}$から確かめられる.\footnote{また,ここから派生したリュカ\bookterm{sequence}{数列}も同じ\bookterm{characteristic}{特性方程式}$x^2=x+1$を持ち,隣接項の比が同じ黄金比に収束する.
   一方,同様に\bookterm{recurrence}{漸化式}から派生する\bookterm{sequence}{数列}にトリボナッチ\bookterm{sequence}{数列}があるが,こちらは\bookterm{characteristic}{特性方程式}が3次$(x^3=x^2+x+1)$になり,隣接項の比の\bookterm{limit}{極限}値(トリボナッチ定数,約$1.839$)は黄金比とは異なる.
-  これらは本書の趣旨から外れてしまうため割愛する.
+  これらは本書の趣旨から外れてしまうため割愛する.}
 
   加えて,このタイプの\bookterm{recurrence}{漸化式}は帰納法によって示すことが比較的容易なパターンが存在する.
   例えば(3)は解答の\bookterm{general}{一般項}から分かるように,分母分子それぞれが一次関数の形で書かれているため,想像しやすい.
