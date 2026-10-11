@@ -1,12 +1,12 @@
 % subsection: 隣接3項間漸化式型 \, $\displaystyle a_{n+2}+pa_{n+1}+qa_n=0$
 
-\subsection{\texorpdfstring{隣接3項間漸化式型 \, $\displaystyle a_{n+2}+pa_{n+1}+qa_n=0$}{隣接3項間漸化式型}}\label{節：隣接3項間漸化式型}
+\subsection{\texorpdfstring{隣接3項型 \, $\displaystyle a_{n+2}+pa_{n+1}+qa_n=0$}{隣接3項型}}\label{節：隣接3項間漸化式型}
   \begin{bookpoint}
-    \textbf{二項をまとめた量を追う}\par
+    \textbf{二項をまとめる}\par
     等比型になる組合せを目標に係数を決める.異なる根と重解では,必要な独立な解の作り方が変わる.
   \end{bookpoint}
 
-  \subsubsection{\texorpdfstring{二次特性方程式型 \, $\displaystyle a_{n+2}+pa_{n+1}+qa_n=0$}{二次特性方程式型}}\label{節：二次特性方程式型}
+  \subsubsection{\texorpdfstring{付加項がない場合 \, $\displaystyle a_{n+2}+pa_{n+1}+qa_n=0$}{付加項がない場合}}\label{節：二次特性方程式型}
     節は変われど,\bookterm{characteristic}{特性方程式}を使って考える.
     結局,大方の場合,\bookterm{geometric}{等比数列}に変形できればいいのだから,これを\bookterm{geometric}{等比数列}に変形できないかといくつかの試行錯誤を重ねるのが王道の解き方である.
     結果から言ってしまえば,\bookterm{characteristic}{特性方程式}型のところで少し触れた式を生み出すことで\bookterm{geometric}{等比数列}を作ることができる.
@@ -258,12 +258,12 @@ c_n&=c_1\cdot3^{n-1},\\ c_1&=a_2+2a_1=5\\
             \end{align*}
     \end{enumerate}
 
-\bookstep{二つの解から,一つの数列を作る}\label{解釈：三項間と解全体}
+\bookstep{二つの解を組み合わせる}\label{解釈：三項間と解全体}
     先ほどの$a_n=A\alpha^{n-1}+B\beta^{n-1}$という形は,\sectionref*{節：解を組み合わせる見方}で学んだ,二つの解の\bookterm{combination}{線形結合}である.
     非零の異なる根なら,$\alpha^{n-1}$と$\beta^{n-1}$の初めの二項は$(1,\alpha)$と$(1,\beta)$であり,
     \bookterm{independent}{一次独立}なので\bookterm{basis}{基底}になる.係数$A,B$を\bookterm{initial}{初期条件}で選ぶことは,2\bookterm{dimension}{次元}の解全体から一つを選ぶことに当たる.
 
-  \subsubsection{\texorpdfstring{等差二次特性方程式型 \, $\displaystyle a_{n+2}+pa_{n+1}+qa_n=r$}{等差二次特性方程式型}}\label{節：等差二次特性方程式型}
+  \subsubsection{\texorpdfstring{定数の付加項がある場合 \, $\displaystyle a_{n+2}+pa_{n+1}+qa_n=r$}{定数の付加項がある場合}}\label{節：等差二次特性方程式型}
     今度は右辺が0ではなく$r$となった.
     つまり$r$だけズレたのである.
     ズレたらもとに戻す,つまり\bookterm{fixed}{不動点}を探すのである.

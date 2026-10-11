@@ -9,7 +9,7 @@
 ここでは主に二行二列の\bookterm{matrix}{行列}を扱う.
 後の節では,本編で求めた\bookterm{fixed}{不動点}や\bookterm{geometric}{等比数列}が,ここで学ぶ計算の中にそのまま現れる.
 
-\subsection{行列とは何か}
+\subsection{行列とベクトル}
 
 \bookterm{matrix}{行列}とは,数を長方形に並べ,全体を括弧で囲んだものである.
 たとえば
@@ -53,7 +53,7 @@
 この対応は\bookproblemref{practice-basic}{7}{標準問7}で確認できる.
 後で,この二つの方向が更新の定数倍とどう結び付くかを見る.
 
-\subsubsection{行列を列ベクトルに掛ける}
+\subsubsection{行列を掛ける}
 
 先ほどの\bookterm{matrix}{行列}$A$を\bookterm{column-vector}{列ベクトル}に掛けるときは,次のように計算する.
 \[
@@ -98,7 +98,7 @@
 これは,二つの\bookterm{column-vector}{列ベクトル}を足してから更新しても,別々に更新してから足しても結果が同じ,という性質である.
 後で初期値を二つの部分に分けて考える際に使う.
 
-\subsection{行列の積は,更新を続けて行うことを表す}
+\subsection{行列の積と更新}
 
 \bookterm{matrix}{行列}をもう一度掛けると,同じ規則で二回更新できる.
 先ほどの例なら
@@ -153,7 +153,7 @@ $B$の各列に$A$を掛けた結果を並べると,積$AB$が得られる.
 $I$を\textbf{\bookterm{identity}{単位行列}}という.
 数の累乗で$a^0=1$とするのに対応して,\bookterm{matrix}{行列}では$A^0=I$と定める.
 
-\subsection{固有ベクトルと固有値：更新が定数倍になる場合}
+\subsection{固有ベクトルと固有値}
 
 毎回\bookterm{matrix}{行列}の積を計算するのは手間がかかる.
 そこで,\bookterm{matrix}{行列}を掛けても定数倍になるだけの\bookterm{column-vector}{列ベクトル}を探してみよう.
@@ -188,7 +188,7 @@ $I$を\textbf{\bookterm{identity}{単位行列}}という.
 零ベクトル$\boldsymbol{0}=\begin{pmatrix}0\\0\end{pmatrix}$は,どんな$\lambda$でもこの式を満たしてしまうため,\bookterm{eigenvector}{固有ベクトル}から除く.
 負の\bookterm{eigenvalue}{固有値}では矢印の向きが反転し,\bookterm{eigenvalue}{固有値}$0$では零ベクトルになる場合もある.
 
-\subsubsection{ベクトルを二つの部分に分ける}
+\subsubsection{固有ベクトルに分ける}
 
 \bookterm{eigenvector}{固有ベクトル}が見つかると,ほかのベクトルへの作用も計算しやすくなる.
 たとえば
@@ -261,7 +261,7 @@ $k=0$のときは元の分解式を読み,\,$k\ge1$で\bookterm{eigenvalue}{固�
 たとえば$L=(1,\,1)$なら,\,$x+y$という和が更新によって$3$倍される.
 \bookterm{eigenvector}{固有ベクトル}は定数倍になる\bookterm{column-vector}{列ベクトル}を表し,\bookterm{left-eigen}{左固有ベクトル}は定数倍になる量を取り出す係数を表す.
 
-\subsection{固有値を求める条件：行列式}
+\subsection{行列式と固有値}
 
 \bookterm{eigenvector}{固有ベクトル}の成分を比較すれば,\bookterm{eigenvalue}{固有値}を求める条件が得られる.
 その条件を一つの式にまとめるため,\bookterm{matrix}{行列}式という記号を導入しよう.

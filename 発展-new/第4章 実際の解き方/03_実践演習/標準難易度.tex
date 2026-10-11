@@ -1,12 +1,12 @@
-% 第4章 標準難易度：基本4パターン・応用7パターンを各5題。
+% 第4章 標準：四つの基本型・七つの応用型を各5題。
 % 主分類・出題意図・別解の対応は docs/chapter4-standard-design-2026-10-04.md。
 
-    \subsection{標準難易度}\label{節：標準難易度}\label{節：基本と応用から出題されるもの}
-      ここでは,第3章の基本4パターンと応用7パターンから,それぞれ5題ずつ,計55題を出題する.
+    \subsection{標準}\label{節：標準難易度}\label{節：基本と応用から出題されるもの}
+      ここでは,第3章の四つの基本型と七つの応用型から,それぞれ5題ずつ,計55題を出題する.
       同じ解法で解ける問題も,式の並び方や係数が変わると違って見える.
       まず移項や約分によって式を整理し,どの数量の差や比に注目すればよいかを考えよう.
       問題は型ごとにまとめずに並べてあるので,式の構造を見て解法を選んでほしい.
-      方針と解法は問題と同じ問番号に対応する.
+      方針と解説は問題と同じ問番号に対応する.
       別解のある問題では,同じ答えになることを確かめた後,手掛かり・計算量・条件を比較しよう.
       特に\bookterm{ratio}{階比}型と\bookterm{logarithm}{対数}型には共通して使える見方がある.
       以下,\,$n$は正の整数とし,必要なときは
@@ -363,7 +363,7 @@
           \item $S_{n+1}-S_n=a_{n+1}$から$\displaystyle \frac{a_{n+1}}{a_n}$を求める. 比を順に掛けると, 分子と分母の大部分が打ち消し合う.
         \end{enumerate}
 
-      \subsubsection{解答}\label{節：標準難易度：解答}\label{節：基本と応用から出題されるもの：解答}
+      \subsubsection{答え}\label{節：標準難易度：解答}\label{節：基本と応用から出題されるもの：解答}
         \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-basic}{answer}{problem}]
           % Q1
           \item \[
@@ -603,7 +603,7 @@ b_n&=\frac{2^{n-1}-(-1)^{n-1}}3
                 \]
         \end{enumerate}
 
-      \subsubsection{解法}\label{節：標準難易度：解法}\label{節：基本と応用から出題されるもの：解法}
+      \subsubsection{解説}\label{節：標準難易度：解法}\label{節：基本と応用から出題されるもの：解法}
         \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-basic}{solution}{problem}]
           % Q1
           \item $a_1>0$であり,\,$a_n>0$なら
@@ -823,7 +823,7 @@ a_n&=3\prod_{k=1}^{n-1}2(k+1)\\
                 \]
                 となる.
 
-                \noindent \textbf{【別解：指数を直接追う】}\\
+                \noindent \textbf{【別解：指数を追う】}\\
                 \,$\displaystyle c_n=\frac{a_n}{2}$とおくと,
                 \[
                   c_{n+1}=\frac{a_n^3}{8}=c_n^3,\qquad c_1=2
@@ -835,7 +835,7 @@ a_n&=3\prod_{k=1}^{n-1}2(k+1)\\
                 である.実際,\,$n=1$では$2$となり,この式の両辺を3乗すれば$n+1$の式が得られる.
                 従って,\,$a_n=2c_n=2^{1+3^{n-1}}$となる.
 
-                \noindent \textbf{【別解：\bookterm{ratio}{階比}を\bookterm{auxiliary}{補助数列}にする】}\\
+                \noindent \textbf{【別解：\bookterm{ratio}{階比}を追う】}\\
                 全項が正なので,\,$\displaystyle r_n=\frac{a_{n+1}}{a_n}=\frac{a_n^2}{4}$とおける.
                 この\bookterm{ratio}{階比}について,
                 \[
@@ -882,7 +882,7 @@ a_n&=4\prod_{k=1}^{n-1}r_k\\
                 \]
                 となる.\,$n=1$を代入すると$5$となり,\bookterm{initial}{初期条件}も満たす.
 
-                \noindent \textbf{【別解：\bookterm{difference}{階差}に注目する】}\\
+                \noindent \textbf{【別解：\bookterm{difference}{階差}を使う】}\\
                 \bookterm{recurrence}{漸化式}を1つずらして引くと,
                 \[
                   a_{n+2}-a_{n+1}=3(a_{n+1}-a_n)
@@ -1230,7 +1230,7 @@ b_{n+1}&=\frac{n+1}{n+3}\frac{n(n+3)}{(n+1)(n+2)}a_n\\
                 \]
                 を得る.\,$n=1$でも$a_1=5$となる.
 
-                \noindent \textbf{【別解：繰り返し2乗する】}\\
+                \noindent \textbf{【別解：二乗を繰り返す】}\\
                 \,$c_n=a_n-2$とおけば,\,$c_{n+1}=c_n^2,c_1=3$である.
                 従って指数が$1,2,4,8,\ldots$と変わり,
                 \[
@@ -1474,7 +1474,7 @@ x=\frac{3x+2}{x+2}\\
                 \]
                 となる.分数の指数が含まれていても,\bookterm{logarithm}{対数}を取れば一次の係数になる.
 
-                \noindent \textbf{【別解：\bookterm{logarithm}{対数}を取らず指数をそろえる】}\\
+                \noindent \textbf{【別解：指数をそろえる】}\\
                 \bookterm{ratio}{階比}型の解法で現れた因子$n(n+1)$を利用し,
                 \[
                   c_n=a_n^{\frac{2}{n(n+1)}}
@@ -1879,7 +1879,7 @@ u_{n+1}-3u_n&=-2(-1)^{n-1}
                 \]
                 を得る.\,$n=1$では指数が$0$となり,\,$a_1=1$である.
 
-                \noindent \textbf{【別解：正の\bookterm{fixed}{不動点}で割る】}\\
+                \noindent \textbf{【別解：\bookterm{fixed}{不動点}で割る】}\\
                 正の\bookterm{fixed}{不動点}は$4=2\sqrt4$を満たす$4$である.
                 \,$\displaystyle c_n=\frac{a_n}{4}$とおくと,
                 \[
@@ -2136,7 +2136,7 @@ a_n&=4\left(\frac14\right)^{(\frac12)^{n-1}}\\
                 \]
                 を得る.指数に$n=1$を代入すると$2$なので,初項は$4$となる.
 
-                \noindent \textbf{【別解：指\bookterm{sequence}{数列}で割ってから指数を追う】}\\
+                \noindent \textbf{【別解：割って指数を追う】}\\
                 \bookterm{logarithm}{対数}を取った解法で$n$を引くことは,もとの項を$2^n$で割ることに対応する.
                 \,$\displaystyle d_n=\frac{a_n}{2^n}$とおけば,
                 \[
@@ -2200,7 +2200,7 @@ a_n&=4\left(\frac14\right)^{(\frac12)^{n-1}}\\
                 \]
                 を得る.これに$n=1,2,3$を代入すると,順に$8,5,\frac72$となる.
 
-                \noindent \textbf{【別解：\bookterm{difference}{階差}から\bookterm{general}{一般項}を求める】}\\
+                \noindent \textbf{【別解：\bookterm{difference}{階差}から\bookterm{general}{一般項}へ】}\\
                 係数を決めた後,\bookterm{recurrence}{漸化式}を1つずらして引くと,
                 \[
                   d_n=a_{n+1}-a_n,\qquad
@@ -2313,7 +2313,7 @@ $\displaystyle b_n=\frac{a_n}{(-1)^{n-1}}$とおける.}
 \BookMathLayout{となる.最後の等号には$(-1)^{n-1}(-2)^{n-1}=2^{n-1}$を用いた.}{となる.最後の等号には\\
 $(-1)^{n-1}(-2)^{n-1}=2^{n-1}$を用いた.}
 
-                \noindent \textbf{【別解：交代する項を直接引く】}\\
+                \noindent \textbf{【別解：交代する項を引く】}\\
                 \,$g_n=(-1)^{n-1}$とおくと,
                 \[
                   g_{n+1}=2g_n+3(-1)^n

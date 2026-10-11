@@ -1,4 +1,4 @@
-    \subsection{発展パターン・特殊性質型の演習}\label{節：発展パターン・特殊性質型の演習}
+    \subsection{発展・特殊型}\label{節：発展パターン・特殊性質型の演習}
       ここでは,\sectionref{節：発展パターン}と\sectionref{節：特殊性質型}で扱った\bookterm{recurrence}{漸化式}を,\,15題で練習する.
       \bookterm{floor}{ガウス記号}では整数性や余り,多項間の関係では\bookterm{difference}{階差}や\bookterm{characteristic}{特性方程式},
       \bookterm{nonlinear}{非線形}な式では対称式や\bookterm{trigonometric}{三角関数}の恒等式が手掛かりになる.
@@ -257,7 +257,7 @@
                 $\displaystyle a_{n+1}-2=(a_n-2)(a_n+2)$から下からの評価を作る.
         \end{enumerate}
 
-      \subsubsection{解答}\label{節：発展パターン・特殊性質型の演習：解答}
+      \subsubsection{答え}\label{節：発展パターン・特殊性質型の演習：解答}
         \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-special}{answer}{problem}]
           % E1
           \item (1)
@@ -394,10 +394,10 @@
                 有界となる範囲は$\displaystyle -2\le c\le2$である.
         \end{enumerate}
 
-      \subsubsection{解法}\label{節：発展パターン・特殊性質型の演習：解法}
+      \subsubsection{解説}\label{節：発展パターン・特殊性質型の演習：解法}
         \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-special}{solution}{problem}]
           % E1
-          \item \textbf{(1)~\bookterm{floor-function}{床関数}の中の整数部分を分ける.}
+          \item \textbf{(1)~整数部分を分ける.}
                 \sectionref{節：ガウス型}の整数性に着目する.
                 非負の実数$\displaystyle x$について,整数$\displaystyle \lfloor x\rfloor$を
                 \[
@@ -420,7 +420,7 @@
                 が帰納法で得られる.
 
                 \smallskip
-                \textbf{(2)~切り捨てる前の値が1未満になる位置を見る.}
+                \textbf{(2)~1未満になる位置.}
                 $\displaystyle 2^{10}=1024\le2026<2048=2^{11}$だから,
                 \[
                   a_{11}=1,\qquad a_{12}=0.
@@ -429,7 +429,7 @@
                 初めて$\displaystyle 0$となるのは$\displaystyle n=12$である.
                 毎回の切り捨てを一つの\bookterm{floor-function}{床関数}にまとめられる理由は,割る数が正の整数であることにある.
           % E2
-          \item \textbf{同じ値を取る添字をまとめて足す.}
+          \item \textbf{同じ値をまとめて足す.}
                 \sectionref{節：ガウス型}の群\bookterm{sequence}{数列}の見方を使う.
                 \bookterm{difference}{階差}を足すと,
                 \[
@@ -449,7 +449,7 @@
                 実際の値とこの式の値はともに$\displaystyle 0$である.
                 最後の群を常に三つとして数えると誤るので,余り$\displaystyle r$で途中までの項数を表している.
           % E3
-          \item \textbf{(1)~\bookterm{floor-function}{床関数}を余りとして読み替える.}
+          \item \textbf{(1)~余りに読み替える.}
                 \sectionref{節：ガウス型}では,\bookterm{floor}{ガウス記号}が整数問題の道具にもなる.
                 整数$\displaystyle x$について\bookterm{floor-function}{床関数}の定義から,
                 \[
@@ -460,7 +460,7 @@
                 $\displaystyle x=2a_n+1$として帰納法を使えばよい.
 
                 \smallskip
-                \textbf{(2)~五つの値の更新を調べる.}
+                \textbf{(2)~五つの値の更新.}
                 (1)より,次の表だけを調べれば十分である.
                 \[
                   \begin{array}{c|rrrrr}
@@ -474,7 +474,7 @@
                 最初の四つの値がすべて異なるので,周期の最小値は$\displaystyle 4$である.
                 \bookterm{sequence}{数列}全体の大きさを追う代わりに,取り得る値を先に絞ったことが解法の鍵である.
           % E4
-          \item \textbf{(1)~4項間の関係を\bookterm{difference}{階差}の関係にする.}
+          \item \textbf{(1)~4項型から\bookterm{difference}{階差}へ.}
                 \sectionref{節：隣接4項間漸化式型}と同じく,\bookterm{difference}{階差}の組合せを見る.
                 設問の$\displaystyle d_n$について,
                 \begin{align*}
@@ -489,7 +489,7 @@
                 \]
 
                 \smallskip
-                \textbf{(2)~\bookterm{difference}{階差}を順に足して元の\bookterm{sequence}{数列}へ戻す.}
+                \textbf{(2)~\bookterm{difference}{階差}を足して戻す.}
                 $\displaystyle e_n=a_{n+1}-a_n$とおくと,
                 \[
                   e_{n+1}-e_n=d_n=6n+6,
@@ -508,7 +508,7 @@
                 三つの初期値を,\,$\displaystyle d_1,e_1,a_1$の順に使っている.
                 \bookterm{difference}{階差}を取ると次数が下がり,足し合わせると元の\bookterm{sequence}{数列}へ戻る関係が見える.
           % E5
-          \item \textbf{(1)~等比型になる3項の組合せを作る.}
+          \item \textbf{(1)~3項をまとめて等比型へ.}
                 \sectionref{節：隣接4項間漸化式型}の方法を使う.
                 \bookterm{characteristic}{特性方程式}の左辺は
                 \[
@@ -543,7 +543,7 @@
                 \]
                 を得る.4項間を3項間へ,さらに既習の解法へ順に帰着させた.
           % E6
-          \item \textbf{(1)~虚数の\bookterm{root}{特性根}を角度で表す.}
+          \item \textbf{(1)~\bookterm{root}{特性根}を角度で表す.}
                 \sectionref{節：虚数解型隣接3項間漸化式}を使う.
                 \bookterm{characteristic}{特性方程式}$\displaystyle x^2-x+1=0$の根は,
                 \[
@@ -560,7 +560,7 @@
                 得られた\bookterm{general}{一般項}が\bookterm{recurrence}{漸化式}を満たすことは,\,$\displaystyle \sin$の\bookterm{addition}{加法定理}からも確認できる.
 
                 \smallskip
-                \textbf{(2)~周期の最小値まで確かめる.}
+                \textbf{(2)~最小周期を確かめる.}
                 \bookterm{general}{一般項}より$\displaystyle a_{n+6}=a_n$であり,最初の6項は
                 \[
                   0,1,1,0,-1,-1
@@ -579,7 +579,7 @@
                 さらに3項進めれば$\displaystyle a_{n+6}=a_n$となる.
                 \bookterm{root}{特性根}の角度と,直接の式変形による周期の証明が対応している.
           % E7
-          \item \textbf{\bookterm{general}{一般項}の振幅を調べて\bookterm{limit}{極限}を求める.}
+          \item \textbf{振幅と\bookterm{limit}{極限}.}
                 \sectionref{節：虚数解型隣接3項間漸化式}では,\bookterm{root}{特性根}の絶対値も見る.
                 \bookterm{characteristic}{特性方程式}$\displaystyle x^2-x+\frac12=0$の根は,
                 \[
@@ -601,7 +601,7 @@
                 したがって$\displaystyle a_n\to0$となる.
                 角度は一定ずつ進み,振幅は\bookterm{geometric}{等比数列}として縮んでいる.
           % E8
-          \item \textbf{(1)~正値を確かめ,奇数番目と偶数番目を分ける.}
+          \item \textbf{(1)~正値の確認と奇偶の分割.}
                 \sectionref{節：非隣接2項間漸化式型}の着目点は,添字が一つ飛んでいることである.
                 $\displaystyle a_1,a_2>0$であり,\,$\displaystyle a_n>0$なら
                 $\displaystyle \frac{a_n}{1+a_n}>0$となる.
@@ -621,7 +621,7 @@
                 逆数を取って解答の\bookterm{general}{一般項}を得る.
 
                 \smallskip
-                \textbf{(2)~二つの部分列を合わせて\bookterm{limit}{極限}を調べる.}
+                \textbf{(2)~部分列から\bookterm{limit}{極限}へ.}
                 奇数番目と偶数番目のどちらも$\displaystyle 0$へ近づく.
                 全体としても,\,$\displaystyle n\ge2$では\bookterm{general}{一般項}から
                 \[
@@ -630,7 +630,7 @@
                 となるので,\,$\displaystyle a_n\to0$である.
                 添字を分けたあとには,各部分列の答えを元の添字へ戻して確認する.
           % E9
-          \item \textbf{(1)~基準となる値をずらして構造を出す.}
+          \item \textbf{(1)~値をずらす.}
                 \bookterm{square}{平方完成}して$\displaystyle b_n=a_n-1$とおくと,
                 \begin{align*}
                   b_{n+1}&=a_n^2-2a_n-1\\
@@ -639,7 +639,7 @@
                 初項は$\displaystyle b_1=\frac52$である.
 
                 \smallskip
-                \textbf{(2)~基本対称式の指数だけを変える.}
+                \textbf{(2)~対称式の指数を変える.}
                 \sectionref{節：基本対称式型}と同じ形が現れた.
                 $\displaystyle \frac52=2+2^{-1}$であるから,
                 \[
@@ -653,7 +653,7 @@
                 よって$\displaystyle a_n=1+B_n$である.
                 元の式で\bookterm{logarithm}{対数}を取る前に\bookterm{square}{平方完成}したことで,対称式の恒等式に一致する形が見つかった.
           % E10
-          \item \textbf{(1)~交差項が打ち消されることを確認する.}
+          \item \textbf{(1)~交差項の打ち消し.}
                 \sectionref{節：基本対称式型}の三次の恒等式を使う.
                 展開すると,
                 \[
@@ -662,7 +662,7 @@
                 であるから,\,$\displaystyle 3(u+u^{-1})$を引けばよい.
 
                 \smallskip
-                \textbf{(2)~指数の3倍を繰り返す.}
+                \textbf{(2)~指数を3倍する.}
                 $\displaystyle a_1=2+2^{-1}$に合う候補を
                 \[
                   A_n=2^{\,3^{n-1}}+2^{-3^{n-1}}
@@ -674,7 +674,7 @@
                 となる.初項と\bookterm{recurrence}{漸化式}が一致するので,帰納法より$\displaystyle a_n=A_n$である.
                 $\displaystyle -3a_n$の項が交差項を正確に打ち消すため,同じ対称式の形を保って次へ進める.
           % E11
-          \item \textbf{(1)~角度の倍増を使って候補を作る.}
+          \item \textbf{(1)~倍角から候補を作る.}
                 \sectionref{節：三角関数型}の余弦の倍角公式を使う.
                 $\displaystyle \theta_n=2^{n-1}\frac{2\pi}{7}$とおき,
                 $\displaystyle A_n=\cos\theta_n$とすれば,
@@ -686,7 +686,7 @@
                 余弦の値から角度が一意に定まると主張しているわけではない.
 
                 \smallskip
-                \textbf{(2)~一周の整数倍だけ違う角度を比較する.}
+                \textbf{(2)~一周の差を比べる.}
                 3回進めると,
                 \[
                   \theta_{n+3}-\theta_n=2^n\pi
@@ -702,7 +702,7 @@
                 となる.\,$\displaystyle \cos$は$\displaystyle 0\le\theta\le\pi$で狭義に減少するので,
                 三つの値は異なり,周期の最小値は$\displaystyle 3$である.
           % E12
-          \item \textbf{(1)~正接と\bookterm{recurrence}{漸化式}の両方の分母を確認する.}
+          \item \textbf{(1)~二つの分母を確認する.}
                 \sectionref{節：三角関数型}の正接の倍角公式から,
                 \[
                   \theta_n=2^{n-1}\frac\pi5,\qquad A_n=\tan\theta_n
@@ -727,7 +727,7 @@
                 となる.初項も一致するから,帰納法で$\displaystyle a_n=A_n$を得る.
 
                 \smallskip
-                \textbf{(2)~正接の周期を角度の差へ戻す.}
+                \textbf{(2)~正接の周期と角度の差.}
                 4回進めると,
                 \[
                   \theta_{n+4}-\theta_n=3\cdot2^{n-1}\pi.
@@ -741,12 +741,12 @@
                 である.\,$\displaystyle 0<\frac\pi5<\frac{2\pi}{5}<\frac\pi2$で正接は狭義に増加するから,
                 この四つは異なる.よって周期の最小値は$\displaystyle 4$である.
           % E13
-          \item \textbf{(1)~変形する前に正値を確かめる.}
+          \item \textbf{(1)~正値を確かめる.}
                 $\displaystyle a_1=1>0$であり,\,$\displaystyle a_n>0$なら分子・分母がともに正である.
                 よって帰納法によりすべての項が正であり,\,$\displaystyle a_n+\sqrt3$も$\displaystyle 0$にならない.
 
                 \smallskip
-                \textbf{(2)~二つの平方の比を作る.}
+                \textbf{(2)~二つの平方の比.}
                 \sectionref{節：ニュートン法型}の$\displaystyle \sqrt2$を$\displaystyle \sqrt3$に置き換えた形である.
                 \[
                   a_{n+1}-\sqrt3=\frac{(a_n-\sqrt3)^2}{2a_n},
@@ -775,7 +775,7 @@
                 分母$\displaystyle 1-b_n$は常に正である.
 
                 \smallskip
-                \textbf{(3)~第2項からの減少を調べる.}
+                \textbf{(3)~第2項以降の減少.}
                 $\displaystyle n\ge2$では$\displaystyle b_n>0$なので,\bookterm{general}{一般項}から$\displaystyle a_n>\sqrt3$である.
                 また,
                 \[
@@ -787,7 +787,7 @@
                 誤差の式$\displaystyle a_{n+1}-\sqrt3=\frac{(a_n-\sqrt3)^2}{2a_n}$も,
                 第2項から上側に移ることと,誤差が急速に小さくなることを説明している.
           % E14
-          \item \textbf{(1)~定\bookterm{sequence}{数列}を\bookterm{fixed}{不動点}として求める.}
+          \item \textbf{(1)~\bookterm{fixed}{不動点}と定\bookterm{sequence}{数列}.}
                 \sectionref{節：初項依存型}の考え方を使う.
                 定\bookterm{sequence}{数列}には$\displaystyle c=c^2-1$が必要だから,
                 \[
@@ -796,7 +796,7 @@
                 これらの初項なら毎回同じ値になるので,十分条件でもある.
 
                 \smallskip
-                \textbf{(2)~2回進めて戻る初項を探す.}
+                \textbf{(2)~二回で戻る初項.}
                 $\displaystyle a_3=a_1$から,
                 \begin{align*}
                   (c^2-1)^2-1&=c,\\
@@ -815,14 +815,14 @@
                 この方程式から得た四つの初項について特別な振る舞いを示したのであり,
                 他の初項で同じ\bookterm{general}{一般項}が使えるとは結論していない.
           % E15
-          \item \textbf{(1)~初項を変えて同じ規則の振る舞いを見る.}
+          \item \textbf{(1)~初項による振る舞い.}
                 各初項を代入すると解答の表を得る.
                 $\displaystyle c=-1,2$では最初から定\bookterm{sequence}{数列}となり,
                 $\displaystyle c=-2,0$では数項進めたあとに$\displaystyle 2$で一定になる.
                 同じ\bookterm{recurrence}{漸化式}でも,初項が違うと一定になるまでの経過が変わる.
 
                 \smallskip
-                \textbf{(2)~初項の範囲に合う表示を選ぶ.}
+                \textbf{(2)~初項に合う表示.}
                 \sectionref{節：初項依存型}から\sectionref{節：三角関数型}へつながる例である.
                 $\displaystyle -2\le c\le2$なら$\displaystyle c=2\cos\theta$
                 （$\displaystyle 0\le\theta\le\pi$）と表せる.
@@ -836,7 +836,7 @@
                 $\displaystyle |\cos x|\le1$から,すべての項で$\displaystyle |a_n|\le2$となる.
 
                 \smallskip
-                \textbf{(3)~範囲の外では2からの距離を下から押さえる.}
+                \textbf{(3)~2からの距離を評価する.}
                 $\displaystyle |c|>2$なら$\displaystyle a_2=c^2-2>2$である.
                 $\displaystyle a_n>2$のとき,
                 \[

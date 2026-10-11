@@ -1,11 +1,11 @@
 % subsection: 階差等比複合型 \, $\displaystyle a_{n+1}=pa_n+f(n)$
 
-\subsection{\texorpdfstring{階差等比複合型 \, $\displaystyle a_{n+1}=pa_n+f(n)$}{階差等比複合型}}\label{節：階差等比複合型}
+\subsection{\texorpdfstring{多項式・指数の付加項 \, $\displaystyle a_{n+1}=pa_n+f(n)$}{多項式・指数の付加項}}\label{節：階差等比複合型}
   \begin{bookpoint}
-    \textbf{同じ更新をする量を引く}\par
+    \textbf{共通の付加項を消す}\par
     付加項を消すことを目標に,引く式の形と係数を決める.候補を見つける計算と,候補が元の式を満たす確認を区別しよう.
   \end{bookpoint}
-  \subsubsection{\texorpdfstring{多項式型 \, $\displaystyle a_{n+1}=pa_n+f(n)$}{多項式型}}
+  \subsubsection{\texorpdfstring{多項式を引く \, $\displaystyle a_{n+1}=pa_n+f(n)$}{多項式を引く}}
     \bookstep{観察と発想}
     \sectionref*{節：特性方程式型}では,同じ更新をする定数を引いた.
     今回は付加項$f(n)$が$n$によって変わるため,引く量も$n$によって変えてみる.
@@ -47,7 +47,7 @@
     従って$a_n+n$が2倍される量となる.
     この例の計算は\bookproblemref{practice-basic}{4}{標準問4}で確認する.
 
-    \bookstep{式変形と元への戻し方}
+    \bookstep{変形と復元}
     $b_{n+1}=pb_n$を解き,\,$a_n=b_n+g(n)$へ戻す.
     $p\ne0,1$なら
     \[
@@ -56,7 +56,7 @@
     となる.\footnote{$p=0$なら直接$n\ge2$で$a_n=f(n-1)$と求める.}    一方,\,$p=1$で$f(n)$が$m$次なら,付加項を足し戻す多項式は通常$m+1$次になる.
     例えば$a_{n+1}=a_n+n$では,\,$g(n)=\frac{n(n-1)}2$が同じ更新を満たす.
 
-  \subsubsection{\texorpdfstring{指数型  \, $\displaystyle a_{n+1}=pa_n+q^n$}{指数型}}
+  \subsubsection{\texorpdfstring{指数で割る  \, $\displaystyle a_{n+1}=pa_n+q^n$}{指数で割る}}
     前節では$f(n)$が多項式である場合を扱った.
     ここでは$f(n)$が特に指数関数である場合を扱う.
     指数関数である場合にはもう一つ別の解法が存在する.

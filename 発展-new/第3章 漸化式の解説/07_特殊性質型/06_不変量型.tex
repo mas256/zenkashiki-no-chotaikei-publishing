@@ -1,9 +1,9 @@
-\subsection{変わらない量から線形の関係を取り出す}\label{節：不変量から線形の関係}
+\subsection{変わらない量を使う}\label{節：不変量から線形の関係}
   \sectionref*{節：基本対称式型}では,恒等式に合う量へ置き換えた.
   ここでは,二乗や割り算を含む式から,\textbf{更新しても変わらない関係}を探す.
   その関係を使うと,\sectionref*{節：隣接3項間漸化式型}で学んだ形が現れる.
 
-  \subsubsection{例題：数項の計算から,候補を作る}
+  \subsubsection{例題：数項から候補を作る}
   \[
     a_1=a_2=1,\qquad
     a_{n+2}=\frac{a_{n+1}^2+1}{a_n}\quad(n\ge1)
@@ -21,7 +21,7 @@
   \]
   となる.\textbf{目標とする形から,一定であってほしい量を作った}のである.
 
-  \bookstep{更新の前後で,同じ値になることを示す}
+  \bookstep{変わらないことを示す}
   作った量を
   \BookMathLayout{\[
     I_n=\frac{a_n^2+a_{n+1}^2+1}{a_na_{n+1}}
@@ -44,7 +44,7 @@
   \]
   を得る.初めの二項を保ったまま\bookterm{linear}{線形}の\bookterm{recurrence}{漸化式}へ帰着できた.
 
-  \bookstep{既習の解法で求め,元の問いへ戻す}
+  \bookstep{一般項へ戻す}
   $\alpha=\frac{3+\sqrt5}{2}$, $\beta=\frac{3-\sqrt5}{2}$とすると,
   \bookterm{characteristic}{特性方程式}$x^2-3x+1=0$から
   \[
@@ -56,7 +56,7 @@
   この\bookterm{general}{一般項}は元の\bookterm{sequence}{数列}にも一致する.
   また\bookterm{linear}{線形}の式から整数性も帰納的に分かる.
 
-  \subsubsection{例題の後で：保存される量と,式のつながり}
+  \subsubsection{保存と線形化}
   更新の前後で値が変わらない量を\textbf{\bookterm{invariant}{不変量}}という.
   また,$x+z=Ky$のように足し算と定数倍で表される関係を,\bookterm{linear}{線形}の関係と呼ぶ.
   この例題では,保存される量を使って,二乗や割り算を含む更新をその形へ移した.\footnote{この\bookterm{linear}{線形}の式と元の式が全く同じ条件を表すと無条件に主張したわけではなく,

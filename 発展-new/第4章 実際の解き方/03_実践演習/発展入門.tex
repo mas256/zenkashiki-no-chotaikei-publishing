@@ -194,7 +194,7 @@
                 \bookterm{limit}{極限}には\bookterm{general}{一般項}を使わず,被積分関数を上から押さえればよい.
         \end{enumerate}
 
-      \subsubsection{解答}\label{節：発展入門：解答}
+      \subsubsection{答え}\label{節：発展入門：解答}
         \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-bridge}{answer}{problem}]
           % B1
           \item (1) $\displaystyle R_1=2,R_2=4,R_3=7$.
@@ -316,10 +316,10 @@
                 (3) 設問の評価から,\bookterm{limit}{極限}は$\displaystyle 0$である.
         \end{enumerate}
 
-      \subsubsection{解法}\label{節：発展入門：解法}
+      \subsubsection{解説}\label{節：発展入門：解法}
         \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-bridge}{solution}{problem}]
           % B1
-          \item \textbf{(1)(2)~1本増やしたときの変化を数える.}
+          \item \textbf{(1)(2)~1本増やした変化.}
                 1本,\,2本,\,3本の順に図を描けば,\,$\displaystyle R_1=2,R_2=4,R_3=7$である.\,
                 $\displaystyle n$本目の直線は,平行な直線がないので以前の$\displaystyle n-1$本すべてと交わる.
                 交点が重なると3本が1点で交わることになるから,交点は$\displaystyle n-1$個あり,すべて異なる.
@@ -333,8 +333,8 @@
                 となる.
 
                 \smallskip
-                \textbf{(3)~\bookterm{difference}{階差}を足して元の個数に戻す.}
-                チャートの「付加項の総和」に沿って,
+                \textbf{(3)~\bookterm{difference}{階差}から個数へ.}
+                チャートの「和を求める工夫」に沿って,
                 \[
                   R_n=R_0+\sum_{k=1}^{n}k
                      =1+\frac{n(n+1)}2.
@@ -342,7 +342,7 @@
                 $\displaystyle R_{13}=92,R_{14}=106$であり,\,$\displaystyle R_n$は増加するので答えは$\displaystyle 14$本である.
                 領域を直接すべて数えるより,新しく増える部分を数える方が簡単である.
           % B2
-          \item \textbf{(1)~直前の状態を二つに分ける.}
+          \item \textbf{(1)~直前の状態を分ける.}
                 最後に赤の個数が偶数になるのは,直前まで偶数で青を取り出す場合と,直前まで奇数で赤を取り出す場合である.
                 次の色はそれまでの記録と独立だから,それぞれの確率は$\displaystyle \frac13p_n$,\,$\displaystyle \frac23(1-p_n)$である.
                 二つの場合は同時には起こらないので,
@@ -352,8 +352,8 @@
                 \]
 
                 \smallskip
-                \textbf{(2)(3)~定数を引いて等比型にする.}
-                チャートの「係数・付加項が定数」に対応する\bookterm{characteristic}{特性方程式}型である.
+                \textbf{(2)(3)~定数を引いて等比型へ.}
+                チャートの「係数の変化」と「付加項の有無と定数」に対応する,定数項を消す解法である.
                 定数の解$\displaystyle \frac12$を引けば,
                 \[
                   p_{n+1}-\frac12
@@ -366,9 +366,9 @@
                 公比の絶対値が$\displaystyle 1$未満だから\bookterm{limit}{極限}は$\displaystyle \frac12$となる.
                 「偶数か奇数か」だけを記録すれば,赤の正確な個数をすべて追う必要はない.
           % B3
-          \item \textbf{(1)(2)~末尾を取り除いて短い問題に戻す.}
+          \item \textbf{(1)(2)~末尾を取り除く.}
                 長さ1では$\displaystyle 0,1$の2通り,長さ2では$\displaystyle 00,01,10$の3通りである.
-                長さ3では$\displaystyle 000,001,010,100,101$の5通りである.\,
+                長さ3では\BookMathLayout{}{\newline}$\displaystyle 000,001,010,100,101$の5通りである.\,
                 $\displaystyle n\ge2$とする.最後が$\displaystyle 0$の文字列から最後の1文字を取り除くと,条件を満たす長さ$\displaystyle n-1$の文字列が得られる.
                 逆に,そのような文字列の後ろへ$\displaystyle 0$を付けても条件を満たすから,\,$\displaystyle c_{n-1}$通りである.
                 最後が$\displaystyle 1$なら,その直前は$\displaystyle 0$でなければならない.
@@ -380,8 +380,8 @@
                 $\displaystyle n=2$では$\displaystyle 01$を取り除くと空の文字列になる.\,$\displaystyle c_0=1$とする意味がここにある.
 
                 \smallskip
-                \textbf{(3)~隣接3項間の解法を使う.}
-                チャートの「何項間か」に沿って\bookterm{characteristic}{特性方程式}
+                \textbf{(3)~隣接3項型へ.}
+                チャートの「項数と添字の間隔」に沿って\bookterm{characteristic}{特性方程式}
                 \[
                   t^2-t-1=0
                 \]
@@ -397,7 +397,7 @@
                 となり,解答の式を得る.
                 根に無理数が現れても,数えているものが文字列の個数なので,得られる値は整数である.
           % B4
-          \item \textbf{(1)(2)~項の大きさから余りへ視点を変える.}
+          \item \textbf{(1)(2)~余りを追う.}
                 順に代入すると,\,$\displaystyle a_1=3,a_2=19,a_3=723$となる.
                 それ以降の項も求められるが,整除を調べるために大きな整数を計算する必要はない.
                 整数$\displaystyle a_n=3q+r_n$を式へ代入すれば,\,$\displaystyle a_{n+1}$と$\displaystyle 2r_n^2+1$の差は$\displaystyle 3$の倍数になる.
@@ -413,14 +413,14 @@
                 よって,\,$\displaystyle a_n$が$\displaystyle 3$の倍数になるのは$\displaystyle n$が正の奇数のときである.
 
                 \smallskip
-                \textbf{(3)~平方数にあり得ない余りを使う.}
+                \textbf{(3)~平方数の余り.}
                 初項も,更新式から得られる項もすべて奇数である.
                 奇数の平方を$\displaystyle 4$で割った余りは$\displaystyle 1$なので,\,$\displaystyle n\ge1$の$\displaystyle a_n$の余りは$\displaystyle 2\cdot1+1=3$になる.
                 一方,整数の平方の余りは,偶数を平方すれば$\displaystyle 0$,奇数を平方すれば$\displaystyle 1$である.
                 したがって,\,$\displaystyle a_n$は整数の平方ではない.
                 ここで立てたのは,元の\bookterm{sequence}{数列}の\bookterm{general}{一般項}ではなく,余りを追う\bookterm{recurrence}{漸化式}である.
           % B5
-          \item \textbf{(1)~図形操作をベクトルの更新にする.}
+          \item \textbf{(1)~図形操作をベクトルで表す.}
                 $\displaystyle \boldsymbol b_n=\overrightarrow{OB_n}$,\,$\displaystyle \boldsymbol c_n=\overrightarrow{OC_n}$ともおく.
                 最初の重心が$\displaystyle O$であることから,
                 \[
@@ -441,7 +441,7 @@
                 $\displaystyle \boldsymbol b_n,\boldsymbol c_n$にも同じ関係が成り立つ.
 
                 \smallskip
-                \textbf{(2)(3)~長さと面積を別々に追う.}
+                \textbf{(2)(3)~長さと面積を追う.}
                 各頂点の位置ベクトルが$\displaystyle -\frac12$倍されるので,三角形は$\displaystyle O$の反対側へ移り,相似比は$\displaystyle \frac12$になる.
                 面積比はその平方であるから,
                 \[
@@ -456,7 +456,7 @@
                 \]
                 他の頂点も同様である.面積の減少だけで収束を判断せず,各頂点と$\displaystyle O$の距離を調べている.
           % B6
-          \item \textbf{(1)(2)~二つの小さい分配に分ける.}
+          \item \textbf{(1)(2)~小さい分配に分ける.}
                 2箱なら,一方へ入れる玉を$\displaystyle 0,1,\ldots,n$個から選ぶと他方の個数も決まる.よって$\displaystyle a_n=n+1$である.
                 4箱では,\,$\displaystyle A,B$に合計$\displaystyle k$個入れると,\,$\displaystyle C,D$には合計$\displaystyle n-k$個入る.
                 前半の分け方は$\displaystyle a_k$通り,後半は$\displaystyle a_{n-k}$通りなので,組合せは$\displaystyle a_ka_{n-k}$通りである.
@@ -466,8 +466,8 @@
                 \]
 
                 \smallskip
-                \textbf{(3)~和そのものの\bookterm{difference}{階差}を作る.}
-                チャートの「総和があるか」に沿って,添字を一つずらした和を引く.\,
+                \textbf{(3)~和の\bookterm{difference}{階差}を取る.}
+                チャートの「総和」に沿って,添字を一つずらした和を引く.\,
                 $\displaystyle n\ge1$で,
                 \[
                   T_{n-1}=\sum_{k=0}^{n-1}(k+1)(n-k).
@@ -499,7 +499,7 @@
                 \]
                 一つずつ増やす考え方と,一度に全体を数える考え方を比べてみよう.
           % B7
-          \item \textbf{(1)~1回の交換で移る食塩を計算する.}
+          \item \textbf{(1)~1回に移る食塩.}
                 十分に混ざっているので,\,$\displaystyle A$から取り出す液体には$\displaystyle x_n$の4分の1の食塩が含まれる.\,
                 $\displaystyle A$に残るのは4分の3であり,\,$\displaystyle B$からは$\displaystyle y_n$の4分の1が移ってくる.
                 よって,
@@ -510,7 +510,7 @@
 
                 \smallskip
                 \textbf{(2)(3)~総量と偏りを追う.}
-                チャートの「複数の\bookterm{sequence}{数列}の関係」に沿って,連立型の和と差を試す.\,
+                チャートの「複数の\bookterm{sequence}{数列}」に沿って,連立型の和と差を試す.\,
                 $\displaystyle s_n=x_n+y_n,d_n=x_n-y_n$とおけば,
                 \[
                   s_{n+1}=s_n,\qquad d_{n+1}=\frac12d_n.
@@ -529,7 +529,7 @@ $\displaystyle x_n=\frac{s_n+d_n}{2}$,$\displaystyle y_n=\frac{s_n-d_n}{2}$か�
                 \]
                 となる.\bookterm{characteristic}{特性方程式}型として定数の解$\displaystyle 5$を引けば,同じ答えが得られる.
           % B8
-          \item \textbf{(1)~変形の前に正値を確保する.}
+          \item \textbf{(1)~正値を確かめる.}
                 $\displaystyle a_1=1$である.\,$\displaystyle 0<a_n\le1$を仮定すると,
                 \[
                   \frac12\le1-\frac12a_n<1.
@@ -541,7 +541,7 @@ $\displaystyle x_n=\frac{s_n+d_n}{2}$,$\displaystyle y_n=\frac{s_n-d_n}{2}$か�
                 は正で,\,$\displaystyle a_n$より小さい.帰納法で全項の正値と単調減少が示される.
 
                 \smallskip
-                \textbf{(2)~逆数の増分を調べる.}
+                \textbf{(2)~逆数の増分.}
                 正値を確認したので,逆数を取れる.
                 二つの逆数の差を通分し,更新式を代入すると,
                 \[
@@ -556,7 +556,7 @@ $\displaystyle x_n=\frac{s_n+d_n}{2}$,$\displaystyle y_n=\frac{s_n-d_n}{2}$か�
                 厳密な\bookterm{difference}{階差}の\bookterm{general}{一般項}を求めなくても,上下から押さえられる.
 
                 \smallskip
-                \textbf{(3)~不等式を足して元の\bookterm{sequence}{数列}へ戻す.}
+                \textbf{(3)~不等式を足す.}
                 $\displaystyle b_1=1$である.\,$\displaystyle n\ge2$では,(2)を$\displaystyle k=1,\ldots,n-1$について足すと,
                 \[
                   \frac{n-1}{2}\le b_n-1\le n-1.
@@ -569,7 +569,7 @@ $\displaystyle x_n=\frac{s_n+d_n}{2}$,$\displaystyle y_n=\frac{s_n-d_n}{2}$か�
                 両端が$\displaystyle 0$に近づくから,はさみうちの原理で$\displaystyle a_n\to0$を得る.
                 本編の逆数化と\bookterm{difference}{階差}の考え方を,\bookterm{general}{一般項}の計算から不等式の評価へ広げている.
           % B9
-          \item \textbf{(1)~操作をしても変わらない量を調べる.}
+          \item \textbf{(1)~変わらない量を探す.}\par\nobreak
                 代入すると,\,$\displaystyle (x_1,y_1)=(2,1),(x_2,y_2)=(7,4)$となる.
                 また,
                 \begin{align*}
@@ -582,8 +582,8 @@ $\displaystyle x_n=\frac{s_n+d_n}{2}$,$\displaystyle y_n=\frac{s_n-d_n}{2}$か�
                 初期値から,\,$\displaystyle x_n^2-3y_n^2=x_0^2-3y_0^2=1$である.
 
                 \smallskip
-                \textbf{(2)~重みを付けた和と差で連立を分ける.}
-                チャートの「複数の\bookterm{sequence}{数列}の関係」に沿って,今度は$\displaystyle \sqrt3$の重みを付けた和と差を使う.
+                \textbf{(2)~重み付きの和と差.}
+                チャートの「複数の\bookterm{sequence}{数列}」に沿って,今度は$\displaystyle \sqrt3$の重みを付けた和と差を使う.
                 実際に次項を作ると,
                 \begin{align*}
                   z_{n+1}
@@ -599,7 +599,7 @@ $\displaystyle x_n=\frac{s_n+d_n}{2}$,$\displaystyle y_n=\frac{s_n-d_n}{2}$か�
                 と戻せばよい.重みは,展開後に元の$\displaystyle z_n,w_n$が現れるように選ばれている.
 
                 \smallskip
-                \textbf{(3)~無限個の異なる整数解を作る.}
+                \textbf{(3)~無限個の整数解を作る.}
                 初期値が整数で,更新式の係数も整数だから,帰納法で$\displaystyle x_n,y_n$はすべて整数である.\,
                 $\displaystyle n=1$ではどちらも正であり,更新式から$\displaystyle n\ge1$で正値が続く.
                 さらに,
@@ -611,7 +611,7 @@ $\displaystyle x_n=\frac{s_n+d_n}{2}$,$\displaystyle y_n=\frac{s_n-d_n}{2}$か�
                 \bookterm{general}{一般項}に無理数が含まれていても,整数性は元の\bookterm{recurrence}{漸化式}から確実に分かる.
                 この\bookterm{recurrence}{漸化式}が,正の整数解を無限個生成する仕組みになっている.
           % B10
-          \item \textbf{(1)(2)~指数を一つ下げる操作を作る.}
+          \item \textbf{(1)(2)~指数を一つ下げる.}\par\nobreak
                 $\displaystyle I_0=\int_0^1e^x\,dx=e-1$である.\,
                 $\displaystyle n\ge1$で,\,$\displaystyle x^n$を微分する側,\,$\displaystyle e^x$を積分する側として部分積分すると,
                 \begin{align*}
@@ -627,7 +627,7 @@ $\displaystyle x_n=\frac{s_n+d_n}{2}$,$\displaystyle y_n=\frac{s_n-d_n}{2}$か�
                 一つの積分を単独で計算するのではなく,同じ形の積分を指数$\displaystyle n$で並べると,\bookterm{recurrence}{漸化式}で前の計算を使える.
 
                 \smallskip
-                \textbf{(3)~\bookterm{limit}{極限}には積分の大きさを使う.}
+                \textbf{(3)~積分で\bookterm{limit}{極限}を求める.}
                 $\displaystyle 0<x<1$で$\displaystyle x^ne^x>0$なので,\,$\displaystyle I_n>0$である.
                 また,\,$\displaystyle 0\le x\le1$で$\displaystyle x^ne^x\le ex^n$であるから,
                 \[

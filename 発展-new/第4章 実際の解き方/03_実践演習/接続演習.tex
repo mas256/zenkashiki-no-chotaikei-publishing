@@ -1,4 +1,4 @@
-\subsection{操作のつながりを確かめる接続演習}\label{節：接続演習}
+\subsection{解法のつながり}\label{節：接続演習}
   新しい内容を,既習の操作へ戻して確認する7題である.
   問1・2では置き換える量を選び,問3・4では更新の範囲を組み替え,
   問5〜7では周期・近似・和を調べる.
@@ -62,7 +62,7 @@
       各二項係数の和は,上の添字$N$で下の添字を一つ増やしたものになる.
   \end{enumerate}
 
-  \subsubsection{解答}
+  \subsubsection{答え}
   \begin{enumerate}[format=\bookitemlink{practice-connections}{answer}{problem}]
     \item $b_{n+1}-b_n=n$, $b_1=\frac32$より,
       \[
@@ -113,20 +113,20 @@
       \bookterm{difference-operator}{差分}に適した部品へ表し直してから,部品ごとに和を取った.
   \end{enumerate}
 
-  \subsubsection{解法}
+  \subsubsection{解説}
   \begin{enumerate}[format=\bookitemlink{practice-connections}{solution}{problem}]
     \item \textbf{倍率をそろえる.}
       $h_n=n(n+1)$は$h_{n+1}/h_n=(n+2)/n$を満たす.
       両辺を$(n+1)(n+2)$で割ると$b_{n+1}=b_n+n$であり,
       $b_n=\frac32+\sum_{j=1}^{n-1}j=\frac{n^2-n+3}{2}$となる.
-      \par\smallskip\textbf{引く別解との比較.}
+      \par\smallskip\textbf{引く方法との比較.}
       \bookterm{normalize}{正規化}後の式では,$w_n=n(n-1)/2$も$w_{n+1}-w_n=n$を満たす.
       $v_n=h_nw_n$は元の\bookterm{inhomogeneous}{非同次}の更新を満たすため,
       $d_n=a_n-v_n$について$d_{n+1}=\frac{n+2}{n}d_n$となる.
       $d_1=3$から$d_n=\frac32n(n+1)$を得る.
       この場合は割る方法から引く量も発見できた.
       \sectionref*{節：変数係数の一次漸化式}へ戻って比べよう.
-    \item \textbf{正値性と保存を確認する.}
+    \item \textbf{正値と保存の確認.}
       正の二項から次も正になる.$x=a_n,y=a_{n+1},z=a_{n+2}$とすると,
       $xz=y^2+1$から$I_n=I_{n+1}=(x+z)/y$である.
       $I_1=(1+4+1)/2=3$なので$x+z=3y$となる.
@@ -134,7 +134,7 @@
       $C+D=1$, $C\alpha+D\beta=2$を解くと解答の係数になる.
       $I_n$は初期値全体で共通の定数ではなく,選んだ\bookterm{sequence}{数列}の中で一定である.
       \sectionref*{節：不変量から線形の関係}へ.
-    \item \textbf{境界から内側へ証明する.}
+    \item \textbf{境界から内側へ.}
       $n=0$または$m=0$では式は$1$になる.
       $n,m\ge1$の場合,$n+m$より小さい添字の和で式が成立すると仮定し,
       \BookMathLayout{\[
@@ -162,7 +162,7 @@
       周期$5$の最小周期は$1$または$5$であり,定\bookterm{sequence}{数列}ではないので$5$である.
       定数$t>0$では$t^2=t+1$が必要十分である.
       \sectionref*{節：非線形の周期性}へ.
-    \item \textbf{保存・近似・添字の倍増を結ぶ.}
+    \item \textbf{保存・近似・添字の倍増.}
       更新を代入して展開すれば
       \[
         (3x+4y)^2-2(2x+3y)^2=x^2-2y^2
@@ -174,7 +174,7 @@
       平方して$x_{2k}=x_k^2+2y_k^2$, $y_{2k}=2x_ky_k$を得れば,
       比は\bookterm{newton}{ニュートン法}の式になる.
       \sectionref*{節：ペル方程式と近似分数}へ.
-    \item \textbf{操作が簡単になる表示を選ぶ.}
+    \item \textbf{操作に合う表示.}
       $j(j-1)(j-2)+3j(j-1)+j=j^3$だから,提示された恒等式が成り立つ.
       \bookterm{difference-operator}{差分}の和の公式をそれぞれに使うと,
       $6\binom N4+6\binom N3+\binom N2$となる.

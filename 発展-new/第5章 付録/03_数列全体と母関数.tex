@@ -1,13 +1,13 @@
 % 付録：本編の式変形を母関数と数列の性質へ広げる
 
-\section{数列全体を一つの対象にまとめると,何が見えるか}\label{節：数列全体を一つの対象にまとめると,何が見えるか}
+\section{数列をまとめて見る}\label{節：数列全体を一つの対象にまとめると,何が見えるか}
 
 本編では,添字を一つずらした式を引いたり,複数の項を一つの量にまとめたりした.
 \bookterm{generating}{母関数}は,そうした操作を\bookterm{sequence}{数列}全体に対して行うための道具である.
 項をずらすことを掛け算に,和を取ることを割り算に言い換えると,本編の\bookterm{characteristic}{特性方程式}や総和型が同じ仕組みの中に現れる.
 ここでは,\bookterm{general}{一般項}を求める方法と,\bookterm{general}{一般項}から一歩進んで\bookterm{sequence}{数列}の性質を調べる方法をつなげよう.
 
-\subsection{添字と総和を母関数に移す}
+\subsection{母関数と数列の操作}
 \bookterm{sequence}{数列}
 \[
   a_0,a_1,a_2,a_3,\ldots
@@ -47,7 +47,7 @@ $S_n=\sum_{k=0}^n a_k$とし,その\bookterm{generating}{母関数}を$S(x)$と�
 一つの対象を作る方法を二つに分ける,あるいは二つの部品を組み合わせるとき,この\bookterm{convolution}{畳み込み}が自然に現れる.
 つまり\bookterm{generating}{母関数}では,「一つ先へずらす」は $x$ 倍に,「二つの選択を組み合わせる」は積に翻訳される.
 
-\subsection{漸化式が分母に現れる}
+\subsection{分母に現れる漸化式}
 この翻訳をフィボナッチ\bookterm{sequence}{数列}で追ってみよう.
 \[
   F_0=0,\quad F_1=1,\qquad F_{n+2}=F_{n+1}+F_n
@@ -112,7 +112,7 @@ $\displaystyle \frac{1}{1-\lambda x}=\sum_{n=0}^\infty\lambda^n x^n$の係数を
 \]
 本編の重解の場合に$n$を含む係数が現れたことは,\bookterm{generating}{母関数}では同じ因子が二回掛かることとして見える.
 
-\subsection{大きな添字での増え方を見る}
+\subsection{長期的な増え方}
 フィボナッチ\bookterm{sequence}{数列}をもう少し遠くから眺めると,長期的な増え方も見えてくる.
 \bookterm{root}{特性根}は
 \[
@@ -135,7 +135,7 @@ $\displaystyle \frac{1}{1-\lambda x}=\sum_{n=0}^\infty\lambda^n x^n$の係数を
 大きな $n$ でどの根が勝つかを見れば,正確な\bookterm{general}{一般項}を毎回計算しなくても成長の景色が分かる.
 \bookterm{generating}{母関数}の分母からも同じ\bookterm{root}{特性根}が取り出されるため,\bookterm{eigenvalue}{固有値}・\bookterm{general}{一般項}・\bookterm{generating}{母関数}・漸近的な増大は一つの話につながる.
 
-\subsection{畳み込みを積へ移す}
+\subsection{畳み込みと積}
 本編の総和型では,一つの\bookterm{sequence}{数列}の項を足した.
 その発展として,項どうしを掛けてから足す\bookterm{recurrence}{漸化式}を考えよう.
 先ほどの\bookterm{convolution}{畳み込み}を使うと,その和が\bookterm{generating}{母関数}の積になる.
@@ -196,7 +196,7 @@ $C_0=1$から始まる\bookterm{generating}{母関数}に合うのは,上の符�
 \bookterm{sequence}{数列}の外へ関数を作ると,階乗が積分や確率に現れる新しい景色へつながる.
 本節ではその理論を追わないが,\bookterm{chebyshev}{チェビシェフ多項式}と同じく,\bookterm{recurrence}{漸化式}が関数を生み出す一つの例として見ておこう.
 
-\subsection{確率と整数の性質へ戻る}
+\subsection{確率と整数への応用}
 確率に目を向けると, 状態の移り変わりも\bookterm{recurrence}{漸化式}で記録できる.
 晴れ・雨の順に確率を並べた\bookterm{column-vector}{列ベクトル}を $\boldsymbol p_n$ とし, 晴れの翌日に晴れる確率を $0.8$, 雨の翌日に晴れる確率を $0.3$ とすると,
 \[
