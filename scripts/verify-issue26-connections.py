@@ -60,6 +60,28 @@ for initial in [-2, 0, 1, 2, 5]:
         assert a == (odd if n % 2 else -odd)
         a = -a if n % 2 else 2*a+1
 counts['periodic_coefficient_updates'] = 500
+# Matrix products recover the two-step scalar update. The original positive
+# example commutes; the exercise's signed example does not.
+def matrix_product(a, b):
+    return tuple(tuple(sum(a[i][k]*b[k][j] for k in range(2))
+                       for j in range(2)) for i in range(2))
+
+order_checks = 0
+for p, q, r, s in [(2, 1, 3, 2), (-1, 0, 2, 1)]:
+    first = ((p, q), (0, 1))
+    second = ((r, s), (0, 1))
+    forward = matrix_product(second, first)
+    backward = matrix_product(first, second)
+    for initial in [F(-2), F(0), F(1, 3), F(1), F(5)]:
+        assert forward[0][0]*initial+forward[0][1] == r*(p*initial+q)+s
+        assert backward[0][0]*initial+backward[0][1] == p*(r*initial+s)+q
+        order_checks += 2
+    if p == 2:
+        assert forward == backward == ((6, 5), (0, 1))
+    else:
+        assert forward == ((-2, 1), (0, 1))
+        assert backward == ((-2, -1), (0, 1))
+counts['matrix_update_order_checks'] = order_checks
 # Arbitrary rational initial values return the ordered pair, not only one term.
 checks = 0
 for x in [F(1, 2), F(1), F(2), F(3)]:
