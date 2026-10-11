@@ -1,0 +1,75 @@
+% section: 等比数列の総和とその導出
+
+\section{等比数列の和}\label{節：等比数列の総和とその導出}
+  \noindent\textbf{【本編とのつながり】}\par
+  \bookterm{geometric}{等比数列}の和を,倍率をそろえて引く操作から導く.\sectionref*{節：階差型}と\sectionref*{節：特性方程式型}の\bookterm{difference}{階差}による別解で使う.
+
+  初項が$a$,公比が$r$である\bookterm{geometric}{等比数列}
+  \[
+    a,\,ar,\,ar^2,\,\ldots,\,ar^{n-1}
+  \]
+  の初項から第$n$項までの総和を考える.
+  その総和を$S_n$とすると,
+  \[
+    S_n
+    =\sum_{k=1}^{n} ar^{k-1}
+    =a+ar+ar^2+\cdots+ar^{n-1}
+  \]
+  と表せる.
+
+  \subsection{和の公式}\label{節：等比数列の総和とその導出：総和の公式}
+    公比$r$が$1$でないとき,
+    \[
+      S_n=\frac{a(1-r^n)}{1-r}
+    \]
+    である.
+    分母と分子の符号を同時に変えれば,
+    \[
+      S_n=\frac{a(r^n-1)}{r-1}
+    \]
+    とも書ける.
+    公比が$1$のときは,すべての項が$a$であるから,
+    \[
+      S_n=na
+    \]
+    となる.
+
+  \subsection{公式の導出}\label{節：等比数列の総和とその導出：公式の導出}
+    $r\ne1$として,総和の式の両辺に$r$を掛ける.
+    \begin{align*}
+      S_n
+        &=a+ar+ar^2+\cdots+ar^{n-1},\\
+      rS_n
+        &=ar+ar^2+ar^3+\cdots+ar^n.
+    \end{align*}
+    2つの式を項ごとに引くと,右辺では共通する項がすべて消える.
+\BookMathLayout{\[
+    \begin{array}{rrrl}
+        &S_{n}={}&a+&\hspace{-0.75em}ar+ar^2+\cdots+ar^{n-1}\\
+      -\,) & rS_n={}&{}&\hspace{-0.75em}ar+ar^2+ar^3+\cdots+ar^{n}\\ \hline
+        & (1-r)S_n={}&{}&\hspace{-0.75em}a-ar^n
+    \end{array}
+    \]}{
+\[
+\begin{array}{rl}
+S_n={}&a+ar+ar^2+\cdots\\
+     &{}+ar^{n-1}\\
+-\,)\ rS_n={}&ar+ar^2+ar^3+\cdots\\
+     &{}+ar^n\\ \hline
+(1-r)S_n={}&a-ar^n
+\end{array}
+\]
+}
+    よって,
+    \[
+      (1-r)S_n=a(1-r^n)
+    \]
+    である.
+    $r\ne1$より両辺を$1-r$で割ると,
+    \[
+      S_n=\frac{a(1-r^n)}{1-r}
+    \]
+    を得る.
+
+    この導出では,総和を公比$r$倍してから元の総和との差を取ることで,途中の項を消している.
+    \bookterm{sequence}{数列}の和を求めるときには,このように総和を定数倍して引き,共通する項を消す考え方がよく用いられる.

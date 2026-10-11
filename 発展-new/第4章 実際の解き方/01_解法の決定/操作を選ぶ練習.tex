@@ -1,9 +1,9 @@
 % 解法の選択を、計算の前に確認する短い練習。
 \subsection{操作を選ぶ練習}\label{節：操作を選ぶ練習}
-  ここでは一般項まで一気に計算する前に,新しい量を選び,その更新だけを確かめる.
-  引く・割る・対数を取るという操作が,それぞれ何を簡単にするかを比較しよう.
+  ここでは\bookterm{general}{一般項}まで一気に計算する前に,新しい量を選び,その更新だけを確かめる.
+  引く・割る・\bookterm{logarithm}{対数}を取るという操作が,それぞれ何を簡単にするかを比較しよう.
 
-  \noindent\bookblocklink{operation-choice}{problem}{answer}{【問題】}
+  \noindent\bookblocklink{operation-choice}{problem}{answer}{【問題】}\par\nobreak
   \begin{enumerate}[format=\bookitemlink{operation-choice}{problem}{answer}]
     \item $a_1=1$,\,$a_{n+1}=3a_n+2n+1$とする.
           定数を引くだけで付加項を消せるか.
@@ -13,7 +13,7 @@
           どちらで$a_n$の係数を$1$にそろえられるか.
     \item $a_1=-2$,\,$a_{n+1}=2^{2n+1}a_n$とする.
           $b_n=\log_2a_n$は使えるか.
-          対数を使わず,\,$c_n=\frac{a_n}{2^{n^2}}$の更新式と初項を求めよ.
+          \bookterm{logarithm}{対数}を使わず,\,$c_n=\frac{a_n}{2^{n^2}}$の更新式と初項を求めよ.
   \end{enumerate}
 
   第2問は,\sectionref*{節：階比型}で倍率をそろえた操作を,付加項がある場合に使う練習である.
@@ -21,17 +21,17 @@
   \[
     a_{n+1}=p_na_n+q_n
   \]
-  に対して,既知の非零の数列$h_n$が$h_{n+1}=p_nh_n$を満たすなら,
+  に対して,既知の非零の\bookterm{sequence}{数列}$h_n$が$h_{n+1}=p_nh_n$を満たすなら,
   \[
     b_n=\frac{a_n}{h_n},\qquad
     b_{n+1}-b_n=\frac{q_n}{h_{n+1}}
   \]
-  となる.倍率をそろえる操作の後に,階差を足し戻す操作が続く.
+  となる.倍率をそろえる操作の後に,\bookterm{difference}{階差}を足し戻す操作が続く.
   $p_n\ne0$なら,\,$h_1=1$,\,$h_n=\prod_{k=1}^{n-1}p_k$を候補にできる（空積は$1$）.
   係数が零になる場合はこの割り算を使わず,その段階の更新を別に確認する.
   また,残った和がいつでも簡単に計算できるとは限らない.
 
-  \noindent\bookblocklink{operation-choice}{answer}{problem}{【解答と選択の理由】}
+  \noindent\bookblocklink{operation-choice}{answer}{problem}{【解答と選択の理由】}\par\nobreak
   \begin{enumerate}[format=\bookitemlink{operation-choice}{answer}{problem}]
     \item $a_n-\alpha$では付加項の$2n$が残る.
           $g(n+1)=3g(n)+2n+1$から
@@ -65,6 +65,6 @@
             c_{n+1}=c_n,\qquad c_1=-1
           \]
           となる.従って$a_n=-2^{n^2}$を得る.
-          正規化で割る$2^{n^2}$は常に非零であり,元の項が正である必要はない.
+          \bookterm{normalize}{正規化}で割る$2^{n^2}$は常に非零であり,元の項が正である必要はない.
           初項が正の比較例は\bookproblemref{practice-basic}{42}{標準問42}へ.
   \end{enumerate}

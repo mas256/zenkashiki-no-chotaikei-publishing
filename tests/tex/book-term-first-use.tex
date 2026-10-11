@@ -1,0 +1,54 @@
+\documentclass[10pt,uplatex,dvipdfmx,nomag]{jsbook}
+\usepackage{amsmath,xcolor,etoolbox}
+\input{tex/book-links.tex}
+
+% 実際に組版したときの点線とリンクを、それぞれの出現位置で記録する。
+\def\TestContext{heading}
+\let\TestOriginalCue\booklinkcue
+\renewcommand{\booklinkcue}[1]{%
+  \typeout{TERM-CUE:\TestContext}%
+  \TestOriginalCue{#1}%
+}
+\let\TestOriginalLink\hyperlink
+\renewcommand{\hyperlink}[2]{%
+  \typeout{TERM-LINK:\TestContext:#1}%
+  \TestOriginalLink{#1}{#2}%
+}
+\newcommand{\TestTerm}[3]{%
+  {\def\TestContext{#1}\bookterm{#2}{#3}}%
+}
+
+\begin{document}
+\tableofcontents
+\chapter{\bookterm{alpha}{数列}}
+\TestTerm{chapter-intro}{alpha}{数列}.
+\section{\bookterm{alpha}{数列}}
+\TestTerm{section-first}{alpha}{数列}.
+\TestTerm{section-repeat}{alpha}{数列}.
+$\TestTerm{math-first}{beta}{階差}$.
+\TestTerm{text-after-math}{beta}{階差}.
+\TestTerm{different-display}{alpha}{同じ用語IDの別表記}.
+\subsection{\bookterm{alpha}{数列}}
+\TestTerm{subsection-repeat}{alpha}{数列}.
+\subsubsection{\bookterm{delta}{基底}}
+\TestTerm{after-heading}{delta}{基底}.
+\TestTerm{subsubsection-repeat}{alpha}{数列}.
+\newpage
+\TestTerm{page-repeat}{alpha}{数列}.
+\TestTerm{text-repeat}{beta}{階差}.
+$\TestTerm{math-repeat}{beta}{階差}$.
+注釈\footnote{\TestTerm{footnote-first}{gamma}{初期条件}.}.
+\TestTerm{after-footnote}{gamma}{初期条件}.
+\section{\bookterm{gamma}{初期条件}}
+\TestTerm{next-section-first}{alpha}{数列}.
+\TestTerm{next-section-repeat}{alpha}{数列}.
+\TestTerm{next-section-gamma}{gamma}{初期条件}.
+\TestTerm{next-section-gamma-repeat}{gamma}{初期条件}.
+\chapter{\bookterm{alpha}{数列}}
+\TestTerm{next-chapter-intro}{alpha}{数列}.
+\section{\bookterm{alpha}{数列}}
+\TestTerm{next-chapter-section}{alpha}{数列}.
+\TestTerm{next-chapter-repeat}{alpha}{数列}.
+\hypertarget{term:alpha}{}\hypertarget{term:beta}{}
+\hypertarget{term:gamma}{}\hypertarget{term:delta}{}
+\end{document}

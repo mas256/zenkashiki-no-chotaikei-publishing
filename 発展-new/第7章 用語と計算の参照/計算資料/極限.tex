@@ -1,0 +1,316 @@
+% section: 極限
+
+\section{極限}\label{節：極限}
+  \noindent\textbf{【本編とのつながり】}\par
+  \bookterm{sequence}{数列}や関数が近づく値を表す記法と計算を確認する.\sectionref*{節：ニュートン法型},発展演習の\bookterm{limit}{極限}問題,付録で使う.基本・応用パターンの\bookterm{general}{一般項}を求める段階では後回しにできる.
+
+  \subsection{極限の考え方}\label{節：極限：極限}
+    ある関数$f(x)$について\,$x$を$a$に限りなく近づける操作を数学的には
+    \[
+      \lim_{x\to a} f(x)
+    \]
+    と表す.
+    これを用いることで,ある関数$f(x)$の$x=a$の近傍での値がどうなっているかを知ることができる.
+    例えば,\,$f(x)=x^2-4$のとき
+    \[
+      \lim_{x\to 2} (x^2-4)
+    \]
+    は$0$となる.
+    一見シンプルな代入計算に見えるかもしれないが,これが今後重要な役割を果たす.
+
+  \subsection{数列の極限}\label{節：数列の極限}
+    \bookterm{sequence}{数列}$\{a_n\}$の番号$n$を大きくしていくとき,\,$a_n$がある値$L$に限りなく近づくなら,\,$a_n$は$L$に収束するといい,
+    \[
+      \lim_{n\to\infty}a_n=L
+    \]
+    と書く.
+
+    例えば,\,$n>0$のとき
+    \[
+      a_n=\frac{1}{n}
+    \]
+    とすると,\,$n$を大きくするほど$a_n$は$0$に近づくので,
+    \[
+      \lim_{n\to\infty}\frac{1}{n}=0
+    \]
+    である.
+
+  \subsection{関数の極限}\label{節：関数の極限}
+    $x$を$a$に近づけたとき,\,$f(x)$が$L$に近づくなら,
+    \[
+      \lim_{x\to a}f(x)=L
+    \]
+    と書く.
+    このとき,\,$x=a$での関数の値そのものではなく,\,$a$の近くでの値の変化に注目する.
+
+    \bookterm{limit}{極限}の計算では,既に求めた\bookterm{limit}{極限}を組み合わせたり,不等式で上下から挟んだりする.
+    例えば,
+    \[
+      a_n\le b_n\le c_n
+    \]
+    が成り立っており,
+    \[
+      \lim_{n\to\infty}a_n=\lim_{n\to\infty}c_n=L
+    \]
+    であるとき,\,$b_n$も$L$に収束する.
+    これをはさみうちの原理という.
+
+  \subsection{片側極限}\label{節：片側極限}
+    $x$を$a$に近づけるとき,近づく側を限定した\bookterm{limit}{極限}を\textbf{\bookterm{one-sided}{片側極限}}という.
+    $x<a$の範囲で$a$に近づける場合を\textbf{\bookterm{left-limit}{左側極限}},\,$x>a$の範囲で$a$に近づける場合を\textbf{\bookterm{right-limit}{右側極限}}という.
+    数直線で考えると,それぞれ$a$の左側・右側から近づけることに対応する.
+
+    \bookterm{left-limit}{左側極限}には,次のような複数の記法がある.
+    \[
+      \boxed{
+        \begin{aligned}
+          \lim_{x\to a-}f(x)
+          &=\lim_{x\to a^-}f(x)\\
+          &=\lim_{\substack{x\to a\\x<a}}f(x)\\
+          &=\lim_{x\uparrow a}f(x)
+        \end{aligned}
+      }
+    \]
+    これらは同じ\bookterm{left-limit}{左側極限}を表す記法である.
+    $a^-$の$-$は,\,$x<a$の側から近づけることを示す.
+    また,\,$x\uparrow a$も$a$より小さい側から$a$に近づけることを表す.
+
+    同様に,\bookterm{right-limit}{右側極限}には次の記法がある.
+    \[
+      \boxed{
+        \begin{aligned}
+          \lim_{x\to a+}f(x)
+          &=\lim_{x\to a^+}f(x)\\
+          &=\lim_{\substack{x\to a\\x>a}}f(x)\\
+          &=\lim_{x\downarrow a}f(x)
+        \end{aligned}
+      }
+    \]
+    $a^+$の$+$は,\,$x>a$の側から近づけることを示す.
+    また,\,$x\downarrow a$も$a$より大きい側から$a$に近づけることを表す.
+    特に$a=0$のときは,\,$x\to0^+$を$x\to+0$,\,$x\to0^-$を$x\to-0$と書くこともある.
+    $+0$や$-0$は近づく側を表す記法であり,異なる二つの数を表しているわけではない.
+
+    左右の両側から近づけることができる場合,通常の\bookterm{limit}{極限}$\lim_{x\to a}f(x)$が有限の値$L$になるための必要十分条件は,左右の\bookterm{one-sided}{片側極限}がともに存在し,同じ値$L$になることである.
+    つまり,
+    \[
+      \lim_{x\to a^-}f(x)
+      =\lim_{x\to a^+}f(x)=L
+    \]
+    である.
+    例えば,
+    \[
+      f(x)=
+      \begin{cases}
+        -1 & (x<0),\\
+        1 & (x\ge0)
+      \end{cases}
+    \]
+    の場合,\bookterm{left-limit}{左側極限}は$-1$,\bookterm{right-limit}{右側極限}は$1$となる.
+    左右の値が異なるので,\,$\lim_{x\to0}f(x)$は存在しない.
+    また,\bookterm{one-sided}{片側極限}でも$x=a$での関数の値そのものは関係しない.
+
+  \subsection{\texorpdfstring{ネイピア数$e$}{ネイピア数e}}\label{節：ネイピア数eの定義}
+    ネイピア数$e$は,ベルヌーイの定義によって,
+    \[
+      e=\lim_{n\to\infty}\left(1+\frac{1}{n}\right)^n
+    \]
+    と定める.
+    以下では,この定義と\bookterm{sequence}{数列}・関数の\bookterm{limit}{極限}を用いて,\bookterm{euler}{オイラーの公式}の導出に必要な関係を確認する.
+
+  \subsection{三角関数の極限}\label{節：三角関数の基本極限}
+    角度は弧度法で表す.
+    $0<x<\dfrac{\pi}{2}$のとき,半径$1$の円の扇形と,その扇形に内接・外接する三角形の面積を比べると,
+
+    \[
+      \frac{1}{2}\sin x
+      <
+      \frac{1}{2}x
+      <
+      \frac{1}{2}\tan x
+    \]
+    となる.
+    \begin{center}
+      \BookMathLayout{\begin{tikzpicture}[
+        x=2.4cm,
+        y=2.4cm,
+        line cap=round,
+        line join=round,
+        >=stealth
+      ]
+        % x=40度を例に,扇形と内接・外接する三角形を描く.
+        \pgfmathsetmacro{\figangle}{40}
+        \coordinate (O) at (0,0);
+        \coordinate (A) at (1,0);
+        \coordinate (P) at ({cos(\figangle)},{sin(\figangle)});
+        \coordinate (Q) at (1,{tan(\figangle)});
+
+        % 第一象限だけを描き,各図形は境界線で示す.
+        \draw[->,thin] (O)--(1.38,0) node[below] {$x$};
+        \draw[->,thin] (O)--(0,1.28) node[left] {$y$};
+        \draw[thin] (A) arc[start angle=0,end angle=90,radius=1];
+        \draw[thick] (O)--(Q)--(A)--cycle;
+        \draw[thick] (O)--(P)--(A);
+        \draw[thick] (A) arc[start angle=0,end angle=\figangle,radius=1];
+        \draw[->,semithick] (0.24,0)
+          arc[start angle=0,end angle=\figangle,radius=0.24];
+
+        \fill (O) circle (0.018);
+        \fill (A) circle (0.018);
+        \fill (P) circle (0.018);
+        \fill (Q) circle (0.018);
+        \node[below left] at (O) {$O$};
+        \node[below] at (0.52,-0.03) {$1$};
+        \node[below right] at (A) {$A$};
+        \node[above left] at (P) {$P$};
+        \node[above right] at (Q) {$Q$};
+        \node at (0.55,0.20) {$\frac12\sin x$};
+        \node at (0.27,0.07) {$x$};
+
+        \node[anchor=east,align=right,text width=2.0cm] (sector-label)
+          at (-0.10,0.88) {扇形\\[-1pt]面積 $\frac12x$};
+        \draw[->,thin] (sector-label.east)--(0.94,0.342);
+        \node[anchor=west,align=left,text width=2.1cm] (outer-label)
+          at (1.33,0.62) {外接三角形\\[-1pt]面積 $\frac12\tan x$};
+        \draw[->,thin] (outer-label.west)--(0.91,0.55);
+      \end{tikzpicture}}{\resizebox{\linewidth}{!}{\begin{tikzpicture}[
+        x=2.4cm,
+        y=2.4cm,
+        line cap=round,
+        line join=round,
+        >=stealth
+      ]
+        % x=40度を例に,扇形と内接・外接する三角形を描く.
+        \pgfmathsetmacro{\figangle}{40}
+        \coordinate (O) at (0,0);
+        \coordinate (A) at (1,0);
+        \coordinate (P) at ({cos(\figangle)},{sin(\figangle)});
+        \coordinate (Q) at (1,{tan(\figangle)});
+
+        % 第一象限だけを描き,各図形は境界線で示す.
+        \draw[->,thin] (O)--(1.38,0) node[below] {$x$};
+        \draw[->,thin] (O)--(0,1.28) node[left] {$y$};
+        \draw[thin] (A) arc[start angle=0,end angle=90,radius=1];
+        \draw[thick] (O)--(Q)--(A)--cycle;
+        \draw[thick] (O)--(P)--(A);
+        \draw[thick] (A) arc[start angle=0,end angle=\figangle,radius=1];
+        \draw[->,semithick] (0.24,0)
+          arc[start angle=0,end angle=\figangle,radius=0.24];
+
+        \fill (O) circle (0.018);
+        \fill (A) circle (0.018);
+        \fill (P) circle (0.018);
+        \fill (Q) circle (0.018);
+        \node[below left] at (O) {$O$};
+        \node[below] at (0.52,-0.03) {$1$};
+        \node[below right] at (A) {$A$};
+        \node[above left] at (P) {$P$};
+        \node[above right] at (Q) {$Q$};
+        \node at (0.55,0.20) {$\frac12\sin x$};
+        \node at (0.27,0.07) {$x$};
+
+        \node[anchor=east,align=right,text width=2.0cm] (sector-label)
+          at (-0.10,0.88) {扇形\\[-1pt]面積 $\frac12x$};
+        \draw[->,thin] (sector-label.east)--(0.94,0.342);
+        \node[anchor=west,align=left,text width=2.1cm] (outer-label)
+          at (1.33,0.62) {外接三角形\\[-1pt]面積 $\frac12\tan x$};
+        \draw[->,thin] (outer-label.west)--(0.91,0.55);
+      \end{tikzpicture}}}
+      \BookFigureCaption{扇形と内接・外接三角形の面積比較}
+    \end{center}
+    したがって,
+    \[
+      \cos x<\frac{\sin x}{x}<1
+    \]
+    である.
+    $x\to+0$のとき$\cos x\to1$なので,はさみうちの原理より
+    \[
+      \lim_{x\to+0}\frac{\sin x}{x}=1
+    \]
+    を得る.
+    また,\,$\dfrac{\sin x}{x}$は偶関数であるから,左側から近づけた場合にも同じ\bookterm{limit}{極限}となる.
+    よって,
+    \[
+      \lim_{x\to0}\frac{\sin x}{x}=1
+    \]
+    である.
+
+    ここで示した面積比較による証明は,初等的でよく用いられる説明である.
+    ただし,扇形の面積公式や図形の大小関係を直観的に用いており,それらの根拠を厳密に示していないため,厳密な証明ではなく直観的な説明として位置づける.
+
+    さらに,\,$\tan x=\dfrac{\sin x}{\cos x}$および$\lim_{x\to0}\cos x=1$より,
+    \[
+      \lim_{x\to0}\frac{\tan x}{x}
+      =
+      \lim_{x\to0}
+      \left(
+        \frac{\sin x}{x}\cdot\frac{1}{\cos x}
+      \right)
+      =1
+    \]
+    となる.
+
+  \subsection{指数・対数の極限}\label{節：自然対数と指数関数の基本極限}
+    以下では,\,$\log x$を自然\bookterm{logarithm}{対数}$\log_e x$の意味で用いる.
+    \[
+      \lim_{x\to0}\frac{\log(1+x)}{x}
+    \]
+    について考える.
+    $x$が$0$に十分近く,\,$x\ne0$のとき,\bookterm{logarithm}{対数}の性質から
+    \[
+      \frac{\log(1+x)}{x}
+      =\log\left((1+x)^\frac{1}{x}\right)
+    \]
+    である.右辺の\bookterm{limit}{極限}を求めるには,
+    \[
+      \lim_{x\to0}(1+x)^\frac{1}{x}=e
+    \]
+    を使う.これは,先に指数\bookterm{logarithm}{対数}の節で定めた$e$の\bookterm{limit}{極限}表示から確認できる.
+    $x\to 0^+$では,\,$\displaystyle t=\frac{1}{x}\to\infty$と置くと
+    \[
+      (1+x)^\frac{1}{x}=\left(1+\frac1t\right)^t\longrightarrow e.
+    \]
+    $x\to 0^-$では,\,$\displaystyle t=-\frac{1}{x}\to\infty$と置くと
+    \begin{align*}
+      &(1+x)^\frac{1}{x}
+      =\left(1-\frac1t\right)^{-t}\\
+      &=\left(1+\frac1{t-1}\right)^{t-1}
+       \left(1+\frac1{t-1}\right)
+      \longrightarrow e.
+    \end{align*}
+    自然\bookterm{logarithm}{対数}は正の数上で連続であり,\,$\log e=1$なので,
+\BookMathLayout{\[
+      \lim_{x\to0}\frac{\log(1+x)}{x}
+      =\lim_{x\to0}\log\left\{(1+x)^\frac{1}{x}\right\}
+      =\log e=1
+    \]}{
+\[
+\begin{aligned}
+\lim_{x\to0}\frac{\log(1+x)}x
+&=\lim_{x\to0}\log\left\{(1+x)^{1/x}\right\}\\
+&=\log e=1
+\end{aligned}
+\]
+}
+    となる.
+    この\bookterm{limit}{極限}を用いて,\,$\lim_{n\to\infty}\left(1+\frac{a}{n}\right)^n$を求める.
+    $a=0$の場合は,
+    \[
+      \lim_{n\to\infty}\left(1+\frac{0}{n}\right)^n=1=e^0
+    \]
+    である.以下,\,$a\ne0$とする.
+    $n$が十分大きければ,\,$1+\dfrac{a}{n}>0$なので,
+    \[
+      \lim_{n\to\infty}\left(1+\frac{a}{n}\right)^n
+      =
+      \left\{
+        \lim_{n\to\infty}
+        \left(1+\frac{a}{n}\right)^{\frac{n}{a}}
+      \right\}^{a}
+      =e^a
+    \]
+    となる.以上より,\,$a=0$を含む任意の実数$a$について,
+    \[
+      \lim_{n\to\infty}\left(1+\frac{a}{n}\right)^n=e^a
+    \]
+    が成り立つ.

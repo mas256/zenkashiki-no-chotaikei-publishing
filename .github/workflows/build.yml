@@ -14,11 +14,13 @@ on:
       - '.github/texlive/**'
       - 'scripts/setup-texlive.sh'
       - 'scripts/verify-pdf-a4.py'
+      - 'scripts/verify-reading-navigation.py'
   pull_request:
     paths:
       - '発展-new/**'
       - 'tex/**'
       - '.github/workflows/**'
+      - 'scripts/verify-reading-navigation.py'
   workflow_dispatch:
 
 permissions:
