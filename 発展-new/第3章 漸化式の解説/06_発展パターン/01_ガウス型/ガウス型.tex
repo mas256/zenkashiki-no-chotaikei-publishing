@@ -25,6 +25,52 @@
 
     \BookFigFloorGraph
 
+    では少し\bookterm{recurrence}{漸化式}から離れて\bookterm{sequence}{数列}に\bookterm{floor}{ガウス記号}が含まれている場合を考える.
+    \[
+      a_{n}=\lfloor \sqrt{n} \rfloor
+    \]
+    この\bookterm{sequence}{数列}はどのような\bookterm{sequence}{数列}になるだろうか.
+    結果から言えばこの一般項からなる\bookterm{sequence}{数列}は群\bookterm{sequence}{数列}を成す.
+    証明は以下のとおりである.
+
+    \noindent\phantomsection\label{証明：ガウス型の群数列}\textbf{【命題1】}\par\nobreak
+    \begin{smallquote}
+      一般項が
+      \[
+        a_n=\lfloor \sqrt{n} \rfloor\quad(n\ge1)
+      \]
+      と定義される\bookterm{sequence}{数列}$a_n$は群\bookterm{sequence}{数列}を成す.
+    \end{smallquote}
+    \noindent \textbf{【証明1】}\par\nobreak
+    \begin{smallquote}
+      \bookterm{sequence}{数列}$a_n$に対し,
+      \[
+        a_n=k
+      \]
+      を満たす正整数$k$が存在するときの$n$が取りうる範囲について考える.\bookterm{floor-function}{床関数}の定義から,
+      \[
+        k\le\sqrt{n}<k+1
+      \]
+      $n,k\ge1$から,
+      \begin{align*}
+          & k^2\le n <(k+1)^2                      \\
+          & \therefore\quad k^2\le n \le (k+1)^2-1
+      \end{align*}
+      この範囲にある整数$n$の個数は
+      \[
+        \{(k+1)^2-1\}-k^2+1=2k+1
+      \]
+      このことから,ある$a_n=k$となるときの$n$は$2k+1$項分だけ存在する.
+      従って,\,$k$に依存して連続して同じ数を持つ項の数が決定されることから,一般項$a_n=\lfloor\sqrt n\rfloor$で定義される\bookterm{sequence}{数列}$a_n$は群\bookterm{sequence}{数列}であることが示された. \qed
+    \end{smallquote}
+
+    実際に実験をして検証してみよう.
+    初項から順に書き出してみると,
+    \[
+      1,1,1,2,2,2,2,2,3,3,3,3,3,3,3,4
+    \]
+    となっており,理論と一致している.
+
     式を読むときは,\bookterm{floor-function}{床関数}が\textbf{項の値,添字,付加項のどれに作用するか}を最初に確かめよう.
     そのうえで,以下の使い方を考える.
     \begin{enumerate}[label=(\arabic*)]
