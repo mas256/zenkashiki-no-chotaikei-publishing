@@ -10,8 +10,6 @@
 後の節では,本編で求めた\bookterm{fixed}{不動点}や\bookterm{geometric}{等比数列}が,ここで学ぶ計算の中にそのまま現れる.
 
 \subsection{行列とは何か}
-  \BookFigMatrixMap
-
 
 \bookterm{matrix}{行列}とは,数を長方形に並べ,全体を括弧で囲んだものである.
 たとえば
@@ -75,6 +73,7 @@
   =\begin{pmatrix}5\\4\end{pmatrix}.
 \]
 この\bookterm{matrix}{行列}は,二つの値$x,y$を受け取り,新しい二つの値$2x+y,x+2y$を作る規則を表している.
+  \BookFigMatrixMap
 
 一般には
 \[
@@ -155,8 +154,6 @@ $I$を\textbf{\bookterm{identity}{単位行列}}という.
 数の累乗で$a^0=1$とするのに対応して,\bookterm{matrix}{行列}では$A^0=I$と定める.
 
 \subsection{固有ベクトルと固有値：更新が定数倍になる場合}
-  \BookFigEigen
-
 
 毎回\bookterm{matrix}{行列}の積を計算するのは手間がかかる.
 そこで,\bookterm{matrix}{行列}を掛けても定数倍になるだけの\bookterm{column-vector}{列ベクトル}を探してみよう.
@@ -216,6 +213,9 @@ $I$を\textbf{\bookterm{identity}{単位行列}}という.
 \]
 大きな累乗を一回ずつ計算する代わりに,定数倍になる二つの部分を追えばよい.
 本編で等比型に帰着させると計算が簡単になったのと同じように,\bookterm{matrix}{行列}でも一定の倍率で変わる部分を見つけることが鍵になる.
+図では,定数倍される二つのベクトルを$\boldsymbol v,\boldsymbol w$,
+一般の方向の例を$\boldsymbol u=(1,0)$として描く.
+  \BookFigEigen
 
 一般に,二つの異なる\bookterm{eigenvalue}{固有値}$\lambda_1,\lambda_2$に対応する\bookterm{eigenvector}{固有ベクトル}$\boldsymbol{u}_1,\boldsymbol{u}_2$があれば,どんな二成分のベクトルも
 \[

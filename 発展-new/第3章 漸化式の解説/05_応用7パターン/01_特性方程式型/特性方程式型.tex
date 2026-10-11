@@ -161,7 +161,7 @@
   \[
     f(\alpha)=\alpha
   \]
-  を満たすような点を考える.図示すると
+  を満たすような点を考える.図示すると,次のような状況である.
 
   \begin{tikzpicture}[scale=0.8]
     \draw[->,>=stealth,semithick] (-1.5,0)--(5.5,0)node[above]{$x$};
@@ -189,7 +189,6 @@
     \BookFigureCaption{直線の交点として捉える\bookterm{fixed}{不動点}}
   \end{center}
 
-  というような状況である.
   この交点$(\alpha,\alpha)$を原点と思ってグラフをみると,この座標平面は$y=px$と$y=x$のグラフが原点から始まって進んでいくようなものに見える.
   言い換えれば等比型\bookterm{recurrence}{漸化式}に帰着させたということである.
   この交点の$x$座標$\alpha$が,更新$f$の\bookterm{fixed}{不動点}である.
@@ -214,7 +213,7 @@
   このようにすることで,\bookterm{recurrence}{漸化式}は\bookterm{geometric}{等比数列}に帰着する.
   この後の処理は読者に委ねる.
 
-  こちらの図形的解釈は先程の交点を考えるものとは違う.傾き$p$の平行な2直線$y=px$と$y=px+q$の間には,常に高さ$q$の差が生じている.\,\bookeqref{affine-difference-2}{(2)}から\bookeqref{affine-difference-1}{(1)}を引く操作は,この共通の$q$だけを打ち消す操作に対応している.つまり隣接する2つの式を「ずらして引く」ことで,\,$a_n$に無関係な定数項$q$だけを消してしまうのである.\footnote{これは付録\sectionref{節：差分から始まる離散的な微積分}で扱う\bookterm{difference-operator}{差分}の考え方と同じ発想である.}  これらの前提を元に図示すると
+  こちらの図形的解釈は先程の交点を考えるものとは違う.傾き$p$の平行な2直線$y=px$と$y=px+q$の間には,常に高さ$q$の差が生じている.\,\bookeqref{affine-difference-2}{(2)}から\bookeqref{affine-difference-1}{(1)}を引く操作は,この共通の$q$だけを打ち消す操作に対応している.つまり隣接する2つの式を「ずらして引く」ことで,\,$a_n$に無関係な定数項$q$だけを消してしまうのである.\footnote{これは付録\sectionref{節：差分から始まる離散的な微積分}で扱う\bookterm{difference-operator}{差分}の考え方と同じ発想である.}  これらの前提を元に図示すると,次のようになる.
 
   \begin{tikzpicture}[scale=0.8]
     \draw[->,>=stealth,semithick] (-1.5,0)--(5.5,0)node[above]{$x$};
