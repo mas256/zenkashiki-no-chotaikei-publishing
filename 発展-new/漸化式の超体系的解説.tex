@@ -185,9 +185,7 @@
 \setcounter{secnumdepth}{4}
 
 \input{../tex/book-links.tex}
-% 用語は本文と同じ見た目で、巻末の意味と参照先へリンクする。
-\DeclareRobustCommand{\bookterm}[2]{\hyperlink{term:#1}{#2}}
-\pdfstringdefDisableCommands{\def\bookterm#1#2{#2}}
+% 用語の初出表示・巻末の参照案内・式番号のリンクは共通設定で扱う。
 
 \hypersetup{
   pdftitle={漸化式の超体系的解説},
@@ -255,6 +253,7 @@
 \NewDocumentCommand{\headingref}{s m}
   {
     \group_begin:
+    \booktermcuesfalse
     \cs_if_exist:cTF { r@#2 }
       {
         \bookref_format:n {#2}

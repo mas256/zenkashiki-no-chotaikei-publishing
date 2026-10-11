@@ -43,6 +43,14 @@ def check(pdf=None):
     assert all(f'book:{group}:{target}' in destinations for group, _, target in blocks), \
         'An exercise heading points to a missing block'
 
+    tags = Counter(re.findall(r'\\booktag\{([^{}#]+)\}\{[^{}]+\}', text))
+    returns = Counter(re.findall(r'\\bookeqbackref\{([^{}#]+)\}', text))
+    equation_uses = re.findall(r'\\bookeq(?:back)?ref\{([^{}#]+)\}', text)
+    assert len(tags) == 15 and all(n == 1 for n in tags.values()), \
+        'Manual equation tags must have distinct destinations'
+    assert tags == returns, 'An equation tag has no unique return link'
+    assert not set(equation_uses) - tags.keys(), 'An equation reference has no tag'
+
     checks = next(t for p, t in files.items() if p.name == '計算と検算の確認.tex')
     for role in ('problem', 'answer'):
         pattern = (
@@ -57,6 +65,14 @@ def check(pdf=None):
         output = subprocess.check_output(['pdfinfo', '-dests', str(pdf)], text=True)
         named = set(re.findall(r'"([^"\n]+)"', output))
         required = {f'term:{term}' for term in terms} | destinations
+        required |= {f'eqcite:{tag}' for tag in tags}
+        aux = pdf.with_suffix('.aux').read_text()
+        tag_destinations = dict(re.findall(
+            r'\\newlabel\{eqtag:([^{}]+)\}[^\n]*\{(AMS\.[^{}]+)\}\{\}\}', aux
+        ))
+        assert tags.keys() == tag_destinations.keys(), \
+            'An equation tag has no resolved equation label'
+        required |= set(tag_destinations.values())
         assert required <= named, f'Missing PDF destinations: {sorted(required - named)}'
 
     print(json.dumps({
@@ -65,6 +81,8 @@ def check(pdf=None):
         'linked_term_occurrences': len(uses),
         'exercise_heading_destinations': len(destinations),
         'preserved_reading_checks': 5,
+        'manual_equation_tags': len(tags),
+        'equation_reference_occurrences': len(equation_uses),
         'pdf_destinations_verified': bool(pdf),
     }, ensure_ascii=False, indent=2))
 

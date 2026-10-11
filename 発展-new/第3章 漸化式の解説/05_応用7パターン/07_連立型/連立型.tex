@@ -20,14 +20,14 @@
     実際にすすめていくと,
     \begin{align*}
       &a_{n+1}+b_{n+1}=(p+q)(a_{n}+b_{n})\\
-      &a_n+b_n=(a_1+b_1)(p+q)^{n-1}\tag*{\(\cdots\) (1)}
+      &a_n+b_n=(a_1+b_1)(p+q)^{n-1}\booktag{sim-general-sum}{1}
     \end{align*}
     また,
     \begin{align*}
       &a_{n+1}-b_{n+1}=(p-q)(a_{n}-b_{n})\\
-      &a_n-b_n=(a_1-b_1)(p-q)^{n-1}\tag*{\(\cdots\) (2)}
+      &a_n-b_n=(a_1-b_1)(p-q)^{n-1}\booktag{sim-general-difference}{2}
     \end{align*}
-    $(1)+(2)$をすると
+    $\bookeqbackref{sim-general-sum}{(1)}+\bookeqbackref{sim-general-difference}{(2)}$をすると
 \BookMathLayout{\begin{align*}
       &2a_n=(a_1+b_1)(p+q)^{n-1}+(a_1-b_1)(p-q)^{n-1}\\
       &a_n=\frac{(a_1+b_1)(p+q)^{n-1}+(a_1-b_1)(p-q)^{n-1}}{2}\\
@@ -41,7 +41,7 @@ a_n&=\frac{1}{2}\bigl\{(a_1+b_1)(p+q)^{n-1}\\
 \end{aligned}
 \]
 }
-    $(1)-(2)$をすると
+    $\bookeqref{sim-general-sum}{(1)}-\bookeqref{sim-general-difference}{(2)}$をすると
 \BookMathLayout{\begin{align*}
       &2b_n=(a_1+b_1)(p+q)^{n-1}-(a_1-b_1)(p-q)^{n-1}\\
       &b_n=\frac{(a_1+b_1)(p+q)^{n-1}-(a_1-b_1)(p-q)^{n-1}}{2}
@@ -363,7 +363,7 @@ b_n&=\frac{1}{2}\bigl\{(a_1+b_1)(p+q)^{n-1}\\
                   \end{align*}
                   よって,
                   \[
-                    a_n+b_n=(a_1+b_1)4^{n-1}=2\cdot4^{n-1}. \tag*{\(\cdots\) (1)}
+                    a_n+b_n=(a_1+b_1)4^{n-1}=2\cdot4^{n-1}. \booktag{sim-example-sum}{1}
                   \]
 
                   また,2つの式を辺々引くと,
@@ -375,10 +375,10 @@ b_n&=\frac{1}{2}\bigl\{(a_1+b_1)(p+q)^{n-1}\\
                   \end{align*}
                   よって,
                   \[
-                    a_n-b_n=(a_1-b_1)2^{n-1}=0. \tag*{\(\cdots\) (2)}
+                    a_n-b_n=(a_1-b_1)2^{n-1}=0. \booktag{sim-example-difference}{2}
                   \]
 
-                  \((1)+(2)\)をすると,
+                  \(\bookeqbackref{sim-example-sum}{(1)}+\bookeqbackref{sim-example-difference}{(2)}\)をすると,
                   \[
                     2a_n=2\cdot4^{n-1}
                   \]
@@ -387,7 +387,7 @@ b_n&=\frac{1}{2}\bigl\{(a_1+b_1)(p+q)^{n-1}\\
                     a_n=4^{n-1}
                   \]
 
-                  また,\((1)-(2)\)をすると,
+                  また,\(\bookeqref{sim-example-sum}{(1)}-\bookeqref{sim-example-difference}{(2)}\)をすると,
                   \[
                     2b_n=2\cdot4^{n-1}
                   \]

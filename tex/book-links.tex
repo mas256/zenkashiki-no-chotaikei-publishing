@@ -1,6 +1,109 @@
 % 両版共通のPDF内リンク。パッケージは他の設定の後で読み込む。
 \usepackage[dvipdfmx,bookmarksnumbered,bookmarksopen,linktoc=all,hidelinks]{hyperref}
 \usepackage{pxjahyper}
+\usepackage[normalem]{ulem}
+
+% 文字色と字幅を変えず、移動の入口だけに控えめな点線を付ける。
+% 数式中では下線を描かない。
+\DeclareRobustCommand{\booklinkcue}[1]{%
+  \bookcueprepared{#1}%
+}
+\DeclareRobustCommand{\booknavref}[2]{\hyperref[#1]{\booklinkcue{#2}}}
+
+% 用語へのリンクはすべて残す。各節・項で最初に本文に現れる語だけを装飾する。
+% 見出し、目次、見出し参照での出現は本文の初出として数えない。
+\newif\ifbooktermcues
+\booktermcuestrue
+\ExplSyntaxOn
+\tl_new:N \l_book_cue_text_tl
+\int_new:N \l_book_cue_previous_int
+\int_new:N \l_book_cue_current_int
+\int_new:N \l_book_cue_penalty_int
+\cs_new_protected:Npn \bookcueprepared #1
+  {
+    \ifmmode #1\else
+      \bgroup
+      \tl_clear:N \l_book_cue_text_tl
+      \int_zero:N \l_book_cue_previous_int
+      \tl_map_inline:nn {#1}
+        {
+          \token_if_cs:NTF ##1
+            { \int_zero:N \l_book_cue_previous_int }
+            {
+              \int_set:Nn \l_book_cue_current_int { `##1 }
+              \int_compare:nNnT {\l_book_cue_current_int} > {255}
+                {
+                  \int_compare:nNnT {\l_book_cue_previous_int} > {255}
+                    {
+                      % ulemの語の中でも、日本語の禁則に従って改行する。
+                      \int_set:Nn \l_book_cue_penalty_int
+                        {
+                          \tex_prebreakpenalty:D \l_book_cue_current_int
+                          + \tex_postbreakpenalty:D \l_book_cue_previous_int
+                        }
+                      \tl_put_right:Nx \l_book_cue_text_tl
+                        { \exp_not:N \penalty \int_use:N \l_book_cue_penalty_int \exp_not:N \relax }
+                    }
+                }
+              \int_set_eq:NN \l_book_cue_previous_int \l_book_cue_current_int
+            }
+          \tl_put_right:Nn \l_book_cue_text_tl {##1}
+        }
+      \markoverwith{\textcolor{black!45}{\rule[-0.7ex]{0.3pt}{0.3pt}}\kern1.5pt}
+      \exp_args:NV \ULon \l_book_cue_text_tl
+    \fi
+  }
+\prop_new:N \g_book_seen_terms_prop
+\tl_new:N \l_book_term_key_tl
+\DeclareRobustCommand{\bookterm}[2]
+  {
+    \ifmmode
+      \hyperlink{term:#1}{#2}
+    \else
+      \ifbooktermcues
+        \tl_set:Nx \l_book_term_key_tl
+          { \thechapter / \thesection / \thesubsection / #1 }
+        \exp_args:NNV \prop_if_in:NnTF \g_book_seen_terms_prop \l_book_term_key_tl
+          { \hyperlink{term:#1}{#2} }
+          {
+            \exp_args:NNV \prop_gput:Nnn \g_book_seen_terms_prop \l_book_term_key_tl {seen}
+            \hyperlink{term:#1}{\booklinkcue{#2}}
+          }
+      \else
+        \hyperlink{term:#1}{#2}
+      \fi
+    \fi
+  }
+\ExplSyntaxOff
+\makeatletter
+\pretocmd{\@sect}{\booktermcuesfalse}{}{\PackageError{book-links}{Cannot suppress heading cues}{}}
+\apptocmd{\@sect}{\booktermcuestrue}{}{\PackageError{book-links}{Cannot restore body cues}{}}
+\pretocmd{\@ssect}{\booktermcuesfalse}{}{\PackageError{book-links}{Cannot suppress starred heading cues}{}}
+\apptocmd{\@ssect}{\booktermcuestrue}{}{\PackageError{book-links}{Cannot restore starred body cues}{}}
+\pretocmd{\@makechapterhead}{\booktermcuesfalse}{}{\PackageError{book-links}{Cannot suppress chapter cues}{}}
+\apptocmd{\@makechapterhead}{\booktermcuestrue}{}{\PackageError{book-links}{Cannot restore chapter body cues}{}}
+\pretocmd{\@makeschapterhead}{\booktermcuesfalse}{}{\PackageError{book-links}{Cannot suppress starred chapter cues}{}}
+\apptocmd{\@makeschapterhead}{\booktermcuestrue}{}{\PackageError{book-links}{Cannot restore starred chapter body cues}{}}
+\pretocmd{\@starttoc}{\booktermcuesfalse}{}{\PackageError{book-links}{Cannot suppress contents cues}{}}
+\apptocmd{\@starttoc}{\booktermcuestrue}{}{\PackageError{book-links}{Cannot restore contents body cues}{}}
+\makeatother
+
+% 手動の式番号は表示を保ち、参照先を式ごとのIDで区別する。
+% 番号から最初の参照へ、参照から元の式へ戻れる。
+\newcommand{\booktag}[2]{%
+  \tag*{\(\cdots\) (\protect\hyperlink{eqcite:#1}{#2})}\label{eqtag:#1}%
+}
+\DeclareRobustCommand{\bookeqref}[2]{\hyperref[eqtag:#1]{#2}}
+\DeclareRobustCommand{\bookeqbackref}[2]{%
+  \hypertarget{eqcite:#1}{\bookeqref{#1}{#2}}%
+}
+\pdfstringdefDisableCommands{%
+  \def\bookterm#1#2{#2}%
+  \def\booklinkcue#1{#1}%
+  \def\booknavref#1#2{#2}%
+  \def\bookeqref#1#2{#2}%
+  \def\bookeqbackref#1#2{#2}%
+}
 
 % 【例題】から【解答】へ、【解答】・【方針】・【解法】から【例題】へ。
 % 第1引数は問題群ごとに固有のID。番号のない例題にも使える。

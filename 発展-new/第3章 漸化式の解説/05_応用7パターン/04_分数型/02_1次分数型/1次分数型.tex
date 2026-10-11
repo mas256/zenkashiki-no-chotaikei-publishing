@@ -137,7 +137,7 @@
     \]
     を用いれば,
     \[
-      b_n=\frac{a_1-\alpha}{a_1-\beta}\left(\frac{p-r\alpha}{p-r\beta}\right)^{n-1} \tag*{\(\cdots\) (＊)}
+      b_n=\frac{a_1-\alpha}{a_1-\beta}\left(\frac{p-r\alpha}{p-r\beta}\right)^{n-1} \booktag{mobius-geometric}{＊}
     \]
     となる.
     最後に,
@@ -150,7 +150,7 @@
       (b_n-1)a_n&=\beta b_n-\alpha\\
       a_n=\frac{\beta b_n-\alpha}{b_n-1}
     \end{align*}
-    (＊)を代入して$a_n$を求めることができる.
+    \bookeqbackref{mobius-geometric}{(＊)}を代入して$a_n$を求めることができる.
 
     なお,$rx^2+(s-p)x-q=0$が重解$\alpha$を持つ場合は,$\beta$と異なる2つの\bookterm{fixed}{不動点}を取れないため,上の議論はそのまま使えない.
     このときは$\alpha=\dfrac{p-s}{2r}$,すなわち$s=p-2r\alpha$が成り立つため,
@@ -329,24 +329,24 @@ b_1&=\frac{a_1-2}{a_1+2}=\frac{-2}{2}=-1\\
             $\displaystyle a_1=1,\, a_{n+1}=\frac{a_n+1}{a_n}$
             \bookterm{fixed}{不動点}の方程式は
             \[
-              x=\frac{x+1}{x}\tag*{\(\cdots\) (1)}
+              x=\frac{x+1}{x}\booktag{mobius-example-fixed}{1}
             \]
             であるから,その解をそれぞれ$\alpha,\beta$とすると
             \[
               \alpha=\frac{1+\sqrt{5}}{2},\ \beta=\frac{1-\sqrt{5}}{2}
             \]
-            ここで(1)について,その解$\alpha,\beta$では
+            ここで\bookeqbackref{mobius-example-fixed}{(1)}について,その解$\alpha,\beta$では
             \[
-              \alpha+\beta=1,\, \quad \alpha\beta=-1\tag*{\(\cdots\) (2)}
+              \alpha+\beta=1,\, \quad \alpha\beta=-1\booktag{mobius-example-roots}{2}
             \]
             が解と係数の関係から成り立つ.したがって,
             \begin{align*}
               b_{n+1}&=\frac{a_{n+1}-\alpha}{a_{n+1}-\beta}\\
               &=\cfrac{\cfrac{a_n+1}{a_n}-\alpha}{\cfrac{a_n+1}{a_n}-\beta}\\
               &=\frac{a_n+1-\alpha a_n}{a_n+1-\beta a_n}\\
-              &=\frac{(1-\alpha)a_n+1}{(1-\beta)a_n+1}\tag*{\(\cdots\) (3)}
+              &=\frac{(1-\alpha)a_n+1}{(1-\beta)a_n+1}\booktag{mobius-example-ratio}{3}
             \end{align*}
-            (2)より,(3)は
+            \bookeqbackref{mobius-example-roots}{(2)}より,\bookeqbackref{mobius-example-ratio}{(3)}は
             \begin{align*}
               \frac{(1-\alpha)a_n+1}{(1-\beta)a_n+1}&=\frac{\beta a_n+1}{\alpha a_n+1}\\
               &=\frac{\beta a_n-\alpha\beta}{\alpha a_n-\alpha\beta}\\
