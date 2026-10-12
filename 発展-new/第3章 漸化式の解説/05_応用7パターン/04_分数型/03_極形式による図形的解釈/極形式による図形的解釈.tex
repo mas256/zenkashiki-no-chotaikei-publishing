@@ -15,7 +15,7 @@
     =\left|\frac{a_n-\alpha}{a_n-\beta}\right|
     =|b_n|
   \]
-  となる.また,二つの線分の向きの差は,
+  となる.また,分母のベクトル$a_n-\beta$から分子のベクトル$a_n-\alpha$の向きへ測る有向角が,
   $b_n$の\bookterm{argument}{偏角}$\arg b_n$に対応する.
   したがって,次の図で見る\textbf{長さの比と角度の差}は,
   計算で導入する一つの複素数$b_n$の絶対値と\bookterm{argument}{偏角}に他ならない.
@@ -26,7 +26,8 @@
   特に$|\lambda|=1$なら,長さの比を保ったまま\bookterm{argument}{偏角}だけが変わり,
   \bookterm{complex-plane}{複素平面}上の回転として理解できる.
 
-  特に,\,$\alpha,\beta$が実数ではなく複素数となる場合には,この変形によって\bookterm{recurrence}{漸化式}を「回転」として解釈することができる.
+  係数が実数で,二つの\bookterm{fixed}{不動点}$\alpha,\beta$が非実の場合には,この倍率の絶対値が$1$になる.
+  差の比の変化を「回転」として解釈できる理由を確かめよう.
 
   $p,q,r,s$が実数であるとき,
   \[
@@ -95,7 +96,8 @@
     \qquad
     \varphi_{n+1}=\varphi_n+\theta
   \]
-  となる.
+  となる.ここでは角度を$\varphi_n=\varphi_1+(n-1)\theta$と,回転を重ねて選んでいる.\footnote{角度には$2\pi$の整数倍を加えても同じ点を表す.
+  例えば毎回$(-\pi,\pi]$の範囲へ戻すなら,角度の等式は$2\pi$の整数倍の違いを同一視して読む.}
 
   つまり,$b_n$は\bookterm{complex-plane}{複素平面}上で原点からの距離を変えずに,\,$\theta$だけずつ回転している.
 

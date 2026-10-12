@@ -1143,15 +1143,17 @@ a_n&=4\prod_{k=1}^{n-1}r_k\\
                   a_{n+1}=\frac{n}{n+1}\frac{n+3}{n+2}a_n
                 \]
                 と書ける.この2つの分数の積を分けて掛ければ,\,$n\ge2$のとき,
-\BookMathLayout{\begin{align*}
-                  a_n
-                    &=6\prod_{k=1}^{n-1}\frac{k}{k+1}
-                        \prod_{k=1}^{n-1}\frac{k+3}{k+2}\\
-                    &=6\left(\frac12\frac23\cdots\frac{n-1}{n}\right)
-                        \left(\frac43\frac54\cdots\frac{n+2}{n+1}\right)\\
-                    &=6\cdot\frac1n\cdot\frac{n+2}{3}\\
-                    &=\frac{2(n+2)}n
-                \end{align*}}{
+\BookMathLayout{
+\[
+\begin{aligned}
+a_n&=6\prod_{k=1}^{n-1}\frac{k}{k+1}\prod_{k=1}^{n-1}\frac{k+3}{k+2}\\
+&=6\left(\frac12\frac23\cdots\frac{n-1}n\right)\\
+&\quad\cdot\left(\frac43\frac54\cdots\frac{n+2}{n+1}\right)\\
+&=6\cdot\frac1n\cdot\frac{n+2}3\\
+&=\frac{2(n+2)}n
+\end{aligned}
+\]
+}{
 \[
 \begin{aligned}
 a_n&=6\prod_{k=1}^{n-1}\frac{k}{k+1}\prod_{k=1}^{n-1}\frac{k+3}{k+2}\\
@@ -1538,11 +1540,15 @@ x=\frac{3x+2}{x+2}\\
 
                 \noindent \textbf{【別解】}\\
                 $n\ge2$において,
-\BookMathLayout{\begin{align*}
-                              a_{n+1}
-                                &=S_{n+1}-S_n\\
-                                &=(3S_n+2)-(3S_{n-1}+2)=3a_n.
-                            \end{align*}}{
+\BookMathLayout{
+\[
+\begin{aligned}
+a_{n+1}&=S_{n+1}-S_n\\
+&=(3S_n+2)-(3S_{n-1}+2)\\
+&=3a_n.
+\end{aligned}
+\]
+}{
 \[
 \begin{aligned}
 a_{n+1}&=S_{n+1}-S_n\\
@@ -2118,6 +2124,10 @@ a_n&=4\left(\frac14\right)^{(\frac12)^{n-1}}\\
                   =\frac{k+2}{k+1}.
                 \]
                 したがって,\bookterm{induction}{数学的帰納法}によって\bookterm{general}{一般項}を確かめられる.
+                \par\smallskip\noindent\textbf{【初項を変えたとき】}\par\nopagebreak[4]
+                同じ更新でも,初項が$1$なら定数列となり,差$a_n-1$の逆数は使えない.
+                初項が$0$なら最初の更新から定義できず,$1/2$なら次項が$0$となって第3項が定義できない.
+                変換に必要な条件と,元の更新に必要な条件は区別して確かめる.
           % G5
           \item $a_1=0$より,\,$a_2=7a_1=0$である.
                 同様に,ある項が$0$なら次の項も$0$になるので,すべての項が$0$である.

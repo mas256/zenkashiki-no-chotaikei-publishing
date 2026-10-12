@@ -6,6 +6,70 @@
     和・差など,一つずつ更新できる組合せを選ぶ.元の二つの\bookterm{sequence}{数列}へ戻せる関係と初期値も確かめる.
   \end{bookpoint}
   \subsubsection{和と差で分ける}
+    二つの式の係数が入れ替わっているときは,まず足し引きを試そう.
+    和と差をそれぞれ求め,元の二つの数列へ戻すところまで計算する.
+
+    \noindent \bookblocklink{example-system-1}{problem}{answer}{【例題】}\par\nobreak
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-system-1}{problem}{answer}]
+      \item $\displaystyle a_1=1,\,b_1=1.\ \begin{cases}a_{n+1}=3a_n+b_n\\ b_{n+1}=a_n+3b_n\end{cases}$
+    \end{enumerate}
+
+    \noindent \bookblocklink{example-system-1}{hint}{problem}{【方針】}\par\nobreak
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-system-1}{hint}{problem}]
+      \item 係数$3,1$が入れ替わるので,和と差がそれぞれ等比型になります.和と差の初項を求めてから,$a_n,b_n$へ戻します.
+    \end{enumerate}
+
+    \noindent \bookblocklink{example-system-1}{answer}{problem}{【解答】}\par\nobreak
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-system-1}{answer}{problem}]
+      \item $\displaystyle a_n=4^{n-1},\qquad b_n=a_n=4^{n-1}$
+    \end{enumerate}
+
+    \noindent \bookblocklink{example-system-1}{solution}{problem}{【解法】}\par\nobreak
+    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-system-1}{solution}{problem}]
+      \item 2つの式を辺々加えると,
+                  \begin{align*}
+                    a_{n+1}+b_{n+1}
+                      &=(3a_n+b_n)\\
+                      &\quad +(a_n+3b_n)\\
+                      &=4(a_n+b_n)
+                  \end{align*}
+                  よって,
+                  \[
+                    a_n+b_n=(a_1+b_1)4^{n-1}=2\cdot4^{n-1}. \booktag{sim-example-sum}{1}
+                  \]
+
+                  また,2つの式を辺々引くと,
+                  \begin{align*}
+                    a_{n+1}-b_{n+1}
+                      &=(3a_n+b_n)\\
+                      &\quad -(a_n+3b_n)\\
+                      &=2(a_n-b_n)
+                  \end{align*}
+                  よって,
+                  \[
+                    a_n-b_n=(a_1-b_1)2^{n-1}=0. \booktag{sim-example-difference}{2}
+                  \]
+
+                  \(\bookeqbackref{sim-example-sum}{(1)}+\bookeqbackref{sim-example-difference}{(2)}\)をすると,
+                  \[
+                    2a_n=2\cdot4^{n-1}
+                  \]
+                  なので,
+                  \[
+                    a_n=4^{n-1}
+                  \]
+
+                  また,\(\bookeqref{sim-example-sum}{(1)}-\bookeqref{sim-example-difference}{(2)}\)をすると,
+                  \[
+                    2b_n=2\cdot4^{n-1}
+                  \]
+                  なので,
+                  \[
+                    b_n=4^{n-1}
+                  \]
+    \end{enumerate}
+
+    \bookstep{係数が対称な場合へ広げる}
     一般形が
     \[
       \begin{cases}
@@ -29,10 +93,16 @@
       &a_n-b_n=(a_1-b_1)(p-q)^{n-1}\booktag{sim-general-difference}{2}
     \end{align*}
     $\bookeqbackref{sim-general-sum}{(1)}+\bookeqbackref{sim-general-difference}{(2)}$をすると
-\BookMathLayout{\begin{align*}
-      &2a_n=(a_1+b_1)(p+q)^{n-1}+(a_1-b_1)(p-q)^{n-1}\\
-      &a_n=\frac{(a_1+b_1)(p+q)^{n-1}+(a_1-b_1)(p-q)^{n-1}}{2}\\
-    \end{align*}}{
+\BookMathLayout{
+\[
+\begin{aligned}
+2a_n&=(a_1+b_1)(p+q)^{n-1}\\
+&\quad+(a_1-b_1)(p-q)^{n-1}\\
+a_n&=\frac{1}{2}\bigl\{(a_1+b_1)(p+q)^{n-1}\\
+&\qquad+(a_1-b_1)(p-q)^{n-1}\bigr\}
+\end{aligned}
+\]
+}{
 \[
 \begin{aligned}
 2a_n&=(a_1+b_1)(p+q)^{n-1}\\
@@ -43,10 +113,16 @@ a_n&=\frac{1}{2}\bigl\{(a_1+b_1)(p+q)^{n-1}\\
 \]
 }
     $\bookeqref{sim-general-sum}{(1)}-\bookeqref{sim-general-difference}{(2)}$をすると
-\BookMathLayout{\begin{align*}
-      &2b_n=(a_1+b_1)(p+q)^{n-1}-(a_1-b_1)(p-q)^{n-1}\\
-      &b_n=\frac{(a_1+b_1)(p+q)^{n-1}-(a_1-b_1)(p-q)^{n-1}}{2}
-    \end{align*}}{
+\BookMathLayout{
+\[
+\begin{aligned}
+2b_n&=(a_1+b_1)(p+q)^{n-1}\\
+&\quad-(a_1-b_1)(p-q)^{n-1}\\
+b_n&=\frac{1}{2}\bigl\{(a_1+b_1)(p+q)^{n-1}\\
+&\qquad-(a_1-b_1)(p-q)^{n-1}\bigr\}
+\end{aligned}
+\]
+}{
 \[
 \begin{aligned}
 2b_n&=(a_1+b_1)(p+q)^{n-1}\\
@@ -57,6 +133,7 @@ b_n&=\frac{1}{2}\bigl\{(a_1+b_1)(p+q)^{n-1}\\
 \]
 }
     和と差を追う場合が解けた.次は,係数が対称でない場合へ広げよう.
+
   \subsubsection{重みを付けて分ける}
     連立一般型の\bookterm{recurrence}{漸化式}は,
     \[
@@ -66,10 +143,9 @@ b_n&=\frac{1}{2}\bigl\{(a_1+b_1)(p+q)^{n-1}\\
       \end{cases}
     \]
     で表される\bookterm{recurrence}{漸化式}である.
-    いつものように\bookterm{geometric}{等比数列}型への帰着を目指そう.
-    $a_n$と$b_n$が互いに影響し合っているため,独立させて解くことは難しそうだ.
-    ならばそれぞれについて求めるのではなく,いっそのこと合わせて求めてしまおうというのが解法の思想である.
-    その流れは,
+    今回も\bookterm{geometric}{等比数列}になる量を探そう.
+    $a_n$と$b_n$を直接追う代わりに,二つを合わせた量を追う.
+    単に二つの式を足すと,
 \BookMathLayout{\[
       \begin{array}{rrl}
         & a_{n+1}={} &pa_{n}+qb_{n}\\
@@ -85,7 +161,8 @@ b_n&=\frac{1}{2}\bigl\{(a_1+b_1)(p+q)^{n-1}\\
 &a_{n+1}+b_{n+1}={}&(p+r)a_n+(q+s)b_n
 \end{array}\]
 }
-    について
+    となる.$p+r=q+s$なら和が等比型になるが,一般には一致しない.
+    そこで,$a_n,b_n$に重み$\alpha,\beta$を付けて,
     \[
       \alpha a_{n+1}+\beta b_{n+1}
       =\gamma(\alpha a_n+\beta b_n)
@@ -191,208 +268,35 @@ b_n&=\frac{1}{2}\bigl\{(a_1+b_1)(p+q)^{n-1}\\
       \end{cases}
     \]
     を$a_n,b_n$について解けばよい.
-    ただし,この連立方程式から$a_n,b_n$を一意に求めるには,係数の組$(\alpha,\beta)$と$(\alpha',\beta')$が比例しないこと,すなわち$\alpha\beta'-\alpha'\beta\ne0$が必要である.\footnote{$\gamma_1\ne\gamma_2$ならこの条件を満たすが,これは十分条件であって必要条件ではない.
-    重解の場合でも,例えば$a_{n+1}=2a_n,\,b_{n+1}=2b_n$では$(1,0),(0,1)$を選べる.
-    一方,重解に対して比例しない2組を取れない場合は,別の工夫が必要になる(\sectionref{節：二次特性方程式型}の重解の場合と同様の考え方を用いる).}
+    ただし,この連立方程式から$a_n,b_n$を一意に求めるには,係数の組$(\alpha,\beta)$と$(\alpha',\beta')$が比例しないこと,すなわち$\alpha\beta'-\alpha'\beta\ne0$が必要である.
+    異なる二つの特性根なら,この条件を満たす.
+    もし二組の重みが比例すれば,同じ非零の重み$(\alpha,\beta)$が両方の係数条件を満たす.
+    その条件を引くと$(\gamma_1-\gamma_2)\alpha=(\gamma_1-\gamma_2)\beta=0$となる.
+    $\gamma_1\ne\gamma_2$なら$\alpha=\beta=0$になり,非零の重みを選んだことに矛盾する.
+    ただし,異なる根は十分条件であり,必要条件ではない.
+    重解では,比例しない二組を取れるかどうかで手順が分かれる.\footnote{例えば$a_{n+1}=2a_n,\,b_{n+1}=2b_n$では$(1,0),(0,1)$を選べる.
+    一方,比例しない二組を取れない場合は,一方の量を先に求め,残る式へ代入する.\bookproblemref{practice-basic}{25}{標準問25}では,その式を指数の付加項として解く.\booknavref{節：二次特性方程式型}{隣接3項型の重解}とも比べられる.}
     このように,\,$a_n,b_n$をそれぞれ直接求めるのではなく,\,$a_n,b_n$の和の形を作ることで,連立していた\bookterm{recurrence}{漸化式}を\bookterm{geometric}{等比数列}へと分離することができる.\footnote{また,$\,\gamma_1,\gamma_2$が虚数になる場合もこの手法は形式的には成り立つが,実数の形に書き直すには\sectionref{節：虚数解型隣接3項間漸化式}で扱う手法が必要になる.}
 
-    \noindent \bookblocklink{example-system-1}{problem}{answer}{【例題】}\par\nobreak
-    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-system-1}{problem}{answer}]
-      \item $\displaystyle a_1=1,\,b_1=1.\ \begin{cases}a_{n+1}=3a_n+b_n\\ b_{n+1}=a_n+3b_n\end{cases}$
+
+    \noindent \hyperlink{book:example-system-1:answer:2}{\textbf{【例題】}}\par\nobreak
+    \begin{enumerate}[start=2,label=(\arabic*),parsep=3pt,format=\bookitemlink{example-system-1}{problem}{answer}]
       \item $\displaystyle a_1=1,\,b_1=0,\ \begin{cases}a_{n+1}=3a_n+b_n\\ b_{n+1}=2a_n+2b_n\end{cases}$
     \end{enumerate}
 
-    \noindent\bookblocklink{example-system-1}{hint}{problem}{【方針】}\par\nobreak
-    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-system-1}{hint}{problem}]
-      \item 係数$3,1$が入れ替わるので,和と差がそれぞれ等比型になります.重みを選ぶ一般の方法でも同じ組合せを得られます.
+    \noindent \hyperlink{book:example-system-1:problem:2}{\textbf{【方針】}}\par\nobreak
+    \begin{enumerate}[start=2,label=(\arabic*),parsep=3pt,format=\bookitemlink{example-system-1}{hint}{problem}]
       \item $\gamma$を求めてから重みを選ぶと,$a_n-b_n$と$2a_n+b_n$をそれぞれ単独で更新できます.
     \end{enumerate}
 
-    \noindent\bookblocklink{example-system-1}{answer}{problem}{【解答】}\par\nobreak
-    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-system-1}{answer}{problem}]
-      \item $\displaystyle a_n=4^{n-1},\qquad b_n=a_n=4^{n-1}$
+    \noindent \hyperlink{book:example-system-1:problem:2}{\textbf{【解答】}}\par\nobreak
+    \begin{enumerate}[start=2,label=(\arabic*),parsep=3pt,format=\bookitemlink{example-system-1}{answer}{problem}]
       \item $\displaystyle a_n=\frac{2\cdot4^{n-1}+1}{3},\qquad b_n=\frac{2\cdot4^{n-1}-2}{3}$
     \end{enumerate}
 
-    \noindent\bookblocklink{example-system-1}{solution}{problem}{【解法】}\par\nobreak
-    \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-system-1}{solution}{problem}]
-    \item $\displaystyle a_1=1,\,b_1=1.\ \begin{cases}a_{n+1}=3a_n+b_n\\ b_{n+1}=a_n+3b_n\end{cases}$\\
-          \begin{enumerate}
-            \item 【解法1】\\
-                  $\alpha a_{n+1}+\beta b_{n+1}$を計算すると,
-                  \begin{align*}
-                    \alpha a_{n+1}+\beta b_{n+1}
-                      &=\alpha(3a_n+b_n)\\
-                      &\qquad +\beta(a_n+3b_n)\\
-                      &=(3\alpha+\beta)a_n\\
-                      &\qquad +(\alpha+3\beta)b_n
-                  \end{align*}
-                  これが
-                  \[
-                    \gamma(\alpha a_n+\beta b_n)
-                    =\gamma\alpha a_n+\gamma\beta b_n
-                  \]
-                  と一致するためには,
-                  \[
-                  \begin{cases}
-                    (3-\gamma)\alpha+\beta=0\\
-                    \alpha+(3-\gamma)\beta=0
-                  \end{cases}
-                  \]
-                  でなければならない.
-
-                  $\alpha,\beta$が同時に$0$ではないため,
-                  \[
-                    (3-\gamma)^2-1=0
-                  \]
-                  より,
-                  \begin{align*}
-                    &\gamma^2-6\gamma+8=0\\
-                    &(\gamma-2)(\gamma-4)=0
-                  \end{align*}
-                  したがって,
-                  \[
-                    \gamma_1=2,\qquad\gamma_2=4
-                  \]
-                  である.
-
-                  まず$\gamma=2$とすると,
-                  \[
-                  \begin{cases}
-                    \alpha+\beta=0\\
-                    \alpha+\beta=0
-                  \end{cases}
-                  \]
-                  となるので,
-                  \[
-                    \alpha=1,\qquad\beta=-1
-                  \]
-                  と取ることができる.
-
-                  そこで,
-                  \[
-                    c_n=a_n-b_n
-                  \]
-                  とおくと,
-                  \begin{align*}
-                    c_{n+1}
-                      &=a_{n+1}-b_{n+1}\\
-                      &=(3a_n+b_n)-(a_n+3b_n)\\
-                      &=2(a_n-b_n)\\
-                      &=2c_n
-                  \end{align*}
-                  また,
-                  \[
-                    c_1=a_1-b_1=0
-                  \]
-                  であるから,
-                  \[
-                    c_n=0
-                  \]
-                  したがって,
-                  \[
-                    a_n-b_n=0
-                  \]
-
-                  次に$\gamma=4$とすると,
-                  \[
-                  \begin{cases}
-                    -\alpha+\beta=0\\
-                    \alpha-\beta=0
-                  \end{cases}
-                  \]
-                  となるので,
-                  \[
-                    \alpha=1,\qquad\beta=1
-                  \]
-                  と取ることができる.
-
-                  そこで,
-                  \[
-                    d_n=a_n+b_n
-                  \]
-                  とおくと,
-                  \begin{align*}
-                    d_{n+1}
-                      &=a_{n+1}+b_{n+1}\\
-                      &=(3a_n+b_n)+(a_n+3b_n)\\
-                      &=4(a_n+b_n)\\
-                      &=4d_n
-                  \end{align*}
-                  また,
-                  \[
-                    d_1=a_1+b_1=2
-                  \]
-                  であるから,
-                  \[
-                    d_n=2\cdot4^{n-1}
-                  \]
-
-                  以上より,
-                  \[
-                  \begin{cases}
-                    a_n-b_n=0\\
-                    a_n+b_n=2\cdot4^{n-1}
-                  \end{cases}
-                  \]
-                  となる.
-
-                  2式を辺々加えると,
-                  \[
-                    2a_n=2\cdot4^{n-1}
-                  \]
-                  であるから,
-                  \[
-                    a_n=4^{n-1}
-                  \]
-                  また,
-                  \[
-                    b_n=a_n=4^{n-1}
-                  \]
-            \item 【解法2】\\
-                  2つの式を辺々加えると,
-                  \begin{align*}
-                    a_{n+1}+b_{n+1}
-                      &=(3a_n+b_n)\\
-                      &\quad +(a_n+3b_n)\\
-                      &=4(a_n+b_n)
-                  \end{align*}
-                  よって,
-                  \[
-                    a_n+b_n=(a_1+b_1)4^{n-1}=2\cdot4^{n-1}. \booktag{sim-example-sum}{1}
-                  \]
-
-                  また,2つの式を辺々引くと,
-                  \begin{align*}
-                    a_{n+1}-b_{n+1}
-                      &=(3a_n+b_n)\\
-                      &\quad -(a_n+3b_n)\\
-                      &=2(a_n-b_n)
-                  \end{align*}
-                  よって,
-                  \[
-                    a_n-b_n=(a_1-b_1)2^{n-1}=0. \booktag{sim-example-difference}{2}
-                  \]
-
-                  \(\bookeqbackref{sim-example-sum}{(1)}+\bookeqbackref{sim-example-difference}{(2)}\)をすると,
-                  \[
-                    2a_n=2\cdot4^{n-1}
-                  \]
-                  なので,
-                  \[
-                    a_n=4^{n-1}
-                  \]
-
-                  また,\(\bookeqref{sim-example-sum}{(1)}-\bookeqref{sim-example-difference}{(2)}\)をすると,
-                  \[
-                    2b_n=2\cdot4^{n-1}
-                  \]
-                  なので,
-                  \[
-                    b_n=4^{n-1}
-                  \]
-          \end{enumerate}
-    \item $\displaystyle a_1=1,\,b_1=0,\ \begin{cases}a_{n+1}=3a_n+b_n\\ b_{n+1}=2a_n+2b_n\end{cases}$\\
+    \noindent \hyperlink{book:example-system-1:problem:2}{\textbf{【解法】}}\par\nobreak
+    \begin{enumerate}[start=2,label=(\arabic*),parsep=3pt,format=\bookitemlink{example-system-1}{solution}{problem}]
+      \item $\displaystyle a_1=1,\,b_1=0,\ \begin{cases}a_{n+1}=3a_n+b_n\\ b_{n+1}=2a_n+2b_n\end{cases}$\\
           $\alpha a_{n+1}+\beta b_{n+1}$を計算すると,
           \begin{align*}
             \alpha a_{n+1}+\beta b_{n+1}
@@ -530,16 +434,22 @@ b_n&=\frac{1}{2}\bigl\{(a_1+b_1)(p+q)^{n-1}\\
           \]
     \end{enumerate}
 
-    \bookstep{和と差を二つの解として見る}
-    \sectionref*{節：一次独立・基底・次元}で,\bookterm{initial}{初期条件}を独立な二つの解に分けたことを思い出そう.
-    最初の対称な係数の連立型では,初期の組$(a_1,b_1)$を
+    \bookstep{和と差は重みの一例}
+    \bookproblemref{example-system-1}{1}{最初の例題}へ戻ろう.
+    和と差を思い付かなかったとしても,今の係数合わせから同じ量を選べる.
+    $p=s=3,\ q=r=1$を特性方程式へ入れると,
     \[
-      \begin{aligned}
-        (a_1,b_1)
-        &=\frac{a_1+b_1}{2}(1,1)\\
-        &\quad+\frac{a_1-b_1}{2}(1,-1)
-      \end{aligned}
+      \gamma^2-6\gamma+8=(\gamma-2)(\gamma-4)=0
     \]
-    と分けた.$(1,1)$から始まる部分は$p+q$倍,$(1,-1)$から始まる部分は$p-q$倍される.
-    「和と差で分ける」で得た\bookterm{general}{一般項}は,二つの解を\bookterm{combination}{線形結合}して元の\bookterm{initial}{初期条件}に合わせた式である.
-    和と差という補助量を取り出すことが,解を独立な二つの部分に分けることにつながっていた.
+    となる.$\gamma=2$では重みの条件は二式とも$\alpha+\beta=0$となるので,
+    $(\alpha,\beta)=(1,-1)$を選べる.
+    $\gamma=4$では二式とも$\alpha=\beta$となり,$(1,1)$を選べる.
+    従って取り出す量は,
+    \[
+      c_n=a_n-b_n,\qquad d_n=a_n+b_n
+    \]
+    であり,更新は$c_{n+1}=2c_n,\ d_{n+1}=4d_n$となる.
+    初項も$c_1=0,\ d_1=2$なので,最初の解法と同じ二つの式が得られる.
+    対称な係数を見て足し引きする方法は短い.
+    重みを条件から求める方法は,係数が対称でない例題(2)にも使える.
+    二つの見方は,別の答えを作るのではなく,同じ単独の更新を取り出している.

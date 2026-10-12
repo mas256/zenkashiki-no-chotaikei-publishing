@@ -664,10 +664,14 @@ x_n&=1+\sum_{k=1}^{n-1}(k^2+2)\\
                   P_n=a_nb_n,\qquad R_n=\frac{a_n}{b_n}
                 \]
                 とおくと,
-\BookMathLayout{\[
-                  P_{n+1}=P_n^3,\quad P_1=4,
-                  \qquad R_{n+1}=2^{4n+2}R_n,\quad R_1=1.
-                \]}{
+\BookMathLayout{
+\[
+\begin{aligned}
+P_{n+1}&=P_n^3,\quad P_1=4,\\
+R_{n+1}&=2^{4n+2}R_n,\quad R_1=1.
+\end{aligned}
+\]
+}{
 \[
 \begin{aligned}
 P_{n+1}&=P_n^3,\quad P_1=4,\\
@@ -680,7 +684,7 @@ R_{n+1}&=2^{4n+2}R_n,\quad R_1=1.
                   P_n=2^{\,2\cdot3^{n-1}},\qquad
                   R_n=2^{\,2(n^2-1)}.
                 \]
-                正値を使って$a_n=\sqrt{P_nR_n}$,\, $\displaystyle b_n=\sqrt{\frac{P_n}{R_n}}$と戻せば同じ答えになる.\bookterm{logarithm}{対数}の和差は,元の\bookterm{sequence}{数列}の積と商に対応する.
+                正値を使って$a_n=\sqrt{P_nR_n}$,\, $\displaystyle b_n=\sqrt{\frac{P_n}{R_n}}$と戻せば同じ答えになる.\bookterm{logarithm}{対数}の和と差は,元の\bookterm{sequence}{数列}の積と商に対応する.
           % A10: 二つの平方が作る分数式
           \item 分子だけを展開すると構造が見えにくくなる.分母を$D_n$と書けば,
 \BookMathLayout{\[
@@ -717,6 +721,7 @@ a_{n+1}+1&=\frac{2(a_n+1)^2}{D_n}.
                 \]
                 を得る.したがって,元の\bookterm{sequence}{数列}はすべての$n$で定義でき,逆数や\bookterm{logarithm}{対数}の操作も有効である.
 
+                \par\smallskip\noindent\textbf{【対数で二乗を一次に変える】}\par\nopagebreak[4]
                 次に$x_n=-\log_2b_n$とおけば,
                 \[
                   x_{n+1}=2x_n-n,\qquad x_1=3.
@@ -729,5 +734,28 @@ a_{n+1}+1&=\frac{2(a_n+1)^2}{D_n}.
                 \[
                   b_n=2^{-E_n}.
                 \]
-                $\displaystyle a_n=\frac{1+b_n}{1-b_n}$と戻して答えを得る.分数の変形だけでも,\bookterm{logarithm}{対数}だけでも解き切れない.平方の構造を作ってから\bookterm{logarithm}{対数}を使う順序が大切である.
+                $\displaystyle a_n=\frac{1+b_n}{1-b_n}$と戻して答えを得る.
+                ここでは,分数を比に直してから\bookterm{logarithm}{対数}を取り,二乗を一次の更新へ変えた.
+
+                \par\smallskip\noindent\textbf{【別解：倍率を吸収する】}\par\nopagebreak[4]
+                同じ比の更新を,\bookterm{logarithm}{対数}を取らずに整理することもできる.
+                $c_n=2^{n+1}b_n$とおくと,
+                \[
+                  c_{n+1}=2^{n+2}\cdot2^n b_n^2
+                           =(2^{n+1}b_n)^2=c_n^2.
+                \]
+                掛ける因子を選んだのは,$(n+2)+n=2(n+1)$によって,倍率$2^n$まで二乗の中に収まるためである.
+                $c_1=1/2$なので,二乗を繰り返すと
+                \[
+                  c_n=2^{-2^{n-1}},\qquad
+                  b_n=2^{-n-1-2^{n-1}}.
+                \]
+                元の$a_n$へ戻せば,同じ答えを得る.
+                \par\smallskip
+                先ほどの方法で一次式を引いた操作は,
+                \begin{align*}
+                  y_n&=x_n-n-1\\
+                     &=-\log_2(2^{n+1}b_n)=-\log_2c_n
+                \end{align*}
+                と書ける.\bookterm{logarithm}{対数}の後で引く操作と,元の比に因子を掛ける操作は,同じ変形を違う量で表したものだった.
         \end{enumerate}

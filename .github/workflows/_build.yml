@@ -98,13 +98,18 @@ jobs:
         run: python3 ../scripts/verify-pdf-a4.py "${MAIN_TEX%.tex}.pdf"
 
       - name: Verify learning paths, examples, and PDF destinations
-        run: node scripts/verify-learning-design.mjs --pdf
+        run: |
+          node scripts/verify-learning-design.mjs --pdf
+          node tests/verify-learning-navigation.mjs
 
       - name: Verify recurrence connections with exact arithmetic
         run: python3 scripts/verify-issue26-connections.py
 
       - name: Verify glossary and exercise navigation
         run: python3 scripts/verify-reading-navigation.py --pdf '発展-new/漸化式の超体系的解説.pdf'
+
+      - name: Verify PDF link margins
+        run: python3 scripts/verify-pdf-link-margins.py '発展-new/漸化式の超体系的解説.pdf'
 
       - name: Verify term first-use decoration
         run: python3 scripts/verify-term-first-use.py

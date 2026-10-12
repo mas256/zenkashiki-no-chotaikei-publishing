@@ -1376,7 +1376,7 @@ $\displaystyle P_n=\frac{S(n)}{n!}$とおく.}
                 元のペアが$r$組残る組合せはちょうど$r$回数えられるので, この合計でよい.
                 全組合せは$n!$通りであるから, 平均値は$\displaystyle \frac{n(n-1)!}{n!}=1$である.
                 \par\smallskip
-                \noindent\textbf{【完全順列と確率】}\par\nopagebreak[4]
+                \noindent\textbf{【確率として読む】}\par\nopagebreak[4]
                 元の位置に戻る要素のない並べ替えを\textbf{完全順列（錯置）}と呼ぶ.
                 この問題はその数え上げである.
                 また, 全$n!$通りを同じ確率で選ぶとき, 元のペアが1組も残らない確率は
@@ -1385,9 +1385,10 @@ $\displaystyle P_n=\frac{S(n)}{n!}$とおく.}
                      =\sum_{k=0}^{n}\frac{(-1)^k}{k!}
                 \]
                 である. このように,\,$n!$で割る操作には, \bookterm{recurrence}{漸化式}を整理するだけでなく\textbf{個数を確率に直す意味}もある.
-                \par
+                \par\smallskip\noindent\textbf{【偶奇に分けて極限を確かめる】}\par\nopagebreak[4]
                 さらに, この確率は$n$が大きくなると$\displaystyle \frac{1}{e}$に近づく.
-                ここでは無限級数展開を仮定せず, 本編の\bookterm{binomial}{二項定理}と$e$の定義で確認しよう.
+                まず収束を示し,その後で値を決める.
+                ここでは無限級数展開を仮定せず,\bookterm{binomial}{二項定理}と\sectionref*{節：対数}の$e$の定義を使う.
                 \par
                 まず$m\ge0$について,
                 \begin{align*}
@@ -1399,13 +1400,14 @@ $\displaystyle P_n=\frac{S(n)}{n!}$とおく.}
                 また,\,$\displaystyle P_{2m}-P_{2m+1}=\frac{1}{(2m+1)!}$である.
                 したがって, 偶数番目の確率は減少し, 奇数番目の確率は増加し, 両者の差は0へ近づく.
                 確率は$0$以上$1$以下なので, それぞれ収束し, 共通の\bookterm{limit}{極限}$L$をもつ.
-                \par
-                その値を決めるため, 整数$M\ge2$に対して
+                \par\smallskip\noindent\textbf{【二項定理で極限の値を決める】}\par\nopagebreak[4]
+                有限の二項展開から,$P_n$を上下の境界に使う不等式を作る.
+                そのため,整数$M\ge2$に対して
                 \[
                  b_{M,k}=\frac{\binom{M}{k}}{M^k}
                  \quad(0\le k\le M)
                 \]
-                とおく. すると
+                とおく.$0\le k<M$では
                 \[
                  \frac{b_{M,k+1}}{b_{M,k}}
                  =\frac{M-k}{M(k+1)}\le1
@@ -1437,7 +1439,7 @@ $\displaystyle P_n=\frac{S(n)}{n!}$とおく.}
                  \left(1-\frac1M\right)^M
                  =\left(1+\frac1t\right)^{-t-1}.
                 \]
-                本編の$e$の定義から,$\displaystyle \left(1+\frac{1}{t}\right)^t\to e$であり,
+                $e$の定義から,$\displaystyle \left(1+\frac{1}{t}\right)^t\to e$であり,
                 $\displaystyle \left(1+\frac{1}{t}\right)\to1$なので,上の式は$\displaystyle \frac{1}{e}$へ近づく.
                 よって
                 \[
@@ -1450,6 +1452,8 @@ $\displaystyle P_n=\frac{S(n)}{n!}$とおく.}
                  \boxed{\lim_{n\to\infty}\frac{S(n)}{n!}
                        =\frac1e\simeq0.368}.
                 \]
+                \par\smallskip\noindent\textbf{【個数はどこまで近いか】}\par\nopagebreak[4]
+                確率の差を個数の差へ戻すと,整数としての$S(n)$まで決まる.
                 同じ偶奇の後の項は\bookterm{limit}{極限}へ向かって厳密に進むため,
                 $\displaystyle \frac{1}{e}$は隣り合う$P_n,P_{n+1}$の間に厳密に入る. よって$n\ge1$で
                 \begin{align*}

@@ -3,7 +3,7 @@
   問1・2では置き換える量を選び,問3・4では更新の範囲を組み替え,
   問5〜7では周期・近似・和を調べる.
   解法名だけでなく,選んだ操作で何が簡単になったかを述べよう.
-  問1・2・4・5は本文の例題から,問3・6・7は対応する付録の例からつながる.
+  問1・2・4・5は本文の例題から,問3・6・7は\chapterref*{章：付録}の例からつながる.
   問題番号の順に解く必要はなく,読んだ説明に対応する題を選べる.
 
   \subsubsection{問題}
@@ -17,7 +17,7 @@
       $a_{n+2}=\frac{a_{n+1}^2+1}{a_n}$ $(n\ge1)$とする.
       各項が正であることを示し,
       $I_n=\frac{a_n^2+a_{n+1}^2+1}{a_na_{n+1}}$を使って\bookterm{general}{一般項}を求めよ.
-      \bookterm{invariant}{不変量}の値は\bookterm{initial}{初期条件}を変えるとどう変わるか.
+      初めの二項を正の値$x,y$に変えると,\bookterm{invariant}{不変量}の値はどう変わるか.
     \item $n,m\ge0$とする.$A_{n,0}=A_{0,m}=1$,
       $A_{n,m}=A_{n-1,m}+A_{n,m-1}$ $(n,m\ge1)$から,
       $A_{n,m}=\binom{n+m}{m}$を$n+m$に関する帰納法で証明せよ.
@@ -46,7 +46,7 @@
   \end{enumerate}
 
   \subsubsection{方針}
-  \begin{enumerate}[format=\bookitemlink{practice-connections}{hint}{problem}]
+  \begin{enumerate}[label=\textbf{問\arabic*.},format=\bookitemlink{practice-connections}{hint}{problem}]
     \item 割る因子の隣り合う比を確認する.残った\bookterm{difference}{階差}は$n$となる.
       \bookterm{normalize}{正規化}後の一つの解から,引く量$v_n$を逆に作る.
     \item 正値性を先に帰納的に確かめる.$xz=y^2+1$から$I_{n+1}=I_n$を示し,
@@ -63,7 +63,7 @@
   \end{enumerate}
 
   \subsubsection{答え}
-  \begin{enumerate}[format=\bookitemlink{practice-connections}{answer}{problem}]
+  \begin{enumerate}[label=\textbf{問\arabic*.},format=\bookitemlink{practice-connections}{answer}{problem}]
     \item $b_{n+1}-b_n=n$, $b_1=\frac32$より,
       \[
         a_n=\frac{n(n+1)(n^2-n+3)}2.
@@ -114,7 +114,7 @@
   \end{enumerate}
 
   \subsubsection{解説}
-  \begin{enumerate}[format=\bookitemlink{practice-connections}{solution}{problem}]
+  \begin{enumerate}[label=\textbf{問\arabic*.},format=\bookitemlink{practice-connections}{solution}{problem}]
     \item \textbf{倍率をそろえる.}
       $h_n=n(n+1)$は$h_{n+1}/h_n=(n+2)/n$を満たす.
       両辺を$(n+1)(n+2)$で割ると$b_{n+1}=b_n+n$であり,
@@ -127,8 +127,19 @@
       この場合は割る方法から引く量も発見できた.
       \sectionref*{節：変数係数の一次漸化式}へ戻って比べよう.
     \item \textbf{正値と保存の確認.}
-      正の二項から次も正になる.$x=a_n,y=a_{n+1},z=a_{n+2}$とすると,
-      $xz=y^2+1$から$I_n=I_{n+1}=(x+z)/y$である.
+      正の二項から次も正になる.$x=a_n,y=a_{n+1},z=a_{n+2}$とすると,$xz=y^2+1$である.
+      これを不変量の分子に使えば,
+      \[
+        I_n=\frac{x^2+y^2+1}{xy}
+           =\frac{x^2+xz}{xy}=\frac{x+z}{y}.
+      \]
+      次の位置でも
+      \[
+        I_{n+1}=\frac{y^2+z^2+1}{yz}
+               =\frac{xz+z^2}{yz}=\frac{x+z}{y}
+      \]
+      となるので,$I_{n+1}=I_n$である.
+      \par\smallskip\textbf{同じ係数の更新へ戻す.}
       $I_1=(1+4+1)/2=3$なので$x+z=3y$となる.
       二つの\bookterm{root}{特性根}で$a_n=C\alpha^{n-1}+D\beta^{n-1}$と置き,
       $C+D=1$, $C\alpha+D\beta=2$を解くと解答の係数になる.

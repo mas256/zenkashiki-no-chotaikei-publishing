@@ -40,7 +40,9 @@
     \begin{align*}
       &a_{n+1}=\frac{p}{p-1}a_n+g(n)
     \end{align*}
-    従って\bookterm{recurrence}{漸化式}は\bookterm{difference}{階差}等比複合型(\sectionref{節：階差等比複合型})に帰着する.\footnote{係数$\frac{p}{p-1}$は$p=p-1$となることがないため,決して$1$にはならない.}
+    付加項が多項式や指数なら,\booknavref{節：階差等比複合型}{付加項を引く・指数で割る方法}を使える.\footnote{係数$\frac{p}{p-1}$は$p=p-1$となることがないため,決して$1$にはならない.}
+    それ以外でも,係数が非零なら\booknavref{節：変数係数の一次漸化式}{倍率をそろえて和を取る方法}で表示を作れる.
+    $p=0$なら,得られた式から次項を直接求めればよい.
     $p=1$のときはこの割り算ができない.この場合,$S_n=a_n+f(n)$と$S_n=S_{n-1}+a_n$($n\ge2$)を比較すると,
     \[
       a_{n-1}=f(n)-f(n-1)\quad(n\ge2)
@@ -56,6 +58,11 @@
     元の$n=1$の式から$T_1=0$なので,すべての$n$で$T_n=0$となる.
     \textbf{差を求めた後には,初めの値が必要になる.}
 
+    例題(3)では二つを選ぶ個数を表す記号
+    \[
+      \binom n2=\frac{n(n-1)}2
+    \]
+    を使う.$n=1$では二つを選べないので,$\binom12=0$とする.\footnote{この記号を\booknavref{節：二項定理}{二項係数}という.一般の定義と公式も参照先で確認できる.}
     \noindent \bookblocklink{example-summation-1}{problem}{answer}{【例題】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-summation-1}{problem}{answer}]
       \item $\displaystyle S_n=2a_n-n$
@@ -129,12 +136,16 @@
         \[
           a_1=2
         \]
-\BookMathLayout{\begin{align*}
-          a_{n+1}
-            &=S_{n+1}-S_n\\
-            &=\left\{\frac12a_{n+1}+(n+1)\right\}-\left(\frac12a_n+n\right)\\
-            &=\frac12a_{n+1}-\frac12a_n+1
-        \end{align*}}{
+\BookMathLayout{
+\[
+\begin{aligned}
+a_{n+1}&=S_{n+1}-S_n\\
+&=\left\{\frac12a_{n+1}+(n+1)\right\}\\
+&\quad-\left(\frac12a_n+n\right)\\
+&=\frac12a_{n+1}-\frac12a_n+1
+\end{aligned}
+\]
+}{
 \[
 \begin{aligned}
 a_{n+1}&=S_{n+1}-S_n\\
@@ -178,13 +189,16 @@ a_{n+1}&=S_{n+1}-S_n\\
         となり,この式だけでは$a_1$は定まらない.
 
         $n\ge2$において,
-\BookMathLayout{\begin{align*}
-          a_n
-            &=S_n-S_{n-1}\\
-            &=\left(a_n+\binom n2\right)
-              -\left(a_{n-1}+\binom{n-1}{2}\right)\\
-            &=a_n-a_{n-1}+n-1
-        \end{align*}}{
+\BookMathLayout{
+\[
+\begin{aligned}
+a_n&=S_n-S_{n-1}\\
+&=\left(a_n+\binom n2\right)\\
+&\quad-\left(a_{n-1}+\binom{n-1}2\right)\\
+&=a_n-a_{n-1}+n-1
+\end{aligned}
+\]
+}{
 \[
 \begin{aligned}
 a_n&=S_n-S_{n-1}\\

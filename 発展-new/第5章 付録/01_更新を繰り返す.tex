@@ -136,8 +136,54 @@ $\alpha=p\alpha+q$ だから,
 
 \input{第5章 付録/01c_周期係数と行列.tex}
 
+\subsubsection{分数を二つの成分で追う}\label{節：一次分数型を行列で見直す}
+
 \sectionref{節：1次分数型}では,\bookterm{fixed}{不動点}からの二つの差の比を取ることで,共通の分母を消した.
 なぜその比が\bookterm{geometric}{等比数列}になるのかを,今度は\bookterm{matrix}{行列}で見てみよう.
+まず本編の
+\[
+  a_{n+1}=\frac{2a_n}{1-a_n}
+\]
+を使う.各項で$a_n\ne1$とし,\,$a_1\ne-1$とする.
+一つの値を分子と分母に分けて持ち,$a_n=x_n/y_n$と書いてみよう.
+$(x_1,y_1)=(a_1,1)$から
+\[
+  \begin{pmatrix}x_{n+1}\\y_{n+1}\end{pmatrix}
+  =M\begin{pmatrix}x_n\\y_n\end{pmatrix},
+  \qquad
+  M=\begin{pmatrix}2&0\\-1&1\end{pmatrix}
+\]
+で更新すると,
+\[
+  \frac{x_{n+1}}{y_{n+1}}
+  =\frac{2x_n}{y_n-x_n}
+  =\frac{2a_n}{1-a_n}
+\]
+となり,元の更新に戻る.
+本編で用いた$\displaystyle b_n=\frac{a_n}{a_n+1}$は,この二成分では
+\[
+  b_n=\frac{x_n}{x_n+y_n}
+\]
+である.分子は一回ごとに$2$倍されるが,分母は
+\[
+  x_{n+1}+y_{n+1}=2x_n+(y_n-x_n)=x_n+y_n
+\]
+と変わらない.従って,$b_{n+1}=2b_n$となる.
+$x_1+y_1=a_1+1\ne0$なので,この比の分母はずっと零でない.
+
+\bookterm{fixed}{不動点}$0,-1$を二成分で表すと,
+\[
+  M\begin{pmatrix}0\\1\end{pmatrix}
+  =\begin{pmatrix}0\\1\end{pmatrix},
+  \qquad
+  M\begin{pmatrix}-1\\1\end{pmatrix}
+  =2\begin{pmatrix}-1\\1\end{pmatrix}.
+\]
+対応する\bookterm{eigenvalue}{固有値}はそれぞれ$1,2$である.
+一次分数型の計算を繰り返す代わりに,二つの方向の倍率の比を追っていたのである.
+
+\bookstep{一般の一次分数型へ}
+同じ計算を一般の係数でも確かめよう.
 一次分数型の更新も,二成分の\bookterm{column-vector}{列ベクトル}を使って表せる.
 \[
   a_{n+1}=\frac{pa_n+q}{ra_n+s}
@@ -208,15 +254,8 @@ $\lambda_\alpha=r\alpha+s,\ \lambda_\beta=r\beta+s$ とする.
 これは本編で $\displaystyle b_n=\frac{a_n-\alpha}{a_n-\beta}$ と置いて得た公比そのものである.
 本編の置き換えは,二つの固有方向の成分比を取り出す操作だった.
 
-たとえば
-\[
-  a_{n+1}=\frac{2a_n}{1-a_n},
-  \qquad
-  M=\begin{pmatrix}2&0\\-1&1\end{pmatrix}
-\]
-では,\bookterm{fixed}{不動点} $0,-1$ に対応する\bookterm{eigenvalue}{固有値}はそれぞれ $1,2$ である.
-したがって本編の置き換えに合わせた $\displaystyle b_n=\frac{a_n}{a_n+1}$ は,\,$a_1\ne-1$なら $b_{n+1}=2b_n$ を満たす.
-一次分数型の計算を繰り返す代わりに,\bookterm{matrix}{行列}の二つの方向の倍率の比を追っている.
+最初の例では,$\alpha=0$, $\beta=-1$に対して$\lambda_\alpha=1$, $\lambda_\beta=2$だった.
+分子が$2$倍され,分母が変わらないという計算が,一般には二つの固有方向の成分比になった.
 
 \subsection{二つの値を更新する}\label{節：状態を二つ持つと,二階の漸化式になる}
 
@@ -296,7 +335,8 @@ $\lambda_\alpha=r\alpha+s,\ \lambda_\beta=r\beta+s$ とする.
   \lambda^2-s\lambda-t=0
 \]
 を得る.
-これは $a_n=\lambda^n$ をもとの\bookterm{recurrence}{漸化式}に代入して得る\bookterm{characteristic}{特性方程式}と一致する.
+これは$\lambda\ne0$なら,$a_n=\lambda^n$をもとの\bookterm{recurrence}{漸化式}に代入し,共通の冪を除いて得る\bookterm{characteristic}{特性方程式}と一致する.
+$\lambda=0$も\bookterm{matrix}{行列}ではそのまま扱える.\sectionref*{節：行列の基本}で見たように,零の固有方向は初期状態にだけ寄与し,一回の更新で消える.
 本編の符号で書けば $\lambda^2+p\lambda+q=0$ である.
 
 この条件は\bookterm{linear}{線形}代数では
@@ -392,6 +432,17 @@ $(x_n,y_n)$をこの二つの方向に分けて考えることは,
 \]
 となる.
 この新しい座標では,同じ\bookterm{matrix}{行列}$A$による更新が
+どのように表されるかを追ってみよう.
+$\boldsymbol z_n=\begin{pmatrix}x_n\\y_n\end{pmatrix}$とし,新しい座標を$\boldsymbol w_n=Q^{\mathsf T}\boldsymbol z_n$と書く.
+直接掛けると$Q^{\mathsf T}Q=QQ^{\mathsf T}=I$だから,元へ戻す式は$\boldsymbol z_n=Q\boldsymbol w_n$である.
+元の更新$\boldsymbol z_{n+1}=A\boldsymbol z_n$にこれを入れると,
+\[
+  \boldsymbol w_{n+1}
+  =Q^{\mathsf T}\boldsymbol z_{n+1}
+  =Q^{\mathsf T}AQ\boldsymbol w_n.
+\]
+新しい座標から元の座標へ戻し,更新してから再び新しい座標へ直したのである.
+ここで
 \[
   Q^{\mathsf T}AQ=
   \begin{pmatrix}3&0\\0&1\end{pmatrix}
@@ -544,7 +595,6 @@ a_{n+2}-2a_{n+1}+a_n\\
 本編の\bookterm{trigonometric}{三角関数}型で扱った「現在の角度を二倍にする」更新とは,回す角度の決め方が異なることに注意しよう.
 前者は毎回同じ角だけ回り,後者はその時点の角と同じ角だけさらに回る.
 以下の多項式は,どちらの場合にも整数倍の角を表す道具になる.
-  \BookFigChebyshev
 
 ここで $x=\cos\theta$ と書き,角度の整数倍を $x$ の多項式で表せないか考えてみよう.
 余弦の\bookterm{addition}{加法定理}
@@ -602,6 +652,10 @@ $n=0,1$ では
 \]
 となる.
 \bookterm{chebyshev}{チェビシェフ多項式}は,余弦の整数倍の角を,角度を使わずに $x=\cos\theta$ の多項式として記録している.
+特に,$T_2(\cos\theta)=\cos2\theta$である.
+角度を二倍にしたときの横座標を,元の横座標の多項式で表せた.
+次の図では,その二つの横座標を見比べよう.
+  \BookFigChebyshev
 
 ここで本編の$\displaystyle a_1=\frac{\sqrt3}{2}$, $a_{n+1}=2a_n^2-1$に戻ろう.
 本編では$\displaystyle a_1=\cos(\frac{\pi}{6})$から角度を二倍ずつ進めたが,多項式の言葉では
@@ -645,11 +699,14 @@ $-1\le a_1\le1$なら$a_1=\cos\theta$と表せるため,これは本編の$a_n=\
   P_0(x)=1,\qquad P_1(x)=x
 \]
 と三項\bookterm{recurrence}{漸化式}
-\BookMathLayout{\[
-  (n+1)P_{n+1}(x)
-  =(2n+1)xP_n(x)-nP_{n-1}(x)
-  \qquad(n\ge1)
-\]}{
+\BookMathLayout{
+\[
+\begin{aligned}
+(n+1)P_{n+1}(x)&=(2n+1)xP_n(x)\\
+&\quad-nP_{n-1}(x)\qquad(n\ge1)
+\end{aligned}
+\]
+}{
 \[
 \begin{aligned}
 (n+1)P_{n+1}(x)&=(2n+1)xP_n(x)\\
@@ -676,7 +733,13 @@ $-1\le a_1\le1$なら$a_1=\cos\theta$と表せるため,これは本編の$a_n=\
 
 \subsection*{コラム：有限個の点から多項式を作る}
 
-与えられた最初の $N$ 項 $a_1,\ldots,a_N$ に対して,
+最初の三項が $1,2,3$ なら,
+$x$ と $x+(x-1)(x-2)(x-3)$ はどちらもその三項に一致するが,
+$n=4$ ではそれぞれ $4$ と $10$ になる.
+有限個の値が一致しても,その後の値まで同じとは限らない.
+与えられた値を通る多項式を,一般の場合にも作ってみよう.
+
+最初の$N$項$a_1,\ldots,a_N$に対して,
 \[
   L(x)=\sum_{k=1}^{N}a_k
   \prod_{\substack{1\le j\le N\\j\ne k}}
@@ -687,9 +750,7 @@ $x=k$ のとき $k$ 番目の積は $1$ になり,ほかの積には $x-k$ の�
 次数を $N-1$ 以下に制限した多項式の中では,この $L$ は一意である.二つの候補の差は $1,\ldots,N$ を根にもつ次数 $N-1$ 以下の多項式なので,零多項式になる.
 
 ただし,その次数制限がデータから導かれるわけではない.
-例えば,最初の三項が $1,2,3$ なら,
-$x$ と $x+(x-1)(x-2)(x-3)$ はどちらもその三項に一致するが,
-$n=4$ ではそれぞれ $4$ と $10$ になる.
+最初の三項だけでは,一次式と三次式を区別できなかった.
 一般にも, $L(x)+c\prod_{j=1}^{N}(x-j)$ は任意の定数 $c$ に対して最初の $N$ 個の値を保つので,続きを無数に作れる.
 次の図は,別の三点を通り,途中の形が異なる二つの曲線を描いた例である.
   \BookFigLagrange
@@ -702,7 +763,7 @@ $n=4$ ではそれぞれ $4$ と $10$ になる.
 \subsection{不動点付近の線形化}\label{節：非線形な更新も,不動点の近くでは線形に見える}
 
 \sectionref*{節：特性方程式型}では,\bookterm{fixed}{不動点}からのずれが正確に$p$倍され,\,$|p|<1$なら\bookterm{fixed}{不動点}に近づいた.
-最後に,一次分数型のような\bookterm{nonlinear}{非線形}の更新規則でも,\bookterm{fixed}{不動点}の近くでは同じ見方ができることを確かめよう.
+一次分数型のような\bookterm{nonlinear}{非線形}の更新規則でも,\bookterm{fixed}{不動点}の近くでは同じ見方ができることを確かめよう.
 ここからは,本編の\bookterm{newton}{ニュートン法}型でも使った微分係数と一次近似を用いる.
 一項前から次が決まる\bookterm{recurrence}{漸化式}
 \[

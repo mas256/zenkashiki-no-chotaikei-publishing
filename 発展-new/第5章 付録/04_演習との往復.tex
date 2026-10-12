@@ -9,7 +9,7 @@
   \subsection{整数方程式と不変量}
   発展問9では,$u_0=3$, $u_1=3$, $u_{n+2}=3u_{n+1}-u_n$から,
   $(3,u_n,u_{n+1})$が$x^2+y^2+z^2=xyz$の解になることを示した.
-  初期値では
+  $n=0$では
   \[
     u_n^2+u_{n+1}^2+9=3u_nu_{n+1}
   \]
@@ -51,8 +51,21 @@
   \[
     M=\begin{pmatrix}1-t&t\\-t&1-t\end{pmatrix}
   \]
-  となる.\bookterm{matrix}{行列}式は$\rho=(1-t)^2+t^2$だから,
-  平行四辺形の面積は一回ごとに$\rho$倍となる.
+  となる.\bookterm{matrix}{行列}式は$\rho=(1-t)^2+t^2$である.
+  これを面積に結び付けよう.
+  二つの辺を成分で$u=(u_1,u_2)$, $v=(v_1,v_2)$と書くと,平行四辺形の面積は$|u_1v_2-u_2v_1|$である.
+  更新後の辺の成分を代入し,積を展開すると,
+  \BookMathLayout{\[
+    u'_1v'_2-u'_2v'_1
+    =\bigl((1-t)^2+t^2\bigr)(u_1v_2-u_2v_1).
+  \]}{\[
+    \begin{aligned}
+      u'_1v'_2-u'_2v'_1\\
+      {}=\bigl((1-t)^2+t^2\bigr)(u_1v_2-u_2v_1).
+    \end{aligned}
+  \]}
+  $\rho>0$なので,絶対値を取った面積も一回ごとに$\rho$倍となる.
+  辺を組み合わせる係数の\bookterm{matrix}{行列}式が,この倍率を表していた.
   \bookterm{eigenvalue}{固有値}は$1-t\pm it$であり,その絶対値の二乗も$\rho$である.
 
   \begin{bookpoint}

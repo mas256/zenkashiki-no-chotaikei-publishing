@@ -3,7 +3,8 @@
   \subsection{\texorpdfstring{階比型 \, $a_{n+1}=f(n)a_n$}{階比型}}\label{節：階比型}
   \begin{bookpoint}
     \textbf{倍率を掛ける}\par
-    添字ごとの倍率を掛け合わせる方法と,その倍率に合う因子で割る方法を比べよう.零で割らない条件は共通である.
+    添字ごとの倍率を掛け合わせる方法と,その倍率に合う因子で割る方法を比べよう.
+    積の表示は倍率が零でも使える.割る方法では,因子が零にならないことを確かめる.
   \end{bookpoint}
     \bookterm{difference}{階差}型では変化を足した.ここでは,各段階の倍率を掛け合わせる.
     難しい点は,積を計算することと,倍率をそろえる因子を見つけることに分かれる.
@@ -50,6 +51,10 @@
     \end{enumerate}
 
     \noindent\bookblocklink{example-ratio-1}{hint}{problem}{【方針】}\par\nobreak
+    割る量は,その量自身の次の項との比から選べる.
+    例えば$h_n=(n-1)!$なら,$h_{n+1}/h_n=n$である.
+    元の倍率$2n$のうち$n$が消え,$2$だけが残る.
+    以下でも,割る量の隣り合う比と元の倍率を合わせよう.
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-ratio-1}{hint}{problem}]
       \item 係数$2n$のうち$n$を階乗で吸収すれば,一定の倍率$2$だけが残ります.
       \item $n(n+1)$を一つのまとまりとして,隣の添字にずらした比を計算してみましょう.倍率$\frac{n+2}{n}$が現れます.

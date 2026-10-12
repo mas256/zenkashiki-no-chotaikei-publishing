@@ -2,7 +2,7 @@
 // These finite calculations supplement the mathematical arguments in the text.
 import { readFileSync } from "node:fs";
 import { execFileSync } from "node:child_process";
-import { join } from "node:path";
+import { join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 function assert(ok, message) { if (!ok) throw new Error(message); }
@@ -80,7 +80,7 @@ function stripComments(text) {
     return line;
   }).join("\n");
 }
-function verifyTeX(readText, pdfDestinations = null) {
+export function verifyTeX(readText, pdfDestinations = null) {
   const files=new Map();
   function visit(path) {
     if (files.has(path)) return;
@@ -132,20 +132,30 @@ function verifyTeX(readText, pdfDestinations = null) {
         else if (depth===1) count++;
       }
       const id=f[1],role=f[2]; groups[id]??={};
-      assert(groups[id][role]===undefined,"duplicate item targets "+id+":"+role);
-      groups[id][role]=count;
+      const start=Number(m[1].match(/(?:^|,)\s*start\s*=\s*(\d+)/)?.[1] ?? 1);
+      assert(start>0,"invalid first item number "+id+":"+role);
+      groups[id][role]??=new Set();
+      for (let number=start;number<start+count;number++) {
+        assert(!groups[id][role].has(number),"duplicate item target "+id+":"+role+":"+number);
+        groups[id][role].add(number);
+      }
     }
   }
   for (const ref of references) assert(labels.has(ref),"missing heading reference "+ref);
   for (const ref of problemRefs)
-    assert(groups[ref.id]?.problem>=ref.number && ref.number>0,"missing problem reference "+ref.id+":"+ref.number);
-  for (const [id,roles] of Object.entries(groups))
-    for (const [role,count] of Object.entries(roles))
-      assert(count===roles.problem,"item count mismatch "+id+":"+role);
-  assert(groups["practice-basic"].problem===55,"standard exercise count changed");
-  assert(groups["practice-advanced"].problem===10,"advanced exercise count changed");
-  assert(groups["practice-bridge"].problem===10,"bridge exercise count changed");
-  assert(groups["practice-entrance"].problem===10,"research exercise count changed");
+    assert(groups[ref.id]?.problem?.has(ref.number),"missing problem reference "+ref.id+":"+ref.number);
+  for (const [id,roles] of Object.entries(groups)) {
+    assert(roles.problem,"missing problem list "+id);
+    for (let number=1;number<=roles.problem.size;number++)
+      assert(roles.problem.has(number),"non-contiguous problem numbers "+id);
+    for (const [role,numbers] of Object.entries(roles))
+      assert(numbers.size===roles.problem.size && [...numbers].every(number=>roles.problem.has(number)),
+        "item number mismatch "+id+":"+role);
+  }
+  assert(groups["practice-basic"].problem.size===55,"standard exercise count changed");
+  assert(groups["practice-advanced"].problem.size===10,"advanced exercise count changed");
+  assert(groups["practice-bridge"].problem.size===10,"bridge exercise count changed");
+  assert(groups["practice-entrance"].problem.size===10,"research exercise count changed");
   // These question identities are used by the reading routes and comparisons.
   // Use the unstripped source comments to check stable question identities.
   const original=readText("発展-new/第4章 実際の解き方/03_実践演習/標準難易度.tex");
@@ -160,17 +170,18 @@ function verifyTeX(readText, pdfDestinations = null) {
   assert(bridgeIds.join(",")===Array.from({length:10},(_,i)=>"B"+(i+1)).join(","),"bridge reading route identities changed");
   let pdfProblemDestinations=0;
   if (pdfDestinations) {
-    for (const [id,roles] of Object.entries(groups)) for (const [role,count] of Object.entries(roles)) {
-      for (let number=1;number<=count;number++) {
+    for (const [id,roles] of Object.entries(groups)) for (const [role,numbers] of Object.entries(roles)) {
+      for (const number of numbers) {
         const name="book:"+id+":"+role+":"+number;
         assert(pdfDestinations.has(name),"missing PDF problem destination "+name);
         pdfProblemDestinations++;
       }
     }
   }
-  return { ...(pdfDestinations ? {pdfProblemDestinations} : {}), inputFiles:files.size,labels:labels.size,headingReferences:references.length,problemReferences:problemRefs.length,exerciseCount:Object.entries(groups).filter(([id])=>id.startsWith("practice-")).reduce((sum,[,roles])=>sum+roles.problem,0) };
+  return { ...(pdfDestinations ? {pdfProblemDestinations} : {}), inputFiles:files.size,labels:labels.size,headingReferences:references.length,problemReferences:problemRefs.length,exerciseCount:Object.entries(groups).filter(([id])=>id.startsWith("practice-")).reduce((sum,[,roles])=>sum+roles.problem.size,0) };
 }
 
+if (process.argv[1] && fileURLToPath(import.meta.url)===resolve(process.argv[1])) {
 const root=fileURLToPath(new URL("../",import.meta.url));
 let pdfDestinations=null;
 if (process.argv.includes("--pdf")) {
@@ -180,3 +191,4 @@ if (process.argv.includes("--pdf")) {
 const tex=verifyTeX(path=>readFileSync(join(root,path),"utf8"),pdfDestinations);
 const math=verifyMathematics();
 console.log(JSON.stringify({tex,math},null,2));
+}
