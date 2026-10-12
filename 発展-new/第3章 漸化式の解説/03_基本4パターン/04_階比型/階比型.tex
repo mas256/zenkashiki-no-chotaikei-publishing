@@ -9,23 +9,28 @@
     難しい点は,積を計算することと,倍率をそろえる因子を見つけることに分かれる.
     まず積の表示を学び,その後に\bookterm{normalize}{正規化}の因子を選ぶ理由を見る.
 
-    具体的な説明の前に1つだけ記号を新たに導入しておく.
-    適当な数が並べられた\bookterm{sequence}{数列}$x_n$が存在した時,
+    和を$\sum$で表したように,積にも記号を用意しよう.
+    \bookterm{sequence}{数列}$x_n$の最初の$n$項の積を,
     \[
       \prod_{i=1}^n x_i
       =x_1\times x_2\times\cdots\times x_n
     \]
     となるような記号$\prod$（ラージパイ）を定義する.
-    これを\bookterm{product}{総積}記号といい,積を表す.\footnote{ここでの$a_i$や$b_i$は\bookterm{recurrence}{漸化式}等によって定義されるような,法則性を持った\bookterm{sequence}{数列}である必要はなく,
+    これを\bookterm{product}{総積}記号といい,積を表す.\footnote{ここでの$x_i$は\bookterm{recurrence}{漸化式}等によって定義されるような,法則性を持った\bookterm{sequence}{数列}である必要はなく,
     「1から順に番号が振られた,数の並び」ぐらいのイメージで問題ない.}
-    また,一般に以下が成り立つ.
+    $1$から$n$までの積は\textbf{階乗}といい,$n!=1\cdot2\cdots n$と書く.
+    例えば$3!=6$であり,$0!=1$と定める.
+    積では,次の計算が使える.
     \begin{align*}
       &\prod_{i=1}^{n}i=n!\\
       &\prod_{i=1}^{n}k=k^n\\
       &\prod_{i=1}^{n}a_ib_i=\displaystyle\prod_{i=1}^na_i\displaystyle\prod_{i=1}^nb_i\\
       &\prod_{i=1}^{n}a_i=\displaystyle\prod_{i=1+k}^{n+k}a_{i-k}\\
-      &\prod_{i=1}^{n}(i+k)=\dfrac{(n+k)!}{k!}
+      &\prod_{i=1}^{n}(i+k)=\dfrac{(n+k)!}{k!}\qquad(k\ge0)
     \end{align*}
+    2行目の$k$は$i$によらない定数,最後の$k$は整数である.
+    4行目は積を取る番号をずらしただけで,掛ける項は変わらない.
+    例えば$n=3,k=1$なら,右辺も$a_{2-1}a_{3-1}a_{4-1}=a_1a_2a_3$である.
     では再び, \,$a_n$の\bookterm{general}{一般項}を求めていく.
     \begin{align*}
       &a_{n+1}=f(n)a_n\\
@@ -48,7 +53,7 @@
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-ratio-1}{hint}{problem}]
       \item 係数$2n$のうち$n$を階乗で吸収すれば,一定の倍率$2$だけが残ります.
       \item $n(n+1)$を一つのまとまりとして,隣の添字にずらした比を計算してみましょう.倍率$\frac{n+2}{n}$が現れます.
-      \item ちょっと頭を捻ってみましょう.先程までは$n!$で割りましたが,今回はうまくいくでしょうか.\,$f(n)=n(n+1)$の形に合わせて,どのように階乗を組み合わせれば「きれい」になるか考えてみてください.
+      \item (1)で$a_n$を割る量は$(n-1)!$でした.今回は倍率$n(n+1)$に合わせて,$n!$も組み合わせます.
     \end{enumerate}
 
     \noindent\bookblocklink{example-ratio-1}{answer}{problem}{【解答】}\par\nobreak
@@ -70,7 +75,7 @@
             \[
               b_n=\frac{a_n}{(n-1)!}
             \]
-            と置くと,
+            と置くと,$b_{n+1}$の分母は$n!$になる.式全体を割った量と,$a_n$を割る量は添字が一つ違う.
             \begin{align*}
               &b_{n+1}=2b_n\\
               &b_n=b_1\cdot 2^{n-1}
@@ -80,6 +85,7 @@
               &\frac{a_n}{(n-1)!}=\frac{a_1}{(1-1)!}2^{n-1}\\
               &\therefore \quad a_n=a_1 \cdot (n-1)! \cdot 2^{n-1}
             \end{align*}
+            $a_1=1$を入れて答えを得る.$n=1$では$0!\cdot2^0=1$となり,初項とも一致する.
 
       \item $\displaystyle a_1=2,\, a_{n+1}=\frac{n+2}{n}a_n$
             \begin{align*}

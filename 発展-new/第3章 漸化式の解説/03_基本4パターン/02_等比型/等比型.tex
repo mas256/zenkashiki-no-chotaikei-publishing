@@ -5,8 +5,10 @@
     \textbf{倍率を追う}\par
     一回ごとの倍率が一定なら,更新の回数だけ掛ける.公比が零の場合も,比で割らず更新の式から読む.
   \end{bookpoint}
-    次に説明するのは等比型である.
-    一般的な解法も先ほどと同じで,\,$a_{n+1}$から順に$a_1$に向けて書き下して行くことで求めることができる.
+    等差型と同じように,直前の項を順に代入する.今度は,掛けた回数を数える.
+    $r=0$なら,更新式から$a_2=0$となり,以後の項もすべて$0$である.
+    初項は与えられた$a_1$のまま読み,$n\ge2$では$a_n=0$と分けて表す.
+    以下では$r\ne0$として,初項に達するまで代入する.
     \begin{align*}
       &a_{n+1}=ra_n\\
       &a_{n+1}=r(ra_{n-1})\\
@@ -16,6 +18,7 @@
       &a_{n+1}=a_1r^n\\
       &\therefore \quad a_n=a_1r^{n-1}
     \end{align*}
+    初項から第$n$項までに$r$を掛けるのは$n-1$回なので,指数も$n-1$になる.
 
     \noindent \bookblocklink{example-geometric-1}{problem}{answer}{【例題】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-geometric-1}{problem}{answer}]
@@ -42,4 +45,10 @@
     \end{enumerate}
 
     \noindent\bookblocklink{example-geometric-1}{solution}{problem}{【解法】}\par\nobreak
-    解法略.
+    (1)では,一歩ごとに$2$倍するので$r=2$である.初項と公比を代入すると,
+    \[
+      a_n=a_1r^{n-1}=1\cdot2^{n-1}=2^{n-1}
+    \]
+    となる.$n=1$を入れると$2^0=1$であり,初項と一致する.
+    また,$2^n=2\cdot2^{n-1}$なので更新式も満たす.
+    (2)のように公比が負でも,掛ける回数の数え方は変わらない.

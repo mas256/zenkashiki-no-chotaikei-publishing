@@ -18,7 +18,8 @@
     \begin{align*}
       &b_{n+1}=\frac{r}{p}b_n+\frac{q}{p}
     \end{align*}
-    このようにすることで,\bookterm{characteristic}{特性方程式}型の\bookterm{recurrence}{漸化式}に帰着できる.
+    ここから定数項を消す型または等差型として$b_n$を求め,最後に$a_n=1/b_n$へ戻す.
+    ただし$b_n=0$となる項は逆数を戻せないため,元の漸化式が定義されるかも確認する.\footnote{$a_1=0$は逆数を取る前に分ける.$r\ne0$ならすべての項が$0$となる.$r=0$なら最初の更新から分母が$0$となり,そのままでは定義できない.}
 
     \noindent \bookblocklink{example-reciprocal-1}{problem}{answer}{【例題】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-reciprocal-1}{problem}{answer}]
@@ -28,7 +29,7 @@
 
     \noindent\bookblocklink{example-reciprocal-1}{hint}{problem}{【方針】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-reciprocal-1}{hint}{problem}]
-      \item とにかく基本に忠実に解きましょう.
+      \item 逆数を取ると,$1/a_n$が毎回$1$ずつ増える形になります.
       \item 逆数を取って一次の\bookterm{recurrence}{漸化式}に帰着させましょう.
     \end{enumerate}
 
@@ -41,7 +42,7 @@
     \noindent\bookblocklink{example-reciprocal-1}{solution}{problem}{【解法】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-reciprocal-1}{solution}{problem}]
       \item $\displaystyle a_1=1,\, a_{n+1}=\frac{a_n}{a_n+1}$\\
-            両辺の逆数を取って,
+            $a_1>0$であり,正の項から次の項も正になる.分母$a_n+1$も正なので,両辺の逆数を取って,
             \begin{align*}
               &\frac{1}{a_{n+1}}=\frac{a_n+1}{a_n}=1+\frac{1}{a_n}
             \end{align*}
@@ -52,7 +53,8 @@
               &\therefore \quad a_n=\frac{1}{b_n}=\frac{1}{n}
             \end{align*}
       \item $\displaystyle a_1=1,\, a_{n+1}=\frac{-a_n}{2a_n+1}$\\
-            両辺の逆数を取って,
+            初めの更新は$1\longmapsto-1/3\longmapsto1$となる.
+            この二つの値では項も分母も零でないので,両辺の逆数を取って,
             \begin{align*}
               &\frac{1}{a_{n+1}}=\frac{2a_n+1}{-a_n}=-2-\frac{1}{a_n}
             \end{align*}
@@ -60,7 +62,7 @@
             \begin{align*}
               &b_{n+1}=-b_n-2,\quad b_1=1
             \end{align*}
-            \bookterm{characteristic}{特性方程式}型として$\alpha$を求めると,
+            定数項を消すために,\bookterm{fixed}{不動点}$\alpha$を求めると,
             \[
               \alpha=-\alpha-2 \ \Leftrightarrow\ \alpha=-1
             \]

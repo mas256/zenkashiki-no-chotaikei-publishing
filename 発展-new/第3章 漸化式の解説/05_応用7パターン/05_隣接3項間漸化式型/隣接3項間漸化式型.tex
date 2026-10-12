@@ -7,9 +7,9 @@
   \end{bookpoint}
 
   \subsubsection{\texorpdfstring{付加項がない場合 \, $\displaystyle a_{n+2}+pa_{n+1}+qa_n=0$}{付加項がない場合}}\label{節：二次特性方程式型}
-    節は変われど,\bookterm{characteristic}{特性方程式}を使って考える.
-    結局,大方の場合,\bookterm{geometric}{等比数列}に変形できればいいのだから,これを\bookterm{geometric}{等比数列}に変形できないかといくつかの試行錯誤を重ねるのが王道の解き方である.
-    結果から言ってしまえば,\bookterm{characteristic}{特性方程式}型のところで少し触れた式を生み出すことで\bookterm{geometric}{等比数列}を作ることができる.
+    一項だけでは更新が閉じないので,隣り合う二項をまとめてみよう.
+    \sectionref*{節：補助数列の設計}で扱った$a_{n+1}-\alpha a_n$という量が,ここで役立つ.
+    この量が一定の倍率で更新されれば,\bookterm{geometric}{等比数列}として解ける.
     \[
       a_{n+2}+pa_{n+1}+qa_n=0
     \]
@@ -35,7 +35,16 @@
     \[
       x^2+px+q=0
     \]
-    の2解として得られる.
+    の2解として得られる.この方程式を,元の漸化式の\bookterm{characteristic}{特性方程式}という.
+
+    根が$0$になる$q=0$の場合は,先に元の式で扱える.
+    $a_{n+2}=-pa_{n+1}$なので,$p\ne0$なら
+    \[
+      a_n=a_2(-p)^{n-2}\quad(n\ge2)
+    \]
+    となり,$a_1$は与えられた値のままである.
+    $p=0$でもある場合は,$n\ge3$の項がすべて$0$になる.
+    以下では$q\ne0$,すなわち二つの根がともに$0$でない場合を考える.
 
     \,$x^2+px+q=0$の2解を$\alpha,\beta$とすると,元の\bookterm{recurrence}{漸化式}は
     \[
@@ -43,8 +52,9 @@
         a_{n+1}-\alpha a_n=\beta(a_n-\alpha a_{n-1})\\
         a_{n+1}-\beta a_n=\alpha(a_n-\beta a_{n-1})
       \end{cases}
+      \quad(n\ge2)
     \]
-    という2つの\bookterm{geometric}{等比数列}を生む.\footnote{添字は1つずれているが本質的には先程と同じ議論である.}
+    となる.添字を一つずらしたため,$a_{n-1}$を含むこの式は$n\ge2$で使う.
 
     $\alpha\ne\beta$の時,
     \[
@@ -64,7 +74,6 @@
       =(a_2-\alpha a_1)\beta^{n-1}
     \]
     を得る.
-  \BookFigThreeTerm
 
     同様に,
     \[
@@ -83,9 +92,11 @@
       a_{n+1}-\beta a_n
       =(a_2-\beta a_1)\alpha^{n-1}
     \]
-    となる.
+    となる.ここまでで求まったのは,元の数列ではなく二項をまとめた$b_n,c_n$である.
+    それぞれの更新は次のようにつながる.
+    \BookFigThreeTerm
 
-    ここで,この2式から$a_{n+1}$を消去するために,上の式から下の式を引くと,
+    この2式から$a_{n+1}$を消去するために,上の式から下の式を引くと,
     \begin{align*}
       &(a_{n+1}-\alpha a_n)-(a_{n+1}-\beta a_n)\\
       &\qquad=(a_2-\alpha a_1)\beta^{n-1}
@@ -123,7 +134,7 @@
 
     \noindent\bookblocklink{example-three-term-1}{hint}{problem}{【方針】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-three-term-1}{hint}{problem}]
-      \item \bookterm{characteristic}{特性方程式}$x^2-5x+6=0$の解は異なる2つの実数解です.素直に2本の\bookterm{geometric}{等比数列}を作りましょう.
+      \item \bookterm{characteristic}{特性方程式}$x^2-5x+6=0$の解は異なる2つの実数解です.それぞれの根で二項をまとめ,2本の\bookterm{geometric}{等比数列}を作りましょう.
       \item \bookterm{characteristic}{特性方程式}$x^2-4x+4=0$を解くと重解になります.\bookterm{geometric}{等比数列}は1本しか作れないことに注意しましょう.
       \item \bookterm{characteristic}{特性方程式}の解の1つが負になるパターンです.符号に注意して計算しましょう.
     \end{enumerate}
@@ -277,8 +288,8 @@ c_n&=c_1\cdot3^{n-1},\\ c_1&=a_2+2a_1=5\\
       &\therefore \quad r=\alpha +p\alpha +q\alpha\\
       &\Leftrightarrow \quad \alpha=\frac{r}{p+q+1}\quad(p+q+1\ne0)
     \end{align*}
-    ただし$p+q+1=0$かつ$r\ne0$のときは定数解$\alpha$が存在しない.\,$p+q+1=0$かつ$r=0$なら任意の定数が条件を満たし,元の\bookterm{recurrence}{漸化式}はすでに前節の形である.定数解が存在しない場合は$d_n=a_{n+1}-a_n$とおくと,元の\bookterm{recurrence}{漸化式}から$d_{n+1}=qd_n+r$となり,\bookterm{characteristic}{特性方程式}型または\bookterm{difference}{階差}型に帰着できる.
-    あとは前節で述べた隣接3項間\bookterm{recurrence}{漸化式}の問題である.
+    $p+q+1\ne0$なら,$b_1=a_1-\alpha,\ b_2=a_2-\alpha$から前節の隣接3項型を解き,$a_n=b_n+\alpha$へ戻す.
+    $p+q+1=0$のときは定数でずれを戻せない場合がある.その場合は,例題の後で階差を使って考える.
 
     \noindent \bookblocklink{example-three-term-2}{problem}{answer}{【例題】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-three-term-2}{problem}{answer}]
@@ -366,3 +377,20 @@ c_n&=c_1\cdot3^{n-1},\\ c_1&=a_2+2a_1=5\\
               a_n=3+b_n=3+2^{n-2}(3n-7)
             \]
     \end{enumerate}
+
+
+    \bookstep{定数でずれを戻せないとき}
+    $p+q+1=0$かつ$r\ne0$のときは,$r=(p+q+1)\alpha$を満たす定数$\alpha$が存在しない.
+    一方,$r=0$なら任意の定数が条件を満たし,元の式はすでに付加項のない形である.
+
+    定数解が存在しない場合は,隣り合う項の差$d_n=a_{n+1}-a_n$を追う.
+    $-(p+1)=q$を使うと,
+    \[
+      \begin{aligned}
+        d_{n+1}&=a_{n+2}-a_{n+1}\\
+        &=-(p+1)a_{n+1}-qa_n+r\\
+        &=q(a_{n+1}-a_n)+r=qd_n+r
+      \end{aligned}
+    \]
+    となり,定数項を消す型または\bookterm{difference}{階差}型に帰着できる.
+    $d_1=a_2-a_1$から解き,$a_n=a_1+\sum_{k=1}^{n-1}d_k$として足し戻す.

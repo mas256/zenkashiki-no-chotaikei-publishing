@@ -2,12 +2,15 @@
 
 \section{行列の基本}\label{節：行列の基本}
 
-本編では,複雑な\bookterm{recurrence}{漸化式}を等比型などの既知の形へ変えることを繰り返してきた.
-付録では,その置き換えがなぜうまくいくのかを,\bookterm{matrix}{行列}や\bookterm{difference-operator}{差分},\bookterm{generating}{母関数}という言葉で捉え直す.
-最初に,そのための道具となる\bookterm{matrix}{行列}の読み方と計算の仕方を説明しよう.
-\bookterm{matrix}{行列}を初めて学ぶ読者も,数値例から順に確かめてほしい.
-ここでは主に二行二列の\bookterm{matrix}{行列}を扱う.
-後の節では,本編で求めた\bookterm{fixed}{不動点}や\bookterm{geometric}{等比数列}が,ここで学ぶ計算の中にそのまま現れる.
+\sectionref*{節：連立型}では,二つの\bookterm{sequence}{数列}から和と差を作り,更新を簡単にした.
+例えば
+\[
+  x_{n+1}=2x_n+y_n,\qquad y_{n+1}=x_n+2y_n
+\]
+なら,$(x_1,y_1)=(1,0)$から$(x_2,y_2)=(2,1)$,次に$(x_3,y_3)=(5,4)$と進む.
+この二つの更新を一組の計算にまとめるのが,ここで使う\bookterm{matrix}{行列}である.
+まず数の並べ方と掛け方を知り,本編と同じように等比型へ分けるところまで進もう.
+後の節では,本編で求めた\bookterm{fixed}{不動点}も,この計算の中に現れる.
 
 \subsection{行列とベクトル}
 

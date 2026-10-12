@@ -2,7 +2,7 @@
 
 \section{解法を選ぶ}\label{節：解法の決定}
 
-  以下にここまでで扱った解法を体系的にまとめあげ,実際に問題と相対した時にどこに注目すればよいか,なにを考えればよいかをまとめた.
+  ここまでの解法を,式の特徴から選び直せるように整理する.
   \chapterref{章：漸化式の解説}で目指してきたように,式の特徴を手掛かりとして,既知の「きれい」な形に帰着させることを考えよう.
 
   チャートは「式全体」「\bookterm{sequence}{数列}の項」「付加項」の3つの観点から,着目点と試せる変形を整理したものである.
@@ -85,7 +85,7 @@
     \item \textbf{係数の変化}
 
       \begin{itemize}[beginpenalty=10000]
-        \item 定数の場合は,等比型や\bookterm{characteristic}{特性方程式}型などを考える.係数が$1$なら,\bookterm{difference}{階差}に注目する.
+        \item 定数の場合は,等比型や定数項を消す方法などを考える.係数が$1$なら,\bookterm{difference}{階差}に注目する.
         \item $n$に依存する場合は,その係数の積が求めやすいか調べる（\bookterm{ratio}{階比}型）.
               足されている数もある場合は,適切な\bookterm{sequence}{数列}で割って係数をそろえられないか考える.
               例えば係数が$\displaystyle \frac{n+1}{n}$なら,\,$b_n=\displaystyle \frac{a_n}{n}$という置換が候補になる.
@@ -116,7 +116,7 @@
     \item \textbf{付加項の有無と定数}
 
       付加項がなければ,係数の積から求める方法を考える（等比型・\bookterm{ratio}{階比}型）.
-      付加項も係数も定数なら,定数を引いて消せないか考える（\bookterm{characteristic}{特性方程式}型）.
+      付加項も係数も定数なら,定数を引いて消せないか考える（定数項を消す型）.
       ただし$a_{n+1}=a_n+d$なら,そのまま等差型として解ける.
 
     \item \textbf{添字への依存}
@@ -139,9 +139,8 @@
   \noindent \textbf{【補足：初項の手掛かり】}
 
   例えば初項が$\displaystyle \frac{1}{\sqrt{6}-\sqrt{2}}$だとしよう.
-  わざわざこのような数字が設定されたということはきっと裏がある.
-  実際これは$\cos 15^\circ$または$\sin 75^\circ$の値である.
-  そこから考えて,この\bookterm{recurrence}{漸化式}は\bookterm{trigonometric}{三角関数}型のものではないか,と予想するのである.
+  分母を有理化すると$(\sqrt6+\sqrt2)/4$となり,$\cos 15^\circ$または$\sin 75^\circ$の値と分かる.
+  この角度表示が,\bookterm{trigonometric}{三角関数}による変形を試す手掛かりになる.
   ただし,初項だけで解法が決まるわけではない.\bookterm{recurrence}{漸化式}の形と合わせて判断しよう.
   \par
   \endgroup

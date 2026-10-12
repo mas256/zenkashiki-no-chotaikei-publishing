@@ -9,7 +9,15 @@
 
 \subsection{一つの値を更新する}\label{節：一つの値の更新を行列で書く}
 
-$a_{n+1}=pa_n+q$ $(p\ne1)$ では,次の項を決めるのに必要なのは $a_n$ だけである.
+本編の例題$a_{n+1}=2a_n+1$では,定数$1$を別の成分に持たせると,
+\[
+  \begin{pmatrix}2&1\\0&1\end{pmatrix}
+  \begin{pmatrix}a_n\\1\end{pmatrix}
+  =\begin{pmatrix}2a_n+1\\1\end{pmatrix}
+\]
+と書ける.下の成分は毎回$1$のままで,上の成分だけが元の規則で更新される.
+
+一般の$a_{n+1}=pa_n+q$ $(p\ne0,1)$ でも,次の項を決めるのに必要なのは $a_n$ だけである.\footnote{$p=0$なら,$n\ge2$で$a_n=q$と直接分かる.$p=1$は後で扱う.行列による更新の表現自体は,どちらの場合も使える.}
 定数 $q$ も同じ更新の中に含めるため,状態を
 \[
   \boldsymbol{x}_n=
@@ -107,8 +115,8 @@ $\alpha=p\alpha+q$ だから,
 \]
 }
 となる.
-なお,本編で「\bookterm{characteristic}{特性方程式}」と呼んだ $\alpha=p\alpha+q$ は\bookterm{fixed}{不動点}を求める式であり,ここでの\bookterm{matrix}{行列}の\bookterm{characteristic}{特性方程式}とは別の式である.
-ただし両者は無関係ではない.
+本編の$\alpha=p\alpha+q$は\bookterm{fixed}{不動点}の\textbf{値}を求める式であり,ここでの\bookterm{characteristic}{特性方程式}は更新の\textbf{倍率}を求める式である.
+二つの方程式のつながりは,状態の分け方に現れている.
 \bookterm{fixed}{不動点}は\bookterm{eigenvalue}{固有値} $1$ の方向に,\bookterm{fixed}{不動点}からのずれは\bookterm{eigenvalue}{固有値} $p$ の方向に対応していた.
 
 本編では $p=1$ の場合を等差型として分けて扱った.
@@ -693,7 +701,7 @@ $n=4$ ではそれぞれ $4$ と $10$ になる.
 
 \subsection{不動点付近の線形化}\label{節：非線形な更新も,不動点の近くでは線形に見える}
 
-本編の\bookterm{characteristic}{特性方程式}型では,\bookterm{fixed}{不動点}からのずれが正確に$p$倍され,\,$|p|<1$なら\bookterm{fixed}{不動点}に近づいた.
+\sectionref*{節：特性方程式型}では,\bookterm{fixed}{不動点}からのずれが正確に$p$倍され,\,$|p|<1$なら\bookterm{fixed}{不動点}に近づいた.
 最後に,一次分数型のような\bookterm{nonlinear}{非線形}の更新規則でも,\bookterm{fixed}{不動点}の近くでは同じ見方ができることを確かめよう.
 ここからは,本編の\bookterm{newton}{ニュートン法}型でも使った微分係数と一次近似を用いる.
 一項前から次が決まる\bookterm{recurrence}{漸化式}

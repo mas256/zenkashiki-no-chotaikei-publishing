@@ -16,21 +16,6 @@
           \bookterm{logarithm}{対数}を使わず,\,$c_n=\frac{a_n}{2^{n^2}}$の更新式と初項を求めよ.
   \end{enumerate}
 
-  第2問は,\sectionref*{節：階比型}で倍率をそろえた操作を,付加項がある場合に使う練習である.
-  一般に
-  \[
-    a_{n+1}=p_na_n+q_n
-  \]
-  に対して,既知の非零の\bookterm{sequence}{数列}$h_n$が$h_{n+1}=p_nh_n$を満たすなら,
-  \[
-    b_n=\frac{a_n}{h_n},\qquad
-    b_{n+1}-b_n=\frac{q_n}{h_{n+1}}
-  \]
-  となる.倍率をそろえる操作の後に,\bookterm{difference}{階差}を足し戻す操作が続く.
-  $p_n\ne0$なら,\,$h_1=1$,\,$h_n=\prod_{k=1}^{n-1}p_k$を候補にできる（空積は$1$）.
-  係数が零になる場合はこの割り算を使わず,その段階の更新を別に確認する.
-  また,残った和がいつでも簡単に計算できるとは限らない.
-
   \noindent\bookblocklink{operation-choice}{answer}{problem}{【解答と選択の理由】}\par\nobreak
   \begin{enumerate}[format=\bookitemlink{operation-choice}{answer}{problem}]
     \item $a_n-\alpha$では付加項の$2n$が残る.
@@ -68,3 +53,30 @@
           \bookterm{normalize}{正規化}で割る$2^{n^2}$は常に非零であり,元の項が正である必要はない.
           初項が正の比較例は\bookproblemref{practice-basic}{42}{標準問42}へ.
   \end{enumerate}
+
+  \noindent\textbf{【同じ式を二つの方法で見る】}\par
+  第1問では,一次式$-n-1$を引くと等比型になり,$a_n=3^n-n-1$を得る.
+  一方,$c_n=a_n/3^{n-1}$と置いてもよい.この場合は
+  \[
+    c_{n+1}-c_n=\frac{2n+1}{3^n}
+  \]
+  となり,残った和を計算して元へ戻す.
+  どちらも全ての$n\ge1$で使えるが,この問題では引く一次式がすぐに決まり,和の計算も不要になる.
+  割る方法は,引く量を見つけにくくても,倍率をそろえる因子から始められる.
+  条件を満たす候補の中で,次に残る計算を比べて選ぶのである.
+
+  \noindent\textbf{【倍率をそろえる仕組み】}\par
+  第2問は,\sectionref*{節：階比型}で倍率をそろえた操作を,付加項がある場合に使う練習である.
+  一般に
+  \[
+    a_{n+1}=p_na_n+q_n
+  \]
+  に対して,既知の非零の\bookterm{sequence}{数列}$h_n$が$h_{n+1}=p_nh_n$を満たすなら,
+  \[
+    b_n=\frac{a_n}{h_n},\qquad
+    b_{n+1}-b_n=\frac{q_n}{h_{n+1}}
+  \]
+  となる.倍率をそろえる操作の後に,\bookterm{difference}{階差}を足し戻す操作が続く.
+  $p_n\ne0$なら,\,$h_1=1$,\,$h_n=\prod_{k=1}^{n-1}p_k$を候補にできる（空積は$1$）.
+  係数が零になる場合はこの割り算を使わず,その段階の更新を別に確認する.
+  また,残った和がいつでも簡単に計算できるとは限らない.

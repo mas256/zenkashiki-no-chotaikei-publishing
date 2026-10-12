@@ -16,10 +16,14 @@
       S_n=pa_n+f(n)
     \]
     のような\bookterm{recurrence}{漸化式}を考える.
-    このような\bookterm{recurrence}{漸化式}は今まで取り扱った形にはない,未知のものである.
-    であれば既知の形にするのが数学である.
-    これまでのことをきちんと理解していれば,\,$a_{n+1}$と$a_n$の関係が分かっている時には解くことができる.
-    $S_n$をうまく変形して$a_{n}$関連だけの式を産むには,\,$p \neq 1$の時,
+    和をそのまま追う代わりに,一項増えたときの変化を取り出そう.
+    $S_{n+1}-S_n=a_{n+1}$を使えば,$a_n$だけの式にできる.
+    ただし,引き算をすると元の式の定数分の情報が消える.
+    先に$n=1$を代入して,
+    \[
+      a_1=pa_1+f(1),\qquad (1-p)a_1=f(1)
+    \]
+    を残しておく.まず$p\ne1$として,
     \begin{align*}
       &S_n=pa_n+f(n) \booktag{sum-relation-1}{1}\\
       &S_{n+1}=pa_{n+1}+f(n+1) \booktag{sum-relation-2}{2}
@@ -47,6 +51,11 @@
     \]
     を得る.なお,$n=1$のもとの式から$f(1)=0$が必要である.
 
+    得られた漸化式と初めの条件があれば,元の和の関係も戻る.
+    実際,$T_n=S_n-pa_n-f(n)$とおくと,引き算で得た式は$T_{n+1}-T_n=0$を意味する.
+    元の$n=1$の式から$T_1=0$なので,すべての$n$で$T_n=0$となる.
+    \textbf{差を求めた後には,初めの値が必要になる.}
+
     \noindent \bookblocklink{example-summation-1}{problem}{answer}{【例題】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-summation-1}{problem}{answer}]
       \item $\displaystyle S_n=2a_n-n$
@@ -57,7 +66,7 @@
     \noindent\bookblocklink{example-summation-1}{hint}{problem}{【方針】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-summation-1}{hint}{problem}]
       \item まず$n=1$を代入して$a_1$を求めてから,本文の変形をなぞって$a_{n+1}$と$a_n$だけの\bookterm{recurrence}{漸化式}を作りましょう.
-      \item 同様です.できた\bookterm{recurrence}{漸化式}は\bookterm{characteristic}{特性方程式}型に帰着します.
+      \item 同様です.できた\bookterm{recurrence}{漸化式}では,不動点を引いて定数項を消します.
       \item $p=1$の場合です.$S_n-S_{n-1}=a_n$と比較して,$a_{n-1}$を直接求めましょう.
     \end{enumerate}
 
@@ -205,10 +214,17 @@ a_n&=S_n-S_{n-1}\\
     \end{align*}
       $\bookeqbackref{sum-pure-1}{(1)}-\bookeqbackref{sum-pure-2}{(2)}$をして,
     \begin{align*}
-      &a_{n+1}=pa_{n}+f(n)-f(n-1)
+      &a_{n+1}=pa_{n}+f(n)-f(n-1)\quad(n\ge2)
     \end{align*}
     ただし\bookeqref{sum-pure-2}{(2)}は\bookeqref{sum-pure-1}{(1)}の$n$を$n-1$に置き換えたものなので,この式は$n\ge2$の範囲でのみ成り立つ.\,$a_1$と$a_2$の関係は,別途$S_1,S_2$から直接求める必要がある.
+    具体的には,$a_1=S_1$を保ち,
+    \[
+      a_2=S_2-S_1=(p-1)S_1+f(1)
+    \]
+    を求めてから,$a_2$を出発点に解く.
     あとは\bookterm{difference}{階差}等比複合型の計算である(\,$p=1$なら\bookterm{difference}{階差}\bookterm{sequence}{数列}型になる).
+    なお,$S_n$自身の漸化式を先に解き,$a_1=S_1,\ a_n=S_n-S_{n-1}$($n\ge2$)と戻してもよい.
+    総和型だから必ず引くのではなく,$S_n$と$a_n$のどちらが解きやすいかで選べる.
 
     \noindent \bookblocklink{example-summation-2}{problem}{answer}{【例題】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-summation-2}{problem}{answer}]

@@ -5,16 +5,13 @@
 \]
 この\bookterm{recurrence}{漸化式}を解くに当たって邪魔をしているのは$-2$の項である.
 これをうまく消せるような操作を考えたい.
-また,\,2乗があることからうまく因数分解できないか考えてみよう.
-
-この$-2$を打ち消す$2$が生まれるような対称式を考える.
-
-2乗の項は正だから,
+2乗を展開したときに,この$-2$を打ち消す$2$が生まれればよい.
+そこで,
 \[
   (a+b)^2=a^2+2ab+b^2
 \]
-で言うところの$2ab$が$2$になってくれるように調整すればうまくいきそうだ.
-そのようなふうに考えていくと,
+の$2ab$に注目する.$ab=1$とするには,$\alpha\ne0$として,$a=\alpha$, $b=1/\alpha$と選べばよい.
+すると,
 \[
   \left(\alpha+\frac{1}{\alpha}\right)^2=\alpha^2+2+\frac{1}{\alpha^2}
 \]
@@ -23,8 +20,9 @@
 \[
   \alpha^2+\frac{1}{\alpha^2}
 \]
-が残るから,成り立ちそうなことが分かる.
-この実験を元に解答に移る.
+が残る.\textbf{二乗して2を引くと,二つのべきの指数がともに2倍になる}のである.
+$1,2,4,\ldots$と指数を進めれば,第$n$項の指数は$2^{n-1}$になる.
+あとは初項に合う$\alpha$を選べばよい.この実験を元に解答に移る.
 
 \noindent \bookblocklink{example-symmetric-1}{problem}{answer}{【問題】}\par\nobreak
 \begin{smallquote}
@@ -57,7 +55,7 @@
       &\therefore \quad \alpha=\frac{3\pm \sqrt{5}}{2}
     \end{align*}
     得られた$\alpha$の2解は逆数の関係にある.
-    以上より,
+    同じ初項から同じ更新を繰り返すので,$a_n=b_n$である.以上より,
     \[
       a_n=\left(\frac{3+ \sqrt{5}}{2}\right)^{2^{n-1}}+\left(\frac{3- \sqrt{5}}{2}\right)^{2^{n-1}}
     \]
@@ -89,10 +87,24 @@
   =\alpha^3+\frac{1}{\alpha^3}
 \]
 このように,対称な組み合わせを選ぶと,べき乗の複雑な展開が
-再び同じ種類の式へ戻る.ただし,恒等式が少しでもずれると,その閉じた
-構造は失われる.これが基本対称式型の面白さである.
+再び同じ種類の式へ戻る.ただし,係数がずれると,この組み合わせでは
+余分な項を消せない.これが基本対称式型の面白さである.
 
-これを発想にもつ\bookterm{recurrence}{漸化式}を例題としよう.
+和を取るか差を取るかで,打ち消せる項の符号も変わる.
+差の三乗を展開すると,
+\[
+  \left(\alpha-\frac{1}{\alpha}\right)^3
+  =\alpha^3-\frac{1}{\alpha^3}
+   -3\left(\alpha-\frac{1}{\alpha}\right)
+\]
+だから,
+\[
+  \left(\alpha-\frac{1}{\alpha}\right)^3
+  +3\left(\alpha-\frac{1}{\alpha}\right)
+  =\alpha^3-\frac{1}{\alpha^3}
+\]
+となる.今度は指数が3倍になるので,$3^{n-1}$を使った候補を作れる.
+この恒等式を使う\bookterm{recurrence}{漸化式}を例題としよう.
 
 \noindent\bookblocklink{example-symmetric-2}{problem}{answer}{【問題】}\par\nobreak
 \begin{smallquote}
@@ -122,7 +134,8 @@
       &3\alpha^2-8\alpha-3=0\\
       &\therefore \quad \alpha=3,\,-\frac13
     \end{align*}
-    どちらを選んでも結果は変わらないので,\,$\alpha=3$とすると,
+    $3^{n-1}$は奇数なので,どちらを選んでも$b_n$は同じ値になる.
+    初項と更新が一致することから$a_n=b_n$であり,\,$\alpha=3$とすると,
     \[
       a_n=3^{3^{n-1}}-3^{-3^{n-1}}
     \]

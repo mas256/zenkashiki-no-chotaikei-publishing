@@ -1,9 +1,9 @@
 % section: おまけ：定数数列
 
 \section{定数数列}\label{節：おまけ：定数数列}
-  \bookterm{sequence}{数列}の種類には定数\bookterm{sequence}{数列}というものがある.
-  時折,\bookterm{recurrence}{漸化式}を解く中で定数\bookterm{sequence}{数列}が生まれることがある.
-  先程の解説から引用しよう.
+  すべての項が同じ値になる\bookterm{sequence}{数列}を,定数\bookterm{sequence}{数列}という.
+  元の項が変化していても,変形して作った量は一定になることがある.
+  先ほどの階比型の例を見よう.
   \begin{align*}
     &\frac{a_{n}}{n(n+1)}=\frac{a_{n-1}}{(n-1)(n)}=\frac{a_{n-2}}{(n-2)(n-1)}\\
     &\qquad=\cdots=\frac{a_{1}}{1(1+1)}
@@ -20,5 +20,7 @@
   \]
   となる.
   ずっと同じ値を取るのだ.
-  当たり前過ぎて何を言っているんだ,と思うかもしれないが急に出てきてパニックにならないようにここで念のため触れておく.
-  この「一定の値を取り続ける\bookterm{sequence}{数列}」という発想は,\sectionref{節：特性方程式型}で登場する\bookterm{characteristic}{特性方程式}の解$\alpha$(\bookterm{recurrence}{漸化式}$a_{n+1}=pa_n+q$自身を定数\bookterm{sequence}{数列}にしてしまう値)にもつながっている.
+  この例では$b_1=1$だから,$b_n=1$,従って$a_n=n(n+1)$と元へ戻せる.
+  変化する数列の中から一定の量を取り出すことも,解法の一つなのである.
+  また,\sectionref{節：特性方程式型}では,$a_{n+1}=pa_n+q$自身の定数解$a_n=\alpha$を探す.
+  一定になる値を知ると,そこからの差を追えるようになる.
