@@ -17,7 +17,8 @@
     二つの式では係数$p,q$の位置が入れ替わっている.
     足すと両方の係数が$p+q$になり,引くと$p-q$とその符号反転が現れる.
     そこで,和と差がそれぞれ単独で更新されないか調べる.
-    実際にすすめていくと,
+    実際にすすめていくと,次の二つの等比型になる.
+    以下の冪の式は$p+q$と$p-q$が零でない場合に使う.零になる方の和または差は,$n\ge2$で$0$となるので,初項と分けて扱う.
     \begin{align*}
       &a_{n+1}+b_{n+1}=(p+q)(a_{n}+b_{n})\\
       &a_n+b_n=(a_1+b_1)(p+q)^{n-1}\booktag{sim-general-sum}{1}
@@ -55,19 +56,7 @@ b_n&=\frac{1}{2}\bigl\{(a_1+b_1)(p+q)^{n-1}\\
 \end{aligned}
 \]
 }
-    \sectionref*{節：一次独立・基底・次元}で,\bookterm{initial}{初期条件}を独立な二つの解に分けたことを思い出そう.
-    ここでは初期の組$(a_1,b_1)$を
-    \[
-      \begin{aligned}
-        (a_1,b_1)
-        &=\frac{a_1+b_1}{2}(1,1)\\
-        &\quad+\frac{a_1-b_1}{2}(1,-1)
-      \end{aligned}
-    \]
-    と分けた.$(1,1)$から始まる部分は$p+q$倍,$(1,-1)$から始まる部分は$p-q$倍される.
-    上の\bookterm{general}{一般項}は,二つの解を\bookterm{combination}{線形結合}して元の\bookterm{initial}{初期条件}に合わせた式である.
-    和と差という補助量を取り出すことが,解を独立な二つの部分に分けることにつながっていた.
-    別解及び演習は一般型の方で行う.
+    和と差を追う場合が解けた.次は,係数が対称でない場合へ広げよう.
   \subsubsection{重みを付けて分ける}
     連立一般型の\bookterm{recurrence}{漸化式}は,
     \[
@@ -140,7 +129,16 @@ b_n&=\frac{1}{2}\bigl\{(a_1+b_1)(p+q)^{n-1}\\
     \end{cases}
     \]
     である.
-    $\alpha,\beta$は同時に$0$ではないので,この連立方程式が$\alpha,\beta$について解を持つためには,
+    $\alpha=\beta=0$では何も取り出せないので,少なくとも一方が零でない組を探す.
+    第1式を$s-\gamma$倍し,第2式を$r$倍して引くと,$\beta$が消えて
+    \[
+      \{(p-\gamma)(s-\gamma)-qr\}\alpha=0
+    \]
+    となる.同様に,第2式を$p-\gamma$倍して第1式の$q$倍を引けば,
+    \[
+      \{(p-\gamma)(s-\gamma)-qr\}\beta=0
+    \]
+    となる.$\alpha,\beta$は同時に零ではないので,
     \[
       (p-\gamma)(s-\gamma)-qr=0
     \]
@@ -175,7 +173,7 @@ b_n&=\frac{1}{2}\bigl\{(a_1+b_1)(p+q)^{n-1}\\
     \[
       c_n=c_1\gamma_1^{\,n-1}
     \]
-    という\bookterm{geometric}{等比数列}が得られる.
+    という\bookterm{geometric}{等比数列}が得られる.ただし$\gamma_1=0$なら,$c_1$を別に保ち,$n\ge2$では$c_n=0$とする.
     同様に,\,$\gamma=\gamma_2$に対しても$\alpha,\beta$を求めれば,
     \[
       d_n=\alpha' a_n+\beta' b_n
@@ -184,7 +182,7 @@ b_n&=\frac{1}{2}\bigl\{(a_1+b_1)(p+q)^{n-1}\\
     \[
       d_n=d_1\gamma_2^{\,n-1}
     \]
-    という\bookterm{geometric}{等比数列}が得られる.
+    という\bookterm{geometric}{等比数列}が得られる.$\gamma_2=0$の場合も同じく初項と分ける.
     なお,ここで得られた2つの\bookterm{geometric}{等比数列}から$a_n,b_n$を求めるには,
     \[
       \begin{cases}
@@ -206,8 +204,8 @@ b_n&=\frac{1}{2}\bigl\{(a_1+b_1)(p+q)^{n-1}\\
 
     \noindent\bookblocklink{example-system-1}{hint}{problem}{【方針】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-system-1}{hint}{problem}]
-      \item 前節で述べた問題です.一般型,加減法型,どちらのやり方でも問題ありません.
-      \item これはこの節で述べたものです.
+      \item 係数$3,1$が入れ替わるので,和と差がそれぞれ等比型になります.重みを選ぶ一般の方法でも同じ組合せを得られます.
+      \item $\gamma$を求めてから重みを選ぶと,$a_n-b_n$と$2a_n+b_n$をそれぞれ単独で更新できます.
     \end{enumerate}
 
     \noindent\bookblocklink{example-system-1}{answer}{problem}{【解答】}\par\nobreak
@@ -531,3 +529,17 @@ b_n&=\frac{1}{2}\bigl\{(a_1+b_1)(p+q)^{n-1}\\
             b_n=\frac{2\cdot4^{n-1}-2}{3}
           \]
     \end{enumerate}
+
+    \bookstep{和と差を二つの解として見る}
+    \sectionref*{節：一次独立・基底・次元}で,\bookterm{initial}{初期条件}を独立な二つの解に分けたことを思い出そう.
+    最初の対称な係数の連立型では,初期の組$(a_1,b_1)$を
+    \[
+      \begin{aligned}
+        (a_1,b_1)
+        &=\frac{a_1+b_1}{2}(1,1)\\
+        &\quad+\frac{a_1-b_1}{2}(1,-1)
+      \end{aligned}
+    \]
+    と分けた.$(1,1)$から始まる部分は$p+q$倍,$(1,-1)$から始まる部分は$p-q$倍される.
+    「和と差で分ける」で得た\bookterm{general}{一般項}は,二つの解を\bookterm{combination}{線形結合}して元の\bookterm{initial}{初期条件}に合わせた式である.
+    和と差という補助量を取り出すことが,解を独立な二つの部分に分けることにつながっていた.

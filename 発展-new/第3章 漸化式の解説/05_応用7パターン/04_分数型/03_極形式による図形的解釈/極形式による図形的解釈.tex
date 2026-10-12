@@ -2,6 +2,12 @@
 
 \subsubsection{複素平面で見る}
 
+  前節で追った二つの差の比
+  \[
+    b_n=\frac{a_n-\alpha}{a_n-\beta}
+  \]
+  を,\bookterm{complex-plane}{複素平面}上で考えてみよう.
+  比そのものには,実数上の符号や複素数の向きの情報も含まれる.距離の比を取り出すには,絶対値を取る.
   次の図では,点$a_n$と二つの\bookterm{fixed}{不動点}$\alpha,\beta$を結ぶ線分を描いた.
   上の線分の長さを下の線分の長さで割ると,
   \[
@@ -19,28 +25,6 @@
   長さの比が$|\lambda|$倍され,角度の差が$\arg\lambda$だけ増える.
   特に$|\lambda|=1$なら,長さの比を保ったまま\bookterm{argument}{偏角}だけが変わり,
   \bookterm{complex-plane}{複素平面}上の回転として理解できる.
-
-  ここまででは,\,$\alpha,\beta$を\bookterm{fixed}{不動点}として
-  \[
-    b_n=\frac{a_n-\alpha}{a_n-\beta}
-  \]
-  と置くことで,1次分数型の\bookterm{recurrence}{漸化式}を\bookterm{geometric}{等比数列}に帰着できることを示した.
-
-  ここでは,この変形を\bookterm{complex-plane}{複素平面}上で考えてみよう.
-  まず注意したいのは,
-  \[
-    \frac{a_n-\alpha}{a_n-\beta}
-  \]
-  そのものを「距離の比」と呼ぶのは正確ではないという点である.
-  実数上でも符号の情報を含み,\bookterm{complex-plane}{複素平面}上では\bookterm{argument}{偏角}の情報まで含む.
-  実際に距離の比を表すのは絶対値を取った
-  \[
-    \left|\frac{a_n-\alpha}{a_n-\beta}\right|
-    =
-    \frac{|a_n-\alpha|}{|a_n-\beta|}
-  \]
-  であり,これは点$a_n$から$\alpha,\beta$までの距離の比である.
-  一方,もとの複素数の比には,この距離の比に加えて二つの差の\bookterm{argument}{偏角}の差も記録されている.
 
   特に,\,$\alpha,\beta$が実数ではなく複素数となる場合には,この変形によって\bookterm{recurrence}{漸化式}を「回転」として解釈することができる.
 

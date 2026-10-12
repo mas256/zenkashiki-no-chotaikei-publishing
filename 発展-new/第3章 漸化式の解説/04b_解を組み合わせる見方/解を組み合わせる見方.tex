@@ -1,17 +1,11 @@
 % section: 解を組み合わせる見方
 
 \section{解を組み合わせる}\label{節：解を組み合わせる見方}
-  基本4型では,一つの\bookterm{sequence}{数列}を初項から求めた.
-  ここからは,\bookterm{initial}{初期条件}を変えたときに生まれる解の\bookterm{sequence}{数列}をまとめて見よう.
-  「いくつかの解を組み合わせて,ほかの解を作れるか」という問いは,
+  前節では,与えられた数列から別の量を作り,更新を簡単にした.
+  ここからは,\bookterm{initial}{初期条件}を変えたときに生まれる解をまとめて見よう.
+  ここでの「解」は,更新式を満たす\bookterm{sequence}{数列}全体を指す.
+  いくつかの解を組み合わせ,すべての\bookterm{initial}{初期条件}を表す見方は,
   隣接多項間・連立型・虚数解型と,付録の\bookterm{matrix}{行列}に共通する.
-  まず具体例で組み合わせ方を確かめ,その後に用語を紹介する.\footnote{\bookterm{homogeneous}{同次}・\bookterm{inhomogeneous}{非同次}の意味は\sectionref*{節：アフィン・同次・非同次}で確認できる.}
-
-  \begin{bookpoint}
-    \textbf{二つの着眼点}\par
-    同じ更新をする解を組み合わせられるか.
-    何個の独立な解があれば,\bookterm{initial}{初期条件}の自由度をすべて表せるか.
-  \end{bookpoint}
 
   \subsection{定数倍と足し算}\label{節：線形結合}
     次の項が二つ前の項と同じになる
@@ -27,7 +21,8 @@
         v_n&0&1&0&1
       \end{array}
     \]
-    例えば$3u_n-2v_n$は$3,-2,3,-2,\ldots$であり,これも同じ\bookterm{recurrence}{漸化式}を満たす.
+    同じ番号の項をそれぞれ定数倍して足すと,$3u_n-2v_n$は$3,-2,3,-2,\ldots$となる.
+    これも同じ\bookterm{recurrence}{漸化式}を満たす.\footnote{項をすべて足して一つの数を作る総和とは異なる.番号$n$ごとに新しい項を作っている.}
     一般の定数$C,D$についても,
     \[
       Cu_{n+2}+Dv_{n+2}=Cu_n+Dv_n
@@ -38,8 +33,7 @@
     この性質を使うときは,\textbf{\bookterm{initial}{初期条件}を固定する前の解全体}を考えている.
     組み合わせた\bookterm{sequence}{数列}の初めの二項は$(C,D)$なので,\bookterm{initial}{初期条件}は係数によって変わる.
 
-    同じことは,\bookterm{homogeneous}{同次}\bookterm{linear}{線形}\bookterm{recurrence}{漸化式}に共通して成り立つ.
-    例えば$u_n,v_n$がともに
+    同じ計算を,もう少し一般の式でも確かめよう.$u_n,v_n$がともに
     \[
       w_{n+2}+pw_{n+1}+qw_n=0
     \]
@@ -60,17 +54,16 @@
       \end{aligned}
     \]}
     である.掛けて足す操作と更新が両立するためである.
-    この性質を\textbf{\bookterm{superposition}{重ね合わせの原理}}という.
+    このように,項に係数を掛けて足すだけで更新する式を\bookterm{homogeneous}{同次}\bookterm{linear}{線形}\bookterm{recurrence}{漸化式}という.\footnote{係数が$n$によって変わる場合も含む.用語の対応は\sectionref*{節：アフィン・同次・非同次}で確認できる.}
+    解を定数倍して足しても解になる性質を,\textbf{\bookterm{superposition}{重ね合わせの原理}}という.
 
   \subsection{初期条件と解の数}\label{節：一次独立・基底・次元}
-    先ほどの$u_n,v_n$を使えば,どんな\bookterm{initial}{初期条件}$(a_1,a_2)$にも
-    \[
-      a_n=a_1u_n+a_2v_n
-    \]
-    と合わせられる.右辺は元の\bookterm{recurrence}{漸化式}を満たし,初めの二項も一致する.
-    直前の二項から次の項が一意に決まるので,その後のすべての項も一致する.
-    また,$Cu_n+Dv_n=0$がすべての$n$で成り立つなら,
-    $n=1,2$を代入して$C=D=0$を得る.係数の選び方にも重複がない.
+    $a_{n+2}=a_n$の解$u_n=1,0,1,0,\ldots$と$v_n=0,1,0,1,\ldots$に戻ろう.
+    $Cu_n+Dv_n$の初めの二項は$(C,D)$だから,係数の選び方が違えば数列も違う.
+
+    例えば,$Cu_n+Dv_n=0$がすべての$n$で成り立つなら,
+    $n=1,2$を代入して$C=D=0$を得る.
+    このような重複のない関係を,\textbf{\bookterm{independent}{一次独立}}という.\footnote{右辺の$0$は,すべての項が$0$の数列である.一つの番号で$0$になるだけでは足りない.例えば$u_2=0$だが,$u_n$は零数列ではない.}
 
     二つの解を並べるだけで,必ずこのようになるわけではない.
     例えば$a_{n+1}=2a_n$の解$u_n=2^{n-1}$と$v_n=2\cdot2^{n-1}$では,
@@ -78,28 +71,41 @@
       Cu_n+Dv_n=(C+2D)2^{n-1}
     \]
     であり,二つの係数の選び方は一意ではない.一つの係数にまとめられる.
+    二つの非零の数列では,一方が他方の定数倍かどうかが違いを分ける.
 
-    ここまでの違いに名前を付けよう.
-    \bookterm{sequence}{数列}の組
+    次に,$a_{n+2}=a_n$の\textbf{すべての解を表せるか}を確かめよう.
+    初めの二項が$(a_1,a_2)$なら,最初の$u_n,v_n$を使って
+    \[
+      a_n=a_1u_n+a_2v_n
+    \]
+    と表せる.右辺は元の更新式を満たし,初めの二項も一致する.
+    直前の二項から次の項が一意に決まるので,その後のすべての項も一致する.
+    このように,\bookterm{independent}{一次独立}で,すべての解を\bookterm{combination}{線形結合}として表せる組を\textbf{\bookterm{basis}{基底}}という.
+    \bookterm{basis}{基底}を選べば,各解を表す係数も一意に決まる.
+
+    今の例では二つの解で足り,一つでは初めの二項を自由に選べない.
+    この\bookterm{basis}{基底}に必要な数列の個数を\textbf{\bookterm{dimension}{次元}}という.
+    $a_{n+2}=a_n$の解全体は2\bookterm{dimension}{次元}である.
+    一方,$a_{n+1}=2a_n$は$2^{n-1}$一つの定数倍ですべての解を表せるので,1\bookterm{dimension}{次元}である.
+
+    \bookstep{数列の個数を増やす}
+    三つ以上の数列でも,重複がないことと,すべてを表せることを分けて考える.
+    数列の組を
     \[
       u^{(1)}_n,\ldots,u^{(m)}_n
     \]
-    について,
+    と書く.上付きの$(1),\ldots,(m)$は,数列を区別する番号である.
     \[
       C_1u^{(1)}_n+\cdots+C_mu^{(m)}_n=0
     \]
-    がすべての$n$で成り立つのは$C_1=\cdots=C_m=0$の場合だけ,という関係を\textbf{\bookterm{independent}{一次独立}}という.
-    二つの非零の\bookterm{sequence}{数列}の場合には,一方が他方の定数倍にならないことに当たる.
-    \bookterm{independent}{一次独立}な解の組で,すべての解を\bookterm{combination}{線形結合}として表せるものを\textbf{\bookterm{basis}{基底}}という.
-    \bookterm{basis}{基底}を選ぶと,各解を表す係数は一意に決まる.
-    その\bookterm{basis}{基底}に必要な\bookterm{sequence}{数列}の個数を\textbf{\bookterm{dimension}{次元}}という.
-    $a_{n+2}=a_n$の解全体は2\bookterm{dimension}{次元}であり,$a_{n+1}=2a_n$の解全体は1\bookterm{dimension}{次元}である.
+    がすべての$n$で成り立つのは$C_1=\cdots=C_m=0$の場合だけ,というのが一般の\bookterm{independent}{一次独立}の定義である.
+    \bookterm{independent}{一次独立}な解の組ですべての解を表せれば\bookterm{basis}{基底}となり,その個数が\bookterm{dimension}{次元}となる.\footnote{三つ以上では,どの二つも互いの定数倍でないだけでは足りない.例えば$u_n,v_n,u_n+v_n$には,$u_n+v_n-(u_n+v_n)=0$という重複がある.}
 
     \bookterm{homogeneous}{同次}\bookterm{linear}{線形}\bookterm{recurrence}{漸化式}の解全体には零\bookterm{sequence}{数列}が含まれ,足し算や定数倍をしても解のままである.\footnote{こうした操作のできる集合を\textbf{\bookterm{vector-space}{ベクトル空間}}という.}
     \bookterm{sequence}{数列}も,矢印と同じように足したり定数倍したりする対象として扱えるのである.
     ここでは係数を実数としている.\footnote{後の虚数解型で複素数を使うときも,係数を複素数にして同じ計算と判定を使える.どちらの係数で考えるかは区別する.}
 
-    この「\bookterm{dimension}{次元}」は,更新ができる範囲で\bookterm{initial}{初期条件}を自由に選ぶ数とつながっている.\footnote{\bookterm{nonlinear}{非線形}の式や,途中で更新が定義されなくなる式に,この結論をそのまま当てはめないようにしよう.}
+    \bookterm{dimension}{次元}は,\bookterm{initial}{初期条件}として自由に選べる数値の個数とつながっている.\footnote{\bookterm{nonlinear}{非線形}の式や,途中で更新が定義されなくなる式に,この結論をそのまま当てはめないようにしよう.}
     例えば,すべての$n\ge1$で係数が定義された\bookterm{homogeneous}{同次}\bookterm{linear}{線形}\bookterm{recurrence}{漸化式}
     \[
       a_{n+k}=\sum_{j=0}^{k-1}c_j(n)a_{n+j}
@@ -123,6 +129,7 @@
       a_n=-3+C2^{n-1}
     \]
     と,一つの既知の解に\bookterm{homogeneous}{同次}の解を加えて全体を表せる.
+    初項を指定したら,$a_1=-3+C$から$C$を決めればよい.
     \sectionref*{節：補助数列の設計}で引いた「同じ更新をする量」は,
     解全体をこのように分ける役割も果たしていた.
 

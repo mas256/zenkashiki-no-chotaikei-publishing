@@ -13,11 +13,7 @@
     \end{smallquote}
     \noindent \textbf{【証明1】}\par\nobreak
     \begin{smallquote}
-      \bookterm{sequence}{数列}$a_n$に対し,
-      \[
-        a_n=k
-      \]
-      を満たす正整数$k$が存在するときの$n$が取りうる範囲について考える.\bookterm{floor-function}{床関数}の定義から,
+      正整数$k$を一つ固定し,$a_n=k$となる項の番号$n$を調べる.\bookterm{floor-function}{床関数}の定義から,
       \[
         k\le\sqrt{n}<k+1
       \]
@@ -30,11 +26,10 @@
       \[
         \{(k+1)^2-1\}-k^2+1=2k+1
       \]
-      このことから,ある$a_n=k$となるときの$n$は$2k+1$項分だけ存在する.
-      従って,\,$k$に依存して連続して同じ数を持つ項の数が決定されることから,一般項$a_n=\lfloor\sqrt n\rfloor$で定義される\bookterm{sequence}{数列}$a_n$は群\bookterm{sequence}{数列}であることが示された. \qed
+      である.従って,値が$k$となる項は$n=k^2$から連続して$2k+1$個並び,
+      その次は値が$k+1$となる群へ移る.これで群の境界と各群の項数が定まった. \qed
     \end{smallquote}
 
-    実際に実験をして検証してみよう.
     初項から順に書き出してみると,
     \[
       \underbrace{1,1,1}_{3\text{個}},\,
@@ -44,7 +39,7 @@
     となっており,理論と一致している.
 
     \bookterm{difference}{階差}にこの形が現れたら,\sectionref{節：階差型}と同じように足す.
-    \textbf{群の境界と,最後の群のどこまでを足すか}を区別しよう.
+    このときは,\textbf{群の境界と,最後の群のどこまでを足すか}を区別する.
     似た形でも,和の上端が$n$か$n-1$かで境界が変わる.
 
     \noindent \bookblocklink{example-gauss-role-2}{problem}{answer}{【例題】}\par\nobreak
@@ -80,7 +75,17 @@
                   =\sum_{k=1}^{n+1}\lfloor\sqrt k\rfloor.
             \]\footnote{\,$n=1$では最初の和を空の和として0とする.}
             \,$N=n+1,\ m=\lfloor\sqrt N\rfloor$とおく.
-            第$m-1$群までは全項,第$m$群は$k=m^2$から$N$までの$N-m^2+1$項を足すので,
+            ここで$k$は項番号,$m$は最後の群の番号である.
+            第$m-1$群までは全項,第$m$群は$N$までを足す.
+            \[
+              \begin{array}{c|c|c}
+                \text{群}&\text{足す項番号}&\text{個数}\\ \hline
+                j<m&\substack{j^2\le k\\ k<(j+1)^2}&2j+1\\
+                m&\substack{m^2\le k\\ k\le N}&N-m^2+1
+              \end{array}
+            \]
+            最後の群も最初の項を含むので,個数は$N-m^2$ではなく$N-m^2+1$である.
+            各群の値に個数を掛けて足すと,
             \begin{align*}
               a_n&=\sum_{j=1}^{m-1}j(2j+1)+m(N-m^2+1)\\
                  &=\frac{(m-1)m(4m+1)}6\\

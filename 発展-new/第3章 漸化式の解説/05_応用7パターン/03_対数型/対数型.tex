@@ -26,7 +26,7 @@
   \begin{align*}
     b_{n+1}=qb_n+1
   \end{align*}
-  $q\ne1$ならば\bookterm{characteristic}{特性方程式}型として解くことができる.
+  $q\ne1$ならば不動点を引いて定数項を消すことができる.
   $q=1$のときは$b_{n+1}=b_n+1$という等差型となり,$a_n=a_1p^{n-1}$を得る.
   また,$p=1$のときは$p$を\bookterm{logarithm}{対数}の底にできないが,底を$2$などに選べば
   \[
@@ -35,12 +35,12 @@
   となり,$q\ne0$ならば$a_n=a_1^{q^{n-1}}$を得る.
   $q=0$の場合は$a_1$を別に扱い,$n\ge2$では$a_n=1$である.
   \bookterm{logarithm}{対数}の底は$0$より大きく$1$でない数なら自由に選べるが,$p$に関連する数だと扱いやすい.
-  たとえば$p=k^m$の時は$k$でとっておくことが多い.
-  作問者側は解答がシンプルな形になるようにするため,より小さい底を取ることで答えが求めやすくなる.
+  たとえば$p=k^m$と整数$m$を用いて書ける時は,$k>0$, $k\ne1$を満たす$k$を底に選ぶとよい.
+  この選び方なら,$\log_kp=m$となり,更新式の定数を整数にできる.
 
   また,\bookterm{logarithm}{対数}の強みは積を和に,商を差にできるところにある.
   \bookterm{recurrence}{漸化式}が全て積や商のみで表される場合にその強みが現れる.
-  これはここで解説するよりも演習問題を通して経験するほうがわかりやすいと判断したため,この内容は(2)で取り扱っている.
+  例題(2)では,逆数を取る更新が符号を反転する更新に変わる.
 
   \noindent\bookblocklink{example-logarithmic-1}{problem}{answer}{【例題】}\par\nobreak
   \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-logarithmic-1}{problem}{answer}]
@@ -54,7 +54,7 @@
 
   \noindent\bookblocklink{example-logarithmic-1}{hint}{problem}{【方針】}\par\nobreak
   \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-logarithmic-1}{hint}{problem}]
-    \item 両辺の底を$2$とする\bookterm{logarithm}{対数}を取り,\,$b_n=\log_2a_n$とおいて一次の\bookterm{recurrence}{漸化式}に変形します.その結果,\bookterm{recurrence}{漸化式}は\bookterm{characteristic}{特性方程式}型になります.
+    \item 両辺の底を$2$とする\bookterm{logarithm}{対数}を取り,\,$b_n=\log_2a_n$とおいて一次の\bookterm{recurrence}{漸化式}に変形します.その結果,$b_{n+1}=2b_n+1$となるので,定数項を消します.
     \item 一見すると分数型(後述)のように見えますが,\bookterm{logarithm}{対数}型として解くことができます.
     \item $f(n)=2^n$が指数関数なので,\bookterm{logarithm}{対数}を取ると和の形に帰着できます.
     \item \bookterm{square}{平方完成}で$a_{n+1}-1=(a_n-1)^2$を作ります.\bookterm{logarithm}{対数}を取る量は$a_n$ではなく$a_n-1$であり,その正値を先に確認します.
