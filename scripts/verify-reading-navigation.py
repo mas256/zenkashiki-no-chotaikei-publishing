@@ -23,7 +23,7 @@ def source_files():
         for name in re.findall(r'\\input\{([^{}]+)\}', text):
             visit(BOOK / name)
 
-    visit(BOOK / '漸化式の超体系的解説.tex')
+    visit(BOOK / '漸化式の体系と解法.tex')
     return seen
 
 
@@ -51,7 +51,7 @@ def check(pdf=None):
     assert tags == returns, 'An equation tag has no unique return link'
     assert not set(equation_uses) - tags.keys(), 'An equation reference has no tag'
 
-    checks = next(t for p, t in files.items() if p.name == '計算と検算の確認.tex')
+    checks = next(t for p, t in files.items() if p.name == '03_計算と検算.tex')
     for role in ('problem', 'answer'):
         pattern = (
             r'\\begin\{enumerate\}\[[^\n]*\\bookitemlink\{reading-check\}\{'

@@ -90,9 +90,9 @@ A4の二段組、上下左右20mm、中央線0.4pt、10pt、本文内数式の�
 
 ```bash
 node scripts/verify-learning-design.mjs --pdf
-python3 scripts/verify-reading-navigation.py --pdf '発展-new/漸化式の超体系的解説.pdf'
-python3 scripts/verify-reading-navigation.py --pdf '漸化式の超体系的解説-スマホ版.pdf'
-python3 scripts/verify-pdf-a4.py '発展-new/漸化式の超体系的解説.pdf'
+python3 scripts/verify-reading-navigation.py --pdf '発展-new/漸化式の体系と解法.pdf'
+python3 scripts/verify-reading-navigation.py --pdf 'out/mobile/mobile.pdf'
+python3 scripts/verify-pdf-a4.py '発展-new/漸化式の体系と解法.pdf'
 ```
 
 A4のPDFはPRのBuildにある `latex-build/main.pdf`、スマホ版はブランチ内のPDFで確認できる。

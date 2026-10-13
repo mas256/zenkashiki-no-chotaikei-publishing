@@ -7,7 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 BOOK = ROOT / "発展-new"
-MAIN_TEX = "漸化式の超体系的解説.tex"
+MAIN_TEX = "漸化式の体系と解法.tex"
 
 
 def main():

@@ -49,8 +49,8 @@ A4版は**173→135ページ（22.0%減）**,スマホ版は**632→484ページ
 ```sh
 node scripts/verify-learning-design.mjs --pdf
 node tests/verify-learning-navigation.mjs
-python3 scripts/verify-reading-navigation.py --pdf '発展-new/漸化式の超体系的解説.pdf'
-python3 scripts/verify-pdf-link-margins.py '発展-new/漸化式の超体系的解説.pdf'
-python3 scripts/verify-pdf-link-margins.py '漸化式の超体系的解説-スマホ版.pdf' --header-height 26 --footer-height 12
-python3 scripts/verify-pdf-a4.py '発展-new/漸化式の超体系的解説.pdf'
+python3 scripts/verify-reading-navigation.py --pdf '発展-new/漸化式の体系と解法.pdf'
+python3 scripts/verify-pdf-link-margins.py '発展-new/漸化式の体系と解法.pdf'
+python3 scripts/verify-pdf-link-margins.py 'out/mobile/mobile.pdf' --header-height 26 --footer-height 12
+python3 scripts/verify-pdf-a4.py '発展-new/漸化式の体系と解法.pdf'
 ```

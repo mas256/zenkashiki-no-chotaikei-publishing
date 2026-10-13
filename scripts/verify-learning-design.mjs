@@ -90,7 +90,7 @@ export function verifyTeX(readText, pdfDestinations = null) {
       visit(ref.startsWith("../") ? ref.slice(3) : "発展-new/"+ref);
     }
   }
-  visit("発展-new/漸化式の超体系的解説.tex");
+  visit("発展-new/漸化式の体系と解法.tex");
   const labels=new Set(),references=[],problemRefs=[],groups={};
   for (const [path,text] of files) {
     let depth=0,dollars=0;
@@ -158,13 +158,13 @@ export function verifyTeX(readText, pdfDestinations = null) {
   assert(groups["practice-entrance"].problem.size===10,"research exercise count changed");
   // These question identities are used by the reading routes and comparisons.
   // Use the unstripped source comments to check stable question identities.
-  const original=readText("発展-new/第4章 実際の解き方/03_実践演習/標準難易度.tex");
+  const original=readText("発展-new/第3章 解法の選択と演習/04_演習/02_標準.tex");
   const originals=original.slice(original.indexOf("\\subsubsection{問題}"),original.indexOf("\\subsubsection{方針}"));
   const questionIds=[...originals.matchAll(/^\s*% ([A-Z][1-5])\s*$/gm)].map(m=>m[1]);
   const expected={1:"Q1",2:"S1",3:"R1",4:"M1",5:"G1",6:"T1",7:"U1",8:"L1",9:"C1",10:"D1",11:"F1",17:"D2",19:"R2",20:"M2",23:"T3",24:"M3",25:"U3",26:"Q3",29:"L3",34:"S4",42:"R4"};
   for (const [number,id] of Object.entries(expected))
     assert(questionIds[Number(number)-1]===id,"reading route identity changed at standard "+number);
-  const bridge=readText("発展-new/第4章 実際の解き方/03_実践演習/発展入門.tex");
+  const bridge=readText("発展-new/第3章 解法の選択と演習/04_演習/04_発展入門.tex");
   const bridgeProblems=bridge.slice(bridge.indexOf("\\subsubsection{問題}"),bridge.indexOf("\\subsubsection{方針}"));
   const bridgeIds=[...bridgeProblems.matchAll(/^\s*% (B\d+):/gm)].map(m=>m[1]);
   assert(bridgeIds.join(",")===Array.from({length:10},(_,i)=>"B"+(i+1)).join(","),"bridge reading route identities changed");
@@ -186,7 +186,7 @@ const root=fileURLToPath(new URL("../",import.meta.url));
 let pdfDestinations=null;
 if (process.argv.includes("--pdf")) {
   const next=process.argv[process.argv.indexOf("--pdf")+1];
-  const pdf=next && !next.startsWith("--") ? resolve(next) : join(root,"発展-new/漸化式の超体系的解説.pdf");
+  const pdf=next && !next.startsWith("--") ? resolve(next) : join(root,"発展-new/漸化式の体系と解法.pdf");
   const destinations=execFileSync("pdfinfo",["-dests",pdf],{encoding:"utf8"});
   pdfDestinations=new Set(destinations.match(/book:[a-z0-9-]+:[a-z]+(?::[0-9]+)?/g) || []);
 }
