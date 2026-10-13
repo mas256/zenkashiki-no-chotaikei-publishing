@@ -9,7 +9,7 @@ Tag・Immutable releases・Tag rulesetは、一度作ると取り消せません
 
 ## 1. ファイルを置く
 
-このRepositoryでは「基本-new」と「発展-new」の2系統を管理し、正式版としてReleaseするのは`発展-new/漸化式の超体系的解説.tex`です。Build Workflowと`.github/workflows/_build.yml`はこの入口に合わせて設定済みです。発展版はTeX Live 2026で日本語・空白を含む`\input`を含めてコンパイル確認済みです。
+このRepositoryでは「基本-new」と「発展-new」の2系統を管理し、正式版としてReleaseするのは`発展-new/漸化式の体系と解法.tex`です。Build Workflowと`.github/workflows/_build.yml`はこの入口に合わせて設定済みです。発展版はTeX Live 2026で日本語・空白を含む`\input`を含めてコンパイル確認済みです。
 
 ## 2. Repositoryの設定
 

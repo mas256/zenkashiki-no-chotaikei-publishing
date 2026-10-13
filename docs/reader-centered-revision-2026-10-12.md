@@ -88,12 +88,12 @@ A4の二段組み・20mm余白・中央線・10pt・本文のdisplaystyle,目次
 ```sh
 node scripts/verify-learning-design.mjs --pdf
 node tests/verify-learning-navigation.mjs
-python3 scripts/verify-reading-navigation.py --pdf '発展-new/漸化式の超体系的解説.pdf'
-python3 scripts/verify-pdf-link-margins.py '発展-new/漸化式の超体系的解説.pdf'
+python3 scripts/verify-reading-navigation.py --pdf '発展-new/漸化式の体系と解法.pdf'
+python3 scripts/verify-pdf-link-margins.py '発展-new/漸化式の体系と解法.pdf'
 python3 scripts/verify-term-first-use.py
 python3 scripts/verify-issue26-connections.py
 python3 scripts/verify-gauss-patterns.py
-python3 scripts/verify-pdf-a4.py '発展-new/漸化式の超体系的解説.pdf'
+python3 scripts/verify-pdf-a4.py '発展-new/漸化式の体系と解法.pdf'
 ```
 
 有限項の検算は一般証明の代用にしていない. 各変更の一般式は本文の導出と独立した記号計算で確認した.

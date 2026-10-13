@@ -7,7 +7,7 @@ import { join } from "node:path";
 import { verifyTeX } from "../scripts/verify-learning-design.mjs";
 
 const root=fileURLToPath(new URL("../",import.meta.url));
-const system="発展-new/第3章 漸化式の解説/05_応用7パターン/07_連立型/連立型.tex";
+const system="発展-new/第2章 漸化式の解法/06_七つの応用型/07_連立型/連立型.tex";
 const read=path=>readFileSync(join(root,path),"utf8");
 const original=read(system);
 assert.equal((original.match(/start=2,label=/g) || []).length,4);
