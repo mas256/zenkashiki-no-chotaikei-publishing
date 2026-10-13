@@ -9,23 +9,17 @@ on:
     paths:
       - '発展-new/**'
       - 'tex/**'
-      - '.github/workflows/build.yml'
-      - '.github/workflows/_build.yml'
+      - '.github/workflows/**'
       - '.github/texlive/**'
-      - 'scripts/setup-texlive.sh'
-      - 'scripts/verify-pdf-a4.py'
-      - 'scripts/verify-reading-navigation.py'
-      - 'scripts/verify-pdf-link-margins.py'
-      - 'scripts/verify-learning-design.mjs'
+      - 'scripts/**'
       - 'tests/**'
   pull_request:
     paths:
       - '発展-new/**'
       - 'tex/**'
       - '.github/workflows/**'
-      - 'scripts/verify-reading-navigation.py'
-      - 'scripts/verify-pdf-link-margins.py'
-      - 'scripts/verify-learning-design.mjs'
+      - '.github/texlive/**'
+      - 'scripts/**'
       - 'tests/**'
   workflow_dispatch:
 

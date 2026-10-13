@@ -185,7 +185,9 @@ if (process.argv[1] && fileURLToPath(import.meta.url)===resolve(process.argv[1])
 const root=fileURLToPath(new URL("../",import.meta.url));
 let pdfDestinations=null;
 if (process.argv.includes("--pdf")) {
-  const destinations=execFileSync("pdfinfo",["-dests",join(root,"発展-new/漸化式の超体系的解説.pdf")],{encoding:"utf8"});
+  const next=process.argv[process.argv.indexOf("--pdf")+1];
+  const pdf=next && !next.startsWith("--") ? resolve(next) : join(root,"発展-new/漸化式の超体系的解説.pdf");
+  const destinations=execFileSync("pdfinfo",["-dests",pdf],{encoding:"utf8"});
   pdfDestinations=new Set(destinations.match(/book:[a-z0-9-]+:[a-z]+(?::[0-9]+)?/g) || []);
 }
 const tex=verifyTeX(path=>readFileSync(join(root,path),"utf8"),pdfDestinations);

@@ -9,6 +9,8 @@ on:
       - .github/workflows/pages.yml
       - scripts/pages-*.py
       - scripts/pages-build.sh
+      - scripts/verify-release-assets.py
+      - scripts/lib/common.sh
       - scripts/render_index.py
       - .github/pages/**
   workflow_run:
@@ -61,23 +63,11 @@ jobs:
         run: |
           mkdir -p dist
           gh release download "$LATEST" --pattern '*.pdf' --pattern '*.pdf.sha256' --dir dist
-          shopt -s nullglob
-          pdfs=(dist/*.pdf)
-          sums=(dist/*.pdf.sha256)
-          [ "${#pdfs[@]}" -eq 1 ] || { echo "::error::PDFがちょうど1つではありません"; exit 1; }
-          [ "${#sums[@]}" -eq 1 ] || { echo "::error::.sha256がちょうど1つではありません"; exit 1; }
 
       - name: Verify checksum
         run: |
-          (cd dist && sha256sum -c ./*.pdf.sha256)
-          actual="$(sha256sum dist/*.pdf | cut -d' ' -f1)"
-          digest="$(gh api "repos/$GH_REPO/releases/tags/$LATEST" \
-            --jq '[.assets[] | select(.name | endswith(".pdf")) | .digest][0] // ""')"
-          if [ -n "$digest" ]; then
-            [ "$digest" = "sha256:$actual" ] || { echo "::error::APIのdigestが一致しません"; exit 1; }
-          else
-            echo "::warning::assetのdigestがAPIから取得できませんでした"
-          fi
+          gh api "repos/$GH_REPO/releases/tags/$LATEST" > release.json
+          python3 scripts/verify-release-assets.py dist --release-json release.json
 
       - name: Build site
         run: bash ./scripts/pages-build.sh
@@ -114,13 +104,23 @@ jobs:
           EXPECTED_COMMIT: ${{ steps.latest_build.outputs.head_sha }}
         run: |
           python3 - "$EXPECTED_COMMIT" <<'PY'
-          import json, sys
+          import hashlib, json, sys
           from pathlib import Path
           pdf = Path("latest-dist/main.pdf")
           info_path = Path("latest-dist/build-info.json")
           assert pdf.is_file() and pdf.read_bytes().startswith(b"%PDF-"), "Invalid development PDF"
           info = json.loads(info_path.read_text())
           assert info["commit"] == sys.argv[1], "Build artifact commit mismatch"
+          for kind, name in [("a4", "main.pdf"), ("mobile", "mobile.pdf")]:
+              source = Path("latest-dist") / name
+              if kind == "mobile" and not source.is_file():
+                  assert not info.get("pdfs", {}).get("mobile"), "Missing smartphone PDF"
+                  continue
+              data = source.read_bytes()
+              assert data.startswith(b"%PDF-"), f"Invalid {kind} PDF"
+              expected = info.get("pdfs", {}).get(kind, {}).get("sha256")
+              if kind == "mobile" or expected:
+                  assert hashlib.sha256(data).hexdigest() == expected, f"{kind} build digest mismatch"
           PY
 
       - name: Add the latest successful development PDF
@@ -129,6 +129,11 @@ jobs:
           cp latest-dist/main.pdf site/latest.pdf
           digest="$(sha256sum site/latest.pdf | cut -d' ' -f1)"
           printf '%s  latest.pdf\n' "$digest" > site/latest.pdf.sha256
+          if [ -f latest-dist/mobile.pdf ]; then
+            cp latest-dist/mobile.pdf site/latest-mobile.pdf
+            digest="$(sha256sum site/latest-mobile.pdf | cut -d' ' -f1)"
+            printf '%s  latest-mobile.pdf\n' "$digest" > site/latest-mobile.pdf.sha256
+          fi
 
       - name: Preserve the previously published development PDF
         if: steps.download_dev.outcome != 'success'
@@ -148,6 +153,13 @@ jobs:
               fi
               curl -fsSL "${pages_url%/}/catalog.json" -o fallback-dist/catalog.json || true
               cp fallback-dist/latest.pdf site/latest.pdf
+              if [ -f fallback-dist/catalog.json ] && jq -e '.latest.mobile' fallback-dist/catalog.json > /dev/null; then
+                curl -fsSL --retry 2 "${pages_url%/}/latest-mobile.pdf" -o fallback-dist/latest-mobile.pdf
+                actual="$(sha256sum fallback-dist/latest-mobile.pdf | cut -d' ' -f1)"
+                expected="$(jq -r '.latest.mobile.sha256' fallback-dist/catalog.json)"
+                [ "$actual" = "$expected" ] || { echo "::error::保存済みスマホ版のSHA-256が一致しません"; exit 1; }
+                cp fallback-dist/latest-mobile.pdf site/latest-mobile.pdf
+              fi
               found=true
               echo "::notice::現在公開中の最新版PDFを維持します"
             fi
@@ -180,6 +192,10 @@ jobs:
           if [ -f site/latest.pdf ]; then
             digest="$(sha256sum site/latest.pdf | cut -d' ' -f1)"
             printf '%s  latest.pdf\n' "$digest" > site/latest.pdf.sha256
+          fi
+          if [ -f site/latest-mobile.pdf ]; then
+            digest="$(sha256sum site/latest-mobile.pdf | cut -d' ' -f1)"
+            printf '%s  latest-mobile.pdf\n' "$digest" > site/latest-mobile.pdf.sha256
           fi
 
       - name: Publish named PDFs and catalog metadata

@@ -49,8 +49,12 @@ def main():
     catalog = dict(schema_version=1, title=title,
                    release=publish(site / "book.pdf", f"{title}-{args.tag}.pdf", published),
                    latest=None)
+    if (site / "book-mobile.pdf").is_file():
+        mobile = publish(site / "book-mobile.pdf", f"{title}-スマホ版-{args.tag}.pdf", published)
+        catalog["release"]["mobile"] = {key: mobile[key] for key in ("pdf", "sha256")}
     if (site / "latest.pdf").is_file():
         info = None
+        build_directory = None
         for candidate in [Path("latest-dist/build-info.json"),
                           Path("latest-dist/latest-build.json"),
                           Path("fallback-dist/legacy/latest-build.json")]:
@@ -59,6 +63,7 @@ def main():
                 if not source.is_file() or source.read_bytes() != (site / "latest.pdf").read_bytes():
                     continue
                 info = read_json(candidate)
+                build_directory = candidate.parent
                 break
         if info:
             updated_at, commit = info["built_at"], info["commit"]
@@ -70,6 +75,18 @@ def main():
             updated_at, commit = previous["updated_at"], previous["commit"]
         catalog["latest"] = publish(site / "latest.pdf", f"latest-{title}-{args.tag}.pdf",
                                     updated_at, commit=commit)
+        if (site / "latest-mobile.pdf").is_file():
+            mobile_data = (site / "latest-mobile.pdf").read_bytes()
+            actual = hashlib.sha256(mobile_data).hexdigest()
+            if info:
+                source = build_directory / "mobile.pdf"
+                expected = info.get("pdfs", {}).get("mobile", {}).get("sha256")
+                if not source.is_file() or source.read_bytes() != mobile_data or expected != actual:
+                    raise ValueError("Smartphone PDF does not match the same build as the A4 PDF")
+            elif previous.get("mobile", {}).get("sha256") != actual:
+                raise ValueError("Preserved smartphone PDF does not match its metadata")
+            mobile = publish(site / "latest-mobile.pdf", f"latest-{title}-スマホ版-{args.tag}.pdf", updated_at)
+            catalog["latest"]["mobile"] = {key: mobile[key] for key in ("pdf", "sha256")}
     (site / "catalog.json").write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + "\n",
                                        encoding="utf-8")
     root = Path(__file__).resolve().parent.parent
