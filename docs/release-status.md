@@ -1,6 +1,6 @@
 # 公開版と版番号の整理
 
-更新日: 2026-10-01
+以下の版履歴は2026-10-01時点の記録です。現在の正式版は[公開ページ](https://mas256.github.io/zenkashiki-no-chotaikei-publishing/)と、その `catalog.json` を確認してください。現在の配信手順は[README](../README.md)にあります。
 
 ## リポジトリの役割
 
@@ -8,7 +8,7 @@
 - [math-textbooks](https://github.com/mas256/math-textbooks) は数学書の本棚です。原稿や正式PDFの保管先ではなく、各書籍の現在の正式版へのリンクを一覧表示します。
 - 教科書ごとに原稿・Tag・Releaseを1つの教科書Repositoryで管理します。
 
-## 現在の正式版
+## 2026-10-01時点の正式版
 
 | 項目 | 値 |
 |---|---|
@@ -46,9 +46,9 @@
 
 ## 次回の正式Release
 
-1. `main` の原稿を確認し、正式版の版番号を1つ決めます。現在の `v1.3.3` より大きく、未使用のSemVer番号を使います。
+1. `main` の原稿を確認し、現在の正式版より大きく、未使用のSemVer番号を使います。
 2. Actionsの **Release** Workflowを `main` から1回だけ実行します。Release画面から手動でTagやReleaseを先に作りません。前の実行が終わる前に別の版番号のReleaseを開始しません。
-3. PDF・SHA-256の検査とPages公開が成功した後に、本棚の `books.json` の `version` を更新します。
+3. 両版のPDF・SHA-256の検査とPages公開が成功すると、本棚は `catalog.json` から版番号とリンクを自動更新します。`books.json` の版番号更新は不要です。
 
 ## 正式版PDFと開発中PDF
 

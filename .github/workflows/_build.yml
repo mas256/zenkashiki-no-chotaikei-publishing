@@ -60,17 +60,13 @@ jobs:
 
       - name: Build (upLaTeX + dvipdfmx via latexmk)
         working-directory: 発展-new
-        run: latexmk "$MAIN_TEX"
+        run: max_print_line=1000 latexmk "$MAIN_TEX"
 
-      - name: Check unresolved references
-        working-directory: 発展-new
-        run: |
-          log="${MAIN_TEX%.tex}.log"
-          if grep -Eq 'There were undefined references|Citation .* undefined|Reference .* undefined' "$log"; then
-            grep -En 'undefined' "$log" | head -n 20
-            echo "::error::未解決の参照があります"
-            exit 1
-          fi
+      - name: Generate the smartphone PDF from the A4 manuscript
+        run: python3 scripts/build-mobile.py
+
+      - name: Verify both layouts
+        run: python3 scripts/verify-tex-layout.py "発展-new/${MAIN_TEX%.tex}.log" out/mobile/mobile.log
 
       - name: Verify embedded fonts
         working-directory: 発展-new
@@ -80,36 +76,40 @@ jobs:
             sudo apt-get update -qq
             sudo apt-get install -y -qq --no-install-recommends poppler-utils poppler-data
           fi
-          pdffonts "$pdf" | tee fonts.txt
-          # 末尾5列は emb sub uni object gen。emb が yes 以外のフォントを検出する。
-          missing="$(awk 'NR>2 && NF>=5 && $(NF-4)!="yes"' fonts.txt)"
-          if [ -n "$missing" ]; then
-            echo "$missing"
-            echo "::error::PDFに埋め込まれていないフォントがあります"
-            exit 1
-          fi
-          if ! grep -q 'HaranoAji' fonts.txt; then
-            echo "::error::原ノ味フォント(HaranoAji)が埋め込まれていません"
-            exit 1
-          fi
+          for variant in a4 mobile; do
+            if [ "$variant" = a4 ]; then pdf="${MAIN_TEX%.tex}.pdf"; else pdf=../out/mobile/mobile.pdf; fi
+            fonts="fonts-$variant.txt"
+            pdffonts "$pdf" | tee "$fonts"
+            missing="$(awk 'NR>2 && NF>=5 && $(NF-4)!="yes"' "$fonts")"
+            [ -z "$missing" ] || { echo "::error::$variant: 埋め込まれていないフォント: $missing"; exit 1; }
+            grep -q 'HaranoAji' "$fonts" || { echo "::error::$variant: 原ノ味フォントがありません"; exit 1; }
+          done
 
-      - name: Verify A4 page dimensions
+      - name: Verify both page dimensions
         working-directory: 発展-new
-        run: python3 ../scripts/verify-pdf-a4.py "${MAIN_TEX%.tex}.pdf"
+        run: |
+          python3 ../scripts/verify-pdf-a4.py "${MAIN_TEX%.tex}.pdf"
+          python3 ../scripts/verify-pdf-a4.py ../out/mobile/mobile.pdf --width-mm 90 --height-mm 160
 
       - name: Verify learning paths, examples, and PDF destinations
         run: |
           node scripts/verify-learning-design.mjs --pdf
+          node scripts/verify-learning-design.mjs --pdf out/mobile/mobile.pdf
           node tests/verify-learning-navigation.mjs
+          python3 tests/test-mobile-publishing.py
 
       - name: Verify recurrence connections with exact arithmetic
         run: python3 scripts/verify-issue26-connections.py
 
       - name: Verify glossary and exercise navigation
-        run: python3 scripts/verify-reading-navigation.py --pdf '発展-new/漸化式の超体系的解説.pdf'
+        run: |
+          python3 scripts/verify-reading-navigation.py --pdf '発展-new/漸化式の超体系的解説.pdf'
+          python3 scripts/verify-reading-navigation.py --pdf out/mobile/mobile.pdf
 
       - name: Verify PDF link margins
-        run: python3 scripts/verify-pdf-link-margins.py '発展-new/漸化式の超体系的解説.pdf'
+        run: |
+          python3 scripts/verify-pdf-link-margins.py '発展-new/漸化式の超体系的解説.pdf'
+          python3 scripts/verify-pdf-link-margins.py out/mobile/mobile.pdf --header-height 26 --footer-height 12
 
       - name: Verify term first-use decoration
         run: python3 scripts/verify-term-first-use.py
@@ -119,11 +119,13 @@ jobs:
         run: |
           mkdir -p ../out
           cp "${MAIN_TEX%.tex}.pdf" ../out/main.pdf
-          cp fonts.txt ../out/fonts.txt
+          cp ../out/mobile/mobile.pdf ../out/mobile.pdf
+          cp fonts-a4.txt ../out/fonts.txt
+          cp fonts-mobile.txt ../out/fonts-mobile.txt
           BUILT_AT="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
           TL_VERSION="$(uplatex --version | sed -n 1p)"
           DVIPDFMX_VERSION="$(dvipdfmx --version 2>&1 | sed -n 1p)"
-          FONTS="$(awk 'NR>2 {print $1}' fonts.txt | sort -u)"
+          FONTS="$(awk 'FNR>2 {print $1}' fonts-a4.txt fonts-mobile.txt | sort -u)"
           export BUILT_AT TL_VERSION DVIPDFMX_VERSION FONTS
           perl -MJSON::PP -e '
             my %h = (
@@ -136,13 +138,25 @@ jobs:
             );
             print JSON::PP->new->canonical->pretty->encode(\%h);
           ' > ../out/build-info.json
+          python3 - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          output = Path('../out')
+          info = json.loads((output / 'build-info.json').read_text())
+          info['pdfs'] = {name: {'sha256': hashlib.sha256((output / filename).read_bytes()).hexdigest()}
+                          for name, filename in [('a4', 'main.pdf'), ('mobile', 'mobile.pdf')]}
+          (output / 'build-info.json').write_text(json.dumps(info, indent=2) + '\n')
+          PY
           cat ../out/build-info.json
 
       - name: Upload build outputs
         uses: actions/upload-artifact@v4
         with:
           name: ${{ inputs.artifact-name }}
-          path: out/
+          path: |
+            out/*.pdf
+            out/*.txt
+            out/build-info.json
           retention-days: ${{ inputs.retention-days }}
           compression-level: 0
           if-no-files-found: error

@@ -19,6 +19,8 @@
   a.button { display:inline-block; margin:1rem 0 1.5rem; padding:.7rem 1.4rem; background:var(--accent);
              color:#fff; border-radius:.5rem; text-decoration:none; font-weight:600; }
   a { color:var(--accent); }
+  .reading-links { display:flex; align-items:center; flex-wrap:wrap; gap:1rem; }
+  .mobile-link { font-weight:600; }
   h2 { font-size:1.1rem; margin-top:2rem; border-bottom:1px solid var(--line); padding-bottom:.3rem; }
   ul { padding-left:1.2rem; }
   time { color:var(--muted); margin-left:.5rem; font-size:.9rem; }
@@ -31,7 +33,7 @@
   <p class="meta">$authors</p>
   <p><span class="edition">$tag</span><a href="$current_release_url">Release</a><time>$date</time></p>
   <p>$description</p>
-  <a class="button" href="$pdf_url">正式版PDFを読む</a>
+  <div class="reading-links"><a class="button" href="$pdf_url">正式版PDFを読む</a>$mobile_link</div>
   $latest_link
   <h2>過去の正式版</h2>
   <ul>

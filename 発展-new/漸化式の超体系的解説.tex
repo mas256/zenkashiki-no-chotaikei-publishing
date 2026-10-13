@@ -274,8 +274,38 @@
 \title{漸化式の体系と解法}
 
 \ifdefined\BookMobile
-  \input{../tex/book-mobile.tex}
+  % 同じ原稿をスマホ幅で組版する。入口は scripts/build-mobile.py が生成する。
+  \setlength{\mathindent}{1zw}
+  \setlength{\fullwidth}{\textwidth}
+  \setlength{\columnseprule}{0pt}
+  \makeatletter
+  \renewcommand*{\l@subsection}{\@dottedtocline{2}{2zw}{3.5zw}}
+  \renewcommand*{\l@subsubsection}{\@dottedtocline{3}{3zw}{4.5zw}}
+  \pagestyle{headings}
+  \def\@evenhead{\underline{\hbox to\textwidth{\autoxspacing\textbf{\thepage}\hfil
+    \parbox[b]{\dimexpr\textwidth-2zw\relax}{\raggedleft\baselineskip=10pt\leftmark}}}}
+  \def\@oddhead{\underline{\hbox to\textwidth{\autoxspacing
+    \parbox[b]{\dimexpr\textwidth-2zw\relax}{\raggedright\baselineskip=10pt\rightmark}\hfil\textbf{\thepage}}}}
+  \makeatother
+  % 図だけは、紙幅を超えた場合に描画全体を収める。
+  \newsavebox{\BookMobileGraphBox}
+  \renewcommand{\BookGraph}[2]{%
+    \par\smallskip\noindent
+    \begin{minipage}{\linewidth}\centering
+      \sbox{\BookMobileGraphBox}{%
+        \begin{tikzpicture}[scale=0.8,>=Stealth,line cap=round,line join=round,
+          every node/.style={font=\small}]#2\end{tikzpicture}}%
+      \ifdim\wd\BookMobileGraphBox>\linewidth
+        \resizebox{\linewidth}{!}{\usebox{\BookMobileGraphBox}}%
+      \else\usebox{\BookMobileGraphBox}\fi
+      \BookFigureCaption{#1}%
+    \end{minipage}\par\smallskip
+  }
 \fi
+
+% 両版のログから、はみ出した式の入力ファイルを特定する。
+\AddToHook{file/before}{\typeout{BOOK-BEGIN:\CurrentFilePath\CurrentFile}}
+\AddToHook{file/after}{\typeout{BOOK-END:\CurrentFilePath\CurrentFile}}
 
 \begin{document}
 

@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
-"""Fail if any PDF page's visible or physical dimensions are not A4."""
+"""Verify every page's visible and physical dimensions (A4 by default)."""
 
+import argparse
 import re
 import subprocess
 import sys
 from pathlib import Path
 
-A4_WIDTH_PT = 210 / 25.4 * 72
-A4_HEIGHT_PT = 297 / 25.4 * 72
 TOLERANCE_PT = 0.2  # pdfinfo rounds PDF coordinates to two decimals
 BOX_RE = re.compile(
     r"^Page\s+(\d+)\s+(MediaBox|CropBox):\s+"
@@ -26,10 +25,14 @@ def pdfinfo(pdf: Path, *args: str) -> str:
 
 
 def main() -> int:
-    if len(sys.argv) != 2:
-        print("Usage: verify_pdf_a4.py FILE.pdf", file=sys.stderr)
-        return 2
-    pdf = Path(sys.argv[1])
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("pdf", type=Path)
+    parser.add_argument("--width-mm", type=float, default=210)
+    parser.add_argument("--height-mm", type=float, default=297)
+    args = parser.parse_args()
+    pdf = args.pdf
+    width_pt = args.width_mm / 25.4 * 72
+    height_pt = args.height_mm / 25.4 * 72
     info = pdfinfo(pdf)
     count = re.search(r"^Pages:\s*(\d+)\s*$", info, re.MULTILINE)
     if count is None:
@@ -47,7 +50,7 @@ def main() -> int:
         x0, y0, x1, y1 = (float(value) for value in match.groups()[2:])
         boxes.add((page, name))
         width, height = x1 - x0, y1 - y0
-        if abs(width - A4_WIDTH_PT) > TOLERANCE_PT or abs(height - A4_HEIGHT_PT) > TOLERANCE_PT:
+        if abs(width - width_pt) > TOLERANCE_PT or abs(height - height_pt) > TOLERANCE_PT:
             invalid.append(f"page {page} {name}: {width:.2f} x {height:.2f} pt")
 
     missing = [
@@ -58,12 +61,12 @@ def main() -> int:
     ]
     if invalid or missing:
         for message in invalid:
-            print(f"Not A4: {message}", file=sys.stderr)
+            print(f"Wrong page dimensions: {message}", file=sys.stderr)
         for message in missing:
             print(f"Missing page box: {message}", file=sys.stderr)
         return 1
 
-    print(f"A4 verified for all {pages} pages (MediaBox and CropBox)")
+    print(f"{args.width_mm:g} × {args.height_mm:g} mm verified for all {pages} pages (MediaBox and CropBox)")
     return 0
 
 

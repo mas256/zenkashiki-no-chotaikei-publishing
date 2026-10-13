@@ -11,12 +11,17 @@ source "$here/lib/common.sh"
 : "${GH_REPO:?}" "${LATEST:?}"
 
 shopt -s nullglob
-pdfs=(dist/*.pdf)
-[ "${#pdfs[@]}" -eq 1 ] || { echo "dist/ にPDFがちょうど1つありません" >&2; exit 1; }
+python3 "$here/verify-release-assets.py" dist
+pdfs=()
+mobile_pdfs=()
+for pdf in dist/*.pdf; do
+  if [[ "$pdf" == *-mobile.pdf ]]; then mobile_pdfs+=("$pdf"); else pdfs+=("$pdf"); fi
+done
 
 rm -rf site
 mkdir -p site
 cp "${pdfs[0]}" site/book.pdf
+if [ "${#mobile_pdfs[@]}" -eq 1 ]; then cp "${mobile_pdfs[0]}" site/book-mobile.pdf; fi
 
 # book.yml は最新正式版の時点のものを使う
 gh api -H 'Accept: application/vnd.github.raw+json' \

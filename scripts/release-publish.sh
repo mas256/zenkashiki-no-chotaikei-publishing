@@ -4,7 +4,7 @@
 #   GH_TOKEN, GH_REPO  gh の認証とRepository (owner/name)
 #   TAG                公開するTag (vX.Y.Z)
 #   COMMIT             Buildの対象にしたCommit SHA
-#   BUILD_DIR          main.pdf と build-info.json があるディレクトリ
+#   BUILD_DIR          main.pdf, mobile.pdf, build-info.json があるディレクトリ
 set -euo pipefail
 
 here="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -14,10 +14,13 @@ source "$here/lib/common.sh"
 : "${GH_REPO:?}" "${TAG:?}" "${COMMIT:?}" "${BUILD_DIR:?}"
 is_strict_semver "$TAG" || die "正式版Tagの形式ではありません: $TAG"
 [ -f "$BUILD_DIR/main.pdf" ] || die "$BUILD_DIR/main.pdf がありません"
+[ -f "$BUILD_DIR/mobile.pdf" ] || die "$BUILD_DIR/mobile.pdf がありません"
 [ -f "$BUILD_DIR/build-info.json" ] || die "$BUILD_DIR/build-info.json がありません"
+[ "$(jq -r '.commit' "$BUILD_DIR/build-info.json")" = "$COMMIT" ] || die "Build対象のCommitが一致しません"
 
 repo_name="${GH_REPO#*/}"
 asset="${repo_name}-${TAG}.pdf"
+mobile_asset="${repo_name}-${TAG}-mobile.pdf"
 major="${TAG#v}"
 major="${major%%.*}"
 work="$(mktemp -d)"
@@ -29,8 +32,13 @@ list_draft_ids() {
 
 # 1. asset と .sha256 を作る
 cp "$BUILD_DIR/main.pdf" "$work/$asset"
+cp "$BUILD_DIR/mobile.pdf" "$work/$mobile_asset"
 (cd "$work" && sha256sum "$asset" > "$asset.sha256")
+(cd "$work" && sha256sum "$mobile_asset" > "$mobile_asset.sha256")
 sha="$(cut -d' ' -f1 "$work/$asset.sha256")"
+mobile_sha="$(cut -d' ' -f1 "$work/$mobile_asset.sha256")"
+[ "$sha" = "$(jq -r '.pdfs.a4.sha256' "$BUILD_DIR/build-info.json")" ] || die "A4版とBuild情報が一致しません"
+[ "$mobile_sha" = "$(jq -r '.pdfs.mobile.sha256' "$BUILD_DIR/build-info.json")" ] || die "スマホ版とBuild情報が一致しません"
 
 # 2. Release Notes(人が読む記録。SHA-256の正は .sha256 asset)
 built_at="$(jq -r '.built_at' "$BUILD_DIR/build-info.json")"
@@ -52,8 +60,10 @@ cat > "$work/notes.md" <<NOTES
 | 埋め込みフォント | ${fonts} |
 | PDF | \`${asset}\` |
 | PDF SHA-256 | \`${sha}\` |
+| スマホ版PDF | \`${mobile_asset}\` |
+| スマホ版PDF SHA-256 | \`${mobile_sha}\` |
 
-SHA-256の正は、同梱の \`${asset}.sha256\` です(このNotesは公開後も編集できます)。
+A4版とスマホ版は同じ原稿から自動生成しています。SHA-256の正は、各PDFに同梱の \`.sha256\` です(このNotesは公開後も編集できます)。
 NOTES
 
 # 3. 同じTagのDraftが残っていれば破棄する(Tagは削除しない)
@@ -74,7 +84,7 @@ else
 fi
 
 # 5. Draftとして作成し、assetを添付する。
-gh release create "$TAG" "$work/$asset" "$work/$asset.sha256" \
+gh release create "$TAG" "$work/$asset" "$work/$asset.sha256" "$work/$mobile_asset" "$work/$mobile_asset.sha256" \
   --draft --target "$COMMIT" \
   --title "第${major}版 ${TAG}" --notes-file "$work/notes.md"
 
@@ -98,22 +108,28 @@ verify_dir="$work/verify"
 mkdir -p "$verify_dir"
 mapfile -t rows < <(gh api "repos/$GH_REPO/releases/$id" \
   --jq '.assets[] | [.id, .name, (.digest // "")] | @tsv')
-[ "${#rows[@]}" -eq 2 ] || die "assetが2件ではありません: ${#rows[@]}件"
+[ "${#rows[@]}" -eq 4 ] || die "assetが4件ではありません: ${#rows[@]}件"
 for row in "${rows[@]}"; do
   IFS=$'\t' read -r aid aname adigest <<< "$row"
   gh api -H 'Accept: application/octet-stream' \
     "repos/$GH_REPO/releases/assets/$aid" > "$verify_dir/$aname"
-  if [ "$aname" = "$asset" ]; then
-    if [ -n "$adigest" ]; then
-      [ "$adigest" = "sha256:$sha" ] || die "APIのdigestが一致しません: $adigest != sha256:$sha"
-    else
-      echo "::warning::Draftのassetにdigestがありません。公開後に確認してください"
-    fi
+  case "$aname" in
+    "$asset") expected_digest="$sha" ;;
+    "$mobile_asset") expected_digest="$mobile_sha" ;;
+    "$asset.sha256"|"$mobile_asset.sha256") continue ;;
+    *) die "予期しないasset: $aname" ;;
+  esac
+  if [ -n "$adigest" ]; then
+    [ "$adigest" = "sha256:$expected_digest" ] || die "APIのdigestが一致しません: $aname"
+  else
+    echo "::warning::Draftのassetにdigestがありません: $aname"
   fi
 done
 [ -f "$verify_dir/$asset" ] && [ -f "$verify_dir/$asset.sha256" ] || die "期待するassetがありません"
+[ -f "$verify_dir/$mobile_asset" ] && [ -f "$verify_dir/$mobile_asset.sha256" ] || die "スマホ版のassetがありません"
 cmp "$work/$asset.sha256" "$verify_dir/$asset.sha256" || die ".sha256 が一致しません"
-(cd "$verify_dir" && sha256sum -c "$asset.sha256")
+cmp "$work/$mobile_asset.sha256" "$verify_dir/$mobile_asset.sha256" || die "スマホ版の.sha256 が一致しません"
+python3 "$here/verify-release-assets.py" "$verify_dir"
 
 # 7. TagがBuild対象のCommitを指したままか確認する
 current="$(tag_commit "$GH_REPO" "$TAG")"

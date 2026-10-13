@@ -95,6 +95,10 @@ def main() -> int:
 
     catalog = json.loads(Path(args.catalog).read_text(encoding="utf-8")) if args.catalog else None
     filename = f"{book['title']}-{args.tag}.pdf"
+    mobile_link = ""
+    if catalog and catalog["release"].get("mobile"):
+        url = quote(catalog["release"]["mobile"]["pdf"])
+        mobile_link = f'<a class="mobile-link" href="{html.escape(url)}">スマホ版で読む</a>'
     latest_link = ""
     if catalog and catalog.get("latest"):
         latest = catalog["latest"]
@@ -102,6 +106,9 @@ def main() -> int:
         latest_link = (f'<p><a href="{html.escape(url)}">最新版（開発中）のPDF</a>'
                        f' <time datetime="{html.escape(latest["updated_at"])}">'
                        f'{html.escape(latest["updated_at"])}</time></p>')
+        if latest.get("mobile"):
+            url = quote(latest["mobile"]["pdf"]) + "?sha=" + latest["mobile"]["sha256"]
+            latest_link += f'<p><a href="{html.escape(url)}">最新版（開発中）のスマホ版</a></p>'
     authors = book.get("author", [])
     if isinstance(authors, str):
         authors = [authors]
@@ -116,6 +123,7 @@ def main() -> int:
         description=esc(book.get("description", "")),
         pdf_url=esc(quote(filename), quote=True),
         latest_link=latest_link,
+        mobile_link=mobile_link,
         tag=esc(args.tag),
         date=esc(published[args.tag]),
         release_items="\n      ".join(items),

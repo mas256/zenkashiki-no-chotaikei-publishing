@@ -20,8 +20,13 @@ formal_releases() {
       [.assets[]? | .name] as $assets
       | [$assets[] | select(endswith(".pdf"))] as $pdfs
       | [$assets[] | select(endswith(".pdf.sha256"))] as $checksums
-      | (($pdfs | length) == 1 and ($checksums | length) == 1
-         and $checksums[0] == ($pdfs[0] + ".sha256"));
+      | [$pdfs[] | select(endswith("-mobile.pdf") | not)] as $main
+      | [$pdfs[] | select(endswith("-mobile.pdf"))] as $mobile
+      | (($main | length) == 1 and ($mobile | length) <= 1
+         and ($pdfs | length) == ($checksums | length)
+         and ([$pdfs[] | . + ".sha256"] | sort) == ($checksums | sort)
+         and (($mobile | length) == 0
+              or $mobile[0] == ($main[0] | sub("\\.pdf$"; "-mobile.pdf"))));
     .[]
     | select(.draft == false and .prerelease == false)
     | select(.tag_name | test("^v[0-9]+\\.[0-9]+\\.[0-9]+$"))
