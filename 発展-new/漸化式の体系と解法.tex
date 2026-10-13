@@ -278,7 +278,63 @@
   \setlength{\mathindent}{1zw}
   \setlength{\fullwidth}{\textwidth}
   \setlength{\columnseprule}{0pt}
+
+  % 文字サイズは保ち、縦の余白を元の約6割にする。
+  % 本文10pt・行送り16.8ptから、10pt + 0.6(16.8pt - 10pt) = 14.08ptへ。
+  % 行送りそのものを0.6倍すると文字が重なるため、余白だけを詰める。
+  \linespread{0.88}
+  \newcommand{\BookMobileTightenSkip}[1]{\multiply#1 by 3\divide#1 by 5\relax}
+  \BookMobileTightenSkip{\parskip}
+  % 脚注のあるページ末尾では、段落の余白をさらに1ptまで詰められるようにする。
+  \addtolength{\parskip}{0pt minus 1pt}
+  \BookMobileTightenSkip{\smallskipamount}
+  \BookMobileTightenSkip{\medskipamount}
+  \BookMobileTightenSkip{\bigskipamount}
+  \BookMobileTightenSkip{\jot}
+  \BookMobileTightenSkip{\skip\footins}
+  \BookMobileTightenSkip{\normallineskip}
+  \setlength{\lineskip}{\normallineskip}
+
+  % サイズ変更・数式開始時の再設定にも対応する。各コマンドが設定した余白を縮める。
+  \newcommand{\BookMobileDisplaySpacing}{%
+    \BookMobileTightenSkip{\abovedisplayskip}%
+    \BookMobileTightenSkip{\belowdisplayskip}%
+    \BookMobileTightenSkip{\abovedisplayshortskip}%
+    \BookMobileTightenSkip{\belowdisplayshortskip}}
+  \AddToHook{cmd/normalsize/after}{\BookMobileDisplaySpacing}
+  \AddToHook{cmd/small/after}{\BookMobileDisplaySpacing}
+  \AddToHook{cmd/footnotesize/after}{\BookMobileDisplaySpacing}
+  \BookMobileDisplaySpacing
+
+  \renewtcolorbox{bookpoint}{unbreakable,sharp corners,
+    colback=black!3,colframe=black!55,boxrule=0pt,leftrule=1.2pt,
+    left=5pt,right=3pt,top=1.8pt,bottom=1.8pt,
+    before skip=3.6pt,after skip=3.6pt}
+  \renewcommand*{\chapterheadstartvskip}{\vspace*{1.38\baselineskip}}
+  \renewcommand*{\chapterheadendvskip}{\vspace{1.02\baselineskip}}
+
   \makeatletter
+  % 箇条書き・引用の局所指定も、実際のリスト開始時にまとめて調整する。
+  \patchcmd{\list}{\@trivlist}{%
+    \BookMobileTightenSkip{\topsep}%
+    \BookMobileTightenSkip{\partopsep}%
+    \BookMobileTightenSkip{\parsep}%
+    \BookMobileTightenSkip{\itemsep}%
+    \@trivlist
+  }{}{\PackageError{book-mobile}{List spacing patch failed}{Check the LaTeX list definition.}}
+  % 見出しの前後だけを詰め、段落見出しの後の横方向の空白は保つ。
+  \let\BookMobileStartSection\@startsection
+  \newskip\BookMobileHeadingBefore
+  \newskip\BookMobileHeadingAfter
+  \renewcommand{\@startsection}[6]{%
+    \BookMobileHeadingBefore=#4\relax
+    \BookMobileHeadingAfter=#5\relax
+    \BookMobileTightenSkip{\BookMobileHeadingBefore}%
+    \ifdim\BookMobileHeadingAfter>\z@
+      \BookMobileTightenSkip{\BookMobileHeadingAfter}%
+    \fi
+    \BookMobileStartSection{#1}{#2}{#3}%
+      {\BookMobileHeadingBefore}{\BookMobileHeadingAfter}{#6}}
   \renewcommand*{\l@subsection}{\@dottedtocline{2}{2zw}{3.5zw}}
   \renewcommand*{\l@subsubsection}{\@dottedtocline{3}{3zw}{4.5zw}}
   \pagestyle{headings}
@@ -313,11 +369,10 @@
 \author{MAS256}
 \maketitle
 
-% 目次の段落間隔・折り返し行の行送りは元の設定を維持する。
-% 本文の段落間隔と行送りの調整は目次に適用しない。
+% A4の目次は元の設定を維持し、スマホ版だけ折り返し行の余白を詰める。
 \begingroup
   \setlength{\parskip}{0pt}
-  \linespread{1}\selectfont
+  \ifdefined\BookMobile\linespread{0.85}\else\linespread{1}\fi\selectfont
   \tableofcontents
   \pagebreak
 \endgroup
