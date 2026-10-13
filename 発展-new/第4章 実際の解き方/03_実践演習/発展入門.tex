@@ -1,7 +1,6 @@
     \subsection{発展入門}\label{節：発展入門}
-      ここでは,\bookterm{recurrence}{漸化式}を自分で立てて数学の対象を調べる練習として,\,10題を扱う.
-      追う量や場合分けを小問で示し,基本的な解法を一つか二つ使えば解けるようにした.
-      まず「操作を1回増やすと何が変わるか」を言葉で説明し,それを式にしよう.
+      誘導に沿って\bookterm{recurrence}{漸化式}を立てる10題である.
+                操作を一回増やしたときに変わる量を選び,基本の解法へつなぐ.
       問8では\bookterm{general}{一般項}を求めずに項の範囲を調べ,問9では整数方程式の解を作る.
       問10のみ数学IIIの指数関数の積分・部分積分を前提とする.
       それ以外は,場合の数・確率・整数・ベクトル・\bookterm{sequence}{数列}の既習事項を使う.
@@ -343,9 +342,8 @@
                 領域を直接すべて数えるより,新しく増える部分を数える方が簡単である.
           % B2
           \item \textbf{(1)~直前の状態を分ける.}
-                最後に赤の個数が偶数になるのは,直前まで偶数で青を取り出す場合と,直前まで奇数で赤を取り出す場合である.
-                次の色はそれまでの記録と独立だから,それぞれの確率は$\displaystyle \frac13p_n$,\,$\displaystyle \frac23(1-p_n)$である.
-                二つの場合は同時には起こらないので,
+                赤の個数が偶数になるのは,直前まで偶数で青を引く場合と,奇数で赤を引く場合である.
+                次の色は独立で,二つの場合は重ならないから,
                 \[
                   p_{n+1}=\frac13p_n+\frac23(1-p_n)
                          =\frac23-\frac13p_n.
@@ -353,8 +351,7 @@
 
                 \smallskip
                 \textbf{(2)(3)~定数を引いて等比型へ.}
-                チャートの「係数の変化」と「付加項の有無と定数」に対応する,定数項を消す解法である.
-                定数の解$\displaystyle \frac12$を引けば,
+                定数の解$\displaystyle \frac12$を引いて付加項を消すと,
                 \[
                   p_{n+1}-\frac12
                    =-\frac13\left(p_n-\frac12\right).
@@ -369,11 +366,8 @@
           \item \textbf{(1)(2)~末尾を取り除く.}
                 長さ1では$\displaystyle 0,1$の2通り,長さ2では$\displaystyle 00,01,10$の3通りである.
                 長さ3では\BookMathLayout{}{\newline}$\displaystyle 000,001,010,100,101$の5通りである.\,
-                $\displaystyle n\ge2$とする.最後が$\displaystyle 0$の文字列から最後の1文字を取り除くと,条件を満たす長さ$\displaystyle n-1$の文字列が得られる.
-                逆に,そのような文字列の後ろへ$\displaystyle 0$を付けても条件を満たすから,\,$\displaystyle c_{n-1}$通りである.
-                最後が$\displaystyle 1$なら,その直前は$\displaystyle 0$でなければならない.
-                末尾の$\displaystyle 01$を取り除く操作と,条件を満たす長さ$\displaystyle n-2$の文字列に$\displaystyle 01$を付ける操作は互いに逆である.
-                よってこちらは$\displaystyle c_{n-2}$通りであり,
+                $\displaystyle n\ge2$とする.末尾が$0$ならそれを除き,末尾が$1$なら直前の$0$とともに除く.
+                逆に短い文字列へ$0$または$01$を付ければ戻せるので,それぞれ$c_{n-1},c_{n-2}$通りであり,
                 \[
                   c_n=c_{n-1}+c_{n-2}.
                 \]
@@ -399,8 +393,8 @@
           % B4
           \item \textbf{(1)(2)~余りを追う.}
                 順に代入すると,\,$\displaystyle a_1=3,a_2=19,a_3=723$となる.
-                それ以降の項も求められるが,整除を調べるために大きな整数を計算する必要はない.
-                整数$\displaystyle a_n=3q+r_n$を式へ代入すれば,\,$\displaystyle a_{n+1}$と$\displaystyle 2r_n^2+1$の差は$\displaystyle 3$の倍数になる.
+                整除には値の代わりに余りを追えばよい.
+                $a_n=3q+r_n$を代入すると,$a_{n+1}$と$2r_n^2+1$の差は$3$の倍数になる.
                 したがって,余りの更新は
                 \[
                   \begin{array}{c|ccc}
@@ -409,16 +403,14 @@
                   \end{array}
                 \]
                 である.\,$\displaystyle r_0=1$なので,\,$\displaystyle 1,0,1,0,\ldots$と繰り返す.
-                この二つの余りが交互に続くことは更新表から帰納法で確かめられる.
-                よって,\,$\displaystyle a_n$が$\displaystyle 3$の倍数になるのは$\displaystyle n$が正の奇数のときである.
+                表からこの往復が続くため,$a_n$が$3$の倍数になるのは$n$が正の奇数のときである.
 
                 \smallskip
                 \textbf{(3)~平方数の余り.}
                 初項も,更新式から得られる項もすべて奇数である.
                 奇数の平方を$\displaystyle 4$で割った余りは$\displaystyle 1$なので,\,$\displaystyle n\ge1$の$\displaystyle a_n$の余りは$\displaystyle 2\cdot1+1=3$になる.
-                一方,整数の平方の余りは,偶数を平方すれば$\displaystyle 0$,奇数を平方すれば$\displaystyle 1$である.
-                したがって,\,$\displaystyle a_n$は整数の平方ではない.
-                ここで立てたのは,元の\bookterm{sequence}{数列}の\bookterm{general}{一般項}ではなく,余りを追う\bookterm{recurrence}{漸化式}である.
+                平方数の余りは$0,1$なので,$a_n$は平方数でない.
+                \bookterm{general}{一般項}を求めず,余りの\bookterm{recurrence}{漸化式}で性質を調べた.
           % B5
           \item \textbf{(1)~図形操作をベクトルで表す.}
                 $\displaystyle \boldsymbol b_n=\overrightarrow{OB_n}$,\,$\displaystyle \boldsymbol c_n=\overrightarrow{OC_n}$ともおく.
@@ -432,9 +424,8 @@
                   \boldsymbol a_{n+1}
                     =\frac{\boldsymbol b_n+\boldsymbol c_n}{2}
                 \]
-                であり,他の二つも同様である.三つの式を加えると,ベクトルの和は操作の前後で変わらない.
-                よって和は常に$\displaystyle \boldsymbol0$であり,重心は常に$\displaystyle O$である.
-                これを中点の式へ戻すと,
+                であり,他も同様である.三式を加えるとベクトルの和は常に$\boldsymbol0$で,重心は$O$のままとなる.
+                中点の式へ戻すと,
                 \[
                   \boldsymbol a_{n+1}=-\frac12\boldsymbol a_n.
                 \]
@@ -458,9 +449,8 @@
           % B6
           \item \textbf{(1)(2)~小さい分配に分ける.}
                 2箱なら,一方へ入れる玉を$\displaystyle 0,1,\ldots,n$個から選ぶと他方の個数も決まる.よって$\displaystyle a_n=n+1$である.
-                4箱では,\,$\displaystyle A,B$に合計$\displaystyle k$個入れると,\,$\displaystyle C,D$には合計$\displaystyle n-k$個入る.
-                前半の分け方は$\displaystyle a_k$通り,後半は$\displaystyle a_{n-k}$通りなので,組合せは$\displaystyle a_ka_{n-k}$通りである.
-                異なる$\displaystyle k$の場合は重ならないから,
+                4箱では$A,B$への合計を$k$個とすると,$C,D$には$n-k$個入る.
+                分配は$a_ka_{n-k}$通りで,異なる$k$は重ならないから,
                 \[
                   T_n=\sum_{k=0}^{n}(k+1)(n-k+1).
                 \]
@@ -487,7 +477,7 @@
                 \[
                   T_n=\frac{(n+1)(n+2)(n+3)}6
                 \]
-                を得る.各項の総和を展開する代わりに,求めたい和の\bookterm{recurrence}{漸化式}を作ったのである.
+                を得る.和自体の\bookterm{recurrence}{漸化式}を作り,各項の展開を省いた.
 
                 \noindent \textbf{【別解】}\\
                 玉$\displaystyle n$個と仕切り3本を一列に並べ,仕切りの間にある玉の数を順に$\displaystyle A,B,C,D$の個数とする.
@@ -500,9 +490,7 @@
                 一つずつ増やす考え方と,一度に全体を数える考え方を比べてみよう.
           % B7
           \item \textbf{(1)~1回に移る食塩.}
-                十分に混ざっているので,\,$\displaystyle A$から取り出す液体には$\displaystyle x_n$の4分の1の食塩が含まれる.\,
-                $\displaystyle A$に残るのは4分の3であり,\,$\displaystyle B$からは$\displaystyle y_n$の4分の1が移ってくる.
-                よって,
+                十分に混ざっているため,$A$には食塩の$3/4$が残り,$B$から$y_n/4$が移る.よって,
                 \[
                   x_{n+1}=\frac34x_n+\frac14y_n.
                 \]
@@ -520,7 +508,7 @@
 $\displaystyle s_n=10$,$\displaystyle d_n=10\left(\frac12\right)^n$である.\\
 $\displaystyle x_n=\frac{s_n+d_n}{2}$,$\displaystyle y_n=\frac{s_n-d_n}{2}$から解答の式を得る.}
                 $\displaystyle d_n\to0$だから食塩は両方に$\displaystyle 5\,\mathrm{g}$ずつ近づく.
-                操作を繰り返しても総量は変わらず,二つの容器の偏りだけが減ることを式が表している.
+                和は総量の保存,差は偏りの減少を表す.
 
                 \noindent \textbf{【別解】}\\
                 先に食塩の総量が変わらないことを使い,\,$\displaystyle y_n=10-x_n$を代入すると,
@@ -542,8 +530,7 @@ $\displaystyle x_n=\frac{s_n+d_n}{2}$,$\displaystyle y_n=\frac{s_n-d_n}{2}$か�
 
                 \smallskip
                 \textbf{(2)~逆数の増分.}
-                正値を確認したので,逆数を取れる.
-                二つの逆数の差を通分し,更新式を代入すると,
+                正値を使って逆数の差を通分すると,
                 \[
                   b_{n+1}-b_n
                     =\frac{a_n-a_{n+1}}{a_na_{n+1}}
@@ -553,7 +540,7 @@ $\displaystyle x_n=\frac{s_n+d_n}{2}$,$\displaystyle y_n=\frac{s_n-d_n}{2}$か�
                 \[
                   \frac12\le b_{n+1}-b_n\le1.
                 \]
-                厳密な\bookterm{difference}{階差}の\bookterm{general}{一般項}を求めなくても,上下から押さえられる.
+                \bookterm{difference}{階差}を求め切らず,上下から押さえる.
 
                 \smallskip
                 \textbf{(3)~不等式を足す.}
@@ -567,7 +554,7 @@ $\displaystyle x_n=\frac{s_n+d_n}{2}$,$\displaystyle y_n=\frac{s_n-d_n}{2}$か�
                   \frac1n\le a_n\le\frac2{n+1}.
                 \]
                 両端が$\displaystyle 0$に近づくから,はさみうちの原理で$\displaystyle a_n\to0$を得る.
-                本編の逆数化と\bookterm{difference}{階差}の考え方を,\bookterm{general}{一般項}の計算から不等式の評価へ広げている.
+                逆数化と\bookterm{difference}{階差}を,\bookterm{general}{一般項}から不等式の評価へ広げた.
           % B9
           \item \textbf{(1)~変わらない量を探す.}\par\nobreak
                 代入すると,\,$\displaystyle (x_1,y_1)=(2,1),(x_2,y_2)=(7,4)$となる.
@@ -583,8 +570,7 @@ $\displaystyle x_n=\frac{s_n+d_n}{2}$,$\displaystyle y_n=\frac{s_n-d_n}{2}$か�
 
                 \smallskip
                 \textbf{(2)~重み付きの和と差.}
-                チャートの「複数の\bookterm{sequence}{数列}」に沿って,今度は$\displaystyle \sqrt3$の重みを付けた和と差を使う.
-                実際に次項を作ると,
+                $\sqrt3$の重みを付けた和と差の次項を作ると,
                 \begin{align*}
                   z_{n+1}
                     &=(2x_n+3y_n)+\sqrt3(x_n+2y_n)\\
@@ -600,16 +586,14 @@ $\displaystyle x_n=\frac{s_n+d_n}{2}$,$\displaystyle y_n=\frac{s_n-d_n}{2}$か�
 
                 \smallskip
                 \textbf{(3)~無限個の整数解を作る.}
-                初期値が整数で,更新式の係数も整数だから,帰納法で$\displaystyle x_n,y_n$はすべて整数である.\,
-                $\displaystyle n=1$ではどちらも正であり,更新式から$\displaystyle n\ge1$で正値が続く.
+                初期値と係数から$x_n,y_n$は整数であり,$n\ge1$では両方が正となる.
                 さらに,
                 \[
                   x_{n+1}-x_n=x_n+3y_n>0
                 \]
                 なので,同じ解は繰り返されない.
                 (1)の\bookterm{invariant}{不変量}からすべて$\displaystyle x^2-3y^2=1$を満たすため,正の整数解が無限個得られる.
-                \bookterm{general}{一般項}に無理数が含まれていても,整数性は元の\bookterm{recurrence}{漸化式}から確実に分かる.
-                この\bookterm{recurrence}{漸化式}が,正の整数解を無限個生成する仕組みになっている.
+                \bookterm{general}{一般項}に無理数が現れても,\bookterm{recurrence}{漸化式}は整数性と異なる解の生成を保証する.
           % B10
           \item \textbf{(1)(2)~指数を一つ下げる.}\par\nobreak
                 $\displaystyle I_0=\int_0^1e^x\,dx=e-1$である.\,
@@ -624,7 +608,7 @@ $\displaystyle x_n=\frac{s_n+d_n}{2}$,$\displaystyle y_n=\frac{s_n-d_n}{2}$か�
                 \[
                   I_1=1,\quad I_2=e-2,\quad I_3=6-2e.
                 \]
-                一つの積分を単独で計算するのではなく,同じ形の積分を指数$\displaystyle n$で並べると,\bookterm{recurrence}{漸化式}で前の計算を使える.
+                指数を添字にすると,\bookterm{recurrence}{漸化式}で前の積分を使える.
 
                 \smallskip
                 \textbf{(3)~積分で\bookterm{limit}{極限}を求める.}
@@ -634,6 +618,5 @@ $\displaystyle x_n=\frac{s_n+d_n}{2}$,$\displaystyle y_n=\frac{s_n-d_n}{2}$か�
                   I_n\le e\int_0^1x^n\,dx=\frac{e}{n+1}.
                 \]
                 右辺が$\displaystyle 0$に近づくので,はさみうちの原理から$\displaystyle I_n\to0$となる.
-                低い次数の値には\bookterm{recurrence}{漸化式}が役立ち,\bookterm{limit}{極限}には積分の評価が役立つ.
-                求めたいものに合わせて使う式を選ぼう.
+                値には\bookterm{recurrence}{漸化式},\bookterm{limit}{極限}には積分の評価を使った.
         \end{enumerate}

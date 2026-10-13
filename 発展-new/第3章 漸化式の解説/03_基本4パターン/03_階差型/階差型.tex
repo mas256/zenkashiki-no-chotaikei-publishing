@@ -5,25 +5,19 @@
     \textbf{変化を足す}\par
     差が添字ごとに変わっても,初項からの変化を足せば元の項に戻る.和の範囲は実際の更新の回数に合わせる.
   \end{bookpoint}
-    ここでは,足す量$f(n)$が項の番号によって変わる.
-    番号$n$が決まれば$f(n)$は計算できるので,直前の項を順に代入する方法はそのまま使える.\footnote{$f(n)$は番号$n$の式である.$f(a_n)$のように未知の項の値に依存する場合は,和を書くだけでは計算が済まない.}
+    \bookterm{sequence}{数列}に足す量$f(n)$が番号によって変わっても,順に代入できる.\footnote{$f(n)$は番号$n$の式である.$f(a_n)$のように未知の項の値に依存する場合は,和を書くだけでは計算が済まない.}
     足す量をまとめるため,和の記号を使う.
     \[
       \sum_{k=1}^{n}f(k)=f(1)+f(2)+\cdots+f(n)
     \]
     $k$は和の中で順に動く番号であり,$n$は和の上端である.
-    記号の性質は\sectionref*{節：シグマの計算}で確認できる.
+    記号の性質は\sectionref*{節：シグマの計算}で確認できる.$n\ge2$で更新を繰り返すと,
     \begin{align*}
-      &a_{n+1}=a_n+f(n)\\
-      &a_{n+1}=\{a_{n-1}+f(n-1)\}+f(n)\\
-      &a_{n+1}=\left[\{a_{n-2}+f(n-2)\}+f(n-1)\right]+f(n)\\
-      &\qquad \vdots\\
-      &a_{n+1}=a_1+f(1)+f(2)+\cdots+f(n)\\
-      &a_{n+1}=a_1+\sum_{k=1}^{n} f(k)\\
-      &\therefore \quad a_n=a_1+\sum_{k=1}^{n-1} f(k)
+      a_n&=a_{n-1}+f(n-1)\\
+         &=a_1+f(1)+\cdots+f(n-1)\\
+         &=a_1+\sum_{k=1}^{n-1}f(k)
     \end{align*}
-    初項から第$n$項までの更新は$n-1$回なので,和の上端も$n-1$になる.
-    $n=1$では足す項がない.この空の和を$0$とすれば,同じ式で$a_1$も表せる.
+    更新は$n-1$回なので,和の上端も$n-1$である.$n=1$の空の和を$0$とすれば,初項も表せる.
     残るのは和の計算である.$f(n)$に応じて,\bookterm{arithmetic}{等差数列}や\bookterm{geometric}{等比数列}の和の公式,\bookterm{partial}{部分分数分解}などを使う.
 
     \noindent \bookblocklink{example-difference-1}{problem}{answer}{【例題】}\par\nobreak
@@ -36,8 +30,8 @@
 
     \noindent\bookblocklink{example-difference-1}{hint}{problem}{【方針】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-difference-1}{hint}{problem}]
-      \item 最もシンプルな形の\bookterm{difference}{階差}\bookterm{sequence}{数列}です.先程の議論を踏まえて解きましょう.
-      \item もちろん,\,$f(n)$となる関数には指数関数も含まれます.何にせよやることは\,(1)と同じです.
+      \item 差を足し戻し,等差数列の和を使います.
+      \item 指数の差も足し戻せます.等比数列の和を使います.
       \item \bookterm{sigma}{シグマ}は\bookterm{partial}{部分分数分解}で処理しましょう.
       \item 初項の$1$も含めると,$1^2+2^2+\cdots+n^2$という平方の和になります.
     \end{enumerate}
@@ -53,29 +47,17 @@
     \noindent\bookblocklink{example-difference-1}{solution}{problem}{【解法】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-difference-1}{solution}{problem}]
       \item $\displaystyle a_1=1,\,a_{n+1}=a_n+n$\\
-            \bookterm{difference}{階差}型の\bookterm{general}{一般項}
+            \bookterm{difference}{階差}型の\bookterm{general}{一般項}と等差数列の和から,
             \[
-              a_n=a_1+\sum_{k=1}^{n-1}f(k)
+              a_n=1+\sum_{k=1}^{n-1}k=1+\frac{n(n-1)}2.
             \]
-            を用いると,
-            \begin{align*}
-              a_n
-                &=1+\sum_{k=1}^{n-1}k\\
-                &=1+\frac{n(n-1)}{2}
-            \end{align*}
-            $1$から$n-1$までの和には,項数と初項・末項の平均を掛ける公式を使った.
-            公式と導出は\sectionref*{節：等差数列とその総和の導出}で確認できる.
-            $n=1$では$1+\frac{1\cdot0}{2}=1$となり,初項とも一致する.
+            和は項数と初項・末項の平均を掛けて求めた.導出は\sectionref*{節：等差数列とその総和の導出}を参照.$n=1$でも初項に一致する.
 
       \item $\displaystyle a_1=1,\,a_{n+1}=a_n+2^n$\\
             同様に,
-            \begin{align*}
-              a_n
-                &=1+\sum_{k=1}^{n-1}2^k\\
-                &=1+(2+2^2+\cdots+2^{n-1})\\
-                &=1+(2^n-2)\\
-                &=2^n-1
-            \end{align*}
+            \[
+              a_n=1+\sum_{k=1}^{n-1}2^k=1+(2^n-2)=2^n-1.
+            \]
             等比数列の和の公式と,倍率をそろえて引く導出は\sectionref*{節：等比数列の総和とその導出}にまとめた.
 
       \item $\displaystyle a_1=0,\,a_{n+1}=a_n+\frac{1}{n(n+1)}$\\
@@ -84,16 +66,12 @@
               \frac{1}{k(k+1)}
               =\frac{1}{k}-\frac{1}{k+1}
             \]
-            である.分数を二つの差に分けると,隣り合う項が打ち消し合う.
-            分ける係数の求め方は\sectionref*{節：部分分数分解}で確認できる.従って,
+            と分ければ隣の項が消える.係数の求め方は\sectionref*{節：部分分数分解}を参照.
             \begin{align*}
               a_n
                 &=\sum_{k=1}^{n-1}\frac{1}{k(k+1)}\\
-                &=\sum_{k=1}^{n-1}
-                  \left(\frac{1}{k}-\frac{1}{k+1}\right)\\
-                &=\left(1-\frac12\right)
-                  +\left(\frac12-\frac13\right)\\
-                &\quad +\cdots+\left(\frac{1}{n-1}-\frac1n\right)\\
+                &=\left(1-\frac12\right)+\left(\frac12-\frac13\right)\\
+                &\quad+\cdots+\left(\frac1{n-1}-\frac1n\right)\\
                 &=1-\frac1n
             \end{align*}
 
@@ -102,7 +80,6 @@
             \begin{align*}
               a_n
                 &=1+\sum_{k=1}^{n-1}(k+1)^2\\
-                &=1+\sum_{j=2}^{n}j^2\\
                 &=\sum_{j=1}^{n}j^2\\
                 &=\frac{1}{6}n(n+1)(2n+1)
             \end{align*}

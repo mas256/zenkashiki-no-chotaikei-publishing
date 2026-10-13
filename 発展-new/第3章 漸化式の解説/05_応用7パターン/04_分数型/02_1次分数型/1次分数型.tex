@@ -1,145 +1,86 @@
 % subsubsection: 1次分数型  \, $\displaystyle a_{n+1}=\frac{pa_n+q}{ra_n+s}$
 
 \subsubsection{\texorpdfstring{一次分数型  \, $\displaystyle a_{n+1}=\frac{pa_n+q}{ra_n+s}$}{一次分数型}}\label{節：1次分数型}
-    分子にも定数項が加わった,一次分数型の\bookterm{recurrence}{漸化式}を考えていこう.
-    以下では,\, $r\ne0$,\, $ps-qr\ne0$とし,もとの\bookterm{recurrence}{漸化式}の分母が$0$にならないものとして議論を進める.\footnote{$r=0,\ s\ne0$なら,定数項を消す型へ戻る.
-    $r\ne0,\ ps-qr=0$なら,分母が非零の入力に対して右辺は定数$p/r$になる.その値へ移った後の分母も確認する.
-    例えば$(a_n-1)/(a_n-1)$は,初項が$1$でなくても次項が$1$になり,その次の更新は定義できない.}
-
-    分子の定数項$q$を消せれば,先程の逆数型として解ける.目指す変形は,
-    \[
-      a_{n+1}=\frac{pa_n+q}{ra_n+s} \longrightarrow u_{n+1}=\frac{tu_n}{v u_n+w}
-    \]
-    である.ここで$t,v,w$は定数であり,この形になるように元の数列から引く定数を選ぶ.
+    分子にも定数項がある\bookterm{recurrence}{漸化式}を考えよう.
+    以下では$r\ne0$, $ps-qr\ne0$とし,元の分母が$0$にならない範囲で議論する.\footnote{$r=0,\ s\ne0$なら定数項を消す型へ戻る.
+    $r\ne0,\ ps-qr=0$なら,分母が非零の入力に対して右辺は定数$p/r$になる.次の分母も確認する.例えば$(a_n-1)/(a_n-1)$は,初項が$1$でなくても次項が$1$になり,次の更新は定義できない.}
+    分子の定数項$q$を消せれば,逆数型として解ける.
 
     \bookstep{一つの差を追う}
-
-    \,\sectionref{節：特性方程式型}では,\bookterm{sequence}{数列}の各項から同じ定数を引くことで定数項を消した.
-    今回もそのアイデアを使い,\, $u_n=a_n-\alpha$と置いてみよう.
-    ただし,ここでは$\alpha$をまだ決めず,変形後の分子の定数項が消えるように選ぶ.
+    \sectionref{節：特性方程式型}と同じく,各項から定数を引いてみよう.
+    $u_n=a_n-\alpha$と置き,分子の定数項が消えるように$\alpha$を選ぶ.
     $a_n=u_n+\alpha$を代入すると,
     \BookMathLayout{\begin{align*}
-      u_{n+1}+\alpha &=\frac{p(u_n+\alpha)+q}{r(u_n+\alpha)+s}\\
-      u_{n+1} &=\frac{p(u_n+\alpha)+q}{r(u_n+\alpha)+s}-\alpha\\
-      &=\frac{p(u_n+\alpha)+q-\alpha\{r(u_n+\alpha)+s\}}
-        {r(u_n+\alpha)+s}\\
+      u_{n+1}&=\frac{p(u_n+\alpha)+q}{r(u_n+\alpha)+s}-\alpha\\
       &=\frac{(p-r\alpha)u_n+p\alpha+q-r\alpha^2-s\alpha}
         {ru_n+r\alpha+s}
     \end{align*}}{\[
       \begin{aligned}
-        &u_{n+1}+\alpha\\
-        &{}=\frac{p(u_n+\alpha)+q}{r(u_n+\alpha)+s}\\
         &u_{n+1}\\
         &{}=\frac{p(u_n+\alpha)+q}{r(u_n+\alpha)+s}-\alpha\\
-        &{}=\frac{p(u_n+\alpha)+q-\alpha\{r(u_n+\alpha)+s\}}
-                 {r(u_n+\alpha)+s}\\
         &{}=\frac{(p-r\alpha)u_n+p\alpha+q-r\alpha^2-s\alpha}
-                 {ru_n+r\alpha+s}
+          {ru_n+r\alpha+s}
       \end{aligned}
     \]}
-    となる.したがって,
-    \[
-      p\alpha+q-r\alpha^2-s\alpha=0
-    \]
-    となるように$\alpha$を選べば,
-    \[
-      u_{n+1}=\frac{(p-r\alpha)u_n}{ru_n+r\alpha+s}
-    \]
-    という逆数型に帰着できる.
-    定数項を消すための条件は,
+    従って,
     \[
       r\alpha^2+(s-p)\alpha-q=0
       \quad\Longleftrightarrow\quad
       \alpha=\frac{p\alpha+q}{r\alpha+s}
     \]
-    と書けるので,この$\alpha$はもとの\bookterm{recurrence}{漸化式}の\bookterm{fixed}{不動点}でもある.
-    この分母も,$u_n$に掛かる$p-r\alpha$も零にならない.\footnote{不動点の方程式を使うと,$(p-r\alpha)(r\alpha+s)=ps-qr\ne0$となる.従って,左辺の二つの因数はともに零でない.}
-
-    初項が$\alpha$なら定数列として扱う.それ以外では,分子の係数が零でないため$u_n$は途中で零にならず,逆数を取って解ける.
+    を満たす$\alpha$,すなわち元の\bookterm{fixed}{不動点}を引けば,
+    \[
+      u_{n+1}=\frac{(p-r\alpha)u_n}{ru_n+r\alpha+s}
+    \]
+    という逆数型になる.ここで,$p-r\alpha$も$r\alpha+s$も零でない.\footnote{不動点の方程式より,$(p-r\alpha)(r\alpha+s)=ps-qr\ne0$.}
+    初項が$\alpha$なら定数列である.それ以外では$u_n$は途中で零にならず,逆数を取って解ける.
 
     \bookstep{二つの差の比を追う}
-    定数項を消せる値を求める問題は,
+    不動点の方程式
     \[
       rx^2+(s-p)x-q=0
     \]
-    という二次方程式を解く問題に帰着した.
-    この方程式が異なる2つの実数解$\alpha,\beta$を持つなら,その左辺は
-    \[
-      rx^2+(s-p)x-q=r(x-\alpha)(x-\beta)
-    \]
-    と因数分解できる.
-    $\alpha,\beta$は別々に選ぶ定数ではなく,もとの\bookterm{recurrence}{漸化式}の係数から決まる,同じ二次方程式の二つの解なのである.
-    そして,どちらの解も定数項を消す条件を満たすので,\, $a_n-\alpha$と$a_n-\beta$のどちらについても,同じ変形ができる.
-    先ほどの逆数型の式を,もとの$a_n$を使って書き直すと,
+    が異なる二つの実数解$\alpha,\beta$を持つとしよう.
+    どちらも定数項を消せるので,先ほどの変形を$a_n$で書けば,
     \begin{align*}
       a_{n+1}-\alpha
       &=\frac{p-r\alpha}{ra_n+s}(a_n-\alpha),\\
       a_{n+1}-\beta
       &=\frac{p-r\beta}{ra_n+s}(a_n-\beta)
     \end{align*}
-    となる.
+    となる.倍率に$a_n$が含まれるため,各々の差は一般には\bookterm{geometric}{等比数列}にならない.
+    しかし,\textbf{二つの式の比を取れば,共通の分母が消える}.
 
-    それぞれの差に掛かる倍率には$a_n$が含まれているので,差そのものは一般には\bookterm{geometric}{等比数列}にならない.
-    しかし,二つの倍率には同じ分母$ra_n+s$が現れている.
-    そこで二つの式の比を取れば,この分母が消え,一定の倍率だけが残りそうである.
-
-    初項が$\alpha$または$\beta$なら定数\bookterm{sequence}{数列}になるので,先に扱っておこう.
-    以下では初項がどちらの\bookterm{fixed}{不動点}とも異なる場合を考える.
-    $\beta$でも$p-r\beta\ne0$なので,$a_n\ne\beta$なら$a_{n+1}\ne\beta$である.
-    初項から順に考えると,すべての項で$a_n\ne\beta$となり,二つの差の比を取ることができる.
-    実際に,
+    初項が$\alpha$または$\beta$なら定数\bookterm{sequence}{数列}として分けておく.
+    それ以外では,$p-r\beta\ne0$なので,$a_n\ne\beta$から$a_{n+1}\ne\beta$が続く.
+    従って,差の比を取れる.
     \begin{align*}
       \frac{a_{n+1}-\alpha}{a_{n+1}-\beta}
-      &=\cfrac{\displaystyle
-        \frac{(p-r\alpha)(a_n-\alpha)}{ra_n+s}}
-        {\displaystyle
-        \frac{(p-r\beta)(a_n-\beta)}{ra_n+s}}\\
       &=\frac{p-r\alpha}{p-r\beta}
         \frac{a_n-\alpha}{a_n-\beta}
     \end{align*}
-    となる.
-    したがって,二つの差の比は,項が一つ進むごとに一定の倍率$\dfrac{p-r\alpha}{p-r\beta}$で変化する.
-    分子の定数項を消せる二つの式を比べることで,\bookterm{geometric}{等比数列}の法則を見つけられたのである.
-
-    ここで
+    ここで$b_n=(a_n-\alpha)/(a_n-\beta)$と置けば,
     \[
-      b_n=\frac{a_n-\alpha}{a_n-\beta}
+      b_{n+1}=\frac{p-r\alpha}{p-r\beta}b_n
     \]
-    と置けば,
-    \[
-      b_{n+1}
-      =
-      \frac{p-r\alpha}{p-r\beta}b_n
-    \]
-    となる.したがって,\,$b_n$は\bookterm{geometric}{等比数列}である.\footnote{$\alpha$と$\beta$の大小関係は,解の大小関係を要求されていないことから自由に選んでよい.}
-    この比を追えば,一つの差を逆数型として解く計算を飛ばして,直接等比型になる.
-    初項
-    \[
-      b_1=\frac{a_1-\alpha}{a_1-\beta}
-    \]
-    を用いれば,
+    となる.一つの差を逆数型として解く代わりに,二つの差の比を直接等比型にできた.\footnote{二つの解のどちらを$\alpha,\beta$と名付けてもよい.}
+    初項$b_1=(a_1-\alpha)/(a_1-\beta)$を用いて,
     \[
       b_n=\frac{a_1-\alpha}{a_1-\beta}\left(\frac{p-r\alpha}{p-r\beta}\right)^{n-1} \booktag{mobius-geometric}{＊}
     \]
-    となる.
-    \bookstep{元の項へ戻す}
-    求まったのは二つの差の比$b_n$なので,
-    \[
-      b_n=\frac{a_n-\alpha}{a_n-\beta}
-    \]
-    から$a_n$を求める.$\alpha\ne\beta$なので,有限の$a_n$に対してこの比は$1$にはならない.
-    従って$b_n-1$で割ることができる.
-    \begin{align*}
-      b_n(a_n-\beta)&=a_n-\alpha\\
-      (b_n-1)a_n&=\beta b_n-\alpha\\
-      a_n=\frac{\beta b_n-\alpha}{b_n-1}
-    \end{align*}
-    \bookeqbackref{mobius-geometric}{(＊)}を代入して$a_n$を求めることができる.
-    逆に,比の公式だけから計算して$b_n=1$となる項があれば,そこでは元の$a_n$に戻せない.
-    これは,元の漸化式の分母が零にならないという条件を満たしていない場合である.
+    を得る.
 
-    不動点の方程式が重解$\alpha$を持つ場合は,二つの異なる差を作れない.
-    その場合は最初の$u_n=a_n-\alpha$に戻り,逆数を取ると等差型になる.
+    \bookstep{元の項へ戻す}
+    $b_n(a_n-\beta)=a_n-\alpha$を$a_n$について解くと,
+    \[
+      a_n=\frac{\beta b_n-\alpha}{b_n-1}
+    \]
+    となる.有限の$a_n$では$\alpha\ne\beta$より$b_n\ne1$なので,この割り算ができる.
+    \bookeqbackref{mobius-geometric}{(＊)}を代入すればよい.
+    逆に,公式上で$b_n=1$となる項は復元できず,元の更新をそこまで定義できない.
+
+    不動点の方程式が重解$\alpha$を持つ場合は,異なる差を作れない.
+    一つの差$u_n=a_n-\alpha$に戻り,逆数を取れば等差型になる.
     例題(3)で計算し,例題の後で一般の係数でも確かめよう.
 
     \noindent \bookblocklink{example-mobius-1}{problem}{answer}{【例題】}\par\nobreak
@@ -169,223 +110,129 @@
     \noindent\bookblocklink{example-mobius-1}{solution}{problem}{【解法】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-mobius-1}{solution}{problem}]
       \item $\displaystyle a_1=3,\, a_{n+1}=\frac{2a_n+1}{a_n+2}$\\
-            \bookterm{fixed}{不動点}の方程式は
-            \[
-              x=\frac{2x+1}{x+2}
-            \]
-            であるから,その解をそれぞれ$\alpha,\beta$とすると\,$\alpha=1,\ \beta=-1$と取れる.
-            このとき,
-            \[
-              b_n=\frac{a_n-1}{a_n+1}
-            \]
-            と置くと,
+            \bookterm{fixed}{不動点}の方程式$x=(2x+1)/(x+2)$の解は$1,-1$である.
+            $b_n=(a_n-1)/(a_n+1)$と置くと,
             \begin{align*}
-              b_{n+1}&=\frac{a_{n+1}-1}{a_{n+1}+1}\\
-              &=\cfrac{\cfrac{2a_n+1}{a_n+2}-1}{\cfrac{2a_n+1}{a_n+2}+1}\\
+              b_{n+1}&=\cfrac{\cfrac{2a_n+1}{a_n+2}-1}{\cfrac{2a_n+1}{a_n+2}+1}\\
               &=\frac{2a_n+1-(a_n+2)}{2a_n+1+(a_n+2)}\\
-              &=\frac{a_n-1}{3a_n+3}\\
-              &=\frac{1}{3}\cdot \frac{a_n-1}{a_n+1}
+              &=\frac13\frac{a_n-1}{a_n+1}=\frac13b_n
             \end{align*}
-            $\displaystyle b_1=\frac{a_1-1}{a_1+1}=\frac{2}{4}=\frac{1}{2}$から,
+            $b_1=(3-1)/(3+1)=1/2$なので,
+            \[
+              b_n=\frac12\left(\frac13\right)^{n-1}
+                =\frac1{2\cdot3^{n-1}}
+            \]
+            である.元の項への復元は,
             \begin{align*}
-              b_{n}=\frac{1}{2}\cdot\left(\frac{1}{3}\right)^{n-1}\\
-              \therefore \quad b_n=\frac{1}{2\cdot3^{n-1}}
+              b_n(a_n+1)&=a_n-1,\\
+              a_n&=\frac{1+b_n}{1-b_n}
+                =\frac{2\cdot3^{n-1}+1}{2\cdot3^{n-1}-1}
             \end{align*}
-            最後に
-            \[
-              b_n=\frac{a_n-1}{a_n+1}
-            \]
-            を$a_n$について解くと,
-            \begin{align*}
-              &b_n(a_n+1)=a_n-1\\
-              &(b_n-1)a_n=-1-b_n\\
-              &a_n=\frac{1+b_n}{1-b_n}
-            \end{align*}
-            \[
-              b_n=\frac{1}{2\cdot3^{n-1}}
-            \]
-            を代入して整理すれば,
-            \[
-              a_n=\frac{2\cdot3^{n-1}+1}{2\cdot3^{n-1}-1}
-            \]
-            を得る.
+            となる.
       \item $\displaystyle a_1=0,\, a_{n+1}=\frac{a_n+4}{a_n+1}$\\
-            \bookterm{fixed}{不動点}の方程式は
+            \bookterm{fixed}{不動点}の方程式$x=(x+4)/(x+1)$の解は$2,-2$である.
+            倍率は$(1-2)/(1+2)=-1/3$なので,$b_n=(a_n-2)/(a_n+2)$と置くと,
+            \begin{align*}
+              b_{n+1}&=-\frac13b_n,\quad b_1=-1,\\
+              b_n&=(-1)\left(-\frac13\right)^{n-1}
+                =\frac{(-1)^n}{3^{n-1}}
+            \end{align*}
+            を得る.$b_n(a_n+2)=a_n-2$から復元して,
+            \begin{align*}
+              a_n&=\frac{2(1+b_n)}{1-b_n}\\
+              &=\frac{2\left(3^{n-1}+(-1)^n\right)}{3^{n-1}-(-1)^n}
+            \end{align*}
+            となる.
+      \item $\displaystyle a_1=5,\, a_{n+1}=\dfrac{4a_n-9}{a_n-2}$\\
+            \bookterm{fixed}{不動点}の方程式$x=(4x-9)/(x-2)$は重解$3$を持つ.
+            $b_n=a_n-3$と置くと,
+            \begin{align*}
+              b_{n+1}&=\frac{4a_n-9}{a_n-2}-3
+                =\frac{a_n-3}{a_n-2}\\
+              &=\frac{b_n}{b_n+1},\quad b_1=2
+            \end{align*}
+            となる.正の$b_n$が続くので,$b_n$も元の分母$b_n+1$も零でない.
+            逆数を取れば,
+            \begin{align*}
+              \frac1{b_{n+1}}&=\frac1{b_n}+1,\\
+              \frac1{b_n}&=\frac12+(n-1)=\frac{2n-1}{2}
+            \end{align*}
+            である.従って,
             \[
-              x=\frac{x+4}{x+1}
-            \]
-            であるから,その解をそれぞれ$\alpha,\beta$とすると\,$\alpha=2,\ \beta=-2$と取れる.
-            このとき,
-            \[
-              \frac{p-r\alpha}{p-r\beta}=\frac{1-2}{1+2}=-\frac13
-            \]
-            なので,
-            \[
-              b_n=\frac{a_n-2}{a_n+2}
-            \]
-            と置くと,
-\BookMathLayout{\begin{align*}
-              &b_{n+1}=-\frac13 b_n,\quad b_1=\frac{a_1-2}{a_1+2}=\frac{-2}{2}=-1\\
-              &\therefore \quad b_n=(-1)\left(-\frac13\right)^{n-1}=\frac{(-1)^n}{3^{n-1}}
-            \end{align*}}{
-\[
-\begin{aligned}
-b_{n+1}&=-\frac13 b_n,\\
-b_1&=\frac{a_1-2}{a_1+2}=\frac{-2}{2}=-1\\
-\therefore\quad b_n&=(-1)\left(-\frac13\right)^{n-1}\\
-&=\frac{(-1)^n}{3^{n-1}}
-\end{aligned}
-\]
-}
-            \[
-              b_n=\frac{a_n-2}{a_n+2}
-            \]
-            を$a_n$について解くと,
-            \[
-              a_n=\frac{2(1+b_n)}{1-b_n}
-            \]
-            となるので,
-            \[
-              b_n=\frac{(-1)^n}{3^{n-1}}
-            \]
-            を代入し,分母分子に$3^{n-1}$を掛けて整理すると,
-            \[
-              a_n=\frac{2\left(3^{n-1}+(-1)^n\right)}{3^{n-1}-(-1)^n}
+              a_n=3+b_n=3+\frac2{2n-1}=\frac{6n-1}{2n-1}
             \]
             を得る.
-      \item $\displaystyle a_1=5,\, a_{n+1}=\dfrac{4a_{n}-9}{a_{n}-2}$
-            \bookterm{fixed}{不動点}の方程式は
-            \[
-              x=\frac{4x-9}{x-2}
-            \]
-            であるから,その解は3.
-            \[
-            b_n=a_n-3
-            \]
-            とおくと,
-            \begin{align*}
-              b_{n+1}&=a_{n+1}-3\\
-              &=\dfrac{4a_{n}-9}{a_{n}-2}-3\\
-              &=\dfrac{a_{n}-3}{a_{n}-2}\\
-              &=\dfrac{b_{n}}{b_{n}+1}
-            \end{align*}
-            $b_1=2>0$であり,$b_{n+1}=b_n/(b_n+1)$から正の値が続く.
-            よって$b_n$と元の分母$a_n-2=b_n+1$はともに零でない.逆数を取って
-            \begin{align*}
-              \frac{1}{b_{n+1}}&=\dfrac{b_{n}+1}{b_{n}}
-            \end{align*}
-            $b_1=a_1-3=2$,すなわち$\dfrac1{b_1}=\dfrac12$より,
-            \begin{align*}
-              &\frac{1}{b_n}=\frac{1}{2}+(n-1)\cdot 1\\
-              &\frac{1}{b_n}=\frac{2n-1}{2}\\
-              &b_n=\frac{2}{2n-1}\\
-              &a_n-3=\frac{2}{2n-1}\\
-              &a_n=\frac{6n-1}{2n-1}
-            \end{align*}
-      \item $\displaystyle a_1=1,\, a_{n+1}=1+\frac{1}{a_n}$\\
-            式を変形して
-            $\displaystyle a_1=1,\, a_{n+1}=\frac{a_n+1}{a_n}$
-            \bookterm{fixed}{不動点}の方程式は
+      \item $\displaystyle a_1=1,\, a_{n+1}=1+\frac1{a_n}$\\
+            右辺を$(a_n+1)/a_n$と書けば,一次分数型である.
+            \bookterm{fixed}{不動点}の方程式
             \[
               x=\frac{x+1}{x}\booktag{mobius-example-fixed}{1}
             \]
-            であるから,その解をそれぞれ$\alpha,\beta$とすると
+            の解を
             \[
-              \alpha=\frac{1+\sqrt{5}}{2},\ \beta=\frac{1-\sqrt{5}}{2}
+              \alpha=\frac{1+\sqrt5}{2},\qquad
+              \beta=\frac{1-\sqrt5}{2}
             \]
-            ここで\bookeqbackref{mobius-example-fixed}{(1)}について,その解$\alpha,\beta$では
+            とする.\bookeqbackref{mobius-example-fixed}{(1)}の解と係数の関係から,
             \[
-              \alpha+\beta=1,\, \quad \alpha\beta=-1\booktag{mobius-example-roots}{2}
+              \alpha+\beta=1,\qquad \alpha\beta=-1
+                \booktag{mobius-example-roots}{2}
             \]
-            が解と係数の関係から成り立つ.したがって,
+            である.$b_n=(a_n-\alpha)/(a_n-\beta)$と置くと,
             \begin{align*}
-              b_{n+1}&=\frac{a_{n+1}-\alpha}{a_{n+1}-\beta}\\
-              &=\cfrac{\cfrac{a_n+1}{a_n}-\alpha}{\cfrac{a_n+1}{a_n}-\beta}\\
-              &=\frac{a_n+1-\alpha a_n}{a_n+1-\beta a_n}\\
-              &=\frac{(1-\alpha)a_n+1}{(1-\beta)a_n+1}\booktag{mobius-example-ratio}{3}
+              b_{n+1}&=\frac{a_n+1-\alpha a_n}{a_n+1-\beta a_n}\\
+              &=\frac{(1-\alpha)a_n+1}{(1-\beta)a_n+1}
+                \booktag{mobius-example-ratio}{3}
             \end{align*}
-            \bookeqbackref{mobius-example-roots}{(2)}より,\bookeqbackref{mobius-example-ratio}{(3)}は
+            となる.\bookeqbackref{mobius-example-roots}{(2)}を\bookeqbackref{mobius-example-ratio}{(3)}に使えば,
             \begin{align*}
-              \frac{(1-\alpha)a_n+1}{(1-\beta)a_n+1}&=\frac{\beta a_n+1}{\alpha a_n+1}\\
-              &=\frac{\beta a_n-\alpha\beta}{\alpha a_n-\alpha\beta}\\
-              &=\frac{\beta (a_n-\alpha)}{\alpha (a_n-\beta)}\\
-              &=\frac{\beta}{\alpha}b_n
+              b_{n+1}&=\frac{\beta a_n-\alpha\beta}{\alpha a_n-\alpha\beta}\\
+              &=\frac{\beta(a_n-\alpha)}{\alpha(a_n-\beta)}
+                =\frac\beta\alpha b_n
             \end{align*}
-            よって,
+            である.$b_1=(1-\alpha)/(1-\beta)=\beta/\alpha$より,
             \[
-              b_{n+1}=\frac{\beta}{\alpha}b_n
+              b_n=\left(\frac\beta\alpha\right)^n
             \]
-            初項$b_1$は,
+            となる.復元式$a_n=(\beta b_n-\alpha)/(b_n-1)$に代入し,分母分子に$\alpha^n$を掛けると,
             \begin{align*}
-              b_1=\frac{a_1-\alpha}{a_1-\beta}=\frac{1-\alpha}{1-\beta}=\frac{\beta}{\alpha}
+              a_n&=\frac{\beta^{n+1}-\alpha^{n+1}}{\beta^n-\alpha^n}\\
+              &=\cfrac{\left(\cfrac{1-\sqrt5}{2}\right)^{n+1}-\left(\cfrac{1+\sqrt5}{2}\right)^{n+1}}
+                {\left(\cfrac{1-\sqrt5}{2}\right)^n-\left(\cfrac{1+\sqrt5}{2}\right)^n}
             \end{align*}
-            したがって,
-            \[
-              b_n=\left(\frac{\beta}{\alpha}\right)^n
-            \]
-            次に
-            \[
-              b_{n}=\frac{a_{n}-\alpha}{a_{n}-\beta}
-            \]
-            を$a_n$について解くと,
-            \[
-              a_{n}=\frac{\beta b_{n}-\alpha}{b_{n}-1}
-            \]
-            したがって,
-            \begin{align*}
-              a_{n}&=\cfrac{\beta \left(\cfrac{\beta}{\alpha}\right)^n-\alpha}{\left(\cfrac{\beta}{\alpha}\right)^n-1}  \\
-              &=\frac{\beta^{n+1}-\alpha^{n+1}}{\beta^n-\alpha^n}\\
-              &=\cfrac{\left(\cfrac{1-\sqrt{5}}{2}\right)^{n+1}-\left(\cfrac{1+\sqrt{5}}{2}\right)^{n+1}}{\left(\cfrac{1-\sqrt{5}}{2}\right)^n-\left(\cfrac{1+\sqrt{5}}{2}\right)^n}
-            \end{align*}
+            を得る.
     \end{enumerate}
     \bookstep{一つの不動点から進む}
-    $rx^2+(s-p)x-q=0$が重解$\alpha$を持つ場合は,異なる2つの\bookterm{fixed}{不動点}を取れないため,差の比を使う方法はそのまま使えない.
-    このときは$\alpha=\dfrac{p-s}{2r}$,すなわち$s=p-2r\alpha$が成り立つため,
-    \[
-      c=p-r\alpha=r\alpha+s\ne0
-    \]
-    とおくと,
+    不動点の方程式が重解$\alpha$を持つときは,差の比を作れない.
+    $\alpha=(p-s)/(2r)$なので,$c=p-r\alpha=r\alpha+s\ne0$と置けば,
     \[
       a_{n+1}-\alpha
       =\frac{c(a_n-\alpha)}{r(a_n-\alpha)+c}
     \]
-    となる.
-    ここで,まず$a_1=\alpha$の場合を分ける必要がある.
-    この場合は元の\bookterm{recurrence}{漸化式}から$a_n=\alpha$がすべての$n$で成り立つ定\bookterm{sequence}{数列}となり,\,$\displaystyle \frac{1}{a_n-\alpha}$は定義できない.
-
-    以下では$a_1\ne\alpha$とする.
-    もとの\bookterm{recurrence}{漸化式}の分母が$0$でない範囲では,\,$c\ne0$であることから,
+    となる.$a_1=\alpha$なら定数\bookterm{sequence}{数列}として分ける.
+    それ以外では,分母が非零の範囲で$c\ne0$より
     \[
       a_{n+1}-\alpha=0
-      \quad\Longleftrightarrow\quad
-      a_n-\alpha=0
+      \quad\Longleftrightarrow\quad a_n-\alpha=0
     \]
-    である.
-    したがって,初項が$\alpha$でなければ途中で$\alpha$に到達することもなく,\,$\displaystyle \frac{1}{a_n-\alpha}$はすべての項で定義できる.
-    そこで逆数を取ると,
+    であり,途中で$\alpha$に到達しない.従って逆数を取れて,
     \[
-      \frac{1}{a_{n+1}-\alpha}
-      =\frac{1}{a_n-\alpha}+\frac{r}{c}
+      \frac1{a_{n+1}-\alpha}
+      =\frac1{a_n-\alpha}+\frac rc
     \]
-    であるから,右辺も含めて$\displaystyle \frac{1}{a_n-\alpha}$について考えれば\bookterm{arithmetic}{等差数列}に帰着できる.
-    重解では二つの差の比を作れないが,一つの差の逆数が等差型になる.
-    異なる\bookterm{fixed}{不動点}の場合と同じく,追う量を選び直して既知の更新へ帰着させたのである.
-    例題(3)では,$\alpha=3,\ r=c=1$なので,逆数が毎回$1$ずつ増えた.
-
+    という\bookterm{arithmetic}{等差数列}に帰着する.
+    \textbf{異なる不動点なら二つの差の比,重解なら一つの差の逆数}を追えばよい.
+    例題(3)は$\alpha=3,\ r=c=1$なので,逆数が毎回$1$ずつ増えた.
 
     \bookstep{比から見える数列}
-  例題(4)は,フィボナッチ\bookterm{sequence}{数列}の隣り合う二項の比とつながっている.
-  この比の\bookterm{limit}{極限}値は黄金比$\dfrac{1+\sqrt{5}}{2}$に一致する.
-  実際,\,$a_n=\dfrac{F_{n+1}}{F_n}$(ただし$F_n$は$F_1=F_2=1$から定まるフィボナッチ\bookterm{sequence}{数列})であることが,同じ\bookterm{recurrence}{漸化式}$a_{n+1}=1+\dfrac1{a_n}$から確かめられる.\footnote{また,ここから派生したリュカ\bookterm{sequence}{数列}も同じ\bookterm{characteristic}{特性方程式}$x^2=x+1$を持ち,隣接項の比が同じ黄金比に収束する.
-  一方,同様に\bookterm{recurrence}{漸化式}から派生する\bookterm{sequence}{数列}にトリボナッチ\bookterm{sequence}{数列}があるが,こちらは\bookterm{characteristic}{特性方程式}が3次$(x^3=x^2+x+1)$になり,隣接項の比の\bookterm{limit}{極限}値(トリボナッチ定数,約$1.839$)は黄金比とは異なる.
-  これらは本書の趣旨から外れてしまうため割愛する.}
+    例題(4)は,フィボナッチ\bookterm{sequence}{数列}$F_1=F_2=1,\ F_{n+2}=F_{n+1}+F_n$とつながる.
+    隣接項の比$F_{n+1}/F_n$は同じ更新$a_{n+1}=1+1/a_n$と初項$1$を満たすので,$a_n=F_{n+1}/F_n$である.
+    この比の\bookterm{limit}{極限}は黄金比$(1+\sqrt5)/2$となる.\footnote{リュカ数列も同じ\bookterm{characteristic}{特性方程式}$x^2=x+1$を持ち,隣接項の比が黄金比へ収束する.
+    トリボナッチ数列では$x^3=x^2+x+1$となり,比の極限は約$1.839$のトリボナッチ定数になる.}
 
   \bookstep{項を並べて予想する}
   一次分数型では,初めの数項から一般項を予想し,帰納法で確かめる方法もある.
-  例えば(3)は,分母と分子がそれぞれ一定の差で増える形に書ける.
-  この並びを手掛かりに,分母と分子をそれぞれ一次式と予想する.
-  $a_1$から$a_3$ぐらいまでを求めさせてから帰納法で示させるような誘導問題が出た時は帰納法を使って解くことも視野に入れておくといいだろう.
-  以下にその例を示す.\\
+  数項を求める誘導があれば,分母と分子の増え方にも注目しよう.例題(3)で試す.\\
     \noindent\bookblocklink{example-mobius-2}{problem}{answer}{【例題】}\par\nobreak
     \begin{quote}
       以下の\bookterm{recurrence}{漸化式}
@@ -408,33 +255,18 @@ b_1&=\frac{a_1-2}{a_1+2}=\frac{-2}{2}=-1\\
     \end{quote}
     \bookblocklink{example-mobius-2}{answer}{problem}{【解答】}
     \begin{quote}
-      \bookterm{general}{一般項}$a_n$が
-      \[
-        a_n=\frac{6n-1}{2n-1}
-      \]
-      であることを示す.\\
-      $n=1$の時,
-      \[
-        \frac{6-1}{2-1}=5
-      \]
-      よって成立する.\\
-      正の整数$k$を任意にとり,
+      予想した\bookterm{general}{一般項}を確かめる.$n=1$では$(6-1)/(2-1)=5$なので成立する.
+      正の整数$k$について,
       \[
         a_k=\frac{6k-1}{2k-1}
       \]
       が成り立つと仮定する.このとき,\bookterm{recurrence}{漸化式}より,
       \begin{align*}
-        a_{k+1}&=\frac{4a_{k}-9}{a_{k}-2}\\
-        &=\cfrac{4\cdot \cfrac{6k-1}{2k-1}-9}{\cfrac{6k-1}{2k-1}-2}\\
-        &=\frac{4(6k-1)-9(2k-1)}{6k-1-2(2k-1)}\\
-        &=\frac{6k+5}{2k+1}\\
-        &=\frac{6(k+1)-1}{2(k+1)-1}
+        a_{k+1}&=\frac{4(6k-1)-9(2k-1)}{6k-1-2(2k-1)}\\
+        &=\frac{6k+5}{2k+1}
+          =\frac{6(k+1)-1}{2(k+1)-1}
       \end{align*}
-      したがって,$n=k+1$でも成立する.
-      以上より
-      \[
-        a_n=\frac{6n-1}{2n-1}
-      \]
-      が示された.\qed
+      分母$a_k-2=(2k+1)/(2k-1)$も零でなく,$n=k+1$で成立する.
+      帰納法より,$a_n=(6n-1)/(2n-1)$がすべての正の整数$n$で成り立つ.\qed
 
   \end{quote}

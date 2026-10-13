@@ -8,18 +8,17 @@
          0 & (\text{それ以外})
        \end{cases}
     \]
-    となる.商の整数部分が増える境界を検出しているのである.
-    同様に,\,$\lfloor\sqrt n\rfloor-\lfloor\sqrt{n-1}\rfloor$は$n$が平方数のときだけ1になる.
-    \textbf{式の形で条件を表し,条件に応じて変化する\bookterm{recurrence}{漸化式}を作れる}という使い方である.
+    となり,商が増える境界を検出する.
+    \,$\lfloor\sqrt n\rfloor-\lfloor\sqrt{n-1}\rfloor$なら平方数のときだけ1になる.
+    \textbf{条件を式で表し,\bookterm{recurrence}{漸化式}に組み込める.}
 
-    二つの数の和でも,整数の境界を越えたかを調べられる.
-    小数部分を$\{x\}=x-\lfloor x\rfloor$と書けば,
+    和の繰り上がりも検出できる.小数部分を$\{x\}=x-\lfloor x\rfloor$と書けば,
     \begin{align*}
       &\lfloor x+y\rfloor-\lfloor x\rfloor-\lfloor y\rfloor\\
       &\qquad=\lfloor\{x\}+\{y\}\rfloor\in\{0,1\}.
     \end{align*}
-    これは小数部分の和で繰り上がりが起きたときだけ1になる.
-    \bookterm{floor-function}{床関数}は一般には和に分配できないが,その差には意味がある.
+    は小数部分の和が1以上のときだけ1となる.
+    \bookterm{floor-function}{床関数}を和に分配したときのずれは,繰り上がりを表す.
 
     \noindent \bookblocklink{example-gauss-role-4}{problem}{answer}{【例題】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-4}{problem}{answer}]
@@ -66,6 +65,6 @@
                 \left\lfloor\frac{k-1}{6}\right\rfloor\right)
                 &=\left\lfloor\frac n6\right\rfloor.
             \end{align*}
-            両式の差から\bookterm{general}{一般項}を得る.\,$n=0$でも両辺は0である.
-            条件を一つずつ場合分けして値を追う方法と,差を足して一度に求める方法がある.
+            両式の差が【解答】となり,$n=0$にも合う.
+            条件ごとの計算を,差の和で一度に処理した.
     \end{enumerate}

@@ -6,18 +6,15 @@
     同じ更新をする多項式を引くと,付加項が消える.指数の付加項には,その指数で割る方法も使える.
   \end{bookpoint}
   \subsubsection{\texorpdfstring{多項式を引く \, $\displaystyle a_{n+1}=pa_n+f(n)$}{多項式を引く}}
-    \sectionref*{節：特性方程式型}では,同じ更新をする定数を引いた.
-    今回は付加項$f(n)$が$n$によって変わるため,引く量も$n$によって変えてみる.
-    \sectionref*{節：補助数列の設計}で述べた方針に従い,同じ更新をする既知の量を探そう.
-    本文では$f(n)$が多項式の場合を考える.$p=1$なら\bookterm{difference}{階差}型として和を求められるので,まず$p\ne1$とする.
+    \sectionref*{節：特性方程式型}で引いた定数を,$n$の式へ広げる.\sectionref*{節：補助数列の設計}と同じく,同じ更新をする量を探す.
+    $f(n)$を多項式とし,$p\ne1$を考えよう.$p=1$なら\bookterm{difference}{階差}型である.
 
     \bookstep{引く量を選ぶ}
     $b_n=a_n-g(n)$を等比型にするための条件は
     \[
       g(n+1)=pg(n)+f(n)
     \]
-    である.これは,\,$g(n)$自身にも同じ更新をさせるという条件である.
-    条件が満たされれば,
+    である.この条件なら,
     \[
       \begin{array}{rrl}
         &a_{n+1}={}&pa_n+f(n)\\
@@ -26,9 +23,8 @@
       \end{array}
     \]
     となり,付加項が消える.
-    \sectionref*{節：非同次と解の組合せ}で見た「一つの既知の解と\bookterm{homogeneous}{同次}の解に分ける」考え方が,
-    ここでは$a_n=g(n)+b_n$として現れている.
-    $g(n)$を見つける計算と,残る\bookterm{homogeneous}{同次}の解$b_n$を\bookterm{initial}{初期条件}から選ぶ計算を分けているのである.
+    $a_n=g(n)+b_n$は,\sectionref*{節：非同次と解の組合せ}の「既知の解と\bookterm{homogeneous}{同次}の解」の分解である.
+    $g(n)$を探し,$b_n$を\bookterm{initial}{初期条件}から決める.
 
     まず$a_{n+1}=2a_n+n-1$で試してみよう.
     付加項が一次式なので,引く量も$g(n)=un+v$と置く.
@@ -36,18 +32,16 @@
     \[
       un+u+v=(2u+1)n+2v-1
     \]
-    である.これがすべての$n\ge1$で成り立つように係数を合わせると,
+    となる.すべての$n\ge1$で成り立つよう係数を合わせると,
     \[
       u=2u+1,\qquad u+v=2v-1
     \]
-    となるので,\,$u=-1,\ v=0$,すなわち$g(n)=-n$である.
-    実際に$g(n+1)=-n-1=2(-n)+n-1$となり,同じ更新を満たす.
+    より$u=-1,\ v=0$,すなわち$g(n)=-n$を得る.
     従って
     \[
       a_{n+1}+(n+1)=2(a_n+n)
     \]
-    であり,$a_n+n$が2倍される量となる.
-    初項は$a_1+1$なので,
+    となる.初項$a_1+1$から,
     \[
       a_n=(a_1+1)2^{n-1}-n
     \]
@@ -74,20 +68,14 @@
     例えば$a_{n+1}=a_n+n$では,\,$g(n)=\frac{n(n-1)}2$が同じ更新を満たす.
 
   \subsubsection{\texorpdfstring{指数で割る  \, $\displaystyle a_{n+1}=pa_n+q^n$}{指数で割る}}
-    付加項が指数なら,その指数で割ると定数になる.
-    そこで,次の式を$q^n$で割ってみよう.
-    \begin{align*}
-      a_{n+1}=pa_n+q^n
-    \end{align*}
-    以下では$q\ne0$とする.\footnote{$q=0$なら$n\ge1$で$q^n=0$なので等比型になる.}
-    両辺を$q^n$で割って,
-    \begin{align*}
-      &\frac{a_{n+1}}{q^n}=\frac{p}{q}\cdot\frac{a_n}{q^{n-1}}+1\\
-    \end{align*}
-    ここで,\,$b_n=\frac{a_n}{q^{n-1}}$と置くと
-    \begin{align*}
-      &b_{n+1}=\frac{p}{q}b_n+1
-    \end{align*}
+    $a_{n+1}=pa_n+q^n$では,指数で割ると付加項が定数になる.$q\ne0$とする.\footnote{$q=0$なら$n\ge1$で$q^n=0$なので等比型になる.}
+    両辺を$q^n$で割り,$b_n=a_n/q^{n-1}$と置くと,
+    \[
+      \begin{aligned}
+        \frac{a_{n+1}}{q^n}&=\frac pq\frac{a_n}{q^{n-1}}+1,\\
+        b_{n+1}&=\frac pq b_n+1.
+      \end{aligned}
+    \]
     \booknavref{節：特性方程式型}{定数項を消す方法}へ戻った.
     ただし$p=q$のときは$b_{n+1}=b_n+1$(\bookterm{arithmetic}{等差数列})になり,\bookterm{fixed}{不動点}$\alpha$が存在しない.\footnote{\bookproblemref{example-characteristic-1}{3}{先ほどの例題(3)}と同じ状況である.}
     この場合は$b_n=b_1+(n-1)$として直接求まる.

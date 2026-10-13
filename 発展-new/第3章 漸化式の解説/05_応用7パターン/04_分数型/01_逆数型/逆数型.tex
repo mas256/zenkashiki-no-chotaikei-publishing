@@ -1,22 +1,14 @@
 % subsubsection: 逆数型  \, $\displaystyle a_{n+1}=\frac{pa_n}{qa_n+r}$
 
 \subsubsection{\texorpdfstring{逆数型  \, $\displaystyle a_{n+1}=\frac{pa_n}{qa_n+r}$}{逆数型}}\label{節：逆数型}
-    では逆数型の\bookterm{recurrence}{漸化式}について扱っていこう.
-    分子が$a_n$の定数倍であることに注目する.
+    分子が$a_n$の定数倍である\bookterm{recurrence}{漸化式}を考えよう.
     逆数を取れば,分母にあった一次式を$a_n$で割り,定数と$\frac1{a_n}$の和に分けられる.
     以下では,$p\ne0$かつ$a_n\ne0$であり,$qa_n+r\ne0$として議論する.\footnote{$a_1=0$は逆数を取る前に分ける.$r\ne0$ならすべての項が$0$となる.$r=0$なら最初の更新から分母が$0$となり,そのままでは定義できない.}
-    実際に見せよう.
+    両辺の逆数を取り,$b_n=1/a_n$と置くと,
     \begin{align*}
-      &a_{n+1}=\frac{pa_n}{qa_n+r}
-    \end{align*}
-      両辺の逆数を取って
-    \begin{align*}
-      &\frac{1}{a_{n+1}}=\frac{qa_n+r}{pa_n}\\
-      &\frac{1}{a_{n+1}}=\frac{q}{p}+\frac{r}{p}\cdot\frac{1}{a_n}
-    \end{align*}
-    $\displaystyle \frac{1}{a_n}=b_n$と置くと
-    \begin{align*}
-      &b_{n+1}=\frac{r}{p}b_n+\frac{q}{p}
+      \frac{1}{a_{n+1}}&=\frac{qa_n+r}{pa_n}
+        =\frac{q}{p}+\frac{r}{p}\cdot\frac{1}{a_n},\\
+      b_{n+1}&=\frac{r}{p}b_n+\frac{q}{p}
     \end{align*}
     ここから定数項を消す型または等差型として$b_n$を求め,最後に$a_n=1/b_n$へ戻す.
     ただし$b_n=0$となる項は逆数を戻せないため,元の漸化式が定義されるかも確認する.
@@ -42,35 +34,23 @@
     \noindent\bookblocklink{example-reciprocal-1}{solution}{problem}{【解法】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-reciprocal-1}{solution}{problem}]
       \item $\displaystyle a_1=1,\, a_{n+1}=\frac{a_n}{a_n+1}$\\
-            $a_1>0$であり,正の項から次の項も正になる.分母$a_n+1$も正なので,両辺の逆数を取って,
+            正の項と分母が続くので,逆数を取れる.$b_n=1/a_n$と置くと,
             \begin{align*}
-              &\frac{1}{a_{n+1}}=\frac{a_n+1}{a_n}=1+\frac{1}{a_n}
-            \end{align*}
-            $b_n=\dfrac{1}{a_n}$と置くと
-            \begin{align*}
-              &b_{n+1}=b_n+1,\quad b_1=\frac{1}{a_1}=1\\
-              &\therefore \quad b_n=1+(n-1)\cdot1=n\\
-              &\therefore \quad a_n=\frac{1}{b_n}=\frac{1}{n}
+              &\frac{1}{a_{n+1}}=1+\frac{1}{a_n},\\
+              &b_{n+1}=b_n+1,\quad b_1=1\\
+              &\therefore \quad b_n=n,\quad a_n=\frac1n
             \end{align*}
       \item $\displaystyle a_1=1,\, a_{n+1}=\frac{-a_n}{2a_n+1}$\\
             初めの更新は$1\longmapsto-1/3\longmapsto1$となる.
-            この二つの値では項も分母も零でないので,両辺の逆数を取って,
+            項も分母も零でないので,$b_n=1/a_n$と置くと,
             \begin{align*}
-              &\frac{1}{a_{n+1}}=\frac{2a_n+1}{-a_n}=-2-\frac{1}{a_n}
-            \end{align*}
-            $b_n=\dfrac{1}{a_n}$と置くと,
-            \begin{align*}
+              &\frac{1}{a_{n+1}}=-2-\frac{1}{a_n},\\
               &b_{n+1}=-b_n-2,\quad b_1=1
             \end{align*}
-            定数項を消すために,\bookterm{fixed}{不動点}$\alpha$を求めると,
-            \[
-              \alpha=-\alpha-2 \ \Leftrightarrow\ \alpha=-1
-            \]
-            なので,\,$c_n=b_n+1$と置くと,
+            \bookterm{fixed}{不動点}は$-1$なので,$c_n=b_n+1$と置き,定数項を消す.
             \begin{align*}
-              &c_{n+1}=-c_n,\quad c_1=b_1+1=2\\
-              &\therefore \quad c_n=2\cdot(-1)^{n-1}\\
-              &\therefore \quad b_n=c_n-1=2(-1)^{n-1}-1\\
-              &\therefore \quad a_n=\frac{1}{b_n}=\frac{1}{2(-1)^{n-1}-1}
+              &c_{n+1}=-c_n,\quad c_1=2\\
+              &\therefore \quad b_n=c_n-1=2(-1)^{n-1}-1,\\
+              &a_n=\frac{1}{2(-1)^{n-1}-1}
             \end{align*}
     \end{enumerate}

@@ -6,10 +6,8 @@
     \bookterm{logarithm}{対数}を取る発想は指数の扱いを簡単にするためである.実数の\bookterm{logarithm}{対数}を使う前に,項や底の条件を確認する.
   \end{bookpoint}
   \noindent\textbf{【観察と発想】}\par
-  $a_n$の2乗などを含む更新は,そのままでは$a_n$について一次の式ではない.
-  \sectionref*{節：指数対数}の公式$\log_t(x^q)=q\log_t x$を使えば,指数を係数として取り出せる.
-  積・商・累乗を和・差・定数倍へ変えることが,\bookterm{logarithm}{対数}を選ぶ手掛かりである.
-  以下では,先に正値を確認してから\bookterm{logarithm}{対数}を取る.
+  \sectionref*{節：指数対数}の公式$\log_t(x^q)=q\log_t x$で,指数を係数にできる.
+  積・商・累乗を和・差・定数倍へ変えるために,正値を確認して\bookterm{logarithm}{対数}を取ろう.
 
   \[
     a_{n+1}=pa_n^q
@@ -17,15 +15,13 @@
   ただし,$p>0,\,a_1>0$とする. このとき,すべての項が正となり,\bookterm{logarithm}{対数}を取ることができる.\footnote{$a_n>0$ならば$p a_n^q>0$であるから,\bookterm{induction}{数学的帰納法}によりすべての項が正となり,\bookterm{logarithm}{対数}を取ることができる.}
   まず,$p\ne1$の場合を考え,$p$を\bookterm{logarithm}{対数}の底に選ぶ.
   この式について,両辺の\bookterm{logarithm}{対数}を取ると
-  \begin{align*}
-    \log_p{a_{n+1}}&=\log_p{pa_n^q}\\
-    &=\log_p{p}+\log_p{a_n^q}\\
-    &=q\log_p{a_n}+1
-  \end{align*}
-  $b_n=\log_p{a_n}$とおくと,
-  \begin{align*}
-    b_{n+1}=qb_n+1
-  \end{align*}
+  \[
+    \begin{aligned}
+      \log_pa_{n+1}&=\log_pp+q\log_pa_n\\
+                  &=q\log_pa_n+1.
+    \end{aligned}
+  \]
+  $b_n=\log_pa_n$なら$b_{n+1}=qb_n+1$である.
   $q\ne1$ならば不動点を引いて定数項を消すことができる.
   $q=1$のときは$b_{n+1}=b_n+1$という等差型となり,$a_n=a_1p^{n-1}$を得る.
   また,$p=1$のときは$p$を\bookterm{logarithm}{対数}の底にできないが,底を$2$などに選べば
@@ -34,13 +30,8 @@
   \]
   となり,$q\ne0$ならば$a_n=a_1^{q^{n-1}}$を得る.
   $q=0$の場合は$a_1$を別に扱い,$n\ge2$では$a_n=1$である.
-  \bookterm{logarithm}{対数}の底は$0$より大きく$1$でない数なら自由に選べるが,$p$に関連する数だと扱いやすい.
-  たとえば$p=k^m$と整数$m$を用いて書ける時は,$k>0$, $k\ne1$を満たす$k$を底に選ぶとよい.
-  この選び方なら,$\log_kp=m$となり,更新式の定数を整数にできる.
-
-  また,\bookterm{logarithm}{対数}の強みは積を和に,商を差にできるところにある.
-  \bookterm{recurrence}{漸化式}が全て積や商のみで表される場合にその強みが現れる.
-  例題(2)では,逆数を取る更新が符号を反転する更新に変わる.
+  底は正で$1$以外なら自由である.整数$m$で$p=k^m$と書けるなら,$k$を底にすると$\log_kp=m$となり,定数を整数にできる.
+  例題(2)では商を差に変え,逆数の更新を符号反転として追う.
 
   \noindent\bookblocklink{example-logarithmic-1}{problem}{answer}{【例題】}\par\nobreak
   \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-logarithmic-1}{problem}{answer}]
@@ -54,11 +45,11 @@
 
   \noindent\bookblocklink{example-logarithmic-1}{hint}{problem}{【方針】}\par\nobreak
   \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-logarithmic-1}{hint}{problem}]
-    \item 両辺の底を$2$とする\bookterm{logarithm}{対数}を取り,\,$b_n=\log_2a_n$とおいて一次の\bookterm{recurrence}{漸化式}に変形します.その結果,$b_{n+1}=2b_n+1$となるので,定数項を消します.
-    \item 一見すると分数型(後述)のように見えますが,\bookterm{logarithm}{対数}型として解くことができます.
+    \item $b_n=\log_2a_n$で$b_{n+1}=2b_n+1$に変え,定数項を消します.
+    \item 逆数を\bookterm{logarithm}{対数}で符号反転に変えます.
     \item $f(n)=2^n$が指数関数なので,\bookterm{logarithm}{対数}を取ると和の形に帰着できます.
     \item \bookterm{square}{平方完成}で$a_{n+1}-1=(a_n-1)^2$を作ります.\bookterm{logarithm}{対数}を取る量は$a_n$ではなく$a_n-1$であり,その正値を先に確認します.
-    \item 両辺の底を$2$とする\bookterm{logarithm}{対数}を取り,$b_n=\log_2a_n$と置きます. $b_n$から一次式$n+1$を引くと等比型に帰着できます.
+    \item $b_n=\log_2a_n$から一次式$n+1$を引くと等比型になります.
     \item 積を直接まとめる方法と,\bookterm{logarithm}{対数}で和に変える方法を比べましょう.最後には同じ積$n!$を計算します.
   \end{enumerate}
 
@@ -74,128 +65,52 @@
 
   \noindent\bookblocklink{example-logarithmic-1}{solution}{problem}{【解法】}\par\nobreak
 
-  (1),(2),(3),(5),(6)では,初項が正であり,正の項から次の項も正となる.
-  従って\bookterm{induction}{数学的帰納法}により,$a_n>0$がすべての$n\ge1$で成り立つ.
-  (4)では$a_1-1=4>0$であり,$a_{n+1}-1=(a_n-1)^2$から同様に$a_n-1>0$が成り立つ.
-  以下では,これらの正の量に対して\bookterm{logarithm}{対数}を取る.
+  (1),(2),(3),(5),(6)は初項が正で,正の項から次も正になる.\bookterm{induction}{数学的帰納法}より全項が正である.
+  (4)は$a_1-1=4>0$と$a_{n+1}-1=(a_n-1)^2$から,$a_n-1>0$を保つ.この量に\bookterm{logarithm}{対数}を取る.
   \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-logarithmic-1}{solution}{problem}]
-    \item $\displaystyle a_1=2,\quad a_{n+1}=2a_n^2$\\
-          両辺の底を$2$とする\bookterm{logarithm}{対数}を取ると,
-          \begin{align*}
-            \log_2a_{n+1}
-              &=\log_2{2a_n^2}\\
-              &=\log_2{2}+\log_2{a_n^2}\\
-              &=2\log_2{a_n}+1
-          \end{align*}
-          ここで
+    \item $b_n=\log_2a_n$と置くと,
           \[
-            b_n=\log_2a_n
+            b_{n+1}=2b_n+1,\qquad b_1=1.
           \]
-          とおくと,
-          \begin{align*}
-            &b_{n+1}=2b_n+1\\
-            &b_{n+1}+1=2(b_n+1)
-          \end{align*}
-          ここで
+          $b_n+1$は初項$2$,公比$2$の等比型なので,
           \[
-            c_n=b_n+1
+            b_n+1=2^n,\qquad a_n=2^{b_n}=2^{2^n-1}.
           \]
-          とおくと,
+    \item $b_n=\log_2a_n$と置くと,逆数は
           \[
-            c_{n+1}=2c_n
+            b_{n+1}=-b_n,\qquad b_1=\log_2\frac12=-1
           \]
-          $c_1$は,
+          に変わる.従って$b_n=(-1)^n$であり,$a_n=2^{(-1)^n}$となる.
+    \item 自然\bookterm{logarithm}{対数}を取れば$\log a_{n+1}=\log a_n+n\log2$である.差を足すと,
           \[
-            c_1=b_1+1=\log_2{a_1}+1=\log_2{2}+1=1+1=2
+            \log a_n=\sum_{k=1}^{n-1}k\log2=\frac{n(n-1)}2\log2.
           \]
-          従って,
-          \begin{align*}
-            &c_n=2\cdot2^{n-1}=2^n\\
-            &b_n+1=2^n\\
-            &b_n=2^n-1\\
-            &a_n=2^{2^{n}-1}
-          \end{align*}
-    \item $\displaystyle a_1=\frac12,\quad a_{n+1}=\frac{1}{a_n}$\\
-          与式の両辺の底を2とする\bookterm{logarithm}{対数}を取ると,
-          \begin{align*}
-            &\log_2{a_{n+1}}=\log_2{\frac{1}{a_n}}\\
-            &\log_2{a_{n+1}}=\log_2{1}-\log_2{a_n}\\
-            &\log_2{a_{n+1}}=-\log_2{a_n}\\
-            &\log_2{a_n}=\log_2{a_1}(-1)^{n-1}\\
-            &\log_2{a_n}=\log_2{\frac{1}{2}}(-1)^{n-1}\\
-            &\log_2{a_n}=(-1)^{n}\\
-            &\therefore \quad a_n=2^{(-1)^{n}}
-          \end{align*}
-    \item $\displaystyle a_1=1,\quad a_{n+1}=2^na_n$\\
-          両辺の自然\bookterm{logarithm}{対数}を取ると
+          従って$a_n=2^{n(n-1)/2}$となる.
+    \item \bookterm{square}{平方完成}で$a_{n+1}-1=(a_n-1)^2$となる.\bookterm{logarithm}{対数}を取ると,
           \[
-            \log a_{n+1}=n\log2+\log a_n
+            \log_2(a_{n+1}-1)=2\log_2(a_n-1).
           \]
-          したがって
-          \begin{align*}
-            \log a_n&=\log a_1+\sum_{k=1}^{n-1} k\log2\\
-            &=\frac{(n-1)n}{2}\log2\\
-            &\therefore \quad a_n=2^{\frac{n(n-1)}{2}}
-          \end{align*}
-    \item $\displaystyle a_1=5,\quad a_{n+1}=a_n^2-2a_n+2$\\
-          与式を変形して
+          初項は$\log_2(a_1-1)=2$だから,$\log_2(a_n-1)=2^n$であり,$a_n=2^{2^n}+1$となる.
+    \item $b_n=\log_2a_n$と置くと,$b_{n+1}=2b_n-n,\ b_1=1$である.
+          一次式$n+1$を引けば,
           \[
-            a_{n+1}-1=(a_n-1)^2
+            b_{n+1}-(n+2)=2\{b_n-(n+1)\}.
           \]
-          両辺の底を2とする\bookterm{logarithm}{対数}を取ると,
-          \begin{align*}
-            &\log_2{(a_{n+1}-1)}=\log_2{(a_n-1)^2}\\
-            &\log_2{(a_{n+1}-1)}=2\log_2{(a_n-1)}\\
-            &\log_2{(a_n-1)}=2^{n-1}\cdot\log_2{(a_1-1)}\\
-            &\log_2{(a_n-1)}=2^{n-1}\cdot\log_2{4}\\
-            &\log_2{(a_n-1)}=2^{n}\\
-            &a_n-1=2^{2^{n}}\\
-            &\therefore \quad a_n=2^{2^{n}}+1
-          \end{align*}
-    \item $\displaystyle a_1=2,\quad a_{n+1}=\frac{a_n^2}{2^n}$\\
-          両辺の底を$2$とする\bookterm{logarithm}{対数}を取ると,
+          $c_n=b_n-(n+1)$は$c_{n+1}=2c_n,\ c_1=-1$を満たすので,
           \[
-            \log_2a_{n+1}=2\log_2a_n-n
+            c_n=-2^{n-1},\quad b_n=n+1-2^{n-1}.
           \]
-          $b_n=\log_2a_n$と置けば,
+          戻すと$a_n=2^{\,n+1-2^{n-1}}$となる.
+    \item 自然\bookterm{logarithm}{対数}を取れば$\log a_{n+1}=\log a_n+\log(n+1)$である.
           \[
-            b_{n+1}=2b_n-n,\qquad b_1=1
+            \log a_n=\log1+\log2+\cdots+\log n=\log n!.
           \]
-          となる. $b_n$から一次式$n+1$を引くことを考えると,
-          \[
-            b_{n+1}-(n+2)=2\{b_n-(n+1)\}
-          \]
-          であるから,$c_n=b_n-(n+1)$と置いて,
-          \[
-            c_{n+1}=2c_n,\qquad c_1=1-2=-1
-          \]
-          を得る. 従って,
-          \begin{align*}
-            c_n&=-2^{n-1}\\
-            b_n&=n+1-2^{n-1}\\
-            \therefore\quad a_n&=2^{\,n+1-2^{n-1}}
-          \end{align*}
-    \item $\displaystyle a_1=1,\quad a_{n+1}=(n+1)a_n$\\
-          両辺の自然\bookterm{logarithm}{対数}を取って,
-          \[
-            \log a_{n+1}=\log(n+1)+\log a_n
-          \]
-          したがって
-          \begin{align*}
-            \log a_n&=\log a_1 + \log{2}+\cdots+ \log{n}\\
-            &=\log 1 + \log{2}+\cdots +\log{n}\\
-            &=\log n!\\
-            &\therefore \quad a_n=n!
-          \end{align*}
+          従って$a_n=n!$となる.直接積を取っても同じ結果が得られる.
   \end{enumerate}
   \noindent\textbf{【補足】}
 
-  (3)では自然\bookterm{logarithm}{対数},すなわち底を$e$とする\bookterm{logarithm}{対数}を用いたが,
-  底は$0$より大きく$1$でない数なら任意である.
-  \bookterm{logarithm}{対数}を取る際は,変形後の真数も正であることを確認する必要がある.
-  真数が$0$や負になる場合は,そのまま実数の\bookterm{logarithm}{対数}を取ることはできない.
-  例えば(4)で初項が$1$ならば$a_n=1$という定数\bookterm{sequence}{数列}になるため,
-  $\log(a_n-1)$を取らずに別に扱う.
+  (3),(6)の$\log$は底が$e$の自然\bookterm{logarithm}{対数}である.
+  変形後の真数が$0$や負なら,実数の\bookterm{logarithm}{対数}は取れない.例えば(4)で初項が$1$なら定数\bookterm{sequence}{数列}$a_n=1$となり,$\log(a_n-1)$を取らずに扱う.
 
   \noindent\bookblocklink{check-log-domain}{problem}{answer}{【確認問題】}\par\nobreak
   \begin{enumerate}[format=\bookitemlink{check-log-domain}{problem}{answer}]

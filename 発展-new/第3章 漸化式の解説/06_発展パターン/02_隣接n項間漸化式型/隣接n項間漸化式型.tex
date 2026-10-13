@@ -1,17 +1,12 @@
 \subsection{隣接4項型}\label{節：隣接4項間漸化式型}
-隣接2項間や隣接3項間の\bookterm{recurrence}{漸化式}を今まで扱った.
-これをより広い範囲に適用してみよう.
-例えば
+更新に使う項を増やして,
 \[
   a_{n+3}+pa_{n+2}+qa_{n+1}+ra_n=0
 \]
 のような\bookterm{recurrence}{漸化式}を,$n\ge1$で考える.
-これは三階の\bookterm{homogeneous}{同次}\bookterm{linear}{線形}\bookterm{recurrence}{漸化式}なので,\sectionref*{節：一次独立・基底・次元}で述べたように,
-初めの三項を自由に選ぶ解全体は3\bookterm{dimension}{次元}である.
-ここでは一つの\bookterm{auxiliary}{補助数列}を先に求めることで,残りの計算を二階の式へ分ける.
-\sectionref*{節：補助数列の設計}で述べたように,先に単純な更新を決め,それをする量を探そう.
-3項をまとめた$d_n=a_{n+2}+\alpha a_{n+1}+\beta a_n$を作り,
-$d_{n+1}=\gamma d_n$となることを目指す.
+初めの三項を自由に選ぶ三階の\bookterm{homogeneous}{同次}\bookterm{linear}{線形}\bookterm{recurrence}{漸化式}なので,解全体は3\bookterm{dimension}{次元}である(\sectionref*{節：一次独立・基底・次元}).
+\sectionref*{節：補助数列の設計}と同じく,$d_{n+1}=\gamma d_n$を目標に,
+\bookterm{auxiliary}{補助数列}$d_n=a_{n+2}+\alpha a_{n+1}+\beta a_n$を作る.
 その条件は
 \BookMathLayout{\[
   a_{n+3}+\alpha a_{n+2}+\beta a_{n+1}=\gamma \left(a_{n+2}+\alpha a_{n+1}+\beta a_{n}\right)
@@ -38,16 +33,15 @@ a_{n+3}+\alpha a_{n+2}+\beta a_{n+1}\\
 \[
   \gamma^3+p\gamma^2+q\gamma+r=0
 \]
-を得る.この三次方程式の実数解を一つ選べば,$\alpha,\beta$も決まる.\footnote{三次方程式は少なくとも一つ実数解を持つが,計算しやすい値を見つけられるかは別の問題である.}
-以下の例題では因数分解や\bookterm{difference}{階差}の形を手掛かりに選ぶ.
-これで$d_n$の更新が等比型になった.
-初めの三項から$d_1=a_3+\alpha a_2+\beta a_1$が決まるので,
+を得る.実数解を一つ選べば,$\alpha,\beta$も決まる.\footnote{三次方程式は少なくとも一つ実数解を持つが,計算しやすい値を見つけられるかは別の問題である.}
+例題では因数分解や\bookterm{difference}{階差}を手掛かりに選ぶ.
+$d_1=a_3+\alpha a_2+\beta a_1$から$d_n$を求めると,
 \[
   a_{n+2}+\alpha a_{n+1}+\beta a_n=d_1\gamma^{\,n-1}
 \]
 という3項間\bookterm{recurrence}{漸化式}が得られる.\footnote{$\gamma=0$の場合は$d_1$を初項として,$n\ge2$では$d_n=0$と読む.
 また,\,\sectionref{節：等差二次特性方程式型}で扱ったのは右辺が定数$r$の場合であり,ここでは右辺が指数関数$d_1\gamma^{n-1}$になる点が異なる.}
-ここで求まったのは$d_n$であり,$a_n$へはもう一段戻る必要がある.
+$d_n$を求めた後,$a_n$へ戻す.
 \[
   \begin{array}{c|c}
     \text{求める量}&\text{使う初期値}\\ \hline
@@ -55,15 +49,12 @@ a_{n+3}+\alpha a_{n+2}+\beta a_{n+1}\\
     a_n&a_1,a_2
   \end{array}
 \]
-$d_1$には$a_3$の情報が入っているため,元の初期条件は失われていない.
-得られた3項間の式は,\sectionref{節：階差等比複合型}の考え方を応用して解くことができる.
-ここでさらに同じ更新をする既知の量を引くと,右辺の指数関数を消せる場合がある.
+$a_3$の情報は$d_1$に入っている.
+得られた式は\sectionref{節：階差等比複合型}の考え方で,右辺と同じ更新をする量を引いて解ける場合がある.
 例えば第1問では,$p=-3,q=3,r=-1$なので上の方程式は$(\gamma-1)^3=0$となり,
 $\gamma=1,\alpha=-2,\beta=1$を得る.
-\bookterm{auxiliary}{補助数列}が$d_n=a_{n+2}-2a_{n+1}+a_n$となる理由は,この係数の一致にある.
-元の式が\mbox{三\bookterm{difference}{階差}}の形であると気付けば,同じ量を\bookterm{difference}{階差}からも作れる.
-
-  次の\bookterm{sequence}{数列}の\bookterm{general}{一般項}を求めてみよう.
+こうして$d_n=a_{n+2}-2a_{n+1}+a_n$が決まる.
+元の式を\mbox{三\bookterm{difference}{階差}}と見ても,同じ量が得られる.
 
   \noindent \bookblocklink{example-four-term-1}{problem}{answer}{【例題】}\par\nobreak
   \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-four-term-1}{problem}{answer}]
@@ -91,23 +82,12 @@ $\gamma=1,\alpha=-2,\beta=1$を得る.
 
   \noindent\bookblocklink{example-four-term-1}{solution}{problem}{【解法】}\par\nobreak
   \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-four-term-1}{solution}{problem}]
-    \item \bookterm{recurrence}{漸化式}を移項すると,
-          \[
-            a_{n+3}-3a_{n+2}+3a_{n+1}-a_n=0
-          \]
-          である.ここで
-          \[
-            d_n=a_{n+2}-2a_{n+1}+a_n
-          \]
-          とおくと,
+    \item $d_n=a_{n+2}-2a_{n+1}+a_n$と置くと,
           \[
             d_{n+1}-d_n=a_{n+3}-3a_{n+2}+3a_{n+1}-a_n=0
           \]
-          より$d_n$は一定である.\bookterm{initial}{初期条件}から$d_1=4-2\cdot2+1=1$なので,
-          \[
-            a_{n+2}-2a_{n+1}+a_n=1
-          \]
-          となる.さらに$e_n=a_{n+1}-a_n$とおくと$e_{n+1}-e_n=1$であり,$e_1=1$だから$e_n=n$である.したがって,
+          より$d_n=d_1=1$である.
+          $e_n=a_{n+1}-a_n$と置けば,$e_{n+1}-e_n=1,e_1=1$より$e_n=n$.従って,
           \[
             a_n=a_1+\sum_{k=1}^{n-1}e_k
                 =1+\sum_{k=1}^{n-1}k

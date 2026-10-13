@@ -6,22 +6,20 @@
     a_{n+1}=pa_n+q
   \]
   では,定数$q$を取り除けば等比型になる.
-  \sectionref*{節：補助数列の設計}で述べた「同じ更新をする量を引く」方法を,定数に対して使う.
+  \sectionref*{節：補助数列の設計}の「同じ更新をする量を引く」方法を使おう.
   以下では$p\ne0,1$を考える.\footnote{ただし$p=1$なら等差型であり,\,$p=0$なら直接$n\ge2$で$a_n=q$と分かる.}
 
-  \bookterm{sequence}{数列}全体から同じ数$\alpha$を引き,
+  \bookterm{sequence}{数列}の各項から同じ数$\alpha$を引き,
   \[
     a_{n+1}-\alpha=p(a_n-\alpha)
   \]
-  となることを目指す.右辺を展開すると定数項は$-p\alpha$なので,必要な条件は次の式である.
+  としたい.定数項を合わせると,
   \[
     q-\alpha=-p\alpha
     \quad\Longleftrightarrow\quad
     \alpha=p\alpha+q
   \]
-  解は$\alpha=\frac{q}{1-p}$であり,これが引くべき値である.
-  また,\,$\alpha=p\alpha+q$は,その値から出発すると更新しても変わらないことを表す.
-  このような値を\bookterm{fixed}{不動点}という.
+  より$\alpha=q/(1-p)$を得る.更新しても変わらないこの値を\bookterm{fixed}{不動点}という.
 
   \bookstep{変形と復元}
   元の更新式から\bookterm{fixed}{不動点}の式を引くと,
@@ -32,20 +30,12 @@
        &a_{n+1}-\alpha={}&p(a_n-\alpha)
     \end{array}
   \]
-  となる.$b_n=a_n-\alpha$と置けば
+  となる.$b_n=a_n-\alpha$は公比$p$,初項$a_1-\alpha$の等比型である.
+  \bookterm{general}{一般項}を求め,$a_n=b_n+\alpha$へ戻すと,
   \[
-    b_{n+1}=pb_n,\qquad b_1=a_1-\alpha.
+    a_n=(a_1-\alpha)p^{n-1}+\alpha.
   \]
-  等比型の\bookterm{general}{一般項}から
-  \[
-    b_n=(a_1-\alpha)p^{n-1}
-  \]
-  となる.$a_n=b_n+\alpha$へ戻すと,
-  \[
-    a_n=(a_1-\alpha)p^{n-1}+\alpha
-  \]
-  を得る.同じ定数項を持つ二つの式を引き,ずれだけの更新に直したのである.
-  初項が\bookterm{fixed}{不動点}なら$b_1=0$となり,\,$a_n=\alpha$という定数解もこの式に含まれる.
+  初項が\bookterm{fixed}{不動点}なら,$a_n=\alpha$という定数解になる.
 
   \noindent\bookblocklink{check-fixed}{problem}{answer}{【確認問題】}\par\nobreak
   \begin{enumerate}[format=\bookitemlink{check-fixed}{problem}{answer}]
@@ -81,80 +71,29 @@
 
 \noindent\bookblocklink{example-characteristic-1}{solution}{problem}{【解法】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-characteristic-1}{solution}{problem}]
-  \item $\displaystyle a_1=1,\,a_{n+1}=2a_n+1$\\
-        \bookterm{fixed}{不動点}の方程式を解くと,
+  \item $\alpha=2\alpha+1$より\bookterm{fixed}{不動点}は$-1$である.$b_n=a_n+1$と置くと,
         \[
-          \alpha=2\alpha+1
-          \quad\Longleftrightarrow\quad
-          \alpha=-1
+          \begin{aligned}
+            b_{n+1}&=2(a_n+1)=2b_n,\\
+            b_1&=2.
+          \end{aligned}
         \]
-        である.
-
-        $-1$を引くので,$b_n=a_n-(-1)=a_n+1$とおくと,
-        \begin{align*}
-          b_{n+1}
-            &=a_{n+1}+1\\
-            &=2a_n+2\\
-            &=2(a_n+1)\\
-            &=2b_n
-        \end{align*}
-        また,\,$b_1=a_1+1=2$であるから,
+        従って$b_n=2^n$であり,$a_n=b_n-1=2^n-1$となる.
+  \item $\alpha=\frac12\alpha+2$より\bookterm{fixed}{不動点}は$4$である.$b_n=a_n-4$と置くと,
         \[
-          b_n=2^n
+          \begin{aligned}
+            b_{n+1}&=\frac12(a_n-4)=\frac12b_n,\\
+            b_1&=-3.
+          \end{aligned}
         \]
-        よって,
-        \[
-          a_n=b_n-1=2^n-1
-        \]
-
-  \item $\displaystyle a_1=1,\,a_{n+1}=\frac12a_n+2$\\
-          \bookterm{fixed}{不動点}の方程式を解くと,
-          \[
-            \alpha=\frac12\alpha+2
-            \quad\Longleftrightarrow\quad
-            \alpha=4
-          \]
-          である.
-
-          $b_n=a_n-\alpha=a_n-4$とおくと,
-          \begin{align*}
-            b_{n+1}
-              &=a_{n+1}-4\\
-              &=\frac12a_n+2-4\\
-              &=\frac12(a_n-4)\\
-              &=\frac12b_n
-          \end{align*}
-          また,\,$b_1=a_1-4=-3$であるから,
-          \[
-            b_n=-3\left(\frac12\right)^{n-1}
-          \]
-          よって,
-          \[
-            a_n=b_n+4
-            =4-3\left(\frac12\right)^{n-1}
-          \]
-   \item $\displaystyle a_1=1,\, a_{n+1}=a_n+2$\\
-         $\alpha=\alpha+2$を満たす値は存在しない.従って,定数を引いて等比型にする方法は使えない.
-         この更新は\bookterm{fixed}{不動点}を持たず,一歩ごとに$2$だけ進む.
-         等差型として,$a_n=a_1+2(n-1)=1+2(n-1)$となる.
+        従って$b_n=-3(\frac12)^{n-1}$であり,$a_n=4-3(\frac12)^{n-1}$となる.
+  \item $\alpha=\alpha+2$を満たす値はなく,定数を引く方法は使えない.
+        等差型として$a_n=1+2(n-1)$を得る.
 \end{enumerate}
 
 \bookstep{グラフと不動点}\label{解釈：不動点と差分}
-  もう少し数学の世界に深入りしていこう.
-  \,$\alpha$を求めるというのはどういった意味合いを持つだろうか.
-  \bookterm{recurrence}{漸化式}を
-  \[
-    a_{n+1}=f(a_n)
-  \]
-  と考え,
-  \[
-    y=f(x)=px+q
-  \]
-  について,\,$y=x$との交点,すなわち
-  \[
-    f(\alpha)=\alpha
-  \]
-  を満たすような点を考える.図示すると,次のような状況である.
+  \bookterm{recurrence}{漸化式}を$a_{n+1}=f(a_n)$と見ると,\bookterm{fixed}{不動点}は$f(\alpha)=\alpha$を満たす.
+  つまり,$y=f(x)=px+q$と$y=x$の交点である.
 
   \begin{tikzpicture}[scale=0.8]
     \draw[->,>=stealth,semithick] (-1.5,0)--(5.5,0)node[above]{$x$};
@@ -186,13 +125,8 @@
   $X=x-\alpha,\ Y=y-\alpha$と置くと,$\alpha=p\alpha+q$より二つの直線は$Y=pX$と$Y=X$になる.
   $x$座標と$y$座標の両方から$\alpha$を引くことが,等比型への変形に対応している.
 
-  不動点からの差だけを追えば,一歩ごとに$p$倍される.
-  \[
-    a_n-\alpha=(a_1-\alpha)p^{n-1}
-  \]
-  初項が$\alpha$なら,ずれは常に$0$であり,$a_n=\alpha$のままである.
-  初項が$\alpha$と異なるときは,$|p|>1$ならずれの絶対値が増大し,$|p|<1$なら$0$へ近づく.
-  後者では$a_n$は$\alpha=\frac{q}{1-p}$へ収束する.例題(2)が$4$へ近づくのはこのためである.\footnote{$p<0$ではずれの符号が交互に変わる.$p=-1$では,$a_1\ne\alpha$なら二つの値を往復する.$p=1$の等差型と$p=0$の場合は節の冒頭で分けた.}
+  不動点からのずれは$p$倍される.初項が$\alpha$なら定数解,異なるなら$|p|>1$でずれが増大し,$|p|<1$で$0$へ近づく.
+  後者では$a_n\to\alpha$となる.例題(2)が$4$へ近づくのはこのためである.\footnote{$p<0$ではずれの符号が交互に変わる.$p=-1$では,$a_1\ne\alpha$なら二つの値を往復する.$p=1$の等差型と$p=0$の場合は節の冒頭で分けた.}
 
 \bookstep{階差を取って定数項を消す}
   同じ$q$を消すには,隣り合う二つの更新式を引く方法もある.
@@ -208,25 +142,22 @@
   \[
     d_{n+1}=pd_n,\qquad d_1=(p-1)a_1+q
   \]
-  となる.等比型になったのは\textbf{階差}であり,元の$a_n$ではない.
-  $d_n=d_1p^{n-1}$を求めたら,\sectionref*{節：階差型}と同じように足し戻す.
+  となる.等比型になった\textbf{階差}$d_n=d_1p^{n-1}$を,\sectionref*{節：階差型}と同じように足し戻す.
   \begin{align*}
     a_n&=a_1+\sum_{k=1}^{n-1}d_k\\
        &=a_1+d_1\frac{p^{n-1}-1}{p-1}\\
        &=\alpha+(a_1-\alpha)p^{n-1}
   \end{align*}
-  最後に$d_1=(p-1)(a_1-\alpha)$を用いた.不動点を引いた方法と同じ一般項が得られる.
+  $d_1=(p-1)(a_1-\alpha)$より,不動点を引く方法と一致する.
   $p=1$の場合も階差は一定なので,$a_n=a_1+(n-1)q$と足し戻せる.
 
-  図形的には,二つの直線$y=px$と$y=px+q$では,同じ$x$に対する$y$座標の差が$q$である.
-  これは定数項を加える操作の図であり,更新式どうしの引き算は,同じ関数の異なる入力での値を比べている.
-  実際,$f(x)=px+q$では,
+  二つの直線$y=px$と$y=px+q$の差は$q$である.一方,更新式どうしの引き算では異なる入力を比べる.
+  $f(x)=px+q$なら,
   \[
     f(x)-f(y)=(px+q)-(py+q)=p(x-y)
   \]
-  となる.$x=a_{n+1},\ y=a_n$を入れたものが,
-  \bookeqref{affine-difference-2}{(2)}から\bookeqref{affine-difference-1}{(1)}を引いた式である.\footnote{添字を一つずらして引く操作は,付録\sectionref{節：差分から始まる離散的な微積分}で扱う\bookterm{difference-operator}{差分}の考え方につながる.}
-  共通に加わった$q$は,入力の差によらず消える.二つの直線を描くと,次のようになる.
+  となる.$x=a_{n+1},\ y=a_n$としたものが\bookeqref{affine-difference-2}{(2)}から\bookeqref{affine-difference-1}{(1)}を引いた式である.\footnote{添字を一つずらして引く操作は,付録\sectionref{節：差分から始まる離散的な微積分}で扱う\bookterm{difference-operator}{差分}の考え方につながる.}
+  共通の$q$が消えた.二つの直線も確認しよう.
 
   \begin{tikzpicture}[scale=0.8]
     \draw[->,>=stealth,semithick] (-1.5,0)--(5.5,0)node[above]{$x$};
@@ -247,10 +178,6 @@
     \BookFigureCaption{定数項の違いを表す平行な直線}
   \end{center}
 
-  常に関数の差が$q$と一定になっていることが図からわかる.
-
-  不動点からのずれと,隣り合う項の差は,同じ定数項を消す二つの見方である.
-  この先では,引く量が定数から一次式などへ広がる.
-  また,隣接する項をまとめる際には,残したい倍率を求める\mbox{\bookterm{characteristic}{特性方程式}}が現れる.
-  ここで求めたのは変わらない値$\alpha$であり,後に求めるのは更新の倍率である.
-  こうした操作のつながりを,付録の\bookterm{matrix}{行列}でも見直していく.
+  不動点からのずれと隣り合う項の差は,同じ定数項を消す二つの見方である.
+  この先では引く量が一次式などへ広がり,二項をまとめる際には倍率を求める\mbox{\bookterm{characteristic}{特性方程式}}が現れる.
+  今の$\alpha$は変わらない値,後の根は更新の倍率である.付録の\bookterm{matrix}{行列}でもつながりを見直す.

@@ -1,22 +1,18 @@
 % section: 数学的帰納法
 
-  \section{数学的帰納法}\label{節：数学的帰納法}
-  \noindent\textbf{【本編とのつながり】}\par
-  数項からの予想をすべての項の証明へ進める方法を学ぶ.\sectionref*{節：漸化式を解く前に}の検算や,\sectionref*{節：虚数解型隣接3項間漸化式}の\bookterm{general}{一般項}の確認で使う.
+\section{数学的帰納法}\label{節：数学的帰納法}
+  数項からの予想を,すべての項の証明へ進める方法である.
+  自然数$n$の主張$P(n)$について,次の二つを示す.
+  \begin{enumerate}[label=(\roman*),parsep=3pt]
+    \item $P(1)$が成り立つ.
+    \item 任意の$n\ge1$について,$P(n)$が成り立つなら$P(n+1)$も成り立つ.
+  \end{enumerate}
+  (i)から出発し,(ii)を繰り返すと,$P(1)\Rightarrow P(2)\Rightarrow P(3)\Rightarrow\cdots$となる.
+  ドミノ倒しなら,(i)は最初の一枚を倒すこと,(ii)はどの一枚からも次へ伝わる並べ方に当たる.
 
-    ここまでは計算に用いる公式や式変形を扱った. ここでは,自然数に関する主張を証明する方法を説明する.
-    自然数$n$についての主張$P(n)$が,すべての$n\ge1$で成り立つことを示したいとする.
-    このとき,以下の2つを示せばよい.
-    \begin{enumerate}[label=(\roman*),parsep=3pt]
-      \item $P(1)$が成り立つ.
-      \item $n\ge1$を任意にとり,\,$P(n)$が成り立つと仮定すると,\,$P(n+1)$も成り立つ.
-    \end{enumerate}
-    この2つが示されれば,\,(i)より$P(1)$が成り立ち,\,(ii)より$P(1)\Rightarrow P(2)$,\,$P(2)\Rightarrow P(3)$,\,$\ldots$と次々に成り立つことが分かるので,すべての$n\ge1$について$P(n)$が成り立つ.
-    ドミノ倒しに例えられることが多い.\,(i)は最初のドミノを倒すこと,\,(ii)は「どのドミノについても,それが倒れれば次のドミノも倒れる」ように並べることに対応する.
+  \sectionref*{節：追う量を変える}で確かめた$a_n=2n-1$では,初項の一致が(i),
+  $a_k=2k-1$から更新式で$a_{k+1}=2(k+1)-1$を得た計算が(ii)である.
+  すべての$n$で正しいと仮定するのではなく,\textbf{ある番号で正しければ次でも正しい}ことを示す.
 
-    \sectionref*{節：追う量を変える}の「発見と証明」で確かめた$a_n=2n-1$は,この二段階の具体例である.
-    初項の一致が(i),$a_k=2k-1$を仮定して更新式から$a_{k+1}=2(k+1)-1$を得た計算が(ii)に当たる.
-    すべての$n$で正しいと先に仮定するのではなく,\textbf{ある番号で正しければ次でも正しい}ことを示している.
-
-    \sectionref*{節：極形式と複素平面}では,この方法を用いて\bookterm{de-moivre}{ド・モアブルの定理}を証明する.
-    また,\,\chapterref{章：漸化式の解説}では,\bookterm{recurrence}{漸化式}から予想した\bookterm{general}{一般項}の形を確かめる場面や,\bookterm{trigonometric}{三角関数}の\bookterm{addition}{加法定理}から\bookterm{recurrence}{漸化式}を導く場面(\sectionref{節：漸化式を解く前に}や\sectionref{節：虚数解型隣接3項間漸化式}など)で\bookterm{induction}{数学的帰納法}を用いる.
+  \sectionref*{節：極形式と複素平面}の\bookterm{de-moivre}{ド・モアブルの定理}や,
+  \sectionref*{節：虚数解型隣接3項間漸化式}の\bookterm{general}{一般項}もこの方法で確かめる.

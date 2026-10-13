@@ -1,28 +1,18 @@
 \subsection{対称式を使う}\label{節：基本対称式型}
-導入に続いて,先程の\bookterm{recurrence}{漸化式}を考えていこう.
+先ほどの\bookterm{recurrence}{漸化式}を考える.
 \[
   a_1=3, \quad a_{n+1}=a_n^2-2
 \]
-この\bookterm{recurrence}{漸化式}を解くに当たって邪魔をしているのは$-2$の項である.
-これをうまく消せるような操作を考えたい.
-2乗を展開したときに,この$-2$を打ち消す$2$が生まれればよい.
-そこで,
+邪魔な$-2$を消すには,二乗の展開から$2$を生み出したい.そこで,
 \[
   (a+b)^2=a^2+2ab+b^2
 \]
-の$2ab$に注目する.$ab=1$とするには,$\alpha\ne0$として,$a=\alpha$, $b=1/\alpha$と選べばよい.
-すると,
+の$2ab$に注目し,$a=\alpha,b=1/\alpha\ (\alpha\ne0)$と選ぶ.
 \[
   \left(\alpha+\frac{1}{\alpha}\right)^2=\alpha^2+2+\frac{1}{\alpha^2}
 \]
-という式が思い当たる.
-実際,ここに$-2$をすると
-\[
-  \alpha^2+\frac{1}{\alpha^2}
-\]
-が残る.\textbf{二乗して2を引くと,二つのべきの指数がともに2倍になる}のである.
-$1,2,4,\ldots$と指数を進めれば,第$n$項の指数は$2^{n-1}$になる.
-あとは初項に合う$\alpha$を選べばよい.この実験を元に解答に移る.
+から,\textbf{二乗して2を引くと,二つのべきの指数が2倍になる}.
+第$n$項の指数は$2^{n-1}$.あとは初項に合う$\alpha$を選ぶ.
 
 \noindent \bookblocklink{example-symmetric-1}{problem}{answer}{【問題】}\par\nobreak
 \begin{smallquote}
@@ -40,22 +30,16 @@ $1,2,4,\ldots$と指数を進めれば,第$n$項の指数は$2^{n-1}$になる.
     で表される\bookterm{sequence}{数列}$b_n$を考える.
     \begin{align*}
       b_{n+1}&=\alpha^{2^{n}}+\alpha^{-2^{n}}\\
-      &=\left(\alpha^{2^{n-1}}\right)^2+\left(\alpha^{-2^{n-1}}\right)^2\\
       &=\left(\alpha^{2^{n-1}}+\alpha^{-2^{n-1}}\right)^2-2\\
       &=b_n^2-2
     \end{align*}
-    これは与式の\bookterm{recurrence}{漸化式}と一致する.また,
-    \[
-      b_1=a_1=\alpha+\alpha^{-1}
-    \]
-    となる$\alpha$を考えると,
+    と更新が一致する.初項を合わせると,
     \begin{align*}
       &\alpha+\alpha^{-1}=3\\
       &\alpha^2-3\alpha+1=0\\
       &\therefore \quad \alpha=\frac{3\pm \sqrt{5}}{2}
     \end{align*}
-    得られた$\alpha$の2解は逆数の関係にある.
-    同じ初項から同じ更新を繰り返すので,$a_n=b_n$である.以上より,
+    二つの根は互いに逆数で,同じ$b_n$を与える.初項と更新の一致から,
     \[
       a_n=\left(\frac{3+ \sqrt{5}}{2}\right)^{2^{n-1}}+\left(\frac{3- \sqrt{5}}{2}\right)^{2^{n-1}}
     \]
@@ -65,20 +49,14 @@ $1,2,4,\ldots$と指数を進めれば,第$n$項の指数は$2^{n-1}$になる.
 \[
   a_{n+1}=a_n^2-1
 \]
-同じ置換を試すと,
+同じ置換では,
 \begin{align*}
   a_n^2-1
     &=\left(u+u^{-1}\right)^2-1\\
     &=u^2+u^{-2}+1,
 \end{align*}
-となる.しかし,次の項として欲しい形は $u^2+u^{-2}$ である.
-余分な $1$ が残るため,同じ対称式の族の中に戻ってこない.
-
-\bookterm{recurrence}{漸化式}の $-2$ と $-1$ は,見た目には小さな違いである.
-しかし,対称式を保つ恒等式にとっては,その違いが決定的になる.
-「ほとんど同じ式だから,ほとんど同じ方法で解ける」とは限らない.
-解法が成立するかどうかは,係数の大きさではなく,恒等式が完全に一致
-するかどうかで決まる.
+と余分な1が残り,同じ対称式の族へ戻らない.
+係数が近いだけでは同じ方法を使えず,恒等式との一致が必要なのである.
 
 同じ考え方は,三次式にも現れる.
 \[
@@ -86,25 +64,16 @@ $1,2,4,\ldots$と指数を進めれば,第$n$項の指数は$2^{n-1}$になる.
   -3\left(\alpha+\frac{1}{\alpha}\right)
   =\alpha^3+\frac{1}{\alpha^3}
 \]
-このように,対称な組み合わせを選ぶと,べき乗の複雑な展開が
-再び同じ種類の式へ戻る.ただし,係数がずれると,この組み合わせでは
-余分な項を消せない.これが基本対称式型の面白さである.
+対称な組み合わせを保ったまま,指数を3倍できる.
 
 和を取るか差を取るかで,打ち消せる項の符号も変わる.
-差の三乗を展開すると,
-\[
-  \left(\alpha-\frac{1}{\alpha}\right)^3
-  =\alpha^3-\frac{1}{\alpha^3}
-   -3\left(\alpha-\frac{1}{\alpha}\right)
-\]
-だから,
+差の三乗を展開すれば,
 \[
   \left(\alpha-\frac{1}{\alpha}\right)^3
   +3\left(\alpha-\frac{1}{\alpha}\right)
   =\alpha^3-\frac{1}{\alpha^3}
 \]
-となる.今度は指数が3倍になるので,$3^{n-1}$を使った候補を作れる.
-この恒等式を使う\bookterm{recurrence}{漸化式}を例題としよう.
+となる.指数$3^{n-1}$の候補を例題で確かめよう.
 
 \noindent\bookblocklink{example-symmetric-2}{problem}{answer}{【問題】}\par\nobreak
 \begin{smallquote}
@@ -119,23 +88,16 @@ $1,2,4,\ldots$と指数を進めれば,第$n$項の指数は$2^{n-1}$になる.
     で表される\bookterm{sequence}{数列}$b_n$を考える.
     \begin{align*}
       b_{n+1}&=\alpha^{3^{n}}-\alpha^{-3^{n}}\\
-      &=\left(\alpha^{3^{n-1}}\right)^3-\left(\alpha^{-3^{n-1}}\right)^3\\
-      &=\left(\alpha^{3^{n-1}}-\alpha^{-3^{n-1}}\right)^3\\
-      &\qquad +3\left(\alpha^{3^{n-1}}-\alpha^{-3^{n-1}}\right)\\
       &=b_n^3+3b_n
     \end{align*}
-    これは与式の\bookterm{recurrence}{漸化式}と一致する.また,
-    \[
-      b_1=a_1=\alpha-\alpha^{-1}=\frac{8}{3}
-    \]
-    となる$\alpha$を考えると,
+    と更新が一致する.初項を合わせると,
     \begin{align*}
       &\alpha-\alpha^{-1}=\frac{8}{3}\\
       &3\alpha^2-8\alpha-3=0\\
       &\therefore \quad \alpha=3,\,-\frac13
     \end{align*}
     $3^{n-1}$は奇数なので,どちらを選んでも$b_n$は同じ値になる.
-    初項と更新が一致することから$a_n=b_n$であり,\,$\alpha=3$とすると,
+    初項と更新の一致から,$\alpha=3$を選べば,
     \[
       a_n=3^{3^{n-1}}-3^{-3^{n-1}}
     \]

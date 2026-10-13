@@ -2,13 +2,10 @@
 % 主分類・出題意図・別解の対応は docs/chapter4-standard-design-2026-10-04.md。
 
     \subsection{標準}\label{節：標準難易度}\label{節：基本と応用から出題されるもの}
-      ここでは,\chapterref{章：漸化式の解説}の四つの基本型と七つの応用型から,それぞれ5題ずつ,計55題を出題する.
-      同じ解法で解ける問題も,式の並び方や係数が変わると違って見える.
-      まず移項や約分によって式を整理し,どの数量の差や比に注目すればよいかを考えよう.
-      問題は型ごとにまとめずに並べてあるので,式の構造を見て解法を選んでほしい.
-      方針と解説は問題と同じ問番号に対応する.
-      別解のある問題では,同じ答えになることを確かめた後,手掛かり・計算量・条件を比較しよう.
-      特に\bookterm{ratio}{階比}型と\bookterm{logarithm}{対数}型には共通して使える見方がある.
+      \chapterref{章：漸化式の解説}の基本4型・応用7型から,各5題,計55題を出題する.
+                移項や約分で整理し,差や比を取る量を選ぼう.
+                別解では手掛かり・計算量・条件を比較できる.
+                特に\bookterm{ratio}{階比}型と\bookterm{logarithm}{対数}型には共通する見方がある.
       以下,\,$n$は正の整数とし,必要なときは
       \[
         S_n=\sum_{k=1}^{n}a_k
@@ -606,1784 +603,820 @@ b_n&=\frac{2^{n-1}-(-1)^{n-1}}3
       \subsubsection{解説}\label{節：標準難易度：解法}\label{節：基本と応用から出題されるもの：解法}
         \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-basic}{solution}{problem}]
           % Q1
-          \item $a_1>0$であり,\,$a_n>0$なら
-                \[
-                  a_{n+1}=\frac{3a_n}{2a_n+3}>0
-                \]
-                である.したがって,すべての項は正で,分母$2a_n+3$も$0$ではない.
-                両辺の逆数を取ると,
-                \[
-                  \frac1{a_{n+1}}=\frac{2a_n+3}{3a_n}
-                  =\frac1{a_n}+\frac23.
-                \]
-                $\displaystyle b_n=\frac{1}{a_n}$と置けば,初項$\displaystyle \frac{1}{3}$,公差$\displaystyle \frac{2}{3}$の\bookterm{arithmetic}{等差数列}になる.よって,
-                \[
-                  b_n=\frac13+\frac23(n-1)=\frac{2n-1}{3},
-                  \qquad
-                  a_n=\frac3{2n-1}.
-                \]
-                求めた式もすべての正整数$n$で正であり,逆数を戻す際の分母も$0$にならない.
+          \item $a_1>0$であり,$a_n>0$なら$a_{n+1}=3a_n/(2a_n+3)>0$である.
+                  全項が正なので逆数を取れる.$b_n=1/a_n$とおくと,
+                  \[
+                    b_{n+1}=b_n+\frac23,\qquad b_1=\frac13.
+                  \]
+                  よって$b_n=(2n-1)/3$, $a_n=3/(2n-1)$となる.復元の分母も正である.
+                  \par\smallskip\noindent\textbf{【別解】}\par
+                  最初の三項$3/1,3/3,3/5$から同じ式を予想する.
+                  初項と一致し,$a_k=3/(2k-1)$を更新式へ入れると$a_{k+1}=3/(2k+1)$となるので,
+                  \bookterm{induction}{数学的帰納法}で確かめられる.
 
-                \noindent \textbf{【別解】}\\
-                最初の数項は
-                \[
-                  a_1=\frac31,\quad a_2=\frac33,\quad a_3=\frac35
-                \]
-                なので,\,$\displaystyle a_n=\frac{3}{2n-1}$と予想できる.
-                この式は$n=1$で成り立つ.\,$\displaystyle a_k=\frac{3}{2k-1}$と仮定すると,
-                \[
-                  a_{k+1}
-                  =\frac{3\cdot\frac3{2k-1}}{2\cdot\frac3{2k-1}+3}
-                  =\frac3{2k+1}
-                  =\frac3{2(k+1)-1}.
-                \]
-                したがって,\bookterm{induction}{数学的帰納法}によって\bookterm{general}{一般項}が確かめられる.
           % S1
-          \item 与えられた関係は$S_n=2a_n-n^2$である.
-                                $n=1$を代入すると$a_1=2a_1-1$であるから,\,$a_1=1$である.
-                                総和を消すため,隣り合う式の差を取ると,
-                            \begin{align*}
-                              a_{n+1}
-                                &=S_{n+1}-S_n\\
-                                &=2a_{n+1}-(n+1)^2\\
-                                &\quad{}-2a_n+n^2
-                            \end{align*}
-                                より,
-                            \[
-                              a_{n+1}=2a_n+2n+1.
-                            \]
-                                右辺に$n$があるので,定数を足すだけでは\bookterm{geometric}{等比数列}にならない.
-                                一次式を加えて$b_n=a_n+un+v$とすると,
-                            \[
-                              b_{n+1}-2b_n=(2-u)n+1+u-v.
-                            \]
-                                これをすべての$n$で$0$にするには,$u=2,v=3$とすればよい.
-                                こうして$b_n=a_n+2n+3$を選ぶと,
-                            \begin{align*}
-                              b_{n+1}
-                                &=2a_n+2n+1+2(n+1)+3\\
-                                &=2(a_n+2n+3)=2b_n.
-                            \end{align*}
-                                $b_1=1+2+3=6$より$b_n=6\cdot2^{n-1}$である.
-                                したがって,
-                            \[
-                              a_n=6\cdot2^{n-1}-2n-3.
-                            \]
+          \item $n=1$から$a_1=1$となる.総和を消すため隣り合う式を引くと,
+                  \[
+                    a_{n+1}=2a_{n+1}-(n+1)^2-2a_n+n^2
+                  \]
+                  より$a_{n+1}=2a_n+2n+1$である.
+                  $n$の項を消すため$b_n=a_n+un+v$とおけば,
+                  \[
+                    b_{n+1}-2b_n=(2-u)n+1+u-v.
+                  \]
+                  $u=2,v=3$を選ぶと$b_{n+1}=2b_n$, $b_1=6$となる.
+                  よって$b_n=6\cdot2^{n-1}$から$a_n=6\cdot2^{n-1}-2n-3$を得る.
+
           % R1
-          \item 係数$n+1$は階乗に含まれるので,\bookterm{recurrence}{漸化式}の両辺を$(n+1)!$で割ると,
-                \[
-                  \frac{a_{n+1}}{(n+1)!}=2\frac{a_n}{n!}
-                \]
-                となる.そこで
-                \[
-                  b_n=\frac{a_n}{n!}
-                \]
-                と置くと,\,$b_{n+1}=2b_n$,\, $b_1=3$である.
-                よって,\,$b_n=3\cdot2^{n-1}$であり,
-                \[
-                  a_n=3\cdot2^{n-1}n!
-                \]
-                を得る.分母を$(n-1)!$にするのではなく,係数$n+1$と添字が合う$n!$を選ぶことがポイントである.
+          \item $(n+1)!=(n+1)n!$に合わせて$b_n=a_n/n!$とおくと,
+                  \[
+                    b_{n+1}=2b_n,\quad b_1=3,\quad b_n=3\cdot2^{n-1}.
+                  \]
+                  したがって$a_n=3\cdot2^{n-1}n!$である.
+                  係数$n+1$を吸収するには,$(n-1)!$ではなく$n!$を選ぶ.
+                  \par\smallskip\noindent\textbf{【別解】}\par
+                  倍率を順に掛けても,
+                  \[
+                    a_n=3\prod_{k=1}^{n-1}2(k+1)=3\cdot2^{n-1}n!
+                  \]
+                  となる.$2$は$n-1$個あり,$n=1$の空積は$1$とする.
 
-                \noindent \textbf{【別解】}\\
-                倍率を初項から順に掛けると,
-\BookMathLayout{\[
-                  a_n
-                    =3\prod_{k=1}^{n-1}2(k+1)
-                    =3\cdot2^{n-1}(2\cdot3\cdots n)
-                    =3\cdot2^{n-1}n!
-                \]}{
-\[
-\begin{aligned}
-a_n&=3\prod_{k=1}^{n-1}2(k+1)\\
-&=3\cdot2^{n-1}(2\cdot3\cdots n)\\
-&=3\cdot2^{n-1}n!
-\end{aligned}
-\]
-}
-                である.この積には$2$が$n-1$個含まれる.
-                $n=1$では空積を$1$とするので,同じ式が成り立つ.
           % M1
-          \item 定数を引くだけでは$n-1$を消せないので,同じ\bookterm{recurrence}{漸化式}を満たす一次式$g(n)=un+v$を探す.
-                必要な条件は,
-                \[
-                  g(n+1)=2g(n)+n-1
-                \]
-                である.これに$g(n)=un+v$を代入して係数を比べると,
-                \[
-                  u=2u+1,\qquad u+v=2v-1
-                \]
-                なので,\,$u=-1,v=0$を得る.つまり$g(n)=-n$である.
-                \,$b_n=a_n-g(n)=a_n+n$とおくと,
-                \[
-                  b_{n+1}=a_{n+1}+n+1=2a_n+2n=2b_n
-                \]
-                であり,\,$b_1=2+1=3$だから,
-                \[
-                  b_n=3\cdot2^{n-1},\qquad
-                  a_n=3\cdot2^{n-1}-n
-                \]
-                となる.最終式に$n=1$を代入すると$2$である.
-
-                \noindent \textbf{【別解：\bookterm{difference}{階差}を先に求める】}\\
-                隣り合う更新式を引くと,
-                \[
-                  d_n=a_{n+1}-a_n,\qquad d_{n+1}=2d_n+1
-                \]
-                となる.\,$a_2=4$より$d_1=2$なので,
-                \[
-                  d_n+1=3\cdot2^{n-1}
-                \]
-                である.従って,\,$n\ge2$では,
-                \[
-                  a_n=2+\sum_{k=1}^{n-1}(3\cdot2^{k-1}-1)
-                     =3\cdot2^{n-1}-n
-                \]
-                となる.\,$n=1$でも最終式は成り立つ.
-                \noindent\textbf{【解法の比較】}\par
-                主解は,付加項と同じ更新をする一次式を引き,直接等比型にする.
-                別解は,添字をずらして引くことで付加項を定数にし,\bookterm{fixed}{不動点}を引く方法で階差を求めてから和を取る.
-                この問では主解の計算が短い.一方,一次式の候補を思い付けないときにも,\bookterm{difference}{階差}を試す理由は説明できる.
+          \item 定数だけでは$n-1$を消せないので,同じ更新をする一次式$g(n)=un+v$を探す.
+                  $g(n+1)=2g(n)+n-1$の係数を比べると,
+                  \[
+                    u=2u+1,\quad u+v=2v-1
+                  \]
+                  より$g(n)=-n$である.$b_n=a_n+n$とおくと,
+                  \[
+                    b_{n+1}=2b_n,\quad b_1=3,\quad a_n=3\cdot2^{n-1}-n.
+                  \]
+                  \par\smallskip\noindent\textbf{【別解：\bookterm{difference}{階差}を先に求める】}\par
+                  隣り合う更新式を引くと,$d_n=a_{n+1}-a_n$は
+                  \[
+                    d_{n+1}=2d_n+1,\quad d_1=2
+                  \]
+                  を満たす.よって$d_n+1=3\cdot2^{n-1}$であり,
+                  \[
+                    a_n=2+\sum_{k=1}^{n-1}(3\cdot2^{k-1}-1)
+                       =3\cdot2^{n-1}-n.
+                  \]
+                  空の和を$0$とすれば$n=1$も含む.
+                  主解は一次式を引いて付加項を消し,別解は差を取って付加項を定数にする.
+                  主解の方が短いが,一次式の候補が見えないときにも\bookterm{difference}{階差}を試せる.
 
           % G1
-          \item 次の項は前の項に$-\dfrac12$を掛けて得られる.
-                したがって,初項$6$,\,公比$-\dfrac12$の\bookterm{geometric}{等比数列}であるから,
-                \[
-                  a_n=6\left(-\frac12\right)^{n-1}
-                \]
-                である.最初の数項は$6,\,-3,\,\dfrac32,\,-\dfrac34,\ldots$となる.
-                公比が負であるため符号は交互に変わり,その絶対値は毎回$\dfrac12$倍になる.
+          \item 初項$6$,公比$-1/2$の\bookterm{geometric}{等比数列}だから,
+                  \[
+                    a_n=6\left(-\frac12\right)^{n-1}.
+                  \]
+                  符号は交互に変わり,絶対値は毎回半分になる.
+
           % T1
-          \item \bookterm{recurrence}{漸化式}を$a_{n+2}-5a_{n+1}+6a_n=0$と整理する.
-                \bookterm{characteristic}{特性方程式}は
-                \[
-                  x^2-5x+6=(x-2)(x-3)=0
-                \]
-                なので,二つの解は$2$と$3$である.
-                そこで,
-                \[
-                  b_n=a_{n+1}-2a_n,\qquad c_n=a_{n+1}-3a_n
-                \]
-                と置くと,
-                \begin{align*}
-                  b_{n+1}
-                  &=a_{n+2}-2a_{n+1}
-                  \\
-                  &=3(a_{n+1}-2a_n)=3b_n,\\
-                  c_{n+1}
-                  &=a_{n+2}-3a_{n+1}
-                  \\
-                  &=2(a_{n+1}-3a_n)=2c_n.
-                \end{align*}
-                初項は$b_1=5-2\cdot2=1,\,c_1=5-3\cdot2=-1$だから,
-                \[
-                  b_n=3^{n-1},\qquad c_n=-2^{n-1}.
-                \]
-                二式の差を取ると$b_n-c_n=a_n$である.よって,
-                \[
-                  a_n=2^{n-1}+3^{n-1}.
-                \]
-                二つの\bookterm{geometric}{等比数列}から,共通して含まれている$a_{n+1}$を消去することが要点である.
+          \item \bookterm{characteristic}{特性方程式}は$(x-2)(x-3)=0$である.
+                  $b_n=a_{n+1}-2a_n$, $c_n=a_{n+1}-3a_n$とおくと,
+                  \[
+                    b_{n+1}=3b_n,\quad c_{n+1}=2c_n,
+                  \]
+                  \[
+                    b_1=1,\quad c_1=-1
+                  \]
+                  より$b_n=3^{n-1}$, $c_n=-2^{n-1}$となる.
+                  二式を引いて共通の$a_{n+1}$を消せば,
+                  \[
+                    a_n=b_n-c_n=2^{n-1}+3^{n-1}.
+                  \]
+
           % U1
-          \item $s_n=a_n+b_n,\ d_n=a_n-b_n$とおく.
-                                2つの式を足し引きすると,
-                            \[
-                              s_{n+1}=s_n,\qquad d_{n+1}=3d_n.
-                            \]
-                                $s_1=3+1=4,\ d_1=3-1=2$より,
-                            \[
-                              s_n=4,\qquad d_n=2\cdot3^{n-1}.
-                            \]
-                                和と差からもとの2\bookterm{sequence}{数列}を復元すると,
-                            \begin{align*}
-                              a_n&=\frac{s_n+d_n}{2}=2+3^{n-1},\\
-                              b_n&=\frac{s_n-d_n}{2}=2-3^{n-1}.
-                            \end{align*}
+          \item $s_n=a_n+b_n$, $d_n=a_n-b_n$とおく.二式を足し引きすると,
+                  \[
+                    s_{n+1}=s_n,\quad d_{n+1}=3d_n,\quad s_1=4,\ d_1=2.
+                  \]
+                  よって$s_n=4$, $d_n=2\cdot3^{n-1}$であり,
+                  \[
+                    a_n=\frac{s_n+d_n}{2}=2+3^{n-1},
+                  \]
+                  \[
+                    b_n=\frac{s_n-d_n}{2}=2-3^{n-1}.
+                  \]
+                  \par\smallskip\noindent\textbf{【別解】}\par
+                  和が一定なので$b_n=4-a_n$を代入すると,$a_{n+1}=3a_n-4$となる.
+                  $a_{n+1}-2=3(a_n-2)$と$a_1-2=1$から$a_n$を求め,$b_n=4-a_n$で戻す.
 
-                \noindent \textbf{【別解】}\\
-                和が変わらないことから$a_n+b_n=4$である.
-                                したがって$b_n=4-a_n$を第1式に代入して,
-                            \[
-                              a_{n+1}=2a_n-(4-a_n)=3a_n-4.
-                            \]
-                                $a_{n+1}-2=3(a_n-2)$と$a_1-2=1$より$a_n-2=3^{n-1}$である.
-                                $b_n=4-a_n$を使えば, 2\bookterm{sequence}{数列}を求められる.
           % L1
-          \item 更新式$a_{n+1}=a_n^3/4$には,項の累乗がある.
-                \bookterm{logarithm}{対数}を取れば,その指数$3$を係数として扱える.
-                $a_1=4>0$であり,\,$a_n>0$なら$\displaystyle a_{n+1}=\frac{a_n^3}{4}>0$である.
-                従って\bookterm{induction}{数学的帰納法}により全ての項が正となり,\bookterm{logarithm}{対数}を取ることができる.
-                \,$b_n=\log_2a_n$とおくと,
-                \[
-                  b_{n+1}=3b_n-2,\qquad b_1=2
-                \]
-                となる.\bookterm{fixed}{不動点}$1$との差を取れば,
-                \[
-                  b_{n+1}-1=3(b_n-1)
-                \]
-                であり,\,$b_1-1=1$だから,
-                \[
-                  b_n=1+3^{n-1}
-                \]
-                を得る.\,$b_n=\log_2a_n$をもとの\bookterm{sequence}{数列}に戻して,
-                \[
-                  a_n=2^{\,1+3^{n-1}}
-                \]
-                となる.
+          \item $a_1>0$であり,正の項から次も正になるので全項の\bookterm{logarithm}{対数}を取れる.
+                  指数$3$を係数へ変えるため$b_n=\log_2a_n$とおくと,
+                  \[
+                    b_{n+1}=3b_n-2,\quad b_1=2.
+                  \]
+                  \bookterm{fixed}{不動点}$1$を引けば$b_{n+1}-1=3(b_n-1)$だから,
+                  \[
+                    b_n=1+3^{n-1},\quad a_n=2^{\,1+3^{n-1}}.
+                  \]
+                  \par\smallskip\noindent\textbf{【別解：指数を追う】}\par
+                  $a_n=Kc_n$なら$c_{n+1}=(K^2/4)c_n^3$である.
+                  $K=2$で倍率を消すと$c_{n+1}=c_n^3$, $c_1=2$となるので,
+                  \[
+                    c_n=2^{3^{n-1}},\qquad a_n=2c_n.
+                  \]
+                  この式は初項に合い,三乗すると次項の式になる.
+                  \par\smallskip\noindent\textbf{【別解：\bookterm{ratio}{階比}を追う】}\par
+                  全項が正なので$r_n=a_{n+1}/a_n=a_n^2/4$とおくと,
+                  \[
+                    r_{n+1}=r_n^3,\quad r_1=4,\quad r_n=4^{3^{n-1}}.
+                  \]
+                  比を掛け戻せば,
+                  \[
+                  \begin{aligned}
+                    a_n&=4\prod_{k=1}^{n-1}r_k
+                       =4^{\,1+\sum_{k=1}^{n-1}3^{k-1}}\\
+                       &=2^{\,1+3^{n-1}}.
+                  \end{aligned}
+                  \]
+                  $a_n/2$の更新を見つける方法が最短である.
+                  \bookterm{logarithm}{対数}ならその置換が見えなくても一次の更新へ進める.
+                  \bookterm{ratio}{階比}には積を戻す手間があるが,積と指数の和のつながりが見える.
 
-                ここまでで\bookterm{general}{一般項}は求まった.続いて,同じ指数の増え方を,\bookterm{logarithm}{対数}を取る前の式から見直す.
-
-                \noindent \textbf{【別解：指数を追う】}\\
-                正の定数$K$を用いて$a_n=Kc_n$と置くと,$c_{n+1}=(K^2/4)c_n^3$となる.
-                係数を$1$にするため$K=2$を選び,\,$\displaystyle c_n=\frac{a_n}{2}$とおくと,
-                \[
-                  c_{n+1}=\frac{a_n^3}{8}=c_n^3,\qquad c_1=2
-                \]
-                となる.1回進むたびに指数が$3$倍されるので,
-                \[
-                  c_n=2^{3^{n-1}}
-                \]
-                である.実際,\,$n=1$では$2$となり,この式の両辺を3乗すれば$n+1$の式が得られる.
-                従って,\,$a_n=2c_n=2^{1+3^{n-1}}$となる.
-
-                \noindent \textbf{【別解：\bookterm{ratio}{階比}を追う】}\\
-                今度は項の大きさから,隣り合う項の倍率へ視点を移す.
-                全項が正なので,\,$\displaystyle r_n=\frac{a_{n+1}}{a_n}=\frac{a_n^2}{4}$とおける.
-                この\bookterm{ratio}{階比}について,
-                \[
-                  r_{n+1}=\frac{a_{n+1}^2}{4}
-                         =\frac{a_n^6}{64}=r_n^3,\qquad r_1=4
-                \]
-                が成り立つ.指数を追うと$r_n=4^{3^{n-1}}$となるから,\,$n\ge2$では,
-\BookMathLayout{\[
-                  a_n=4\prod_{k=1}^{n-1}r_k
-                     =4^{\,1+\sum_{k=1}^{n-1}3^{k-1}}
-                     =4^{\,\frac{1+3^{n-1}}{2}}
-                     =2^{\,1+3^{n-1}}
-                \]}{
-\[
-\begin{aligned}
-a_n&=4\prod_{k=1}^{n-1}r_k\\
-&=4^{\,1+\sum_{k=1}^{n-1}3^{k-1}}\\
-&=4^{\,\frac{1+3^{n-1}}{2}}=2^{\,1+3^{n-1}}
-\end{aligned}
-\]
-}
-                である.ここでは\bookterm{ratio}{階比}の積を,指数の和に読み替えている.
-                最終式は$n=1$でも成り立つ.
-
-                この問では,$a_n/2$の更新を見つけると計算が短い.
-                \bookterm{logarithm}{対数}を取る方法は,その置換を見つけなくても一次式の更新へ進める.
-                \bookterm{ratio}{階比}を追う方法では最後に積を戻す手間が増えるが,積と指数の和のつながりが見える.
           % C1
-          \item 定数項$-4$を消すため,同じ\bookterm{recurrence}{漸化式}を満たす定数$\alpha$を探す.
-                \[
-                  \alpha=3\alpha-4\quad\Longleftrightarrow\quad\alpha=2
-                \]
-                この式をもとの\bookterm{recurrence}{漸化式}から引くと,
-                \[
-                  a_{n+1}-2=3(a_n-2)
-                \]
-                となる.そこで,\,$b_n=a_n-2$とおくと,
-                \[
-                  b_{n+1}=3b_n,\qquad b_1=5-2=3
-                \]
-                である.初項が$3$,公比が$3$の\bookterm{geometric}{等比数列}なので,
-                \[
-                  b_n=3\cdot3^{n-1}=3^n
-                \]
-                従って,
-                \[
-                  a_n=2+3^n
-                \]
-                となる.\,$n=1$を代入すると$5$となり,\bookterm{initial}{初期条件}も満たす.
+          \item 定数項を消すため,$\alpha=3\alpha-4$を解いて$\alpha=2$を引く.
+                  $b_n=a_n-2$とおくと,
+                  \[
+                    b_{n+1}=3b_n,\quad b_1=3,\quad a_n=2+3^n.
+                  \]
+                  \par\smallskip\noindent\textbf{【別解：\bookterm{difference}{階差}を使う】}\par
+                  更新式をずらして引くと,$d_n=a_{n+1}-a_n$は$d_{n+1}=3d_n$, $d_1=6$を満たす.
+                  よって,
+                  \[
+                    a_n=5+6\sum_{k=1}^{n-1}3^{k-1}=2+3^n.
+                  \]
+                  空の和を$0$とすれば初項も含む.
 
-                \noindent \textbf{【別解：\bookterm{difference}{階差}を使う】}\\
-                \bookterm{recurrence}{漸化式}を1つずらして引くと,
-                \[
-                  a_{n+2}-a_{n+1}=3(a_{n+1}-a_n)
-                \]
-                である.\,$d_n=a_{n+1}-a_n$とおくと,\,$a_2=11$より$d_1=6$であり,
-                \[
-                  d_n=6\cdot3^{n-1}
-                \]
-                となる.従って,\,$n\ge2$では,
-                \[
-                  a_n=5+6\sum_{k=1}^{n-1}3^{k-1}
-                     =5+3(3^{n-1}-1)=2+3^n
-                \]
-                を得る.得られた式は$n=1$でも成り立つ.
           % D1
-          \item 両辺を$3$で割ると,
-                \[
-                  a_{n+1}=a_n-\frac23
-                \]
-                となる.隣り合う項の差が常に$-\dfrac23$であるから,これは公差$-\dfrac23$の\bookterm{arithmetic}{等差数列}である.
-                初項から第$n$項までにこの公差を$n-1$回加えるので,
-                \[
-                  a_n=\frac56-\frac23(n-1)=\frac{9-4n}{6}
-                \]
-                である.この式に$n=1$を代入すると,\,$a_1=\dfrac56$も確かめられる.
+          \item 両辺を$3$で割ると$a_{n+1}=a_n-2/3$となる.
+                  公差$-2/3$の\bookterm{arithmetic}{等差数列}なので,
+                  \[
+                    a_n=\frac56-\frac23(n-1)=\frac{9-4n}{6}.
+                  \]
+
           % F1
-          \item 隣り合う項の差は$3n-1$なので,初項にこれまでの増加分を加えればよい.
-                $n\ge2$のとき,
-                \begin{align*}
-                  a_n
-                    &=2+\sum_{k=1}^{n-1}(3k-1)\\
-                    &=2+3\frac{n(n-1)}2-(n-1)\\
-                    &=\frac{3n^2-5n+6}{2}
-                \end{align*}
-                となる.最後の式は$n=1$でも$2$となるから,すべての正整数$n$について成り立つ.
-                和の上限を$n$にしてしまうと,第$n+1$項を求めることになるので注意する.
+          \item 初項に$n-1$回分の増加を加えると,
+                  \BookMathLayout{\[
+                  \begin{aligned}
+                    a_n&=2+\sum_{k=1}^{n-1}(3k-1)\\
+                       &=2+\frac{3n(n-1)}2-(n-1)
+                        =\frac{3n^2-5n+6}{2}.
+                  \end{aligned}
+                  \]}{\[
+                  \begin{aligned}
+                    a_n&=2+\sum_{k=1}^{n-1}(3k-1)\\
+                       &=2+\frac{3n(n-1)}2-(n-1)\\
+                       &=\frac{3n^2-5n+6}{2}.
+                  \end{aligned}
+                  \]}
+                  $n=1$の空の和は$0$とする.和の上限を$n$にすると第$n+1$項になる.
+
           % T2
-          \item \bookterm{characteristic}{特性方程式}は
-                \[
-                  x^2+x-6=(x-2)(x+3)=0
-                \]
-                なので,二つの解は$2$と$-3$である.
-                \[
-                  b_n=a_{n+1}-2a_n,\qquad c_n=a_{n+1}+3a_n
-                \]
-                と置くと,
-                \begin{align*}
-                  b_{n+1}
-                  &=a_{n+2}-2a_{n+1}
-                  \\
-                  &=-3(a_{n+1}-2a_n)=-3b_n,\\
-                  c_{n+1}
-                  &=a_{n+2}+3a_{n+1}
-                  \\
-                  &=2(a_{n+1}+3a_n)=2c_n.
-                \end{align*}
-                $b_1=1-2\cdot3=-5,\,c_1=1+3\cdot3=10$だから,
-                \[
-                  b_n=-5(-3)^{n-1},\qquad c_n=10\cdot2^{n-1}.
-                \]
-                $c_n-b_n=5a_n$なので,
-                \[
-                  5a_n=10\cdot2^{n-1}+5(-3)^{n-1}.
-                \]
-                よって,
-                \[
-                  a_n=2^n+(-3)^{n-1}.
-                \]
-                負の公比も\bookterm{geometric}{等比数列}の公比としてそのまま扱える.
+          \item \bookterm{characteristic}{特性方程式}は$(x-2)(x+3)=0$である.
+                  $b_n=a_{n+1}-2a_n$, $c_n=a_{n+1}+3a_n$とおけば,
+                  \[
+                    b_{n+1}=-3b_n,\quad c_{n+1}=2c_n,
+                  \]
+                  \[
+                    b_1=-5,\quad c_1=10.
+                  \]
+                  したがって$b_n=-5(-3)^{n-1}$, $c_n=10\cdot2^{n-1}$であり,
+                  \[
+                    a_n=\frac{c_n-b_n}{5}=2^n+(-3)^{n-1}.
+                  \]
+                  負の公比もそのまま\bookterm{geometric}{等比数列}として扱える.
+
           % F2
-          \item \bookterm{binomial}{二項定理}より,
-                \[
-                  3n^2+3n+1=(n+1)^3-n^3
-                \]
-                である.したがって,\,$n\ge2$のとき,
-                \begin{align*}
-                  a_n
-                    &=1+\sum_{k=1}^{n-1}\{(k+1)^3-k^3\}\\
-                    &=1+(2^3-1^3)+(3^3-2^3)\\
-                    &\quad{}+\cdots+\{n^3-(n-1)^3\}\\
-                    &=1+n^3-1\\
-                    &=n^3
-                \end{align*}
-                となる.途中の立方数が次々に相殺するため,平方和を別に計算する必要はない.
-                $n=1$でも$a_1=1=1^3$なので,結論はすべての正整数$n$で成り立つ.
+          \item $3n^2+3n+1=(n+1)^3-n^3$なので,
+                  \[
+                    a_n=1+\sum_{k=1}^{n-1}\{(k+1)^3-k^3\}=n^3.
+                  \]
+                  途中の立方数が相殺するため,平方和の計算を省ける.空の和なら初項も含む.
+                  \par\smallskip\noindent\textbf{【別解1】}\par
+                  最初の三項$1,8,27$から$a_n=n^3$を予想する.
+                  初項に合い,$a_{n+1}=n^3+3n^2+3n+1=(n+1)^3$となるので,
+                  \bookterm{induction}{数学的帰納法}で示せる.
+                  \par\smallskip\noindent\textbf{【別解2】}\par
+                  $a_{n+1}-(n+1)^3=a_n-n^3$と書けば,$a_n-n^3$は初項での値$0$に等しい.
 
-                \noindent \textbf{【別解1】}\\
-                最初の数項を計算すると$1,\,8,\,27,\ldots$となり,\,$a_n=n^3$が予想できる.
-                これを\bookterm{induction}{数学的帰納法}で確かめる.
-                $n=1$では$a_1=1=1^3$である.
-                $a_n=n^3$を仮定すると,
-                \[
-                  a_{n+1}=n^3+3n^2+3n+1=(n+1)^3
-                \]
-                となるから,予想はすべての正整数$n$について正しい.
-
-                \noindent \textbf{【別解2】}\\
-                \bookterm{recurrence}{漸化式}を
-                \[
-                  a_{n+1}-(n+1)^3=a_n-n^3
-                \]
-                と書けば,\,$a_n-n^3$は一定である.
-                その値は$a_1-1^3=0$だから,\,$a_n=n^3$となる.
           % Q2
-          \item 初項から計算すると,
-                \[
-                  a_1=2,\qquad a_2=-\frac12,\qquad a_3=2.
-                \]
-                $2$と$\displaystyle -\frac{1}{2}$は互いに移り合い,これらの値で分母$3a_n+2$はそれぞれ$8$と$\displaystyle \frac{1}{2}$になる.
-                したがって,\bookterm{sequence}{数列}はすべての正整数$n$について定まり,どの項も$0$ではない.
-                \bookterm{general}{一般項}を一つの式で表すために,\,$\displaystyle b_n=\frac{1}{a_n}$と置くと,
-                \[
-                  b_{n+1}=-b_n-\frac32,\qquad b_1=\frac12.
-                \]
-                定数項を消すために$\displaystyle \frac{3}{4}$を加えれば,
-                \[
-                  b_{n+1}+\frac34=-\left(b_n+\frac34\right).
-                \]
-                よって,
-                \[
-                  b_n+\frac34=\left(\frac12+\frac34\right)(-1)^{n-1}
-                  =\frac54(-1)^{n-1}.
-                \]
-                したがって,
-                \[
-                  b_n=\frac{5(-1)^{n-1}-3}{4},
-                  \qquad
-                  a_n=\frac4{5(-1)^{n-1}-3}.
-                \]
-                この分母は$n$が奇数なら$2$,偶数なら$-8$なので,\,$0$にはならない.
+          \item 初めの項は$2,-1/2,2$となり,前の二値は互いに移り合う.
+                  その分母$3a_n+2$は$8$と$1/2$であるため,全項が定まり,$0$にもならない.
+                  $b_n=1/a_n$とおくと,
+                  \[
+                    b_{n+1}=-b_n-\frac32,\quad b_1=\frac12.
+                  \]
+                  $3/4$を加えて等比型にすれば,
+                  \[
+                    b_n+\frac34=\frac54(-1)^{n-1},\quad
+                    a_n=\frac4{5(-1)^{n-1}-3}.
+                  \]
+                  復元の分母は奇数番目で$2$,偶数番目で$-8$となる.
+                  \par\smallskip\noindent\textbf{【別解】}\par
+                  二値の往復だけで,
+                  \[
+                    a_n=\begin{cases}
+                      2&(n\text{が奇数}),\\
+                      -1/2&(n\text{が偶数})
+                    \end{cases}
+                  \]
+                  と表せる.逆数の解法は,これを$(-1)^{n-1}$で一式にまとめたものになる.
 
-                \noindent \textbf{【別解】}\\
-                \bookterm{recurrence}{漸化式}の右辺を$\displaystyle f(x)=-\frac{2x}{3x+2}$と書くと,
-                \[
-                  f(2)=-\frac12,\qquad f\left(-\frac12\right)=2.
-                \]
-                したがって,初項からこの二つの値を交互に取ることが分かる.
-                \[
-                  a_n=
-                  \begin{cases}
-                    2 &(n\text{が奇数}),\\
-                    -\dfrac12 &(n\text{が偶数}).
-                  \end{cases}
-                \]
-                これも\bookterm{general}{一般項}の表し方である.逆数を用いた式は,この二つの場合を$(-1)^{n-1}$によってまとめたものである.
           % C2
-          \item まず次の項だけを左辺に残すと,
-                \[
-                  a_{n+1}=-\frac12a_n+\frac92
-                \]
-                である.\bookterm{fixed}{不動点}は,
-                \[
-                  \alpha=-\frac12\alpha+\frac92
-                  \quad\Longleftrightarrow\quad \alpha=3
-                \]
-                となる.\,$b_n=a_n-3$とおけば,
-                \[
-                  b_{n+1}=-\frac12b_n,\qquad b_1=1-3=-2
-                \]
-                なので,
-                \[
-                  b_n=-2\left(-\frac12\right)^{n-1},\qquad
-                  a_n=3-2\left(-\frac12\right)^{n-1}
-                \]
-                を得る.負の公比により,\,$a_n-3$の符号が1項ごとに入れ替わる.
-                例えば,\,$a_1=1<3$であり,\,$a_2=4>3$である.
+          \item 整理すると$a_{n+1}=-a_n/2+9/2$である.
+                  \bookterm{fixed}{不動点}$3$を引いて$b_n=a_n-3$とおくと,
+                  \[
+                    b_{n+1}=-\frac12b_n,\quad b_1=-2,
+                  \]
+                  より$a_n=3-2(-1/2)^{n-1}$となる.負の公比により$3$との差の符号が交互に変わる.
+
           % U2
-          \item $a_n+t b_n$が\bookterm{geometric}{等比数列}になるように$t$を探す.
-                            \[
-                              a_{n+1}+t b_{n+1}
-                                =(4+t)a_n+(t-2)b_n.
-                            \]
-                                これが$(4+t)(a_n+t b_n)$と一致するためには,
-                            \[
-                              t-2=t(4+t),\qquad
-                              (t+1)(t+2)=0
-                            \]
-                                であればよい.
-                                $t=-1,-2$をそれぞれ用いると,
-                            \[
-                              a_{n+1}-b_{n+1}=3(a_n-b_n),
-                            \]
-                            \[
-                              a_{n+1}-2b_{n+1}=2(a_n-2b_n).
-                            \]
-                                初項から,
-                            \[
-                              a_n-b_n=2\cdot3^{n-1},\qquad
-                              a_n-2b_n=2^{n-1}.
-                            \]
-                                この2式の差を取ると$b_n=2\cdot3^{n-1}-2^{n-1}$である.
-                                さらに$a_n=b_n+2\cdot3^{n-1}$より,
-                            \[
-                              a_n=4\cdot3^{n-1}-2^{n-1},\qquad
-                              b_n=2\cdot3^{n-1}-2^{n-1}.
-                            \]
+          \item $a_n+t b_n$を\bookterm{geometric}{等比数列}にするため,
+                  \[
+                    a_{n+1}+t b_{n+1}=(4+t)a_n+(t-2)b_n
+                  \]
+                  を$(4+t)(a_n+t b_n)$に合わせる.
+                  $t-2=t(4+t)$より$t=-1,-2$であり,初項を使うと,
+                  \[
+                    a_n-b_n=2\cdot3^{n-1},\quad a_n-2b_n=2^{n-1}.
+                  \]
+                  二式を解けば,
+                  \[
+                    \begin{aligned}
+                    a_n&=4\cdot3^{n-1}-2^{n-1},\\
+                    b_n&=2\cdot3^{n-1}-2^{n-1}.
+                    \end{aligned}
+                  \]
+                  \par\smallskip\noindent\textbf{【別解】}\par
+                  $2b_n=4a_n-a_{n+1}$を使って消去すると,
+                  \[
+                    a_{n+2}=4a_{n+1}-2(a_n+b_n)=5a_{n+1}-6a_n.
+                  \]
+                  \bookterm{characteristic}{特性方程式}の根$2,3$から$a_n=C2^{n-1}+D3^{n-1}$とおく.
+                  $a_1=3,a_2=10$より$C=-1,D=4$となり,$b_n=(4a_n-a_{n+1})/2$で戻せる.
 
-                \noindent \textbf{【別解】}\\
-                第1式から$2b_n=4a_n-a_{n+1}$である.
-                                第2式を使うと,
-                            \begin{align*}
-                              a_{n+2}
-                                &=4a_{n+1}-2b_{n+1}\\
-                                &=4a_{n+1}-2(a_n+b_n)\\
-                                &=5a_{n+1}-6a_n.
-                            \end{align*}
-                                $a_1=3,\ a_2=4\cdot3-2\cdot1=10$であり, \bookterm{characteristic}{特性方程式}は
-                            \[
-                              r^2-5r+6=(r-2)(r-3)=0.
-                            \]
-                                $a_n=C\cdot2^{n-1}+D\cdot3^{n-1}$とおくと,
-                            \[
-                              C+D=3,\qquad 2C+3D=10
-                            \]
-                                より$C=-1,\ D=4$である.
-                                $\displaystyle b_n=\frac{4a_n-a_{n+1}}{2}$から$b_n$も求められる.
           % D2
-          \item $a_n$を右辺にまとめると,
-                \begin{align*}
-                  2a_{n+1}&=2a_n+6,\\
-                  a_{n+1}&=a_n+3
-                \end{align*}
-                となる.したがって,初項$-4$,\,公差$3$の\bookterm{arithmetic}{等差数列}であるから,
-                \[
-                  a_n=-4+3(n-1)=3n-7
-                \]
-                である.係数が両辺に分かれていても,まず隣り合う項の差を取り出せばよい.
+          \item 整理すると$a_{n+1}=a_n+3$である.
+                  初項$-4$,公差$3$の\bookterm{arithmetic}{等差数列}だから$a_n=-4+3(n-1)=3n-7$となる.
+
           % G2
-          \item 両辺から$a_{n+1}$を引き,さらに$5a_n$を加えると,
-                \[
-                  a_{n+1}=6a_n
-                \]
-                となる.定数項はなく,毎回同じ倍率で増える\bookterm{sequence}{数列}である.
-                よって,初項$3$,\,公比$6$の\bookterm{geometric}{等比数列}として,
-                \[
-                  a_n=3\cdot6^{n-1}
-                \]
-                を得る.
+          \item 同じ項をまとめると$a_{n+1}=6a_n$となる.
+                  初項$3$,公比$6$の\bookterm{geometric}{等比数列}だから$a_n=3\cdot6^{n-1}$である.
+
           % R2
-          \item $n\ge1$より$(n+1)(n+2)\ne0$であるから,
-                \[
-                  a_{n+1}=\frac{n}{n+1}\frac{n+3}{n+2}a_n
-                \]
-                と書ける.この2つの分数の積を分けて掛ければ,\,$n\ge2$のとき,
-\BookMathLayout{
-\[
-\begin{aligned}
-a_n&=6\prod_{k=1}^{n-1}\frac{k}{k+1}\prod_{k=1}^{n-1}\frac{k+3}{k+2}\\
-&=6\left(\frac12\frac23\cdots\frac{n-1}n\right)\\
-&\quad\cdot\left(\frac43\frac54\cdots\frac{n+2}{n+1}\right)\\
-&=6\cdot\frac1n\cdot\frac{n+2}3\\
-&=\frac{2(n+2)}n
-\end{aligned}
-\]
-}{
-\[
-\begin{aligned}
-a_n&=6\prod_{k=1}^{n-1}\frac{k}{k+1}\prod_{k=1}^{n-1}\frac{k+3}{k+2}\\
-&=6\left(\frac12\frac23\cdots\frac{n-1}n\right)\\
-&\quad\cdot\left(\frac43\frac54\cdots\frac{n+2}{n+1}\right)\\
-&=6\cdot\frac1n\cdot\frac{n+2}3\\
-&=\frac{2(n+2)}n
-\end{aligned}
-\]
-}
-                となる.分子と次の分母が相殺するので,大きな積を計算する必要はない.
-                $n=1$でも右辺は$6$であり,初項と一致する.
+          \item $n\ge1$なので係数の分母は零でない.倍率を二つに分けて掛けると,
+                  \[
+                  \begin{aligned}
+                    a_n&=6\prod_{k=1}^{n-1}\frac{k}{k+1}
+                            \prod_{k=1}^{n-1}\frac{k+3}{k+2}\\
+                       &=6\cdot\frac1n\cdot\frac{n+2}3
+                        =\frac{2(n+2)}n.
+                  \end{aligned}
+                  \]
+                  中間の因子が相殺し,両端だけが残る.$n=1$でも初項に合う.
+                  \par\smallskip\noindent\textbf{【別解】}\par
+                  相殺後の因子を組み込み,$b_n=na_n/(n+2)$とおくと,
+                  \[
+                    b_{n+1}=\frac{n+1}{n+3}
+                      \frac{n(n+3)}{(n+1)(n+2)}a_n=b_n.
+                  \]
+                  $b_1=2$なので,$a_n=2(n+2)/n$となる.
 
-                \noindent \textbf{【別解】}\\
-                両辺が同じ形になるように,
-                \[
-                  b_n=\frac{n}{n+2}a_n
-                \]
-                と置く.もとの\bookterm{recurrence}{漸化式}より,
-\BookMathLayout{\[
-                  b_{n+1}
-                    =\frac{n+1}{n+3}
-                      \frac{n(n+3)}{(n+1)(n+2)}a_n
-                    =\frac{n}{n+2}a_n
-                    =b_n
-                \]}{
-\[
-\begin{aligned}
-b_{n+1}&=\frac{n+1}{n+3}\frac{n(n+3)}{(n+1)(n+2)}a_n\\
-&=\frac n{n+2}a_n=b_n
-\end{aligned}
-\]
-}
-                である.初項は$b_1=\dfrac13\cdot6=2$だから,\,$b_n=2$であり,
-                \[
-                  a_n=\frac{2(n+2)}n
-                \]
-                となる.
           % M2
-          \item 二次式を引いて等比型にすることを考える.
-                右辺は,
-                \[
-                  2n^2+2n+1=(n+1)^2+n^2
-                \]
-                と書ける.このため与式は,
-                \[
-                  a_{n+1}-(n+1)^2=-(a_n-n^2)
-                \]
-                となる.\,$b_n=a_n-n^2$とおけば,
-                \[
-                  b_{n+1}=-b_n,\qquad b_1=3-1=2
-                \]
-                なので,
-                \[
-                  b_n=2(-1)^{n-1},\qquad a_n=n^2+2(-1)^{n-1}
-                \]
-                を得る.二次式の部分$n^2$を引いた残りは,\,$2,-2,2,-2,\ldots$と交互に変わる.
+          \item 右辺が$(n+1)^2+n^2$であることから,
+                  \[
+                    a_{n+1}-(n+1)^2=-(a_n-n^2).
+                  \]
+                  $b_n=a_n-n^2$は$b_{n+1}=-b_n$, $b_1=2$を満たすので,
+                  \[
+                    a_n=n^2+2(-1)^{n-1}.
+                  \]
+                  二次式を引いた残りが$2,-2$を繰り返す.
+
           % S2
-          \item $n=1$のとき与式は$S_1=a_1$となるだけなので, この式だけでは$a_1$は決まらない.
-                                ただし, すべての正整数$n$で与式が成り立つことを使えば, 初項も決められる.
-                            \begin{align*}
-                              a_{n+1}
-                                &=S_{n+1}-S_n\\
-                                &=a_{n+1}+n2^n\\
-                                &\quad{}-a_n-(n-1)2^{n-1}.
-                            \end{align*}
-                                両辺の$a_{n+1}$を消すと,
-                            \begin{align*}
-                              a_n
-                                &=n2^n-(n-1)2^{n-1}\\
-                                &=(n+1)2^{n-1}.
-                            \end{align*}
-                                この計算は$n\ge1$で成り立つので,\,$a_1=2$も含めて求められた.
+          \item $n=1$の式は$S_1=a_1$だけなので初項はまだ決まらない.
+                  全添字での関係を使って差を取ると,
+                  \[
+                  \begin{aligned}
+                    a_{n+1}&=S_{n+1}-S_n\\
+                       &=a_{n+1}+n2^n-a_n-(n-1)2^{n-1}.
+                  \end{aligned}
+                  \]
+                  両辺の$a_{n+1}$を消すと$a_n=(n+1)2^{n-1}$となる.
+                  この計算は$n\ge1$で使え,$a_1=2$も決まる.
+
           % L2
-          \item 項の加減を含む式のまま\bookterm{logarithm}{対数}を取っても簡単にならないので,まず\bookterm{square}{平方完成}する.
-                \[
-                  a_{n+1}-2=(a_n-2)^2
-                \]
-                ここで$a_1-2=3>0$であり,正の数の2乗は正なので,
-                \bookterm{induction}{数学的帰納法}により全ての$n$で$a_n-2>0$となる.
-                そこで,\,$b_n=\log_3(a_n-2)$とおくと,
-                \[
-                  b_{n+1}=2b_n,\qquad b_1=\log_3 3=1
-                \]
-                である.従って,
-                \[
-                  b_n=2^{n-1},\qquad a_n-2=3^{\,2^{n-1}}
-                \]
-                なので,
-                \[
-                  a_n=2+3^{\,2^{n-1}}
-                \]
-                を得る.\,$n=1$でも$a_1=5$となる.
+          \item 和のまま\bookterm{logarithm}{対数}を取る前に\bookterm{square}{平方完成}すると,
+                  \[
+                    a_{n+1}-2=(a_n-2)^2.
+                  \]
+                  $a_1-2=3>0$から全項で$a_n-2>0$である.
+                  $b_n=\log_3(a_n-2)$は$b_{n+1}=2b_n$, $b_1=1$を満たすので,
+                  \[
+                    b_n=2^{n-1},\qquad a_n=2+3^{\,2^{n-1}}.
+                  \]
+                  \par\smallskip\noindent\textbf{【別解：二乗を繰り返す】}\par
+                  $c_n=a_n-2$なら$c_{n+1}=c_n^2$, $c_1=3$である.
+                  指数が毎回二倍になるため$c_n=3^{2^{n-1}}$となる.
+                  初項に合い,二乗して次項になるので\bookterm{induction}{数学的帰納法}でも確かめられる.
 
-                \noindent \textbf{【別解：二乗を繰り返す】}\\
-                \,$c_n=a_n-2$とおけば,\,$c_{n+1}=c_n^2,c_1=3$である.
-                従って指数が$1,2,4,8,\ldots$と変わり,
-                \[
-                  c_n=3^{2^{n-1}}
-                \]
-                が予想できる.この式は$n=1$で成り立ち,
-                \[
-                  (3^{2^{n-1}})^2=3^{2^n}
-                \]
-                より次の項でも成り立つので,\bookterm{induction}{数学的帰納法}で確認できる.
           % T3
-          \item \bookterm{characteristic}{特性方程式}は
-                \[
-                  x^2-4x+4=(x-2)^2=0
-                \]
-                であり,重解$2$を持つ.二つの異なる\bookterm{auxiliary}{補助数列}は作れないので,
-                \[
-                  b_n=a_{n+1}-2a_n
-                \]
-                だけをまず調べる.
-                \[
-                  b_{n+1}=a_{n+2}-2a_{n+1}
-                  =2(a_{n+1}-2a_n)=2b_n.
-                \]
-                $b_1=0-2\cdot1=-2$だから,
-                \[
-                  b_n=-2^n,\qquad a_{n+1}-2a_n=-2^n.
-                \]
-                両辺を$2^n$で割ると,
-                \[
-                  \frac{a_{n+1}}{2^n}-\frac{a_n}{2^{n-1}}=-1.
-                \]
-                $\displaystyle c_n=\frac{a_n}{2^{n-1}}$と置けば,\,$c_1=1,\,c_{n+1}=c_n-1$となる.よって,
-                \[
-                  c_n=1-(n-1)=2-n,
-                  \qquad a_n=(2-n)2^{n-1}.
-                \]
-                割ったものは$2^n$であり,\,$a_2=0$でもこの操作に問題はない.
+          \item \bookterm{characteristic}{特性方程式}は$(x-2)^2=0$である.
+                  異なる二本の\bookterm{auxiliary}{補助数列}は作れないので,$b_n=a_{n+1}-2a_n$を追う.
+                  \[
+                    b_{n+1}=2b_n,\quad b_1=-2,\quad b_n=-2^n.
+                  \]
+                  $a_{n+1}-2a_n=-2^n$を$2^n$で割り,$c_n=a_n/2^{n-1}$とおくと,
+                  \[
+                    c_{n+1}-c_n=-1,\quad c_1=1,
+                  \]
+                  より$c_n=2-n$, $a_n=(2-n)2^{n-1}$を得る.
+                  項$a_2=0$で割っておらず,分母$2^n$は常に零でない.
+                  \par\smallskip\noindent\textbf{【別解】}\par
+                  初めから同じ$c_n$を使って元の式を$2^{n+1}$で割ると,
+                  \[
+                    c_{n+2}-2c_{n+1}+c_n=0.
+                  \]
+                  $c_1=1,c_2=0$なので公差$-1$の\bookterm{arithmetic}{等差数列}となる.
+                  重解の指数部分を除くと等差型が残ることが直接見える.
 
-                \noindent \textbf{【別解】}\\
-                初めから$\displaystyle c_n=\frac{a_n}{2^{n-1}}$と置き,もとの\bookterm{recurrence}{漸化式}を$2^{n+1}$で割ると,
-                \[
-                  c_{n+2}-2c_{n+1}+c_n=0.
-                \]
-                したがって,
-                \[
-                  c_{n+2}-c_{n+1}=c_{n+1}-c_n.
-                \]
-                つまり,\,$\{c_n\}$は\bookterm{arithmetic}{等差数列}である.\,$c_1=1,\,c_2=0$より公差は$-1$なので,
-                \[
-                  c_n=2-n,\qquad a_n=(2-n)2^{n-1}.
-                \]
-                重解に対応する指数の部分を除くと,\bookterm{arithmetic}{等差数列}が残ることを直接確かめられる.
           % M3
-          \item 加わる項が$-2^n$なので,同じ\bookterm{recurrence}{漸化式}を満たす$g(n)=c\,2^n$を探す.
-                \[
-                  c\,2^{n+1}=3c\,2^n-2^n
-                \]
-                両辺を$2^n$で割ると$2c=3c-1$であり,\,$c=1$である.
-                従って,\,$b_n=a_n-2^n$とおけば,
-                \[
-                  b_{n+1}=a_{n+1}-2^{n+1}=3(a_n-2^n)=3b_n
-                \]
-                となる.\,$b_1=1-2=-1$より,
-                \[
-                  b_n=-3^{n-1},\qquad a_n=2^n-3^{n-1}
-                \]
-                を得る.\bookterm{general}{一般項}は$n=1$で$1$となる.
-
-                \noindent \textbf{【別解：指\bookterm{sequence}{数列}で割る】}\\
-                \,$\displaystyle c_n=\frac{a_n}{2^{n-1}}$とおくと,
-                \[
-                  c_{n+1}=\frac32c_n-1,\qquad c_1=1
-                \]
-                である.\bookterm{fixed}{不動点}は$2$なので,
-                \[
-                  c_n-2=-\left(\frac32\right)^{n-1}
-                \]
-                となる.従って,
-                \[
-                  a_n=2^{n-1}\left\{2-\left(\frac32\right)^{n-1}\right\}
-                     =2^n-3^{n-1}
-                \]
-                を得る.
-                \noindent\textbf{【解法の比較】}\par
-                主解は指数の付加項を消し,別解は指数の大きさをそろえて定数の付加項へ変える.
-                加わる指数の底が係数と同じなら,別解の更新は等差型になる.
-                その場合は主解の$c\,2^n$のような候補をそのまま使えない.
-                \sectionref*{節：階差等比複合型}の$p=q$の場合と比べよう.
+          \item 付加項$-2^n$を消すため,同じ更新をする$g(n)=c2^n$を探す.
+                  $c2^{n+1}=3c2^n-2^n$から$c=1$である.
+                  $b_n=a_n-2^n$とおくと$b_{n+1}=3b_n$, $b_1=-1$なので,
+                  \[
+                    a_n=2^n-3^{n-1}.
+                  \]
+                  \par\smallskip\noindent\textbf{【別解：指数部分で割る】}\par
+                  $c_n=a_n/2^{n-1}$とおけば$c_{n+1}=3c_n/2-1$, $c_1=1$となる.
+                  \bookterm{fixed}{不動点}$2$を引くと$c_n-2=-(3/2)^{n-1}$であり,
+                  \[
+                    a_n=2^{n-1}\left\{2-\left(\frac32\right)^{n-1}\right\}.
+                  \]
+                  主解は付加項を消し,別解は大きさをそろえて定数の付加項へ変える.
+                  付加項の底と係数が等しい場合は別解が等差型になる一方,主解には$c2^n$だけでは足りない.
+                  \sectionref*{節：階差等比複合型}の$p=q$の場合に対応する.
 
           % U3
-          \item 第2式はそれだけで解くことができる.
-                                $b_1=2,\ b_{n+1}=2b_n$より,
-                            \[
-                              b_n=2^n.
-                            \]
-                                これを第1式に代入すると,
-                            \[
-                              a_{n+1}=2a_n+2^n.
-                            \]
-                                両辺を$2^n$で割り,
-                            \[
-                              \frac{a_{n+1}}{2^n}
-                                =\frac{a_n}{2^{n-1}}+1
-                            \]
-                                と書き直す.
-                                $\displaystyle c_n=\frac{a_n}{2^{n-1}}$とおけば$c_{n+1}=c_n+1,\ c_1=1$であるから,\,$c_n=n$である.
-                                したがって,
-                            \[
-                              a_n=n2^{n-1},\qquad b_n=2^n.
-                            \]
+          \item 第2式だけで$b_n=2^n$が求まる.これを第1式へ入れ,
+                  $c_n=a_n/2^{n-1}$とおくと,
+                  \[
+                    c_{n+1}=c_n+1,\quad c_1=1.
+                  \]
+                  よって$c_n=n$, $a_n=n2^{n-1}$である.
+                  \par\smallskip\noindent\textbf{【別解】}\par
+                  $b_n=a_{n+1}-2a_n$を$b_{n+1}=2b_n$へ代入すると,
+                  \[
+                    a_{n+2}=4a_{n+1}-4a_n.
+                  \]
+                  \bookterm{characteristic}{特性方程式}は$(r-2)^2=0$であり,指数を除けば$c_{n+2}-2c_{n+1}+c_n=0$となる.
+                  $a_1=1,a_2=4$より$c_1=1,c_2=2$なので,$c_n=n$を得る.
 
-                \noindent \textbf{【別解】}\\
-                $b_n=a_{n+1}-2a_n$を使い,\,$b_{n+1}=2b_n$から$b_n$を消去すると,
-                            \[
-                              a_{n+2}-2a_{n+1}
-                                =2(a_{n+1}-2a_n).
-                            \]
-                                よって$a_{n+2}=4a_{n+1}-4a_n$である.
-                                \bookterm{characteristic}{特性方程式}は$(r-2)^2=0$である.
-                                この形で$\displaystyle c_n=\frac{a_n}{2^{n-1}}$とおくと,
-                            \[
-                              c_{n+2}-2c_{n+1}+c_n=0
-                            \]
-                                となる. つまり$c_{n+1}-c_n$は一定なので,\,$c_n=C+D(n-1)$と書ける.
-                                したがって,
-                            \[
-                              a_n=\{C+D(n-1)\}2^{n-1}.
-                            \]
-                                $a_1=1,\ a_2=2a_1+b_1=4$より$C=D=1$であり,\,$a_n=n2^{n-1}$を得る.
           % Q3
-          \item \bookterm{fixed}{不動点}の方程式は
-\BookMathLayout{\[
-                  x=\frac{3x+2}{x+2}
-                  \quad\Longleftrightarrow\quad
-                  x^2-x-2=(x-2)(x+1)=0
-                \]}{
-\[
-\begin{aligned}
-x=\frac{3x+2}{x+2}\\
-\Longleftrightarrow\quad x^2-x-2\\
-\hspace{5zw}=(x-2)(x+1)=0
-\end{aligned}
-\]
-}
-                なので,\bookterm{fixed}{不動点}は$2$と$-1$である.
-                また,\,$a_1>2$であり,
-                \[
-                  a_{n+1}-2=\frac{a_n-2}{a_n+2}
-                \]
-                から,\,$a_n>2$なら$a_{n+1}>2$である.
-                よって,すべての項で$a_n>2$となり,\,$a_n+2$と$a_n+1$は$0$ではない.
-                そこで,
-                \[
-                  b_n=\frac{a_n-2}{a_n+1}
-                \]
-                と置くと,
-                \begin{align*}
-                  b_{n+1}
-                  &=\cfrac{\cfrac{3a_n+2}{a_n+2}-2}
-                           {\cfrac{3a_n+2}{a_n+2}+1}\\
-                  &=\frac{a_n-2}{4a_n+4}
-                  =\frac14b_n.
-                \end{align*}
-                $\displaystyle b_1=\frac{2}{5}$より,
-                \[
-                  b_n=\frac25\left(\frac14\right)^{n-1}.
-                \]
-                $b_n(a_n+1)=a_n-2$を$a_n$について解いて,
-                \[
-                  a_n=\frac{2+b_n}{1-b_n}
-                  =\frac{10\cdot4^{n-1}+2}{5\cdot4^{n-1}-2}.
-                \]
-                $\displaystyle 0<b_n\leq\frac{2}{5}$なので,最後の変形で割った$1-b_n$も$0$ではない.
+          \item \bookterm{fixed}{不動点}は$x^2-x-2=0$の根$2,-1$である.
+                  $a_1>2$と
+                  \[
+                    a_{n+1}-2=\frac{a_n-2}{a_n+2}
+                  \]
+                  より全項で$a_n>2$となり,必要な分母は零でない.
+                  $b_n=(a_n-2)/(a_n+1)$とおくと,
+                  \[
+                    b_{n+1}=\frac14b_n,\quad b_1=\frac25,
+                    \quad b_n=\frac25\left(\frac14\right)^{n-1}.
+                  \]
+                  $0<b_n\le2/5$に注意して戻せば,
+                  \[
+                    a_n=\frac{2+b_n}{1-b_n}
+                       =\frac{10\cdot4^{n-1}+2}{5\cdot4^{n-1}-2}.
+                  \]
+                  \par\smallskip\noindent\textbf{【別解】}\par
+                  $a_n>2$なので差の逆数$c_n=1/(a_n-2)$も使える.
+                  \[
+                    c_{n+1}=1+4c_n,\quad c_1=\frac12
+                  \]
+                  より$c_n+1/3=(5/6)4^{n-1}$となり,$a_n=2+1/c_n$で戻せる.
+                  二つの\bookterm{fixed}{不動点}からの差の比と,一つからの差の逆数が,同じ分数型を簡単にしている.
 
-                \noindent \textbf{【別解】}\\
-                \bookterm{fixed}{不動点}$2$からの差について,
-                \[
-                  a_{n+1}-2=\frac{a_n-2}{a_n+2}
-                \]
-                が成り立つ.\,$a_n>2$なので,この差の逆数を取ることができる.
-                $\displaystyle c_n=\frac{1}{a_n-2}$と置くと,
-                \[
-                  c_{n+1}=\frac{a_n+2}{a_n-2}
-                  =1+4c_n,\qquad c_1=\frac12.
-                \]
-                よって,
-                \[
-                  c_{n+1}+\frac13=4\left(c_n+\frac13\right),
-                  \qquad
-                  c_n=\frac56\cdot4^{n-1}-\frac13.
-                \]
-                したがって,
-                \[
-                  a_n=2+\frac1{c_n}
-                  =2+\frac6{5\cdot4^{n-1}-2}
-                  =\frac{10\cdot4^{n-1}+2}{5\cdot4^{n-1}-2}.
-                \]
-                二つの\bookterm{fixed}{不動点}からの比を使う方法と,一つの\bookterm{fixed}{不動点}からの差の逆数を使う方法は,同じ\bookterm{recurrence}{漸化式}を別の形で単純にしている.
           % G3
-          \item $n\ge1$より$n+1\ne0$である.両辺を$n+1$で割れば,
-                \[
-                  a_{n+1}=\frac13a_n
-                \]
-                となる.係数に$n$が含まれていても,整理した後の倍率は一定である.
-                したがって,
-                \[
-                  a_n=4\left(\frac13\right)^{n-1}
-                \]
-                である.
-          % D3
-          \item 両辺から$n$を引けば,
-                \[
-                  a_{n+1}=a_n+\sqrt2
-                \]
-                となる.もとの式には$n$が現れるが,増加する量は$n$によらず一定である.
-                よって,公差$\sqrt2$の\bookterm{arithmetic}{等差数列}として,
-                \begin{align*}
-                  a_n
-                    &=1-\sqrt2+(n-1)\sqrt2\\
-                    &=1+(n-2)\sqrt2
-                \end{align*}
-                を得る.公差が無理数でも,\bookterm{arithmetic}{等差数列}の\bookterm{general}{一般項}の求め方は同じである.
-          % L3
-          \item 全項が正であるので,\,$b_n=\log_2a_n$とおくことができる.
-                すると,
-                \[
-                  b_{n+1}=\frac{n+2}{n}b_n,\qquad b_1=1
-                \]
-                となる.これは\bookterm{logarithm}{対数}を取った後の\bookterm{sequence}{数列}が\bookterm{ratio}{階比}型となる例である.
-                \,$n\ge2$では,
-                \[
-                  b_n=\prod_{k=1}^{n-1}\frac{k+2}{k}
-                     =\frac{3\cdot4\cdots(n+1)}{1\cdot2\cdots(n-1)}
-                     =\frac{n(n+1)}2
-                \]
-                である.最終式は$n=1$でも$b_1=1$を与える.
-                従って,
-                \[
-                  a_n=2^{b_n}=2^{\frac{n(n+1)}2}
-                \]
-                となる.分数の指数が含まれていても,\bookterm{logarithm}{対数}を取れば一次の係数になる.
+          \item $n\ge1$なので$n+1$で割ると$a_{n+1}=a_n/3$となる.
+                  見た目の係数に$n$があっても倍率は一定であり,$a_n=4(1/3)^{n-1}$である.
 
-                \noindent \textbf{【別解：指数をそろえる】}\\
-                \bookterm{ratio}{階比}型の解法で現れた因子$n(n+1)$を利用し,
-                \[
-                  c_n=a_n^{\frac{2}{n(n+1)}}
-                \]
-                とおく.全項が正なので指数法則を使うことができ,
-                \[
-                  c_{n+1}
-                  =\left(a_n^{\frac{n+2}{n}}\right)^{\frac{2}{(n+1)(n+2)}}
-                  =a_n^{\frac{2}{n(n+1)}}=c_n
-                \]
-                となる.\,$c_1=2$だから$c_n=2$であり,
-                \[
-                  a_n=2^{\frac{n(n+1)}2}
-                \]
-                を得る.
-                \noindent\textbf{【解法の比較】}\par
-                \bookterm{logarithm}{対数}の方法では,指数の倍率を\bookterm{ratio}{階比}型の係数として読める.
-                別解では,同じ倍率を累乗の指数で直接打ち消す.
-                どちらも正値が指数法則を使う条件となる.
-                別解の指数は,\bookterm{logarithm}{対数}の方法で得た\bookterm{normalize}{正規化}の因子から見つけられる.
+          % D3
+          \item 両辺の$n$を消すと$a_{n+1}=a_n+\sqrt2$となる.
+                  公差$\sqrt2$の\bookterm{arithmetic}{等差数列}だから,
+                  \[
+                    a_n=1-\sqrt2+(n-1)\sqrt2=1+(n-2)\sqrt2.
+                  \]
+
+          % L3
+          \item 全項が正なので$b_n=\log_2a_n$とおくと,
+                  \[
+                    b_{n+1}=\frac{n+2}{n}b_n,\quad b_1=1.
+                  \]
+                  \bookterm{ratio}{階比}型として積を取れば,
+                  \[
+                    b_n=\prod_{k=1}^{n-1}\frac{k+2}{k}=\frac{n(n+1)}2,
+                    \qquad a_n=2^{\frac{n(n+1)}2}.
+                  \]
+                  空積を$1$とすれば初項も含む.
+                  \par\smallskip\noindent\textbf{【別解：指数をそろえる】}\par
+                  得られた因子を使って$c_n=a_n^{2/\{n(n+1)\}}$とおくと,
+                  \[
+                    c_{n+1}
+                      =\left(a_n^{\frac{n+2}{n}}\right)^{\frac2{(n+1)(n+2)}}
+                      =c_n.
+                  \]
+                  $c_1=2$から同じ答えを得る.
+                  \bookterm{logarithm}{対数}で読む指数の倍率を,別解では累乗の指数で打ち消した.
+                  どちらも正値が条件となり,別解の指数は\bookterm{normalize}{正規化}の因子から見つかる.
 
           % S3
-          \item 総和$S_n$も1つの\bookterm{sequence}{数列}なので, まずこれについて解く.
-                            \[
-                              S_{n+1}+1=3(S_n+1),\qquad S_1+1=2
-                            \]
-                                より,
-                            \[
-                              S_n=2\cdot3^{n-1}-1.
-                            \]
-                                $n\ge2$に対しては,
-                            \begin{align*}
-                              a_n
-                                &=S_n-S_{n-1}\\
-                                &=(2\cdot3^{n-1}-1)
-                                  -(2\cdot3^{n-2}-1)\\
-                                &=4\cdot3^{n-2}.
-                            \end{align*}
-                                一方, 初項は$a_1=S_1=1$である.
-                                上で求めた式に$n=1$を代入すると$\displaystyle \frac{4}{3}$となり, 初項とは一致しない.
-                                したがって,
-                            \[
-                              a_1=1,\qquad a_n=4\cdot3^{n-2}\quad(n\ge2).
-                            \]
+          \item まず$S_{n+1}+1=3(S_n+1)$, $S_1+1=2$から$S_n=2\cdot3^{n-1}-1$を求める.
+                  $n\ge2$では,
+                  \[
+                    a_n=S_n-S_{n-1}=4\cdot3^{n-2}.
+                  \]
+                  初項は$a_1=S_1=1$であり,上の式を$n=1$まで延長できない.
+                  \par\smallskip\noindent\textbf{【別解】}\par
+                  $n\ge2$で総和の更新式どうしを引けば,
+                  \[
+                    a_{n+1}=(3S_n+2)-(3S_{n-1}+2)=3a_n.
+                  \]
+                  $S_2=5$より$a_2=4$なので同じ式を得る.
+                  $S_n$の更新を一つ戻して使ったため$n\ge2$であり,$a_1$は別に付け加える.
 
-                \noindent \textbf{【別解】}\\
-                $n\ge2$において,
-\BookMathLayout{
-\[
-\begin{aligned}
-a_{n+1}&=S_{n+1}-S_n\\
-&=(3S_n+2)-(3S_{n-1}+2)\\
-&=3a_n.
-\end{aligned}
-\]
-}{
-\[
-\begin{aligned}
-a_{n+1}&=S_{n+1}-S_n\\
-&=(3S_n+2)-(3S_{n-1}+2)\\
-&=3a_n.
-\end{aligned}
-\]
-}
-                                ただし,\,$S_n=3S_{n-1}+2$を使ったので, この式の導出は$n\ge2$で行っている.
-                                $S_2=3S_1+2=5$より$a_2=5-1=4$であるから,
-                            \[
-                              a_n=4\cdot3^{n-2}\quad(n\ge2).
-                            \]
-                                $a_1=1$は別に付け加える.
           % F3
-          \item $n\ge2$のとき,\bookterm{difference}{階差}を順に加えると,
-                \begin{align*}
-                  a_n
-                    &=3+2\sum_{k=1}^{n-1}3^k\\
-                    &=3+2\frac{3(3^{n-1}-1)}{3-1}\\
-                    &=3^n
-                \end{align*}
-                となる.最後の式は$n=1$でも初項$3$に一致する.
-                \bookterm{difference}{階差}が指数関数であっても,まず差を加え,その後で和を計算すればよい.
+          \item \bookterm{difference}{階差}を足すと,
+                  \[
+                    a_n=3+2\sum_{k=1}^{n-1}3^k=3^n.
+                  \]
+                  空の和を$0$とすれば初項も含む.
+                  \par\smallskip\noindent\textbf{【別解1】}\par
+                  $2\cdot3^n=3^{n+1}-3^n$から,$a_{n+1}-3^{n+1}=a_n-3^n$となる.
+                  この差は初項で$0$なので$a_n=3^n$である.
+                  \par\smallskip\noindent\textbf{【別解2】}\par
+                  同じ式を予想しても,初項に合い,$a_{n+1}=3^n+2\cdot3^n=3^{n+1}$となるので帰納法で示せる.
 
-                \noindent \textbf{【別解1】}\\
-                $2\cdot3^n=3^{n+1}-3^n$に気づけば,\bookterm{recurrence}{漸化式}は
-                \[
-                  a_{n+1}-3^{n+1}=a_n-3^n
-                \]
-                と書ける.したがって,\,$a_n-3^n$は初項での値$a_1-3=0$に等しい.
-                よって,\,$a_n=3^n$である.
-                増加分が隣り合う指数関数の差になっているため,相殺を使っても解ける.
-
-                \noindent \textbf{【別解2】}\\
-                $a_n=3^n$を予想して帰納法を使うこともできる.
-                初項は予想と一致し,\,$a_n=3^n$とすると,
-                \[
-                  a_{n+1}=3^n+2\cdot3^n=3^{n+1}
-                \]
-                となる.したがって,予想はすべての正整数$n$について成り立つ.
           % R3
-          \item もとの式の両辺は,添字に合わせてその平方を掛けた同じ形になっている.
-                そこで
-                \[
-                  b_n=n^2a_n
-                \]
-                と置くと,\,$b_{n+1}=b_n$である.
-                初項は$b_1=1^2\cdot4=4$だから,すべての項で$b_n=4$となる.
-                よって,
-                \[
-                  n^2a_n=4,\qquad a_n=\frac4{n^2}
-                \]
-                である.\,$n$は正整数なので,\,$n^2$で割ることができる.
+          \item 両辺が「添字の平方×その項」になっているので,$b_n=n^2a_n$とおく.
+                  $b_{n+1}=b_n$, $b_1=4$より$a_n=4/n^2$となる.$n\ge1$なので割る因子は零でない.
+                  \par\smallskip\noindent\textbf{【別解】}\par
+                  最初の項$4,1,4/9,1/4$から同じ式を予想する.
+                  初項と一致し,$a_{n+1}=n^2a_n/(n+1)^2=4/(n+1)^2$となるので,
+                  \bookterm{induction}{数学的帰納法}で確かめられる.
 
-                \noindent \textbf{【別解】}\\
-                最初の数項は$4,\,1,\,\dfrac49,\,\dfrac14,\ldots$なので,\,$a_n=\dfrac4{n^2}$が予想できる.
-                初項はこの式と一致する.
-                $a_n=\dfrac4{n^2}$を仮定すると,
-                \[
-                  a_{n+1}
-                    =\frac{n^2}{(n+1)^2}\frac4{n^2}
-                    =\frac4{(n+1)^2}
-                \]
-                となる.したがって,\bookterm{induction}{数学的帰納法}により\bookterm{general}{一般項}が確認できる.
           % C3
-          \item 左辺が\bookterm{difference}{階差}であっても,右辺には$a_n$が含まれる.
-                そのまま既知の式の和を取ることはできないので,まず式を整理する.
-                \[
-                  a_{n+1}=\frac23a_n+2
-                \]
-                この式を満たす定数は$6$であり,
-                \[
-                  a_{n+1}-6=\frac23(a_n-6)
-                \]
-                となる.\,$b_n=a_n-6$とおくと,\,$b_1=-6$であるから,
-                \[
-                  b_n=-6\left(\frac23\right)^{n-1}
-                \]
-                よって,
-                \[
-                  a_n=6-6\left(\frac23\right)^{n-1}
-                \]
-                である.\,$n=1$では$0$となる.
+          \item 右辺に$a_n$が残るため,既知の\bookterm{difference}{階差}として足すことはできない.
+                  整理すると$a_{n+1}=2a_n/3+2$であり,\bookterm{fixed}{不動点}$6$を引けば,
+                  \[
+                    a_{n+1}-6=\frac23(a_n-6).
+                  \]
+                  $a_1-6=-6$から$a_n=6-6(2/3)^{n-1}$となる.
+                  \par\smallskip\noindent\textbf{【別解：増加量を求める】}\par
+                  更新式をずらして引くと,$d_n=a_{n+1}-a_n$は$d_{n+1}=2d_n/3$, $d_1=2$を満たす.
+                  よって,
+                  \[
+                    a_n=\sum_{k=1}^{n-1}2\left(\frac23\right)^{k-1}
+                       =6\left\{1-\left(\frac23\right)^{n-1}\right\}.
+                  \]
+                  空の和は$0$とする.
 
-                \noindent \textbf{【別解：増加量を求める】}\\
-                与式を1つずらした式からもとの式を引くと,
-                \[
-                  (a_{n+2}-a_{n+1})-(a_{n+1}-a_n)
-                  =-\frac13(a_{n+1}-a_n)
-                \]
-                となる.従って,\,$d_n=a_{n+1}-a_n$は,
-                \[
-                  d_{n+1}=\frac23d_n,\qquad d_1=2
-                \]
-                を満たす.これより,\,$n\ge2$では,
-                \[
-                  a_n=\sum_{k=1}^{n-1}2\left(\frac23\right)^{k-1}
-                     =6\left\{1-\left(\frac23\right)^{n-1}\right\}
-                \]
-                を得る.この式は$n=1$でも正しい.
           % S4
-          \item $S_1=a_1=1$であり,
-                            \[
-                              S_{n+1}=S_n+a_{n+1}=3S_n+2^n.
-                            \]
-                                そこで$c_n=S_n+2^n$とおくと,
-                            \begin{align*}
-                              c_{n+1}
-                                &=3S_n+2^n+2^{n+1}\\
-                                &=3(S_n+2^n)=3c_n.
-                            \end{align*}
-                                $c_1=1+2=3$より$c_n=3^n$となるので,
-                            \[
-                              S_n=3^n-2^n.
-                            \]
-                                よって$n\ge2$では,
-                            \begin{align*}
-                              a_n
-                                &=S_n-S_{n-1}\\
-                                &=2\cdot3^{n-1}-2^{n-1}.
-                            \end{align*}
-                                $n=1$でも右辺は$1=a_1$であるから,
-                            \[
-                              a_n=2\cdot3^{n-1}-2^{n-1}\quad(n\ge1).
-                            \]
+          \item $S_{n+1}=S_n+a_{n+1}=3S_n+2^n$である.
+                  $c_n=S_n+2^n$なら$c_{n+1}=3c_n$, $c_1=3$となるので$S_n=3^n-2^n$を得る.
+                  \[
+                    a_n=S_n-S_{n-1}=2\cdot3^{n-1}-2^{n-1}
+                    \quad(n\ge2).
+                  \]
+                  最終式は$n=1$でも$a_1=1$に合う.
+                  \par\smallskip\noindent\textbf{【別解】}\par
+                  $n\ge2$で与式を一つずらして引くと,
+                  \[
+                    a_{n+1}-a_n=2(S_n-S_{n-1})+2^{n-1}
+                  \]
+                  より$a_{n+1}=3a_n+2^{n-1}$となる.
+                  $a_2=4=3a_1+1$なので$n=1$でも成り立つ.
+                  $b_n=a_n+2^{n-1}$は$b_{n+1}=3b_n$, $b_1=2$を満たし,同じ答えを得る.
 
-                \noindent \textbf{【別解】}\\
-                $n\ge2$において, 与式から1つ前の式を引くと,
-\BookMathLayout{\[
-                              a_{n+1}-a_n
-                                =2(S_n-S_{n-1})+2^n-2^{n-1}
-                                =2a_n+2^{n-1}.
-                            \]}{
-\[
-\begin{aligned}
-a_{n+1}-a_n&=2(S_n-S_{n-1})\\
-&\quad+2^n-2^{n-1}\\
-&=2a_n+2^{n-1}.
-\end{aligned}
-\]
-}
-                                したがって$a_{n+1}=3a_n+2^{n-1}$である.
-                                $a_2=2S_1+2=4=3a_1+1$より, この関係は$n=1$でも成り立つ.
-                                $b_n=a_n+2^{n-1}$とおけば,
-                            \[
-                              b_{n+1}=3b_n,\qquad b_1=2.
-                            \]
-                                よって$b_n=2\cdot3^{n-1}$となり, 同じ答えを得る.
           % Q4
-          \item $a_1>0$であり,\,$a_n>0$なら$\displaystyle a_{n+1}=2+\frac{3}{a_n}>0$なので,すべての項は正である.
-                したがって,もとの分母$a_n$は$0$ではない.
-                右辺を一つの分数にまとめると,
-                \[
-                  a_{n+1}=\frac{2a_n+3}{a_n}.
-                \]
-                \bookterm{fixed}{不動点}の方程式は
-                \[
-                  x=\frac{2x+3}{x}
-                  \quad\Longleftrightarrow\quad
-                  (x-3)(x+1)=0
-                \]
-                なので,\,$3$と$-1$が\bookterm{fixed}{不動点}である.
-                $a_n+1>0$に注意して,
-                \[
-                  b_n=\frac{a_n-3}{a_n+1}
-                \]
-                と置けば,
-                \begin{align*}
-                  b_{n+1}
-                  &=\frac{2a_n+3-3a_n}{2a_n+3+a_n}\\
-                  &=-\frac{a_n-3}{3(a_n+1)}
-                  =-\frac13b_n.
-                \end{align*}
-                $b_1=-1$だから,
-                \[
-                  b_n=-\left(-\frac13\right)^{n-1}
-                  =\frac{(-1)^n}{3^{n-1}}.
-                \]
-                これを$a_n$に戻すと,
-                \[
-                  a_n=\frac{3+b_n}{1-b_n}
-                  =\frac{3^n+(-1)^n}{3^{n-1}-(-1)^n}.
-                \]
-                最後の分母は,\,$n$が奇数なら$3^{n-1}+1$,偶数なら$3^{n-1}-1$である.
-                偶数の場合は$n\geq2$なので,いずれも正であり$0$ではない.
+          \item 正の項から次も正になるので全項で$a_n>0$であり,元の分母は零でない.
+                  $a_{n+1}=(2a_n+3)/a_n$の\bookterm{fixed}{不動点}は$3,-1$である.
+                  $b_n=(a_n-3)/(a_n+1)$とおくと,
+                  \[
+                    b_{n+1}=-\frac13b_n,\quad b_1=-1,
+                    \quad b_n=\frac{(-1)^n}{3^{n-1}}.
+                  \]
+                  復元すると,
+                  \[
+                    a_n=\frac{3+b_n}{1-b_n}
+                       =\frac{3^n+(-1)^n}{3^{n-1}-(-1)^n}.
+                  \]
+                  最後の分母は奇数番目では$3^{n-1}+1$,偶数番目では$n\ge2$より$3^{n-1}-1>0$となる.
+                  \par\smallskip\noindent\textbf{【別解】}\par
+                  $u_1=u_2=1$, $u_{n+2}=2u_{n+1}+3u_n$とすると全項が正であり,
+                  \[
+                    \frac{u_{n+2}}{u_{n+1}}=2+\cfrac3{\frac{u_{n+1}}{u_n}}.
+                  \]
+                  初項の比も$1$なので$a_n=u_{n+1}/u_n$である.
+                  \bookterm{characteristic}{特性方程式}の根$3,-1$から,
+                  \BookMathLayout{\[
+                    u_{n+1}+u_n=2\cdot3^{n-1},
+                    \quad u_{n+1}-3u_n=-2(-1)^{n-1}.
+                  \]}{\[
+                  \begin{aligned}
+                    u_{n+1}+u_n&=2\cdot3^{n-1},\\
+                    u_{n+1}-3u_n&=-2(-1)^{n-1}.
+                  \end{aligned}
+                  \]}
+                  二式を引けば$u_n=\{3^{n-1}+(-1)^{n-1}\}/2$となり,比を取って同じ答えを得る.
+                  分数型を隣り合う項の比として表すと,隣接3項間型へつながる.
 
-                \noindent \textbf{【別解】}\\
-                \bookterm{sequence}{数列}$\{u_n\}$を
-                \[
-                  u_1=u_2=1,\qquad u_{n+2}=2u_{n+1}+3u_n
-                \]
-                で定める.初めの二項が正で,右辺の係数も正なので,すべての$u_n$は正である.
-                このとき,
-                \[
-                  \frac{u_{n+2}}{u_{n+1}}
-                  =2+\cfrac{3}{\frac{u_{n+1}}{u_n}},
-                  \qquad \frac{u_2}{u_1}=1.
-                \]
-                したがって,\,$\displaystyle a_n=\frac{u_{n+1}}{u_n}$となる.
-                隣接3項間\bookterm{recurrence}{漸化式}の\bookterm{characteristic}{特性方程式}は
-                \[
-                  x^2-2x-3=(x-3)(x+1)=0
-                \]
-                である.\,$u_{n+2}+u_{n+1}=3(u_{n+1}+u_n)$に対応する\bookterm{geometric}{等比数列}と,
-                $u_{n+2}-3u_{n+1}=-(u_{n+1}-3u_n)$に対応する\bookterm{geometric}{等比数列}を初項から求めると,
-\BookMathLayout{\[
-                  u_{n+1}+u_n=2\cdot3^{n-1},\qquad
-                  u_{n+1}-3u_n=-2(-1)^{n-1}
-                \]}{
-\[
-\begin{aligned}
-u_{n+1}+u_n&=2\cdot3^{n-1},\\
-u_{n+1}-3u_n&=-2(-1)^{n-1}
-\end{aligned}
-\]
-}
-                を得る.二式の差から,
-                \[
-                  u_n=\frac{3^{n-1}+(-1)^{n-1}}2.
-                \]
-                よって,
-                \[
-                  a_n=\frac{u_{n+1}}{u_n}
-                  =\frac{3^n+(-1)^n}{3^{n-1}-(-1)^n}.
-                \]
-                項そのものではなく,隣り合う項の比として考えると,分数型と隣接3項間型がつながる.
           % G4
-          \item 第$2$項から第$5$項までには$r$を$3$回掛けるから,
-                \[
-                  a_5=r^3a_2
-                \]
-                である.よって,\,$48=-6r^3$より$r^3=-8$となる.
-                $r$は実数なので,\,$r=-2$である.
-                さらに,\,$a_2=ra_1$より,
-                \[
-                  a_1=\frac{-6}{-2}=3
-                \]
-                となる.したがって,
-                \[
-                  a_n=3(-2)^{n-1}
-                \]
-                である.公比が負なので,正負が交互に現れることにも注意する.
+          \item 第2項から第5項までに$r$を三回掛けるので,$48=-6r^3$である.
+                  $r$は実数だから$r=-2$, $a_1=a_2/r=3$となり,
+                  \[
+                    a_n=3(-2)^{n-1}.
+                  \]
+
           % F4
-          \item 分母の2つの因数が$2$だけ離れていることに注目すると,
-                \[
-                  \frac{2}{(k+1)(k+3)}
-                    =\frac1{k+1}-\frac1{k+3}
-                \]
-                と\bookterm{partial}{部分分数分解}できる.よって,\,$n\ge2$のとき,
-                \[
-                  a_n=\sum_{k=1}^{n-1}
-                       \left(\frac1{k+1}-\frac1{k+3}\right)
-                \]
-                である.和の範囲を分けて書くと,
-                \begin{align*}
-                  a_n
-                    &=\sum_{j=2}^{n}\frac1j-\sum_{j=4}^{n+2}\frac1j\\
-                    &=\frac12+\frac13-\frac1{n+1}-\frac1{n+2}\\
-                    &=\frac56-\frac1{n+1}-\frac1{n+2}
-                \end{align*}
-                となる.2つの和は添字が$2$だけずれているので,両端にそれぞれ2項が残る.
-                $n=2$では直接計算しても$a_2=\dfrac14$となり,得られた式と一致する.
-                また,\,$n=1$を代入すると$0$となるから,この\bookterm{general}{一般項}は初項も含めて成り立つ.
+          \item 因数の差が$2$なので,\bookterm{partial}{部分分数分解}すると,
+                  \[
+                    \frac2{(k+1)(k+3)}=\frac1{k+1}-\frac1{k+3}.
+                  \]
+                  \[
+                  \begin{aligned}
+                    a_n&=\sum_{k=1}^{n-1}\left(\frac1{k+1}-\frac1{k+3}\right)\\
+                       &=\frac12+\frac13-\frac1{n+1}-\frac1{n+2}.
+                  \end{aligned}
+                  \]
+                  二つの和が二項ずつずれるため,両端に二項ずつ残る.最終式は$n=1,2$でも直接確かめられる.
+
           % T4
-          \item 定数項を消すための定数解は,
-                \[
-                  \alpha=2\alpha+3\alpha-8
-                  \quad\Longleftrightarrow\quad \alpha=2
-                \]
-                である.\,$b_n=a_n-2$と置けば,
-                \[
-                  b_{n+2}=2b_{n+1}+3b_n,
-                  \qquad b_1=1,\quad b_2=3.
-                \]
-                \bookterm{characteristic}{特性方程式}は
-                \[
-                  x^2-2x-3=(x-3)(x+1)=0.
-                \]
-                そこで,\,$c_n=b_{n+1}-3b_n$と置くと,
-                \[
-                  c_{n+1}=-c_n,\qquad c_1=3-3\cdot1=0.
-                \]
-                初項が$0$なので,\,$c_n=0$がすべての$n$で成り立つ.
-                つまり,
-                \[
-                  b_{n+1}=3b_n.
-                \]
-                よって,\,$b_1=1$から$b_n=3^{n-1}$となり,
-                \[
-                  a_n=2+3^{n-1}.
-                \]
-                この問題では一方の\bookterm{auxiliary}{補助数列}が常に$0$になるため,二本を両方求める前に元の\bookterm{sequence}{数列}を\bookterm{geometric}{等比数列}に帰着できる.
+          \item 定数解$\alpha=2\alpha+3\alpha-8$から$2$を引く.
+                  $b_n=a_n-2$は$b_{n+2}=2b_{n+1}+3b_n$, $b_1=1,b_2=3$を満たす.
+                  \bookterm{characteristic}{特性方程式}の根$3,-1$のうち$3$を使い,$c_n=b_{n+1}-3b_n$とおくと,
+                  \[
+                    c_{n+1}=-c_n,\quad c_1=0.
+                  \]
+                  よって$c_n=0$から$b_{n+1}=3b_n$となり,$a_n=2+3^{n-1}$を得る.
+                  一方の\bookterm{auxiliary}{補助数列}が零になるので,二本目を解く前に復元できる.
+                  \par\smallskip\noindent\textbf{【別解】}\par
+                  短い更新$a_{n+1}=3a_n-4$を帰納法で示す.
+                  $a_2=3a_1-4$であり,この関係が$k$で成り立つなら,
+                  \[
+                    a_{k+2}-(3a_{k+1}-4)=-a_{k+1}+3a_k-4=0.
+                  \]
+                  あとは$a_{n+1}-2=3(a_n-2)$を解けばよい.
 
-                \noindent \textbf{【別解】}\\
-                \bookterm{general}{一般項}を直接予想する前に,\,$a_{n+1}=3a_n-4$という短い\bookterm{recurrence}{漸化式}が成り立つことを示す方法もある.
-                まず$a_2=5=3a_1-4$である.
-                $k\ge1$を任意にとり,\,$a_{k+1}=3a_k-4$が成り立つと仮定する.
-                もとの\bookterm{recurrence}{漸化式}$a_{k+2}=2a_{k+1}+3a_k-8$より,
-                \[
-                  a_{k+2}-(3a_{k+1}-4)
-                  =-a_{k+1}+3a_k-4
-                  =0.
-                \]
-                したがって,\bookterm{induction}{数学的帰納法}から$a_{n+1}=3a_n-4$が成り立つ.
-                この一次の\bookterm{recurrence}{漸化式}を
-                \[
-                  a_{n+1}-2=3(a_n-2)
-                \]
-                と変形すれば,\,$a_n=2+3^{n-1}$を得る.
           % U4
-          \item $s_n=a_n+b_n,\ d_n=a_n-b_n$とおく.
-                                2つの式を足すと定数項$1$と$-1$が消え,
-                            \[
-                              s_{n+1}=3s_n.
-                            \]
-                                一方, 引いたときには定数項の差は$2$となるので,
-                            \[
-                              d_{n+1}=d_n+2.
-                            \]
-                                $s_1=1,\ d_1=-1$より,
-                            \[
-                              s_n=3^{n-1},\qquad d_n=-1+2(n-1)=2n-3.
-                            \]
-                                したがって,
-                            \begin{align*}
-                              a_n&=\frac{s_n+d_n}{2}
-                                   =\frac{3^{n-1}+2n-3}{2},\\
-                              b_n&=\frac{s_n-d_n}{2}
-                                   =\frac{3^{n-1}-2n+3}{2}.
-                            \end{align*}
+          \item $s_n=a_n+b_n$, $d_n=a_n-b_n$とおく.
+                  和では定数項が消え,差では$2$となるので,
+                  \BookMathLayout{\[
+                    s_{n+1}=3s_n,\quad d_{n+1}=d_n+2,
+                    \quad s_1=1,\ d_1=-1.
+                  \]}{\[
+                  \begin{aligned}
+                    s_{n+1}&=3s_n,\quad d_{n+1}=d_n+2,\\
+                    s_1&=1,\quad d_1=-1.
+                  \end{aligned}
+                  \]}
+                  よって$s_n=3^{n-1}$, $d_n=2n-3$であり,
+                  \[
+                    a_n=\frac{s_n+d_n}2,\qquad b_n=\frac{s_n-d_n}2
+                  \]
+                  から解答の式を得る.
+
           % L4
-          \item $a_1=1>0$であり,\,$a_n>0$なら$2\sqrt{a_n}>0$である.
-                従って全ての項が正となる.
-                \,$b_n=\log_2a_n$とおくと,
-                \[
-                  b_{n+1}=1+\frac12b_n,\qquad b_1=0
-                \]
-                である.\bookterm{fixed}{不動点}$2$との差を取れば,
-                \[
-                  b_{n+1}-2=\frac12(b_n-2)
-                \]
-                なので,
-                \[
-                  b_n=2-2\left(\frac12\right)^{n-1}=2-2^{2-n}
-                \]
-                となる.従って,
-                \[
-                  a_n=2^{\,2-2^{2-n}}
-                \]
-                を得る.\,$n=1$では指数が$0$となり,\,$a_1=1$である.
+          \item $a_1>0$と正の項から次も正になることより,全項が正である.
+                  $b_n=\log_2a_n$とおくと$b_{n+1}=1+b_n/2$, $b_1=0$となる.
+                  \bookterm{fixed}{不動点}$2$を引けば,
+                  \[
+                    b_n-2=-2\left(\frac12\right)^{n-1},
+                    \qquad a_n=2^{\,2-2^{2-n}}.
+                  \]
+                  \par\smallskip\noindent\textbf{【別解：\bookterm{fixed}{不動点}で割る】}\par
+                  正の\bookterm{fixed}{不動点}$4$で割り,$c_n=a_n/4$とおくと$c_{n+1}=\sqrt{c_n}$, $c_1=1/4$である.
+                  指数が毎回半分になるので,
+                  \[
+                    c_n=\left(\frac14\right)^{(\frac12)^{n-1}},
+                    \qquad a_n=4c_n.
+                  \]
 
-                \noindent \textbf{【別解：\bookterm{fixed}{不動点}で割る】}\\
-                正の\bookterm{fixed}{不動点}は$4=2\sqrt4$を満たす$4$である.
-                \,$\displaystyle c_n=\frac{a_n}{4}$とおくと,
-                \[
-                  c_{n+1}=\sqrt{c_n},\qquad c_1=\frac14
-                \]
-                となる.従って,
-\BookMathLayout{\[
-                  c_n=\left(\frac14\right)^{(\frac12)^{n-1}},\qquad
-                  a_n=4\left(\frac14\right)^{(\frac12)^{n-1}}
-                     =2^{\,2-2^{2-n}}
-                \]}{
-\[
-\begin{aligned}
-c_n&=\left(\frac14\right)^{(\frac12)^{n-1}},\\
-a_n&=4\left(\frac14\right)^{(\frac12)^{n-1}}\\
-&=2^{\,2-2^{2-n}}
-\end{aligned}
-\]
-}
-                を得る.1回進むたびに指数が半分になることを利用した.
           % C4
-          \item \bookterm{fixed}{不動点}を求めると,
-                \[
-                  \alpha=4\alpha-9\quad\Longleftrightarrow\quad\alpha=3
-                \]
-                である.\,$b_n=a_n-3$とおけば,
-                \[
-                  b_{n+1}=4b_n,\qquad b_1=t-3
-                \]
-                なので,
-                \[
-                  a_n=3+(t-3)4^{n-1}
-                \]
-                を得る.この計算では$t-3$で割っていないので,\,$t=3$の場合も含まれる.
-                実際,\,$t=3$なら全ての$n$について$a_n=3$である.
-                逆に定数\bookterm{sequence}{数列}なら$a_2=a_1$が必要であり,
-                \[
-                  4t-9=t\quad\Longleftrightarrow\quad t=3
-                \]
-                となる.従って求める値は$t=3$だけである.
+          \item \bookterm{fixed}{不動点}$3$との差$b_n=a_n-3$は$b_{n+1}=4b_n$, $b_1=t-3$を満たす.
+                  したがって$a_n=3+(t-3)4^{n-1}$である.
+                  $t-3$で割っていないため$t=3$も含み,このときは定\bookterm{sequence}{数列}となる.
+                  逆に定\bookterm{sequence}{数列}には$a_2=a_1$,すなわち$4t-9=t$が必要なので,$t=3$だけである.
+
           % R4
-          \item 初項は正で,各段階の倍率$2^{2n+1}$も正なので,すべての項が正である.
-                倍率を順に掛けると,\,$n\ge2$のとき,
-                \begin{align*}
-                  a_n
-                    &=2\prod_{k=1}^{n-1}2^{2k+1}\\
-                    &=2^{\,1+\sum_{k=1}^{n-1}(2k+1)}\\
-                    &=2^{\,1+n(n-1)+(n-1)}\\
-                    &=2^{n^2}
-                \end{align*}
-                となる.最後の式は$n=1$でも初項$2$に一致する.
-                積の計算そのものではなく,指数の和を計算している点が大切である.
-
-                \noindent \textbf{【別解1】}\\
-                すべての項が正であるから,
-                \[
-                  b_n=\log_2 a_n
-                \]
-                と置くことができる.\bookterm{recurrence}{漸化式}の両辺の\bookterm{logarithm}{対数}を取ると,
-                \[
-                  b_{n+1}=b_n+2n+1,\qquad b_1=1
-                \]
-                となる.これは\bookterm{difference}{階差}型であり,
-                \[
-                  b_n=1+\sum_{k=1}^{n-1}(2k+1)=n^2
-                \]
-                を得る.したがって,\,$a_n=2^{b_n}=2^{n^2}$である.
-                指数の和を直接計算する方法と,\bookterm{logarithm}{対数}を取る方法は,同じ計算を異なる形で表している.
-
-                \noindent \textbf{【別解2】}\\
-                $2n+1=(n+1)^2-n^2$を使うと,
-                \[
-                  \frac{a_{n+1}}{2^{(n+1)^2}}
-                    =\frac{a_n}{2^{n^2}}
-                \]
-                となる.この比は初項で$\displaystyle \frac{2}{2}=1$だから,\,$a_n=2^{n^2}$を得る.
-                \noindent\textbf{【解法の比較】}\par
-                積の指数を足す方法と\bookterm{logarithm}{対数}の方法は,同じ和を別の形で計算している.
-                \bookterm{normalize}{正規化}は,\,$2n+1=(n+1)^2-n^2$を見つければ和の計算も省ける.
-                初項を負に変えても積と\bookterm{normalize}{正規化}は使えるが,\,$\log_2a_n$は使えない.
-                \sectionref*{節：操作を選ぶ練習}の第3問でこの違いを確認する.
+          \item 初項も倍率も正なので全項が正である.倍率を掛けると,
+                  \[
+                    \begin{aligned}
+                    a_n&=2\prod_{k=1}^{n-1}2^{2k+1}\\
+                       &=2^{\,1+\sum_{k=1}^{n-1}(2k+1)}=2^{n^2}.
+                    \end{aligned}
+                  \]
+                  積を指数の和へ直した.空積なら初項も含む.
+                  \par\smallskip\noindent\textbf{【別解1】}\par
+                  $b_n=\log_2a_n$なら$b_{n+1}=b_n+2n+1$, $b_1=1$である.
+                  \[
+                    b_n=1+\sum_{k=1}^{n-1}(2k+1)=n^2
+                  \]
+                  と求め,$a_n=2^{b_n}$で戻す.
+                  \par\smallskip\noindent\textbf{【別解2】}\par
+                  $2n+1=(n+1)^2-n^2$に合わせれば,
+                  \[
+                    \frac{a_{n+1}}{2^{(n+1)^2}}=\frac{a_n}{2^{n^2}}=1
+                  \]
+                  となる.最後の値は初項から決まる.
+                  積と\bookterm{logarithm}{対数}は同じ和を計算し,\bookterm{normalize}{正規化}はその和も省く.
+                  初項が負でも積と\bookterm{normalize}{正規化}は使えるが,$\log_2a_n$は使えない.
+                  \sectionref*{節：操作を選ぶ練習}の第3問に対応する.
 
           % D4
-          \item 第$3$項から第$8$項までには,公差$d$を$5$回加える.したがって,
-                \[
-                  a_8-a_3=5d
-                \]
-                であるから,\,$-7-8=5d$より$d=-3$を得る.
-                また,\,$a_3=a_1+2d$であるから,
-                \[
-                  a_1=8-2(-3)=14
-                \]
-                である.よって,
-                \[
-                  a_n=14-3(n-1)=17-3n
-                \]
-                となる.求めた式に$n=3,\,8$を代入すれば,指定された2つの値をともに満たす.
+          \item 第3項から第8項までに公差を五回加えるので,$-7-8=5d$より$d=-3$である.
+                  $a_3=a_1+2d$から$a_1=14$となり,$a_n=14-3(n-1)=17-3n$を得る.
+
           % M4
-          \item $a_n$に掛かる係数と,加わる指\bookterm{sequence}{数列}の底がともに$2$である.
-                そこで,\,$\displaystyle b_n=\frac{a_n}{2^{n-1}}$とおく.
-                与式を$2^n$で割ると,
-                \[
-                  b_{n+1}=b_n+3,\qquad b_1=2
-                \]
-                となる.これは初項$2$,公差$3$の\bookterm{arithmetic}{等差数列}だから,
-                \[
-                  b_n=2+3(n-1)=3n-1
-                \]
-                である.よって,
-                \[
-                  a_n=(3n-1)2^{n-1}
-                \]
-                となる.変形後の式では\bookterm{fixed}{不動点}を求める必要がない.
-                係数と底が等しいため,指\bookterm{sequence}{数列}で割った残りに$n$の一次式が現れる.
+          \item 係数と付加項の指数の底がともに$2$なので,$b_n=a_n/2^{n-1}$とおく.
+                  $b_{n+1}=b_n+3$, $b_1=2$から$b_n=3n-1$であり,
+                  \[
+                    a_n=(3n-1)2^{n-1}.
+                  \]
+                  底が等しいため,割った残りは\bookterm{fixed}{不動点}を使わずに等差型で解ける.
+
           % U5
-          \item 第1式の添字を1つ進め, 第2式を代入すると,
-                            \[
-                              a_{n+2}=a_{n+1}+2b_{n+1}
-                                =a_{n+1}+2a_n.
-                            \]
-                                $a_1=1,\ a_2=a_1+2b_1=1$である.
-                                \bookterm{characteristic}{特性方程式}は,
-                            \[
-                              r^2-r-2=(r-2)(r+1)=0.
-                            \]
-                                よって$a_n=C\cdot2^{n-1}+D(-1)^{n-1}$とおくと,
-                            \[
-                              C+D=1,\qquad 2C-D=1
-                            \]
-                                から$C=\frac{2}{3},\ D=\frac{1}{3}$となる.
-                                したがって,
-                            \[
-                              a_n=\frac{2^n+(-1)^{n-1}}{3}.
-                            \]
-                                $n\ge2$では$b_n=a_{n-1}$であるから,
-                            \[
-                              b_n=\frac{2^{n-1}+(-1)^{n-2}}{3}
-                                =\frac{2^{n-1}-(-1)^{n-1}}{3}.
-                            \]
-                                最後の式は$n=1$でも$0=b_1$となるので,
-                            \[
-                              b_n=\frac{2^{n-1}-(-1)^{n-1}}{3}\quad(n\ge1).
-                            \]
+          \item \BookMathLayout{第1式を進めて第2式を代入すると,$a_{n+2}=a_{n+1}+2a_n$となる.}{第1式を進めて第2式を代入すると,\newline
+                  $a_{n+2}=a_{n+1}+2a_n$となる.}
+                  \bookterm{characteristic}{特性方程式}の根は$2,-1$であり,
+                  $a_n=C2^{n-1}+D(-1)^{n-1}$とおく.
+                  $a_1=a_2=1$より$C=2/3,D=1/3$だから,
+                  \[
+                    a_n=\frac{2^n+(-1)^{n-1}}3.
+                  \]
+                  $n\ge2$では$b_n=a_{n-1}$なので,
+                  \[
+                    b_n=\frac{2^{n-1}-(-1)^{n-1}}3.
+                  \]
+                  この最終式は$n=1$でも$b_1=0$に合う.
+                  \par\smallskip\noindent\textbf{【別解】}\par
+                  $c_n=a_n+b_n$, $d_n=a_n-2b_n$とおくと,
+                  \[
+                    c_{n+1}=2c_n,\quad d_{n+1}=-d_n,
+                    \quad c_1=d_1=1.
+                  \]
+                  よって$c_n=2^{n-1}$, $d_n=(-1)^{n-1}$であり,
+                  $3b_n=c_n-d_n$, $3a_n=2c_n+d_n$で直接戻せる.
 
-                \noindent \textbf{【別解】}\\
-                $c_n=a_n+b_n,\ d_n=a_n-2b_n$とおくと,
-                            \[
-                              c_{n+1}=2c_n,\qquad d_{n+1}=-d_n.
-                            \]
-                                $c_1=d_1=1$より$c_n=2^{n-1},\ d_n=(-1)^{n-1}$である.
-                                $c_n-d_n=3b_n,\ 2c_n+d_n=3a_n$を用いると,\,$a_n,b_n$を直接求められる.
           % R5
-          \item 係数$n$と$n+1$をそれぞれ階乗に吸収するため,
-                \[
-                  b_n=\frac{a_n}{(n-1)!\,n!}
-                \]
-                と置く.実際,
-                \begin{align*}
-                  b_{n+1}
-                    &=\frac{a_{n+1}}{n!(n+1)!}\\
-                    &=\frac{n(n+1)a_n}{2n!(n+1)!}\\
-                    &=\frac12\frac{a_n}{(n-1)!\,n!}\\
-                    &=\frac12b_n
-                \end{align*}
-                となる.ここでは$n!=n(n-1)!$,\, $(n+1)!=(n+1)n!$を用いた.
-                $0!=1$より$b_1=1$なので,\,$b_n=2^{-(n-1)}$である.
-                元に戻せば,
-                \[
-                  a_n=\frac{(n-1)!\,n!}{2^{n-1}}
-                \]
-                を得る.
+          \item $n$と$n+1$を階乗に吸収し,$b_n=a_n/\{(n-1)!n!\}$とおくと,
+                  \[
+                    b_{n+1}=\frac{n(n+1)a_n}{2n!(n+1)!}
+                           =\frac12b_n.
+                  \]
+                  $0!=1$より$b_1=1$なので,$a_n=(n-1)!n!/2^{n-1}$を得る.
+                  \par\smallskip\noindent\textbf{【別解】}\par
+                  倍率を分けて掛ければ,
+                  \[
+                  \begin{aligned}
+                    a_n&=\frac1{2^{n-1}}\prod_{k=1}^{n-1}k
+                                               \prod_{k=1}^{n-1}(k+1)\\
+                       &=\frac{(n-1)!n!}{2^{n-1}}.
+                  \end{aligned}
+                  \]
+                  $n=1$では二つの空積を$1$とする.
 
-                \noindent \textbf{【別解】}\\
-                倍率を分けて掛ければ,
-                \begin{align*}
-                  a_n
-                    &=\prod_{k=1}^{n-1}\frac{k(k+1)}2\\
-                    &=\frac1{2^{n-1}}
-                        \left(\prod_{k=1}^{n-1}k\right)
-                        \left(\prod_{k=1}^{n-1}(k+1)\right)\\
-                    &=\frac{(n-1)!\,n!}{2^{n-1}}
-                \end{align*}
-                となる.$n=1$では2つの積を空積$1$として扱うため,初項も同じ式に含まれる.
           % Q5
-          \item \bookterm{fixed}{不動点}の方程式は
-                \[
-                  x=2-\frac1x
-                  \quad\Longleftrightarrow\quad
-                  (x-1)^2=0
-                \]
-                であり,重解$1$を持つ.
-                異なる二つの\bookterm{fixed}{不動点}を使った比は作れないので,\,$a_n-1$の変化を調べる.
-                \[
-                  a_{n+1}-1=1-\frac1{a_n}=\frac{a_n-1}{a_n}.
-                \]
-                $a_1>1$であり,\,$a_n>1$なら右辺は正なので$a_{n+1}>1$である.
-                したがって,すべての項で$a_n>1$となり,もとの分母$a_n$も,差$a_n-1$も$0$ではない.
-                両辺の逆数を取って,
-                \[
-                  \frac1{a_{n+1}-1}
-                  =\frac{a_n}{a_n-1}
-                  =1+\frac1{a_n-1}.
-                \]
-                $\displaystyle b_n=\frac{1}{a_n-1}$と置けば,\,$b_1=1,\,b_{n+1}=b_n+1$となる.
-                よって,
-                \[
-                  b_n=n,\qquad a_n=1+\frac1n=\frac{n+1}{n}.
-                \]
-                \bookterm{fixed}{不動点}が重なる場合には,差の逆数から\bookterm{arithmetic}{等差数列}が現れた.
+          \item \bookterm{fixed}{不動点}の方程式は$(x-1)^2=0$である.
+                  二つの異なる差の比は作れないので,
+                  \[
+                    a_{n+1}-1=\frac{a_n-1}{a_n}
+                  \]
+                  を調べる.$a_1>1$から全項で$a_n>1$となり,元の分母と差はともに零でない.
+                  $b_n=1/(a_n-1)$とおくと,
+                  \[
+                    b_{n+1}=b_n+1,\quad b_1=1,
+                    \quad a_n=1+\frac1n=\frac{n+1}n.
+                  \]
+                  重なる\bookterm{fixed}{不動点}からの差の逆数が等差型になった.
+                  \par\smallskip\noindent\textbf{【別解】}\par
+                  最初の三項$2/1,3/2,4/3$から同じ式を予想する.
+                  初項に合い,$a_k=(k+1)/k$なら$a_{k+1}=2-k/(k+1)=(k+2)/(k+1)$となるので,
+                  \bookterm{induction}{数学的帰納法}で示せる.
+                  \par\smallskip\noindent\textbf{【初項を変えたとき】}\par\nopagebreak[4]
+                  初項$1$なら定数列となり差の逆数は使えない.
+                  初項$0$なら最初から更新できず,$1/2$なら次項が$0$になって第3項が定義できない.
+                  変換と元の更新に必要な条件を区別する.
 
-                \noindent \textbf{【別解】}\\
-                数項を計算すると,
-                \[
-                  a_1=\frac21,\quad a_2=\frac32,\quad a_3=\frac43
-                \]
-                なので,\,$\displaystyle a_n=\frac{n+1}{n}$と予想できる.
-                この式は$n=1$で成り立つ.\,$\displaystyle a_k=\frac{k+1}{k}$を仮定すると,
-                \[
-                  a_{k+1}=2-\frac{k}{k+1}
-                  =\frac{k+2}{k+1}.
-                \]
-                したがって,\bookterm{induction}{数学的帰納法}によって\bookterm{general}{一般項}を確かめられる.
-                \par\smallskip\noindent\textbf{【初項を変えたとき】}\par\nopagebreak[4]
-                同じ更新でも,初項が$1$なら定数列となり,差$a_n-1$の逆数は使えない.
-                初項が$0$なら最初の更新から定義できず,$1/2$なら次項が$0$となって第3項が定義できない.
-                変換に必要な条件と,元の更新に必要な条件は区別して確かめる.
           % G5
-          \item $a_1=0$より,\,$a_2=7a_1=0$である.
-                同様に,ある項が$0$なら次の項も$0$になるので,すべての項が$0$である.
-                よって,
-                \[
-                  a_n=0
-                \]
-                を得る.等比型の\bookterm{general}{一般項}を直接用いても,\,$a_n=0\cdot7^{n-1}=0$となる.
-                この例では$a_n=0$なので,\,$\displaystyle \frac{a_{n+1}}{a_n}$を作るために$a_n$で割ってはいけない.
+          \item $a_1=0$であり,$0$からは次も$0$となるので全項が$0$である.
+                  \bookterm{geometric}{等比数列}の式でも$a_n=0\cdot7^{n-1}=0$となるが,
+                  項で割って$a_{n+1}/a_n$を作ってはいけない.
+
           % L5
-          \item 初項は正であり,正の項からは次の項も正となるので,全項について\bookterm{logarithm}{対数}を取ることができる.
-                \,$b_n=\log_2a_n$とおけば,
-                \[
-                  b_{n+1}=2b_n-n+1,\qquad b_1=2
-                \]
-                となる.項ごとに変わる$-n+1$を消すため,同じ式を満たす一次式$g(n)=un+v$を探す.
-                \[
-                  g(n+1)=2g(n)-n+1
-                \]
-                係数を比べると,
-                \[
-                  u=2u-1,\qquad u+v=2v+1
-                \]
-                なので,\,$u=1,v=0$であり,\,$g(n)=n$となる.
-                従って,\,$c_n=b_n-n$とおけば,
-                \[
-                  c_{n+1}=2c_n,\qquad c_1=2-1=1
-                \]
-                である.よって,
-                \[
-                  b_n=n+2^{n-1},\qquad a_n=2^{\,n+2^{n-1}}
-                \]
-                を得る.指数に$n=1$を代入すると$2$なので,初項は$4$となる.
+          \item 正の項から次も正になるので全項の\bookterm{logarithm}{対数}を取れる.
+                  $b_n=\log_2a_n$とおくと,
+                  \[
+                    b_{n+1}=2b_n-n+1,\quad b_1=2.
+                  \]
+                  同じ更新をする一次式$g(n)=un+v$を探すと,$u=2u-1$, $u+v=2v+1$より$g(n)=n$である.
+                  $c_n=b_n-n$は$c_{n+1}=2c_n$, $c_1=1$を満たすので,
+                  \[
+                    b_n=n+2^{n-1},\qquad a_n=2^{\,n+2^{n-1}}.
+                  \]
+                  \par\smallskip\noindent\textbf{【別解：割って指数を追う】}\par
+                  \bookterm{logarithm}{対数}で$n$を引く操作は,元の項を$2^n$で割ることに対応する.
+                  $d_n=a_n/2^n$とおけば,
+                  \[
+                    d_{n+1}=\frac{a_n^2}{2^{2n}}=d_n^2,\quad d_1=2.
+                  \]
+                  よって$d_n=2^{2^{n-1}}$であり,$a_n=2^nd_n$で同じ答えを得る.
 
-                \noindent \textbf{【別解：割って指数を追う】}\\
-                \bookterm{logarithm}{対数}を取った解法で$n$を引くことは,もとの項を$2^n$で割ることに対応する.
-                \,$\displaystyle d_n=\frac{a_n}{2^n}$とおけば,
-                \[
-                  d_{n+1}=\frac{a_{n+1}}{2^{n+1}}
-                         =\frac{a_n^2}{2^{2n}}=d_n^2,\qquad d_1=2
-                \]
-                となる.従って,
-                \[
-                  d_n=2^{2^{n-1}},\qquad
-                  a_n=2^nd_n=2^{\,n+2^{n-1}}
-                \]
-                を得る.
           % F5
-          \item $n\ge2$のとき,\bookterm{difference}{階差}を加えると,
-                \[
-                  a_n=1+\sum_{k=1}^{n-1}(-1)^k
-                \]
-                となる.右辺の和は初項$-1$,\,公比$-1$の\bookterm{geometric}{等比数列}の和なので,
-                \begin{align*}
-                  a_n
-                    &=1-\frac{1-(-1)^{n-1}}2\\
-                    &=\frac{1+(-1)^{n-1}}2
-                \end{align*}
-                である.この式は$n=1$でも$1$となる.
-                したがって,奇数番目の項は$1$,\,偶数番目の項は$0$である.
+          \item \bookterm{difference}{階差}を足し,公比$-1$の和を使うと,
+                  \[
+                    a_n=1+\sum_{k=1}^{n-1}(-1)^k
+                       =\frac{1+(-1)^{n-1}}2.
+                  \]
+                  空の和なら初項も含み,奇数番目は$1$,偶数番目は$0$となる.
+                  \par\smallskip\noindent\textbf{【別解】}\par
+                  二回分をまとめると$a_{n+2}=a_n+(-1)^n+(-1)^{n+1}=a_n$である.
+                  $a_1=1,a_2=0$なので$1,0$を繰り返し,同じ式で表せる.
 
-                \noindent \textbf{【別解】}\\
-                2回分の変化をまとめると,
-                \[
-                  a_{n+2}
-                    =a_n+(-1)^n+(-1)^{n+1}
-                    =a_n
-                \]
-                となる.また,\,$a_1=1$,\, $a_2=0$であるから,\bookterm{sequence}{数列}は$1,\,0,\,1,\,0,\ldots$と繰り返す.
-                この偶奇による違いを1つの式で表せば,
-                \[
-                  a_n=\frac{1+(-1)^{n-1}}2
-                \]
-                となる.
           % C5
-          \item 最初の2回の更新より,
-                \[
-                  5=8p+q,\qquad \frac72=5p+q
-                \]
-                である.2式を引くと,
-                \[
-                  -\frac32=-3p
-                \]
-                なので,\,$p=\frac12$であり,\,$q=5-8\cdot\frac12=1$となる.
-                従って,
-                \[
-                  a_{n+1}=\frac12a_n+1
-                \]
-                である.\bookterm{fixed}{不動点}$2$との差を取り,\,$b_n=a_n-2$とおくと,
-                \[
-                  b_{n+1}=\frac12b_n,\qquad b_1=6
-                \]
-                より,
-                \[
-                  a_n=2+6\left(\frac12\right)^{n-1}
-                \]
-                を得る.これに$n=1,2,3$を代入すると,順に$8,5,\frac72$となる.
+          \item 最初の二回の更新から$5=8p+q$, $7/2=5p+q$となる.
+                  引いて$q$を消すと$p=1/2$, $q=1$である.
+                  \bookterm{fixed}{不動点}$2$を引けば,
+                  \[
+                    a_{n+1}-2=\frac12(a_n-2),\quad a_1-2=6
+                  \]
+                  より$a_n=2+6(1/2)^{n-1}$となる.
+                  \par\smallskip\noindent\textbf{【別解：\bookterm{difference}{階差}から\bookterm{general}{一般項}へ】}\par
+                  更新式をずらして引くと,$d_n=a_{n+1}-a_n$は$d_{n+1}=d_n/2$, $d_1=-3$を満たす.
+                  よって,
+                  \[
+                    a_n=8-3\sum_{k=1}^{n-1}\left(\frac12\right)^{k-1}
+                       =2+6\left(\frac12\right)^{n-1}.
+                  \]
+                  空の和なら初項も含む.
 
-                \noindent \textbf{【別解：\bookterm{difference}{階差}から\bookterm{general}{一般項}へ】}\\
-                係数を決めた後,\bookterm{recurrence}{漸化式}を1つずらして引くと,
-                \[
-                  d_n=a_{n+1}-a_n,\qquad
-                  d_{n+1}=\frac12d_n,\qquad d_1=-3
-                \]
-                となる.従って,\,$n\ge2$では,
-                \[
-                  a_n=8-3\sum_{k=1}^{n-1}\left(\frac12\right)^{k-1}
-                     =2+6\left(\frac12\right)^{n-1}
-                \]
-                を得る.最終式は$n=1$でも成り立つ.
           % T5
-          \item すべての項を同じ定数$\alpha$に置き換えると,左辺は
-                \[
-                  \alpha-3\alpha+2\alpha=0
-                \]
-                となり,右辺の$1$とは一致しない.
-                したがって,この問題には定数解がなく,定数を引くだけでは右辺を$0$にできない.
-                そこで,\bookterm{difference}{階差}
-                \[
-                  d_n=a_{n+1}-a_n
-                \]
-                を考える.\bookterm{recurrence}{漸化式}を整理すると,
-                \[
-                  a_{n+2}-a_{n+1}=2(a_{n+1}-a_n)+1
-                \]
-                なので,
-                \[
-                  d_{n+1}=2d_n+1,\qquad d_1=2-1=1.
-                \]
-                これを$d_{n+1}+1=2(d_n+1)$と変形すれば,
-                \[
-                  d_n+1=2\cdot2^{n-1}=2^n,
-                  \qquad d_n=2^n-1.
-                \]
-                よって,\,$n\geq2$では,
-\BookMathLayout{\begin{align*}
-                  a_n
-                  &=a_1+\sum_{k=1}^{n-1}(a_{k+1}-a_k)\\
-                  &=1+\sum_{k=1}^{n-1}(2^k-1)\\
-                  &=1+(2^n-2)-(n-1)=2^n-n.
-                \end{align*}}{
-\[
-\begin{aligned}
-a_n&=a_1+\sum_{k=1}^{n-1}(a_{k+1}-a_k)\\
-&=1+\sum_{k=1}^{n-1}(2^k-1)\\
-&=1+(2^n-2)-(n-1)\\
-&=2^n-n.
-\end{aligned}
-\]
-}
-                この式は$n=1$でも$a_1=1$を与える.したがって,
-                \[
-                  a_n=2^n-n.
-                \]
-                \bookterm{difference}{階差}もすぐに\bookterm{geometric}{等比数列}になるわけではないが,さらに$1$を加えることで\bookterm{geometric}{等比数列}になった.
+          \item 定数を入れると左辺は$\alpha-3\alpha+2\alpha=0$となるため,定数解はない.
+                  $d_n=a_{n+1}-a_n$でまとめると,
+                  \[
+                    d_{n+1}=2d_n+1,\quad d_1=1.
+                  \]
+                  $d_{n+1}+1=2(d_n+1)$から$d_n=2^n-1$であり,
+                  \[
+                    a_n=1+\sum_{k=1}^{n-1}(2^k-1)=2^n-n.
+                  \]
+                  空の和なら初項も含む.\bookterm{difference}{階差}を取り,さらに$1$を加えて等比型にした.
+                  \par\smallskip\noindent\textbf{【別解】}\par
+                  $-n$は$-(n+2)-3\{-(n+1)\}+2(-n)=1$を満たす.
+                  そこで$b_n=a_n+n$とおくと,
+                  \[
+                    b_{n+2}-3b_{n+1}+2b_n=0,\quad b_1=2,\ b_2=4.
+                  \]
+                  $c_n=b_{n+1}-2b_n$は$c_{n+1}=c_n$, $c_1=0$を満たすので$b_n=2^n$となる.
+                  定数の代わりに一次式を引いても,右辺を消せる.
 
-                \noindent \textbf{【別解】}\\
-                定数解の代わりに,\,$-n$が\bookterm{recurrence}{漸化式}を満たすことに気付けば,
-                \[
-                  -(n+2)-3\{-(n+1)\}+2(-n)=1
-                \]
-                なので,\,$b_n=a_n+n$と置くことができる.
-                \[
-                  b_{n+2}-3b_{n+1}+2b_n=0,
-                  \qquad b_1=2,\quad b_2=4.
-                \]
-                ここで,\,$c_n=b_{n+1}-2b_n$と置くと,
-                \[
-                  c_{n+1}=c_n,\qquad c_1=4-2\cdot2=0.
-                \]
-                したがって,\,$b_{n+1}=2b_n$となり,\,$b_n=2^n$を得る.
-                よって,
-                \[
-                  a_n=b_n-n=2^n-n.
-                \]
-                右辺の定数を消すために,項ごとに変わる一次式を引くこともできる.
           % D5
-          \item 両辺を$4$で割ると,\,$a_{n+1}-a_n=0$である.つまり,次の項は前の項と等しい.
-                初項が$\dfrac74$なので,
-                \[
-                  a_1=a_2=a_3=\cdots=\frac74
-                \]
-                となり,\,$a_n=\dfrac74$である.
-                これは公差$0$の\bookterm{arithmetic}{等差数列}であり,公式を使っても
-                \[
-                  a_n=\frac74+(n-1)\cdot0=\frac74
-                \]
-                と求まる.
+          \item 両辺を$4$で割ると$a_{n+1}=a_n$であり,全項が初項$7/4$に等しい.
+                  公差$0$の\bookterm{arithmetic}{等差数列}としても$a_n=7/4+(n-1)\cdot0=7/4$となる.
+
           % M5
-\item \BookMathLayout{$(-1)^n$は$0$にならないので,\,$\displaystyle b_n=\frac{a_n}{(-1)^{n-1}}$とおける.}{$(-1)^n$は$0$にならないので,\\
-$\displaystyle b_n=\frac{a_n}{(-1)^{n-1}}$とおける.}
-                与式を$(-1)^n$で割ると,
-                \[
-                  b_{n+1}=-2b_n+3,\qquad b_1=0
-                \]
-                となる.この式の\bookterm{fixed}{不動点}は$1$であり,
-                \[
-                  b_{n+1}-1=-2(b_n-1)
-                \]
-                なので,
-                \[
-                  b_n=1-(-2)^{n-1}
-                \]
-                を得る.もとの\bookterm{sequence}{数列}に戻すと,
-                \[
-                  a_n=(-1)^{n-1}\{1-(-2)^{n-1}\}
-                     =(-1)^{n-1}-2^{n-1}
-                \]
-\BookMathLayout{となる.最後の等号には$(-1)^{n-1}(-2)^{n-1}=2^{n-1}$を用いた.}{となる.最後の等号には\\
-$(-1)^{n-1}(-2)^{n-1}=2^{n-1}$を用いた.}
+          \item $(-1)^{n-1}\ne0$なので$b_n=a_n/(-1)^{n-1}$とおく.
+                  $b_{n+1}=-2b_n+3$, $b_1=0$から\bookterm{fixed}{不動点}$1$を引けば,
+                  \[
+                    b_n=1-(-2)^{n-1}.
+                  \]
+                  $(-1)^{n-1}(-2)^{n-1}=2^{n-1}$を使って戻すと,
+                  \[
+                    a_n=(-1)^{n-1}-2^{n-1}.
+                  \]
+                  \par\smallskip\noindent\textbf{【別解：交代する項を引く】}\par
+                  $g_n=(-1)^{n-1}$も$g_{n+1}=2g_n+3(-1)^n$を満たす.
+                  与式から引くと$a_{n+1}-g_{n+1}=2(a_n-g_n)$であり,
+                  $a_1-g_1=-1$より$a_n-g_n=-2^{n-1}$を得る.
 
-                \noindent \textbf{【別解：交代する項を引く】}\\
-                \,$g_n=(-1)^{n-1}$とおくと,
-                \[
-                  g_{n+1}=2g_n+3(-1)^n
-                \]
-                が成り立つ.与式からこれを引けば,
-                \[
-                  a_{n+1}-g_{n+1}=2(a_n-g_n)
-                \]
-                となる.\,$a_1-g_1=-1$だから,
-                \[
-                  a_n-g_n=-2^{n-1}
-                \]
-                であり,同じ\bookterm{general}{一般項}を得る.
           % S5
-          \item 与式の$n$を$n+1$に置き換えた式との差を取ると,
-                            \[
-                              a_{n+1}
-                                =\frac{n+3}{3}a_{n+1}
-                                 -\frac{n+2}{3}a_n.
-                            \]
-                                整理して,
-                            \[
-                              na_{n+1}=(n+2)a_n,\qquad
-                              a_{n+1}=\frac{n+2}{n}a_n.
-                            \]
-                                $a_1=2$よりすべての項は正であり,\,$n\ge2$では,
-                            \begin{align*}
-                              a_n
-                                &=2\prod_{k=1}^{n-1}\frac{k+2}{k}\\
-                                &=2\frac{3\cdot4\cdots(n+1)}{1\cdot2\cdots(n-1)}\\
-                                &=n(n+1).
-                            \end{align*}
-                                この式は$n=1$でも$a_1=2$と一致する.
-                                したがって,
-                            \[
-                              a_n=n(n+1).
-                            \]
-
-                \noindent \textbf{【別解】}\\
-                $na_{n+1}=(n+2)a_n$を
-                            \[
-                              \frac{a_{n+1}}{(n+1)(n+2)}
-                                =\frac{a_n}{n(n+1)}
-                            \]
-                                と書き直す. よって$\displaystyle \frac{a_n}{n(n+1)}$は一定であり, 初項からその値は$\displaystyle \frac{2}{1\cdot2}=1$である.
-                                したがって$a_n=n(n+1)$となる.
+          \item 隣り合う総和の式を引くと,
+                  \[
+                    a_{n+1}=\frac{n+3}3a_{n+1}-\frac{n+2}3a_n
+                  \]
+                  より$na_{n+1}=(n+2)a_n$である.倍率を掛ければ,
+                  \[
+                    a_n=2\prod_{k=1}^{n-1}\frac{k+2}{k}=n(n+1).
+                  \]
+                  $n=1$の空積は$1$とする.
+                  \par\smallskip\noindent\textbf{【別解】}\par
+                  同じ更新を
+                  \[
+                    \frac{a_{n+1}}{(n+1)(n+2)}=\frac{a_n}{n(n+1)}
+                  \]
+                  と書けば,この比は初項での値$1$に等しい.
         \end{enumerate}

@@ -1,96 +1,93 @@
 \section{用語一覧}\label{節：用語の対応}
-本文で見た操作や性質には,一般に使われる名前がある.
-ここには,その意味を短く記した.詳しい定義・条件・計算は,それぞれの参照先にある.
-上から順に覚えるための一覧ではなく,必要な言葉から本文へ戻るための対応表である.
-数列の作り方,式の操作,解全体の構造など,調べたい内容を目印に探せる.
+操作や性質の名前と,本文との対応をまとめる.必要な言葉から,詳しい定義・条件・計算へ戻れる.
 \bookstep{数列と更新}
 \begin{description}[style=nextline,leftmargin=0pt,labelsep=0pt,itemsep=5pt]
-\item[\hypertarget{term:recurrence}{漸化式}] 項どうしの関係によって数列を定める式. \booknavref{節：数列と漸化式}{本文の説明へ.}
-\item[\hypertarget{term:sequence}{数列}] 数を順に並べたもの.添字で各項の位置を表す. \booknavref{節：数列と漸化式}{本文の説明へ.}
-\item[\hypertarget{term:initial}{初期条件}] 数列を作り始めるために与える値. \booknavref{節：数列と漸化式}{本文の説明へ.}
-\item[\hypertarget{term:general}{一般項}] 番号からその位置の項を直接表す式. \booknavref{節：数列と漸化式}{本文の説明へ.}
-\item[\hypertarget{term:arithmetic}{等差数列}] 次の項へ進むとき,同じ数を足す数列. \booknavref{節：等差型}{本文の説明へ.}
-\item[\hypertarget{term:geometric}{等比数列}] 次の項へ進むとき,同じ数を掛ける数列. \booknavref{節：等比型}{本文の説明へ.}
-\item[\hypertarget{term:difference}{階差}] 隣り合う項の差.変化を足し戻すと元の数列に戻る. \booknavref{節：階差型}{本文の説明へ.}
-\item[\hypertarget{term:ratio}{階比}] 隣り合う項の倍率を追う見方.積による表示と正規化を扱う. \booknavref{節：階比型}{本文の説明へ.}
-\item[\hypertarget{term:sigma}{シグマ}] 和を,添字の範囲とともに書く記号. \booknavref{節：シグマの計算}{本文の説明へ.}
-\item[\hypertarget{term:product}{総積}] 指定した範囲の項をすべて掛けたもの. \booknavref{節：階比型}{本文の説明へ.}
-\item[\hypertarget{term:constant}{定数係数}] 未知の項に掛かる係数が,添字によらず一定であること. \booknavref{節：定数係数・変数係数}{本文の説明へ.}
-\item[\hypertarget{term:variable}{変数係数}] 未知の項に掛かる係数が,添字によって変わること. \booknavref{節：定数係数・変数係数}{本文の説明へ.}
-\item[\hypertarget{term:order}{階数}] 次の項を求める際に,どこまで前の項を使うかを表す数.適用する形と範囲は参照先で確認する. \booknavref{節：階数と初期条件}{本文の説明へ.}
-\item[\hypertarget{term:iterate}{反復}] 同じ規則を繰り返し適用すること. \booknavref{節：反復・不動点}{本文の説明へ.}
-\item[\hypertarget{term:double}{二重数列}] 二つの添字で項を指定する数列. \booknavref{節：二重数列と二方向の階差}{本文の説明へ.}
-\item[\hypertarget{term:periodic}{周期性}] 一定の間隔を進めると同じ状態に戻る性質. \booknavref{節：非線形の周期性}{本文の説明へ.}
-\item[\hypertarget{term:floor}{ガウス記号}] ある数を超えない最大の整数を表す記号. \booknavref{節：ガウス型}{本文の説明へ.}
-\item[\hypertarget{term:floor-function}{床関数}] ある数を超えない最大の整数を返す関数.ガウス記号と結び付く. \booknavref{節：ガウス型}{本文の説明へ.}
+\item[\hypertarget{term:recurrence}{漸化式}] 項どうしの関係によって数列を定める式. \booknavref{節：数列と漸化式}{説明へ.}
+\item[\hypertarget{term:sequence}{数列}] 数を順に並べたもの.添字で各項の位置を表す. \booknavref{節：数列と漸化式}{説明へ.}
+\item[\hypertarget{term:initial}{初期条件}] 数列を作り始めるために与える値. \booknavref{節：数列と漸化式}{説明へ.}
+\item[\hypertarget{term:general}{一般項}] 番号からその位置の項を直接表す式. \booknavref{節：数列と漸化式}{説明へ.}
+\item[\hypertarget{term:arithmetic}{等差数列}] 次の項へ進むとき,同じ数を足す数列. \booknavref{節：等差型}{説明へ.}
+\item[\hypertarget{term:geometric}{等比数列}] 次の項へ進むとき,同じ数を掛ける数列. \booknavref{節：等比型}{説明へ.}
+\item[\hypertarget{term:difference}{階差}] 隣り合う項の差.変化を足し戻すと元の数列に戻る. \booknavref{節：階差型}{説明へ.}
+\item[\hypertarget{term:ratio}{階比}] 隣り合う項の倍率を追う見方.積による表示と正規化を扱う. \booknavref{節：階比型}{説明へ.}
+\item[\hypertarget{term:sigma}{シグマ}] 和を,添字の範囲とともに書く記号. \booknavref{節：シグマの計算}{説明へ.}
+\item[\hypertarget{term:product}{総積}] 指定した範囲の項をすべて掛けたもの. \booknavref{節：階比型}{説明へ.}
+\item[\hypertarget{term:constant}{定数係数}] 未知の項に掛かる係数が,添字によらず一定であること. \booknavref{節：定数係数・変数係数}{説明へ.}
+\item[\hypertarget{term:variable}{変数係数}] 未知の項に掛かる係数が,添字によって変わること. \booknavref{節：定数係数・変数係数}{説明へ.}
+\item[\hypertarget{term:order}{階数}] 次の項を求める際に,どこまで前の項を使うかを表す数.適用する形と範囲は参照先で確認する. \booknavref{節：階数と初期条件}{説明へ.}
+\item[\hypertarget{term:iterate}{反復}] 同じ規則を繰り返し適用すること. \booknavref{節：反復・不動点}{説明へ.}
+\item[\hypertarget{term:double}{二重数列}] 二つの添字で項を指定する数列. \booknavref{節：二重数列と二方向の階差}{説明へ.}
+\item[\hypertarget{term:periodic}{周期性}] 一定の間隔を進めると同じ状態に戻る性質. \booknavref{節：非線形の周期性}{説明へ.}
+\item[\hypertarget{term:floor}{ガウス記号}] ある数を超えない最大の整数を表す記号. \booknavref{節：ガウス型}{説明へ.}
+\item[\hypertarget{term:floor-function}{床関数}] ある数を超えない最大の整数を返す関数.ガウス記号と結び付く. \booknavref{節：ガウス型}{説明へ.}
 \end{description}
 \bookstep{式を整える}
 \begin{description}[style=nextline,leftmargin=0pt,labelsep=0pt,itemsep=5pt]
-\item[\hypertarget{term:auxiliary}{補助数列}] 元の数列から,変化を調べやすい別の量を作った数列. \booknavref{節：補助数列の設計}{本文の説明へ.}
-\item[\hypertarget{term:normalize}{正規化}] 基準となる量で割るなどして,倍率や大きさをそろえる操作. \booknavref{節：補助数列の設計}{本文の説明へ.}
-\item[\hypertarget{term:partial}{部分分数分解}] 一つの分数を,分母がより簡単な分数の和へ直す操作. \booknavref{節：部分分数分解}{本文の説明へ.}
-\item[\hypertarget{term:square}{平方完成}] 同じ数を足して引くことで,二乗の形を作る操作. \booknavref{節：+a-aをする}{本文の説明へ.}
-\item[\hypertarget{term:fixed}{不動点}] 規則を適用しても変わらない値. \booknavref{節：特性方程式型}{本文の説明へ.}
-\item[\hypertarget{term:undetermined}{未定係数法}] 式の形を先に選び,係数を比較して未知の係数を決める方法. \booknavref{節：階差等比複合型}{本文の説明へ.}
-\item[\hypertarget{term:induction}{数学的帰納法}] 出発点と,次の番号へ進めることを示して,すべての番号について証明する方法. \booknavref{節：数学的帰納法}{本文の説明へ.}
-\item[\hypertarget{term:logarithm}{対数}] ある数が底の何乗かを表す数.真数と底の条件を伴う. \booknavref{節：対数}{本文の説明へ.}
-\item[\hypertarget{term:inverse}{逆関数}] 出力から元の入力を一意に戻す関数.元の関数の定義域と値域を入れ替えて考える. \booknavref{節：対数}{本文の説明へ.}
-\item[\hypertarget{term:binomial}{二項定理}] 二つの数の和の非負整数乗を,項の和へ展開する公式. \booknavref{節：二項定理}{本文の説明へ.}
+\item[\hypertarget{term:auxiliary}{補助数列}] 元の数列から,変化を調べやすい別の量を作った数列. \booknavref{節：補助数列の設計}{説明へ.}
+\item[\hypertarget{term:normalize}{正規化}] 基準となる量で割るなどして,倍率や大きさをそろえる操作. \booknavref{節：補助数列の設計}{説明へ.}
+\item[\hypertarget{term:partial}{部分分数分解}] 一つの分数を,分母がより簡単な分数の和へ直す操作. \booknavref{節：部分分数分解}{説明へ.}
+\item[\hypertarget{term:square}{平方完成}] 同じ数を足して引くことで,二乗の形を作る操作. \booknavref{節：+a-aをする}{説明へ.}
+\item[\hypertarget{term:fixed}{不動点}] 規則を適用しても変わらない値. \booknavref{節：特性方程式型}{説明へ.}
+\item[\hypertarget{term:undetermined}{未定係数法}] 式の形を先に選び,係数を比較して未知の係数を決める方法. \booknavref{節：階差等比複合型}{説明へ.}
+\item[\hypertarget{term:induction}{数学的帰納法}] 出発点と,次の番号へ進めることを示して,すべての番号について証明する方法. \booknavref{節：数学的帰納法}{説明へ.}
+\item[\hypertarget{term:logarithm}{対数}] ある数が底の何乗かを表す数.真数と底の条件を伴う. \booknavref{節：対数}{説明へ.}
+\item[\hypertarget{term:inverse}{逆関数}] 出力から元の入力を一意に戻す関数.元の関数の定義域と値域を入れ替えて考える. \booknavref{節：対数}{説明へ.}
+\item[\hypertarget{term:binomial}{二項定理}] 二つの数の和の非負整数乗を,項の和へ展開する公式. \booknavref{節：二項定理}{説明へ.}
 \end{description}
 \bookstep{解の構造}
 \begin{description}[style=nextline,leftmargin=0pt,labelsep=0pt,itemsep=5pt]
-\item[\hypertarget{term:linear}{線形}] 入力の和と定数倍を保つ性質.線形漸化式という名称は,未知の項が係数を掛けて足す形で現れる方程式に使う. \booknavref{節：線形・非線形}{本文の説明へ.}
-\item[\hypertarget{term:nonlinear}{非線形}] 線形の条件を満たさないもの.項の二乗や逆数を含む例を扱う. \booknavref{節：線形・非線形}{本文の説明へ.}
-\item[\hypertarget{term:affine}{アフィン}] 線形な規則に定数を加えた形. \booknavref{節：アフィン・同次・非同次}{本文の説明へ.}
-\item[\hypertarget{term:homogeneous}{同次}] 線形な式で,未知の項を集めた後に付加項が残らない形. \booknavref{節：アフィン・同次・非同次}{本文の説明へ.}
-\item[\hypertarget{term:inhomogeneous}{非同次}] 線形な式で,未知の項を集めた後に既知の付加項が残る形. \booknavref{節：アフィン・同次・非同次}{本文の説明へ.}
-\item[\hypertarget{term:characteristic}{特性方程式}] 定数係数の線形漸化式で,等比型の解の倍率を求める方程式.行列では固有値を求める方程式をいう.不動点の値を求める方程式とは区別する. \booknavref{節：二次特性方程式型}{本文の説明へ.}
-\item[\hypertarget{term:root}{特性根}] 特性方程式の解. \booknavref{節：二次特性方程式型}{本文の説明へ.}
-\item[\hypertarget{term:superposition}{重ね合わせの原理}] 同次線形の式を満たす解を,定数倍して足しても解になる性質. \booknavref{節：線形結合}{本文の説明へ.}
-\item[\hypertarget{term:combination}{線形結合}] 数列やベクトルに定数を掛けて足したもの. \booknavref{節：線形結合}{本文の説明へ.}
-\item[\hypertarget{term:independent}{一次独立}] 定数倍して足したものが零になるのは,係数がすべて零の場合だけ,という関係. \booknavref{節：一次独立・基底・次元}{本文の説明へ.}
-\item[\hypertarget{term:basis}{基底}] すべてを定数倍と足し算で表せる,一次独立な組. \booknavref{節：一次独立・基底・次元}{本文の説明へ.}
-\item[\hypertarget{term:dimension}{次元}] 基底に必要な対象の個数.解全体では,自由に選べる初期値の個数とつながる. \booknavref{節：一次独立・基底・次元}{本文の説明へ.}
-\item[\hypertarget{term:vector-space}{ベクトル空間}] 足し算と定数倍ができ,これらの操作が所定の規則を満たす集合.具体的な解の集合から説明する. \booknavref{節：一次独立・基底・次元}{本文の説明へ.}
-\item[\hypertarget{term:elementary}{初等関数}] 多項式・指数・対数・三角関数などを,有限回の演算や合成で組み合わせた関数. \booknavref{節：初等関数・閉じた形}{本文の説明へ.}
-\item[\hypertarget{term:closed}{閉じた形}] 番号が増えても式中の演算の個数を増やさずに値を表す言い方.使える関数は文脈による. \booknavref{節：初等関数・閉じた形}{本文の説明へ.}
+\item[\hypertarget{term:linear}{線形}] 入力の和と定数倍を保つ性質.線形漸化式という名称は,未知の項が係数を掛けて足す形で現れる方程式に使う. \booknavref{節：線形・非線形}{説明へ.}
+\item[\hypertarget{term:nonlinear}{非線形}] 線形の条件を満たさないもの.項の二乗や逆数を含む例を扱う. \booknavref{節：線形・非線形}{説明へ.}
+\item[\hypertarget{term:affine}{アフィン}] 線形な規則に定数を加えた形. \booknavref{節：アフィン・同次・非同次}{説明へ.}
+\item[\hypertarget{term:homogeneous}{同次}] 線形な式で,未知の項を集めた後に付加項が残らない形. \booknavref{節：アフィン・同次・非同次}{説明へ.}
+\item[\hypertarget{term:inhomogeneous}{非同次}] 線形な式で,未知の項を集めた後に既知の付加項が残る形. \booknavref{節：アフィン・同次・非同次}{説明へ.}
+\item[\hypertarget{term:characteristic}{特性方程式}] 定数係数の線形漸化式で,等比型の解の倍率を求める方程式.行列では固有値を求める方程式をいう.不動点の値を求める方程式とは区別する. \booknavref{節：二次特性方程式型}{説明へ.}
+\item[\hypertarget{term:root}{特性根}] 特性方程式の解. \booknavref{節：二次特性方程式型}{説明へ.}
+\item[\hypertarget{term:superposition}{重ね合わせの原理}] 同次線形の式を満たす解を,定数倍して足しても解になる性質. \booknavref{節：線形結合}{説明へ.}
+\item[\hypertarget{term:combination}{線形結合}] 数列やベクトルに定数を掛けて足したもの. \booknavref{節：線形結合}{説明へ.}
+\item[\hypertarget{term:independent}{一次独立}] 定数倍して足したものが零になるのは,係数がすべて零の場合だけ,という関係. \booknavref{節：一次独立・基底・次元}{説明へ.}
+\item[\hypertarget{term:basis}{基底}] すべてを定数倍と足し算で表せる,一次独立な組. \booknavref{節：一次独立・基底・次元}{説明へ.}
+\item[\hypertarget{term:dimension}{次元}] 基底に必要な対象の個数.解全体では,自由に選べる初期値の個数とつながる. \booknavref{節：一次独立・基底・次元}{説明へ.}
+\item[\hypertarget{term:vector-space}{ベクトル空間}] 足し算と定数倍ができ,これらの操作が所定の規則を満たす集合.具体的な解の集合から説明する. \booknavref{節：一次独立・基底・次元}{説明へ.}
+\item[\hypertarget{term:elementary}{初等関数}] 多項式・指数・対数・三角関数などを,有限回の演算や合成で組み合わせた関数. \booknavref{節：初等関数・閉じた形}{説明へ.}
+\item[\hypertarget{term:closed}{閉じた形}] 番号が増えても式中の演算の個数を増やさずに値を表す言い方.使える関数は文脈による. \booknavref{節：初等関数・閉じた形}{説明へ.}
 \end{description}
 \bookstep{行列とベクトル}
 \begin{description}[style=nextline,leftmargin=0pt,labelsep=0pt,itemsep=5pt]
-\item[\hypertarget{term:matrix}{行列}] 数を長方形に並べ,複数の量の更新をまとめて表す道具. \booknavref{節：行列の基本}{本文の説明へ.}
-\item[\hypertarget{term:column-vector}{列ベクトル}] 複数の数を縦に並べた,一組の記録. \booknavref{節：行列の基本}{本文の説明へ.}
-\item[\hypertarget{term:row-vector}{行ベクトル}] 複数の数を横に並べたもの. \booknavref{節：行列の基本}{本文の説明へ.}
-\item[\hypertarget{term:identity}{単位行列}] 掛けても元のベクトルや行列を変えない行列. \booknavref{節：行列の基本}{本文の説明へ.}
-\item[\hypertarget{term:eigenvector}{固有ベクトル}] 行列を掛けると,元のベクトルの定数倍になる非零のベクトル. \booknavref{節：行列の基本}{本文の説明へ.}
-\item[\hypertarget{term:left-eigen}{左固有ベクトル}] 行列を右から掛けると,自身の定数倍になる非零の行ベクトル. \booknavref{節：行列の基本}{本文の説明へ.}
-\item[\hypertarget{term:eigenvalue}{固有値}] 固有ベクトルが更新されるときの倍率. \booknavref{節：行列の基本}{本文の説明へ.}
-\item[\hypertarget{term:transpose}{転置}] 行と列を入れ替える操作. \booknavref{節：行列の基本}{本文の説明へ.}
+\item[\hypertarget{term:matrix}{行列}] 数を長方形に並べ,複数の量の更新をまとめて表す道具. \booknavref{節：行列の基本}{説明へ.}
+\item[\hypertarget{term:column-vector}{列ベクトル}] 複数の数を縦に並べた,一組の記録. \booknavref{節：行列の基本}{説明へ.}
+\item[\hypertarget{term:row-vector}{行ベクトル}] 複数の数を横に並べたもの. \booknavref{節：行列の基本}{説明へ.}
+\item[\hypertarget{term:identity}{単位行列}] 掛けても元のベクトルや行列を変えない行列. \booknavref{節：行列の基本}{説明へ.}
+\item[\hypertarget{term:eigenvector}{固有ベクトル}] 行列を掛けると,元のベクトルの定数倍になる非零のベクトル. \booknavref{節：行列の基本}{説明へ.}
+\item[\hypertarget{term:left-eigen}{左固有ベクトル}] 行列を右から掛けると,自身の定数倍になる非零の行ベクトル. \booknavref{節：行列の基本}{説明へ.}
+\item[\hypertarget{term:eigenvalue}{固有値}] 固有ベクトルが更新されるときの倍率. \booknavref{節：行列の基本}{説明へ.}
+\item[\hypertarget{term:transpose}{転置}] 行と列を入れ替える操作. \booknavref{節：行列の基本}{説明へ.}
 \end{description}
 \bookstep{角度と複素数}
 \begin{description}[style=nextline,leftmargin=0pt,labelsep=0pt,itemsep=5pt]
-\item[\hypertarget{term:trigonometric}{三角関数}] 角度を,円上の位置や辺の比と結び付ける関数. \booknavref{節：三角関数}{本文の説明へ.}
-\item[\hypertarget{term:addition}{加法定理}] 角度の和を,元の角度の三角関数で表す公式. \booknavref{節：三角関数}{本文の説明へ.}
-\item[\hypertarget{term:complex-plane}{複素平面}] 複素数を平面上の点として表す見方. \booknavref{節：複素平面と極形式}{本文の説明へ.}
-\item[\hypertarget{term:polar}{極形式}] 複素数を,絶対値と角度によって表す形. \booknavref{節：複素平面と極形式}{本文の説明へ.}
-\item[\hypertarget{term:conjugate}{共役}] 複素数の虚部の符号を反転させる関係. \booknavref{節：複素平面と極形式}{本文の説明へ.}
-\item[\hypertarget{term:argument}{偏角}] 複素平面で,正の実軸から測る角度.角度の範囲の取り方を伴う. \booknavref{節：複素平面と極形式}{本文の説明へ.}
-\item[\hypertarget{term:de-moivre}{ド・モアブルの定理}] 複素数の整数乗で,絶対値と角度がどう変わるかを表す関係. \booknavref{節：ド・モアブルの定理}{本文の説明へ.}
-\item[\hypertarget{term:euler}{オイラーの公式}] 複素指数関数と正弦・余弦を結ぶ公式. \booknavref{節：オイラーの公式}{本文の説明へ.}
+\item[\hypertarget{term:trigonometric}{三角関数}] 角度を,円上の位置や辺の比と結び付ける関数. \booknavref{節：三角関数}{説明へ.}
+\item[\hypertarget{term:addition}{加法定理}] 角度の和を,元の角度の三角関数で表す公式. \booknavref{節：三角関数}{説明へ.}
+\item[\hypertarget{term:complex-plane}{複素平面}] 複素数を平面上の点として表す見方. \booknavref{節：複素平面と極形式}{説明へ.}
+\item[\hypertarget{term:polar}{極形式}] 複素数を,絶対値と角度によって表す形. \booknavref{節：複素平面と極形式}{説明へ.}
+\item[\hypertarget{term:conjugate}{共役}] 複素数の虚部の符号を反転させる関係. \booknavref{節：複素平面と極形式}{説明へ.}
+\item[\hypertarget{term:argument}{偏角}] 複素平面で,正の実軸から測る角度.角度の範囲の取り方を伴う. \booknavref{節：複素平面と極形式}{説明へ.}
+\item[\hypertarget{term:de-moivre}{ド・モアブルの定理}] 複素数の整数乗で,絶対値と角度がどう変わるかを表す関係. \booknavref{節：ド・モアブルの定理}{説明へ.}
+\item[\hypertarget{term:euler}{オイラーの公式}] 複素指数関数と正弦・余弦を結ぶ公式. \booknavref{節：オイラーの公式}{説明へ.}
 \end{description}
 \bookstep{数列の広がり}
 \begin{description}[style=nextline,leftmargin=0pt,labelsep=0pt,itemsep=5pt]
-\item[\hypertarget{term:invariant}{不変量}] 更新しても値が変わらない量. \booknavref{節：不変量から線形の関係}{本文の説明へ.}
-\item[\hypertarget{term:newton}{ニュートン法}] 接線の交点から,方程式の解に近い次の値を作る方法. \booknavref{節：ニュートン法型}{本文の説明へ.}
-\item[\hypertarget{term:limit}{極限}] 番号や変数を近づけるときに,値が近づく先を調べる考え方. \booknavref{節：極限}{本文の説明へ.}
-\item[\hypertarget{term:one-sided}{片側極限}] 変数を片側から近づけたときの極限. \booknavref{節：片側極限}{本文の説明へ.}
-\item[\hypertarget{term:left-limit}{左側極限}] 小さい側から変数を近づけたときの極限. \booknavref{節：片側極限}{本文の説明へ.}
-\item[\hypertarget{term:right-limit}{右側極限}] 大きい側から変数を近づけたときの極限. \booknavref{節：片側極限}{本文の説明へ.}
-\item[\hypertarget{term:pell}{ペル方程式}] 整数解を求める二次方程式の族.本書では二乗の差が1となる例を追う. \booknavref{節：ペル方程式と近似分数}{本文の説明へ.}
-\item[\hypertarget{term:continued}{連分数}] 分母の中に分数が続く表示.近似分数と漸化式を結び付ける. \booknavref{節：ペル方程式と近似分数}{本文の説明へ.}
-\item[\hypertarget{term:difference-operator}{差分}] 添字を一つずらした値から,元の値を引く操作. \booknavref{節：差分から始まる離散的な微積分}{本文の説明へ.}
-\item[\hypertarget{term:generating}{母関数}] 数列の項を係数に並べ,数列全体を一つの式として扱う道具. \booknavref{節：数列全体を一つの対象にまとめると,何が見えるか}{本文の説明へ.}
-\item[\hypertarget{term:convolution}{畳み込み}] 添字の和を合わせた項どうしの積を足す操作.母関数の積に現れる. \booknavref{節：演習の操作を別の表現で見直す}{本文の説明へ.}
-\item[\hypertarget{term:chebyshev}{チェビシェフ多項式}] 余弦の整数倍の公式を,多項式の列として表したもの. \booknavref{節：特性方程式を行列で見直す}{本文の説明へ.}
-\item[\hypertarget{term:legendre}{ルジャンドル多項式}] 三項漸化式で作られる多項式列.本文では直交性も紹介する. \booknavref{節：特性方程式を行列で見直す}{本文の説明へ.}
-\item[\hypertarget{term:interpolation}{ラグランジュ補間}] 有限個の点を通る多項式を作る方法. \booknavref{節：特性方程式を行列で見直す}{本文の説明へ.}
+\item[\hypertarget{term:invariant}{不変量}] 更新しても値が変わらない量. \booknavref{節：不変量から線形の関係}{説明へ.}
+\item[\hypertarget{term:newton}{ニュートン法}] 接線の交点から,方程式の解に近い次の値を作る方法. \booknavref{節：ニュートン法型}{説明へ.}
+\item[\hypertarget{term:limit}{極限}] 番号や変数を近づけるときに,値が近づく先を調べる考え方. \booknavref{節：極限}{説明へ.}
+\item[\hypertarget{term:one-sided}{片側極限}] 変数を片側から近づけたときの極限. \booknavref{節：片側極限}{説明へ.}
+\item[\hypertarget{term:left-limit}{左側極限}] 小さい側から変数を近づけたときの極限. \booknavref{節：片側極限}{説明へ.}
+\item[\hypertarget{term:right-limit}{右側極限}] 大きい側から変数を近づけたときの極限. \booknavref{節：片側極限}{説明へ.}
+\item[\hypertarget{term:pell}{ペル方程式}] 整数解を求める二次方程式の族.本書では二乗の差が1となる例を追う. \booknavref{節：ペル方程式と近似分数}{説明へ.}
+\item[\hypertarget{term:continued}{連分数}] 分母の中に分数が続く表示.近似分数と漸化式を結び付ける. \booknavref{節：ペル方程式と近似分数}{説明へ.}
+\item[\hypertarget{term:difference-operator}{差分}] 添字を一つずらした値から,元の値を引く操作. \booknavref{節：差分から始まる離散的な微積分}{説明へ.}
+\item[\hypertarget{term:generating}{母関数}] 数列の項を係数に並べ,数列全体を一つの式として扱う道具. \booknavref{節：数列全体を一つの対象にまとめると,何が見えるか}{説明へ.}
+\item[\hypertarget{term:convolution}{畳み込み}] 添字の和を合わせた項どうしの積を足す操作.母関数の積に現れる. \booknavref{節：演習の操作を別の表現で見直す}{説明へ.}
+\item[\hypertarget{term:chebyshev}{チェビシェフ多項式}] 余弦の整数倍の公式を,多項式の列として表したもの. \booknavref{節：特性方程式を行列で見直す}{説明へ.}
+\item[\hypertarget{term:legendre}{ルジャンドル多項式}] 三項漸化式で作られる多項式列.本文では直交性も紹介する. \booknavref{節：特性方程式を行列で見直す}{説明へ.}
+\item[\hypertarget{term:interpolation}{ラグランジュ補間}] 有限個の点を通る多項式を作る方法. \booknavref{節：特性方程式を行列で見直す}{説明へ.}
 \end{description}

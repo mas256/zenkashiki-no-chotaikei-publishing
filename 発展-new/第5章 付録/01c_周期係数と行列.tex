@@ -1,22 +1,16 @@
 \subsubsection{二回分の更新}\label{節：周期係数を行列で見直す}
   \sectionref*{節：周期的な係数}では,$2x+1$の後に$3x+2$を計算し,$6x+5$を得た.
-  今度は,それぞれの更新を行列で書いてみよう.
+  行列で書くと
   \[
     A=\begin{pmatrix}2&1\\0&1\end{pmatrix},\qquad
     B=\begin{pmatrix}3&2\\0&1\end{pmatrix}.
   \]
-  先に$A$,次に$B$で更新するので,二回分は$BA$になる.
-  実際に掛けると,
+  先に$A$,次に$B$なので,二回分は
   \[
     BA=\begin{pmatrix}6&5\\0&1\end{pmatrix},\qquad
     BA\binom{x}{1}=\binom{6x+5}{1}
   \]
-  となり,本文の計算に戻る.順序を逆にすると,
-  \[
-    AB=\begin{pmatrix}6&5\\0&1\end{pmatrix}.
-  \]
-  この例ではたまたま同じ行列になった.一般にも同じとは限らない.
-  接続演習問4の更新を使うと,
+  となる.この例では$AB=BA$だが,一般には異なる.接続演習問4なら
   \[
     U=\begin{pmatrix}-1&0\\0&1\end{pmatrix},\qquad
     V=\begin{pmatrix}2&1\\0&1\end{pmatrix}
@@ -29,8 +23,5 @@
   となる.更新を行う順序が,付加項の符号に現れた.
   一般の$a_{n+1}=p_na_n+q_n$でも,$\binom{a_{n+1}}1=
   \begin{pmatrix}p_n&q_n\\0&1\end{pmatrix}\binom{a_n}1$と表せる.
-  二回の更新は,先に行う\bookterm{matrix}{行列}を右に置いた積になる.
-  一周期分をまとめる操作は,その周期の行列をこの順序で掛けることに当たる.
-  途中の値は,本文と同じように一回ずつの更新から求められる.
-  \bookproblemref{practice-connections}{4}{接続演習問4}の式と比べると,
-  どちらの表現でも同じ更新を追っていることが分かる.
+  一周期分は,先に行う\bookterm{matrix}{行列}を右に置いて掛け合わせる.途中の値は一回ずつの更新で求める.
+  \bookproblemref{practice-connections}{4}{接続演習問4}で本文との対応を確かめよう.

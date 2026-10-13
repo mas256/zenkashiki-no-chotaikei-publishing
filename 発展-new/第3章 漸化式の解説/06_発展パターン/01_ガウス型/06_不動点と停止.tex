@@ -1,8 +1,6 @@
   \subsubsection{止まる値を調べる}\label{節：ガウス型の不動点と停止}
-    丸めを繰り返す\bookterm{sequence}{数列}では,\bookterm{general}{一般項}だけでなく,どの整数で止まるかにも注目しよう.
-    次の値が今の値と等しくなる値を\bookterm{fixed}{不動点}という.
-    \bookterm{fixed}{不動点}に到達すると,その後は同じ値が続く.
-    ただし,丸めを外した実数の\bookterm{recurrence}{漸化式}と,\bookterm{fixed}{不動点}が同じとは限らない.
+    次の値が今の値と等しい\bookterm{fixed}{不動点}に達すると,\bookterm{sequence}{数列}は止まる.
+    丸めを外した実数の\bookterm{recurrence}{漸化式}とは,止まる値が異なることがある.
 
     整数$K$を引いて,
     \[
@@ -14,13 +12,10 @@
       \left\lfloor\frac{\lfloor x\rfloor}{m}\right\rfloor
       =\left\lfloor\frac xm\right\rfloor
     \]
-    が成り立つので,繰り返すと分母をまとめられる.
-    この性質を確かめよう.\,$k=\lfloor x\rfloor$を$m$で割り,\,$k=mq+r$と書くと,
-    \,$0\le r\le m-1$であり,\,$x=mq+r+t\ (0\le t<1)$となる.
-    これより$0\le r+t<m$だから,どちらの\bookterm{floor-function}{床関数}も$q$になる.
+    が成り立つ.$\lfloor x\rfloor=mq+r\ (0\le r<m)$と書けば,$x=mq+r+t\ (0\le t<1)$.
+    $0\le r+t<m$より,両方の\bookterm{floor-function}{床関数}が$q$となるからである.
 
-    \textbf{初項の位置と,負の数の\bookterm{floor-function}{床関数}の値}も重要である.
-    例えば,\,$-1<x<0$なら$\lfloor x\rfloor=-1$であって0ではない.
+    \textbf{負数にも注意する.}$-1<x<0$なら$\lfloor x\rfloor=-1$である.
 
     \noindent \bookblocklink{example-gauss-role-6}{problem}{answer}{【例題】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-6}{problem}{answer}]
@@ -60,15 +55,13 @@
             \[
               b_n=\left\lfloor\frac{M-6}{2^{n-1}}\right\rfloor.
             \]
-            \,$M\ge6$では,十分大きな$n$で中身が$[0,1)$に入り,床は0になる.
-            \,$M<6$では,十分大きな$n$で中身が$(-1,0)$に入り,床は$-1$になる.
-            これより【解答】の値に有限回で到達する.
+            十分大きな$n$で,中身は$M\ge6$なら$[0,1)$,$M<6$なら$(-1,0)$に入る.
+            床はそれぞれ0,$-1$なので,6または5に有限回で到達する.
 
             実際,整数$x$が\bookterm{fixed}{不動点}となる条件は,
             \[
               x\le\frac{x+6}{2}<x+1
               \iff 4<x\le6
             \]
-            なので,\bookterm{fixed}{不動点}は5と6の二つである.
-            初項によって到達する\bookterm{fixed}{不動点}が分かれることは,この後の\sectionref{節：初項依存型}ともつながる.
+            より5と6が\bookterm{fixed}{不動点}となる.初項による分岐は\sectionref{節：初項依存型}でも見る.
     \end{enumerate}
