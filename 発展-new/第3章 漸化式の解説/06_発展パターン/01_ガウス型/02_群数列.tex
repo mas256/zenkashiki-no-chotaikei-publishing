@@ -1,7 +1,6 @@
   \subsubsection{同じ値を群にまとめる}\label{節：ガウス型の群数列}
-    \bookterm{floor-function}{床関数}は,中身が同じ二つの連続整数の間にある間,同じ値を取る.
-    このようなまとまりを一つの群として数えるのが,群\bookterm{sequence}{数列}の考え方である.
-    では少し\bookterm{recurrence}{漸化式}から離れて,一般項に\bookterm{floor}{ガウス記号}が含まれている場合を考える.
+    \bookterm{floor-function}{床関数}が同じ値を取る項を一つの群にまとめる.
+    まず,一般項に\bookterm{floor}{ガウス記号}がある\bookterm{sequence}{数列}を見よう.
 
     \noindent\phantomsection\label{証明：ガウス型の群数列}\textbf{【命題1】}\par\nobreak
     \begin{smallquote}
@@ -13,7 +12,7 @@
     \end{smallquote}
     \noindent \textbf{【証明1】}\par\nobreak
     \begin{smallquote}
-      正整数$k$を一つ固定し,$a_n=k$となる項の番号$n$を調べる.\bookterm{floor-function}{床関数}の定義から,
+      正整数$k$について,$a_n=k$となる番号$n$は,
       \[
         k\le\sqrt{n}<k+1
       \]
@@ -26,21 +25,19 @@
       \[
         \{(k+1)^2-1\}-k^2+1=2k+1
       \]
-      である.従って,値が$k$となる項は$n=k^2$から連続して$2k+1$個並び,
-      その次は値が$k+1$となる群へ移る.これで群の境界と各群の項数が定まった. \qed
+      である.値$k$が$n=k^2$から$2k+1$個並び,次の群では$k+1$となる. \qed
     \end{smallquote}
 
-    初項から順に書き出してみると,
+    実際の並びも,
     \[
       \underbrace{1,1,1}_{3\text{個}},\,
       \underbrace{2,2,2,2,2}_{5\text{個}},\,
       \underbrace{3,3,3,3,3,3,3}_{7\text{個}},\,4,\ldots
     \]
-    となっており,理論と一致している.
+    となる.
 
-    \bookterm{difference}{階差}にこの形が現れたら,\sectionref{節：階差型}と同じように足す.
-    このときは,\textbf{群の境界と,最後の群のどこまでを足すか}を区別する.
-    似た形でも,和の上端が$n$か$n-1$かで境界が変わる.
+    \bookterm{difference}{階差}なら\sectionref{節：階差型}として足す.
+    \textbf{群の境界と,和の上端が最後の群のどこにあるか}を区別する.
 
     \noindent \bookblocklink{example-gauss-role-2}{problem}{answer}{【例題】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-2}{problem}{answer}]
@@ -75,8 +72,7 @@
                   =\sum_{k=1}^{n+1}\lfloor\sqrt k\rfloor.
             \]\footnote{\,$n=1$では最初の和を空の和として0とする.}
             \,$N=n+1,\ m=\lfloor\sqrt N\rfloor$とおく.
-            ここで$k$は項番号,$m$は最後の群の番号である.
-            第$m-1$群までは全項,第$m$群は$N$までを足す.
+            項番号$k$で足し,第$m-1$群までは全部,第$m$群は$N$までを使う.
             \[
               \begin{array}{c|c|c}
                 \text{群}&\text{足す項番号}&\text{個数}\\ \hline
@@ -84,22 +80,22 @@
                 m&\substack{m^2\le k\\ k\le N}&N-m^2+1
               \end{array}
             \]
-            最後の群も最初の項を含むので,個数は$N-m^2$ではなく$N-m^2+1$である.
-            各群の値に個数を掛けて足すと,
+            最後の群は両端を含むので$N-m^2+1$個.値と個数を掛けて足すと,
             \begin{align*}
               a_n&=\sum_{j=1}^{m-1}j(2j+1)+m(N-m^2+1)\\
                  &=\frac{(m-1)m(4m+1)}6\\
                  &\quad+m(N-m^2+1)\\
                  &=m(N+1)-\frac{m(m+1)(2m+1)}6.
             \end{align*}
-            \,$N=n+1$を戻せば\bookterm{general}{一般項}を得る.\,$m=1$でも最初の和は0となり,初項と一致する.
+            \,$N=n+1$を戻す.\,$m=1$では最初の和が0となり,初項にも合う.
 
             \noindent \textbf{【別解】}\\
-            \,$\lfloor\sqrt k\rfloor$は,\,$j^2\le k$を満たす正整数$j$の個数でもある.
-            同じ組$(j,k)$を$j$ごとに数えると,
+            \,$\lfloor\sqrt k\rfloor$は$j^2\le k$を満たす正整数$j$の個数でもある.
+            組$(j,k)$の条件$1\le k\le N$, $1\le j$, $j^2\le k$を,$j$ごとに数え直す.
+            $k=j^2,\ldots,N$の$N-j^2+1$個から,
             \begin{align*}
               a_n&=\sum_{j=1}^{m}(N-j^2+1)\\
                  &=m(N+1)-\frac{m(m+1)(2m+1)}6.
             \end{align*}
-            群ごとにまとめる方法と,何を数えているかを読み直す方法がつながっている.
+            群の和と,整数の組の数え直しが同じ答えを与えた.
     \end{enumerate}

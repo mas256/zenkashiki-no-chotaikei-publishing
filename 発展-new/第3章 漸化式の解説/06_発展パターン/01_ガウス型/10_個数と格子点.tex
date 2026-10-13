@@ -1,13 +1,11 @@
   \subsubsection{整数の個数を数える}\label{節：ガウス型の個数と格子点}
-    \,$X\ge0$に対して$\lfloor X\rfloor$は,\,$1\le k\le X$を満たす整数$k$の個数である.
-    例えば$\lfloor\frac nm\rfloor$は,\,$1,\ldots,n$に含まれる$m$の倍数の個数を表す.
-    \bookterm{floor-function}{床関数}を含む和は,\textbf{何を数えているか}から意味を読み直せる.
+    $X\ge0$なら$\lfloor X\rfloor$は$1\le k\le X$を満たす整数の個数である.
+    $\lfloor n/m\rfloor$なら,$1,\ldots,n$の中の$m$の倍数を数える.
+    \textbf{\bookterm{floor-function}{床関数}の和を,個数として読み直せる.}
 
-    座標がともに整数である点を格子点という.
-    例えば$\sum_{k=1}^{n}\lfloor ck\rfloor\ (c>0)$は,
-    \,$x=k$を固定するたびに,\,$1\le y\le ck$を満たす整数$y$を数えている.
-    同じ値の群で整理する方法とは別に,図形の中の点を数える方法としても理解できる.
-    二つの使い方は重なり,前の群\bookterm{sequence}{数列}の別解も整数の組を数え直す方法であった.
+    座標がともに整数の点を格子点という.
+    $c>0$で,$\sum_{k=1}^{n}\lfloor ck\rfloor$は,$x=k$ごとに$1\le y\le ck$の整数$y$を数えた和である.
+    群\bookterm{sequence}{数列}の別解と同じく,整数の組を数える見方になる.
 
     \noindent \bookblocklink{example-gauss-role-10}{problem}{answer}{【例題】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-10}{problem}{answer}]
@@ -45,7 +43,7 @@
               a_n&=\sum_{k=1}^{n}\left\lfloor\frac{5k}{2}\right\rfloor\\
                  &=n(n+1)+\sum_{k=1}^{n}\left\lfloor\frac k2\right\rfloor.
             \end{align*}
-            後ろの和は$n=2m$なら,
+            後ろの和は,$n=2m$なら,
             \[
               0+1+1+2+2+\cdots+(m-1)+(m-1)+m=m^2,
             \]
@@ -55,10 +53,8 @@
               \sum_{k=1}^{n}\left\lfloor\frac k2\right\rfloor
               =\left\lfloor\frac{n^2}{4}\right\rfloor
             \]
-            となり,\bookterm{general}{一般項}を得る.\,$n=0$でも成立する.
+            となり,【解答】を得る.$n=0$にも合う.
 
-            格子点としての意味も確かめよう.\,$x=k$と固定したとき,
-            \,$1\le y\le\frac{5k}{2}$を満たす整数$y$は$\lfloor\frac{5k}{2}\rfloor$個である.
-            \,$k=1,\ldots,n$について足した値が$a_n$だから,【解答】の範囲の点を数えている.
-            \bookterm{sequence}{数列}の値,\bookterm{floor-function}{床関数}の和,図形の中の個数が同じ量を表している.
+            $x=k$にある格子点は,$1\le y\le5k/2$の$\lfloor5k/2\rfloor$個.
+            $k=1,\ldots,n$について足した$a_n$が,【解答】の範囲の点の個数となる.
     \end{enumerate}

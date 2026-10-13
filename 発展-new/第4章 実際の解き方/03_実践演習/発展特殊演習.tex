@@ -1,10 +1,8 @@
     \subsection{発展・特殊型}\label{節：発展パターン・特殊性質型の演習}
-      ここでは,\sectionref{節：発展パターン}と\sectionref{節：特殊性質型}で扱った\bookterm{recurrence}{漸化式}を,\,15題で練習する.
-      \bookterm{floor}{ガウス記号}では整数性や余り,多項間の関係では\bookterm{difference}{階差}や\bookterm{characteristic}{特性方程式},
-      \bookterm{nonlinear}{非線形}な式では対称式や\bookterm{trigonometric}{三角関数}の恒等式が手掛かりになる.
-      まず式のどの部分に着目したかを述べ,置換や場合分けを選ぼう.
-      \bookterm{general}{一般項}の候補が見つかったら,\bookterm{initial}{初期条件}と\bookterm{recurrence}{漸化式}をともに満たすことを確認する.
-      分数式では分母,\bookterm{trigonometric}{三角関数}では角度の定義域も確かめてほしい.
+      \sectionref{節：発展パターン}と\sectionref{節：特殊性質型}の15題である.
+                \bookterm{floor}{ガウス記号}には整数性・余り,多項間の関係には\bookterm{difference}{階差}・\bookterm{characteristic}{特性方程式},
+                \bookterm{nonlinear}{非線形}な式には対称式・\bookterm{trigonometric}{三角関数}の恒等式を使う.
+                候補は\bookterm{initial}{初期条件}と更新で確かめ,分母や角度の定義域も確認する.
       問14・問15では初項を動かし,定\bookterm{sequence}{数列}・周期列・有界な\bookterm{sequence}{数列}が現れる条件を調べる.
       以下,特に指定しない限り,\,$\displaystyle n$は正の整数とする.
       $\displaystyle \lfloor x\rfloor$は$\displaystyle x$を超えない最大の整数を表す.
@@ -435,19 +433,15 @@
                 \[
                   a_n=\sum_{k=1}^{n}\left\lfloor\frac{k}{3}\right\rfloor.
                 \]
-                $\displaystyle k=1,2$では値は$\displaystyle 0$である.
-                正の整数$\displaystyle j$について,\,$\displaystyle k=3j,3j+1,3j+2$の三つで値が$\displaystyle j$になる.
-                $\displaystyle n=3q+r$とおくと,\,$\displaystyle q\ge1$の場合,
-                値が$\displaystyle 1,2,\ldots,q-1$となる群がすべてそろい,
-                値が$\displaystyle q$となる最後の群が$\displaystyle r+1$項だけある.
+                $k=1,2$では零で,$k=3j,3j+1,3j+2$では値が$j$になる.
+                $n=3q+r$, $q\ge1$なら,値$1,\ldots,q-1$の群は三項ずつ,最後の値$q$の群は$r+1$項ある.
                 よって,
                 \begin{align*}
                   a_n&=3\sum_{j=1}^{q-1}j+q(r+1)\\
                      &=\frac{3q(q-1)}2+q(r+1).
                 \end{align*}
-                $\displaystyle q=0$,すなわち$\displaystyle n=0,1,2$でも,
-                実際の値とこの式の値はともに$\displaystyle 0$である.
-                最後の群を常に三つとして数えると誤るので,余り$\displaystyle r$で途中までの項数を表している.
+                $q=0$でも実際の値と式は零である.
+                最後の群は途中までなので,常に三項と数えてはいけない.
           % E3
           \item \textbf{(1)~余りに読み替える.}
                 \sectionref{節：ガウス型}では,\bookterm{floor}{ガウス記号}が整数問題の道具にもなる.
@@ -455,9 +449,8 @@
                 \[
                   0\le x-5\left\lfloor\frac{x}{5}\right\rfloor<5.
                 \]
-                この値は整数だから$\displaystyle 0,1,2,3,4$のいずれかである.
-                初項は整数であり,整数の項から次の整数の項が定まるので,
-                $\displaystyle x=2a_n+1$として帰納法を使えばよい.
+                整数なので値は$0,1,2,3,4$に限られる.
+                初項の整数性と$x=2a_n+1$を使えば,帰納的に全項がこの範囲に入る.
 
                 \smallskip
                 \textbf{(2)~五つの値の更新.}
@@ -469,10 +462,8 @@
                   \end{array}
                 \]
                 初項$\displaystyle 1$からは$\displaystyle 1,3,2,0,1,\ldots$と進む.
-                どの値からも次の値は一つに決まるため,この四つの値の繰り返しが帰納法で続く.
-                よって解答の\bookterm{general}{一般項}を得る.
-                最初の四つの値がすべて異なるので,周期の最小値は$\displaystyle 4$である.
-                \bookterm{sequence}{数列}全体の大きさを追う代わりに,取り得る値を先に絞ったことが解法の鍵である.
+                次は一意に決まるためこの四値を繰り返し,解答の\bookterm{general}{一般項}となる.
+                四値が異なるので最小周期は$4$である.取り得る値を先に絞った.
           % E4
           \item \textbf{(1)~4項型から\bookterm{difference}{階差}へ.}
                 \sectionref{節：隣接4項間漸化式型}と同じく,\bookterm{difference}{階差}の組合せを見る.
@@ -505,8 +496,8 @@
                      &=n^3+1.
                 \end{align*}
                 ここでは$\displaystyle n=1$の空の和を$\displaystyle 0$とする.
-                三つの初期値を,\,$\displaystyle d_1,e_1,a_1$の順に使っている.
-                \bookterm{difference}{階差}を取ると次数が下がり,足し合わせると元の\bookterm{sequence}{数列}へ戻る関係が見える.
+                初期値を$d_1,e_1,a_1$の順に使った.
+                \bookterm{difference}{階差}で次数を下げ,和で元へ戻す.
           % E5
           \item \textbf{(1)~3項をまとめて等比型へ.}
                 \sectionref{節：隣接4項間漸化式型}の方法を使う.
@@ -524,7 +515,7 @@
                 \[
                   d_n=2\cdot3^{n-1}.
                 \]
-                初期値が$\displaystyle 0$ではないので,この右辺を残して次の変形を行う.
+                初期値が零でないので,右辺を残して進める.
 
                 \smallskip
                 \textbf{(2)~右辺を作る\bookterm{sequence}{数列}を引く.}
@@ -557,7 +548,7 @@
                 \]
                 とおける.\,$\displaystyle a_1=0$より$\displaystyle C=0$であり,
                 $\displaystyle a_2=1$より$\displaystyle D=\frac2{\sqrt3}$である.
-                得られた\bookterm{general}{一般項}が\bookterm{recurrence}{漸化式}を満たすことは,\,$\displaystyle \sin$の\bookterm{addition}{加法定理}からも確認できる.
+                得られた更新は$\sin$の\bookterm{addition}{加法定理}からも確認できる.
 
                 \smallskip
                 \textbf{(2)~最小周期を確かめる.}
@@ -602,11 +593,9 @@
                 角度は一定ずつ進み,振幅は\bookterm{geometric}{等比数列}として縮んでいる.
           % E8
           \item \textbf{(1)~正値の確認と奇偶の分割.}
-                \sectionref{節：非隣接2項間漸化式型}の着目点は,添字が一つ飛んでいることである.
-                $\displaystyle a_1,a_2>0$であり,\,$\displaystyle a_n>0$なら
-                $\displaystyle \frac{a_n}{1+a_n}>0$となる.
-                奇数番目と偶数番目のそれぞれで帰納法を使えば,すべての項が正である.
-                よって逆数を取ることができ,
+                \sectionref{節：非隣接2項間漸化式型}と同じく奇偶に分ける.
+                $a_1,a_2>0$で,正の項から次も正になるので両方で帰納法を使えば全項が正である.
+                逆数を取ると,
                 \[
                   \frac1{a_{n+2}}=\frac1{a_n}+1.
                 \]
@@ -651,7 +640,7 @@
                 \]
                 $\displaystyle B_1=b_1$でもあるので,帰納法により$\displaystyle b_n=B_n$となる.
                 よって$\displaystyle a_n=1+B_n$である.
-                元の式で\bookterm{logarithm}{対数}を取る前に\bookterm{square}{平方完成}したことで,対称式の恒等式に一致する形が見つかった.
+                \bookterm{square}{平方完成}の後,逆数となる二量の和として恒等式を使った.
           % E10
           \item \textbf{(1)~交差項の打ち消し.}
                 \sectionref{節：基本対称式型}の三次の恒等式を使う.
@@ -682,8 +671,7 @@
                   A_{n+1}=\cos(2\theta_n)=2A_n^2-1.
                 \]
                 初項も一致するので,帰納法により$\displaystyle a_n=A_n$である.
-                これは角度の選び方によって解を作ったのであり,
-                余弦の値から角度が一意に定まると主張しているわけではない.
+                角度から解を作っており,余弦の値から角度を一意に決めたのではない.
 
                 \smallskip
                 \textbf{(2)~一周の差を比べる.}
@@ -762,8 +750,7 @@
                 \[
                   b_1=\frac{1-\sqrt3}{1+\sqrt3}=\sqrt3-2=q.
                 \]
-                $\displaystyle q<0$なので実数の\bookterm{logarithm}{対数}を最初から取ることはできないが,
-                繰り返し二乗する関係から,帰納法により
+                $q<0$なので最初から実数の\bookterm{logarithm}{対数}は使えない.二乗の繰り返しから帰納的に
                 \[
                   b_n=q^{\,2^{n-1}}
                 \]
@@ -783,9 +770,8 @@
                   \quad(n\ge2).
                 \]
                 $\displaystyle |q|<1$から$\displaystyle b_n\to0$であり,\,$\displaystyle a_n\to\sqrt3$となる.
-                初項は収束先より小さいが,第2項でその上へ移り,そこから減少して近づく.
-                誤差の式$\displaystyle a_{n+1}-\sqrt3=\frac{(a_n-\sqrt3)^2}{2a_n}$も,
-                第2項から上側に移ることと,誤差が急速に小さくなることを説明している.
+                初項は収束先の下にあるが,第2項で上へ移ってから減少する.
+                誤差を二乗する式も,この移動と速い収束を表す.
           % E14
           \item \textbf{(1)~\bookterm{fixed}{不動点}と定\bookterm{sequence}{数列}.}
                 \sectionref{節：初項依存型}の考え方を使う.
@@ -812,14 +798,10 @@
                   \quad(c=0,-1)
                 \]
                 と表せる.二つの値が異なるから周期の最小値は$\displaystyle 2$である.
-                この方程式から得た四つの初項について特別な振る舞いを示したのであり,
-                他の初項で同じ\bookterm{general}{一般項}が使えるとは結論していない.
+                ここでの\bookterm{general}{一般項}は,調べた初項に限って使える.
           % E15
           \item \textbf{(1)~初項による振る舞い.}
-                各初項を代入すると解答の表を得る.
-                $\displaystyle c=-1,2$では最初から定\bookterm{sequence}{数列}となり,
-                $\displaystyle c=-2,0$では数項進めたあとに$\displaystyle 2$で一定になる.
-                同じ\bookterm{recurrence}{漸化式}でも,初項が違うと一定になるまでの経過が変わる.
+                代入すると解答の表を得る.$c=-1,2$は初めから定\bookterm{sequence}{数列},$c=-2,0$は数項後に$2$で一定になる.
 
                 \smallskip
                 \textbf{(2)~初項に合う表示.}

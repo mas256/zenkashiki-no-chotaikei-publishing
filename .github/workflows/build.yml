@@ -15,12 +15,18 @@ on:
       - 'scripts/setup-texlive.sh'
       - 'scripts/verify-pdf-a4.py'
       - 'scripts/verify-reading-navigation.py'
+      - 'scripts/verify-pdf-link-margins.py'
+      - 'scripts/verify-learning-design.mjs'
+      - 'tests/**'
   pull_request:
     paths:
       - '発展-new/**'
       - 'tex/**'
       - '.github/workflows/**'
       - 'scripts/verify-reading-navigation.py'
+      - 'scripts/verify-pdf-link-margins.py'
+      - 'scripts/verify-learning-design.mjs'
+      - 'tests/**'
   workflow_dispatch:
 
 permissions:

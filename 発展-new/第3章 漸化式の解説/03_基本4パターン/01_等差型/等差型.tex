@@ -5,24 +5,13 @@
     \textbf{差を追う}\par
     一回ごとに足す量が一定なら,初項に増分を足し戻す.項の番号と更新の回数の違いを確かめよう.
   \end{bookpoint}
-    まずは,一歩ごとに同じ数を足す等差型から始める.
-    初項$a_1$から,一歩進むごとに$d$を足す.
-    直前の項を順に代入し,初項に達したところで止めると,
+    一歩ごとに$d$を足す.$n\ge2$で直前の項を順に代入すると,
     \begin{align*}
-      &a_{n+1}=a_n+d\\
-      &a_{n+1}=(a_{n-1}+d)+d\\
-      &a_{n+1}=\{(a_{n-2}+d)+d\}+d\\
-      &\qquad \vdots\\
-      &a_{n+1}=a_1+d+d+\cdots+d\\
-      &a_{n+1}=a_1+nd\\
-      &\therefore \quad a_n=a_1+(n-1)d
+      a_n&=a_{n-1}+d=a_{n-2}+2d=\cdots\\
+         &=a_1+(n-1)d
     \end{align*}
     となり\bookterm{general}{一般項}が示される.
-    各行で,$d$の個数と$a$の添字の和は$n+1$である.
-    例えば$a_4=a_3+d=a_2+2d=a_1+3d$となる.
-    $a_1$から$a_n$までは項が$n$個あり,その間の更新は$n-1$回あるのである.
-
-    例題で確かめよう.
+    例えば$a_4=a_3+d=a_2+2d=a_1+3d$である.項は$n$個,更新は$n-1$回なのである.
 
     \noindent \bookblocklink{example-arithmetic-1}{problem}{answer}{【例題】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-arithmetic-1}{problem}{answer}]
@@ -51,9 +40,5 @@
     \end{enumerate}
 
     \noindent\bookblocklink{example-arithmetic-1}{solution}{problem}{【解法】}\par\nobreak
-    (1)では,一歩ごとに$1$を足すので$d=1$である.初項と公差を代入すると,
-    \[
-      a_n=a_1+(n-1)d=1+(n-1)\cdot1=n
-    \]
-    となる.$n=1$を入れると$a_1=1$であり,隣り合う項の差も$(n+1)-n=1$となる.
-    (2),(3)も公差を変えて同じ式へ代入する.
+    (1)は$a_1=d=1$なので$a_n=1+(n-1)=n$となる.初項は$1$,隣り合う項の差は$(n+1)-n=1$で,元の条件に合う.
+    (2),(3)も初項と公差を代入する.

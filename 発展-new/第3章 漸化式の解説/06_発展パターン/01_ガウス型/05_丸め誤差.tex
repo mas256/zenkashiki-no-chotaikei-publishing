@@ -1,16 +1,13 @@
   \subsubsection{丸め誤差を使う}\label{節：ガウス型の丸め誤差}
-    \,$a_{n+1}=\lfloor\lambda a_n\rfloor$では,整数との和の場合と違い,\,$\lambda$の整数部分を取り出すだけでは解けない.
-    代わりに,
+    \,$a_{n+1}=\lfloor\lambda a_n\rfloor$では,$\lambda$の整数部分だけを取り出せない.そこで,
     \[
       \varepsilon_n=\lambda a_n-a_{n+1},
       \qquad 0\le\varepsilon_n<1
     \]
-    とおき,丸めで捨てた部分を残して計算しよう.
-    \textbf{誤差そのものではなく,誤差の範囲から次の整数部分を確定する}のが狙いである.
+    と置く.\textbf{捨てた部分の範囲から,次の整数部分を確定する.}
 
-    係数$\lambda$が2次方程式を満たす場合は,\,$\lambda^2$を$\lambda$と整数で表せることが手掛かりになる.
-    ただし,最後に現れる誤差がどの整数の間にあるかを示す必要がある.
-    どの無理数の係数でも同じ隣接3項間\bookterm{recurrence}{漸化式}へ帰着できるわけではない.
+    $\lambda^2$を$\lambda$と整数で表せる係数が手掛かりになる.
+    ただし,誤差の範囲を示せて初めて隣接3項間\bookterm{recurrence}{漸化式}へ帰着できる.
 
     \noindent \bookblocklink{example-gauss-role-5}{problem}{answer}{【例題】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-5}{problem}{answer}]
@@ -54,13 +51,11 @@
                 &=\lambda(\lambda a_n-\varepsilon_n)\\
                 &=2a_{n+1}+a_n-(\lambda-2)\varepsilon_n.
             \end{align*}
-            \,$0<\lambda-2=\sqrt2-1<1$なので,最後に引く数も0と1の間にある.
-            \,$M_n=2a_{n+1}+a_n$は整数だから,
+            $M_n=2a_{n+1}+a_n$は整数で,$0<(\lambda-2)\varepsilon_n<1$だから,
             \[
               M_n-1<\lambda a_{n+1}<M_n.
             \]
-            従って$a_{n+2}=M_n-1$となり,【解答】の隣接3項間\bookterm{recurrence}{漸化式}を得る.
-            \bookterm{initial}{初期条件}は$a_2=\lfloor1+\sqrt2\rfloor=2$である.
+            より$a_{n+2}=M_n-1$.\bookterm{initial}{初期条件}は$a_2=\lfloor1+\sqrt2\rfloor=2$である.
 
             定数項を消すため$b_n=a_n-\frac12$とおくと,
             \[
@@ -73,7 +68,6 @@
             \[
               b_n=\frac{\alpha^n+\beta^n}{4}
             \]
-            は\bookterm{initial}{初期条件}と\bookterm{recurrence}{漸化式}を満たす.
-            二つの初期値から各項は一意に決まるので,この式が\bookterm{general}{一般項}である.
-            丸め誤差を評価した後は,既習の\bookterm{linear}{線形}の\bookterm{recurrence}{漸化式}に戻ることができた.
+            は初期値と更新を満たし,一意性から求める解となる.
+            $a_n=b_n+\frac12$に戻せば【解答】を得る.
     \end{enumerate}

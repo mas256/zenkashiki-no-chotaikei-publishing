@@ -1,18 +1,15 @@
   \subsubsection{添字を分ける}\label{節：ガウス型の添字の分割}
-    ここからは,\bookterm{floor-function}{床関数}が\bookterm{sequence}{数列}の値ではなく,\textbf{どの項を参照するか}を指定する使い方を考える.
+    \bookterm{floor-function}{床関数}で,\textbf{参照する項}を指定する場合もある.
     正整数$n$に対して,
     \[
       \left\lfloor\frac{n+1}{2}\right\rfloor
       +\left\lfloor\frac n2\right\rfloor=n
     \]
-    であり,二つの添字は$n$をできるだけ等しく分けた大きさになる.
-    偶数では両方が同じ添字になり,奇数では隣り合う添字になることが手掛かりである.
+    は$n$の二分割である.偶数なら同じ添字,奇数なら隣り合う添字になる.
 
-    この形の問題では,まず偶奇で分けて\bookterm{floor-function}{床関数}を外し,それから\bookterm{difference}{階差}を取る方法がある.
-    半分の添字との関係が得られれば,\,$1,\ 2\le n<4,\ 4\le n<8,\ldots$のように,
-    2の累乗ごとの群で整理できる.
-    定義の確認も必要で,例えば$n=1$で元と同じ添字を参照する式は,
-    そのまま初項を決める式として使えないことがある.
+    偶奇で分けて床を外し,\bookterm{difference}{階差}を取る.
+    半分の添字との関係が出れば,$1,\ 2\le n<4,\ 4\le n<8,\ldots$の群で整理できる.
+    ただし,元と同じ添字を参照する式だけでは初項が決まらないこともある.
 
     \noindent \bookblocklink{example-gauss-role-7}{problem}{answer}{【例題】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-7}{problem}{answer}]
@@ -64,10 +61,8 @@
               b_{2k}=b_{2k+1}=b_k+1,\qquad b_1=3.
             \]
 
-            \,$2^m\le n<2^{m+1}$の範囲では$b_n=m+3$となる.
-            \,$m=0$では$b_1=3$と一致する.
-            次の群の添字を半分にして床を取ると前の群に入り,値が1増えるから,
-            群番号$m$についての帰納法でこの式が示される.
+            $m=0$では$b_1=3$.次の群の添字を半分にすると前の群へ入り,値が1増える.
+            群番号$m$について帰納的に,$2^m\le n<2^{m+1}$で$b_n=m+3$となる.
 
             従って,完全な群と最後の群を分けて足すと,
             \begin{align*}
@@ -81,11 +76,10 @@
             \[
               \sum_{j=0}^{m-1}j2^j=(m-2)2^m+2
             \]
-            を使う.後者は,和を$T$とおき$2T-T$を計算すれば得られる.
-            \,$m=0$でも空の和として両式は成り立つ.
-            これを代入すると,
+            を使う(後者は和$T$に対する$2T-T$から得る).$m=0$でも空の和として成立する.
+            代入すると,
             \[
               a_n=(m+3)n-2^{m+1}+1
             \]
-            を得る.添字を分割する問題から,\bookterm{difference}{階差}を通じて群\bookterm{sequence}{数列}へ戻ることができた.
+            を得る.添字の分割が,階差の群\bookterm{sequence}{数列}へつながった.
     \end{enumerate}

@@ -1,7 +1,6 @@
     \subsection{応用}\label{節：応用難易度}\label{節：高難易度のもの}
-      ここでは,標準問題で学んだ解法を複数組み合わせる10題を扱う.
-      見た目の複雑さをそのまま計算するのではなく,共通の分母,和と差,積や総和の構造を探そう.
-      どの数量に変換するかと,変換をどの順番で使うかを考えてほしい.
+      複数の解法を組み合わせる10題である.
+                共通の分母,和と差,積や総和に着目し,変換する量と順番を選ぶ.
       以下,\,$n$は正の整数とし,必要なときは$S_n=\sum_{k=1}^{n}a_k$とおく.
 
       \subsubsection{問題}\label{節：応用難易度：問題}\label{節：高難易度のもの：問題}
@@ -191,12 +190,7 @@
       \subsubsection{解説}\label{節：応用難易度：解法}\label{節：高難易度のもの：解法}
         \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-advanced}{solution}{problem}]
           % A1: 階乗で重みをそろえた総和
-          \item 対象の式は
-                \[
-                  a_{n+1}=4(n+1)a_n
-                    -(n+1)!\sum_{k=1}^{n}\frac{a_k}{k!}
-                \]
-                である.まず総和を消そうとすると,添字によって階乗も係数も変わる.そこで,総和の各項に合わせて
+          \item 先に総和を消すと階乗も係数も変わるので,総和の各項に合わせて
                 \[
                   b_n=\frac{a_n}{n!},\qquad
                   T_n=\sum_{k=1}^{n}b_k
@@ -214,7 +208,7 @@
                 \[
                   b_{n+2}-4b_{n+1}+4b_n=0
                 \]
-                を得る.\bookterm{characteristic}{特性方程式}は$(r-2)^2=0$であり,同じ\bookterm{geometric}{等比数列}を2本作っても情報は増えない.ここでは
+                を得る.\bookterm{characteristic}{特性方程式}は重解$2$をもつので,
                 \[
                   c_n=\frac{b_n}{2^{n-1}}
                 \]
@@ -226,7 +220,8 @@
                 \[
                   c_n=1+\frac{n-1}{2}=\frac{n+1}{2}.
                 \]
-                よって$b_n=(n+1)2^{n-2}$となり,\, $a_n=n!b_n$から\bookterm{general}{一般項}が得られる.階乗による\bookterm{normalize}{正規化}を最初に行うと,その後は本編の総和型と重解型の手順で解ける.
+                よって$b_n=(n+1)2^{n-2}$を$a_n=n!b_n$へ戻す.
+                最初の\bookterm{normalize}{正規化}から,総和型・重解型へ順につながった.
           % A2: 添字を含む分母と不動点
           \item 分子と分母の係数を個別に追うより,差を計算しよう.
                 \[
@@ -259,7 +254,7 @@
                 \]
                 逆数を戻して\bookterm{general}{一般項}を得る.なお,\, $b_1=1$で,\, $b_{n+1}=2b_n+n>0$なので,得られた式の分母も$0$にならない.
 
-                この問題では,\bookterm{fixed}{不動点}への移動,逆数化,一次式の移動を別々の目的で使っている.一度の変換で解ける形にならなくても,次に消すべき項を見極めればよい.
+                \bookterm{fixed}{不動点}への移動,逆数化,一次式の移動で,障害を一つずつ消した.
 
                 \noindent \textbf{【別解】}\\
                 $b_n$の式を$2^n$で割ると,
@@ -284,11 +279,7 @@
                 \]
                 これから同じ$b_n$を得る.一次式を加える解法は,この相殺を\bookterm{auxiliary}{補助数列}の形で先に組み込んだものといえる.
           % A3: 三角形状の重みをもつ積
-          \item 対象の式は
-                \[
-                  a_{n+1}=2^n\prod_{k=1}^{n}a_k^{\,n-k+1}
-                \]
-                である.各項は正なので,
+          \item 各項が正なので,
                 \[
                   x_n=\log_2a_n
                 \]
@@ -300,8 +291,7 @@
                 \]
                 となる.この式から$x_2=1$である.
 
-                重みのある総和を一度に計算する必要はない.
-                $n\ge2$で二つの式を同じ上端までそろえると,
+                $n\ge2$で総和の上端をそろえると,
                 \begin{align*}
                   x_{n+1}
                     &=n+\sum_{k=1}^{n-1}(n-k+1)x_k+x_n,\\
@@ -339,11 +329,10 @@
                    =\frac{\alpha^{n-1}-\beta^{n-1}}{\alpha-\beta}
                    =\frac{\alpha^{n-1}-\beta^{n-1}}{\sqrt5}.
                 \]
-                実際,この式は上の3項間関係と2つの初期値を満たす.その関係から次項は一意に決まるので,これが$x_n$である.最後に$a_n=2^{x_n}$と戻せばよい.
-
-                指数は$0,1,3,8,21,\ldots$となる.巨大な積を計算する難しさは,重み付き総和の差を2回取ることで消えている.
+                この式は3項間の関係と二つの初期値を満たすため,更新の一意性から$x_n$に一致する.
+                $a_n=2^{x_n}$で戻す.指数は$0,1,3,8,21,\ldots$となり,重み付き総和の差を二回取ると巨大な積を避けられた.
           % A4: 非線形3項間式から階比を作る
-          \item 元の式は項の積を含むが,次数はすべて$2$である.各項は正なので,
+          \item 各項の積の次数が$2$でそろい,各項は正なので,
                 \[
                   r_n=\frac{a_{n+1}}{a_n}
                 \]
@@ -393,7 +382,7 @@ d_n&=-\frac1{2n},\\c_n&=\frac{2n-1}{2n},\\r_n&=\frac{2n}{2n-1}.
                 \[
                   a_n=\frac{4^m(m!)^2}{(2m)!}.
                 \]
-                $m=0$では空積を$1$とし,\, $a_1=1$も含められる.分数型を解く前に,\bookterm{ratio}{階比}を導入することが決め手である.
+                $m=0$の空積は$1$なので初項も含む.最初の\bookterm{ratio}{階比}が決め手だった.
 
                 \noindent \textbf{【別解】}\\
                 逆数の式で,平行移動せず直接両辺に$n+1$を掛けてもよい.
@@ -406,7 +395,7 @@ d_n&=-\frac1{2n},\\c_n&=\frac{2n-1}{2n},\\r_n&=\frac{2n}{2n-1}.
                 \]
                 となる.\bookterm{fixed}{不動点}を引く方法と,添字を掛けて\bookterm{difference}{階差}を一定にする方法の両方が使える.
           % A5: 和と差で異なる構造が現れる連立
-          \item 2式で共通する部分は,引けば消える.符号だけが違う部分は,足せば消える.そこで
+          \item 共通部分は引き,逆符号の部分は足して消すため,
                 \[
                   s_n=a_n+b_n,\qquad d_n=a_n-b_n
                 \]
@@ -454,7 +443,7 @@ c_n&=1+\frac13\sum_{k=1}^{n-1}(k+1)\\
                 \]
                 と戻して\bookterm{general}{一般項}を得る.
 
-                連立式全体を一つの方法で解こうとする必要はない.和と差を作った後,それぞれに適した解法を選ぶ.
+                和と差にはそれぞれに適した解法を使える.
           % A6: 積の3項間関係と二重の階差
           \item 正値の条件を使って$x_n=\log_2a_n$とおくと,
 \BookMathLayout{\[
@@ -468,7 +457,7 @@ x_1&=1,\quad x_2=4.
 \end{aligned}
 \]
 }
-                この式は$x_n$自体の\bookterm{difference}{階差}ではなく,\bookterm{difference}{階差}の\bookterm{difference}{階差}を表している.そこで
+                左辺は二重の\bookterm{difference}{階差}なので,
                 \[
                   d_n=x_{n+1}-x_n
                 \]
@@ -498,7 +487,8 @@ x_n&=1+\sum_{k=1}^{n-1}(k^2+2)\\
 }
                 最後に$a_n=2^{x_n}$と戻せばよい.
 
-                本編の隣接3項間\bookterm{recurrence}{漸化式}と似た形でも,定数項が$n$に依存し,しかも左辺が二重の\bookterm{difference}{階差}そのものになっている.この構造を見れば,\bookterm{characteristic}{特性方程式}の計算に進む前に短い解法が見つかる.
+                付加項は$n$に依存するが,二重の\bookterm{difference}{階差}なら二回の和で解ける.
+                \bookterm{characteristic}{特性方程式}より先に左辺の構造を見た.
 
                 \noindent \textbf{【別解】}\\
                 $\displaystyle r_n=\frac{a_{n+1}}{a_n}$とおき,元の式を$a_na_{n+1}$で割ると,
@@ -558,7 +548,7 @@ x_n&=1+\sum_{k=1}^{n-1}(k^2+2)\\
                 \[
                   c_n=\frac{n(n+1)+1}{n(n+1)-1}.
                 \]
-                最後に$a_n=nc_n$と戻す.ここでは\bookterm{normalize}{正規化}によって分数型を見つけ,さらにその分数型を\bookterm{ratio}{階比}型へ変えている.
+                最後に$a_n=nc_n$で戻す.\bookterm{normalize}{正規化}から分数型,\bookterm{ratio}{階比}型へ順に変えた.
 
                 \noindent \textbf{【別解】}\\
                 $c_n$の式から$\displaystyle u_n=\frac{1}{c_n-1}$とおいてもよい.
@@ -608,7 +598,8 @@ x_n&=1+\sum_{k=1}^{n-1}(k^2+2)\\
                   &=4\left(\frac12+\frac13
                           -\frac1{n+1}-\frac1{n+2}\right).
                 \end{align*}
-                これを整理すれば\bookterm{general}{一般項}が得られる.得られた式は$n=1$でも$a_1=0$を満たす.\bookterm{difference}{階差}を作って終わるのでなく,差の\bookterm{ratio}{階比}を解いた後,総和で戻るところまでが一連の手順である.
+                整理すると解答の式となり,$n=1$でも$a_1=0$に合う.
+                \bookterm{difference}{階差}の\bookterm{ratio}{階比}を解き,最後に和で戻した.
 
                 \noindent \textbf{【別解】}\\
                 \bookterm{difference}{階差}の式に両辺の係数を掛ける形のまま,
@@ -616,7 +607,8 @@ x_n&=1+\sum_{k=1}^{n-1}(k^2+2)\\
                  (n+2)(n+4)d_{n+1}
                    =(n+1)(n+3)d_n
                 \]
-                を眺めると,\, $e_n=(n+1)(n+3)d_n$が定数\bookterm{sequence}{数列}である.初項$e_1=8$から直ちに$\displaystyle d_n=\frac{8}{(n+1)(n+3)}$を得る.相殺する積を全部書く代わりに,相殺後に残る因子を\bookterm{auxiliary}{補助数列}へ組み込める.
+                から$e_n=(n+1)(n+3)d_n$は一定で,$e_1=8$から$d_n=8/\{(n+1)(n+3)\}$を得る.
+                積で残る因子を\bookterm{auxiliary}{補助数列}へ組み込んだ.
           % A9: 掛け算で結び付いた二つの数列
           \item 各項は正なので,
                 \[
@@ -656,7 +648,7 @@ x_n&=1+\sum_{k=1}^{n-1}(k^2+2)\\
                 \[
                  y_n=\frac{s_n-d_n}{2}=3^{n-1}-n^2+1.
                 \]
-                指数に戻して答えを得る.\bookterm{logarithm}{対数}型と連立型は別々の分類に見えるが,同じ問題で順に使うことができる.
+                指数に戻して答えを得る.\bookterm{logarithm}{対数}型から連立型へつながった.
 
                 \noindent \textbf{【別解】}\\
                 \bookterm{logarithm}{対数}を取らずに,積と商を作っても分離できる.
@@ -664,10 +656,14 @@ x_n&=1+\sum_{k=1}^{n-1}(k^2+2)\\
                   P_n=a_nb_n,\qquad R_n=\frac{a_n}{b_n}
                 \]
                 とおくと,
-\BookMathLayout{\[
-                  P_{n+1}=P_n^3,\quad P_1=4,
-                  \qquad R_{n+1}=2^{4n+2}R_n,\quad R_1=1.
-                \]}{
+\BookMathLayout{
+\[
+\begin{aligned}
+P_{n+1}&=P_n^3,\quad P_1=4,\\
+R_{n+1}&=2^{4n+2}R_n,\quad R_1=1.
+\end{aligned}
+\]
+}{
 \[
 \begin{aligned}
 P_{n+1}&=P_n^3,\quad P_1=4,\\
@@ -680,7 +676,7 @@ R_{n+1}&=2^{4n+2}R_n,\quad R_1=1.
                   P_n=2^{\,2\cdot3^{n-1}},\qquad
                   R_n=2^{\,2(n^2-1)}.
                 \]
-                正値を使って$a_n=\sqrt{P_nR_n}$,\, $\displaystyle b_n=\sqrt{\frac{P_n}{R_n}}$と戻せば同じ答えになる.\bookterm{logarithm}{対数}の和差は,元の\bookterm{sequence}{数列}の積と商に対応する.
+                正値を使って$a_n=\sqrt{P_nR_n}$,\, $\displaystyle b_n=\sqrt{\frac{P_n}{R_n}}$と戻せば同じ答えになる.\bookterm{logarithm}{対数}の和と差は,元の\bookterm{sequence}{数列}の積と商に対応する.
           % A10: 二つの平方が作る分数式
           \item 分子だけを展開すると構造が見えにくくなる.分母を$D_n$と書けば,
 \BookMathLayout{\[
@@ -703,20 +699,21 @@ a_{n+1}+1&=\frac{2(a_n+1)^2}{D_n}.
                 \[
                   b_{n+1}=2^n b_n^2,\qquad b_1=\frac18.
                 \]
-                ここで,次項が定義できることも帰納的に確かめておこう.
+                更新が続けられる条件も確かめる.
                 \[
                   a_n>1,\qquad 0<b_n\le2^{-n-2}
                 \]
-                が$n=1$で成り立つ.$n$を任意にとり,この評価が$n$で成り立つと仮定すると,まず
+                は$n=1$で成り立つ.$n$で仮定すると,
                 \[
                   D_n=(a_n+1)^2(1-2^nb_n^2)>0
                 \]
-                なので,\, $a_{n+1}$が定義できる.また$a_{n+1}-1$の式は正であり,\, $a_{n+1}>1$である.その後,比の式を使えば
+                より次項が定まり,$a_{n+1}>1$となる.比の式からも
                 \[
                   0<b_{n+1}\le2^{-n-4}<2^{-(n+1)-2}
                 \]
-                を得る.したがって,元の\bookterm{sequence}{数列}はすべての$n$で定義でき,逆数や\bookterm{logarithm}{対数}の操作も有効である.
+                となる.帰納法で全項が定まり,逆数と\bookterm{logarithm}{対数}も使える.
 
+                \par\smallskip\noindent\textbf{【対数で二乗を一次に変える】}\par\nopagebreak[4]
                 次に$x_n=-\log_2b_n$とおけば,
                 \[
                   x_{n+1}=2x_n-n,\qquad x_1=3.
@@ -729,5 +726,28 @@ a_{n+1}+1&=\frac{2(a_n+1)^2}{D_n}.
                 \[
                   b_n=2^{-E_n}.
                 \]
-                $\displaystyle a_n=\frac{1+b_n}{1-b_n}$と戻して答えを得る.分数の変形だけでも,\bookterm{logarithm}{対数}だけでも解き切れない.平方の構造を作ってから\bookterm{logarithm}{対数}を使う順序が大切である.
+                $\displaystyle a_n=\frac{1+b_n}{1-b_n}$と戻して答えを得る.
+                比と\bookterm{logarithm}{対数}で,分数と二乗を順に消した.
+
+                \par\smallskip\noindent\textbf{【別解：倍率を吸収する】}\par\nopagebreak[4]
+                同じ比を\bookterm{logarithm}{対数}なしで整理する.
+                $c_n=2^{n+1}b_n$とおくと,
+                \[
+                  c_{n+1}=2^{n+2}\cdot2^n b_n^2
+                           =(2^{n+1}b_n)^2=c_n^2.
+                \]
+                $(n+2)+n=2(n+1)$により,倍率$2^n$を二乗へ吸収できる因子を選んだ.
+                $c_1=1/2$なので,二乗を繰り返すと
+                \[
+                  c_n=2^{-2^{n-1}},\qquad
+                  b_n=2^{-n-1-2^{n-1}}.
+                \]
+                元の$a_n$へ戻せば,同じ答えを得る.
+                \par\smallskip
+                先ほど引いた一次式は,
+                \begin{align*}
+                  y_n&=x_n-n-1\\
+                     &=-\log_2(2^{n+1}b_n)=-\log_2c_n
+                \end{align*}
+                である.\bookterm{logarithm}{対数}で引く操作と,元の比へ因子を掛ける操作が対応する.
         \end{enumerate}

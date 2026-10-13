@@ -89,6 +89,33 @@
 \apptocmd{\@starttoc}{\booktermcuestrue}{}{\PackageError{book-links}{Cannot restore contents body cues}{}}
 \makeatother
 
+% dvipdfmx keeps a broken bann/eann annotation open across pages. Suspend
+% rectangle tracking while the output routine draws running heads/feet;
+% otherwise those unrelated glyphs become part of the body's link rectangle.
+% Body links remain freely breakable, including long heading references.
+\makeatletter
+\newcommand{\booklinkmargin}[1]{%
+  \begingroup
+    \special{pdf:nolink}%
+    \booktermcuesfalse
+    \NoHyper#1\endNoHyper
+    \special{pdf:link}%
+  \endgroup
+}
+\AtBeginDocument{%
+  \patchcmd{\@outputpage}{\hb@xt@\textwidth{\@thehead}}{%
+    \hb@xt@\textwidth{\booklinkmargin{\@thehead}}%
+  }{}{%
+    \PackageError{book-links}{Cannot exclude the running head from links}{}%
+  }%
+  \patchcmd{\@outputpage}{\hb@xt@\textwidth{\@thefoot}}{%
+    \hb@xt@\textwidth{\booklinkmargin{\@thefoot}}%
+  }{}{%
+    \PackageError{book-links}{Cannot exclude the running foot from links}{}%
+  }%
+}
+\makeatother
+
 % 手動の式番号は表示を保ち、参照先を式ごとのIDで区別する。
 % 番号から最初の参照へ、参照から元の式へ戻れる。
 \newcommand{\booktag}[2]{%
