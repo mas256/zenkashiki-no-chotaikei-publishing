@@ -40,6 +40,8 @@
     \end{enumerate}
 
     \noindent\bookblocklink{example-ratio-1}{hint}{problem}{【方針】}\par\nobreak
+    倍率に$n$があれば,$n!=n(n-1)!$という階乗の更新が手掛かりになる.
+    $a_n$を$(n-1)!$で割れば,次の項の分母は$n!$となり,変わる倍率$n$を吸収できる.
     割る量の隣り合う比を元の倍率に合わせる.例えば$h_n=(n-1)!$なら$\dfrac{h_{n+1}}{h_n}=n$なので,倍率$2n$のうち$n$を消せる.
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-ratio-1}{hint}{problem}]
       \item 係数$2n$のうち$n$を階乗で吸収すれば,一定の倍率$2$だけが残ります.
@@ -87,6 +89,8 @@
 
 \bookstep{掛けて倍率をそろえる}\label{解釈：階比と正規化}
     非零の因子を掛けても倍率をそろえられる.\footnote{これは\sectionref*{節：補助数列・正規化}の\bookterm{normalize}{正規化}に当たる.}
+    割る方法では分母を元の項と同じ倍率で増やした.
+    掛ける方法では,因子を元の倍率の逆数倍にすれば,その倍率を打ち消せる.
     $f(k)\ne0$として,$\dfrac{g(n+1)}{g(n)}=\dfrac{1}{f(n)}$となる非零の因子を選ぶ.
     与式に$g(n+1)$を掛ければ,
     \begin{align*}
