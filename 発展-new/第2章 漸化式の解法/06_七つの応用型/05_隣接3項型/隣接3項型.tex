@@ -8,6 +8,8 @@
 
   \subsubsection{\texorpdfstring{付加項がない場合 \, $\displaystyle a_{n+2}+pa_{n+1}+qa_n=0$}{付加項がない場合}}\label{節：二次特性方程式型}
     一項だけでは更新が閉じないので,\sectionref*{節：補助数列の設計}のように二項をまとめる.
+    $a_{n+1}-\alpha a_n$を一つの量として追い,次でも同じ組合せが一定倍される形を目指す.
+    掛ける倍率$\beta$もまだ決めず,元の式と係数が合うように選ぶ.
     \[
       a_{n+2}-\alpha a_{n+1}=\beta(a_{n+1}-\alpha a_n)
     \]
@@ -52,6 +54,8 @@
     \]}
     係数は$n$によらないので,$a_n=A\alpha^{n-1}+B\beta^{n-1}$と書ける.
     重解では$\beta-\alpha$で割れず,同じ冪を二つ並べても\bookterm{independent}{一次独立}にはならない.
+    作れた一つの等比数列から,$a_{n+1}-\alpha a_n$の値は分かる.
+    そこで,今度はこの関係を$a_n$についての更新式として解けばよい.
     $b_n=a_{n+1}-\alpha a_n$を等比型として解き,残る式から復元する.例題(2)で確かめよう.
 
     \noindent \bookblocklink{example-three-term-1}{problem}{answer}{【例題】}\par\nobreak
