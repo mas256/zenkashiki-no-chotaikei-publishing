@@ -12,7 +12,7 @@
     \[
       \lim_{n\to\infty}a_n=L
     \]
-    と書く.例えば$\lim_{n\to\infty}1/n=0$である.
+    と書く.例えば$\lim_{n\to\infty}\dfrac{1}{n}=0$である.
 
   \subsection{関数の極限}\label{節：関数の極限}
     $\lim_{x\to a}f(x)$では,$x=a$での値ではなく,$x\ne a$の近くでの値を見る.
@@ -51,7 +51,7 @@
     以下の基本極限を,\bookterm{euler}{オイラーの公式}の導出に使う.
 
   \subsection{三角関数の極限}\label{節：三角関数の基本極限}
-    角度を弧度法で表す.$0<x<\pi/2$では,単位円の扇形と内接・外接三角形の面積を比べると
+    角度を弧度法で表す.$0<x<\dfrac{\pi}{2}$では,単位円の扇形と内接・外接三角形の面積を比べると
     \[
       \frac12\sin x<\frac12x<\frac12\tan x.
     \]
@@ -143,14 +143,14 @@
       \end{tikzpicture}}}
       \BookFigureCaption{扇形と内接・外接三角形の面積比較}
     \end{center}
-    整理すると$\cos x<\sin x/x<1$となる.
+    整理すると$\cos x<\dfrac{\sin x}{x}<1$となる.
     $x\to+0$では$\cos x\to1$なので,はさみうちの原理から右側極限は$1$である.
-    $\sin x/x$は偶関数なので左側も同じとなり,
+    $\dfrac{\sin x}{x}$は偶関数なので左側も同じとなり,
     \[
       \lim_{x\to0}\frac{\sin x}x=1.
     \]
     ここでは,扇形の面積公式と図形の包含関係を前提にしている.
-    $\tan x/x=(\sin x/x)/\cos x$より
+    $\dfrac{\tan x}{x}=\dfrac{\dfrac{\sin x}{x}}{\cos x}$より
     \[
       \lim_{x\to0}\frac{\tan x}x=1
     \]
@@ -158,14 +158,14 @@
 
   \subsection{指数・対数の極限}\label{節：自然対数と指数関数の基本極限}
     $\log x$は自然\bookterm{logarithm}{対数}$\log_e x$を表す.
-    まず$(1+x)^{1/x}$の極限を左右から求める.
-    $x\to0^+$では$t=1/x\to\infty$と置くと
+    まず$(1+x)^{\dfrac{1}{x}}$の極限を左右から求める.
+    $x\to0^+$では$t=\dfrac{1}{x}\to\infty$と置くと
     \[
-      (1+x)^{1/x}=\left(1+\frac1t\right)^t\longrightarrow e.
+      (1+x)^{\dfrac{1}{x}}=\left(1+\frac1t\right)^t\longrightarrow e.
     \]
-    $x\to0^-$では$t=-1/x\to\infty$,$u=t-1$と置き,
+    $x\to0^-$では$t=-\dfrac{1}{x}\to\infty$,$u=t-1$と置き,
     \begin{align*}
-      (1+x)^{1/x}&=\left(1-\frac1t\right)^{-t}\\
+      (1+x)^{\dfrac{1}{x}}&=\left(1-\frac1t\right)^{-t}\\
       &=\left(1+\frac1u\right)^u
         \left(1+\frac1u\right)\longrightarrow e.
     \end{align*}
@@ -174,10 +174,10 @@
       \lim_{x\to0}\frac{\log(1+x)}x
       =\log e=1.
     \]
-    また,実数$a\ne0$に対して,$n$が十分大きければ$1+a/n>0$であり,
+    また,実数$a\ne0$に対して,$n$が十分大きければ$1+\dfrac{a}{n}>0$であり,
     \[
       n\log\left(1+\frac an\right)
-      =a\frac{\log(1+a/n)}{a/n}\longrightarrow a.
+      =a\frac{\log\left(1+\dfrac{a}{n}\right)}{\dfrac{a}{n}}\longrightarrow a.
     \]
     指数関数の連続性より
     \[

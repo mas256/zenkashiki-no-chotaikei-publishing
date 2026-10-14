@@ -40,7 +40,7 @@
     \end{enumerate}
 
     \noindent\bookblocklink{example-ratio-1}{hint}{problem}{【方針】}\par\nobreak
-    割る量の隣り合う比を元の倍率に合わせる.例えば$h_n=(n-1)!$なら$h_{n+1}/h_n=n$なので,倍率$2n$のうち$n$を消せる.
+    割る量の隣り合う比を元の倍率に合わせる.例えば$h_n=(n-1)!$なら$\dfrac{h_{n+1}}{h_n}=n$なので,倍率$2n$のうち$n$を消せる.
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-ratio-1}{hint}{problem}]
       \item 係数$2n$のうち$n$を階乗で吸収すれば,一定の倍率$2$だけが残ります.
       \item $n(n+1)$を一つのまとまりとして,隣の添字にずらした比を計算してみましょう.倍率$\frac{n+2}{n}$が現れます.
@@ -61,18 +61,18 @@
             \[
               \frac{a_{n+1}}{n!}=2\frac{a_n}{(n-1)!}.
             \]
-            $b_n=a_n/(n-1)!$なら,$b_{n+1}$の分母は$n!$になる.添字の違いに注意しよう.
+            $b_n=\dfrac{a_n}{(n-1)!}$なら,$b_{n+1}$の分母は$n!$になる.添字の違いに注意しよう.
             \[
               b_{n+1}=2b_n,\quad b_1=1\quad\Longrightarrow\quad b_n=2^{n-1}.
             \]
             戻すと$a_n=(n-1)!2^{n-1}$となる.$n=1$でも$0!\cdot2^0=1$である.
 
       \item $\displaystyle a_1=2,\, a_{n+1}=\frac{n+2}{n}a_n$
-            $n(n+1)$の隣り合う比は$(n+2)/n$である.与式を$(n+1)(n+2)$で割ると,
+            $n(n+1)$の隣り合う比は$\dfrac{n+2}{n}$である.与式を$(n+1)(n+2)$で割ると,
             \[
               \frac{a_{n+1}}{(n+1)(n+2)}=\frac{a_n}{n(n+1)}.
             \]
-            従って$a_n/\{n(n+1)\}=a_1/2=1$であり,$a_n=n(n+1)$となる.
+            従って$\dfrac{a_n}{n(n+1)}=\dfrac{a_1}{2}=1$であり,$a_n=n(n+1)$となる.
       \item $\displaystyle a_1=1,\, a_{n+1}=n(n+1)a_n$\\
               両辺を$n!(n+1)!$で割って,
             \begin{align*}
@@ -87,13 +87,13 @@
 
 \bookstep{掛けて倍率をそろえる}\label{解釈：階比と正規化}
     非零の因子を掛けても倍率をそろえられる.\footnote{これは\sectionref*{節：補助数列・正規化}の\bookterm{normalize}{正規化}に当たる.}
-    $f(k)\ne0$として,$g(n+1)/g(n)=1/f(n)$となる非零の因子を選ぶ.
+    $f(k)\ne0$として,$\dfrac{g(n+1)}{g(n)}=\dfrac{1}{f(n)}$となる非零の因子を選ぶ.
     与式に$g(n+1)$を掛ければ,
     \begin{align*}
       &g(n+1)a_{n+1}=g(n)a_n=\cdots=g(1)a_1\\
       &\therefore \quad a_n=\frac{g(1)a_1}{g(n)}
     \end{align*}
-    $b_n=g(n)a_n$は一定になる.例えば$f(n)=n$なら$g(n)=1/(n-1)!$なので,
+    $b_n=g(n)a_n$は一定になる.例えば$f(n)=n$なら$g(n)=\dfrac{1}{(n-1)!}$なので,
     \[
       \frac{a_n}{(n-1)!}=\frac{a_1}{0!},\qquad a_n=a_1(n-1)!.
     \]
