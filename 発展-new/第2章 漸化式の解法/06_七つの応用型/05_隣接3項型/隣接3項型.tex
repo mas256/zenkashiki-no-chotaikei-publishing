@@ -99,11 +99,11 @@
               \end{aligned}
             \]
             従って$b_n=2^n$であり,$a_{n+1}-2a_n=2^n$となる.
-            $2^{n+1}$で割り,$c_n=a_n/2^n$と置けば,
+            $2^{n+1}$で割り,$c_n=\dfrac{a_n}{2^n}$と置けば,
             \[
               c_{n+1}-c_n=\frac12,\qquad c_1=\frac12.
             \]
-            差を足すと$c_n=n/2$なので,$a_n=2^nc_n=n2^{n-1}$となる.
+            差を足すと$c_n=\dfrac{n}{2}$なので,$a_n=2^nc_n=n2^{n-1}$となる.
       \item \bookterm{characteristic}{特性方程式}$x^2-x-6=(x-3)(x+2)=0$の根は$3,-2$である.
             \begin{align*}
               a_{n+2}-3a_{n+1}&=-2(a_{n+1}-3a_n),\\
@@ -129,7 +129,7 @@
     \[
       a_{n+1}-\alpha a_n=(a_2-\alpha a_1)\alpha^{n-1}
     \]
-    である.ここで$c_n=a_n/\alpha^{n-1}$と置く.
+    である.ここで$c_n=\dfrac{a_n}{\alpha^{n-1}}$と置く.
     両辺を$\alpha^n$で割ると,
     \[
       c_{n+1}-c_n=\frac{a_2-\alpha a_1}{\alpha}
@@ -154,7 +154,7 @@
     \[
       r=(1+p+q)\alpha.
     \]
-    $1+p+q\ne0$なら$\alpha=r/(1+p+q)$である.
+    $1+p+q\ne0$なら$\alpha=\dfrac{r}{1+p+q}$である.
     $b_1=a_1-\alpha,\ b_2=a_2-\alpha$から前節の隣接3項型を解き,$a_n=b_n+\alpha$へ戻す.
     $1+p+q=0$の場合は,例題の後で階差を使って考える.
 
@@ -178,7 +178,8 @@
 
     \noindent\bookblocklink{example-three-term-2}{solution}{problem}{【解法】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-three-term-2}{solution}{problem}]
-      \item $r=2,\ p=-5,\ q=6$より$\alpha=2/(1-5+6)=1$である.
+      \item $r=2,\ p=-5,\ q=6$より\BookMathLayout{}{\\}%
+            $\alpha=\dfrac{2}{1-5+6}=1$である.
             $b_n=a_n-1$と置くと,
             \[
               b_{n+2}=5b_{n+1}-6b_n,\qquad b_1=b_2=1.
@@ -190,11 +191,11 @@
               b_{n+2}=4b_{n+1}-4b_n,\qquad b_1=-2,\quad b_2=-1.
             \]
             特性方程式は重解$2$を持つ.$c_n=b_{n+1}-2b_n$なら$c_{n+1}=2c_n,\ c_1=3$なので,$c_n=3\cdot2^{n-1}$である.
-            $b_{n+1}-2b_n=c_n$を$2^{n+1}$で割り,$f_n=b_n/2^n$と置くと,
+            $b_{n+1}-2b_n=c_n$を$2^{n+1}$で割り,$f_n=\dfrac{b_n}{2^n}$と置くと,
             \[
               f_{n+1}-f_n=\frac34,\qquad f_1=-1.
             \]
-            従って$f_n=-1+\frac34(n-1)=(3n-7)/4$であり,
+            従って$f_n=-1+\frac34(n-1)=\dfrac{3n-7}{4}$であり,
             \[
               a_n=3+b_n=3+2^{n-2}(3n-7).
             \]
