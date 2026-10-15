@@ -1,0 +1,307 @@
+\section{特性方程式と漸化式}\label{節：特性方程式と漸化式}
+\subsection{不動点からのずれを追う}
+
+まず
+\[
+ a_1=1,\qquad a_{n+1}=2a_n+1
+\]
+を考える. 項は$1,3,7,15,\ldots$と進む.
+毎回1を足すため,\,元の数列は等比数列ではない.
+しかし,\,各項に1を加えると
+\[
+ a_{n+1}+1=2(a_n+1)
+\]
+となる. $b_n=a_n+1$は初項2,\,公比2の等比数列だから
+\[
+ b_n=2^n,\qquad a_n=2^n-1.
+\]
+
+なぜ1を加えるのだろうか.
+更新$f(x)=2x+1$で変わらない値を探すと,
+$\alpha=2\alpha+1$から$\alpha=-1$となる.
+このような$f(\alpha)=\alpha$を満たす値を\textbf{不動点}という.
+先ほど追った$a_n+1$は,\,不動点からのずれ$a_n-\alpha$であった.
+
+一般に
+\[
+ a_{n+1}=pa_n+q,\qquad p\ne1
+\]
+では,\,$\alpha=\frac{q}{1-p}$が不動点になる.
+二つの式を引けば
+\[
+ a_{n+1}-\alpha=p(a_n-\alpha).
+\]
+従って
+\[
+ a_n=\alpha+p^{n-1}(a_1-\alpha).
+\]
+ただし$p=0$では,\,$n=1$は初項そのものを読み,
+$n\ge2$では$a_n=q$とする.
+零の零乗を計算する必要はない.
+
+\NewFigFixed
+原点を$\alpha$へ移せば,\,毎回の更新は$p$倍だけになる.
+$p<0$なら向きが反転する.
+$|p|<1$ならずれは零に近づき,\,数列は$\alpha$へ収束する.
+$|p|>1$では,\,不動点から出発する場合を除いてずれの絶対値が増大する.
+$p=-1$なら,\,不動点を挟んだ二つの値を交互に取る.
+式変形は,\,数直線上の動きも説明していたのである.
+
+\subsection{定数項も一つの成分にする}
+
+この更新を行列で書くため,\,変化しない数1をもう一つの成分に加える.
+\[
+ \boldsymbol x_n=\begin{pmatrix}a_n\\1\end{pmatrix},
+ \qquad
+ A=\begin{pmatrix}p&q\\0&1\end{pmatrix}
+\]
+とすれば
+\[
+ \boldsymbol x_{n+1}=A\boldsymbol x_n.
+\]
+下の成分は常に1で,\,上の成分だけが元の規則に従う.
+記録する成分を一つ増やすと,\,定数の足し算も行列の積に含められる.
+
+$p\ne1$では
+\[
+ \begin{pmatrix}a_n\\1\end{pmatrix}
+ =\begin{pmatrix}\alpha\\1\end{pmatrix}
+ +(a_n-\alpha)\begin{pmatrix}1\\0\end{pmatrix}.
+\]
+前者は更新しても変わらず,\,後者の方向は$p$倍になる.
+つまり,\,不動点とずれを分ける解法は,\,\textbf{変化の倍率が異なる二方向への分解}だった.
+
+$p=1$の場合も行列の表示は使える.
+\[
+ \begin{pmatrix}1&q\\0&1\end{pmatrix}^{m}
+ =\begin{pmatrix}1&mq\\0&1\end{pmatrix}
+\]
+なので,\,$a_n=a_1+(n-1)q$となる.
+$q\ne0$では不動点がなく,\,ずれの倍率だけには直せない.
+足し算が積み重なって$n$が現れることを覚えておこう.
+
+\subsection{2階の式を1階の更新へ}
+
+次は
+\[
+ a_{n+2}=5a_{n+1}-6a_n
+\]
+を考える.
+$a_n$一つだけでは次の状態を決められないが,\,隣り合う二項を持てばよい.
+\[
+ \boldsymbol v_n=\begin{pmatrix}a_{n+1}\\a_n\end{pmatrix},
+ \qquad B=\begin{pmatrix}5&-6\\1&0\end{pmatrix}
+\]
+とすると
+\[
+ B\boldsymbol v_n
+ =\begin{pmatrix}5a_{n+1}-6a_n\\a_{n+1}\end{pmatrix}
+ =\boldsymbol v_{n+1}.
+\]
+第二行は,\,上の成分を一つ古い記録として下へ移す.
+過去の二項が必要な式も,\,\textbf{二成分の状態については1階の更新}である.
+
+そこで,\,掛けても向きが変わらず,\,定数倍になるベクトルを探す.
+この例では
+\[
+ B\begin{pmatrix}2\\1\end{pmatrix}
+ =2\begin{pmatrix}2\\1\end{pmatrix},
+ \qquad
+ B\begin{pmatrix}3\\1\end{pmatrix}
+ =3\begin{pmatrix}3\\1\end{pmatrix}.
+\]
+二方向に分ければ,\,一方は2倍,\,他方は3倍されるだけになる.
+
+一般に零でない$\boldsymbol u$が
+\[
+ B\boldsymbol u=\lambda\boldsymbol u
+\]
+を満たすとき,\,$\boldsymbol u$を\textbf{固有ベクトル},
+$\lambda$を対応する\textbf{固有値}という.
+固有値は,\,その方向の一回の更新の倍率である.
+零ベクトルはどんな$\lambda$でも式を満たすため,\,定義から除く.
+
+\subsection{特性方程式は倍率を決める}\label{節：倍率を決める方程式}
+
+一般の2階の式
+\[
+ a_{n+2}=s a_{n+1}+t a_n
+\]
+では,\,$B=\begin{pmatrix}s&t\\1&0\end{pmatrix}$である.
+固有ベクトルを$\begin{pmatrix}x\\y\end{pmatrix}$とすると
+\[
+ sx+ty=\lambda x,\qquad x=\lambda y.
+\]
+$y=0$なら$x=0$にもなるので,\,固有ベクトルでは$y\ne0$である.
+$y$で割って$\begin{pmatrix}\lambda\\1\end{pmatrix}$にそろえると,
+\[
+ s\lambda+t=\lambda^2
+\]
+が必要になる. 従って,\,倍率は
+\[
+ \lambda^2-s\lambda-t=0
+\]
+という\textbf{特性方程式}から決まる.
+その根を\textbf{特性根}とも呼ぶ.
+これが,\,漸化式の解法に二次方程式が現れる理由である.
+
+二行二列の一般の行列
+$A=\begin{pmatrix}p&q\\r&s\end{pmatrix}$
+でも,\,$(\lambda I-A)\boldsymbol u=\boldsymbol0$に零でない解がある条件は
+\[
+ \begin{aligned}
+ \det(\lambda I-A)
+ &=(\lambda-p)(\lambda-s)-qr\\
+ &=\lambda^2-(p+s)\lambda+ps-qr=0.
+ \end{aligned}
+\]
+前節の行列式によって,\,固有値を求められる.
+
+\begin{bookpoint}
+$\alpha=f(\alpha)$は\textbf{変わらない値}を探す.
+$A\boldsymbol u=\lambda\boldsymbol u$は\textbf{一定倍率で変わる方向}を探す.
+不動点の値$\alpha$と倍率$\lambda$は,\,同じ役割の数ではない.
+\end{bookpoint}
+
+\subsection{二つの等比数列に分ける}
+
+二つの異なる根を$\lambda_1,\lambda_2$とする.
+対応する$\begin{pmatrix}\lambda_1\\1\end{pmatrix}$と
+$\begin{pmatrix}\lambda_2\\1\end{pmatrix}$は比例しないので,\,初期状態を一意に
+\[
+ \begin{pmatrix}a_2\\a_1\end{pmatrix}
+ =c\begin{pmatrix}\lambda_1\\1\end{pmatrix}
+ +d\begin{pmatrix}\lambda_2\\1\end{pmatrix}
+\]
+と分けられる.
+各方向を$n-1$回更新して下の成分を読むと,
+\[
+ a_n=c\lambda_1^{n-1}+d\lambda_2^{n-1}.
+\]
+根が非零なら通常の冪として読み,\,根が零ならその成分は初期状態にだけ寄与し,\,一回の更新で消えると読む.
+初期値を合わせた後は更新の一意性によって,\,全項がこの式に一致する.
+
+\noindent\textbf{【例題】}\par\nobreak
+$a_1=1,\,a_2=4$,\,$a_{n+2}=5a_{n+1}-6a_n$の一般項を求めよ.
+
+\noindent\textbf{【方針】}\par\nobreak
+2倍と3倍の方向に初期状態を分けます.
+
+\noindent\textbf{【解答】}\par\nobreak
+\[
+ a_n=-2^{n-1}+2\cdot3^{n-1}.
+\]
+\noindent\textbf{【解法】}\par\nobreak
+特性根は2,\,3である. 初期状態は
+\[
+ \begin{pmatrix}4\\1\end{pmatrix}
+ =-\begin{pmatrix}2\\1\end{pmatrix}
+ +2\begin{pmatrix}3\\1\end{pmatrix}.
+\]
+従って
+\[
+ \boldsymbol v_n
+ =-2^{n-1}\begin{pmatrix}2\\1\end{pmatrix}
+ +2\cdot3^{n-1}\begin{pmatrix}3\\1\end{pmatrix}.
+\]
+下の成分から一般項を得る.
+$n=1,2$で初期値に合い,\,二つの冪はそれぞれ更新式を満たす.
+線形性によって,\,その和も更新式を満たす.
+
+\subsection{補助数列を取り出す}
+
+同じ式は
+\[
+ a_{n+2}-2a_{n+1}
+ =3(a_{n+1}-2a_n)
+\]
+と変形しても解ける.
+この$a_{n+1}-2a_n$は,\,行列のどこにあるのだろうか.
+
+数を横に並べた$L=(u,v)$を\textbf{行ベクトル}と呼び,
+$L\begin{pmatrix}x\\y\end{pmatrix}=ux+vy$と定める.
+先ほどの$B$について
+\[
+ (1,-2)B=(3,-6)=3(1,-2)
+\]
+だから
+\[
+ \begin{aligned}
+ b_n&=(1,-2)\boldsymbol v_n=a_{n+1}-2a_n,\\
+ b_{n+1}&=(1,-2)B\boldsymbol v_n=3b_n.
+ \end{aligned}
+\]
+このように$LA=\lambda L$を満たす零でない行ベクトルを\textbf{左固有ベクトル}という.
+
+固有ベクトルは,\,一定倍率になる\textbf{状態の方向}を見つける.
+左固有ベクトルは,\,一定倍率になる\textbf{取り出し方}を見つける.
+二つの解法は,\,同じ更新を別の側から見ている.
+
+\subsection{重解で現れる足し算}\label{節：重解と足し算}
+
+特性方程式が重解$r\ne0$を持つと
+\[
+ a_{n+2}=2r a_{n+1}-r^2a_n.
+\]
+$a_n=r^{n-1}b_n$と置いて倍率を取り除けば
+\[
+ b_{n+2}-2b_{n+1}+b_n=0.
+\]
+これは$b_{n+2}-b_{n+1}=b_{n+1}-b_n$である.
+差が一定なので
+\[
+ b_n=C+D(n-1),
+\]
+従って
+\[
+ a_n=r^{n-1}\{C+D(n-1)\}.
+\]
+等比的な変化を取り除いた後に,\,等差的な変化が残った.
+重解だから同じ冪を二回書くのでは,\,二つの初期値を自由に合わせられない.
+
+行列でも,\,この足し算を直接見られる.
+例えば$r=2$では
+\[
+ B=\begin{pmatrix}4&-4\\1&0\end{pmatrix},
+ \quad
+ \boldsymbol u=\begin{pmatrix}2\\1\end{pmatrix},
+ \quad
+ \boldsymbol w=\begin{pmatrix}1\\0\end{pmatrix}
+\]
+とすると
+\[
+ B\boldsymbol u=2\boldsymbol u,\qquad
+ B\boldsymbol w=\boldsymbol u+2\boldsymbol w.
+\]
+$\boldsymbol w$は固有ベクトルではないが,\,更新すると$\boldsymbol u$の方向へも寄与する.
+このように$(B-rI)\boldsymbol w=\boldsymbol u$,
+$(B-rI)\boldsymbol u=\boldsymbol0$となる$\boldsymbol w$は,\,\textbf{一般化固有ベクトル}の例である.
+
+$\boldsymbol v_n=c_n\boldsymbol u+d_n\boldsymbol w$と書くと
+\[
+ d_{n+1}=2d_n,\qquad c_{n+1}=2c_n+d_n.
+\]
+各係数から$2^{n-1}$を取り除けば,\,第二の式は一定量を足す式になる.
+毎回の寄与が積み重なるため,\,$n$が現れるのである.
+
+\noindent\textbf{【例題】}\par\nobreak
+$a_1=1,\,a_2=4$,\,$a_{n+2}=4a_{n+1}-4a_n$の一般項を求めよ.
+
+\noindent\textbf{【方針】}\par\nobreak
+公比2の成長を取り除き,\,差を調べます.
+
+\noindent\textbf{【解答】}\par\nobreak
+\[
+ a_n=n2^{n-1}.
+\]
+\noindent\textbf{【解法】}\par\nobreak
+$b_n=\frac{a_n}{2^{n-1}}$とすると
+$b_1=1,\,b_2=2$で,\,二階差が零になる.
+従って$b_n=n$である.
+行列では$\boldsymbol v_1=\boldsymbol u+2\boldsymbol w$に対応する.
+
+なお,\,一般の行列は固有値が重なっても,\,固有ベクトルを十分に選べる場合がある.
+例えば$2I$はどの方向も2倍にする.
+この場合は足し算の蓄積がなく,\,すべての成分が単に2倍される.
+\textbf{重解そのものと,\,固有方向が足りないことは区別する}.
+$r=0$の2階の式は$a_{n+2}=0$なので,\,最初の二項だけを別に記録すればよい.

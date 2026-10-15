@@ -1,0 +1,185 @@
+\section{連立漸化式}\label{節：連立漸化式}
+\subsection{和と差は新しい座標}
+
+2階の漸化式を二成分の更新にできたなら,\,最初から二つの数列が与えられた場合も同じである.
+\[
+ \begin{aligned}
+ x_{n+1}&=2x_n+y_n,\\
+ y_{n+1}&=x_n+2y_n
+ \end{aligned}
+\]
+を考える. 二式の和と差を取れば
+\[
+ \begin{aligned}
+ x_{n+1}+y_{n+1}&=3(x_n+y_n),\\
+ x_{n+1}-y_{n+1}&=x_n-y_n.
+ \end{aligned}
+\]
+そこで$u_n=x_n+y_n,\,v_n=x_n-y_n$と置くと,\,二つの更新が独立する.
+元へ戻す式は
+\[
+ x_n=\frac{u_n+v_n}{2},\qquad
+ y_n=\frac{u_n-v_n}{2}.
+\]
+和と差を作ることは,\,情報を捨てることではなく,\,二つの値を別の座標で持つことだった.
+
+\noindent\textbf{【例題】}\par\nobreak
+上の連立漸化式を$x_1=1,\,y_1=0$から解け.
+
+\noindent\textbf{【方針】}\par\nobreak
+和は3倍,\,差は一定です. 二つを解いて元へ戻します.
+
+\noindent\textbf{【解答】}\par\nobreak
+\[
+ x_n=\frac{3^{n-1}+1}{2},\qquad
+ y_n=\frac{3^{n-1}-1}{2}.
+\]
+\noindent\textbf{【解法】}\par\nobreak
+$u_1=v_1=1$なので$u_n=3^{n-1},\,v_n=1$である.
+復元式に代入して一般項を得る.
+
+行列$A=\begin{pmatrix}2&1\\1&2\end{pmatrix}$は,
+$\begin{pmatrix}1\\1\end{pmatrix}$を3倍し,
+$\begin{pmatrix}1\\-1\end{pmatrix}$を1倍する.
+\sectionref{節：座標と基底}の二方向が,\,更新に適した方向でもあった.
+状態を分ける座標は$\frac{u_n}{2},\,\frac{v_n}{2}$,
+更新の量を取り出す左固有ベクトルは$(1,1),\,(1,-1)$である.
+
+\subsection{対角化は更新の分離}\label{節：対角化}
+
+固有ベクトルを列に並べた
+\[
+ P=\begin{pmatrix}1&1\\1&-1\end{pmatrix}
+\]
+を使い,\,元の状態を$\boldsymbol z_n=P\boldsymbol c_n$と書く.
+元の更新$\boldsymbol z_{n+1}=A\boldsymbol z_n$を代入すると
+\[
+ \boldsymbol c_{n+1}=P^{-1}AP\boldsymbol c_n.
+\]
+$P$で元へ戻し,\,$A$で更新し,\,$P^{-1}$で新しい座標に直す順序である.
+この例では
+\[
+ P^{-1}AP=\begin{pmatrix}3&0\\0&1\end{pmatrix}=D.
+\]
+対角線の外の成分が零なので,\,新しい二成分が混ざらない.
+このように座標を変えて対角行列にする操作を\textbf{対角化}という.
+
+$AP=PD$から$A=PDP^{-1}$となり,
+\[
+ A^m=PD^mP^{-1}
+\]
+を得る. 隣り合う$P^{-1}P$が消えるためである.
+$D^m$では対角成分を$m$乗するだけでよい.
+公式は,\,\textbf{成分に分け,\,各々を更新し,\,元へ戻す}という解法そのものである.
+
+一般の二成分でも,\,二つの異なる実固有値があれば実数の範囲で対角化できる.
+異なる固有値の固有ベクトルが比例すると,\,同じ零でないベクトルに異なる倍率を指定することになり矛盾するからである.
+固有値が非実数の場合は,\,実数の二方向には分けられない.
+その場合を第3章で平面の回転として扱う.
+
+\subsection{分離できないとき}
+
+対角化できるために必要なのは,\,状態を一意に表せるだけの固有ベクトルである.
+例えば
+\[
+ A=\begin{pmatrix}r&1\\0&r\end{pmatrix}
+\]
+では,\,固有値は$r$だけである.
+$(A-rI)\begin{pmatrix}x\\y\end{pmatrix}=\boldsymbol0$から$y=0$となるため,\,固有方向は一本しかない.
+二成分の状態全体を固有ベクトルだけでは表せない.
+
+しかし,\,この表示のままでも
+\[
+ y_{n+1}=ry_n,\qquad x_{n+1}=rx_n+y_n
+\]
+と順に解ける.
+$r\ne0$では
+\[
+ \begin{aligned}
+ y_n&=r^{n-1}y_1,\\
+ x_n&=r^{n-1}x_1+(n-1)r^{n-2}y_1.
+ \end{aligned}
+\]
+これは\sectionref{節：重解と足し算}と同じ蓄積である.
+$r=0$では二回の更新で両成分が零になる.
+
+\begin{bookpoint}
+対角化できれば各成分が独立する.
+できない場合にも,\,ある成分から別の成分への寄与を順に追えることがある.
+等比的な倍率に重なる多項式は,\,その寄与の蓄積を表す.
+\end{bookpoint}
+
+\subsection{多くの数列を同時に追う}
+
+三つ以上の数列も同じようにまとめられる.
+例えば
+\[
+ \begin{pmatrix}x_{n+1}\\y_{n+1}\\z_{n+1}\end{pmatrix}
+ =
+ \begin{pmatrix}2&1&1\\1&2&1\\1&1&2\end{pmatrix}
+ \begin{pmatrix}x_n\\y_n\\z_n\end{pmatrix}
+\]
+では,\,全体の和$u_n=x_n+y_n+z_n$は4倍される.
+一方,\,差$v_n=x_n-y_n$,\,$w_n=y_n-z_n$はそれぞれ変わらない.
+三つの量から
+\[
+ \begin{aligned}
+ x_n&=\frac{u_n+2v_n+w_n}{3},\\
+ y_n&=\frac{u_n-v_n+w_n}{3},\\
+ z_n&=\frac{u_n-v_n-2w_n}{3}
+ \end{aligned}
+\]
+と元へ戻せるので,\,更新を分離できた.
+初期値が$(1,0,0)$なら
+\[
+ x_n=\frac{4^{n-1}+2}{3},\qquad
+ y_n=z_n=\frac{4^{n-1}-1}{3}.
+\]
+この行列では固有値1が重複するが,\,和が零の平面全体が変わらない.
+その平面に独立な二方向を選び,\,4倍になる方向と合わせれば基底になる.
+固有値の重複が,\,必ずしも分離を妨げるわけではない例である.
+
+一般に$d$個の数列を$\boldsymbol z_n$にまとめれば,
+$d$行$d$列の行列で$\boldsymbol z_{n+1}=A\boldsymbol z_n$と書ける.
+$d$本の一次独立な固有ベクトルがあれば,\,それらを基底にして$d$個の等比型へ分けられる.
+次節の高階漸化式も,\,こうした連立更新の特別な場合に当たる.
+
+\subsection{定数項がある連立漸化式}
+
+定数ベクトル$\boldsymbol b$が加わる
+\[
+ \boldsymbol z_{n+1}=A\boldsymbol z_n+\boldsymbol b
+\]
+では,\,まず不動点$\boldsymbol z_*$を探す.
+もし
+\[
+ \boldsymbol z_*=A\boldsymbol z_*+\boldsymbol b
+\]
+を満たせば,\,$\boldsymbol e_n=\boldsymbol z_n-\boldsymbol z_*$
+によって
+\[
+ \boldsymbol e_{n+1}=A\boldsymbol e_n
+\]
+に戻る. 一つの数を更新する特性方程式型と同じ発想である.
+
+例えば
+\[
+ \begin{aligned}
+ x_{n+1}&=2x_n+y_n+1,\\
+ y_{n+1}&=x_n+2y_n+1
+ \end{aligned}
+\]
+の不動点は$(0,-1)$である.
+$u_n=x_n,\,v_n=y_n+1$と置けば,\,定数項のない冒頭の連立式に戻る.
+ただし不動点が存在するとは限らず,\,複数ある場合もある.
+その有無は$(I-A)\boldsymbol z_*=\boldsymbol b$という連立方程式で確かめる.
+
+不動点が見つからなくても,\,一定成分1を加えれば
+\[
+ \begin{pmatrix}\boldsymbol z_{n+1}\\1\end{pmatrix}
+ =
+ \begin{pmatrix}A&\boldsymbol b\\0&1\end{pmatrix}
+ \begin{pmatrix}\boldsymbol z_n\\1\end{pmatrix}
+\]
+と書ける. 右下の0は,\,必要な個数の零を横に並べた部分を表す.
+次節では,\,さらに多くの成分を持つ更新へ進む.

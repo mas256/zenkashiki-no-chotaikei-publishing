@@ -1,0 +1,161 @@
+\section{行列とベクトル}\label{節：行列とベクトル}
+\subsection{値を一組にする}
+
+二つの数が
+\[
+  x'=2x+y,\qquad y'=x+2y
+\]
+によって同時に変わるとしよう.
+$(x,y)=(1,0)$からは$(2,1)$,\,次に$(5,4)$へ進む.
+二つ目を計算するときに,\,更新済みの$x'$を代入してはいけない.
+二つの式はどちらも更新前の$x,y$を使う.
+
+この二つの値を縦に並べた
+\[
+  \boldsymbol v=\begin{pmatrix}x\\y\end{pmatrix}
+\]
+を\textbf{列ベクトル}と呼ぶ.
+平面上の点$(x,y)$の位置を表す矢印としても読める.
+ベクトルの各数を成分といい,\,和と定数倍は成分ごとに計算する.
+\[
+ \begin{pmatrix}x\\y\end{pmatrix}
+ +\begin{pmatrix}u\\v\end{pmatrix}
+ =\begin{pmatrix}x+u\\y+v\end{pmatrix},
+ \qquad
+ c\begin{pmatrix}x\\y\end{pmatrix}
+ =\begin{pmatrix}cx\\cy\end{pmatrix}.
+\]
+等号も,\,対応する成分どうしの等しさを表す.
+三つ以上の数を並べる場合にも同じように定める.
+
+\subsection{行列は更新を記録する}
+
+数を長方形に並べたものを\textbf{行列}という.
+横の並びを行,\,縦の並びを列と呼ぶ.
+例えば二行二列の行列
+\[
+ A=\begin{pmatrix}2&1\\1&2\end{pmatrix}
+\]
+を列ベクトルに掛ける積を
+\[
+ A\begin{pmatrix}x\\y\end{pmatrix}
+ =\begin{pmatrix}2x+y\\x+2y\end{pmatrix}
+\]
+と定める.
+第一行は更新後の第一成分を,\,第二行は第二成分を指定する.
+冒頭の二つの更新を,\,一つの積で書けた.
+
+一般には
+\[
+ \begin{pmatrix}p&q\\r&s\end{pmatrix}
+ \begin{pmatrix}x\\y\end{pmatrix}
+ =\begin{pmatrix}px+qy\\rx+sy\end{pmatrix}.
+\]
+また,\,各成分を展開すると
+\[
+ A(c\boldsymbol u+d\boldsymbol v)
+ =cA\boldsymbol u+dA\boldsymbol v
+\]
+となる.
+先に足してから更新しても,\,別々に更新してから足しても同じである.
+この性質を\textbf{線形性}という.
+後で初期状態をいくつかの部分に分けて追う際の根拠になる.
+
+\subsection{積と累乗}
+
+同じ行列で二回更新することを$A^2$で表す.
+例えば
+\[
+ A^2\begin{pmatrix}x\\y\end{pmatrix}
+ =A\begin{pmatrix}2x+y\\x+2y\end{pmatrix}
+ =\begin{pmatrix}5x+4y\\4x+5y\end{pmatrix}
+\]
+だから,\,先ほどの$A$では
+\[
+ A^2=\begin{pmatrix}5&4\\4&5\end{pmatrix}
+\]
+である. 各成分の二乗ではない.
+
+まず$B$,\,次に$A$で更新する操作を$AB$と書く.
+積の右側から先に作用する.
+一般に$AB=BA$とは限らない.
+例えば横方向に2倍する
+$A=\begin{pmatrix}2&0\\0&1\end{pmatrix}$と,
+$B=\begin{pmatrix}1&1\\0&1\end{pmatrix}$では
+\[
+ AB=\begin{pmatrix}2&2\\0&1\end{pmatrix},
+ \qquad BA=\begin{pmatrix}2&1\\0&1\end{pmatrix}.
+\]
+順序を変えると,\,第二成分が第一成分に寄与する倍率が変わる.
+
+何も変えない更新
+\[
+ I=\begin{pmatrix}1&0\\0&1\end{pmatrix}
+\]
+を\textbf{単位行列}といい,\,更新を一度もしないことを$A^0=I$と定める.
+従って,\,$\boldsymbol v_{n+1}=A\boldsymbol v_n$なら
+\[
+ \boldsymbol v_n=A^{n-1}\boldsymbol v_1
+\]
+である. あとは,\,この累乗をどう読むかが問題になる.
+
+\subsection{座標と基底}\label{節：座標と基底}
+
+平面の点を表す二つの数は,\,選んだ基準方向によって変わる.
+例えば
+\[
+ \boldsymbol u=\begin{pmatrix}1\\1\end{pmatrix},
+ \qquad
+ \boldsymbol w=\begin{pmatrix}1\\-1\end{pmatrix}
+\]
+を基準にすれば,
+\[
+ \begin{pmatrix}x\\y\end{pmatrix}
+ =\frac{x+y}{2}\boldsymbol u
+  +\frac{x-y}{2}\boldsymbol w.
+\]
+点は同じでも,\,新しい座標は$\frac{x+y}{2},\,\frac{x-y}{2}$となる.
+\NewFigBasis
+
+ベクトルを定数倍して足したものを\textbf{線形結合}という.
+その線形結合が零になるのが,\,すべての係数が零の場合だけであるとき,\,元のベクトルの組を\textbf{一次独立}という.
+例えば二本の場合は,\,零でなく互いに比例しないことに対応する.
+数列でも,\,各項で定数倍と和を取ることで,\,同じ言葉を使う.
+
+一般に,\,どんなベクトルも一意に線形結合で表せる基準ベクトルの組を\textbf{基底}という.
+二成分の実ベクトルでは,\,零でなく互いに比例しない二本を選べばよい.
+実際,\,$\boldsymbol u=\begin{pmatrix}u_1\\u_2\end{pmatrix}$,
+$\boldsymbol w=\begin{pmatrix}w_1\\w_2\end{pmatrix}$に対して
+\[
+ c\boldsymbol u+d\boldsymbol w
+ =\begin{pmatrix}x\\y\end{pmatrix}
+\]
+を成分に分けると,\,$c,d$の連立一次方程式になる.
+係数の組が比例しなければ一意に解ける.
+
+二行二列の行列
+$P=\begin{pmatrix}u_1&w_1\\u_2&w_2\end{pmatrix}$
+では,\,列が基底になる条件は
+\[
+ \det P=u_1w_2-w_1u_2\ne0
+\]
+である. この数を\textbf{行列式}という.
+この場合,\,更新を逆に戻す行列
+\[
+ P^{-1}
+ =\frac1{\det P}
+ \begin{pmatrix}w_2&-w_1\\-u_2&u_1\end{pmatrix}
+\]
+があり,\,$P^{-1}P=PP^{-1}=I$を満たす.
+$P^{-1}$を\textbf{逆行列}という.
+元の座標を$\boldsymbol v$,\,新しい座標を$\boldsymbol c$とすれば
+\[
+ \boldsymbol v=P\boldsymbol c,\qquad
+ \boldsymbol c=P^{-1}\boldsymbol v.
+\]
+座標を変える操作と元へ戻す操作を,\,行列で書けた.
+
+\begin{bookpoint}
+行列の累乗を計算する前に,\,\textbf{更新が簡単に見える基底を選べないか}を考える.
+座標軸が直角である必要も,\,基準ベクトルの長さが1である必要もない.
+\end{bookpoint}
