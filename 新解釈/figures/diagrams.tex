@@ -1,0 +1,106 @@
+% 現行発展版と同じ本文内配置・キャプション形式。
+\usetikzlibrary{arrows.meta,calc,positioning}
+\newcommand{\BookFigureCaption}[1]{%
+  \refstepcounter{figure}\par\smallskip
+  {\footnotesize 図\thefigure\quad #1}\par}
+\newcommand{\BookGraph}[2]{%
+  \par\smallskip\noindent
+  \begin{minipage}{\linewidth}\centering
+    \begin{tikzpicture}[scale=0.8,>=Stealth,line cap=round,line join=round,
+      every node/.style={font=\small}]#2\end{tikzpicture}
+    \BookFigureCaption{#1}
+  \end{minipage}\par\smallskip}
+\newcommand{\NewFigBasis}{\BookGraph{同じ点を斜めの基底で記録する}{
+ \draw[->](-.6,0)--(3,0)node[right]{$x$};
+ \draw[->](0,-1.3)--(0,2.3)node[above]{$y$};
+ \draw[->,thick](0,0)--(1,1)node[above left]{$\boldsymbol u$};
+ \draw[->,thick](0,0)--(1,-1)node[below]{$\boldsymbol w$};
+ \draw[->,very thick](0,0)--(2,1)node[right]{$(2,1)$};
+ \draw[dashed](1.5,1.5)--(2,1);
+ \draw[dashed](0,0)--(1.5,1.5);
+ \node[above]at(1.5,1.5){$\frac32\boldsymbol u$};
+ \node[below left]at(0,0){$O$};
+}}
+\newcommand{\NewFigFixed}{\BookGraph{原点を不動点へ移す}{
+ \draw[->](-1.6,1.3)--(3.7,1.3);
+ \fill(-.8,1.3)circle(1.5pt)node[below]{$\alpha=-1$};
+ \fill(1.8,1.3)circle(1.5pt)node[below]{$a=1$};
+ \draw[<->](-.8,1.85)--(1.8,1.85)node[midway,above]{ずれは2};
+ \draw[->](-1.6,-.3)--(3.7,-.3);
+ \fill(-.8,-.3)circle(1.5pt)node[below]{$0$};
+ \fill(1.8,-.3)circle(1.5pt)node[below]{$b=a-\alpha=2$};
+ \draw[->,dashed](-.8,.85)--(-.8,.1);
+}}
+\newcommand{\NewFigRotation}{\BookGraph{複素数の積は回転と拡大を表す}{
+ \draw[->](-1.6,0)--(2,0)node[right]{$\operatorname{Re}$};
+ \draw[->](0,-1.4)--(0,2)node[above]{$\operatorname{Im}$};
+ \draw[gray](0,0)circle(1);
+ \draw[gray,dashed](0,0)circle(1.4);
+ \draw[->,thick](0,0)--(25:1)node[right]{$z$};
+ \draw[->,very thick](0,0)--(75:1.4)node[above right]{$\lambda z$};
+ \draw[->](25:.65)arc(25:75:.65);
+ \node at(50:.92){$\theta$};
+ \node[below left]at(0,0){$O$};
+}}
+\newcommand{\NewFigRatio}{\BookGraph{二つの基準点からの差を比べる}{
+ \coordinate(a)at(-1.2,0);
+ \coordinate(b)at(1.4,-.4);
+ \coordinate(z)at(.3,1.8);
+ \draw[->,thick](a)--(z)node[midway,left]{$z-\alpha$};
+ \draw[->,thick](b)--(z)node[midway,right]{$z-\beta$};
+ \draw[dashed](a)--(b);
+ \fill(a)circle(1.5pt)node[below]{$\alpha$};
+ \fill(b)circle(1.5pt)node[below]{$\beta$};
+ \fill(z)circle(1.5pt)node[above]{$z$};
+}}
+\newcommand{\NewFigCayley}{\BookGraph{傾きから単位円の点へ}{
+ \draw[->](-1.5,0)--(1.6,0)node[right]{$u$};
+ \draw[->](0,-1.3)--(0,1.5)node[above]{$v$};
+ \draw(0,0)circle(1);
+ \draw[thick](-1,0)--(.5,.866);
+ \fill(-1,0)circle(1.5pt)node[below left]{$-1$};
+ \fill(.5,.866)circle(1.5pt)node[above right]{$\Phi(a)$};
+ \fill(0,.577)circle(1.2pt)node[left]{$(0,a)$};
+ \draw[->](-.55,0)arc(0:30:.45);
+ \node at(-.40,.17){$\theta$};
+ \draw[->](.38,0)arc(0:60:.38);
+ \node at(.61,.30){$2\theta$};
+}}
+\newcommand{\NewFigSpiral}{\BookGraph{一定倍率と一定角で進む状態}{
+ \begin{scope}[scale=.52]
+ \draw[->](-4.8,0)--(3,0)node[right]{$\operatorname{Re}$};
+ \draw[->](0,-4.8)--(0,3.2)node[above]{$\operatorname{Im}$};
+ \draw[->,thick](1,0)--(1,1);
+ \draw[->,thick](1,1)--(0,2);
+ \draw[->,thick](0,2)--(-2,2);
+ \draw[->,thick](-2,2)--(-4,0);
+ \draw[->,thick](-4,0)--(-4,-4);
+ \foreach \x/\y in {1/0,1/1,0/2,-2/2,-4/0,-4/-4}
+  {\fill(\x,\y)circle(2pt);}
+ \node[below right]at(1,0){$z_1$};
+ \node[right]at(1,1){$z_2$};
+ \node[above right]at(0,2){$z_3$};
+ \node[above]at(-2,2){$z_4$};
+ \end{scope}
+}}
+\newcommand{\NewFigDoubling}{\BookGraph{角度の倍化は一定角の回転と異なる}{
+ \draw[->](-1.4,0)--(1.6,0);
+ \draw[->](0,-1.2)--(0,1.5);
+ \draw(0,0)circle(1);
+ \draw[thick](0,0)--(30:1);
+ \draw[thick](0,0)--(60:1);
+ \draw[thick](0,0)--(120:1);
+ \fill(30:1)circle(1.5pt)node[right]{$z$};
+ \fill(60:1)circle(1.5pt)node[above right]{$z^2$};
+ \fill(120:1)circle(1.5pt)node[above left]{$z^4$};
+ \draw[->](30:1.18)arc(30:60:1.18);
+ \draw[->](60:1.3)arc(60:120:1.3);
+}}
+\newcommand{\NewFigProjective}{\BookGraph{長さが変わっても成分比は変わらない}{
+ \draw[->](-.4,0)--(3.7,0)node[right]{$x$};
+ \draw[->](0,-.3)--(0,2.6)node[above]{$y$};
+ \draw[dashed](0,0)--(3.3,2.2);
+ \draw[->,thick](0,0)--(1.5,1)node[above left]{$(x,y)$};
+ \draw[->,very thick](0,0)--(3,2)node[above left]{$(cx,cy)$};
+ \node[below right]at(1.5,.3){$\frac{x}{y}=\frac{cx}{cy}$};
+}}
