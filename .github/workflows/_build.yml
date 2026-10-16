@@ -36,6 +36,11 @@ jobs:
           ref: ${{ inputs.ref }}
           persist-credentials: false
 
+      - name: Verify manuscript math style
+        run: |
+          python3 tests/test-math-style.py
+          python3 scripts/verify-math-style.py
+
       - name: Cache the frozen TeX Live toolchain
         id: texlive_cache
         uses: actions/cache/restore@v4
@@ -57,6 +62,11 @@ jobs:
         with:
           path: ${{ runner.temp }}/texlive
           key: ${{ steps.texlive_cache.outputs.cache-primary-key }}
+
+      - name: Verify common math commands
+        run: |
+          mkdir -p out/math-style
+          uplatex -halt-on-error -interaction=nonstopmode -file-line-error -output-directory=out/math-style tests/tex/book-math.tex
 
       - name: Build (upLaTeX + dvipdfmx via latexmk)
         working-directory: 発展-new
