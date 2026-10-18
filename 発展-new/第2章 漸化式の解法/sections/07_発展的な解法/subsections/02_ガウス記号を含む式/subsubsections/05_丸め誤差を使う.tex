@@ -1,0 +1,73 @@
+\subsubsection{丸め誤差を使う}\label{節：丸め誤差を使う}
+\,$a_{n+1}=\lfloor\lambda a_n\rfloor$では,$\lambda$の整数部分だけを取り出せない.そこで,
+\[
+  \varepsilon_n=\lambda a_n-a_{n+1},
+  \qquad 0\le\varepsilon_n<1
+\]
+と置く.\textbf{捨てた部分の範囲から,次の整数部分を確定する.}
+
+$\lambda^2$を$\lambda$と整数で表せる係数が手掛かりになる.
+ただし,誤差の範囲を示せて初めて隣接3項間\bookterm{recurrence}{漸化式}へ帰着できる.
+
+\noindent \bookblocklink{example-gauss-role-5}{problem}{answer}{【例題】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-5}{problem}{answer}]
+  \item \bookterm{sequence}{数列}を次のように定める.\bookterm{floor}{ガウス記号}を含まない\bookterm{recurrence}{漸化式}に帰着させ,\bookterm{general}{一般項}を求めよ.
+    \[
+      a_1=1,\qquad
+      a_{n+1}=\lfloor(1+\sqrt2)a_n\rfloor
+      \quad(n\ge1).
+    \]
+\end{enumerate}
+
+\noindent \bookblocklink{example-gauss-role-5}{hint}{problem}{【方針】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-5}{hint}{problem}]
+  \item \,$\lambda=1+\sqrt2$とおき,\,$\lambda^2=2\lambda+1$を使います.
+    整数から正の1未満の誤差を引く形にして,\bookterm{floor-function}{床関数}の値を確定しましょう.
+\end{enumerate}
+
+\noindent \bookblocklink{example-gauss-role-5}{answer}{problem}{【解答】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-5}{answer}{problem}]
+  \item \[
+      a_1=1,\quad a_2=2,\qquad
+      a_{n+2}=2a_{n+1}+a_n-1.
+    \]
+    \,$\alpha=1+\sqrt2,\ \beta=1-\sqrt2$とおくと,
+    \[
+      a_n=\frac12+\frac{\alpha^n+\beta^n}{4}.
+    \]
+\end{enumerate}
+
+\noindent \bookblocklink{example-gauss-role-5}{solution}{problem}{【解法】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-5}{solution}{problem}]
+  \item \,$\lambda=1+\sqrt2>2$とおく.正整数$a_n$から次の項も正整数となる.
+    また,\,$\lambda a_n$は無理数なので,
+    \[
+      \varepsilon_n=\lambda a_n-a_{n+1}
+    \]
+    は$0<\varepsilon_n<1$を満たす.
+    \,$\lambda^2=2\lambda+1$を使うと,
+    \begin{align*}
+      \lambda a_{n+1}
+      &=\lambda(\lambda a_n-\varepsilon_n)\\
+      &=2a_{n+1}+a_n-(\lambda-2)\varepsilon_n.
+    \end{align*}
+    $M_n=2a_{n+1}+a_n$は整数で,$0<(\lambda-2)\varepsilon_n<1$だから,
+    \[
+      M_n-1<\lambda a_{n+1}<M_n.
+    \]
+    より$a_{n+2}=M_n-1$.\bookterm{initial}{初期条件}は$a_2=\lfloor1+\sqrt2\rfloor=2$である.
+
+    定数項を消すため$b_n=a_n-\frac12$とおくと,
+    \[
+      b_{n+2}=2b_{n+1}+b_n,
+      \qquad b_1=\frac12,\quad b_2=\frac32.
+    \]
+    \sectionref{節：隣接3項型}で学んだ\bookterm{characteristic}{特性方程式}は$x^2-2x-1=0$で,
+    その解が$\alpha,\beta$である.
+    \,$\alpha+\beta=2,\ \alpha^2+\beta^2=6$より,
+    \[
+      b_n=\frac{\alpha^n+\beta^n}{4}
+    \]
+    は初期値と更新を満たし,一意性から求める解となる.
+    $a_n=b_n+\frac12$に戻せば【解答】を得る.
+\end{enumerate}

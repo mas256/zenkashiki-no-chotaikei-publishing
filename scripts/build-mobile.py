@@ -7,7 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 BOOK = ROOT / "発展-new"
-MAIN_TEX = "漸化式の体系と解法.tex"
+MAIN_TEX = "漸化式の超体系的解説.tex"
 
 
 def main():
@@ -22,8 +22,9 @@ def main():
         "\\def\\BookMobile{1}\n"
         f"\\input{{{MAIN_TEX}}}\n", encoding="utf-8",
     )
+    # Root-relative inputs must keep working even when a user's latexmkrc enables cd.
     subprocess.run(
-        ["latexmk", f"-outdir={output}", str(wrapper)], cwd=BOOK, check=True,
+        ["latexmk", "-cd-", f"-outdir={output.as_posix()}", str(wrapper)], cwd=BOOK, check=True,
         env={**os.environ, "max_print_line": "1000"},
     )
     print(f"Smartphone PDF: {output / 'mobile.pdf'}")

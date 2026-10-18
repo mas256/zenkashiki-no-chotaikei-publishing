@@ -1,0 +1,45 @@
+% subsection: 等比型 \, $a_{n+1}=ra_n$
+
+\subsection{\texorpdfstring{等比型 \, $a_{n+1}=ra_n$}{等比型}}\label{節：等比型}
+足し算の次は掛け算である.
+この場合も先程のような書き下していく手法で一般項を得ることができる.
+\begin{align*}
+  a_n&=ra_{n-1}\\
+  &=r(ra_{n-2})\\
+  &=r\left\{r(ra_{n-3})\right\}\\
+  &\qquad \vdots
+  &=a_1r^{n-1}
+\end{align*}
+初項から第$n$項までに$r$を掛けるのは$n-1$回なので,指数も$n-1$になる.
+\begin{bookpoint}
+  \textbf{POINT}\par
+  第$n$項に至るまでに,公比$r$は$n-1$回掛けられる.
+\end{bookpoint}
+
+\noindent \bookblocklink{example-geometric-1}{problem}{answer}{【例題】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-geometric-1}{problem}{answer}]
+  \item $\displaystyle a_1=1,\, a_{n+1}=2a_n$
+  \item $\displaystyle a_1=1,\, a_{n+1}=-a_n$
+  \item $\displaystyle a_1=2,\, a_{n+1}=\frac{1}{2}a_n$
+\end{enumerate}
+
+\noindent\bookblocklink{example-geometric-1}{hint}{problem}{【方針】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-geometric-1}{hint}{problem}]
+  \item 等比型の\bookterm{general}{一般項}
+    $\displaystyle a_n=a_1r^{n-1}$
+    を用います.
+  \item 公比は$r=-1$です.
+    符号が交互に変化することに注意します.
+  \item 初項と公比を\bookterm{general}{一般項}に代入します.
+\end{enumerate}
+
+\noindent\bookblocklink{example-geometric-1}{answer}{problem}{【解答】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-geometric-1}{answer}{problem}]
+  \item $\displaystyle a_n=2^{n-1}$
+  \item $\displaystyle a_n=(-1)^{n-1}$
+  \item $\displaystyle a_n=2\left(\frac12\right)^{n-1}$
+\end{enumerate}
+
+\noindent\bookblocklink{example-geometric-1}{solution}{problem}{【解法】}\par\nobreak
+(1)は$a_1=1,\ r=2$なので$a_n=2^{n-1}$となる.$2^0=1$で初項が一致し,$2^n=2\cdot2^{n-1}$で更新式も満たす.
+(2)のように公比が負でも,掛ける回数は変わらない.

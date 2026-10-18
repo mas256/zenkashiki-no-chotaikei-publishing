@@ -18,12 +18,12 @@ def source_files():
         path = path.resolve()
         if path in seen:
             return
-        text = re.sub(r'(?<!\\)%[^\n]*', '', path.read_text())
+        text = re.sub(r'(?<!\\)%[^\n]*', '', path.read_text(encoding='utf-8'))
         seen[path] = text
         for name in re.findall(r'\\input\{([^{}]+)\}', text):
             visit(BOOK / name)
 
-    visit(BOOK / '漸化式の体系と解法.tex')
+    visit(BOOK / '漸化式の超体系的解説.tex')
     return seen
 
 
@@ -66,7 +66,7 @@ def check(pdf=None):
         named = set(re.findall(r'"([^"\n]+)"', output))
         required = {f'term:{term}' for term in terms} | destinations
         required |= {f'eqcite:{tag}' for tag in tags}
-        aux = pdf.with_suffix('.aux').read_text()
+        aux = pdf.with_suffix('.aux').read_text(encoding='utf-8')
         tag_destinations = dict(re.findall(
             r'\\newlabel\{eqtag:([^{}]+)\}[^\n]*\{(AMS\.[^{}]+)\}\{\}\}', aux
         ))

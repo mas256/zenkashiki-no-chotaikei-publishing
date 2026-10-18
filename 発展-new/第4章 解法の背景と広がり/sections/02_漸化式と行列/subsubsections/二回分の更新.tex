@@ -1,0 +1,27 @@
+\subsubsection{二回分の更新}\label{節：二回分の更新}
+\sectionref*{節：一周期分をまとめる}では,$2x+1$の後に$3x+2$を計算し,$6x+5$を得た.
+行列で書くと
+\[
+  A=\begin{pmatrix}2&1\\0&1\end{pmatrix},\qquad
+  B=\begin{pmatrix}3&2\\0&1\end{pmatrix}.
+\]
+先に$A$,次に$B$なので,二回分は
+\[
+  BA=\begin{pmatrix}6&5\\0&1\end{pmatrix},\qquad
+  BA\binom{x}{1}=\binom{6x+5}{1}
+\]
+となる.この例では$AB=BA$だが,一般には異なる.接続演習問4なら
+\[
+  U=\begin{pmatrix}-1&0\\0&1\end{pmatrix},\qquad
+  V=\begin{pmatrix}2&1\\0&1\end{pmatrix}
+\]
+に対して,
+\[
+  VU=\begin{pmatrix}-2&1\\0&1\end{pmatrix},\qquad
+  UV=\begin{pmatrix}-2&-1\\0&1\end{pmatrix}
+\]
+となる.更新を行う順序が,付加項の符号に現れた.
+一般の$a_{n+1}=p_na_n+q_n$でも,$\binom{a_{n+1}}1=
+  \begin{pmatrix}p_n&q_n\\0&1\end{pmatrix}\binom{a_n}1$と表せる.
+一周期分は,先に行う\bookterm{matrix}{行列}を右に置いて掛け合わせる.途中の値は一回ずつの更新で求める.
+\bookproblemref{practice-connections}{4}{接続演習問4}で本文との対応を確かめよう.

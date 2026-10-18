@@ -11,12 +11,12 @@ import json
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
-DIR = ROOT / '発展-new/第2章 漸化式の解法/07_発展的な解法/02_ガウス記号を含む式'
+DIR = ROOT / '発展-new/第2章 漸化式の解法/sections/07_発展的な解法/subsections/02_ガウス記号を含む式'
 N = 10000
 report = {}
 
 def verify_sources():
-    files = sorted(DIR.glob('[0-9][0-9]_*.tex'))
+    files = sorted((DIR / 'subsubsections').glob('[0-9][0-9]_*.tex'))
     assert len(files) == 10, f'expected 10 pattern files, got {len(files)}'
     overview = (DIR / 'ガウス記号を含む式.tex').read_text(encoding='utf-8')
     all_source = '\n'.join(p.read_text(encoding='utf-8')

@@ -14,7 +14,7 @@
     \centering
     \resizebox{\linewidth}{!}{%
       \begin{tikzpicture}[>=Stealth,line cap=round,line join=round,
-        every node/.style={font=\small}]
+          every node/.style={font=\small}]
         #2
       \end{tikzpicture}%
     }%
@@ -27,7 +27,7 @@
   \begin{minipage}{\linewidth}
     \centering
     \begin{tikzpicture}[scale=0.8,>=Stealth,line cap=round,line join=round,
-      every node/.style={font=\small}]
+        every node/.style={font=\small}]
       #2
     \end{tikzpicture}%
     \BookFigureCaption{#1}%
@@ -37,295 +37,295 @@
 
 \newcommand{\BookFigRoadmap}{\BookDiagram{本書全体の読み方}{
 
-\node[box] (b) at (-3,0) {第\ref*{章：漸化式の解説}章\\\nameref*{章：漸化式の解説}};
-\node[box] (c) at (3,0) {第\ref*{章：実際の解き方}章\\\nameref*{章：実際の解き方}};
-\node[box] (d) at (0,-1.6) {第\ref*{章：付録}章\\\nameref*{章：付録}};
-\node[box] (e) at (0,0) {第\ref*{章：用語と計算の参照}章\\\nameref*{章：用語と計算の参照}};
-\draw[->,thick](b.north) -- ++(0,.6) -| (c.north);
-\draw[<->,thick](b.south) |- (d.west);
-\draw[->,dashed](c.south) |- (d.east);
-\draw[<->,dashed](b.east)--(e.west);
-\draw[<->,dashed](e.east)--(c.west);
-}}
+    \node[box] (b) at (-3,0) {第\ref*{章：漸化式の解法}章\\\nameref*{章：漸化式の解法}};
+    \node[box] (c) at (3,0) {第\ref*{章：解法の選択と演習}章\\\nameref*{章：解法の選択と演習}};
+    \node[box] (d) at (0,-1.6) {第\ref*{章：解法の背景と広がり}章\\\nameref*{章：解法の背景と広がり}};
+    \node[box] (e) at (0,0) {第\ref*{章：用語と公式}章\\\nameref*{章：用語と公式}};
+    \draw[->,thick](b.north) -- ++(0,.6) -| (c.north);
+    \draw[<->,thick](b.south) |- (d.west);
+    \draw[->,dashed](c.south) |- (d.east);
+    \draw[<->,dashed](b.east)--(e.west);
+    \draw[<->,dashed](e.east)--(c.west);
+  }}
 
 \newcommand{\BookFigArithmeticSum}{\BookGraph{等差数列の増分を正順と逆順で組み合わせる}{
-% 柱は上下の端だけを示し,中間は縦の省略記号で示す.
-% 隣接する2列は境界の辺を共有する.
-\begin{scope}[every node/.append style={font=\scriptsize},line width=.42pt]
-  % 逆順と組み合わせる前の正順側.
-  \draw (0,3.45)--(0,4.75)--(2.96,4.75)--(2.96,3.45);
-  \draw (1.48,3.45)--(1.48,4.75);
-  \draw (0,1.25)--(0,0)--(2.96,0)--(2.96,1.25);
-  \draw (1.48,0)--(1.48,1.25);
-  \draw (0,.43)--(1.48,.43);
-  \draw (1.48,.77)--(2.96,.77);
-  \node at (.74,4.10) {$(n-1)d$};
-  \node at (2.22,4.10) {$(n-2)d$};
-  \node at (.74,.20) {$d$};
-  \node at (2.22,.38) {$2d$};
-  \node at (.74,2.30) {$\vdots$};
-  \node at (2.22,2.30) {$\vdots$};
+    % 柱は上下の端だけを示し,中間は縦の省略記号で示す.
+    % 隣接する2列は境界の辺を共有する.
+    \begin{scope}[every node/.append style={font=\scriptsize},line width=.42pt]
+      % 逆順と組み合わせる前の正順側.
+      \draw (0,3.45)--(0,4.75)--(2.96,4.75)--(2.96,3.45);
+      \draw (1.48,3.45)--(1.48,4.75);
+      \draw (0,1.25)--(0,0)--(2.96,0)--(2.96,1.25);
+      \draw (1.48,0)--(1.48,1.25);
+      \draw (0,.43)--(1.48,.43);
+      \draw (1.48,.77)--(2.96,.77);
+      \node at (.74,4.10) {$(n-1)d$};
+      \node at (2.22,4.10) {$(n-2)d$};
+      \node at (.74,.20) {$d$};
+      \node at (2.22,.38) {$2d$};
+      \node at (.74,2.30) {$\vdots$};
+      \node at (2.22,2.30) {$\vdots$};
 
-  % 逆順側. 同じ高さの長方形を左右に隙間なく並べる.
-  \begin{scope}[xshift=3.76cm]
-    \draw (0,3.45)--(0,4.75)--(2.96,4.75)--(2.96,3.45);
-    \draw (1.48,3.45)--(1.48,4.75);
-    \draw (0,1.25)--(0,0)--(2.96,0)--(2.96,1.25);
-    \draw (1.48,0)--(1.48,1.25);
-    \draw (0,4.02)--(1.48,4.02);
-    \draw (1.48,4.37)--(2.96,4.37);
-    \node at (.74,4.37) {$2d$};
-    \node at (2.22,4.55) {$d$};
-    \node at (.74,.62) {$(n-2)d$};
-    \node at (2.22,.62) {$(n-1)d$};
-    \node at (.74,2.30) {$\vdots$};
-    \node at (2.22,2.30) {$\vdots$};
-  \end{scope}
-\end{scope}
-}}
+      % 逆順側. 同じ高さの長方形を左右に隙間なく並べる.
+      \begin{scope}[xshift=3.76cm]
+        \draw (0,3.45)--(0,4.75)--(2.96,4.75)--(2.96,3.45);
+        \draw (1.48,3.45)--(1.48,4.75);
+        \draw (0,1.25)--(0,0)--(2.96,0)--(2.96,1.25);
+        \draw (1.48,0)--(1.48,1.25);
+        \draw (0,4.02)--(1.48,4.02);
+        \draw (1.48,4.37)--(2.96,4.37);
+        \node at (.74,4.37) {$2d$};
+        \node at (2.22,4.55) {$d$};
+        \node at (.74,.62) {$(n-2)d$};
+        \node at (2.22,.62) {$(n-1)d$};
+        \node at (.74,2.30) {$\vdots$};
+        \node at (2.22,2.30) {$\vdots$};
+      \end{scope}
+    \end{scope}
+  }}
 
 \newcommand{\BookFigPolar}{\BookGraph{複素数を距離と偏角で表す}{
 
-\draw[->](-.3,0)--(4.6,0)node[right]{実軸};\draw[->](0,-.25)--(0,3.4)node[above]{虚軸};
-\coordinate(P)at(3.4,2.3);\draw[very thick,->](0,0)--(P)node[above]{$z=x+iy$};
-\draw[dashed](P)--(3.4,0);\draw(.65,0)arc(0:34:.65);
-\node at(1.1,.4){$\theta$};\node at(1.65,1.35){$\rho$};\node[below]at(3.4,0){$x$};\node[left]at(0,2.3){$y$};
-}}
+    \draw[->](-.3,0)--(4.6,0)node[right]{実軸};\draw[->](0,-.25)--(0,3.4)node[above]{虚軸};
+    \coordinate(P)at(3.4,2.3);\draw[very thick,->](0,0)--(P)node[above]{$z=x+iy$};
+    \draw[dashed](P)--(3.4,0);\draw(.65,0)arc(0:34:.65);
+    \node at(1.1,.4){$\theta$};\node at(1.65,1.35){$\rho$};\node[below]at(3.4,0){$x$};\node[left]at(0,2.3){$y$};
+  }}
 
 \newcommand{\BookFigComplexRotation}{\BookGraph{複素数の積は回転と伸縮を同時に表す}{
 
-\draw[->](-.3,0)--(4.7,0)node[right]{実軸};\draw[->](0,-.2)--(0,3.65)node[above]{虚軸};
-\draw[very thick,->](0,0)--(3.1,.7)node[right]{$z$};\draw[very thick,->](0,0)--(2.35,2.8)node[above]{$cz$};
-\draw[dashed,->](1.1,.25)arc(13:50:1.15);\node at(1.5,.95){回転};
-}}
+    \draw[->](-.3,0)--(4.7,0)node[right]{実軸};\draw[->](0,-.2)--(0,3.65)node[above]{虚軸};
+    \draw[very thick,->](0,0)--(3.1,.7)node[right]{$z$};\draw[very thick,->](0,0)--(2.35,2.8)node[above]{$cz$};
+    \draw[dashed,->](1.1,.25)arc(13:50:1.15);\node at(1.5,.95){回転};
+  }}
 
 \newcommand{\BookFigClassification}{\BookDiagram{解法の系統と,それぞれの入口}{
 
-\node[box](a)at(0,0){漸化式}; \node[box](b)at(-2.7,-1.15){共通の更新へ帰着};\node[box](c)at(2.7,-1.15){式固有の構造};
-\draw[->](a)--(b);\draw[->](a)--(c);
-\node[box](d)at(-4,-2.6){基本4型};\node[box](e)at(-2.25,-2.6){応用7型};\node[box](f)at(-.5,-2.6){発展型};\node[box](g)at(2.8,-2.6){式の構造を使う解法};
-\draw[->](b)--(d);\draw[->](b)--(e);\draw[->](b)--(f);\draw[->](c)--(g);
-\draw[<->,dashed](f.east)--(g.west);
-\node[font=\scriptsize]at(0,-3.5){入口は重なり合う};
-}}
+    \node[box](a)at(0,0){漸化式}; \node[box](b)at(-2.7,-1.15){共通の更新へ帰着};\node[box](c)at(2.7,-1.15){式固有の構造};
+    \draw[->](a)--(b);\draw[->](a)--(c);
+    \node[box](d)at(-4.6,-2.6){基本パターン\\（4つ）};\node[box](e)at(-2.25,-2.6){応用パターン\\（7つ）};\node[box](f)at(.1,-2.6){発展型};\node[box](g)at(2.8,-2.6){式の構造を使う解法};
+    \draw[->](b)--(d);\draw[->](b)--(e);\draw[->](b)--(f);\draw[->](c)--(g);
+    \draw[<->,dashed](f.east)--(g.west);
+    \node[font=\scriptsize]at(0,-3.5){入口は重なり合う};
+  }}
 
 \newcommand{\BookFigApproach}{\BookDiagram{『きれいな形』へ帰着させるための一連の操作}{
 
-\node[box](a)at(0,0){元の漸化式};\node[box](b)at(2.6,0){特徴を観察};\node[box](c)at(5.2,0){新しい量 $b_n$};
-\node[box](d)at(5.2,-1.5){単純な更新};\node[box](e)at(2.6,-1.5){計算・性質を調べる};\node[box](f)at(0,-1.5){元の項に戻す};
-\draw[->](a)--(b);\draw[->](b)--(c);\draw[->](c)--(d);\draw[->](d)--(e);\draw[->](e)--(f);
-\draw[->,dashed](f.west)to[out=180,in=180,looseness=1.45]node[left]{検算}(a.west);
-}}
+    \node[box](a)at(0,0){元の漸化式};\node[box](b)at(2.6,0){特徴を観察};\node[box](c)at(5.2,0){新しい量 $b_n$};
+    \node[box](d)at(5.2,-1.5){単純な更新};\node[box](e)at(2.6,-1.5){計算・性質を調べる};\node[box](f)at(0,-1.5){元の項に戻す};
+    \draw[->](a)--(b);\draw[->](b)--(c);\draw[->](c)--(d);\draw[->](d)--(e);\draw[->](e)--(f);
+    \draw[->,dashed](f.west)to[out=180,in=180,looseness=1.45]node[left]{検算}(a.west);
+  }}
 
-\newcommand{\BookFigBasicFour}{\BookDiagram{差と比に着目すると4つの基本型が並んで見える}{
+\newcommand{\BookFigBasicFour}{\BookDiagram{差と比に着目すると4つの基本パターンが並んで見える}{
 
-\node[anchor=west]at(0,0){等差型：$a_{n+1}-a_n=d$}; \node[anchor=west]at(7,0){差が一定};
-\node[anchor=west]at(0,-.9){等比型：$a_{n+1}=ra_n$}; \node[anchor=west]at(7,-.9){一定の倍率};
-\node[anchor=west]at(0,-1.8){階差型：$a_{n+1}-a_n=f(n)$}; \node[anchor=west]at(7,-1.8){差を足す};
-\node[anchor=west]at(0,-2.7){階比型：$a_{n+1}=g(n)a_n$}; \node[anchor=west]at(7,-2.7){倍率を掛ける};
-\foreach \y in {0,-.9,-1.8,-2.7}{\draw[->](6.3,\y)--(6.8,\y);}
-\node[anchor=west,font=\scriptsize]at(0,-3.45){$a_n\ne0$のとき,倍率は$\frac{a_{n+1}}{a_n}$として読める.};
-}}
+    \node[anchor=west]at(0,0){等差型：$a_{n+1}-a_n=d$}; \node[anchor=west]at(7,0){差が一定};
+    \node[anchor=west]at(0,-.9){等比型：$a_{n+1}=ra_n$}; \node[anchor=west]at(7,-.9){一定の倍率};
+    \node[anchor=west]at(0,-1.8){階差型：$a_{n+1}-a_n=f(n)$}; \node[anchor=west]at(7,-1.8){差を足す};
+    \node[anchor=west]at(0,-2.7){階比型：$a_{n+1}=g(n)a_n$}; \node[anchor=west]at(7,-2.7){倍率を掛ける};
+    \foreach \y in {0,-.9,-1.8,-2.7}{\draw[->](6.3,\y)--(6.8,\y);}
+    \node[anchor=west,font=\scriptsize]at(0,-3.45){$a_n\ne0$のとき,倍率は$\frac{a_{n+1}}{a_n}$として読める.};
+  }}
 
 \newcommand{\BookFigMobius}{\BookGraph{複素数の比は距離の比と偏角の差の両方を表す}{
 
-\draw[->](-2,0)--(4.2,0)node[right]{実軸};\draw[->](0,-2)--(0,2.1)node[above]{虚軸};
-\coordinate(A)at(-1.1,1.45);\coordinate(B)at(-1.1,-1.45);\coordinate(X)at(3,0);
-\fill(A)circle(2pt)node[above left]{$\alpha$};\fill(B)circle(2pt)node[below left]{$\beta$};\fill(X)circle(2pt)node[below right]{$a_n$};
-\draw[thick,->](A)--(X);\draw[thick,->](B)--(X);
-\node at(1.2,1.07){$|a_n-\alpha|$};\node at(1.2,-1.07){$|a_n-\beta|$};
-% Both vectors may be reversed to place their tails at X without changing
-% their argument difference. The ratio turns from the denominator to the
-% numerator, clockwise here; an unsigned angle would lose that information.
-\draw[->,semithick] ($(X)+(-160.52:.8)$)
-  arc[start angle=-160.52,end angle=-199.48,radius=.8];
-\node[font=\scriptsize]at(1.3,-1.65){$\varphi=\arg b_n$};
-}}
+    \draw[->](-2,0)--(4.2,0)node[right]{実軸};\draw[->](0,-2)--(0,2.1)node[above]{虚軸};
+    \coordinate(A)at(-1.1,1.45);\coordinate(B)at(-1.1,-1.45);\coordinate(X)at(3,0);
+    \fill(A)circle(2pt)node[above left]{$\alpha$};\fill(B)circle(2pt)node[below left]{$\beta$};\fill(X)circle(2pt)node[below right]{$a_n$};
+    \draw[thick,->](A)--(X);\draw[thick,->](B)--(X);
+    \node at(1.2,1.07){$|a_n-\alpha|$};\node at(1.2,-1.07){$|a_n-\beta|$};
+    % Both vectors may be reversed to place their tails at X without changing
+    % their argument difference. The ratio turns from the denominator to the
+    % numerator, clockwise here; an unsigned angle would lose that information.
+    \draw[->,semithick] ($(X)+(-160.52:.8)$)
+    arc[start angle=-160.52,end angle=-199.48,radius=.8];
+    \node[font=\scriptsize]at(1.3,-1.65){$\varphi=\arg b_n$};
+  }}
 
 \newcommand{\BookFigThreeTerm}{\BookDiagram{二項を記録する更新から,等比型になる量を取り出す}{
 
-\node[box](a)at(0,0){$a_n,\ a_{n+1}$};
-\node[box](b)at(5,0){$a_{n+1},\ a_{n+2}$};
-\node[box](c)at(0,-1.7){$b_n=a_{n+1}-\alpha a_n$};
-\node[box](d)at(5,-1.7){$b_{n+1}=a_{n+2}-\alpha a_{n+1}$};
-\draw[->,thick](a)--node[above]{元の更新}(b);
-\draw[->,dashed](a)--(c);\draw[->,dashed](b)--(d);
-\draw[->,thick](c)--node[above]{$\times\beta$}(d);
-}}
+    \node[box](a)at(0,0){$a_n,\ a_{n+1}$};
+    \node[box](b)at(5,0){$a_{n+1},\ a_{n+2}$};
+    \node[box](c)at(0,-1.7){$b_n=a_{n+1}-\alpha a_n$};
+    \node[box](d)at(5,-1.7){$b_{n+1}=a_{n+2}-\alpha a_{n+1}$};
+    \draw[->,thick](a)--node[above]{元の更新}(b);
+    \draw[->,dashed](a)--(c);\draw[->,dashed](b)--(d);
+    \draw[->,thick](c)--node[above]{$\times\beta$}(d);
+  }}
 
 \newcommand{\BookFigSystem}{\BookGraph{回転した座標軸では和と差が独立に更新される}{
 
-\draw[->](-2,0)--(3.2,0)node[right]{$x$};\draw[->](0,-2.2)--(0,2.3)node[above]{$y$};
-\draw[very thick,->](0,0)--(2.2,1.05)node[right]{$(x_n,y_n)$};
-\draw[thick,->](0,0)--(1.55,1.55)node[above]{$x+y$};
-\draw[thick,->](0,0)--(1.55,-1.55)node[right]{$x-y$};
-\draw[dashed](-1.6,-1.6)--(2,2);\draw[dashed](-1.6,1.6)--(2,-2);
-}}
+    \draw[->](-2,0)--(3.2,0)node[right]{$x$};\draw[->](0,-2.2)--(0,2.3)node[above]{$y$};
+    \draw[very thick,->](0,0)--(2.2,1.05)node[right]{$(x_n,y_n)$};
+    \draw[thick,->](0,0)--(1.55,1.55)node[above]{$x+y$};
+    \draw[thick,->](0,0)--(1.55,-1.55)node[right]{$x-y$};
+    \draw[dashed](-1.6,-1.6)--(2,2);\draw[dashed](-1.6,1.6)--(2,-2);
+  }}
 
 \newcommand{\BookFigFloorGraph}{\BookGraph{床関数は各整数区間で値が一定になる}{
 
-\draw[->](-2.5,0)--(3.3,0)node[right]{$x$};\draw[->](0,-2.4)--(0,3.2)node[above]{$y$};
-\foreach \k in {-2,-1,0,1,2}{
-\draw[very thick](\k,\k)--({\k+1},\k);
-\fill(\k,\k)circle(2.3pt);\draw[fill=white]({\k+1},\k)circle(2.3pt);
-}
-}}
+    \draw[->](-2.5,0)--(3.3,0)node[right]{$x$};\draw[->](0,-2.4)--(0,3.2)node[above]{$y$};
+    \foreach \k in {-2,-1,0,1,2}{
+        \draw[very thick](\k,\k)--({\k+1},\k);
+        \fill(\k,\k)circle(2.3pt);\draw[fill=white]({\k+1},\k)circle(2.3pt);
+      }
+  }}
 
 \newcommand{\BookFigComplexRoots}{\BookGraph{特性根の累乗は回転と伸縮の繰り返しになる}{
 
-\draw[->](-3.5,0)--(3.2,0)node[right]{実軸};\draw[->](0,-2.7)--(0,3.15)node[above]{虚軸};
-\foreach \k in {0,1,2,3,4}{
-\coordinate(P\k)at({2*pow(1.12,\k)*cos(42*\k)},{2*pow(1.12,\k)*sin(42*\k)});
-\draw[->,gray](0,0)--(P\k);\fill(P\k)circle(2pt);
-}
-\draw[->,thick](P0)--(P1)--(P2)--(P3)--(P4);
-\node[below]at(P0){$1$};\node[right]at(P1){$\alpha$};\node[above]at(P2){$\alpha^2$};\node[left]at(P3){$\alpha^3$};
-}}
+    \draw[->](-3.5,0)--(3.2,0)node[right]{実軸};\draw[->](0,-2.7)--(0,3.15)node[above]{虚軸};
+    \foreach \k in {0,1,2,3,4}{
+        \coordinate(P\k)at({2*pow(1.12,\k)*cos(42*\k)},{2*pow(1.12,\k)*sin(42*\k)});
+        \draw[->,gray](0,0)--(P\k);\fill(P\k)circle(2pt);
+      }
+    \draw[->,thick](P0)--(P1)--(P2)--(P3)--(P4);
+    \node[below]at(P0){$1$};\node[right]at(P1){$\alpha$};\node[above]at(P2){$\alpha^2$};\node[left]at(P3){$\alpha^3$};
+  }}
 
 \newcommand{\BookFigNewton}{\BookGraph{接線の $x$ 軸との交点を次の近似値にする}{
 
-\draw[->](-.1,0)--(2.65,0)node[right]{$x$};\draw[->](0,-2.15)--(0,3.05)node[above]{$y$};
-\draw[thick,domain=.15:2.18,samples=40]plot(\x,{\x*\x-2});
-\draw[very thick,domain=1.05:2.2]plot(\x,{4*\x-6});
-\draw[dashed](2,0)--(2,2);\fill(2,2)circle(2pt)node[above left]{$(a_n,f(a_n))$};
-\fill(1.5,0)circle(2pt)node[above left]{$a_{n+1}$};\node[below]at(2,0){$a_n$};
-}}
+    \draw[->](-.1,0)--(2.65,0)node[right]{$x$};\draw[->](0,-2.15)--(0,3.05)node[above]{$y$};
+    \draw[thick,domain=.15:2.18,samples=40]plot(\x,{\x*\x-2});
+    \draw[very thick,domain=1.05:2.2]plot(\x,{4*\x-6});
+    \draw[dashed](2,0)--(2,2);\fill(2,2)circle(2pt)node[above left]{$(a_n,f(a_n))$};
+    \fill(1.5,0)circle(2pt)node[above left]{$a_{n+1}$};\node[below]at(2,0){$a_n$};
+  }}
 
 \newcommand{\BookFigCobweb}{\BookGraph{初項からの反復を $y=f(x)$ と $y=x$ で追う}{
-% Section example: f(x)=(x^2-1)/2; a1=2 -> a2=3/2 -> a3=5/8.
-% Match characteristic-equation figures (scale=0.8) using natural coordinate sizes.
-\begin{scope}[x=1.7cm,y=1.45cm]
-  \draw[->,semithick] (-.65,0)--(2.63,0) node[right] {$x$};
-  \draw[->,semithick] (0,-.71)--(0,2.8) node[above] {$y$};
-  \draw[dashed,thin] (-.55,-.55)--(2.43,2.43) node[above] {$y=x$};
-  \draw[thick,domain=-.60:2.42,samples=60]
-    plot (\x,{(\x*\x-1)/2})
-    node[right] {$y=f(x)$};
-  \draw[semithick]
-    (2,0)--(2,1.5)--(1.5,1.5)--(1.5,.625)
-    --(.625,.625)--(.625,-.3046875)
-    --(-.3046875,-.3046875);
-  \fill (2,0) circle (1.15pt) node[below right] {$a_1=2$};
-  \fill (1.5,0) circle (.9pt) node[below] {$a_2$};
-  \fill (.625,0) circle (.9pt) node[above left] {$a_3$};
-\end{scope}
-}}
+    % Section example: f(x)=(x^2-1)/2; a1=2 -> a2=3/2 -> a3=5/8.
+    % Match characteristic-equation figures (scale=0.8) using natural coordinate sizes.
+    \begin{scope}[x=1.7cm,y=1.45cm]
+      \draw[->,semithick] (-.65,0)--(2.63,0) node[right] {$x$};
+      \draw[->,semithick] (0,-.71)--(0,2.8) node[above] {$y$};
+      \draw[dashed,thin] (-.55,-.55)--(2.43,2.43) node[above] {$y=x$};
+      \draw[thick,domain=-.60:2.42,samples=60]
+      plot (\x,{(\x*\x-1)/2})
+      node[right] {$y=f(x)$};
+      \draw[semithick]
+      (2,0)--(2,1.5)--(1.5,1.5)--(1.5,.625)
+      --(.625,.625)--(.625,-.3046875)
+      --(-.3046875,-.3046875);
+      \fill (2,0) circle (1.15pt) node[below right] {$a_1=2$};
+      \fill (1.5,0) circle (.9pt) node[below] {$a_2$};
+      \fill (.625,0) circle (.9pt) node[above left] {$a_3$};
+    \end{scope}
+  }}
 
 \newcommand{\BookFigFlowchart}{\BookDiagram{式全体・項・付加項の観察から解法候補を選ぶ}{
 
-\node[box](a)at(0,0){式全体\\総和・分母・隣接性};
-\node[box](b)at(3.1,0){数列の項\\係数と指数};
-\node[box](c)at(6.2,0){付加項\\定数・多項式・指数};
-\node[box](d)at(3.1,-1.7){候補を立てる\\差・比・逆数・対数};
-\node[box](e)at(3.1,-3.15){定義域・初期条件};
-\node[box](f)at(3.1,-4.45){変形と再評価};
-\draw[->](a.south)--(d.north west);
-\draw[->](b.south)--(d.north);
-\draw[->](c.south)--(d.north east);
-\draw[->](d)--(e);\draw[->](e)--(f);
-\draw[->,dashed](f.west)--node[above]{もう一度}(-1.1,-4.45)
-  --(-1.1,.8)--(3.1,.8);
-\draw[dashed](-.9,.55)--(-.9,.8)--(7.1,.8)--(7.1,.55);
-}}
+    \node[box](a)at(0,0){式全体\\総和・分母・隣接性};
+    \node[box](b)at(3.1,0){数列の項\\係数と指数};
+    \node[box](c)at(6.2,0){付加項\\定数・多項式・指数};
+    \node[box](d)at(3.1,-1.7){候補を立てる\\差・比・逆数・対数};
+    \node[box](e)at(3.1,-3.15){定義域・初期条件};
+    \node[box](f)at(3.1,-4.45){変形と再評価};
+    \draw[->](a.south)--(d.north west);
+    \draw[->](b.south)--(d.north);
+    \draw[->](c.south)--(d.north east);
+    \draw[->](d)--(e);\draw[->](e)--(f);
+    \draw[->,dashed](f.west)--node[above]{もう一度}(-1.1,-4.45)
+    --(-1.1,.8)--(3.1,.8);
+    \draw[dashed](-.9,.55)--(-.9,.8)--(7.1,.8)--(7.1,.55);
+  }}
 
 \newcommand{\BookFigFallback}{\BookDiagram{行き詰まりの理由を次の方針の手掛かりにする}{
 
-\node[box](a)at(0,0){候補A};\node[box](b)at(2.5,0){単純にならない};\node[box](c)at(5,0){原因を特定};
-\node[box](d)at(5,-1.4){候補B};\node[box](e)at(2.5,-1.4){変形して検証};
-\draw[->](a)--(b);\draw[->](b)--(c);\draw[->](c)--(d);\draw[->](d)--(e);\draw[->,dashed](e)--(a);
-}}
+    \node[box](a)at(0,0){候補A};\node[box](b)at(2.5,0){単純にならない};\node[box](c)at(5,0){原因を特定};
+    \node[box](d)at(5,-1.4){候補B};\node[box](e)at(2.5,-1.4){変形して検証};
+    \draw[->](a)--(b);\draw[->](b)--(c);\draw[->](c)--(d);\draw[->](d)--(e);\draw[->,dashed](e)--(a);
+  }}
 
 \newcommand{\BookFigMatrixMap}{\BookGraph{行列の作用を平面上のベクトルとして表す}{
-% 二つの座標平面に分けて元のベクトルと作用後を判別しやすくする.
-% A=(2,1;1,2), v=(1,1/2) なら Av=(5/2,2).
-\begin{scope}[line width=.65pt]
-  \draw[->] (-.15,0)--(1.95,0)node[right]{$x$};
-  \draw[->] (0,-.12)--(0,2.65)node[above]{$y$};
-  \draw[->,very thick] (0,0)--(1,.5)node[above]{$\boldsymbol v$};
-  \node[font=\small]at(3.05,1.30){$\xrightarrow{\ A\ }$};
-  \begin{scope}[xshift=4.35cm]
-    \draw[->](-.15,0)--(3.05,0)node[right]{$x$};
-    \draw[->](0,-.12)--(0,2.65)node[above]{$y$};
-    \draw[->,very thick](0,0)--(2.5,2)node[above right]{$A\boldsymbol v$};
-  \end{scope}
-\end{scope}
-}}
+    % 二つの座標平面に分けて元のベクトルと作用後を判別しやすくする.
+    % A=(2,1;1,2), v=(1,1/2) なら Av=(5/2,2).
+    \begin{scope}[line width=.65pt]
+      \draw[->] (-.15,0)--(1.95,0)node[right]{$x$};
+      \draw[->] (0,-.12)--(0,2.65)node[above]{$y$};
+      \draw[->,very thick] (0,0)--(1,.5)node[above]{$\boldsymbol v$};
+      \node[font=\small]at(3.05,1.30){$\xrightarrow{\ A\ }$};
+      \begin{scope}[xshift=4.35cm]
+        \draw[->](-.15,0)--(3.05,0)node[right]{$x$};
+        \draw[->](0,-.12)--(0,2.65)node[above]{$y$};
+        \draw[->,very thick](0,0)--(2.5,2)node[above right]{$A\boldsymbol v$};
+      \end{scope}
+    \end{scope}
+  }}
 
 \newcommand{\BookFigEigen}{\BookGraph{本文の行列$A$では,二つの方向がそれぞれ3倍と1倍になる\label{図：固有方向と倍率}}{
-% A=(2,1;1,2). 作用前後を同じ座標と縮尺で表示する.
-\draw[->](-.25,0)--(3.9,0)node[right]{$x$};
-\draw[->](0,-1.6)--(0,3.6)node[above]{$y$};
-\draw[very thick,->](0,0)--(3,3)node[above right]{$A\boldsymbol v=(3,3)$};
-\draw[->,thick](0,0)--(1,1)node[left]{$\boldsymbol v=(1,1)$};
-\fill(1,-1)circle(2pt)node[right]{$\boldsymbol w=A\boldsymbol w=(1,-1)$};
-\draw[->,thick](0,0)--(1,-1);
-\draw[->](0,0)--(1,0);
-\node[anchor=north west]at(1.1,-.1){$\boldsymbol u=(1,0)$};
-\draw[->,dashed](0,0)--(2,1)node[right]{$A\boldsymbol u=(2,1)$};
-}}
+    % A=(2,1;1,2). 作用前後を同じ座標と縮尺で表示する.
+    \draw[->](-.25,0)--(3.9,0)node[right]{$x$};
+    \draw[->](0,-1.6)--(0,3.6)node[above]{$y$};
+    \draw[very thick,->](0,0)--(3,3)node[above right]{$A\boldsymbol v=(3,3)$};
+    \draw[->,thick](0,0)--(1,1)node[left]{$\boldsymbol v=(1,1)$};
+    \fill(1,-1)circle(2pt)node[right]{$\boldsymbol w=A\boldsymbol w=(1,-1)$};
+    \draw[->,thick](0,0)--(1,-1);
+    \draw[->](0,0)--(1,0);
+    \node[anchor=north west]at(1.1,-.1){$\boldsymbol u=(1,0)$};
+    \draw[->,dashed](0,0)--(2,1)node[right]{$A\boldsymbol u=(2,1)$};
+  }}
 
 \newcommand{\BookFigChebyshev}{\BookGraph{角の倍化とチェビシェフ多項式の対応}{
-% 円の第一象限のみを表示する.
-\draw[->,semithick] (0,0)--(2.53,0)node[right]{$x$};
-\draw[->,semithick] (0,0)--(0,2.51)node[above]{$y$};
-\draw[thick] (2.10,0) arc[start angle=0,end angle=90,radius=2.10];
-\node[above right,font=\scriptsize]at(2.10,0){$1$};
-\coordinate(P)at(33:2.10);\coordinate(Q)at(66:2.10);
-\draw[thick,->](0,0)--(P);
-\draw[thick,->](0,0)--(Q);
-\draw[dashed](P)--(P|-0,0);
-\draw[dashed](Q)--(Q|-0,0);
-\node[below,font=\scriptsize]at(P|-0,0){$\cos\theta$};
-\node[below,font=\scriptsize]at(Q|-0,0){$\cos2\theta$};
-\node[font=\scriptsize]at(1.2,-.65){$\cos2\theta=T_2(\cos\theta)$};
-\draw[->] (.52,0)arc[start angle=0,end angle=33,radius=.52];
-\draw[->] (1.15,0)arc[start angle=0,end angle=66,radius=1.15];
-\node at(17:.80) {$\theta$};
-\node at(51:1.46) {$2\theta$};
-}}
+    % 円の第一象限のみを表示する.
+    \draw[->,semithick] (0,0)--(2.53,0)node[right]{$x$};
+    \draw[->,semithick] (0,0)--(0,2.51)node[above]{$y$};
+    \draw[thick] (2.10,0) arc[start angle=0,end angle=90,radius=2.10];
+    \node[above right,font=\scriptsize]at(2.10,0){$1$};
+    \coordinate(P)at(33:2.10);\coordinate(Q)at(66:2.10);
+    \draw[thick,->](0,0)--(P);
+    \draw[thick,->](0,0)--(Q);
+    \draw[dashed](P)--(P|-0,0);
+    \draw[dashed](Q)--(Q|-0,0);
+    \node[below,font=\scriptsize]at(P|-0,0){$\cos\theta$};
+    \node[below,font=\scriptsize]at(Q|-0,0){$\cos2\theta$};
+    \node[font=\scriptsize]at(1.2,-.65){$\cos2\theta=T_2(\cos\theta)$};
+    \draw[->] (.52,0)arc[start angle=0,end angle=33,radius=.52];
+    \draw[->] (1.15,0)arc[start angle=0,end angle=66,radius=1.15];
+    \node at(17:.80) {$\theta$};
+    \node at(51:1.46) {$2\theta$};
+  }}
 
 \newcommand{\BookFigLagrange}{\BookGraph{有限個の点を通る式は複数作れる}{
 
-\draw[->](-.1,0)--(3.0,0)node[right]{$x$};\draw[->](0,-.3)--(0,1.6)node[above]{$y$};
-\draw[very thick,domain=0:2.5,samples=40]plot(\x,{1-(\x-1)*(\x-1)});
-\draw[dashed,very thick,domain=0:2.5,samples=40]plot(\x,{1-(\x-1)*(\x-1)+.7*\x*(\x-1)*(\x-2)});
-\fill(0,0)circle(2pt);\fill(1,1)circle(2pt);\fill(2,0)circle(2pt);
-\node at(1.45,1.66){同じ3点,異なる曲線};
-}}
+    \draw[->](-.1,0)--(3.0,0)node[right]{$x$};\draw[->](0,-.3)--(0,1.6)node[above]{$y$};
+    \draw[very thick,domain=0:2.5,samples=40]plot(\x,{1-(\x-1)*(\x-1)});
+    \draw[dashed,very thick,domain=0:2.5,samples=40]plot(\x,{1-(\x-1)*(\x-1)+.7*\x*(\x-1)*(\x-2)});
+    \fill(0,0)circle(2pt);\fill(1,1)circle(2pt);\fill(2,0)circle(2pt);
+    \node at(1.45,1.66){同じ3点,異なる曲線};
+  }}
 
 \newcommand{\BookFigDifference}{\BookDiagram{離散的な差分・総和と連続的な微分・積分}{
 
-\node at(1.15,2){離散：数列};\node at(5,2){連続：関数};
-\draw[->](0,0)--(2.55,0)node[right]{$n$};\draw[->](0,0)--(0,1.7);
-\foreach \x/\y in {.4/.3,.9/.55,1.4/.95,1.9/1.5}{\draw[dashed](\x,0)--(\x,\y);\fill(\x,\y)circle(1.35pt);}
-\draw[->](3.55,0)--(6.35,0)node[right]{$x$};\draw[->](3.55,0)--(3.55,1.7);
-\draw[thick,domain=3.65:6.1,samples=35]plot(\x,{.2*(\x-3.55)*(\x-3.55)+.2});
-\node at(1.1,-.72){$\Delta,\ \sum$};\node at(4.95,-.72){$\frac{\mathrm{d}}{\mathrm{d}x},\ \int$};\draw[<->,dashed](2.7,1)--(3.4,1);
-}}
+    \node at(1.15,2){離散：数列};\node at(5,2){連続：関数};
+    \draw[->](0,0)--(2.55,0)node[right]{$n$};\draw[->](0,0)--(0,1.7);
+    \foreach \x/\y in {.4/.3,.9/.55,1.4/.95,1.9/1.5}{\draw[dashed](\x,0)--(\x,\y);\fill(\x,\y)circle(1.35pt);}
+    \draw[->](3.55,0)--(6.35,0)node[right]{$x$};\draw[->](3.55,0)--(3.55,1.7);
+    \draw[thick,domain=3.65:6.1,samples=35]plot(\x,{.2*(\x-3.55)*(\x-3.55)+.2});
+    \node at(1.1,-.72){$\Delta,\ \sum$};\node at(4.95,-.72){$\frac{\mathrm{d}}{\mathrm{d}x},\ \int$};\draw[<->,dashed](2.7,1)--(3.4,1);
+  }}
 
 % Issue #26: new diagrams show the operation named by their captions.
 \newcommand{\BookFigLatticeRecurrence}{\BookDiagram{最後の一歩で格子経路を二つに分ける}{
-  \draw[step=1,black!25] (0,0) grid (3,2);
-  \node[below left] at (0,0) {$(0,0)$};
-  \fill (3,2) circle (2pt);\node[above right] at (3,2) {$(n,m)$};
-  \draw[->,very thick] (2,2)--(3,2);
-  \draw[->,very thick] (3,1)--(3,2);
-  \node[above] at (2,2) {$(n-1,m)$};
-  \node[right] at (3,1) {$(n,m-1)$};
-}}
+    \draw[step=1,black!25] (0,0) grid (3,2);
+    \node[below left] at (0,0) {$(0,0)$};
+    \fill (3,2) circle (2pt);\node[above right] at (3,2) {$(n,m)$};
+    \draw[->,very thick] (2,2)--(3,2);
+    \draw[->,very thick] (3,1)--(3,2);
+    \node[above] at (2,2) {$(n-1,m)$};
+    \node[right] at (3,1) {$(n,m-1)$};
+  }}
 \newcommand{\BookFigBinomialDifference}{\BookDiagram{二項係数では差分を取ると添字が一つ下がる}{
-  \node[box] (a) at (0,0) {$\binom n3$};
-  \node[box] (b) at (2.6,0) {$\binom n2$};
-  \node[box] (c) at (5.2,0) {$\binom n1$};
-  \draw[->,thick] (a)--node[above]{$\Delta$}(b);
-  \draw[->,thick] (b)--node[above]{$\Delta$}(c);
-  \node at (2.6,-1) {和を取ると,逆向きに戻る};
-}}
+    \node[box] (a) at (0,0) {$\binom n3$};
+    \node[box] (b) at (2.6,0) {$\binom n2$};
+    \node[box] (c) at (5.2,0) {$\binom n1$};
+    \draw[->,thick] (a)--node[above]{$\Delta$}(b);
+    \draw[->,thick] (b)--node[above]{$\Delta$}(c);
+    \node at (2.6,-1) {和を取ると,逆向きに戻る};
+  }}
 \newcommand{\BookFigPellDoubling}{\BookDiagram{ニュートン法はペル解の添字を倍に進める}{
-  \node[box] (a) at (0,0) {$r_1=\frac32$};
-  \node[box] (b) at (3.2,0) {$r_2=\frac{17}{12}$};
-  \node[box] (c) at (6.4,0) {$r_4=\frac{577}{408}$};
-  \draw[->,thick] (a)--node[above]{$N$}(b);
-  \draw[->,thick] (b)--node[above]{$N$}(c);
-  \node at (3.2,-1) {$N(r)=\frac12\left(r+\frac2r\right)$};
-}}
+    \node[box] (a) at (0,0) {$r_1=\frac32$};
+    \node[box] (b) at (3.2,0) {$r_2=\frac{17}{12}$};
+    \node[box] (c) at (6.4,0) {$r_4=\frac{577}{408}$};
+    \draw[->,thick] (a)--node[above]{$N$}(b);
+    \draw[->,thick] (b)--node[above]{$N$}(c);
+    \node at (3.2,-1) {$N(r)=\frac12\left(r+\frac2r\right)$};
+  }}
