@@ -6,7 +6,7 @@
 移項や約分で整理し,差や比を取る量を選ぼう.
 別解では手掛かり・計算量・条件を比較できる.
 特に\bookterm{ratio}{階比}型と\bookterm{logarithm}{対数}型には共通する見方がある.
-以下,\,$n$は正の整数とし,必要なときは
+以下,$n$は正の整数とし,必要なときは
 \[
   S_n=\sum_{k=1}^{n}a_k
 \]
@@ -155,7 +155,7 @@
     \[
       a_{n+1}=ra_n
     \]
-    を満たし,\,$a_2=-6$,\, $a_5=48$である.\,$r$および\bookterm{general}{一般項}$a_n$を求めよ.
+    を満たし,$a_2=-6$, $a_5=48$である.$r$および\bookterm{general}{一般項}$a_n$を求めよ.
     % F4
   \item $\displaystyle a_1=0,\qquad a_{n+1}=a_n+\frac{2}{(n+1)(n+3)}$
     で定められる\bookterm{sequence}{数列}の\bookterm{general}{一般項}を求めよ.
@@ -191,7 +191,7 @@
     \[
       a_{n+1}=a_n+d
     \]
-    を満たし,\,$a_3=8$,\, $a_8=-7$である.\,$d$,\, $a_1$および\bookterm{general}{一般項}$a_n$を求めよ.
+    を満たし,$a_3=8$, $a_8=-7$である.$d$, $a_1$および\bookterm{general}{一般項}$a_n$を求めよ.
     % M4
   \item $\displaystyle a_1=2,\qquad a_{n+1}=2a_n+3\cdot2^n$
     で定められる\bookterm{sequence}{数列}$\{a_n\}$の\bookterm{general}{一般項}を求めよ.
@@ -228,7 +228,7 @@
     \[
       a_1=8,\qquad a_2=5,\qquad a_3=\frac72
     \]
-    であることが分かっている.\,$p,q$の値と\bookterm{general}{一般項}を求めよ.
+    であることが分かっている.$p,q$の値と\bookterm{general}{一般項}を求めよ.
     % T5
   \item $\displaystyle a_1=1,\,a_2=2$ とし,
     \[
@@ -249,17 +249,17 @@
 \subsubsection{方針}\label{節：標準：方針}
 \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-basic}{hint}{problem}]
   % Q1
-  \item $a_{n+1}$について解き,両辺の逆数を取る.\,$\displaystyle \frac{1}{a_n}$の増え方に注目する.
+  \item $a_{n+1}$について解き,両辺の逆数を取る.$\displaystyle \frac{1}{a_n}$の増え方に注目する.
     % S1
   \item $n=1$から初項を求める. 次に$S_{n+1}-S_n=a_{n+1}$を使い, 総和を消す. 得られた\bookterm{recurrence}{漸化式}では$a_n$に$n$の一次式を加えて\bookterm{geometric}{等比数列}を作る.
     % R1
-  \item $(n+1)!=(n+1)n!$を使い,\,$a_n$を$n!$で割る.
+  \item $(n+1)!=(n+1)n!$を使い,$a_n$を$n!$で割る.
     % M1
   \item $a_n$から適切な一次式を引き,残りが\bookterm{geometric}{等比数列}になるようにする.
     % G1
   \item 初項から第$n$項までに,$-\dfrac12$を掛ける回数を考える.
     % T1
-  \item \bookterm{characteristic}{特性方程式}を解き,\,$a_{n+1}-2a_n$と$a_{n+1}-3a_n$を求める.二式の差で$a_n$が残る.
+  \item \bookterm{characteristic}{特性方程式}を解き,$a_{n+1}-2a_n$と$a_{n+1}-3a_n$を求める.二式の差で$a_n$が残る.
     % U1
   \item 2つの式を足すと和は変わらず, 引くと差は3倍になる. 和と差を求めてから$a_n,b_n$に戻す.
     % L1
@@ -267,7 +267,7 @@
     % C1
   \item $a_n$の値が変わらないとしたときの値を求め,その値との差を考える.
     % D1
-  \item 両辺を$3$で割り,\,$a_{n+1}-a_n$を求める.
+  \item 両辺を$3$で割り,$a_{n+1}-a_n$を求める.
     % F1
   \item $a_{k+1}-a_k=3k-1$を$k=1$から$n-1$まで加える.
     % T2
@@ -283,33 +283,33 @@
     % D2
   \item 両辺から$a_n$を引き,その後で$2$で割る.
     % G2
-  \item $a_{n+1}$を左辺に,\,$a_n$を右辺にまとめる.
+  \item $a_{n+1}$を左辺に,$a_n$を右辺にまとめる.
     % R2
   \item 倍率を$\displaystyle \frac{n}{n+1}\frac{n+3}{n+2}$と分解し,順に掛ける.
     % M2
   \item 右辺を$(n+1)^2+n^2$と見れば,引くべき二次式が分かる.
     % S2
-  \item $S_{n+1}-S_n=a_{n+1}$に代入する. 両辺の$a_{n+1}$が消え,\,$a_n$が直接求まる. $n=1$の与式だけでは初項が決まらないことにも注意する.
+  \item $S_{n+1}-S_n=a_{n+1}$に代入する. 両辺の$a_{n+1}$が消え,$a_n$が直接求まる. $n=1$の与式だけでは初項が決まらないことにも注意する.
     % L2
   \item \bookterm{square}{平方完成}すると$a_{n+1}-2=(a_n-2)^2$となる.正の量$a_n-2$の\bookterm{logarithm}{対数}を取る.
     % T3
-  \item \bookterm{characteristic}{特性方程式}は重解$2$を持つ.\,$a_{n+1}-2a_n$を\bookterm{geometric}{等比数列}にした後,\,$\displaystyle \frac{a_n}{2^{n-1}}$を考える.
+  \item \bookterm{characteristic}{特性方程式}は重解$2$を持つ.$a_{n+1}-2a_n$を\bookterm{geometric}{等比数列}にした後,$\displaystyle \frac{a_n}{2^{n-1}}$を考える.
     % M3
   \item $2^n$に関係する\bookterm{geometric}{等比数列}を引くか,$2^{n-1}$で割って一次の\bookterm{recurrence}{漸化式}にする.
     % U3
-  \item $b_n$は$a_n$と関係なく先に解ける. その結果を第1式に代入し,\,$\displaystyle \frac{a_n}{2^{n-1}}$の\bookterm{difference}{階差}を調べる.
+  \item $b_n$は$a_n$と関係なく先に解ける. その結果を第1式に代入し,$\displaystyle \frac{a_n}{2^{n-1}}$の\bookterm{difference}{階差}を調べる.
     % Q3
-  \item \bookterm{fixed}{不動点}は$2$と$-1$である.\,$\displaystyle \frac{a_n-2}{a_n+1}$を考える.\,$\displaystyle \frac{1}{a_n-2}$を考える別解もある.
+  \item \bookterm{fixed}{不動点}は$2$と$-1$である.$\displaystyle \frac{a_n-2}{a_n+1}$を考える.$\displaystyle \frac{1}{a_n-2}$を考える別解もある.
     % G3
-  \item $n$は正整数なので,\,$n+1$で割ることができる.
+  \item $n$は正整数なので,$n+1$で割ることができる.
     % D3
   \item 両辺に現れる$n$を消去してから,隣り合う項の差を見る.
     % L3
   \item \bookterm{logarithm}{対数}を取った\bookterm{sequence}{数列}の\bookterm{ratio}{階比}が$\displaystyle \frac{n+2}{n}$となる.積の途中の因子が消えることに注目する.
     % S3
-  \item $S_n+1$を\bookterm{geometric}{等比数列}として解いてから,\,$a_n=S_n-S_{n-1}$を使う. この差の公式を使う範囲と$a_1$を区別する.
+  \item $S_n+1$を\bookterm{geometric}{等比数列}として解いてから,$a_n=S_n-S_{n-1}$を使う. この差の公式を使う範囲と$a_1$を区別する.
     % F3
-  \item \bookterm{difference}{階差}を加えた後,\,$3+3^2+\cdots+3^{n-1}$を求める.
+  \item \bookterm{difference}{階差}を加えた後,$3+3^2+\cdots+3^{n-1}$を求める.
     % R3
   \item 左辺は第$n+1$項に$(n+1)^2$を掛けた形,右辺は第$n$項に$n^2$を掛けた形である.
     % C3
@@ -341,7 +341,7 @@
     % R5
   \item $(n-1)!n!$の次の項との比が$n(n+1)$であることを使う.
     % Q5
-  \item \bookterm{fixed}{不動点}の方程式は重解$1$を持つ.二つの差の比の代わりに,\,$\displaystyle \frac{1}{a_n-1}$を考える.
+  \item \bookterm{fixed}{不動点}の方程式は重解$1$を持つ.二つの差の比の代わりに,$\displaystyle \frac{1}{a_n-1}$を考える.
     % G5
   \item $0$に$7$を掛けても$0$のままである.項で割らずに考える.
     % L5
@@ -351,7 +351,7 @@
     % C5
   \item 最初の2回の更新式を引けば$q$が消える.係数を求めた後,\bookterm{fixed}{不動点}との差を取る.
     % T5
-  \item 定数を引くだけでは右辺を$0$にできない.\,$d_n=a_{n+1}-a_n$を考え,一次の\bookterm{recurrence}{漸化式}に帰着させる.
+  \item 定数を引くだけでは右辺を$0$にできない.$d_n=a_{n+1}-a_n$を考え,一次の\bookterm{recurrence}{漸化式}に帰着させる.
     % D5
   \item $a_{n+1}=a_n$なら,項の値は変わらない.
     % M5

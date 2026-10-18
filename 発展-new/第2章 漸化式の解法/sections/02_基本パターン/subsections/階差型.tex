@@ -1,18 +1,20 @@
 % subsection: 階差型 \, $a_{n+1}=a_n+f(n)$
 
-\subsection{\texorpdfstring{階差型 \, $a_{n+1}=a_n+f(n)$}{階差型}}\label{節：階差型}
+\subsection{\texorpdfstring{階差型  $a_{n+1}=a_n+f(n)$}{階差型}}\label{節：階差型}
 
-等差型では定数が足されていたが,\,$f(n)$のような関数\footnote{$f(n)$は$n$に関する数だけで作られた式を意味する.$f(a_n)$や$f(n)=a_n+1$ように未知の項の値に依存する場合は別の手法が必要になる.}が足されている場合はどうなるだろうか.
+等差型では定数が足されていたが,$f(n)$のような関数\footnote{$f(n)$は$n$に関する数だけで作られた式を意味する.$f(a_n)$や$f(n)=a_n+1$ように未知の項の値に依存する場合は別の手法が必要になる.}が足されている場合はどうなるだろうか.
 慌てずに,今までやってきたように一般項を考えてみよう.
 ここで便利のため,シグマという記号を導入する.端である.
 記号の性質は\sectionref*{節：シグマの計算}で確認できる.
 
 実際に今までと同じ様にやってみると
 \begin{align*}
-  a_{n+1}&=a_{n-1}+f(n-1)\\
-  &=(a_{n-2}+f(n-1))+f(n-2)\\
-  &\qquad \vdots
-  &=a_1+\sum_{k=1}^{n-1} f(k)
+  a_{n}&=a_{n-1}+f(n-1)\\
+  &=\left\{a_{n-2}+f(n-2)\right\}+f(n-1)\\
+  &=\left[\left\{a_{n-3}+f(n-3)\right\}+f(n-2)\right]+f(n-1)\\
+  &\qquad \vdots\\
+  &=a_1+\sum_{k=1}^{n-1} f(k)\\
+  &\therefore \quad a_n=a_1+\sum_{k=1}^{n-1} f(k)
 \end{align*}
 漸化式を解くことそのものは個々で終わりである.
 残るのは和の計算であり,$f(n)$に応じて,\bookterm{arithmetic}{等差数列}や\bookterm{geometric}{等比数列}の和の公式,\bookterm{partial}{部分分数分解}などを使う.
@@ -85,5 +87,5 @@
       &=\sum_{j=1}^{n}j^2\\
       &=\frac{1}{6}n(n+1)(2n+1)
     \end{align*}
-    最後に平方和の公式を用いた.\booknavref{節：シグマの計算}{公式の一覧}で確認できる.\footnote{公式を差から作る導出は,\booknavref{節：和と差から微積分へ}{和と差から微積分へ}で扱う.}
+    最後に平方和の公式を用いた.\booknavref{節：シグマの計算}{公式の一覧}で確認できる.
 \end{enumerate}

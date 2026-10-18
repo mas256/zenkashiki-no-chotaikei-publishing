@@ -1,6 +1,6 @@
 % subsection: 階比型 \, $a_{n+1}=f(n)a_n$
 
-\subsection{\texorpdfstring{階比型 \, $a_{n+1}=f(n)a_n$}{階比型}}\label{節：階比型}
+\subsection{\texorpdfstring{階比型  $a_{n+1}=f(n)a_n$}{階比型}}\label{節：階比型}
 きっと前章を読んで,「じゃあ関数を掛けたらどうなるの?」と思う人がいただろう.
 その疑問を解決する.
 \sectionref{節：階差型}と\sectionref{節：等比型}の内容を踏まえて考えていこう.
@@ -30,14 +30,20 @@ $1$から$n$までの積は\textbf{階乗}といい,$n!=1\cdot2\cdots n$と書�
 本題に戻ると,この階比型漸化式の一般項は
 \begin{align*}
   a_n&=f(n-1)a_{n-1}\\
-  &=f(n-1)(f(n-2)a_{n-2})\\
-  &\qquad \vdots
+  &=f(n-1)\left\{f(n-2)a_{n-2}\right\}\\
+  &=f(n-1) \left[ f(n-2)\left\{f(n-3)a_{n-3}\right\} \right] \\
+  &\qquad \vdots\\
   &=a_1\prod_{k=1}^{n-1} f(k)
 \end{align*}
 この積による表示は$f(k)=0$となる場合も成り立つ.\footnote{何も掛けられていない時は$1$とする.}
+\begin{bookpoint}
+  \textbf{POINT}\par
+  掛ける値が一定でなくとも,原理は一緒.第$n$項に至るまでに,階比$f(n)$は$n-1$回掛けられる.
+\end{bookpoint}
 
-また,\,$f(n)$の性質によっては以下のような解法もある.\\
-\noindent\textbf{$f(n)$が1次式の積の場合}\\
+また,$f(n)$の性質によっては以下のような解法もある.\\
+\noindent\phantomsection\label{解法：階比型の1次式の積}\textbf{【$f(n)$が1次式の積の場合】}
+
 1次式の積,つまりは
 \[
   n,\, n(n+1), \,(n+1)(n+2)
@@ -45,7 +51,7 @@ $1$から$n$までの積は\textbf{階乗}といい,$n!=1\cdot2\cdots n$と書�
 のような式の場合は,その式の階乗で両辺を割ると解ける場合がある.
 例えば
 \[
-  a_{n+1}=(n+1)a_n
+  a_1=1,\,a_{n+1}=(n+1)a_n
 \]
 のような式であれば,両辺を$(n+1)!$で割って
 \[
@@ -53,15 +59,34 @@ $1$から$n$までの積は\textbf{階乗}といい,$n!=1\cdot2\cdots n$と書�
 \]
 添字を$n$から$n-1$にした式について,
 \begin{align*}
-  \frac{a_{n}}{(n)!}&=\frac{a_{n-1}}{{n-1}!}\\
+  \frac{a_{n}}{n!}&=\frac{a_{n-1}}{{n-1}!}\\
   &=\frac{a_{n-2}}{{n-2}!}\\
   &=\frac{a_{n-3}}{{n-3}!}\\
-  &\qquad \vdots
-  &=\frac{a_1}{1!}
-  &\therefore \quad \frac{a_{n}}{(n)!}=\frac{a_1}{1!}
+  &\qquad \vdots\\
+  &=\frac{a_1}{1!}\\
+  &\therefore \quad \frac{a_{n}}{n!}=\frac{a_1}{1!}\\
   &\therefore \quad a_n=n!
 \end{align*}
 となる.\footnote{この式変形は\sectionref{節：定数数列}で詳しく述べられている.}
+また,このことについてより一般に書けば,$a_{n+1}=f(n)a_n$について,
+\[
+  \frac{g(n+1)}{g(n)}=\frac{1}{f(n)}
+\]
+と表せる時,漸化式は
+\begin{align*}
+  g(n+1)a_{n}=&g(n)a_n\\
+  &=g(n-1)a_{n-1}\\
+  &=g(n-2)a_{n-2}\\
+  &\qquad \vdots\\
+  &=g(1)a_1\\
+  &\therefore \quad a_n=\frac{g(1)a_1}{g(n)}
+\end{align*}
+となる.
+
+\begin{bookpoint}
+  \textbf{POINT}\par
+  両辺で同じ形を作れないか検討する.
+\end{bookpoint}
 
 また,これらの問題は\sectionref{節：対数型}で扱われる対数型としても解くことができる場合がある.
 
@@ -73,13 +98,10 @@ $1$から$n$までの積は\textbf{階乗}といい,$n!=1\cdot2\cdots n$と書�
 \end{enumerate}
 
 \noindent\bookblocklink{example-ratio-1}{hint}{problem}{【方針】}\par\nobreak
-倍率に$n$があれば,$n!=n(n-1)!$という階乗の更新が手掛かりになる.
-$a_n$を$(n-1)!$で割れば,次の項の分母は$n!$となり,変わる倍率$n$を吸収できる.
-割る量の隣り合う比を元の倍率に合わせる.例えば$h_n=(n-1)!$なら$\dfrac{h_{n+1}}{h_n}=n$なので,倍率$2n$のうち$n$を消せる.
 \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-ratio-1}{hint}{problem}]
-  \item 係数$2n$のうち$n$を階乗で吸収すれば,一定の倍率$2$だけが残ります.
-  \item $n(n+1)$を一つのまとまりとして,隣の添字にずらした比を計算してみましょう.倍率$\frac{n+2}{n}$が現れます.
-  \item (1)で$a_n$を割る量は$(n-1)!$でした.今回は倍率$n(n+1)$に合わせて,$n!$も組み合わせます.
+  \item ラージパイを使って処理するか,$n!$で割ってみましょう.
+  \item 階乗以外で割ることもあります.上手く$n$が$n+1$になると$g(n)$も$g(n+1)$になるような$g$を探しましょう.
+  \item (1)と同じ様に階乗で割ってみたいですが,うまくいきません.$n$に依存する関数で割ってみましょう.
 \end{enumerate}
 
 \noindent\bookblocklink{example-ratio-1}{answer}{problem}{【解答】}\par\nobreak
@@ -116,21 +138,3 @@ $a_n$を$(n-1)!$で割れば,次の項の分母は$n!$となり,変わる倍率$
       &a_n=n!(n-1)!
     \end{align*}
 \end{enumerate}
-
-因子を見つけにくければ,先に倍率の積を書き,隣り合う分子と分母が相殺するかを調べるとよい.
-\bookterm{normalize}{正規化}はその積を一歩ずつの更新として表す.\footnote{\bookterm{ratio}{階比}型\bookterm{recurrence}{漸化式}で$f(n)$が指数などの場合は,\bookterm{logarithm}{対数}も使える.次節で扱う.}
-
-\bookstep{掛けて倍率をそろえる}\label{解釈：階比と正規化}
-非零の因子を掛けても倍率をそろえられる.\footnote{これは\sectionref*{節：補助数列・正規化}の\bookterm{normalize}{正規化}に当たる.}
-割る方法では分母を元の項と同じ倍率で増やした.
-掛ける方法では,因子を元の倍率の逆数倍にすれば,その倍率を打ち消せる.
-$f(k)\ne0$として,$\dfrac{g(n+1)}{g(n)}=\dfrac{1}{f(n)}$となる非零の因子を選ぶ.
-与式に$g(n+1)$を掛ければ,
-\begin{align*}
-  &g(n+1)a_{n+1}=g(n)a_n=\cdots=g(1)a_1\\
-  &\therefore \quad a_n=\frac{g(1)a_1}{g(n)}
-\end{align*}
-$b_n=g(n)a_n$は一定になる.例えば$f(n)=n$なら$g(n)=\dfrac{1}{(n-1)!}$なので,
-\[
-  \frac{a_n}{(n-1)!}=\frac{a_1}{0!},\qquad a_n=a_1(n-1)!.
-\]

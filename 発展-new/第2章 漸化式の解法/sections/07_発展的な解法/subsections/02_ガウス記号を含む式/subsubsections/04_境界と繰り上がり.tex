@@ -9,7 +9,7 @@
   \end{cases}
 \]
 となり,商が増える境界を検出する.
-\,$\lfloor\sqrt n\rfloor-\lfloor\sqrt{n-1}\rfloor$なら平方数のときだけ1になる.
+$\lfloor\sqrt n\rfloor-\lfloor\sqrt{n-1}\rfloor$なら平方数のときだけ1になる.
 \textbf{条件を式で表し,\bookterm{recurrence}{漸化式}に組み込める.}
 
 和の繰り上がりも検出できる.小数部分を$\{x\}=x-\lfloor x\rfloor$と書けば,
@@ -48,13 +48,13 @@
       a_n=\left\lfloor\frac n4\right\rfloor
       -\left\lfloor\frac n6\right\rfloor.
     \]
-    \,$d_n$は4の倍数だけなら1,6の倍数だけなら$-1$,両方またはいずれでもないなら0である.
+    $d_n$は4の倍数だけなら1,6の倍数だけなら$-1$,両方またはいずれでもないなら0である.
 \end{enumerate}
 
 \noindent \bookblocklink{example-gauss-role-4}{solution}{problem}{【解法】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-4}{solution}{problem}]
-  \item \bookterm{floor-function}{床関数}の差の性質から,\,$d_n$は【解答】に述べた条件を表す.
-    また,\,$a_n=\sum_{k=1}^{n}d_k$であり,
+  \item \bookterm{floor-function}{床関数}の差の性質から,$d_n$は【解答】に述べた条件を表す.
+    また,$a_n=\sum_{k=1}^{n}d_k$であり,
     \begin{align*}
       \sum_{k=1}^{n}\left(
       \left\lfloor\frac k4\right\rfloor-

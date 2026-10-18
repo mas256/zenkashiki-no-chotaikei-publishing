@@ -1,11 +1,11 @@
 % subsection: 階差等比複合型 \, $\displaystyle a_{n+1}=pa_n+f(n)$
 
-\subsection{\texorpdfstring{階差等比複合型 \, $\displaystyle a_{n+1}=pa_n+f(n)$}{階差等比複合型}}\label{節：階差等比複合型}
+\subsection{\texorpdfstring{階差等比複合型  $\displaystyle a_{n+1}=pa_n+f(n)$}{階差等比複合型}}\label{節：階差等比複合型}
 \begin{bookpoint}
   \textbf{共通の付加項を消す}\par
   同じ更新をする多項式を引くと,付加項が消える.指数の付加項には,その指数で割る方法も使える.
 \end{bookpoint}
-\subsubsection{\texorpdfstring{多項式を引く \, $\displaystyle a_{n+1}=pa_n+f(n)$}{多項式を引く}}
+\subsubsection{\texorpdfstring{多項式を引く  $\displaystyle a_{n+1}=pa_n+f(n)$}{多項式を引く}}
 \sectionref*{節：特性方程式型}では,同じ更新をする定数を引いた.
 今回は付加項$f(n)$が$n$によって変わるため,引く量も$n$によって変えてみる.
 \sectionref*{節：補助数列を作る}と同じく,同じ更新をする量を探す.
@@ -62,16 +62,16 @@ $p\ne1$のときは$m$次の多項式
 $1-p\ne0$なので,この順に$x_m,x_{m-1},\ldots,x_0$を決められる.\footnote{未知の係数を比較して求めるこの方法を\bookterm{undetermined}{未定係数法}という.}
 
 \bookstep{変形と復元}
-$b_{n+1}=pb_n$を解き,\,$a_n=b_n+g(n)$へ戻す.
+$b_{n+1}=pb_n$を解き,$a_n=b_n+g(n)$へ戻す.
 $p\ne0,1$なら
 \[
   a_n=\{a_1-g(1)\}p^{n-1}+g(n)
 \]
 となる.\footnote{$p=0$なら初項を別に扱い,$n\ge2$で$a_n=f(n-1)$と直接求める.}
-一方,\,$p=1$で$f(n)$が$m$次なら,付加項を足し戻す多項式は通常$m+1$次になる.
-例えば$a_{n+1}=a_n+n$では,\,$g(n)=\frac{n(n-1)}2$が同じ更新を満たす.
+一方,$p=1$で$f(n)$が$m$次なら,付加項を足し戻す多項式は通常$m+1$次になる.
+例えば$a_{n+1}=a_n+n$では,$g(n)=\frac{n(n-1)}2$が同じ更新を満たす.
 
-\subsubsection{\texorpdfstring{指数で割る  \, $\displaystyle a_{n+1}=pa_n+q^n$}{指数で割る}}
+\subsubsection{\texorpdfstring{指数で割る   $\displaystyle a_{n+1}=pa_n+q^n$}{指数で割る}}
 $a_{n+1}=pa_n+q^n$では,指数で割ると付加項が定数になる.$q\ne0$とする.\footnote{$q=0$なら$n\ge1$で$q^n=0$なので等比型になる.}
 付加項$q^n$を$1$にするために,両辺を$q^n$で割る.
 左辺の添字は$n+1$なので,それに合わせて第$n$項を割る量は$q^{n-1}$とする.
@@ -86,4 +86,4 @@ $a_{n+1}=pa_n+q^n$では,指数で割ると付加項が定数になる.$q\ne0$�
 ただし$p=q$のときは$b_{n+1}=b_n+1$(\bookterm{arithmetic}{等差数列})になり,\bookterm{fixed}{不動点}$\alpha$が存在しない.\footnote{\bookproblemref{example-characteristic-1}{3}{先ほどの例題(3)}と同じ状況である.}
 この場合は$b_n=b_1+(n-1)$として直接求まる.
 いずれの場合も,求めた$b_n$に$q^{n-1}$を掛ければ元の$a_n$に戻る.
-例えば$a_1=1,\,a_{n+1}=2a_n+2^n$(\,$p=q=2$)ならば$b_n=\dfrac{a_n}{2^{n-1}}$が\bookterm{arithmetic}{等差数列}となり,\,$a_n=n\cdot2^{n-1}$が得られる.
+例えば$a_1=1,\,a_{n+1}=2a_n+2^n$($p=q=2$)ならば$b_n=\dfrac{a_n}{2^{n-1}}$が\bookterm{arithmetic}{等差数列}となり,$a_n=n\cdot2^{n-1}$が得られる.

@@ -1,5 +1,5 @@
 \subsubsection{丸め誤差を使う}\label{節：丸め誤差を使う}
-\,$a_{n+1}=\lfloor\lambda a_n\rfloor$では,$\lambda$の整数部分だけを取り出せない.そこで,
+$a_{n+1}=\lfloor\lambda a_n\rfloor$では,$\lambda$の整数部分だけを取り出せない.そこで,
 \[
   \varepsilon_n=\lambda a_n-a_{n+1},
   \qquad 0\le\varepsilon_n<1
@@ -21,7 +21,7 @@ $\lambda^2$を$\lambda$と整数で表せる係数が手掛かりになる.
 
 \noindent \bookblocklink{example-gauss-role-5}{hint}{problem}{【方針】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-5}{hint}{problem}]
-  \item \,$\lambda=1+\sqrt2$とおき,\,$\lambda^2=2\lambda+1$を使います.
+  \item $\lambda=1+\sqrt2$とおき,$\lambda^2=2\lambda+1$を使います.
     整数から正の1未満の誤差を引く形にして,\bookterm{floor-function}{床関数}の値を確定しましょう.
 \end{enumerate}
 
@@ -31,7 +31,7 @@ $\lambda^2$を$\lambda$と整数で表せる係数が手掛かりになる.
       a_1=1,\quad a_2=2,\qquad
       a_{n+2}=2a_{n+1}+a_n-1.
     \]
-    \,$\alpha=1+\sqrt2,\ \beta=1-\sqrt2$とおくと,
+    $\alpha=1+\sqrt2,\ \beta=1-\sqrt2$とおくと,
     \[
       a_n=\frac12+\frac{\alpha^n+\beta^n}{4}.
     \]
@@ -39,13 +39,13 @@ $\lambda^2$を$\lambda$と整数で表せる係数が手掛かりになる.
 
 \noindent \bookblocklink{example-gauss-role-5}{solution}{problem}{【解法】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-5}{solution}{problem}]
-  \item \,$\lambda=1+\sqrt2>2$とおく.正整数$a_n$から次の項も正整数となる.
-    また,\,$\lambda a_n$は無理数なので,
+  \item $\lambda=1+\sqrt2>2$とおく.正整数$a_n$から次の項も正整数となる.
+    また,$\lambda a_n$は無理数なので,
     \[
       \varepsilon_n=\lambda a_n-a_{n+1}
     \]
     は$0<\varepsilon_n<1$を満たす.
-    \,$\lambda^2=2\lambda+1$を使うと,
+    $\lambda^2=2\lambda+1$を使うと,
     \begin{align*}
       \lambda a_{n+1}
       &=\lambda(\lambda a_n-\varepsilon_n)\\
@@ -64,7 +64,7 @@ $\lambda^2$を$\lambda$と整数で表せる係数が手掛かりになる.
     \]
     \sectionref{節：隣接3項型}で学んだ\bookterm{characteristic}{特性方程式}は$x^2-2x-1=0$で,
     その解が$\alpha,\beta$である.
-    \,$\alpha+\beta=2,\ \alpha^2+\beta^2=6$より,
+    $\alpha+\beta=2,\ \alpha^2+\beta^2=6$より,
     \[
       b_n=\frac{\alpha^n+\beta^n}{4}
     \]

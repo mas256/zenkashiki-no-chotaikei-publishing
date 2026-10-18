@@ -34,7 +34,7 @@
   b_n=(1,-\alpha)\boldsymbol{x}_n
 \]
 という量を取り出すことに当たる.
-実際,\,$\alpha=p\alpha+q$を使えば
+実際,$\alpha=p\alpha+q$を使えば
 \[
   \begin{aligned}
     (1,-\alpha)A
@@ -108,7 +108,7 @@ $q\ne0$なら\bookterm{fixed}{不動点}はない.重なった\bookterm{eigenval
 \[
   a_{n+1}=\frac{2a_n}{1-a_n}
 \]
-を使う.各項で$a_n\ne1$とし,\,$a_1\ne-1$とする.
+を使う.各項で$a_n\ne1$とし,$a_1\ne-1$とする.
 一つの値を分子と分母に分けて持ち,$a_n=\dfrac{x_n}{y_n}$と書いてみよう.
 $(x_1,y_1)=(a_1,1)$から
 \[
@@ -151,7 +151,7 @@ $x_1+y_1=a_1+1\ne0$なので,この比の分母はずっと零でない.
 \[
   a_{n+1}=\frac{pa_n+q}{ra_n+s}
 \]
-に対し,\,$r\ne0$, $ps-qr\ne0$を仮定し,各項で$ra_n+s\ne0$とする.
+に対し,$r\ne0$, $ps-qr\ne0$を仮定し,各項で$ra_n+s\ne0$とする.
 まず$(x_1,y_1)=(a_1,1)$とし,二つの数を
 \[
   \begin{pmatrix}x_{n+1}\\y_{n+1}\end{pmatrix}
@@ -167,7 +167,7 @@ $\displaystyle a_n=\frac{x_n}{y_n}$とすると
   =\frac{px_n+qy_n}{rx_n+sy_n}
   =\frac{pa_n+q}{ra_n+s}.
 \]
-また,\,$y_{n+1}=(ra_n+s)y_n$なので,もとの\bookterm{recurrence}{漸化式}の分母が零にならない限り,\,$y_n\ne0$が保たれる.
+また,$y_{n+1}=(ra_n+s)y_n$なので,もとの\bookterm{recurrence}{漸化式}の分母が零にならない限り,$y_n\ne0$が保たれる.
 同じ零でない数で二成分を倍しても比は変わらない.この成分比を通して\bookterm{matrix}{行列}の作用を見る考え方を,射影変換という.
 
 \bookterm{fixed}{不動点} $\alpha$ では
@@ -184,9 +184,9 @@ $\lambda_\alpha=r\alpha+s,\ \lambda_\beta=r\beta+s$ とする.
   =c_n\begin{pmatrix}\alpha\\1\end{pmatrix}
   +d_n\begin{pmatrix}\beta\\1\end{pmatrix}
 \]
-と分けると,\,$\,c_n,d_n$ はそれぞれ $\lambda_\alpha,\lambda_\beta$ 倍される.
+と分けると,$\,c_n,d_n$ はそれぞれ $\lambda_\alpha,\lambda_\beta$ 倍される.
 以下の比を取る際は$a_1\ne\beta$とする.\bookterm{fixed}{不動点}$\beta$を初項とする場合は$a_n=\beta$という定\bookterm{sequence}{数列}になる.
-\bookterm{matrix}{行列}$M$は可逆で,\,\,$\lambda_\alpha\ne0$だから,\,\,$a_1\ne\beta$なら$c_n\ne0$,すなわち$a_n\ne\beta$が保たれる.
+\bookterm{matrix}{行列}$M$は可逆で,$\lambda_\alpha\ne0$だから,$a_1\ne\beta$なら$c_n\ne0$,すなわち$a_n\ne\beta$が保たれる.
 成分を比較すると
 \[
   \begin{aligned}
@@ -195,7 +195,7 @@ $\lambda_\alpha=r\alpha+s,\ \lambda_\beta=r\beta+s$ とする.
     x_n-\beta y_n&=(\alpha-\beta)c_n.
   \end{aligned}
 \]
-したがって,\,$\displaystyle a_n=\frac{x_n}{y_n}$より
+したがって,$\displaystyle a_n=\frac{x_n}{y_n}$より
 \[
   \frac{a_n-\alpha}{a_n-\beta}=-\frac{d_n}{c_n},
   \qquad
@@ -234,7 +234,7 @@ $\lambda_\alpha=r\alpha+s,\ \lambda_\beta=r\beta+s$ とする.
 \[
   (1,0),\ (1,1),\ (2,1),\ (3,2),\ldots
 \]
-と進み,\,$\,x_n=F_{n+1},\,y_n=F_n$ となる.
+と進み,$\,x_n=F_{n+1},\,y_n=F_n$ となる.
 ここで $F_0=0,\,F_1=1$ はフィボナッチ\bookterm{sequence}{数列}である.
 一歩前の$x$を$y$に残すので,$x$だけを見れば
 \[
@@ -301,7 +301,7 @@ $\lambda=0$も\bookterm{matrix}{行列}ではそのまま扱える.\sectionref*{
   \begin{pmatrix}\lambda_2\\1\end{pmatrix}
 \]
 は同じ直線上にはない.
-初めの状態を二つの方向に分けておけば,\,$k$回の更新でそれぞれの部分が $\lambda_1^k,\,\lambda_2^k$ 倍される.
+初めの状態を二つの方向に分けておけば,$k$回の更新でそれぞれの部分が $\lambda_1^k,\,\lambda_2^k$ 倍される.
 こうして\bookterm{general}{一般項}に\bookterm{root}{特性根}の冪が現れる.
 
 さらに,本編で作った$a_{n+1}-\lambda_1a_n$という量も,同じ\bookterm{matrix}{行列}の中に見つかる.
@@ -405,7 +405,7 @@ $x_1=1$, $y_1=0$では,前節の$A^k\begin{pmatrix}1\\0\end{pmatrix}$と$k=n-1$�
   \boldsymbol{\ell}^{\mathsf T}A
   =\gamma\boldsymbol{\ell}^{\mathsf T}
 \]
-なら,\,$\,c_{n+1}=\gamma c_n$ となる.
+なら,$\,c_{n+1}=\gamma c_n$ となる.
 本編の連立型で $c_n=\alpha a_n+\beta b_n$ が\bookterm{geometric}{等比数列}となるよう $\alpha,\beta$ を選ぶ計算は,\bookterm{left-eigen}{左固有ベクトル}を求めていたのである.
 この関係を満たす零でないベクトル$\boldsymbol{\ell}$が存在するための条件
 \[
@@ -440,7 +440,7 @@ $|\psi|<1<\varphi$だから,$\psi^n$は符号を交互に変えながら減衰�
 \[
   a_{n+2}=2r a_{n+1}-r^2a_n
 \]
-だから,\,$\,a_n=r^n b_n$ と置いて代入すると
+だから,$\,a_n=r^n b_n$ と置いて代入すると
 \[
   b_{n+2}-2b_{n+1}+b_n=0
 \]
@@ -485,7 +485,7 @@ $|\psi|<1<\varphi$だから,$\psi^n$は符号を交互に変えながら減衰�
 \[
   \lambda^2-2\cos\theta\,\lambda+1=0
 \]
-であり,\,$0<\theta<\pi$なら\bookterm{eigenvalue}{固有値}は$\cos\theta\pm i\sin\theta$である.
+であり,$0<\theta<\pi$なら\bookterm{eigenvalue}{固有値}は$\cos\theta\pm i\sin\theta$である.
 複素数の冪による回転が,\bookterm{eigenvalue}{固有値}にも現れた.
 
 横座標だけを追うと,余弦の\bookterm{addition}{加法定理}より
@@ -625,7 +625,7 @@ $x=k$ のとき $k$ 番目の積は $1$ になり,ほかの積には $x-k$ の�
 \[
   a_{n+1}=f(a_n)
 \]
-を考え,\,$\,\alpha$ を\bookterm{fixed}{不動点} $f(\alpha)=\alpha$ とする.
+を考え,$\,\alpha$ を\bookterm{fixed}{不動点} $f(\alpha)=\alpha$ とする.
 そこからのずれを $e_n=a_n-\alpha$ と置くと
 \[
   e_{n+1}=f(\alpha+e_n)-f(\alpha)
@@ -643,8 +643,8 @@ $f$ が $\alpha$ で微分可能なら,微分係数の定義から
 \]
 となる.
 不動点の近くで曲線を接線に置き換えたのである.収束も調べられる.
-もし $|f'(\alpha)|<1$ なら,\,$\,|f'(\alpha)|$ より大きく $1$ より小さい数 $c$ を選べる.
-微分係数の定義により,\,$\,a_n$ が $\alpha$ に十分近ければ
+もし $|f'(\alpha)|<1$ なら,$\,|f'(\alpha)|$ より大きく $1$ より小さい数 $c$ を選べる.
+微分係数の定義により,$\,a_n$ が $\alpha$ に十分近ければ
 \[
   |e_{n+1}|
   =|f(\alpha+e_n)-f(\alpha)|

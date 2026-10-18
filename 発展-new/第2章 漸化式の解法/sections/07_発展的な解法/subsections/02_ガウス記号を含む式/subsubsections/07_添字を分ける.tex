@@ -27,18 +27,18 @@
           \\              &\quad(n\ge2).
         \end{aligned}
       \]}
-    必要ならば,\,$2^m\le n<2^{m+1}$を満たす整数$m\ge0$を用いてよい.
+    必要ならば,$2^m\le n<2^{m+1}$を満たす整数$m\ge0$を用いてよい.
 \end{enumerate}
 
 \noindent \bookblocklink{example-gauss-role-7}{hint}{problem}{【方針】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-7}{hint}{problem}]
-  \item 偶奇で式を分け,\,$b_n=a_{n+1}-a_n$を考えます.
-    \,$b_{2k}$と$b_{2k+1}$が$b_k+1$になることを示し,群ごとに足しましょう.
+  \item 偶奇で式を分け,$b_n=a_{n+1}-a_n$を考えます.
+    $b_{2k}$と$b_{2k+1}$が$b_k+1$になることを示し,群ごとに足しましょう.
 \end{enumerate}
 
 \noindent \bookblocklink{example-gauss-role-7}{answer}{problem}{【解答】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-7}{answer}{problem}]
-  \item \,$2^m\le n<2^{m+1}$を満たす整数$m\ge0$に対して,
+  \item $2^m\le n<2^{m+1}$を満たす整数$m\ge0$に対して,
     \[
       a_n=(m+3)n-2^{m+1}+1.
     \]
@@ -46,17 +46,17 @@
 
 \noindent \bookblocklink{example-gauss-role-7}{solution}{problem}{【解法】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-7}{solution}{problem}]
-  \item \,$n\ge2$では二つの添字は1以上$n-1$以下なので,\bookterm{sequence}{数列}は順に定義できる.
-    偶奇で分けると,\,$k\ge1$について,
+  \item $n\ge2$では二つの添字は1以上$n-1$以下なので,\bookterm{sequence}{数列}は順に定義できる.
+    偶奇で分けると,$k\ge1$について,
     \[
       \begin{aligned}
         a_{2k}&=2a_k+2k-1,\\
         a_{2k+1}&=a_{k+1}+a_k+2k.
       \end{aligned}
     \]
-    \,$b_n=a_{n+1}-a_n$とおくと,両式の差から$b_{2k}=b_k+1$.
-    また,\,$a_{2k+2}=2a_{k+1}+2k+1$を使うと$b_{2k+1}=b_k+1$である.
-    \,$a_2=5$より$b_1=3$なので,
+    $b_n=a_{n+1}-a_n$とおくと,両式の差から$b_{2k}=b_k+1$.
+    また,$a_{2k+2}=2a_{k+1}+2k+1$を使うと$b_{2k+1}=b_k+1$である.
+    $a_2=5$より$b_1=3$なので,
     \[
       b_{2k}=b_{2k+1}=b_k+1,\qquad b_1=3.
     \]

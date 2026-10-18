@@ -1,7 +1,7 @@
 \subsection{応用}\label{節：応用}
 複数の解法を組み合わせる10題である.
 共通の分母,和と差,積や総和に着目し,変換する量と順番を選ぶ.
-以下,\,$n$は正の整数とし,必要なときは$S_n=\sum_{k=1}^{n}a_k$とおく.
+以下,$n$は正の整数とし,必要なときは$S_n=\sum_{k=1}^{n}a_k$とおく.
 
 \subsubsection{問題}\label{節：応用：問題}
 \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-advanced}{problem}{answer}]
@@ -97,11 +97,11 @@
     % A3: 三角形状の重みをもつ積
   \item \bookterm{logarithm}{対数}を取ると,係数が$n-k+1$の重み付き総和になる.隣接する式の差を取ると重みが$1$になり,もう一度差を取ると総和が消える.
     % A4: 非線形3項間式から階比を作る
-  \item 項そのものではなく,\, $\displaystyle r_n=\frac{a_{n+1}}{a_n}$を導入する.次に$\displaystyle \frac{1}{r_n}$の\bookterm{recurrence}{漸化式}を作り,定数$1$を引くと積の相殺が見える.
+  \item 項そのものではなく, $\displaystyle r_n=\frac{a_{n+1}}{a_n}$を導入する.次に$\displaystyle \frac{1}{r_n}$の\bookterm{recurrence}{漸化式}を作り,定数$1$を引くと積の相殺が見える.
     % A5: 和と差で異なる構造が現れる連立
   \item 2式に共通する部分と,符号だけが違う部分を分ける.和は係数が$n$に依存する\bookterm{ratio}{階比}型で,差は逆数を取ると\bookterm{difference}{階差}型になる.
     % A6: 積の3項間関係と二重の階差
-  \item \bookterm{logarithm}{対数}を取った後,\, $x_{n+1}-x_n$を新しい\bookterm{sequence}{数列}として扱う.また,\bookterm{logarithm}{対数}を取る前に$\displaystyle \frac{a_{n+1}}{a_n}$を作るルートもある.
+  \item \bookterm{logarithm}{対数}を取った後, $x_{n+1}-x_n$を新しい\bookterm{sequence}{数列}として扱う.また,\bookterm{logarithm}{対数}を取る前に$\displaystyle \frac{a_{n+1}}{a_n}$を作るルートもある.
     % A7: 添字とともに動く基準点
   \item $a_n=n$を代入すると次項は$n+1$になる.
     添字とともに動く数列を基準にし,$c_n=\dfrac{a_n}{n}$とおけば,その基準は一定の値$1$になる.
@@ -206,7 +206,7 @@
       b_{n+2}=4b_{n+1}-T_{n+1}
       =3b_{n+1}-T_n
     \]
-    となるので,\, $T_n=4b_n-b_{n+1}$を代入して
+    となるので, $T_n=4b_n-b_{n+1}$を代入して
     \[
       b_{n+2}-4b_{n+1}+4b_n=0
     \]
@@ -218,7 +218,7 @@
     \[
       c_{n+2}-2c_{n+1}+c_n=0.
     \]
-    したがって$c_{n+1}-c_n$は一定である.初めの2項は$c_1=1$,\, $\displaystyle c_2=\frac{3}{2}$だから,
+    したがって$c_{n+1}-c_n$は一定である.初めの2項は$c_1=1$, $\displaystyle c_2=\frac{3}{2}$だから,
     \[
       c_n=1+\frac{n-1}{2}=\frac{n+1}{2}.
     \]
@@ -230,7 +230,7 @@
       a_{n+1}-1
       =\frac{a_n-1}{2+n(a_n-1)}.
     \]
-    $a_1>1$であり,\, $a_n>1$ならば右辺も正である.したがって帰納的に$a_n>1$が成り立ち,元の分母も常に正となる.
+    $a_1>1$であり, $a_n>1$ならば右辺も正である.したがって帰納的に$a_n>1$が成り立ち,元の分母も常に正となる.
 
     ここで
     \[
@@ -254,7 +254,7 @@
     \[
       b_n=3\cdot2^{n-1}-n-1.
     \]
-    逆数を戻して\bookterm{general}{一般項}を得る.なお,\, $b_1=1$で,\, $b_{n+1}=2b_n+n>0$なので,得られた式の分母も$0$にならない.
+    逆数を戻して\bookterm{general}{一般項}を得る.なお, $b_1=1$で, $b_{n+1}=2b_n+n>0$なので,得られた式の分母も$0$にならない.
 
     \bookterm{fixed}{不動点}への移動,逆数化,一次式の移動で,障害を一つずつ消した.
 
@@ -320,12 +320,12 @@
       \alpha=\frac{3+\sqrt5}{2},\qquad
       \beta=\frac{3-\sqrt5}{2}
     \]
-    とすると,\, $\alpha+\beta=3$,\, $\alpha\beta=1$である.よって
+    とすると, $\alpha+\beta=3$, $\alpha\beta=1$である.よって
     \[
       x_{n+2}-\beta x_{n+1}
       =\alpha(x_{n+1}-\beta x_n).
     \]
-    初期値$x_1=0$,\, $x_2=1$に合う形は
+    初期値$x_1=0$, $x_2=1$に合う形は
     \[
       x_n
       =\frac{\alpha^{n-1}-\beta^{n-1}}{\alpha-\beta}
@@ -391,7 +391,7 @@
     \[
       (n+1)c_{n+1}-nc_n=1.
     \]
-    したがって$e_n=nc_n$は公差$1$の\bookterm{arithmetic}{等差数列}であり,\, $\displaystyle e_1=\frac{1}{2}$から
+    したがって$e_n=nc_n$は公差$1$の\bookterm{arithmetic}{等差数列}であり, $\displaystyle e_1=\frac{1}{2}$から
     \[
       e_n=n-\frac12,\qquad c_n=1-\frac1{2n}
     \]
@@ -562,7 +562,7 @@
       u_{n+1}+\frac12
       =\frac{n+2}{n}\left(u_n+\frac12\right).
     \]
-    $\displaystyle u_1=\frac{1}{2}$から,\, $\displaystyle u_n+\frac{1}{2}=\frac{n(n+1)}{2}$を得る.二基準点の比を取る方法と,一基準点との差の逆数を取ってから定数を加える方法が対応している.
+    $\displaystyle u_1=\frac{1}{2}$から, $\displaystyle u_n+\frac{1}{2}=\frac{n(n+1)}{2}$を得る.二基準点の比を取る方法と,一基準点との差の逆数を取ってから定数を加える方法が対応している.
     % A8: 係数の和が零になる3項間関係
   \item 係数は$n$に依存するため,\bookterm{constant}{定数係数}の\bookterm{characteristic}{特性方程式}型ではない.一方,
     \[
@@ -592,7 +592,7 @@
     \[
       d_k=4\left(\frac1{k+1}-\frac1{k+3}\right)
     \]
-    だから,\, $n\ge2$について
+    だから, $n\ge2$について
     \begin{align*}
       a_n
       &=4\sum_{k=1}^{n-1}
@@ -678,7 +678,7 @@
       P_n=2^{\,2\cdot3^{n-1}},\qquad
       R_n=2^{\,2(n^2-1)}.
     \]
-    正値を使って$a_n=\sqrt{P_nR_n}$,\, $\displaystyle b_n=\sqrt{\frac{P_n}{R_n}}$と戻せば同じ答えになる.\bookterm{logarithm}{対数}の和と差は,元の\bookterm{sequence}{数列}の積と商に対応する.
+    正値を使って$a_n=\sqrt{P_nR_n}$, $\displaystyle b_n=\sqrt{\frac{P_n}{R_n}}$と戻せば同じ答えになる.\bookterm{logarithm}{対数}の和と差は,元の\bookterm{sequence}{数列}の積と商に対応する.
     % A10: 二つの平方が作る分数式
   \item 分子だけを展開すると構造が見えにくくなる.分母を$D_n$と書けば,
     \BookMathLayout{\[
