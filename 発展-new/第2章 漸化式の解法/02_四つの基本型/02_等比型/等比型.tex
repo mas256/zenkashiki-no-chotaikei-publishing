@@ -1,16 +1,22 @@
 % subsection: 等比型 \, $a_{n+1}=ra_n$
 
   \subsection{\texorpdfstring{等比型 \, $a_{n+1}=ra_n$}{等比型}}\label{節：等比型}
-  \begin{bookpoint}
-    \textbf{倍率を追う}\par
-    一回ごとの倍率が一定なら,更新の回数だけ掛ける.公比が零の場合も,比で割らず更新の式から読む.
-  \end{bookpoint}
-    $r=0$なら初項は$a_1$のまま,$n\ge2$では$a_n=0$となる.
-    $r\ne0$なら,$n\ge2$で掛けた回数を数えて,
+    足し算の次は掛け算である.
+    $a_{n+1}=ra_n$も,先ほどと同じように直前の項を代入して考えよう.
+    例えば,
+    \begin{align*}
+      a_4&=ra_3=r(ra_2)\\
+         &=r\{r(ra_1)\}=a_1r^3
+    \end{align*}
+    である.$r\ne0$のとき,一般項は同じように
     \[
-      a_n=ra_{n-1}=r^2a_{n-2}=\cdots=a_1r^{n-1}.
+      a_n=a_1r^{n-1}
     \]
+    となる.\footnote{$r=0$の場合は,$a_{n+1}=0$より$n\ge2$で$a_n=0$となる.初項は与えられた$a_1$のままである.}
     初項から第$n$項までに$r$を掛けるのは$n-1$回なので,指数も$n-1$になる.
+  \begin{bookpoint}
+    初項から第$n$項までに,公比$r$は$n-1$回掛けられる.
+  \end{bookpoint}
 
     \noindent \bookblocklink{example-geometric-1}{problem}{answer}{【例題】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-geometric-1}{problem}{answer}]

@@ -3,7 +3,7 @@
 \subsection{連立型}\label{節：連立型}
   \begin{bookpoint}
     \textbf{和と差を追う}\par
-    和・差など,一つずつ更新できる組合せを選ぶ.元の二つの\bookterm{sequence}{数列}へ戻せる関係と初期値も確かめる.
+    二つの式を足したり引いたりして,和と差それぞれの漸化式を作る.和と差が求まれば,連立方程式を解いて元の二つの\bookterm{sequence}{数列}を求められる.
   \end{bookpoint}
   \subsubsection{和と差で分ける}
     二つの式の係数が入れ替わっているときは,まず足し引きを試そう.
@@ -52,7 +52,7 @@
       \end{cases}
     \]
     では,足すと両方の係数が$p+q$,引くと$p-q$とその符号反転になる.
-    従って,和と差を単独で更新できる.
+    従って,和と差がそれぞれ等比型になる.
     以下の冪の式は$p+q,p-q$が非零の場合に使う.零になる方は,初項を別に保ち,$n\ge2$で$0$とする.
     \begin{align*}
       &a_{n+1}+b_{n+1}=(p+q)(a_n+b_n),\\
@@ -93,7 +93,7 @@
       a_{n+1}+b_{n+1}=(p+r)a_n+(q+s)b_n
     \]
     となり,$p+r=q+s$でなければ和を単独で更新できない.
-    そこで重み$\alpha,\beta$を付け,$\alpha a_n+\beta b_n$を追う.
+    そこでそれぞれに係数$\alpha,\beta$を掛けて足した,$\alpha a_n+\beta b_n$を考える.
     \[
       \begin{aligned}
         \alpha a_{n+1}+\beta b_{n+1}
@@ -108,7 +108,7 @@
         q\alpha+(s-\gamma)\beta=0
       \end{cases}
     \]
-    を満たす重みを選べばよい.$\alpha=\beta=0$では何も取り出せないので,非零の組を探す.
+    を満たす重みを選べばよい.$\alpha=\beta=0$ではすべての項が$0$となり,$a_n,b_n$を求める関係式にならないので,非零の組を探す.
 
     まず$\gamma$を決めよう.第1式を$s-\gamma$倍し,第2式の$r$倍を引けば$\beta$が消える.
     同様に$\alpha$を消去すると,
@@ -151,7 +151,7 @@
     異なる根は十分条件であり,必要条件ではない.
     重解では比例しない二組を取れるかで分かれる.\footnote{例えば$a_{n+1}=2a_n,\ b_{n+1}=2b_n$では$(1,0),(0,1)$を選べる.
     二組を取れない場合は,一方の量を先に求め,残る式へ代入する.\bookproblemref{practice-basic}{25}{標準問25}では,その式を指数の付加項として解く.\booknavref{節：二次特性方程式型}{隣接3項型の重解}とも比べられる.}
-    重みを付けた組合せなら,連立していた更新を一つずつの等比型へ分けられる.\footnote{非実の二根でもこの方法を使える.実数の形への復元は\sectionref{節：虚数解型隣接3項間漸化式}で扱う.}
+    このように係数を選べば,元の連立漸化式から等比型の補助数列を作れる.\footnote{非実の二根でもこの方法を使える.実数の形への復元は\sectionref{節：虚数解型隣接3項間漸化式}で扱う.}
 
     \noindent \hyperlink{book:example-system-1:answer:2}{\textbf{【例題】}}\par\nobreak
     \begin{enumerate}[start=2,label=(\arabic*),parsep=3pt,format=\bookitemlink{example-system-1}{problem}{answer}]
@@ -160,7 +160,7 @@
 
     \noindent \hyperlink{book:example-system-1:problem:2}{\textbf{【方針】}}\par\nobreak
     \begin{enumerate}[start=2,label=(\arabic*),parsep=3pt,format=\bookitemlink{example-system-1}{hint}{problem}]
-      \item $\gamma$を求めてから重みを選ぶと,$a_n-b_n$と$2a_n+b_n$をそれぞれ単独で更新できます.
+      \item $\gamma$を求めてから重みを選ぶと,$a_n-b_n$と$2a_n+b_n$がそれぞれ等比型になります.
     \end{enumerate}
 
     \noindent \hyperlink{book:example-system-1:problem:2}{\textbf{【解答】}}\par\nobreak
