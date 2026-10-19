@@ -1,190 +1,271 @@
 % subsection: 特性方程式型 \, $a_{n+1}=pa_n+q$
 
 \subsection{\texorpdfstring{特性方程式型  $a_{n+1}=pa_n+q$}{特性方程式型}}\label{節：特性方程式型}
-\bookstep{観察と発想}
-\[
-  a_{n+1}=pa_n+q
-\]
-では,定数$q$を取り除けば等比型になる.
-邪魔をしているのは,一定の倍率$p$に加えて毎回$q$が足されることである.
-両辺から$q$を引くだけでは,左辺は$a_{n+1}-q$,右辺は$pa_n$となり,同じ形の量が並ばない.
-左右に同じ形を作るため,各項から引く数をまだ決めずに調整する.
-\sectionref*{節：補助数列を作る}の「同じ更新をする量を引く」方法を使おう.
-以下では$p\ne0,1$を考える.\footnote{ただし$p=1$なら等差型であり,$p=0$なら直接$n\ge2$で$a_n=q$と分かる.}
+  ここからの議論は,少々遠回りであり,解法を知りたい場合は飛ばしてもらって構わないし,解法を理解した後で読み返してもらっても構わない.
+  まずは漸化式を眺めてみよう.\footnote{ただし$p=1$なら等差型であり,$p=0$なら直接$n\ge2$で$a_n=q$と分かる.}
+  \[
+   a_{n+1}=pa_n+q
+  \]
+  この漸化式は,いわば等差型と等比型が組み合わさったような漸化式である.
+  解き方を模索する際にはまず実験を行うのが常套である.
+  $p,q$に適当な値を代入して第10項程度まで求めてみると
+  \begin{table}[htbp]
+    \rowcolors{2}{black!10}{white}
+    \begin{tabular}{cccc}\Xhline{1.5pt}
+      n&	$p=2,\,q=1$&	$p=4,\,q=1$&	$p=2,\,q=10$\\
+      1&	1&	1&	1\\
+      2&	3&	5&	12\\
+      3&	7&	21&	34\\
+      4&	15&	85&	78\\
+      5&	31&	341&	166\\
+      6&	63&	1365&	342\\
+      7&	127&	5461&	694\\
+      8&	255&	21845&	1398\\
+      9&	511&	87381&	2806\\
+      10&	1023&	349525&	5622\\
+    \end{tabular}
+  \end{table}
+  となる.グラフにしてみると
+   
+  \begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+      \begin{axis}[
+          scale only axis,
+          width=5.6cm,
+          height=3.4cm,                     % 高さを抑える(旧 4.8cm)
+          clip=false,                       % 線の先の式をはみ出して表示
+          % --- 軸(矢印つき・枠なし・モノクロ) ---
+          axis lines=left,
+          axis line style={->,>=stealth,thin,black},
+          ymode=log,
+          xmin=0, xmax=11,
+          ymin=1, ymax=500000,
+          xtick={2,4,6,8,10},
+          ytick={1,10,100,1000,10000,100000},
+          yticklabels={1,10,100,1000,10000,100000},
+          tick align=outside,
+          major tick length=1.5pt,
+          minor tick length=0pt,
+          tick style={black,thin},
+          tick label style={font=\scriptsize,black},
+          % --- 線・点(すべて黒、細く小さく) ---
+          every axis plot/.append style={
+            black, line width=0.5pt,
+            mark=*, mark size=0.7pt, mark options={solid,fill=black},
+          },
+        ]
+        % 軸ラベル
+        \node[above]     at (rel axis cs:1,0) {\footnotesize $n$};
+        \node[right=2pt] at (rel axis cs:0,1) {\footnotesize $a_n$};
+   
+        % p=2, q=1
+        \addplot coordinates {
+          (1,1) (2,3) (3,7) (4,15) (5,31)
+          (6,63) (7,127) (8,255) (9,511) (10,1023)
+        } node[pos=1,right,font=\footnotesize] {$a_{n+1}=2a_n+1$};
+   
+        % p=4, q=1
+        \addplot coordinates {
+          (1,1) (2,5) (3,21) (4,85) (5,341)
+          (6,1365) (7,5461) (8,21845) (9,87381) (10,349525)
+        } node[pos=1,right,font=\footnotesize] {$a_{n+1}=4a_n+1$};
+   
+        % p=2, q=10
+        \addplot coordinates {
+          (1,1) (2,12) (3,34) (4,78) (5,166)
+          (6,342) (7,694) (8,1398) (9,2806) (10,5622)
+        } node[pos=1,right,font=\footnotesize] {$a_{n+1}=2a_n+10$};
+      \end{axis}
+    \end{tikzpicture}
+    \caption{$p,q$の値による漸化式が成す値の変化}
+  \end{figure}
+  
+  となる.
+  これが対数グラフであることに注意して観察してみると,$n$が増えるにつれてその値の大きさは$p$の値に関して支配的であることが分かる.
+  また,$q$はそこまでグラフの値の変化に大きく影響するわけでないことも分かる.
+  実際,$a_n$に対して$p$が掛けられることで$a_{n+1}$が作られるのだから,等比型の一般項のように,$p^n$のような形が一般項に含まれることは比較的想像しやすいだろう.
 
-\bookterm{sequence}{数列}の各項から同じ数$\alpha$を引き,
-\[
-  a_{n+1}-\alpha=p(a_n-\alpha)
-\]
-としたい.定数項を合わせると,
-\[
-  q-\alpha=-p\alpha
-  \quad\Longleftrightarrow\quad
-  \alpha=p\alpha+q
-\]
-より$\alpha=\dfrac{q}{1-p}$を得る.更新しても変わらないこの値を\bookterm{fixed}{不動点}という.
+  $p$の値がグラフの概形に影響し$q$がそこに少しだけ変化を与えている.
+  $p$に関しておおよその推測がたった今,いかにして$q$を処理するかが争点になってくる.
+  今,読者諸君らが持つ技は,等比型,等差型,階差型,階比型の漸化式を解くことといくつかの基本的な計算テクニックであろう.
+  ここれまでの議論をベースにその技のどれが使えうるものかを検討してみよう.
 
-\bookstep{変形と復元}
-元の更新式から\bookterm{fixed}{不動点}の式を引くと,
-\[
-  \begin{array}{rrl}
-    &a_{n+1}={}&pa_n+q\\
-    -\,)&\alpha={}&p\alpha+q\\ \hline
-    &a_{n+1}-\alpha={}&p(a_n-\alpha)
-  \end{array}
-\]
-となる.$b_n=a_n-\alpha$は公比$p$,初項$a_1-\alpha$の等比型である.
-\bookterm{general}{一般項}を求め,$a_n=b_n+\alpha$へ戻すと,
-\[
-  a_n=(a_1-\alpha)p^{n-1}+\alpha.
-\]
-初項が\bookterm{fixed}{不動点}なら,$a_n=\alpha$という定数解になる.
-
-\noindent\bookblocklink{check-fixed}{problem}{answer}{【確認問題】}\par\nobreak
-\begin{enumerate}[format=\bookitemlink{check-fixed}{problem}{answer}]
-  \item $a_{n+1}=3a_n-4$で,何を引くと等比型になるか.
-    $a_1=5$と$a_1=2$の場合の\bookterm{general}{一般項}をそれぞれ求めよ.
-\end{enumerate}
-\noindent\bookblocklink{check-fixed}{answer}{problem}{【確認の解答】}\par\nobreak
-\begin{enumerate}[format=\bookitemlink{check-fixed}{answer}{problem}]
-  \item $\alpha=3\alpha-4$より$\alpha=2$を引く.
-    $a_1=5$なら$a_n=2+3^n$であり,$a_1=2$なら$a_n=2$である.
-\end{enumerate}
-
-\noindent \bookblocklink{example-characteristic-1}{problem}{answer}{【例題】}\par\nobreak
-\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-characteristic-1}{problem}{answer}]
-  \item $\displaystyle a_1=1,\, a_{n+1}=2a_n+1$
-  \item $\displaystyle a_1=1,\, a_{n+1}=\frac{1}{2}a_n+2$
-  \item $\displaystyle a_1=1,\, a_{n+1}=a_n+2$
-\end{enumerate}
-
-\noindent\bookblocklink{example-characteristic-1}{hint}{problem}{【方針】}\par\nobreak
-\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-characteristic-1}{hint}{problem}]
-  \item まずは,$\alpha$を求めて等比型に帰着させる方法で解きましょう.
-  \item 同じく,$\alpha$を求めて等比型に帰着させる方法で解きましょう.
-  \item 等差型として解けます.定数を引く方法では,$\alpha=\alpha+2$を満たす値がないことも確かめましょう.
-\end{enumerate}
-
-\noindent\bookblocklink{example-characteristic-1}{answer}{problem}{【解答】}\par\nobreak
-\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-characteristic-1}{answer}{problem}]
-  \item $\displaystyle a_n=2^n-1$
-  \item $\displaystyle a_n=4-3\cdot\left(\frac{1}{2}\right)^{n-1}$
-  \item $\displaystyle a_n=1+2(n-1)$
-\end{enumerate}
-
-\noindent\bookblocklink{example-characteristic-1}{solution}{problem}{【解法】}\par\nobreak
-\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-characteristic-1}{solution}{problem}]
-  \item $\alpha=2\alpha+1$より\bookterm{fixed}{不動点}は$-1$である.$b_n=a_n+1$と置くと,
-    \[
-      \begin{aligned}
-        b_{n+1}&=2(a_n+1)=2b_n,\\
-        b_1&=2.
-      \end{aligned}
-    \]
-    従って$b_n=2^n$であり,$a_n=b_n-1=2^n-1$となる.
-  \item $\alpha=\frac12\alpha+2$より\bookterm{fixed}{不動点}は$4$である.$b_n=a_n-4$と置くと,
-    \[
-      \begin{aligned}
-        b_{n+1}&=\frac12(a_n-4)=\frac12b_n,\\
-        b_1&=-3.
-      \end{aligned}
-    \]
-    従って$b_n=-3(\frac12)^{n-1}$であり,$a_n=4-3(\frac12)^{n-1}$となる.
-  \item $\alpha=\alpha+2$を満たす値はなく,定数を引く方法は使えない.
-    等差型として$a_n=1+2(n-1)$を得る.
-\end{enumerate}
-
-\bookstep{グラフと不動点}\label{解釈：不動点と差分}
-定数項を消すために求めた$\alpha$は,更新しても動かない値でもあった.
-今度はこの性質をグラフから見てみよう.
-\bookterm{recurrence}{漸化式}を$a_{n+1}=f(a_n)$と見ると,\bookterm{fixed}{不動点}は$f(\alpha)=\alpha$を満たす.
-つまり,$y=f(x)=px+q$と$y=x$の交点である.
-
-\begin{tikzpicture}[scale=0.8]
-  \draw[->,>=stealth,semithick] (-1.5,0)--(5.5,0)node[above]{$x$};
-  \draw[->,>=stealth,semithick] (0,-1)--(0,5)node[right]{$y$};
-  \draw (0,0)node[below right]{O};
-
-  \draw[very thick,domain=-1:4]
-  plot(\x,\x)node[right]{$y=x$};
-
-  \draw[very thick,domain=-1.5:4]
-  plot(\x,\x/2+1) node[right] {$y=px+q$};
-
-  % q
-  \node[left=3pt] at (0,1) {$q$};
-
-  % 交点から各軸へ点線
-  \draw[dashed] (2,2) -- (2,0);
-  \draw[dashed] (2,2) -- (0,2);
-
-  % α
-  \node[below=3pt] at (2,0) {$\alpha$};
-  \node[left=3pt] at (0,2) {$\alpha$};
-\end{tikzpicture}
-\begin{center}
-  \BookFigureCaption{直線の交点として捉える\bookterm{fixed}{不動点}}
-\end{center}
-
-この交点$(\alpha,\alpha)$を新しい原点にする.
-新しい原点からの座標で表すと,定数を引く式変形が座標の取り方として見える.
-$X=x-\alpha,\ Y=y-\alpha$と置くと,$\alpha=p\alpha+q$より二つの直線は$Y=pX$と$Y=X$になる.
-$x$座標と$y$座標の両方から$\alpha$を引くことが,等比型への変形に対応している.
-
-不動点からのずれは$p$倍される.\footnote{$p<0$ではずれの符号が交互に変わる.$p=-1$では,$a_1\ne\alpha$なら二つの値を往復する.$p=1$の等差型と$p=0$の場合は節の冒頭で分けた.}%
-初項が$\alpha$なら定数解,異なるなら$|p|>1$でずれが増大し,$|p|<1$で$0$へ近づく.
-後者では$a_n\to\alpha$となる.例題(2)が$4$へ近づくのはこのためである.
-
-\bookstep{階差を取って定数項を消す}
-同じ$q$を消すには,隣り合う二つの更新式を引く方法もある.
-\begin{align*}
-  &a_{n+1}=pa_n+q \booktag{affine-difference-1}{1}\\
-  &a_{n+2}=pa_{n+1}+q \booktag{affine-difference-2}{2}\\
-\end{align*}
-$\bookeqbackref{affine-difference-2}{(2)}-\bookeqbackref{affine-difference-1}{(1)}$をし
-\[
-  a_{n+2}-a_{n+1}=p(a_{n+1}-a_n)
-\]
-ここで,$d_n=a_{n+1}-a_n$と置くと,
-\[
-  d_{n+1}=pd_n,\qquad d_1=(p-1)a_1+q
-\]
-となる.等比型になった\textbf{階差}$d_n=d_1p^{n-1}$を,\sectionref*{節：階差型}と同じように足し戻す.
-\begin{align*}
-  a_n&=a_1+\sum_{k=1}^{n-1}d_k\\
-  &=a_1+d_1\frac{p^{n-1}-1}{p-1}\\
-  &=\alpha+(a_1-\alpha)p^{n-1}
-\end{align*}
-$d_1=(p-1)(a_1-\alpha)$より,不動点を引く方法と一致する.
-$p=1$の場合も階差は一定なので,$a_n=a_1+(n-1)q$と足し戻せる.
-
-二つの直線$y=px$と$y=px+q$の差は$q$である.一方,更新式どうしの引き算では異なる入力を比べる.
-$f(x)=px+q$なら,
-\[
-  f(x)-f(y)=(px+q)-(py+q)=p(x-y)
-\]
-となる.$x=a_{n+1},\ y=a_n$としたものが\bookeqref{affine-difference-2}{(2)}から\bookeqref{affine-difference-1}{(1)}を引いた式である.\footnote{添字を一つずらして引く操作は,付録\sectionref{節：和と差から微積分へ}で扱う\bookterm{difference-operator}{差分}の考え方につながる.}
-共通の$q$が消えた.二つの直線も確認しよう.
-
-\begin{tikzpicture}[scale=0.8]
-  \draw[->,>=stealth,semithick] (-1.5,0)--(5.5,0)node[above]{$x$};
-  \draw[->,>=stealth,semithick] (0,-1)--(0,5)node[right]{$y$};
-  \draw (0,0)node[below right]{O};
-
-  \draw[very thick,domain=-1.5:4]
-  plot(\x,\x/2)node[right]{$y=px$};
-
-  \draw[very thick,domain=-1.5:4]
-  plot(\x,\x/2+1) node[right] {$y=px+q$};
-
-  % q
-  \node[left=3pt] at (0,1) {$q$};
-
-\end{tikzpicture}
-\begin{center}
-  \BookFigureCaption{定数項の違いを表す平行な直線}
-\end{center}
-
-不動点からのずれと隣り合う項の差は,同じ定数項を消す二つの見方である.
-この先では引く量が一次式などへ広がり,二項をまとめる際には倍率を求める\mbox{\bookterm{characteristic}{特性方程式}}が現れる.
-今の$\alpha$は変わらない値,後の根は更新の倍率である.付録の\bookterm{matrix}{行列}でもつながりを見直す.
+  ここからがやっと解法である.
+  結論から述べよう.
+  $q$がなくなるように式変形をしてやればよい.
+  実際に式を見せよう.
+  ある実数$\alpha$によって,
+  \begin{aligin*}
+    a_{n+1}=pa_n+q \iff a_{n+1}-\alpha=p(a_n-\alpha)
+  \end{aligin*}
+  となるような$\alpha$が存在しさえしてくれれば,漸化式は等比型に帰着する.
+  言い換えれば,ちょうど$q$を消してくれるような方程式$\alpha=p\alpha+q$によって
+  \[
+    \begin{array}{rrl}
+      &a_{n+1}={}&pa_n+q\\
+      -\,)&\alpha={}&p\alpha+q\\ \hline
+      &a_{n+1}-\alpha={}&p(a_n-\alpha)
+    \end{array}
+  \]
+  となるような$\alpha$を考えればよいのだ.
+  
+  $b_n=a_n-\alpha$と置くことでもとの漸化式は公比$p$,初項$a_1-\alpha$の等比型漸化式に帰着する.
+  \begin{aligin*}
+    &b_{n+1}=pb_n
+    &\therefore \quad b_n=b_1p^{n-1
+    &\therefore \quad a_n=
+  \end{aligin*}
+  \[
+    a_n=(a_1-\alpha)p^{n-1}+\alpha.
+  \]
+  初項が\bookterm{fixed}{不動点}なら,$a_n=\alpha$という定数解になる.
+  
+  \noindent\bookblocklink{check-fixed}{problem}{answer}{【確認問題】}\par\nobreak
+  \begin{enumerate}[format=\bookitemlink{check-fixed}{problem}{answer}]
+    \item $a_{n+1}=3a_n-4$で,何を引くと等比型になるか.
+      $a_1=5$と$a_1=2$の場合の\bookterm{general}{一般項}をそれぞれ求めよ.
+  \end{enumerate}
+  \noindent\bookblocklink{check-fixed}{answer}{problem}{【確認の解答】}\par\nobreak
+  \begin{enumerate}[format=\bookitemlink{check-fixed}{answer}{problem}]
+    \item $\alpha=3\alpha-4$より$\alpha=2$を引く.
+      $a_1=5$なら$a_n=2+3^n$であり,$a_1=2$なら$a_n=2$である.
+  \end{enumerate}
+  
+  \noindent \bookblocklink{example-characteristic-1}{problem}{answer}{【例題】}\par\nobreak
+  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-characteristic-1}{problem}{answer}]
+    \item $\displaystyle a_1=1,\, a_{n+1}=2a_n+1$
+    \item $\displaystyle a_1=1,\, a_{n+1}=\frac{1}{2}a_n+2$
+    \item $\displaystyle a_1=1,\, a_{n+1}=a_n+2$
+  \end{enumerate}
+  
+  \noindent\bookblocklink{example-characteristic-1}{hint}{problem}{【方針】}\par\nobreak
+  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-characteristic-1}{hint}{problem}]
+    \item まずは,$\alpha$を求めて等比型に帰着させる方法で解きましょう.
+    \item 同じく,$\alpha$を求めて等比型に帰着させる方法で解きましょう.
+    \item 等差型として解けます.定数を引く方法では,$\alpha=\alpha+2$を満たす値がないことも確かめましょう.
+  \end{enumerate}
+  
+  \noindent\bookblocklink{example-characteristic-1}{answer}{problem}{【解答】}\par\nobreak
+  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-characteristic-1}{answer}{problem}]
+    \item $\displaystyle a_n=2^n-1$
+    \item $\displaystyle a_n=4-3\cdot\left(\frac{1}{2}\right)^{n-1}$
+    \item $\displaystyle a_n=1+2(n-1)$
+  \end{enumerate}
+  
+  \noindent\bookblocklink{example-characteristic-1}{solution}{problem}{【解法】}\par\nobreak
+  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-characteristic-1}{solution}{problem}]
+    \item $\alpha=2\alpha+1$より\bookterm{fixed}{不動点}は$-1$である.$b_n=a_n+1$と置くと,
+      \[
+        \begin{aligned}
+          b_{n+1}&=2(a_n+1)=2b_n,\\
+          b_1&=2.
+        \end{aligned}
+      \]
+      従って$b_n=2^n$であり,$a_n=b_n-1=2^n-1$となる.
+    \item $\alpha=\frac12\alpha+2$より\bookterm{fixed}{不動点}は$4$である.$b_n=a_n-4$と置くと,
+      \[
+        \begin{aligned}
+          b_{n+1}&=\frac12(a_n-4)=\frac12b_n,\\
+          b_1&=-3.
+        \end{aligned}
+      \]
+      従って$b_n=-3(\frac12)^{n-1}$であり,$a_n=4-3(\frac12)^{n-1}$となる.
+    \item $\alpha=\alpha+2$を満たす値はなく,定数を引く方法は使えない.
+      等差型として$a_n=1+2(n-1)$を得る.
+  \end{enumerate}
+  
+  \bookstep{グラフと不動点}\label{解釈：不動点と差分}
+  定数項を消すために求めた$\alpha$は,更新しても動かない値でもあった.
+  今度はこの性質をグラフから見てみよう.
+  \bookterm{recurrence}{漸化式}を$a_{n+1}=f(a_n)$と見ると,\bookterm{fixed}{不動点}は$f(\alpha)=\alpha$を満たす.
+  つまり,$y=f(x)=px+q$と$y=x$の交点である.
+  
+  \begin{tikzpicture}[scale=0.8]
+    \draw[->,>=stealth,semithick] (-1.5,0)--(5.5,0)node[above]{$x$};
+    \draw[->,>=stealth,semithick] (0,-1)--(0,5)node[right]{$y$};
+    \draw (0,0)node[below right]{O};
+  
+    \draw[very thick,domain=-1:4]
+    plot(\x,\x)node[right]{$y=x$};
+  
+    \draw[very thick,domain=-1.5:4]
+    plot(\x,\x/2+1) node[right] {$y=px+q$};
+  
+    % q
+    \node[left=3pt] at (0,1) {$q$};
+  
+    % 交点から各軸へ点線
+    \draw[dashed] (2,2) -- (2,0);
+    \draw[dashed] (2,2) -- (0,2);
+  
+    % α
+    \node[below=3pt] at (2,0) {$\alpha$};
+    \node[left=3pt] at (0,2) {$\alpha$};
+  \end{tikzpicture}
+  \begin{center}
+    \BookFigureCaption{直線の交点として捉える\bookterm{fixed}{不動点}}
+  \end{center}
+  
+  この交点$(\alpha,\alpha)$を新しい原点にする.
+  新しい原点からの座標で表すと,定数を引く式変形が座標の取り方として見える.
+  $X=x-\alpha,\ Y=y-\alpha$と置くと,$\alpha=p\alpha+q$より二つの直線は$Y=pX$と$Y=X$になる.
+  $x$座標と$y$座標の両方から$\alpha$を引くことが,等比型への変形に対応している.
+  
+  不動点からのずれは$p$倍される.\footnote{$p<0$ではずれの符号が交互に変わる.$p=-1$では,$a_1\ne\alpha$なら二つの値を往復する.$p=1$の等差型と$p=0$の場合は節の冒頭で分けた.}%
+  初項が$\alpha$なら定数解,異なるなら$|p|>1$でずれが増大し,$|p|<1$で$0$へ近づく.
+  後者では$a_n\to\alpha$となる.例題(2)が$4$へ近づくのはこのためである.
+  
+  \bookstep{階差を取って定数項を消す}
+  同じ$q$を消すには,隣り合う二つの更新式を引く方法もある.
+  \begin{align*}
+    &a_{n+1}=pa_n+q \booktag{affine-difference-1}{1}\\
+    &a_{n+2}=pa_{n+1}+q \booktag{affine-difference-2}{2}\\
+  \end{align*}
+  $\bookeqbackref{affine-difference-2}{(2)}-\bookeqbackref{affine-difference-1}{(1)}$をし
+  \[
+    a_{n+2}-a_{n+1}=p(a_{n+1}-a_n)
+  \]
+  ここで,$d_n=a_{n+1}-a_n$と置くと,
+  \[
+    d_{n+1}=pd_n,\qquad d_1=(p-1)a_1+q
+  \]
+  となる.等比型になった\textbf{階差}$d_n=d_1p^{n-1}$を,\sectionref*{節：階差型}と同じように足し戻す.
+  \begin{align*}
+    a_n&=a_1+\sum_{k=1}^{n-1}d_k\\
+    &=a_1+d_1\frac{p^{n-1}-1}{p-1}\\
+    &=\alpha+(a_1-\alpha)p^{n-1}
+  \end{align*}
+  $d_1=(p-1)(a_1-\alpha)$より,不動点を引く方法と一致する.
+  $p=1$の場合も階差は一定なので,$a_n=a_1+(n-1)q$と足し戻せる.
+  
+  二つの直線$y=px$と$y=px+q$の差は$q$である.一方,更新式どうしの引き算では異なる入力を比べる.
+  $f(x)=px+q$なら,
+  \[
+    f(x)-f(y)=(px+q)-(py+q)=p(x-y)
+  \]
+  となる.$x=a_{n+1},\ y=a_n$としたものが\bookeqref{affine-difference-2}{(2)}から\bookeqref{affine-difference-1}{(1)}を引いた式である.\footnote{添字を一つずらして引く操作は,付録\sectionref{節：和と差から微積分へ}で扱う\bookterm{difference-operator}{差分}の考え方につながる.}
+  共通の$q$が消えた.二つの直線も確認しよう.
+  
+  \begin{tikzpicture}[scale=0.8]
+    \draw[->,>=stealth,semithick] (-1.5,0)--(5.5,0)node[above]{$x$};
+    \draw[->,>=stealth,semithick] (0,-1)--(0,5)node[right]{$y$};
+    \draw (0,0)node[below right]{O};
+  
+    \draw[very thick,domain=-1.5:4]
+    plot(\x,\x/2)node[right]{$y=px$};
+  
+    \draw[very thick,domain=-1.5:4]
+    plot(\x,\x/2+1) node[right] {$y=px+q$};
+  
+    % q
+    \node[left=3pt] at (0,1) {$q$};
+  
+  \end{tikzpicture}
+  \begin{center}
+    \BookFigureCaption{定数項の違いを表す平行な直線}
+  \end{center}
+  
+  不動点からのずれと隣り合う項の差は,同じ定数項を消す二つの見方である.
+  この先では引く量が一次式などへ広がり,二項をまとめる際には倍率を求める\mbox{\bookterm{characteristic}{特性方程式}}が現れる.
+  今の$\alpha$は変わらない値,後の根は更新の倍率である.付録の\bookterm{matrix}{行列}でもつながりを見直す.
