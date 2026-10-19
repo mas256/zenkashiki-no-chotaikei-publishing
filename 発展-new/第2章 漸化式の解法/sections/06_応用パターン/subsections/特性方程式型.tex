@@ -1,7 +1,84 @@
 % subsection: 特性方程式型 \, $a_{n+1}=pa_n+q$
 
 \subsection{\texorpdfstring{特性方程式型  $a_{n+1}=pa_n+q$}{特性方程式型}}\label{節：特性方程式型}
-  ここからの議論は,少々遠回りであり,解法を知りたい場合は飛ばしてもらって構わないし,解法を理解した後で読み返してもらっても構わない.
+  本節の流れだが,まずはメジャーな解法を解説する.
+  解説の後に例題とその解説等があり,その後で,解法の詳細な発想や原理,別解などを扱う.
+  
+  では本題に入ろう.
+  まず,諸君らは,基本4パターンであればこれまでの知識を使って解くことができる.
+  したがってその形を作ることを目標とする.
+  結論から言えば漸化式を等比数列に変形することで,
+  \[
+    \begin{array}{rrl}
+      &a_{n+1}={}&pa_n+q\\
+      -\,)&\alpha={}&p\alpha+q\\ \hline
+      &a_{n+1}-\alpha={}&p(a_n-\alpha)
+    \end{array}
+  \]
+  より,形式的に,$a_n$と$a_{n+1}$を$\alpha$に置き換えた方程式
+  \[
+    \alpha=p\alpha+q
+  \]
+  を解き,
+  \[
+    a_{n+1}-\alpha=p(a_n-\alpha)
+  \]
+  とすることで等比型に帰着させることで一般項を得る.
+  
+  \noindent\bookblocklink{check-fixed}{problem}{answer}{【確認問題】}\par\nobreak
+  \begin{enumerate}[format=\bookitemlink{check-fixed}{problem}{answer}]
+    \item $a_{n+1}=3a_n-4$で,何を引くと等比型になるか.
+      $a_1=5$と$a_1=2$の場合の\bookterm{general}{一般項}をそれぞれ求めよ.
+  \end{enumerate}
+  \noindent\bookblocklink{check-fixed}{answer}{problem}{【確認の解答】}\par\nobreak
+  \begin{enumerate}[format=\bookitemlink{check-fixed}{answer}{problem}]
+    \item $\alpha=3\alpha-4$より$\alpha=2$を引く.
+      $a_1=5$なら$a_n=2+3^n$であり,$a_1=2$なら$a_n=2$である.
+  \end{enumerate}
+  
+  \noindent \bookblocklink{example-characteristic-1}{problem}{answer}{【例題】}\par\nobreak
+  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-characteristic-1}{problem}{answer}]
+    \item $\displaystyle a_1=1,\, a_{n+1}=2a_n+1$
+    \item $\displaystyle a_1=1,\, a_{n+1}=\frac{1}{2}a_n+2$
+    \item $\displaystyle a_1=1,\, a_{n+1}=a_n+2$
+  \end{enumerate}
+  
+  \noindent\bookblocklink{example-characteristic-1}{hint}{problem}{【方針】}\par\nobreak
+  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-characteristic-1}{hint}{problem}]
+    \item まずは,$\alpha$を求めて等比型に帰着させる方法で解きましょう.
+    \item 同じく,$\alpha$を求めて等比型に帰着させる方法で解きましょう.
+    \item 等差型として解けます.定数を引く方法では,$\alpha=\alpha+2$を満たす値がないことも確かめましょう.
+  \end{enumerate}
+  
+  \noindent\bookblocklink{example-characteristic-1}{answer}{problem}{【解答】}\par\nobreak
+  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-characteristic-1}{answer}{problem}]
+    \item $\displaystyle a_n=2^n-1$
+    \item $\displaystyle a_n=4-3\cdot\left(\frac{1}{2}\right)^{n-1}$
+    \item $\displaystyle a_n=1+2(n-1)$
+  \end{enumerate}
+  
+  \noindent\bookblocklink{example-characteristic-1}{solution}{problem}{【解法】}\par\nobreak
+  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-characteristic-1}{solution}{problem}]
+    \item $\alpha=2\alpha+1$より\bookterm{fixed}{不動点}は$-1$である.$b_n=a_n+1$と置くと,
+      \[
+        \begin{aligned}
+          b_{n+1}&=2(a_n+1)=2b_n,\\
+          b_1&=2.
+        \end{aligned}
+      \]
+      従って$b_n=2^n$であり,$a_n=b_n-1=2^n-1$となる.
+    \item $\alpha=\frac12\alpha+2$より\bookterm{fixed}{不動点}は$4$である.$b_n=a_n-4$と置くと,
+      \[
+        \begin{aligned}
+          b_{n+1}&=\frac12(a_n-4)=\frac12b_n,\\
+          b_1&=-3.
+        \end{aligned}
+      \]
+      従って$b_n=-3(\frac12)^{n-1}$であり,$a_n=4-3(\frac12)^{n-1}$となる.
+    \item $\alpha=\alpha+2$を満たす値はなく,定数を引く方法は使えない.
+      等差型として$a_n=1+2(n-1)$を得る.
+  \end{enumerate}
+
   まずは漸化式を眺めてみよう.\footnote{ただし$p=1$なら等差型であり,$p=0$なら直接$n\ge2$で$a_n=q$と分かる.}
   \[
    a_{n+1}=pa_n+q
@@ -82,25 +159,29 @@
   \end{figure}
   
   となる.
-  これが対数グラフであることに注意して観察してみると,$n$が増えるにつれてその値の大きさは$p$の値に関して支配的であることが分かる.
+  これが対数グラフであることに注意して観察してみると,$p$の値が数列の成す値に関して支配的であることが分かる.
   また,$q$はそこまでグラフの値の変化に大きく影響するわけでないことも分かる.
   実際,$a_n$に対して$p$が掛けられることで$a_{n+1}$が作られるのだから,等比型の一般項のように,$p^n$のような形が一般項に含まれることは比較的想像しやすいだろう.
 
   $p$の値がグラフの概形に影響し$q$がそこに少しだけ変化を与えている.
   $p$に関しておおよその推測がたった今,いかにして$q$を処理するかが争点になってくる.
   今,読者諸君らが持つ技は,等比型,等差型,階差型,階比型の漸化式を解くことといくつかの基本的な計算テクニックであろう.
-  ここれまでの議論をベースにその技のどれが使えうるものかを検討してみよう.
-
+  基本的な計算テクニックの内,邪魔なもの,つまりは$q$を消すためにはどのような手法があるだろうか.
+  邪魔な項を消す場合は以下のような方法がよく用いられる.
+  \begin{enumrate}
+    \item 同じ値を引く
+    \item 別の等式を用意して代入\footnote{\sectionref{節：総和型}ではこの発想が用いられている}
+    \item 約分できるような数で割る\footnote{\sectionref{節：分数型}ではある意味でこの亜種のような計算をする}
+    \item 平方完成や部分分数分解のようなテクニックでうまく消えるような項を作る
+  \end{enumrate}
+  平方完成や部分分数分解ができるような複雑な見た目をしていないし,約分しようにも$q$を消す約分をしたところで,問題の本質はそこまで変わらないだろう.\footnote{$\frac{a_{n+1}}{q}=\frac{p}{q}a_{n}+1$となるが,$a_n$が定数倍されたものに定数を足したものが次の項という構造に変化はない.}
+  したがって,「同じ値を引く」「別の等式を用意して代入」の2つを試してみよう.
+  
   ここからがやっと解法である.
+  メジャーな解法は「同じ値を引く」の方なので,先にその方法で示してから,後に「別の等式を用意して代入」の方をお見せしよう.
+  
   結論から述べよう.
-  $q$がなくなるように式変形をしてやればよい.
-  実際に式を見せよう.
-  ある実数$\alpha$によって,
-  \begin{aligin*}
-    a_{n+1}=pa_n+q \iff a_{n+1}-\alpha=p(a_n-\alpha)
-  \end{aligin*}
-  となるような$\alpha$が存在しさえしてくれれば,漸化式は等比型に帰着する.
-  言い換えれば,ちょうど$q$を消してくれるような方程式$\alpha=p\alpha+q$によって
+  $q$がなくなるように式変形をしてやればよいのだから
   \[
     \begin{array}{rrl}
       &a_{n+1}={}&pa_n+q\\
@@ -110,70 +191,26 @@
   \]
   となるような$\alpha$を考えればよいのだ.
   
-  $b_n=a_n-\alpha$と置くことでもとの漸化式は公比$p$,初項$a_1-\alpha$の等比型漸化式に帰着する.
+  言い換えればある実数$\alpha$によって,
   \begin{aligin*}
-    &b_{n+1}=pb_n
-    &\therefore \quad b_n=b_1p^{n-1
-    &\therefore \quad a_n=
+    a_{n+1}=pa_n+q \iff a_{n+1}-\alpha=p(a_n-\alpha)
   \end{aligin*}
-  \[
-    a_n=(a_1-\alpha)p^{n-1}+\alpha.
-  \]
-  初項が\bookterm{fixed}{不動点}なら,$a_n=\alpha$という定数解になる.
+  となるような$\alpha$が存在しさえしてくれれば,漸化式は等比型に帰着する.
+  $\alpha$を求めると
+  \begin{aigin*}
+    &\alpha=p\alpha+q\\
+    &\therefore \quad \alpha=\frac{q}{1-p}
+  \end{aligin*}
+  その後の計算は$b_n=a_n-\alpha$と置くことでもとの漸化式は公比$p$,初項$a_1-\alpha$の等比型漸化式に帰着する.
+  \begin{aligin*}
+    &b_{n+1}=pb_n\\
+    &\therefore \quad b_n=b_1p^{n-1}\\
+    &\therefore \quad a_n=(a_1-\alpha)p^{n-1}+\alpha
+    &\therefore \quad a_n=(a_1-\frac{q}{1-p})p^{n-1}+\frac{q}{1-p}
+  \end{aligin*}
+  以上より一般項を得る.
+
   
-  \noindent\bookblocklink{check-fixed}{problem}{answer}{【確認問題】}\par\nobreak
-  \begin{enumerate}[format=\bookitemlink{check-fixed}{problem}{answer}]
-    \item $a_{n+1}=3a_n-4$で,何を引くと等比型になるか.
-      $a_1=5$と$a_1=2$の場合の\bookterm{general}{一般項}をそれぞれ求めよ.
-  \end{enumerate}
-  \noindent\bookblocklink{check-fixed}{answer}{problem}{【確認の解答】}\par\nobreak
-  \begin{enumerate}[format=\bookitemlink{check-fixed}{answer}{problem}]
-    \item $\alpha=3\alpha-4$より$\alpha=2$を引く.
-      $a_1=5$なら$a_n=2+3^n$であり,$a_1=2$なら$a_n=2$である.
-  \end{enumerate}
-  
-  \noindent \bookblocklink{example-characteristic-1}{problem}{answer}{【例題】}\par\nobreak
-  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-characteristic-1}{problem}{answer}]
-    \item $\displaystyle a_1=1,\, a_{n+1}=2a_n+1$
-    \item $\displaystyle a_1=1,\, a_{n+1}=\frac{1}{2}a_n+2$
-    \item $\displaystyle a_1=1,\, a_{n+1}=a_n+2$
-  \end{enumerate}
-  
-  \noindent\bookblocklink{example-characteristic-1}{hint}{problem}{【方針】}\par\nobreak
-  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-characteristic-1}{hint}{problem}]
-    \item まずは,$\alpha$を求めて等比型に帰着させる方法で解きましょう.
-    \item 同じく,$\alpha$を求めて等比型に帰着させる方法で解きましょう.
-    \item 等差型として解けます.定数を引く方法では,$\alpha=\alpha+2$を満たす値がないことも確かめましょう.
-  \end{enumerate}
-  
-  \noindent\bookblocklink{example-characteristic-1}{answer}{problem}{【解答】}\par\nobreak
-  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-characteristic-1}{answer}{problem}]
-    \item $\displaystyle a_n=2^n-1$
-    \item $\displaystyle a_n=4-3\cdot\left(\frac{1}{2}\right)^{n-1}$
-    \item $\displaystyle a_n=1+2(n-1)$
-  \end{enumerate}
-  
-  \noindent\bookblocklink{example-characteristic-1}{solution}{problem}{【解法】}\par\nobreak
-  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-characteristic-1}{solution}{problem}]
-    \item $\alpha=2\alpha+1$より\bookterm{fixed}{不動点}は$-1$である.$b_n=a_n+1$と置くと,
-      \[
-        \begin{aligned}
-          b_{n+1}&=2(a_n+1)=2b_n,\\
-          b_1&=2.
-        \end{aligned}
-      \]
-      従って$b_n=2^n$であり,$a_n=b_n-1=2^n-1$となる.
-    \item $\alpha=\frac12\alpha+2$より\bookterm{fixed}{不動点}は$4$である.$b_n=a_n-4$と置くと,
-      \[
-        \begin{aligned}
-          b_{n+1}&=\frac12(a_n-4)=\frac12b_n,\\
-          b_1&=-3.
-        \end{aligned}
-      \]
-      従って$b_n=-3(\frac12)^{n-1}$であり,$a_n=4-3(\frac12)^{n-1}$となる.
-    \item $\alpha=\alpha+2$を満たす値はなく,定数を引く方法は使えない.
-      等差型として$a_n=1+2(n-1)$を得る.
-  \end{enumerate}
   
   \bookstep{グラフと不動点}\label{解釈：不動点と差分}
   定数項を消すために求めた$\alpha$は,更新しても動かない値でもあった.
