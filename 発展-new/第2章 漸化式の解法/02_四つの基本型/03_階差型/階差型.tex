@@ -1,13 +1,8 @@
 % subsection: 階差型 \, $a_{n+1}=a_n+f(n)$
 
   \subsection{\texorpdfstring{階差型 \, $a_{n+1}=a_n+f(n)$}{階差型}}\label{節：階差型}
-  \begin{bookpoint}
-    \textbf{変化を足す}\par
-    差が添字ごとに変わっても,初項からの変化を足せば元の項に戻る.和の範囲は実際の更新の回数に合わせる.
-  \end{bookpoint}
-    \bookterm{sequence}{数列}に足す量$f(n)$が番号によって変わっても,順に代入できる.\footnote{$f(n)$は番号$n$の式である.$f(a_n)$のように未知の項の値に依存する場合は,和を書くだけでは計算が済まない.}
-    等差型では同じ数を足したが,今回は一歩ごとに足す量が変わる.
-    それでも,初項から第$n$項までに加えた量を全部足せばよい.
+    等差型では同じ数を足していたが,$n$によって変わる式$f(n)$を足す場合はどうなるだろうか.\footnote{ここでの$f(n)$は,$n$から値を計算できる既知の式である.$f(a_n)$のように未知の項に依存する場合は,以下のように和を書くだけでは一般項を求められないことがある.}
+    今までと同じように,直前の項を順に代入して考えてみよう.
     足す量をまとめるため,和の記号を使う.
     \[
       \sum_{k=1}^{n}f(k)=f(1)+f(2)+\cdots+f(n)
@@ -15,14 +10,17 @@
     $k$は和の中で順に動く番号であり,$n$は和の上端である.
     記号の性質は\sectionref*{節：シグマの計算}で確認できる.
     例えば$a_3=a_2+f(2)=a_1+f(1)+f(2)$である.
-    同じように,$n\ge2$で更新を繰り返すと,
+    第$n$項についても,同じ代入を初項まで繰り返すと,
     \begin{align*}
       a_n&=a_{n-1}+f(n-1)\\
          &=a_1+f(1)+\cdots+f(n-1)\\
          &=a_1+\sum_{k=1}^{n-1}f(k)
     \end{align*}
-    更新は$n-1$回なので,和の上端も$n-1$である.$n=1$の空の和を$0$とすれば,初項も表せる.
+    最後に足すのは$f(n-1)$なので,和は$k=n-1$まで取る.$n=1$の空の和を$0$とすれば,初項も表せる.
     残るのは和の計算である.$f(n)$に応じて,\bookterm{arithmetic}{等差数列}や\bookterm{geometric}{等比数列}の和の公式,\bookterm{partial}{部分分数分解}などを使う.
+  \begin{bookpoint}
+    足す値が一定でなくても,初項から第$n$項までに足した値を合計すればよい.
+  \end{bookpoint}
 
     \noindent \bookblocklink{example-difference-1}{problem}{answer}{【例題】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-difference-1}{problem}{answer}]
@@ -34,9 +32,9 @@
 
     \noindent\bookblocklink{example-difference-1}{hint}{problem}{【方針】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-difference-1}{hint}{problem}]
-      \item 差を足し戻し,等差数列の和を使います.
-      \item 指数の差も足し戻せます.等比数列の和を使います.
-      \item \bookterm{sigma}{シグマ}は\bookterm{partial}{部分分数分解}で処理しましょう.
+      \item 初項に$1+2+\cdots+(n-1)$を足します.等差数列の和を使いましょう.
+      \item 今回は$2^1+2^2+\cdots+2^{n-1}$を足します.等比数列の和を使いましょう.
+      \item $\dfrac{1}{k(k+1)}$を\bookterm{partial}{部分分数分解}すると,和の途中の項が打ち消し合います.
       \item 初項の$1$も含めると,$1^2+2^2+\cdots+n^2$という平方の和になります.
     \end{enumerate}
 

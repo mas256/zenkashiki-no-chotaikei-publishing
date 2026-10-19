@@ -17,7 +17,7 @@
   初めの二項も更新の係数も実数だから,実際の各項も実数である.
   複素数を使った二つの項の中で,虚部が打ち消し合う形を取り出したい.
 
-  虚部が正の根$\alpha$の距離を$\rho$,角度を$\theta$とする.
+  虚部が正の根$\alpha$について,複素平面上の原点からの距離を$\rho$,正の実軸から測る角度を$\theta$とする.
   この角度が\bookterm{argument}{偏角}であり,$\rho>0$, $0<\theta<\pi$である.\footnote{$e^{it}=\cos t+i\sin t$という表記を使う.}
   \[
     \alpha=\rho e^{i\theta},\qquad
@@ -139,7 +139,7 @@ $\displaystyle\hspace{3zw}-\frac1{\sqrt3}\sin\frac{(n-1)\pi}{3}\Bigr)$}
   \end{enumerate}
 
 \bookstep{加法定理による別解}\label{解釈：虚数解と加法定理}
-  複素数の冪を直す代わりに,更新そのものから三角関数を見つけよう.
+  複素数の冪を変形する代わりに,元の漸化式と加法定理を直接比べてみよう.
   解と係数の関係より,
   \[
     p=-(\alpha+\overline\alpha)=-2\rho\cos\theta,
@@ -199,7 +199,7 @@ $\displaystyle\hspace{3zw}-\frac1{\sqrt3}\sin\frac{(n-1)\pi}{3}\Bigr)$}
 
   \bookstep{二つの基本解を選び直す}\phantomsection\label{解釈：虚数解と基本解}
   \sectionref*{節：補助数列の設計}では,目標の更新に合う量を作った.
-  $b_n=\dfrac{a_n}{\rho^{n-1}}$も,根の絶対値から\bookterm{normalize}{正規化}の倍率を選び,
+  $b_n=\dfrac{a_n}{\rho^{n-1}}$も,根の絶対値$\rho$の累乗で$a_n$を割り,
   係数の$\rho,\rho^2$を取り除く操作である.残る更新が加法定理になった.
 
   \sectionref*{節：一次独立・基底・次元}の見方では,解を表す\bookterm{basis}{基底}を選び直している.

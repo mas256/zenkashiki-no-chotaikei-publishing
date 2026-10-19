@@ -1,17 +1,23 @@
 % subsection: 等差型 \, $a_{n+1}=a_n+d$
 
   \subsection{\texorpdfstring{等差型 \, $a_{n+1}=a_n+d$}{等差型}}\label{節：等差型}
-  \begin{bookpoint}
-    \textbf{差を追う}\par
-    一回ごとに足す量が一定なら,初項に増分を足し戻す.項の番号と更新の回数の違いを確かめよう.
-  \end{bookpoint}
-    一歩ごとに$d$を足す.$n\ge3$で直前の項を順に代入すると,
+    まずは最もシンプルな漸化式である,等差型について考えよう.
+    $a_{n+1}=a_n+d$では,項が一つ進むごとに$d$が一回足される.
+    従って,一般項を求めるには,初項から何回$d$を足したかを調べればよい.
+    例えば第4項なら,直前の項を順に代入して,
     \begin{align*}
-      a_n&=a_{n-1}+d=a_{n-2}+2d=\cdots\\
-         &=a_1+(n-1)d
+      a_4&=a_3+d\\
+         &=(a_2+d)+d\\
+         &=\{(a_1+d)+d\}+d=a_1+3d
     \end{align*}
-    となり\bookterm{general}{一般項}が示される.$n=1,2$では直接確かめられる.
-    例えば$a_4=a_3+d=a_2+2d=a_1+3d$である.項は$n$個,更新は$n-1$回なのである.
+    となる.第$n$項までには同じように$d$を$n-1$回足すから,
+    \[
+      a_n=a_1+(n-1)d
+    \]
+    が得られる.$n=1$でも$a_1$に一致する.
+  \begin{bookpoint}
+    初項から第$n$項までに,公差$d$は$n-1$回足される.
+  \end{bookpoint}
 
     \noindent \bookblocklink{example-arithmetic-1}{problem}{answer}{【例題】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-arithmetic-1}{problem}{answer}]

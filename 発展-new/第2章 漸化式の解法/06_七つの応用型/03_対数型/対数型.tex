@@ -2,7 +2,7 @@
 
 \subsection{\texorpdfstring{対数型 \, $a_{n+1}=pa_n^q$}{対数型}}\label{節：対数型}
   \begin{bookpoint}
-    \textbf{積と冪をほどく}\par
+    \textbf{対数で累乗を定数倍に変える}\par
     \bookterm{logarithm}{対数}を取る発想は指数の扱いを簡単にするためである.実数の\bookterm{logarithm}{対数}を使う前に,項や底の条件を確認する.
   \end{bookpoint}
   \noindent\textbf{【観察と発想】}\par
@@ -32,7 +32,7 @@
   となり,$q\ne0$ならば$a_n=a_1^{q^{n-1}}$を得る.
   $q=0$の場合は$a_1$を別に扱い,$n\ge2$では$a_n=1$である.
   底は正で$1$以外なら自由である.整数$m$で$p=k^m$と書けるなら,$k$を底にすると$\log_kp=m$となり,定数を整数にできる.
-  例題(2)では商を差に変え,逆数の更新を符号反転として追う.
+  例えば逆数なら,$\log_t\dfrac{1}{a_n}=-\log_t a_n$となる.例題(2)で使ってみよう.
 
   \noindent\bookblocklink{example-logarithmic-1}{problem}{answer}{【例題】}\par\nobreak
   \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-logarithmic-1}{problem}{answer}]
@@ -47,7 +47,7 @@
   \noindent\bookblocklink{example-logarithmic-1}{hint}{problem}{【方針】}\par\nobreak
   \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-logarithmic-1}{hint}{problem}]
     \item $b_n=\log_2a_n$で$b_{n+1}=2b_n+1$に変え,定数項を消します.
-    \item 逆数を\bookterm{logarithm}{対数}で符号反転に変えます.
+    \item $\log_2\dfrac{1}{a_n}=-\log_2a_n$を使うと,等比型になります.
     \item $f(n)=2^n$が指数関数なので,\bookterm{logarithm}{対数}を取ると和の形に帰着できます.
     \item \bookterm{square}{平方完成}で$a_{n+1}-1=(a_n-1)^2$を作ります.\bookterm{logarithm}{対数}を取る量は$a_n$ではなく$a_n-1$であり,その正値を先に確認します.
     \item $b_n=\log_2a_n$から一次式$n+1$を引くと等比型になります.
@@ -82,7 +82,7 @@
             b_{n+1}=-b_n,\qquad b_1=\log_2\frac12=-1
           \]
           に変わる.従って$b_n=(-1)^n$であり,$a_n=2^{(-1)^n}$となる.
-    \item 自然\bookterm{logarithm}{対数}を取れば$\log a_{n+1}=\log a_n+n\log2$である.差を足すと,
+    \item 自然\bookterm{logarithm}{対数}を取れば$\log a_{n+1}=\log a_n+n\log2$である.$\log a_{n+1}-\log a_n=n\log2$を$n=1$から順に足すと,
           \[
             \log a_n=\sum_{k=1}^{n-1}k\log2=\frac{n(n-1)}2\log2.
           \]
