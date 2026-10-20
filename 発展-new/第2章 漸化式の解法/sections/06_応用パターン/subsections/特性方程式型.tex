@@ -271,7 +271,7 @@
 
   \noidnent \textbf{【別の等式を用意して代入】}
   
-  同じ$q$を消すには,隣り合う二つの漸化式をを引く方法もある.
+  同じ$q$を消すには,隣り合う2つの漸化式をを引く方法もある.
   \begin{align*}
     &a_{n+1}=pa_n+q \booktag{affine-difference-1}{♡}\\
     &a_{n+2}=pa_{n+1}+q \booktag{affine-difference-2}{♢}\\
@@ -292,14 +292,17 @@
   \end{align*}
   $d_1=(p-1)(a_1-\alpha)$より,不動点を引く方法と一致する.
   $p=1$の場合も階差は一定なので,$a_n=a_1+(n-1)q$と足し戻せる.
+
+  この手法では2項間の差,つまりは階差を取ったのだ.
   
-  二つの直線$y=px$と$y=px+q$の差は$q$である.一方,更新式どうしの引き算では異なる入力を比べる.
+  こちらの方でも図形的解釈をしてみよう.
+  2つの直線$y=px$と$y=px+q$の差は$q$である.一方,更新式どうしの引き算では異なる入力を比べる.
   $f(x)=px+q$なら,
   \[
     f(x)-f(y)=(px+q)-(py+q)=p(x-y)
   \]
   となる.$x=a_{n+1},\ y=a_n$としたものが\bookeqref{affine-difference-2}{(2)}から\bookeqref{affine-difference-1}{(1)}を引いた式である.\footnote{添字を一つずらして引く操作は,付録\sectionref{節：和と差から微積分へ}で扱う\bookterm{difference-operator}{差分}の考え方につながる.}
-  共通の$q$が消えた.二つの直線も確認しよう.
+  共通の$q$が消えた.2つの直線も確認しよう.
   
   \begin{tikzpicture}[scale=0.8]
     \draw[->,>=stealth,semithick] (-1.5,0)--(5.5,0)node[above]{$x$};
@@ -320,8 +323,8 @@
     \BookFigureCaption{定数項の違いを表す平行な直線}
   \end{center}
   
-  不動点からのずれと隣り合う項の差は,同じ定数項を消す二つの見方である.
-  この先では引く量が一次式などへ広がり,二項をまとめる際には倍率を求める\mbox{\bookterm{characteristic}{特性方程式}}が現れる.
+  不動点からのずれと隣り合う項の差は,同じ定数項を消す2つの見方である.
+  この先では引く量が一次式などへ広がり,2項をまとめる際には倍率を求める\mbox{\bookterm{characteristic}{特性方程式}}が現れる.
   今の$\alpha$は変わらない値,後の根は更新の倍率である.付録の\bookterm{matrix}{行列}でもつながりを見直す.
 
   \noident \textbf{【$p$へのアプローチ】}
