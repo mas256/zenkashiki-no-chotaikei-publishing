@@ -6,8 +6,11 @@
   
   では本題に入ろう.
   まず,諸君らは,基本4パターンであればこれまでの知識を使って解くことができる.
-  したがってその形を作ることを目標とする.
-  結論から言えば漸化式を等比数列に変形することで,
+  したがって特性方程式型漸化式を基本パターンのいずれかの形に変形して一般項を得ることを目標とする.
+  
+  結論から言えば漸化式を等比数列に変形することで,一般項を得ることができる.
+  また,多くの複雑な漸化式は等比型に帰着させることでその解を得る.\footnote{基本的に等比型,特性方程式型,定数数列への帰着が多い.既知のパターンを増やしていくことが解ける漸化式を増やすためには重要である.}
+  等比型にするためには$q$が邪魔なので,それをうまく消せるように
   \[
     \begin{array}{rrl}
       &a_{n+1}={}&pa_n+q\\
@@ -15,7 +18,9 @@
       &a_{n+1}-\alpha={}&p(a_n-\alpha)
     \end{array}
   \]
-  より,形式的に,$a_n$と$a_{n+1}$を$\alpha$に置き換えた方程式
+  という式を考える.
+  これによって$b_n=a_n-\alpha$という$b_n$に関する等比型漸化式が得られる.
+  あとは$\alpha$について
   \[
     \alpha=p\alpha+q
   \]
@@ -24,18 +29,15 @@
     a_{n+1}-\alpha=p(a_n-\alpha)
   \]
   とすることで等比型に帰着させることで一般項を得る.
-  
-  \noindent\bookblocklink{check-fixed}{problem}{answer}{【確認問題】}\par\nobreak
-  \begin{enumerate}[format=\bookitemlink{check-fixed}{problem}{answer}]
-    \item $a_{n+1}=3a_n-4$で,何を引くと等比型になるか.
-      $a_1=5$と$a_1=2$の場合の\bookterm{general}{一般項}をそれぞれ求めよ.
-  \end{enumerate}
-  \noindent\bookblocklink{check-fixed}{answer}{problem}{【確認の解答】}\par\nobreak
-  \begin{enumerate}[format=\bookitemlink{check-fixed}{answer}{problem}]
-    \item $\alpha=3\alpha-4$より$\alpha=2$を引く.
-      $a_1=5$なら$a_n=2+3^n$であり,$a_1=2$なら$a_n=2$である.
-  \end{enumerate}
-  
+
+  形式的には,$a_n$を$\alpha$に置き換えてできる方程式によってその解を得れば良い.
+  また,方程式
+  \[
+    \alpha=p\alpha+q
+  \]
+  を特性方程式という.\footnote{\chapterref{章：付録}では,特性方程式を中心に線形代数の考えを導入して他の漸化式の解法と統一的な見方を分析する.}
+
+  これだけの説明では納得できない読者は例題の後に続く部分を読むと良い.
   \noindent \bookblocklink{example-characteristic-1}{problem}{answer}{【例題】}\par\nobreak
   \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-characteristic-1}{problem}{answer}]
     \item $\displaystyle a_1=1,\, a_{n+1}=2a_n+1$
@@ -79,11 +81,12 @@
       等差型として$a_n=1+2(n-1)$を得る.
   \end{enumerate}
 
-  まずは漸化式を眺めてみよう.\footnote{ただし$p=1$なら等差型であり,$p=0$なら直接$n\ge2$で$a_n=q$と分かる.}
+  \subsubsection{式変形の発想}
+  まずは漸化式を眺めてみよう.
   \[
    a_{n+1}=pa_n+q
   \]
-  この漸化式は,いわば等差型と等比型が組み合わさったような漸化式である.
+  この漸化式は,いわば等差型と等比型が組み合わさったような漸化式である.\footnote{ただし$p=1$なら等差型であり,$p=0$なら直接$n\ge2$で$a_n=q$と分かる.}
   解き方を模索する際にはまず実験を行うのが常套である.
   $p,q$に適当な値を代入して第10項程度まで求めてみると
   \begin{table}[htbp]
@@ -163,7 +166,9 @@
   また,$q$はそこまでグラフの値の変化に大きく影響するわけでないことも分かる.
   実際,$a_n$に対して$p$が掛けられることで$a_{n+1}$が作られるのだから,等比型の一般項のように,$p^n$のような形が一般項に含まれることは比較的想像しやすいだろう.
 
-  $p$の値がグラフの概形に影響し$q$がそこに少しだけ変化を与えている.
+  等比型漸化式$a_{n+1}=ra_n$の一般項が$a_n=a_1r^{n-1}$であることを思い出すと,一般項に$p^n$が含まれることが想像できる.
+  そこで,$q$や$a_1$分の補正を与えてやれば漸化式から一般項を得られると考え,その方法を検討しよう.
+  
   $p$に関しておおよその推測がたった今,いかにして$q$を処理するかが争点になってくる.
   今,読者諸君らが持つ技は,等比型,等差型,階差型,階比型の漸化式を解くことといくつかの基本的な計算テクニックであろう.
   基本的な計算テクニックの内,邪魔なもの,つまりは$q$を消すためにはどのような手法があるだろうか.
@@ -179,6 +184,8 @@
   
   ここからがやっと解法である.
   メジャーな解法は「同じ値を引く」の方なので,先にその方法で示してから,後に「別の等式を用意して代入」の方をお見せしよう.
+
+  \noidnent \textbf{【同じ値を引く】}
   
   結論から述べよう.
   $q$がなくなるように式変形をしてやればよいのだから
@@ -209,15 +216,19 @@
     &\therefore \quad a_n=(a_1-\frac{q}{1-p})p^{n-1}+\frac{q}{1-p}
   \end{aligin*}
   以上より一般項を得る.
-
   
-  
-  \bookstep{グラフと不動点}\label{解釈：不動点と差分}
-  定数項を消すために求めた$\alpha$は,更新しても動かない値でもあった.
-  今度はこの性質をグラフから見てみよう.
-  \bookterm{recurrence}{漸化式}を$a_{n+1}=f(a_n)$と見ると,\bookterm{fixed}{不動点}は$f(\alpha)=\alpha$を満たす.
-  つまり,$y=f(x)=px+q$と$y=x$の交点である.
-  
+  この式変形の図形的意味を考えてみよう.
+  少々突飛な発想だが,
+  \[
+    a_{n+1}=pa_n+q
+  \]
+  の式を
+  \[
+    y=px+q
+  \]
+  として考えてみよう.
+  つまり,$a_n$の値による$a_{n+1$の値の変化をグラフに落とし込むということだ.
+  図示すると
   \begin{tikzpicture}[scale=0.8]
     \draw[->,>=stealth,semithick] (-1.5,0)--(5.5,0)node[above]{$x$};
     \draw[->,>=stealth,semithick] (0,-1)--(0,5)node[right]{$y$};
@@ -243,23 +254,24 @@
   \begin{center}
     \BookFigureCaption{直線の交点として捉える\bookterm{fixed}{不動点}}
   \end{center}
+
+  となる.
+  $y=x$のグラフは$a_{n+1}=a_n$という公比1の等比数列としてみなしたときに,これらのグラフの交点を原点と思って漸化式を見直してやれば,点$(\alpha,\alpha)$が原点であるような等比数列となるのだ.
+
+  このような点$(\alpha,\alpha)$を不動点という.
+  特性方程式は不動点を求める漸化式で,不動点は特性方程式型漸化式を等比型漸化式としてみなせるようになる(ずらすことで"きれい"にできる)点である.
   
-  この交点$(\alpha,\alpha)$を新しい原点にする.
-  新しい原点からの座標で表すと,定数を引く式変形が座標の取り方として見える.
-  $X=x-\alpha,\ Y=y-\alpha$と置くと,$\alpha=p\alpha+q$より二つの直線は$Y=pX$と$Y=X$になる.
-  $x$座標と$y$座標の両方から$\alpha$を引くことが,等比型への変形に対応している.
-  
-  不動点からのずれは$p$倍される.\footnote{$p<0$ではずれの符号が交互に変わる.$p=-1$では,$a_1\ne\alpha$なら二つの値を往復する.$p=1$の等差型と$p=0$の場合は節の冒頭で分けた.}%
   初項が$\alpha$なら定数解,異なるなら$|p|>1$でずれが増大し,$|p|<1$で$0$へ近づく.
-  後者では$a_n\to\alpha$となる.例題(2)が$4$へ近づくのはこのためである.
+  後者では$a_n\to\alpha$となる.
+
+  \noidnent \textbf{【別の等式を用意して代入】}
   
-  \bookstep{階差を取って定数項を消す}
-  同じ$q$を消すには,隣り合う二つの更新式を引く方法もある.
+  同じ$q$を消すには,隣り合う二つの漸化式をを引く方法もある.
   \begin{align*}
-    &a_{n+1}=pa_n+q \booktag{affine-difference-1}{1}\\
-    &a_{n+2}=pa_{n+1}+q \booktag{affine-difference-2}{2}\\
+    &a_{n+1}=pa_n+q \booktag{affine-difference-1}{♡}\\
+    &a_{n+2}=pa_{n+1}+q \booktag{affine-difference-2}{♢}\\
   \end{align*}
-  $\bookeqbackref{affine-difference-2}{(2)}-\bookeqbackref{affine-difference-1}{(1)}$をし
+  $\bookeqbackref{affine-difference-2}{(♢)}-\bookeqbackref{affine-difference-1}{(♡)}$をし
   \[
     a_{n+2}-a_{n+1}=p(a_{n+1}-a_n)
   \]
@@ -306,3 +318,20 @@
   不動点からのずれと隣り合う項の差は,同じ定数項を消す二つの見方である.
   この先では引く量が一次式などへ広がり,二項をまとめる際には倍率を求める\mbox{\bookterm{characteristic}{特性方程式}}が現れる.
   今の$\alpha$は変わらない値,後の根は更新の倍率である.付録の\bookterm{matrix}{行列}でもつながりを見直す.
+
+  \noident \textbf{【$p$へのアプローチ】}
+  
+  ここまで$q$を消す試みを続けてきたが,$p$にたいしてうまく操作できないだろうか.
+  \sectionref{節：階差階比複合型}でも使われる式変形を用いればうまく解くことができる.
+  \[
+    a_{n+1}=pa_n+q
+  \]
+  について,$p^{n+1}$で割って,
+  \[
+    \frac{a_{n+1}}{p^{n+1}}=\frac{a_n}{p^n}+\frac{q}{p^{n+1}}
+  \]
+  ここで$\displaystyle b_n=\frac{a_n}{p^n}$と置くと
+  \[
+    b_{n+1}=b_n+\frac{q}{p^{n+1}}
+  \]
+  となって階差型となる.
