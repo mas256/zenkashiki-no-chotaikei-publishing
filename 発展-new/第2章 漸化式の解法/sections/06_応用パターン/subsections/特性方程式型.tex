@@ -35,7 +35,7 @@
   \[
     \alpha=p\alpha+q
   \]
-  を特性方程式という.\footnote{\chapterref{章：付録}では,特性方程式を中心に線形代数の考えを導入して他の漸化式の解法と統一的な見方を分析する.}
+  を特性方程式という.\footnote{\chapterref{章：解法の背景と広がり}では,特性方程式を中心に線形代数の考えを導入して他の漸化式の解法と統一的な見方を分析する.}
 
   これだけの説明では納得できない読者は例題の後に続く部分を読むと良い.
 
@@ -94,7 +94,7 @@
   この漸化式は,いわば等差型と等比型が組み合わさったような漸化式である.\footnote{ただし$p=1$なら等差型であり,$p=0$なら直接$n\ge2$で$a_n=q$と分かる.}
   解き方を模索する際にはまず実験を行うのが常套である.
   $p,q$に適当な値を代入して第10項程度まで求めてみると
-  \begin{table}[htbp]
+  \begin{center}
     \rowcolors{2}{black!10}{white}
     \begin{tabular}{cccc}\Xhline{1.5pt}
       n&	$p=2,\,q=1$&	$p=4,\,q=1$&	$p=2,\,q=10$\\
@@ -109,15 +109,15 @@
       9&	511&	87381&	2806\\
       10&	1023&	349525&	5622\\
     \end{tabular}
-  \end{table}
+  \end{center}
   となる.グラフにしてみると
-   
-  \begin{figure}[htbp]
+  \par\smallskip\noindent
+  \begin{minipage}{\linewidth}
     \centering
     \begin{tikzpicture}
       \begin{axis}[
           scale only axis,
-          width=5.6cm,
+          width=4.8cm,
           height=3.4cm,                     % 高さを抑える(旧 4.8cm)
           clip=false,                       % 線の先の式をはみ出して表示
           % --- 軸(矢印つき・枠なし・モノクロ) ---
@@ -163,8 +163,9 @@
         } node[pos=1,right,font=\footnotesize] {$a_{n+1}=2a_n+10$};
       \end{axis}
     \end{tikzpicture}
-    \caption{$p,q$の値による漸化式が成す値の変化}
-  \end{figure}
+    \BookFigureCaption{$p,q$の値による漸化式が成す値の変化}
+  \end{minipage}
+  \par\smallskip
   
   となる.
   これが対数グラフであることに注意して観察してみると,$p$の値が数列の成す値に関して支配的であることが分かる.
@@ -178,19 +179,19 @@
   今,読者諸君らが持つ技は,等比型,等差型,階差型,階比型の漸化式を解くことといくつかの基本的な計算テクニックであろう.
   基本的な計算テクニックの内,邪魔なもの,つまりは$q$を消すためにはどのような手法があるだろうか.
   邪魔な項を消す場合は以下のような方法がよく用いられる.
-  \begin{enumrate}
+  \begin{enumerate}
     \item 同じ値を引く
     \item 別の等式を用意して代入\footnote{\sectionref{節：総和型}ではこの発想が用いられている}
     \item 約分できるような数で割る\footnote{\sectionref{節：分数型}ではある意味でこの亜種のような計算をする}
     \item 平方完成や部分分数分解のようなテクニックでうまく消えるような項を作る
-  \end{enumrate}
+  \end{enumerate}
   平方完成や部分分数分解ができるような複雑な見た目をしていないし,約分しようにも$q$を消す約分をしたところで,問題の本質はそこまで変わらないだろう.\footnote{$\frac{a_{n+1}}{q}=\frac{p}{q}a_{n}+1$となるが,$a_n$が定数倍されたものに定数を足したものが次の項という構造に変化はない.}
   したがって,「同じ値を引く」「別の等式を用意して代入」の2つを試してみよう.
   
   ここからがやっと解法である.
   メジャーな解法は「同じ値を引く」の方なので,先にその方法で示してから,後に「別の等式を用意して代入」の方をお見せしよう.
 
-  \noidnent \textbf{【同じ値を引く】}
+  \noindent \textbf{【同じ値を引く】}
   
   結論から述べよう.
   $q$がなくなるように式変形をしてやればよいのだから
@@ -204,22 +205,22 @@
   となるような$\alpha$を考えればよいのだ.
   
   言い換えればある実数$\alpha$によって,
-  \begin{aligin*}
+  \begin{align*}
     a_{n+1}=pa_n+q \iff a_{n+1}-\alpha=p(a_n-\alpha)
-  \end{aligin*}
+  \end{align*}
   となるような$\alpha$が存在しさえしてくれれば,漸化式は等比型に帰着する.
   $\alpha$を求めると
-  \begin{aigin*}
+  \begin{align*}
     &\alpha=p\alpha+q\\
     &\therefore \quad \alpha=\frac{q}{1-p}
-  \end{aligin*}
+  \end{align*}
   その後の計算は$b_n=a_n-\alpha$と置くことでもとの漸化式は公比$p$,初項$a_1-\alpha$の等比型漸化式に帰着する.
-  \begin{aligin*}
+  \begin{align*}
     &b_{n+1}=pb_n\\
     &\therefore \quad b_n=b_1p^{n-1}\\
     &\therefore \quad a_n=(a_1-\alpha)p^{n-1}+\alpha
     &\therefore \quad a_n=(a_1-\frac{q}{1-p})p^{n-1}+\frac{q}{1-p}
-  \end{aligin*}
+  \end{align*}
   以上より一般項を得る.
   
   この式変形の図形的意味を考えてみよう.
@@ -269,7 +270,7 @@
   初項が$\alpha$なら定数解,異なるなら$|p|>1$でずれが増大し,$|p|<1$で$0$へ近づく.
   後者では$a_n\to\alpha$となる.
 
-  \noidnent \textbf{【別の等式を用意して代入】}
+  \noindent \textbf{【別の等式を用意して代入】}
   
   同じ$q$を消すには,隣り合う2つの漸化式をを引く方法もある.
   \begin{align*}
@@ -327,10 +328,10 @@
   この先では引く量が一次式などへ広がり,2項をまとめる際には倍率を求める\mbox{\bookterm{characteristic}{特性方程式}}が現れる.
   今の$\alpha$は変わらない値,後の根は更新の倍率である.付録の\bookterm{matrix}{行列}でもつながりを見直す.
 
-  \noident \textbf{【$p$へのアプローチ】}
+  \noindent \textbf{【$p$へのアプローチ】}
   
   ここまで$q$を消す試みを続けてきたが,$p$にたいしてうまく操作できないだろうか.
-  \sectionref{節：階差階比複合型}でも使われる式変形を用いればうまく解くことができる.
+  \sectionref{節：階差等比複合型}でも使われる式変形を用いればうまく解くことができる.
   \[
     a_{n+1}=pa_n+q
   \]

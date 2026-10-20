@@ -11,8 +11,35 @@ import subprocess
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
-BOOK = ROOT / '発展-new'
-MAIN = '漸化式の超体系的解説.tex'
+
+
+def discover_book(root=ROOT):
+    """Find the manuscript directory whose latexmkrc invokes this script."""
+    current = Path.cwd().resolve()
+    candidates = [current]
+    candidates.extend(path.resolve() for path in root.iterdir() if path.is_dir())
+    for candidate in candidates:
+        config = candidate / '.latexmkrc'
+        if config.is_file() and Path(__file__).name in config.read_text(encoding='utf-8'):
+            return candidate
+    raise FileNotFoundError(f'Cannot find a manuscript using {Path(__file__).name}')
+
+
+def main_tex(book):
+    """Return the top-level TeX document, independent of its filename."""
+    candidates = sorted(book.glob('*.tex'))
+    masters = []
+    for path in candidates:
+        source = path.read_text(encoding='utf-8')
+        if re.search(r'(?m)^\s*\\documentclass\b', source):
+            masters.append(path)
+    matches = masters or candidates
+    if len(matches) != 1:
+        raise RuntimeError(f'Expected one top-level TeX document in {book}, found {len(matches)}')
+    return matches[0].resolve()
+
+
+BOOK = discover_book()
 CACHE = ROOT / 'out/tex-spacing/book'
 MATH_ENVIRONMENTS = {
     'math', 'displaymath', 'equation', 'equation*', 'align', 'align*',
@@ -165,7 +192,7 @@ def source_files(book=BOOK):
         for name in re.findall(r'\\input\{([^{}#]+)\}', uncommented):
             visit(book / name)
 
-    visit(book / MAIN)
+    visit(main_tex(book))
     return found
 
 
@@ -184,11 +211,12 @@ def generated_input_paths(text, book=BOOK, cache=CACHE):
 
 def prepare(book=BOOK, cache=CACHE):
     book = book.resolve()
+    main = main_tex(book)
     names = {}
     for path, source in source_files(book).items():
         if path.is_relative_to(book):
             target = cache / path.relative_to(book)
-            processed = source if path == book / MAIN or path.is_relative_to(book / 'figures') else rewrite(source)
+            processed = source if path == main or path.is_relative_to(book / 'figures') else rewrite(source)
         elif path.is_relative_to(ROOT / 'tex'):
             target = cache.parent / 'tex' / path.relative_to(ROOT / 'tex')
             processed = source
@@ -210,7 +238,19 @@ def decode_tex(data):
     try:
         return data.decode('utf-8'), 'utf-8'
     except UnicodeDecodeError:
-        return data.decode('cp932'), 'cp932'
+        # TeX on Windows can write UTF-8 and CP932 paths on different lines
+        # of the same recorder file. Decode each line independently and
+        # normalize the rewritten recorder to UTF-8 for latexmk.
+        lines = []
+        for line in data.splitlines(keepends=True):
+            try:
+                lines.append(line.decode('utf-8'))
+            except UnicodeDecodeError:
+                try:
+                    lines.append(line.decode('cp932'))
+                except UnicodeDecodeError:
+                    lines.append(line.decode('utf-8', errors='replace'))
+        return ''.join(lines), 'utf-8'
 
 
 def original_path(name, book=BOOK, cache=CACHE):
