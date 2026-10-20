@@ -1,0 +1,61 @@
+% BOOK-FILE-ID: f-6c65fa1f20a5
+\subsubsection{整数の個数を数える}\label{節：整数の個数を数える}
+$X\ge0$なら$\lfloor X\rfloor$は$1\le k\le X$を満たす整数の個数である.
+$\lfloor \dfrac{n}{m}\rfloor$なら,\,$1,\ldots,n$の中の$m$の倍数を数える.
+\textbf{\bookterm{floor-function}{床関数}の和を,個数として読み直せる.}
+
+座標がともに整数の点を格子点という.
+$c>0$で,\,$\sum_{k=1}^{n}\lfloor ck\rfloor$は,\,$x=k$ごとに$1\le y\le ck$の整数$y$を数えた和である.
+群\bookterm{sequence}{数列}の別解と同じく,整数の組を数える見方になる.
+
+\noindent \bookblocklink{example-gauss-role-10}{problem}{answer}{【例題】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-10}{problem}{answer}]
+  \item \bookterm{sequence}{数列}を次のように定める.
+    \[
+      a_0=0,\qquad
+      a_n=a_{n-1}+\left\lfloor\frac{5n}{2}\right\rfloor
+      \quad(n\ge1).
+    \]
+    \bookterm{general}{一般項}を求め,\,$a_n$をある範囲の格子点の個数として説明せよ.
+\end{enumerate}
+
+\noindent \bookblocklink{example-gauss-role-10}{hint}{problem}{【方針】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-10}{hint}{problem}]
+  \item $\lfloor\frac{5k}{2}\rfloor=2k+\lfloor\frac k2\rfloor$と分けます.
+    後者の和を偶奇で求め,\bookterm{floor-function}{床関数}が数えている整数$y$の範囲も確認しましょう.
+\end{enumerate}
+
+\noindent \bookblocklink{example-gauss-role-10}{answer}{problem}{【解答】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-10}{answer}{problem}]
+  \item \[
+      a_n=n(n+1)+\left\lfloor\frac{n^2}{4}\right\rfloor.
+    \]
+    これは整数$x,y$で,
+    \[
+      1\le x\le n,\qquad 1\le y\le\frac{5x}{2}
+    \]
+    を満たす格子点の個数である.
+\end{enumerate}
+
+\noindent \bookblocklink{example-gauss-role-10}{solution}{problem}{【解法】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-10}{solution}{problem}]
+  \item \bookterm{difference}{階差}を足し,整数$2k$を\bookterm{floor-function}{床関数}の外に出すと,
+    \begin{align*}
+      a_n&=\sum_{k=1}^{n}\left\lfloor\frac{5k}{2}\right\rfloor\\
+      &=n(n+1)+\sum_{k=1}^{n}\left\lfloor\frac k2\right\rfloor.
+    \end{align*}
+    後ろの和は,\,$n=2m$なら,
+    \[
+      0+1+1+2+2+\cdots+(m-1)+(m-1)+m=m^2,
+    \]
+    $n=2m+1$なら$m^2+m$である.
+    従っていずれの場合も,
+    \[
+      \sum_{k=1}^{n}\left\lfloor\frac k2\right\rfloor
+      =\left\lfloor\frac{n^2}{4}\right\rfloor
+    \]
+    となり,【解答】を得る.\,$n=0$にも合う.
+
+    $x=k$にある格子点は,\,$1\le y\le\dfrac{5k}{2}$の$\lfloor\dfrac{5k}{2}\rfloor$個.
+    $k=1,\ldots,n$について足した$a_n$が,【解答】の範囲の点の個数となる.
+\end{enumerate}

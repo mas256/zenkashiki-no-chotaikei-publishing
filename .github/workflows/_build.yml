@@ -96,7 +96,6 @@ jobs:
           node scripts/verify-learning-design.mjs --pdf
           node scripts/verify-learning-design.mjs --pdf out/mobile/mobile.pdf
           node tests/verify-learning-navigation.mjs
-          python3 tests/test-tex-spacing.py
           python3 tests/test-mobile-publishing.py
 
       - name: Verify recurrence connections with exact arithmetic

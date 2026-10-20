@@ -1,23 +1,24 @@
+% BOOK-FILE-ID: f-1debbece06cf
 % section: 極限
 
 \section{極限}\label{節：極限}
-\sectionref*{節：ニュートン法},発展演習,\chapterref{章：解法の背景と広がり}で使う.基本パターン・応用パターンの一般項を求める段階では後回しにできる.
+\sectionref*{節：ニュートン法},発展演習,\,\chapterref{章：解法の背景と広がり}で使う.基本パターン・応用パターンの一般項を求める段階では後回しにできる.
 
 \subsection{極限の考え方}\label{節：極限の考え方}
-$x$を$a$に限りなく近づけたとき,$f(x)$が近づく値を$\lim_{x\to a}f(x)$と書く.
+$x$を$a$に限りなく近づけたとき,\,$f(x)$が近づく値を$\lim_{x\to a}f(x)$と書く.
 例えば$\lim_{x\to2}(x^2-4)=0$である.
 
 \subsection{数列の極限}\label{節：数列の極限}
-番号$n$を大きくしたとき,$a_n$が$L$に限りなく近づくなら,$L$に収束するといい,
+番号$n$を大きくしたとき,\,$a_n$が$L$に限りなく近づくなら,\,$L$に収束するといい,
 \[
   \lim_{n\to\infty}a_n=L
 \]
 と書く.例えば$\lim_{n\to\infty}\dfrac{1}{n}=0$である.
 
 \subsection{関数の極限}\label{節：関数の極限}
-$\lim_{x\to a}f(x)$では,$x=a$での値ではなく,$x\ne a$の近くでの値を見る.
+$\lim_{x\to a}f(x)$では,\,$x=a$での値ではなく,\,$x\ne a$の近くでの値を見る.
 極限の計算には,既知の極限を組み合わせる方法や,上下から挟む方法がある.
-例えば$a_n\le b_n\le c_n$で,$a_n,c_n$が同じ$L$へ収束するなら,$b_n$も$L$へ収束する.
+例えば$a_n\le b_n\le c_n$で,\,$a_n,c_n$が同じ$L$へ収束するなら,\,$b_n$も$L$へ収束する.
 これをはさみうちの原理という.
 
 \subsection{片側極限}\label{節：片側極限}
@@ -29,18 +30,18 @@ $x<a$から近づく\textbf{\bookterm{left-limit}{左側極限}}には
     &=\lim_{\substack{x\to a\\x<a}}f(x)=\lim_{x\uparrow a}f(x)
   \end{aligned}
 \]
-という記法がある.$x>a$から近づく\textbf{\bookterm{right-limit}{右側極限}}も同様に
+という記法がある.\,$x>a$から近づく\textbf{\bookterm{right-limit}{右側極限}}も同様に
 \[
   \begin{aligned}
     \lim_{x\to a+}f(x)&=\lim_{x\to a^+}f(x)\\
     &=\lim_{\substack{x\to a\\x>a}}f(x)=\lim_{x\downarrow a}f(x).
   \end{aligned}
 \]
-$x\to0^+$を$x\to+0$,$x\to0^-$を$x\to-0$とも書く.$\pm0$は近づく側を表し,異なる数ではない.
+$x\to0^+$を$x\to+0$,\,$x\to0^-$を$x\to-0$とも書く.\,$\pm0$は近づく側を表し,異なる数ではない.
 
-左右から近づける場合,通常の極限が有限の$L$になるための必要十分条件は,左右の極限がともに存在し,$L$に一致することである.
-例えば$x<0$で$f(x)=-1$,$x\ge0$で$f(x)=1$なら,左右の極限は$-1$と$1$で異なり,$\lim_{x\to0}f(x)$は存在しない.
-片側極限にも,$x=a$での値そのものは関係しない.
+左右から近づける場合,通常の極限が有限の$L$になるための必要十分条件は,左右の極限がともに存在し,\,$L$に一致することである.
+例えば$x<0$で$f(x)=-1$,\,$x\ge0$で$f(x)=1$なら,左右の極限は$-1$と$1$で異なり,\,$\lim_{x\to0}f(x)$は存在しない.
+片側極限にも,\,$x=a$での値そのものは関係しない.
 
 \subsection{\texorpdfstring{ネイピア数$e$}{ネイピア数e}}\label{節：ネイピア数e}
 ベルヌーイの定義では
@@ -51,7 +52,7 @@ $x\to0^+$を$x\to+0$,$x\to0^-$を$x\to-0$とも書く.$\pm0$は近づく側を�
 以下の基本極限を,\bookterm{euler}{オイラーの公式}の導出に使う.
 
 \subsection{三角関数の極限}\label{節：三角関数の極限}
-角度を弧度法で表す.$0<x<\dfrac{\pi}{2}$では,単位円の扇形と内接・外接三角形の面積を比べると
+角度を弧度法で表す.\,$0<x<\dfrac{\pi}{2}$では,単位円の扇形と内接・外接三角形の面積を比べると
 \[
   \frac12\sin x<\frac12x<\frac12\tan x.
 \]
@@ -163,7 +164,7 @@ $x\to0^+$では$t=\dfrac{1}{x}\to\infty$と置くと
 \[
   (1+x)^{\dfrac{1}{x}}=\left(1+\frac1t\right)^t\longrightarrow e.
 \]
-$x\to0^-$では$t=-\dfrac{1}{x}\to\infty$,$u=t-1$と置き,
+$x\to0^-$では$t=-\dfrac{1}{x}\to\infty$,\,$u=t-1$と置き,
 \begin{align*}
   (1+x)^{\dfrac{1}{x}}&=\left(1-\frac1t\right)^{-t}\\
   &=\left(1+\frac1u\right)^u
@@ -174,7 +175,7 @@ $x\to0^-$では$t=-\dfrac{1}{x}\to\infty$,$u=t-1$と置き,
   \lim_{x\to0}\frac{\log(1+x)}x
   =\log e=1.
 \]
-また,実数$a\ne0$に対して,$n$が十分大きければ$1+\dfrac{a}{n}>0$であり,
+また,実数$a\ne0$に対して,\,$n$が十分大きければ$1+\dfrac{a}{n}>0$であり,
 \[
   n\log\left(1+\frac an\right)
   =a\frac{\log\left(1+\dfrac{a}{n}\right)}{\dfrac{a}{n}}\longrightarrow a.

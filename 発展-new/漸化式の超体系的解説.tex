@@ -23,7 +23,9 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
 \usepackage{graphicx}
-\input{figures/diagrams.tex}
+\usepackage{import}
+\input{.book-import-map.tex}
+\BookImport{f-a3f9ebba4e9c}
 
 
 % =========================================================
@@ -187,7 +189,7 @@
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{4}
 
-\input{../tex/book-links.tex}
+\BookImport{f-9e72811e699c}
 % 用語の初出表示・巻末の参照案内・式番号のリンクは共通設定で扱う。
 
 \hypersetup{
@@ -379,11 +381,11 @@
     \tableofcontents
     \pagebreak
   \endgroup
-  \input{第1章 はじめに/はじめに.tex}
-  \input{第2章 漸化式の解法/漸化式の解法.tex}
-  \input{第3章 解法の選択と演習/解法の選択と演習.tex}
-  \input{第4章 解法の背景と広がり/解法の背景と広がり.tex}
-  \input{第5章 用語と公式/用語と公式.tex}
-  \input{第6章 参考文献/参考文献.tex}
+  \BookImport{f-283eff783aa4}
+  \BookImport{f-25d91e4fd357}
+  \BookImport{f-305150da53bc}
+  \BookImport{f-59229f73b5e4}
+  \BookImport{f-3b097c7e4762}
+  \BookImport{f-15716640a8d5}
 
 \end{document}
