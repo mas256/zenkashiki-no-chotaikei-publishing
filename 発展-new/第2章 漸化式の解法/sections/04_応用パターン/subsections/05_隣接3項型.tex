@@ -2,32 +2,44 @@
 % subsection: 隣接3項間漸化式型 \, $\displaystyle a_{n+2}+pa_{n+1}+qa_n=0$
 
 \subsection{\texorpdfstring{隣接3項型  $\displaystyle a_{n+2}+pa_{n+1}+qa_n=0$}{隣接3項型}}\label{節：隣接3項型}
-\begin{bookpoint}
-  \textbf{二項をまとめる}\par
-  等比型になる組合せを目標に係数を決める.異なる根と重解では,必要な独立な解の作り方が変わる.
-\end{bookpoint}
-
 \subsubsection{\texorpdfstring{付加項がない場合  $\displaystyle a_{n+2}+pa_{n+1}+qa_n=0$}{付加項がない場合}}\label{節：付加項がない場合}
-一項だけでは更新が閉じないので,二項をまとめる.
-$a_{n+1}-\alpha a_n$を一つの量として追い,次でも同じ組合せが一定倍される形を目指す.
-掛ける倍率$\beta$もまだ決めず,元の式と係数が合うように選ぶ.
+
+今までは隣接2項間の漸化式について考えてきたが,過去2項の影響を受けるような漸化式を考えてみよう.
+この漸化式の有名な例にフィボナッチ数列の漸化式などもある.
+
+一般的な形は
 \[
-  a_{n+2}-\alpha a_{n+1}=\beta(a_{n+1}-\alpha a_n)
+  a_{n+2}+pa_{n+1}+qa_n=0
 \]
-を展開すると$a_{n+2}-(\alpha+\beta)a_{n+1}+\alpha\beta a_n=0$になる.
-元の\bookterm{recurrence}{漸化式}と係数を合わせれば,
+で表される.
+いままで数々の2項間漸化式を扱ってきた.
+したがって,今回は3項間をなんとかして2項間にできないか挑戦してみよう.
+
+過去の天才らのアイデアを自力で出すのは難しいので今回も結論から示す.
+その手法は
 \[
+  a_{n+2}+pa_{n+1}+qa_n=0 \iff   a_{n+2}-\alpha a_{n+1}=\beta(a_{n+1}-\alpha a_{n})
+\]
+となる解$\alpha,\beta$を考えることで,$a_n$に関しての3項間の漸化式が$a_n$の階差に関する2項間の漸化式になるのだ.
+$a_n$の階差に関する2項間漸化式を式変形して係数比較すると,
+\begin{align*}
+  &a_{n+2}-\alpha a_{n+1}=\beta(a_{n+1}-\alpha a_{n})
+  &a_{n+2}-(\alpha+\beta)a_{n+1}-\alpha\beta a_n=0
+\end{align*}
+より,
+\]
   \alpha+\beta=-p,\qquad\alpha\beta=q.
 \]
-解と係数の関係より,\,$\alpha,\beta$は$x^2+px+q=0$の二根である.
-この方程式を\bookterm{characteristic}{特性方程式}という.
+解と係数の関係より,$\alpha,\beta$は$x^2+px+q=0$の二根である.
+この方程式もまた\bookterm{characteristic}{特性方程式}という.
+すなわち,形式的には$a_{n+2}$を$x^2$,$a_{n+1}$を$x$,$a_n$を1に置き換えた二次方程式を解くことで等比型に帰着させられるのである.
 
-$q=0$なら先に元の式を使う.\,$a_{n+2}=-pa_{n+1}$なので,\,$p\ne0$では
+なお$q=0$なら先に元の式を使う.\,$a_{n+2}=-pa_{n+1}$なので,\,$p\ne0$では
 \[
   a_n=a_2(-p)^{n-2}\quad(n\ge2)
 \]
 となり,\,$a_1$は与えられた値を保つ.\,$p=0$でもあるなら$n\ge3$で$a_n=0$である.
-以下では$q\ne0$,すなわち二根とも非零とする.
+以下では$q\ne0$,すなわち二根とも0でないとする.
 
 $\alpha\ne\beta$なら,
 \[
@@ -54,11 +66,21 @@ $b_n-c_n=(\beta-\alpha)a_n$だから,
     \end{aligned}
   \]}
 係数は$n$によらないので,\,$a_n=A\alpha^{n-1}+B\beta^{n-1}$と書ける.
-重解では$\beta-\alpha$で割れず,同じ冪を二つ並べても\bookterm{independent}{一次独立}にはならない.
-作れた一つの等比数列から,\,$a_{n+1}-\alpha a_n$の値は分かる.
-そこで,今度はこの関係を$a_n$についての更新式として解けばよい.
+重解では作れた一つの等比数列から,\,$a_{n+1}-\alpha a_n$の値は分かる.
+そこで,今度はこの関係を$a_n$について考えればよい.
 $b_n=a_{n+1}-\alpha a_n$を等比型として解き,残る式から復元する.例題(2)で確かめよう.
 
+\begin{bookpoint}
+  \textbf{POINT}\par
+  $a_{n+2}$を$x^2$,$a_{n+1}$を$x$,$a_n$を1に置き換えた2次方程式を解き,得られた2解$\alpha,\beta$をもって立てられる2漸化式
+  \begin{aligin*}
+    \begin{cases}
+      a_{n+2}-\alpha a_{n+1}=\beta(a_{n+1}-\alpha a_{n+}) &\\
+      a_{n+2}-\beta a_{n+1}=\alpha(a_{n+1}-\beta a_{n+}) &\\
+    \end{cases}
+  \end{aligin*}
+  を解けば良い.
+\end{bookpoint}
 \noindent \bookblocklink{example-three-term-1}{problem}{answer}{【例題】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-three-term-1}{problem}{answer}]
   \item $\displaystyle a_1=1,\,a_2=1,\, a_{n+2}=5a_{n+1}-6a_n$
@@ -207,7 +229,7 @@ $1+p+q=0$の場合は,例題の後で階差を使って考える.
 \end{enumerate}
 
 
-\bookstep{定数でずれを戻せないとき}
+\noindent \textbf{定数でずれを戻せないとき}
 $p+q+1=0$かつ$r\ne0$のときは,\,$r=(p+q+1)\alpha$を満たす定数$\alpha$が存在しない.
 一方,\,$r=0$なら任意の定数が条件を満たし,元の式はすでに付加項のない形である.
 
@@ -222,3 +244,24 @@ $-(p+1)=q$を使うと,
 \]
 となり,特性方程式型または\bookterm{difference}{階差}型に帰着できる.
 $d_1=a_2-a_1$から解き,\,$a_n=a_1+\sum_{k=1}^{n-1}d_k$として足し戻す.
+
+\noindent \textbf{【別解】}
+ここで扱う別解は,特に計算において有利になるようなものでも,汎用性があるようなものでもない.
+しかしながら他の解法とのつながりという観点で大きな意味を持つため,解説する.
+
+隣接3項間漸化式
+\[
+  a_{n+2}+pa_{n+1}+qa_n=0
+\]
+について,両辺を$a_{n+1}$で割って,
+\[
+  \frac{a_{n+2}}{a_{n+1}}+p+\frac{a_n}{a_{n+1}q=0
+\]
+ここで$\displaystyle b_n=\frac{a_{n+1}}{a_n}$と置いて式を整理すると,
+\[
+  b_{n+1}=-p-\frac{1}{b_n}
+\]
+となり,1次分数型漸化式になるのだ.
+\sectionref{節：特性根が虚数の場合}では,隣接3項間漸化式の特性方程式の解が虚数解になる場合を扱っている.
+複素平面を通じて漸化式が回転や拡大,縮小という図形的操作とつながっていることをここで紹介することとした.
+事の詳細はは付録にて扱う.
