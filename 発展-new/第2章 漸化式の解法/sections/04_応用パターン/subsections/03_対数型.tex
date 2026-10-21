@@ -21,6 +21,7 @@
   対数の真数条件から,この節で扱う$a_n$はすべて0より大きい実数であるとする.
   以後断りなしに対数をとるが,答案等に書く際は常に真数条件を確かめる\footnote{$a_n>0$ならば$p a_n^q>0$であるから,\bookterm{induction}{数学的帰納法}によりすべての項が正となり,\bookterm{logarithm}{対数}を取ることができる.}こと.
   
+
   実際に両辺の対数を取ってみると,
   \begin{align*}
       \log_pa_{n+1}&=\log_pp+q\log_pa_n\\
@@ -43,13 +44,8 @@
   \]
   であることから,一般項を得る.
 
-  \begin{bookpoint}
-    \textbf{POINT}\par
-    積や商のみで表される漸化式は,対数を取って和や差の形に変形しよう
-  \end{bookpoint}
-
-  なお,$a_n^2$などが漸化式中にあり,そこに定数項や関数が足されている場合は対数がうまく使えない可能性がある.
-  対数を使いたい場合は定数項や関数の項を両辺に分けて(不動点の値を引いてあげて)両辺の形を整えてから取るとよい.
+  また,階比型漸化式を対数を使って解くことで,より楽に解ける場合がある.
+  それは,積を和に変えるという対数の便利な性質に由来するものである.
   
   \noindent\bookblocklink{example-logarithmic-1}{problem}{answer}{【例題】}\par\nobreak
   \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-logarithmic-1}{problem}{answer}]
@@ -125,12 +121,10 @@
       \]
       従って$a_n=n!$となる.直接積を取っても同じ結果が得られる.
   \end{enumerate}
-  \noindent\textbf{【補足】}
+  \paragraphbf{補足}
   
   (3),(6)の$\log$は底が$e$の自然\bookterm{logarithm}{対数}である.
-  特に深い理由があって$e$を底として取ったわけではなく,とくに取るべき底も与えられた式から判断できないため,多くの場面で用いられがちな自然体数の底をとったのである.
-  
-  また,変形後の真数が$0$や負なら,実数の\bookterm{logarithm}{対数}は取れない.例えば(4)で初項が$1$なら定数\bookterm{sequence}{数列}$a_n=1$となり,\,$\log(a_n-1)$を取らずに扱う.
+  変形後の真数が$0$や負なら,実数の\bookterm{logarithm}{対数}は取れない.例えば(4)で初項が$1$なら定数\bookterm{sequence}{数列}$a_n=1$となり,\,$\log(a_n-1)$を取らずに扱う.
   
   \noindent\bookblocklink{check-log-domain}{problem}{answer}{【確認問題】}\par\nobreak
   \begin{enumerate}[format=\bookitemlink{check-log-domain}{problem}{answer}]

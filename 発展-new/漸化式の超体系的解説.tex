@@ -70,7 +70,6 @@
   colback=black!3,colframe=black!55,boxrule=0pt,leftrule=1.2pt,
   left=5pt,right=3pt,top=3pt,bottom=3pt,
   before skip=6pt,after skip=6pt}
-\newcommand{\bookstep}[1]{\par\medskip\noindent\textbf{#1}\par\nobreak\smallskip}
 
 \definecolor{shadecolor}{gray}{0.80}
 
@@ -186,12 +185,26 @@
 % 目次・見出し番号
 % =========================================================
 
-\setcounter{tocdepth}{3}
+\setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
 
 \BookImport{f-9e72811e699c}
 % 用語の初出表示・巻末の参照案内・式番号のリンクは共通設定で扱う。
 
+% 番号を付けない小見出し。引数は【】の内側だけを指定する。
+% 本文・目次とも【】を自動で付けて太字にし、段落レベルで目次に載せる。
+% オプション引数は、本文表示と目次表示を分けたい場合に使う。
+\newcommand{\paragraphbf}[2][]{%
+  \par\medskip
+  \phantomsection
+  \if\relax\detokenize{#1}\relax
+    \addcontentsline{toc}{paragraph}{【#2】}%
+  \else
+    \addcontentsline{toc}{paragraph}{【#1】}%
+  \fi
+  \noindent\begingroup\booktermcuesfalse\textbf{【#2】}\endgroup\par
+  \nobreak\smallskip
+}
 \hypersetup{
   pdftitle={漸化式の体系と解法},
   pdfauthor={MAS256},

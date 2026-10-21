@@ -192,7 +192,7 @@
   ここからがやっと解法である.
   メジャーな解法は「同じ値を引く」の方なので,先にその方法で示してから,後に「別の等式を用意して代入」の方をお見せしよう.
 
-  \noindent \textbf{【同じ値を引く】}
+  \paragraphbf{同じ値を引く}
   
   結論から述べよう.
   $q$がなくなるように式変形をしてやればよいのだから
@@ -219,8 +219,9 @@
   \begin{align*}
     &b_{n+1}=pb_n\\
     &\therefore \quad b_n=b_1p^{n-1}\\
-    &\therefore \quad a_n=(a_1-\alpha)p^{n-1}+\alpha
-    &\therefore \quad a_n=(a_1-\frac{q}{1-p})p^{n-1}+\frac{q}{1-p}
+     &\therefore \quad a_n=(a_1-\alpha)p^{n-1}+\alpha\\
+     &\therefore \quad a_n=(a_1-\frac{q}{1-p})p^{n-1}\\
+     &\qquad\qquad+\frac{q}{1-p}
   \end{align*}
   以上より一般項を得る.
   
@@ -271,7 +272,7 @@
   初項が$\alpha$なら定数解,異なるなら$|p|>1$でずれが増大し,\,$|p|<1$で$0$へ近づく.
   後者では$a_n\to\alpha$となる.
 
-  \noindent \textbf{【別の等式を用意して代入】}
+  \paragraphbf{別の等式を用意して代入}
   
   同じ$q$を消すには,隣り合う2つの漸化式をを引く方法もある.
   \begin{align*}
@@ -329,10 +330,10 @@
   この先では引く量が一次式などへ広がり,\,2項をまとめる際には倍率を求める\mbox{\bookterm{characteristic}{特性方程式}}が現れる.
   今の$\alpha$は変わらない値,後の根は更新の倍率である.付録の\bookterm{matrix}{行列}でもつながりを見直す.
 
-  \noindent \textbf{【$p$へのアプローチ】}
+  \paragraphbf{$p$へのアプローチ}
   
-  ここまで$q$を消す試みを続けてきたが,\,$p$にたいしてうまく操作できないだろうか.
-  \sectionref{節：階差等比複合型}でも使われる式変形を用いればうまく解くことができる.
+  ここまで$q$を消す試みを続けてきたが,\,$p$に対してうまく操作できないだろうか.
+  \mbox{第\hyperref[節：階差等比複合型]{\ref*{節：階差等比複合型}}項「階差等比複合型」}でも使われる式変形を用いればうまく解くことができる.
   \[
     a_{n+1}=pa_n+q
   \]

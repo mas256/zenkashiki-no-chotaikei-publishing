@@ -24,7 +24,8 @@ def main():
     )
     # Root-relative inputs must keep working even when a user's latexmkrc enables cd.
     subprocess.run(
-        ["latexmk", "-cd-", f"-outdir={output.as_posix()}", str(wrapper)], cwd=BOOK, check=True,
+        ["latexmk", "-cd-", f"-outdir={output.as_posix()}",
+         f"-auxdir={output.as_posix()}", str(wrapper)], cwd=BOOK, check=True,
         env={**os.environ, "max_print_line": "1000"},
     )
     print(f"Smartphone PDF: {output / 'mobile.pdf'}")

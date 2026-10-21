@@ -21,7 +21,7 @@
 
 $b_n=a_n-x$と置き,分子の定数項が消えるように$x$を選ぶ.
 $a_n=b_n+x$を代入すると,
-\BookMathLayobt{\begin{align*}
+\BookMathLayout{\begin{align*}
     b_{n+1}&=\frac{p(b_n+x)+q}{r(b_n+x)+s}-x\\
     &=\frac{(p-rx)b_n+px+q-rx^2-sx}
     {rb_n+rx+s}
@@ -162,7 +162,7 @@ $\alpha$と$\beta$の大小関係は,解の大小関係を要求されていな�
 
 \begin{bookpoint}
   \textbf{POINT}\par
-  $a_{n+1}$と$a_n$を$x$に置き換えた二次方程式をとき,その2解$\alpha,\beta$によって$\displaystyle b_n=\frac{a_n-\alpha}{a_n-\beta}とおく.
+  $a_{n+1}$と$a_n$を$x$に置き換えた二次方程式をとき,その2解$\alpha,\beta$によって$\displaystyle b_n=\frac{a_n-\alpha}{a_n-\beta}$とおく.
   $b_n$について等比型漸化式が作れるので,その一般項を得たら$a_n$に戻す.
 \end{bookpoint}
 
@@ -285,71 +285,71 @@ $\alpha$と$\beta$の大小関係は,解の大小関係を要求されていな�
     \end{align*}
     を得る.
 \end{enumerate}
-\bookstep{一つの不動点から進む}
-不動点の方程式が重解$\alpha$を持つときは,差の比を作れない.
-$\alpha=\dfrac{p-s}{2r}$なので,\,$c=p-r\alpha=r\alpha+s\ne0$と置けば,
-\[
-  a_{n+1}-\alpha
-  =\frac{c(a_n-\alpha)}{r(a_n-\alpha)+c}
-\]
-となる.\,$a_1=\alpha$なら定数\bookterm{sequence}{数列}として分ける.
-それ以外では,分母が非零の範囲で$c\ne0$より
-\[
-  a_{n+1}-\alpha=0
-  \quad\Longleftrightarrow\quad a_n-\alpha=0
-\]
-であり,途中で$\alpha$に到達しない.従って逆数を取れて,
-\[
-  \frac1{a_{n+1}-\alpha}
-  =\frac1{a_n-\alpha}+\frac rc
-\]
-という\bookterm{arithmetic}{等差数列}に帰着する.
-\textbf{異なる不動点なら二つの差の比,重解なら一つの差の逆数}を追えばよい.
-例題(3)は$\alpha=3,\ r=c=1$なので,逆数が毎回$1$ずつ増えた.
+\paragraphbf{特性方程式が重解の時}
+  不動点の方程式が重解$\alpha$を持つときは,差の比を作れない.
+  $\alpha=\dfrac{p-s}{2r}$なので,\,$c=p-r\alpha=r\alpha+s\ne0$と置けば,
+  \[
+    a_{n+1}-\alpha
+    =\frac{c(a_n-\alpha)}{r(a_n-\alpha)+c}
+  \]
+  となる.\,$a_1=\alpha$なら定数\bookterm{sequence}{数列}として分ける.
+  それ以外では,分母が非零の範囲で$c\ne0$より
+  \[
+    a_{n+1}-\alpha=0
+    \quad\Longleftrightarrow\quad a_n-\alpha=0
+  \]
+  であり,途中で$\alpha$に到達しない.従って逆数を取れて,
+  \[
+    \frac1{a_{n+1}-\alpha}
+    =\frac1{a_n-\alpha}+\frac rc
+  \]
+  という\bookterm{arithmetic}{等差数列}に帰着する.
+  \textbf{異なる不動点なら二つの差の比,重解なら一つの差の逆数}を追えばよい.
+  例題(3)は$\alpha=3,\ r=c=1$なので,逆数が毎回$1$ずつ増えた.
 
-\bookstep{比から見える数列}
-例題(4)は,フィボナッチ\bookterm{sequence}{数列}$F_1=F_2=1,\ F_{n+2}=F_{n+1}+F_n$とつながる.
-隣接項の比$\dfrac{F_{n+1}}{F_n}$は同じ更新$a_{n+1}=1+\dfrac{1}{a_n}$と初項$1$を満たすので,\,$a_n=\dfrac{F_{n+1}}{F_n}$である.
-この比の\bookterm{limit}{極限}は黄金比$\dfrac{1+\sqrt5}{2}$となる.\footnote{リュカ数列も同じ\bookterm{characteristic}{特性方程式}$x^2=x+1$を持ち,隣接項の比が黄金比へ収束する.
-  トリボナッチ数列では$x^3=x^2+x+1$となり,比の極限は約$1.839$のトリボナッチ定数になる.}
+\paragraphbf{小話：フィボナッチ数列}
+  例題(4)は,フィボナッチ\bookterm{sequence}{数列}$F_1=F_2=1,\ F_{n+2}=F_{n+1}+F_n$とつながる.
+  隣接項の比$\dfrac{F_{n+1}}{F_n}$は同じ更新$a_{n+1}=1+\dfrac{1}{a_n}$と初項$1$を満たすので,\,$a_n=\dfrac{F_{n+1}}{F_n}$である.
+  この比の\bookterm{limit}{極限}は黄金比$\dfrac{1+\sqrt5}{2}$となる.\footnote{リュカ数列も同じ\bookterm{characteristic}{特性方程式}$x^2=x+1$を持ち,隣接項の比が黄金比へ収束する.
+    トリボナッチ数列では$x^3=x^2+x+1$となり,比の極限は約$1.839$のトリボナッチ定数になる.}
 
-\bookstep{項を並べて予想する}
-一次分数型では,初めの数項から一般項を予想し,帰納法で確かめる方法もある.
-数項を求める誘導があれば,分母と分子の増え方にも注目しよう.例題(3)で試す.\\
-\noindent\bookblocklink{example-mobius-2}{problem}{answer}{【例題】}\par\nobreak
-\begin{quote}
-  以下の\bookterm{recurrence}{漸化式}
-  \[
-    a_1=5,\, a_{n+1}=\dfrac{4a_{n}-9}{a_{n}-2}
-  \]
-  を満たす\bookterm{sequence}{数列}$a_n$の\bookterm{general}{一般項}を帰納法を用いて求めよ.
-\end{quote}
-\bookblocklink{example-mobius-2}{hint}{problem}{【方針】}
-\begin{quote}
-  実験的に代入計算をしてみると,
-  \[
-    a_1=\frac{5}{1},\,a_2=\frac{11}{3},\,a_3=\frac{17}{5},\,a_4=\frac{23}{7},\,a_5=\frac{29}{9}
-  \]
-  となる.分母が2ずつ,分子が6ずつ増えていることから,\bookterm{general}{一般項}は
-  \[
-    a_n=\frac{6n-1}{2n-1}
-  \]
-  と予想する.
-\end{quote}
-\bookblocklink{example-mobius-2}{answer}{problem}{【解答】}
-\begin{quote}
-  予想した\bookterm{general}{一般項}を確かめる.\,$n=1$では$\dfrac{6-1}{2-1}=5$なので成立する.
-  正の整数$k$について,
-  \[
-    a_k=\frac{6k-1}{2k-1}
-  \]
-  が成り立つと仮定する.このとき,\bookterm{recurrence}{漸化式}より,
-  \begin{align*}
-    a_{k+1}&=\frac{4(6k-1)-9(2k-1)}{6k-1-2(2k-1)}\\
-    &=\frac{6k+5}{2k+1}
-    =\frac{6(k+1)-1}{2(k+1)-1}
-  \end{align*}
-  分母$a_k-2=\dfrac{2k+1}{2k-1}$も零でなく,\,$n=k+1$で成立する.
-  帰納法より,\,$a_n=\dfrac{6n-1}{2n-1}$がすべての正の整数$n$で成り立つ.\qed
+\paragraphbf{数学的帰納法による一般項の証明}
+  一次分数型では,初めの数項から一般項を予想し,帰納法で確かめる方法もある.
+  数項を求める誘導があれば,分母と分子の増え方にも注目しよう.例題(3)で試す.\\
+  \noindent\bookblocklink{example-mobius-2}{problem}{answer}{【例題】}\par\nobreak
+  \begin{quote}
+    以下の\bookterm{recurrence}{漸化式}
+    \[
+      a_1=5,\, a_{n+1}=\dfrac{4a_{n}-9}{a_{n}-2}
+    \]
+    を満たす\bookterm{sequence}{数列}$a_n$の\bookterm{general}{一般項}を帰納法を用いて求めよ.
+  \end{quote}
+  \bookblocklink{example-mobius-2}{hint}{problem}{【方針】}
+  \begin{quote}
+    実験的に代入計算をしてみると,
+    \[
+      a_1=\frac{5}{1},\,a_2=\frac{11}{3},\,a_3=\frac{17}{5},\,a_4=\frac{23}{7},\,a_5=\frac{29}{9}
+    \]
+    となる.分母が2ずつ,分子が6ずつ増えていることから,\bookterm{general}{一般項}は
+    \[
+      a_n=\frac{6n-1}{2n-1}
+    \]
+    と予想する.
+  \end{quote}
+  \bookblocklink{example-mobius-2}{answer}{problem}{【解答】}
+  \begin{quote}
+    予想した\bookterm{general}{一般項}を確かめる.\,$n=1$では$\dfrac{6-1}{2-1}=5$なので成立する.
+    正の整数$k$について,
+    \[
+      a_k=\frac{6k-1}{2k-1}
+    \]
+    が成り立つと仮定する.このとき,\bookterm{recurrence}{漸化式}より,
+    \begin{align*}
+      a_{k+1}&=\frac{4(6k-1)-9(2k-1)}{6k-1-2(2k-1)}\\
+      &=\frac{6k+5}{2k+1}
+      =\frac{6(k+1)-1}{2(k+1)-1}
+    \end{align*}
+    分母$a_k-2=\dfrac{2k+1}{2k-1}$も零でなく,\,$n=k+1$で成立する.
+    帰納法より,\,$a_n=\dfrac{6n-1}{2n-1}$がすべての正の整数$n$で成り立つ.\qed
 
-\end{quote}
+  \end{quote}

@@ -13,6 +13,8 @@ cd 発展-new
 latexmk 漸化式の超体系的解説.tex
 ```
 
+A4版のPDFは従来どおり `発展-new/` に生成されます。`.fls` を含む補助ファイルとログは、リポジトリ直下の `out/latex-aux/` にまとめられます。
+
 GitHub Actionsでは TeX Live 2025 の固定アーカイブ（`tlnet-final`）から必要なパッケージだけを用意し、同じ原稿からA4版とスマホ版をビルドします。インストール済み環境をキャッシュするため、2回目以降は再インストールが不要です。生成PDFはGitで追跡せず、正式版Releaseのassetとして保存します。
 
 PDFの目次は章・節・項（`chapter` から `subsubsection`）までクリックでき、本文中の見出し参照もリンクになります。例題・演習問題の番号から対応する解答へ、方針・解答・解法の番号から元の問題へ戻れます。番号のない例題を含め、例題の【例題】・【方針】・【解答】・【解法】の見出しにも同じリンクを付けています。リンク設定は両版共通の `tex/book-links.tex` にあります。
@@ -44,7 +46,7 @@ python3 scripts/build-mobile.py
 CIは両版を生成した後、ログのはみ出し・未解決参照、全ページの寸法、フォント、式番号・演習・用語のリンクを検査します。はみ出しがあればファイル名・行番号・幅を表示し、公開を止めます。ローカルでも生成後に同じ検査ができます。
 
 ```bash
-python3 scripts/verify-tex-layout.py '発展-new/漸化式の超体系的解説.log' out/mobile/mobile.log
+python3 scripts/verify-tex-layout.py 'out/latex-aux/漸化式の超体系的解説.log' out/mobile/mobile.log
 ```
 
 ## GitHubでの初期設定

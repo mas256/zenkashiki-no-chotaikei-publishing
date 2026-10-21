@@ -66,7 +66,10 @@ def check(pdf=None):
         named = set(re.findall(r'"([^"\n]+)"', output))
         required = {f'term:{term}' for term in terms} | destinations
         required |= {f'eqcite:{tag}' for tag in tags}
-        aux = pdf.with_suffix('.aux').read_text(encoding='utf-8')
+        aux_path = pdf.with_suffix('.aux')
+        if not aux_path.exists():
+            aux_path = ROOT / 'out' / 'latex-aux' / aux_path.name
+        aux = aux_path.read_text(encoding='utf-8')
         tag_destinations = dict(re.findall(
             r'\\newlabel\{eqtag:([^{}]+)\}[^\n]*\{(AMS\.[^{}]+)\}\{\}\}', aux
         ))
