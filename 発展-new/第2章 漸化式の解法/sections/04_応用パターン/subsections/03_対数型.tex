@@ -19,9 +19,8 @@
 
   ここで1つ断りをいれておこう.
   対数の真数条件から,この節で扱う$a_n$はすべて0より大きい実数であるとする.
-  以後断りなしに対数をとるが,答案等に書く際は常に真数条件を確かめる.\footnote{$a_n>0$ならば$p a_n^q>0$であるから,\bookterm{induction}{数学的帰納法}によりすべての項が正となり,\bookterm{logarithm}{対数}を取ることができる.}こと.
+  以後断りなしに対数をとるが,答案等に書く際は常に真数条件を確かめる\footnote{$a_n>0$ならば$p a_n^q>0$であるから,\bookterm{induction}{数学的帰納法}によりすべての項が正となり,\bookterm{logarithm}{対数}を取ることができる.}こと.
   
-
   実際に両辺の対数を取ってみると,
   \begin{align*}
       \log_pa_{n+1}&=\log_pp+q\log_pa_n\\
@@ -43,6 +42,14 @@
     b_n=\log_p a_n  \iff a_n=p^{b_n}
   \]
   であることから,一般項を得る.
+
+  \begin{bookpoint}
+    \textbf{POINT}\par
+    積や商のみで表される漸化式は,対数を取って和や差の形に変形しよう
+  \end{bookpoint}
+
+  なお,$a_n^2$などが漸化式中にあり,そこに定数項や関数が足されている場合は対数がうまく使えない可能性がある.
+  対数を使いたい場合は定数項や関数の項を両辺に分けて(不動点の値を引いてあげて)両辺の形を整えてから取るとよい.
   
   \noindent\bookblocklink{example-logarithmic-1}{problem}{answer}{【例題】}\par\nobreak
   \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-logarithmic-1}{problem}{answer}]
