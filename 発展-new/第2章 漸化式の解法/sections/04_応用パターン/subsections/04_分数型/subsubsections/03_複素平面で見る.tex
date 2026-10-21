@@ -2,82 +2,176 @@
 % subsubsection: 極形式による図形的解釈
 
 \subsubsection{複素平面で見る}
+  前節の複雑な式変形が図形的に解釈できるだろうか.
+  答えは真だ.
+  複素平面の上で漸化式を眺めてみよう.
 
-前節で追った二つの差の比
-\[
-  b_n=\frac{a_n-\alpha}{a_n-\beta}
-\]
-を,\bookterm{complex-plane}{複素平面}上で考えよう.
-点$a_n$から二つの\bookterm{fixed}{不動点}までの距離の比は,
-\[
-  \frac{|a_n-\alpha|}{|a_n-\beta|}=|b_n|
-\]
-である.分母のベクトル$a_n-\beta$から分子のベクトル$a_n-\alpha$へ測る有向角は,
-$b_n$の\bookterm{argument}{偏角}$\arg b_n$に対応する.
-つまり,次の図の\textbf{長さの比と角度の差}を,一つの複素数$b_n$で表せる.
-\BookFigMobius
-
-$b_{n+1}=\lambda b_n$なら,長さの比は$|\lambda|$倍され,角度の差は$\arg\lambda$だけ増える.
-特に$|\lambda|=1$なら,\,$b_n$は原点からの距離を保って回転する.
-
-係数$p,q,r,s$が実数で,不動点の方程式
-\[
-  rx^2+(s-p)x-q=0
-\]
-が非実の二解を持つ場合を考えよう.二解は\bookterm{conjugate}{共役}なので,\,$\beta=\overline\alpha$と選べる.
-前節の変形から,
-\[
-  b_n=\frac{a_n-\alpha}{a_n-\overline\alpha},\qquad
-  b_{n+1}=\lambda b_n,
-\]
-\[
-  \lambda=\frac{p-r\alpha}{p-r\overline\alpha}
-\]
-となる.分子と分母も共役なので,\,$|\lambda|=1$である.
-\bookterm{polar}{極形式}で
-\begin{align*}
-  \lambda&=\cos\theta+i\sin\theta,\\
-  b_n&=\rho_n(\cos\varphi_n+i\sin\varphi_n)
-\end{align*}
-と書くと,掛け算は角度の和になる.
-\[
-  b_{n+1}=\rho_n\{\cos(\varphi_n+\theta)
-  +i\sin(\varphi_n+\theta)\}
-\]
-従って,
-\[
-  \rho_{n+1}=\rho_n,\qquad
-  \varphi_{n+1}=\varphi_n+\theta
-\]
-となる.角度は$\varphi_n=\varphi_1+(n-1)\theta$と選んでいる.\footnote{角度には$2\pi$の整数倍を加えても同じ点を表す.毎回$(-\pi,\pi]$へ戻すなら,角度の等式は$2\pi$の整数倍の違いを同一視して読む.}
-こうして,\bookterm{geometric}{等比数列}への変換を\textbf{原点のまわりの一定角度の回転}として読める.
-
-例えば,\bookterm{recurrence}{漸化式}
-\[
-  a_{n+1}=\frac{a_n+1}{1-a_n}
-\]
-の不動点は$x=\dfrac{x+1}{1-x}$,すなわち$x^2+1=0$の二解$i,-i$である.
-そこで,
-\[
-  b_n=\frac{a_n-i}{a_n+i}
-\]
-と置くと,
-\[
-  b_{n+1}=\frac{1+i}{1-i}b_n
-  =\frac{(1+i)^2}{2}b_n=ib_n
-\]
-を得る.\,$i=\cos\left(\dfrac{\pi}{2}\right)+i\sin\left(\dfrac{\pi}{2}\right)$なので,毎回反時計回りに$\dfrac{\pi}{2}$だけ回転する.
-
-$a_1=\dfrac{1}{2}$なら,元の項は
-\[
-  \frac12\longrightarrow3\longrightarrow-2
-  \longrightarrow-\frac13\longrightarrow\frac12\longrightarrow\cdots
-\]
-と変化する.どの項でも分母$1-a_n$は零でない.
-これを$b_n$で見れば,
-\[
-  b_1\longrightarrow ib_1\longrightarrow-b_1
-  \longrightarrow-ib_1\longrightarrow b_1\longrightarrow\cdots
-\]
-という単純な回転である.
-実数上の分数の更新が,二つの不動点からの差の比によって,複素平面上の運動へつながった.
+  結論から述べれば,特に,$\alpha,\beta$が実数ではなく複素数となる場合には,この変形によって漸化式を「回転」として解釈することができる.
+  $p,q,r,s$が実数であるとき,
+  \[
+    rx^2+(s-p)x-q=0
+  \]
+  の2解が実数でなければ,2解は互いに共役な複素数となる.
+  そこで,その2解を
+  \[
+    \beta=\overline{\alpha}
+  \]
+  とする.
+  
+  このとき,
+  \[
+    b_n=\frac{a_n-\alpha}{a_n-\overline{\alpha}}
+  \]
+  と置くと,先ほどと同じ変形によって
+  \[
+    b_{n+1}
+    =
+    \frac{p-r\alpha}{p-r\overline{\alpha}}b_n
+  \]
+  となる.
+  
+  ここで,
+  \[
+    \lambda=\frac{p-r\alpha}{p-r\overline{\alpha}}
+  \]
+  とおく.
+  $p,r$は実数であり,$\overline{p-r\alpha}=p-r\overline{\alpha}$であるから,ある$\lambda$を用いて
+  \[
+    |\lambda|
+    =
+    \left|
+    \frac{p-r\alpha}{p-r\overline{\alpha}}
+    \right|
+    =1
+  \]
+  と表せる.
+  
+  したがって,\,$\lambda$は極形式を用いて
+  \[
+    \lambda=\cos\theta+i\sin\theta
+  \]
+  と表すことができる.
+  
+  一方,\,$b_n$も極形式を用いて
+  \[
+    b_n=\rho_n(\cos\varphi_n+i\sin\varphi_n)
+  \]
+  と表すことができる.
+  このとき,
+  \begin{align*}
+    b_{n+1}
+    &=
+    (\cos\theta+i\sin\theta)
+    \rho_n(\cos\varphi_n+i\sin\varphi_n)\\
+    &=
+    \rho_n
+    \{\cos(\varphi_n+\theta)
+    +i\sin(\varphi_n+\theta)\}
+  \end{align*}
+  であるから,
+  \[
+    \rho_{n+1}=\rho_n,
+    \qquad
+    \varphi_{n+1}=\varphi_n+\theta
+  \]
+  となる.
+  
+  つまり,$b_n$は複素平面上で原点からの距離を変えずに,\,$\theta$だけずつ回転している.
+  
+  このことから,
+  \[
+    b_{n+1}=\lambda b_n
+  \]
+  という等比数列への帰着は,単なる計算上の技巧ではなく,複素平面上の図形的な変化を表していることが分かる.
+  
+  実際に,次の漸化式を考えてみよう.
+  \[
+    a_{n+1}=\frac{a_n+1}{1-a_n}
+  \]
+  この漸化式の不動点は
+  \[
+    x=\frac{x+1}{1-x}
+  \]
+  を解けばよいから,
+  \[
+    x^2+1=0
+  \]
+  より
+  \[
+    \alpha=i,\qquad\beta=-i
+  \]
+  である.
+  
+  そこで,
+  \[
+    b_n=\frac{a_n-i}{a_n+i}
+  \]
+  と置くと,
+  \begin{align*}
+    b_{n+1}
+    &=
+    \frac{1+i}{1-i}b_n
+  \end{align*}
+  となる.
+  
+  ここで,
+  \[
+    \frac{1+i}{1-i}
+    =
+    \frac{(1+i)^2}{2}
+    =i
+  \]
+  であるから,
+  \[
+    b_{n+1}=ib_n
+  \]
+  を得る.
+  
+  $i$は極形式で
+  \[
+    i=\cos\frac{\pi}{2}+i\sin\frac{\pi}{2}
+  \]
+  と表せる.
+  したがって,\,$b_n$は複素平面上で毎回反時計回りに$\dfrac{\pi}{2}$だけ回転する.
+  
+  例えば,\,$a_1=\dfrac12$とすると,
+  \begin{align*}
+    a_1&=\frac12\\
+    a_2&=3\\
+    a_3&=-2\\
+    a_4&=-\frac13\\
+    a_5&=\frac12
+  \end{align*}
+  となり,\,$a_n$は
+  \[
+    \frac12\longrightarrow3\longrightarrow-2
+    \longrightarrow-\frac13\longrightarrow\frac12\longrightarrow\cdots
+  \]
+  と変化する.
+  
+  一方,\,$b_n$に着目すると,
+  \[
+    b_{n+1}=ib_n
+  \]
+  であるから,
+  \[
+    b_1\longrightarrow ib_1\longrightarrow-b_1
+    \longrightarrow-ib_1\longrightarrow b_1\longrightarrow\cdots
+  \]
+  となる.
+  
+  つまり,実数上では複雑に見える
+  \[
+    a_1,a_2,a_3,\ldots
+  \]
+  の変化が,
+  \[
+    b_n=\frac{a_n-i}{a_n+i}
+  \]
+  という変換によって,複素平面上で一定角度ずつ回転する点の運動として表される.
+  
+  このように,1次分数型漸化式では,
+  \[
+    \frac{a_n-\alpha}{a_n-\beta}
+  \]
+  という変換を用いることで,漸化式を等比数列に変形できるだけでなく,その変化を複素平面上の回転として図形的に解釈することができる.
