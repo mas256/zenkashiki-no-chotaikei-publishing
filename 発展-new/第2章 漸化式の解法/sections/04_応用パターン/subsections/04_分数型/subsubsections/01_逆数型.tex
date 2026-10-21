@@ -2,17 +2,36 @@
 % subsubsection: 逆数型  \, $\displaystyle a_{n+1}=\frac{pa_n}{qa_n+r}$
 
 \subsubsection{\texorpdfstring{逆数型   $\displaystyle a_{n+1}=\frac{pa_n}{qa_n+r}$}{逆数型}}\label{節：逆数型}
-分子が$a_n$の定数倍である\bookterm{recurrence}{漸化式}を考えよう.
-逆数を取れば,分母にあった一次式を$a_n$で割り,定数と$\frac1{a_n}$の和に分けられる.
+おそらくよく扱われる漸化式の中で一番むずかしいと呼ばれるであろう分数型の内の1パターン目を紹介する.
+一般的な形は
+\[
+  a_{n+1}=\frac{pa_n}{qa_n+r}
+\]
+で与えられる.
+
 以下では,\,$p\ne0$かつ$a_n\ne0$であり,\,$qa_n+r\ne0$として議論する.\footnote{$a_1=0$は逆数を取る前に分ける.\,$r\ne0$ならすべての項が$0$となる.\,$r=0$なら最初の更新から分母が$0$となり,そのままでは定義できない.}
+
+少々発想しにくい式変形であるため,結果からお見せしよう.
+この変形の肝は逆数をとることである.
 両辺の逆数を取り,\,$b_n=\dfrac{1}{a_n}$と置くと,
 \begin{align*}
   \frac{1}{a_{n+1}}&=\frac{qa_n+r}{pa_n}
-  =\frac{q}{p}+\frac{r}{p}\cdot\frac{1}{a_n},\\
+  &=\frac{q}{p}+\frac{r}{p}\cdot\frac{1}{a_n},\\
   b_{n+1}&=\frac{r}{p}b_n+\frac{q}{p}
 \end{align*}
 ここから特性方程式型または等差型として$b_n$を求め,最後に$a_n=\dfrac{1}{b_n}$へ戻す.
 ただし$b_n=0$となる項は逆数を戻せないため,元の漸化式が定義されるかも確認する.
+
+\begin{bookpoint}
+  \textbf{POINT}\par
+  分数の両方に$a_n$が存在し,分子側が$a_n$の定数倍のみであるときには逆数を取って約分
+\end{bookpoint}
+
+なお,
+\[
+  a_{n+1}=\frac{pa_n+q}{ra_n}
+\]
+の場合は\sectionref{節：一次分数型}を参照すること.
 
 \noindent \bookblocklink{example-reciprocal-1}{problem}{answer}{【例題】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-reciprocal-1}{problem}{answer}]
