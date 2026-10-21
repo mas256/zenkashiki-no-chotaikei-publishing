@@ -2,90 +2,164 @@
 % subsubsection: 1次分数型  \, $\displaystyle a_{n+1}=\frac{pa_n+q}{ra_n+s}$
 
 \subsubsection{\texorpdfstring{一次分数型   $\displaystyle a_{n+1}=\frac{pa_n+q}{ra_n+s}$}{一次分数型}}\label{節：一次分数型}
-分子にも定数項がある\bookterm{recurrence}{漸化式}を考えよう.
+\sectionref{節：逆数型}の一般系である,
+\[
+  a_{n+1}=\frac{pa_n+q}{ra_n+s}
+\]
+で表される漸化式について考えよう.
+
 以下では$r\ne0$, $ps-qr\ne0$とし,元の分母が$0$にならない範囲で議論する.\footnote{$r=0,\ s\ne0$なら特性方程式型へ戻る.
   $r\ne0,\ ps-qr=0$なら,分母が非零の入力に対して右辺は定数$\dfrac{p}{r}$になる.次の分母も確認する.例えば$\dfrac{a_n-1}{a_n-1}$は,初項が$1$でなくても次項が$1$になり,次の更新は定義できない.}
-分子の定数項$q$を消せれば,逆数型として解ける.
-逆数型という既知の行き先ができたので,定数を引く方法をここでも試す.
-$\alpha$は変形後の分子を見て決める.
+  
+既に学んだ逆数型に帰着させることを目標に式変形を進める.
+つまり,
+\[
+  a_{n+1}=\frac{pa_n+q}{ra_n+s} \iff b_{n+1}=\frac{tb_n}{ua_n+v}
+\]
+となるような$b_n$と$t,u,v$の組を探せば良い.
+言い換えれば$q$を消すということになるので,特性方程式型の考え方を用いて,ある不動点を見つけ,その値を引くことを目標にしよう.
 
-\bookstep{一つの差を追う}
-\sectionref{節：特性方程式型}と同じく,各項から定数を引いてみよう.
-$u_n=a_n-\alpha$と置き,分子の定数項が消えるように$\alpha$を選ぶ.
-$a_n=u_n+\alpha$を代入すると,
-\BookMathLayout{\begin{align*}
-    u_{n+1}&=\frac{p(u_n+\alpha)+q}{r(u_n+\alpha)+s}-\alpha\\
-    &=\frac{(p-r\alpha)u_n+p\alpha+q-r\alpha^2-s\alpha}
-    {ru_n+r\alpha+s}
+$b_n=a_n-x$と置き,分子の定数項が消えるように$x$を選ぶ.
+$a_n=b_n+x$を代入すると,
+\BookMathLayobt{\begin{align*}
+    b_{n+1}&=\frac{p(b_n+x)+q}{r(b_n+x)+s}-x\\
+    &=\frac{(p-rx)b_n+px+q-rx^2-sx}
+    {rb_n+rx+s}
   \end{align*}}{\[
     \begin{aligned}
-      &u_{n+1}\\
-      &{}=\frac{p(u_n+\alpha)+q}{r(u_n+\alpha)+s}-\alpha\\
-      &{}=\frac{(p-r\alpha)u_n+p\alpha+q-r\alpha^2-s\alpha}
-      {ru_n+r\alpha+s}
+      &b_{n+1}\\
+      &{}=\frac{p(b_n+x)+q}{r(b_n+x)+s}-x\\
+      &{}=\frac{(p-rx)b_n+px+q-rx^2-sx}
+      {rb_n+rx+s}
     \end{aligned}
   \]}
 従って,
 \[
-  r\alpha^2+(s-p)\alpha-q=0
+  rx^2+(s-p)x-q=0
   \quad\Longleftrightarrow\quad
-  \alpha=\frac{p\alpha+q}{r\alpha+s}
+  x=\frac{px+q}{rx+s}
 \]
-を満たす$\alpha$,すなわち元の\bookterm{fixed}{不動点}を引けば,
+を満たす$x$,すなわち元の\bookterm{fixed}{不動点}を引けば,
 \[
-  u_{n+1}=\frac{(p-r\alpha)u_n}{ru_n+r\alpha+s}
+  b_{n+1}=\frac{(p-rx)b_n}{rb_n+rx+s}
 \]
-という逆数型になる.ここで,\,$p-r\alpha$も$r\alpha+s$も零でない.\footnote{不動点の方程式より,\,$(p-r\alpha)(r\alpha+s)=ps-qr\ne0$.}
-初項が$\alpha$なら定数列である.それ以外では$u_n$は途中で零にならず,逆数を取って解ける.
+という逆数型になる.ここで,\,$p-rx$も$rx+s$も零でない.\footnote{不動点の方程式より,\,$(p-rx)(rx+s)=ps-qr\ne0$.}
+初項が$x$なら定数列である.それ以外では$b_n$は途中で零にならず,逆数を取って解ける.
+定数項$q$を消すための条件は,
+\[
+  rx^2+(s-p)x-q=0
+  \quad\Longleftrightarrow\quad
+  x=\frac{px+q}{rx+s}
+\]
+と書けるので,この$x$はもとの漸化式の不動点でもある.
 
-\bookstep{二つの差の比を追う}
-不動点の方程式
+ここまでで逆数型として解くことができるが,定数項を消せる値を求める問題は,
 \[
   rx^2+(s-p)x-q=0
 \]
-が異なる二つの実数解$\alpha,\beta$を持つとしよう.
-どちらも定数項を消せるので,先ほどの変形を$a_n$で書けば,
+という二次方程式を解く問題に帰着した.
+この方程式が異なる2つの実数解$\alpha,\beta$を持つなら,その左辺は
+\[
+  rx^2+(s-p)x-q=r(x-\alpha)(x-\beta)
+\]
+と因数分解できる.
+$\alpha,\beta$は別々に選ぶ定数ではなく,もとの漸化式の係数から決まる,同じ二次方程式の二つの解なのである.
+そして,どちらの解も定数項を消す条件を満たすので,\, $a_n-\alpha$と$a_n-\beta$のどちらについても,同じ変形ができる.
+先ほどの逆数型の式を,もとの$a_n$を使って書き直すと,
 \begin{align*}
   a_{n+1}-\alpha
   &=\frac{p-r\alpha}{ra_n+s}(a_n-\alpha),\\
   a_{n+1}-\beta
   &=\frac{p-r\beta}{ra_n+s}(a_n-\beta)
 \end{align*}
-となる.倍率に$a_n$が含まれるため,各々の差は一般には\bookterm{geometric}{等比数列}にならない.
-しかし,\textbf{二つの式の比を取れば,共通の分母が消える}.
-一つの差を作っても残った分母を,もう一つの差と組み合わせて取り除くのである.
+となる.
 
-初項が$\alpha$または$\beta$なら定数\bookterm{sequence}{数列}として分けておく.
-それ以外では,\,$p-r\beta\ne0$なので,\,$a_n\ne\beta$から$a_{n+1}\ne\beta$が続く.
-従って,差の比を取れる.
+この二つの式から,さらに単純な法則を取り出せないだろうか.
+それぞれの差に掛かる倍率には$a_n$が含まれているので,差そのものは一般には等比数列にならない.
+しかし,二つの倍率には同じ分母$ra_n+s$が現れている.
+そこで二つの式の比を取れば,この分母が消え,一定の倍率だけが残りそうである.
+
+初項が$\alpha$または$\beta$なら定数数列になるので,先に扱っておこう.
+以下では初項がどちらの不動点とも異なる場合を考える.
+また,\, $p-r\beta=0$なら不動点の条件から$q=s\beta$となり,\, $ps-qr=0$となって仮定に反する.
+よって,\, $p-r\beta\ne0$であり,上の式から$a_n\ne\beta$なら$a_{n+1}\ne\beta$である.
+初項から順に考えると,すべての項で$a_n\ne\beta$なので,二つの差の比を取ることができる.
+実際に,
 \begin{align*}
   \frac{a_{n+1}-\alpha}{a_{n+1}-\beta}
+  &=\frac{\displaystyle
+    \frac{(p-r\alpha)(a_n-\alpha)}{ra_n+s}}
+    {\displaystyle
+    \frac{(p-r\beta)(a_n-\beta)}{ra_n+s}}\\
   &=\frac{p-r\alpha}{p-r\beta}
-  \frac{a_n-\alpha}{a_n-\beta}
+    \frac{a_n-\alpha}{a_n-\beta}
 \end{align*}
-ここで$b_n=\dfrac{a_n-\alpha}{a_n-\beta}$と置けば,
-\[
-  b_{n+1}=\frac{p-r\alpha}{p-r\beta}b_n
-\]
-となる.一つの差を逆数型として解く代わりに,二つの差の比を直接等比型にできた.\footnote{二つの解のどちらを$\alpha,\beta$と名付けてもよい.}
-初項$b_1=\dfrac{a_1-\alpha}{a_1-\beta}$を用いて,
-\[
-  b_n=\frac{a_1-\alpha}{a_1-\beta}\left(\frac{p-r\alpha}{p-r\beta}\right)^{n-1} \booktag{mobius-geometric}{＊}
-\]
-を得る.
+となる.
+したがって,二つの差の比は,項が一つ進むごとに一定の倍率$\dfrac{p-r\alpha}{p-r\beta}$で変化する.
+分子の定数項を消せる二つの式を比べることで,等比数列の法則を見つけられたのである.
 
-\bookstep{元の項へ戻す}
-$b_n(a_n-\beta)=a_n-\alpha$を$a_n$について解くと,
+ここで
 \[
-  a_n=\frac{\beta b_n-\alpha}{b_n-1}
+  b_n=\frac{a_n-\alpha}{a_n-\beta}
 \]
-となる.有限の$a_n$では$\alpha\ne\beta$より$b_n\ne1$なので,この割り算ができる.
-\bookeqbackref{mobius-geometric}{(＊)}を代入すればよい.
-逆に,公式上で$b_n=1$となる項は復元できず,元の更新をそこまで定義できない.
+と置けば,
+\[
+  b_{n+1}
+  =
+  \frac{p-r\alpha}{p-r\beta}b_n
+\]
+となる.したがって,\,$b_n$は等比数列である.
+$\alpha$と$\beta$の大小関係は,解の大小関係を要求されていないことから自由に選んでよい.
+つまり,\,1次分数型漸化式では,
+\[
+  a_{n+1}=\frac{pa_n+q}{ra_n+s}
+\]
+という複雑な形をそのまま扱うのではなく,
+\[
+  \frac{a_n-\alpha}{a_n-\beta}
+\]
+という「$\alpha,\beta$からの距離の比」に置き換えることで,
+等比数列に変えることができる.
 
-不動点の方程式が重解$\alpha$を持つ場合は,異なる差を作れない.
-一つの差$u_n=a_n-\alpha$に戻り,逆数を取れば等差型になる.
-例題(3)で計算し,例題の後で一般の係数でも確かめよう.
+そして,\,$\alpha,\beta$は,
+\[
+  rx^2+(s-p)x-q=0
+\]
+の異なる2解として自然に現れる.
+
+したがって\,$\alpha,\beta$は,もとの漸化式の$a_n$を形式的に$\alpha,\beta$に置き換えたときにも値が変化しない数,すなわち不動点である.
+
+なお,$rx^2+(s-p)x-q=0$が重解$\alpha$を持つ場合は,$\beta$と異なる2つの不動点を取れないため,上の議論はそのまま使えない.
+このときは$\alpha=\dfrac{p-s}{2r}$,すなわち$s=p-2r\alpha$が成り立つため,
+\[
+  c=p-r\alpha=r\alpha+s\ne0
+\]
+とおくと,
+\[
+  a_{n+1}-\alpha
+  =\frac{c(a_n-\alpha)}{r(a_n-\alpha)+c}
+\]
+となる.したがって,
+\[
+  \frac{1}{a_{n+1}-\alpha}
+  =\frac{1}{a_n-\alpha}+\frac{r}{c}
+\]
+であるから,右辺も含めて$1/(a_n-\alpha)$について考えれば等差数列に帰着できる.
+ここで$b_n=a_n-\alpha$とおくと,
+\[
+  b_{n+1}=\frac{cb_n}{rb_n+c}
+\]
+という逆数型漸化式に帰着する(先ほどの一般式で$\beta=\alpha$とした場合に対応する).したがって両辺の逆数を取れば
+\[
+  \frac1{b_{n+1}}=\frac1{b_n}+\frac rc
+\]
+という等差数列が得られ,ここから$a_n$を求めることができる(具体的な計算は例題(3)を参照).
+
+\begin{bookpoint}
+  \textbf{POINT}\par
+  $a_{n+1}$と$a_n$を$x$に置き換えた二次方程式をとき,その2解$\alpha,\beta$によって$\displaystyle b_n=\frac{a_n-\alpha}{a_n-\beta}とおく.
+  $b_n$について等比型漸化式が作れるので,その一般項を得たら$a_n$に戻す.
+\end{bookpoint}
 
 \noindent \bookblocklink{example-mobius-1}{problem}{answer}{【例題】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-mobius-1}{problem}{answer}]
