@@ -3,8 +3,9 @@
 
 \section{漸化式と行列}\label{節：漸化式と行列}
 
-本編で作った\bookterm{geometric}{等比数列}を,\bookterm{matrix}{行列}で見直す.
-\sectionref{節：特性方程式型}の\bookterm{fixed}{不動点}から,一次分数型,隣接3項間型,連立型へ進もう.
+本編では,様々な漸化式を等比型に帰着させてきた.
+その多くは,行列を使うと1つの見方でまとめられる.
+\sectionref{節：特性方程式型}の\bookterm{fixed}{不動点}から始めて,一次分数型,隣接3項型,連立型へと進もう.
 以下の「二階」は,次の項に直前の二項が必要なことをいい,本編の隣接3項間型に対応する.
 
 \subsection{一つの値を更新する}\label{節：一つの値を更新する}
@@ -464,6 +465,22 @@ $|\psi|<1<\varphi$だから,\,$\psi^n$は符号を交互に変えながら減衰
 }
 より,隣り合う項の差が一定で $a_n=C+Dn$ となる.
 重解が $r=0$ の場合は $a_{n+2}=0$ となる退化した\bookterm{recurrence}{漸化式}であり,直接調べればよい.
+
+\paragraphbf{まとめ：特性方程式はすべて同じもの}
+本編では,いくつもの場面で「特性方程式」が現れた.
+ここまでの議論で,それらがすべて同じ1つのものだったことが分かる.
+\begin{itemize}
+  \item \textbf{特性方程式型}：行列$\begin{pmatrix}p&q\\0&1\end{pmatrix}$の,固有値1の固有ベクトルの成分比$\alpha$を求める.
+  \item \textbf{一次分数型}：行列$\begin{pmatrix}p&q\\r&s\end{pmatrix}$の,固有ベクトルの成分比$\alpha,\beta$を求める.
+  \item \textbf{隣接3項型}：行列$\begin{pmatrix}-p&-q\\1&0\end{pmatrix}$の固有値$\lambda$を求める.
+  \item \textbf{連立型}：行列$\begin{pmatrix}p&q\\r&s\end{pmatrix}$の固有値$\gamma$を求める.重み$(\alpha,\beta)$は行ベクトルの固有ベクトルである.
+\end{itemize}
+特性方程式型の$\alpha=p\alpha+q$は,\,$\begin{pmatrix}p&q\\0&1\end{pmatrix}\begin{pmatrix}\alpha\\1\end{pmatrix}=\begin{pmatrix}\alpha\\1\end{pmatrix}$という固有値1の条件そのものである.
+もう1つの固有値$p$は,不動点からのずれが掛けられる公比として現れていた.
+一次分数型で$r=0$とすれば特性方程式型に戻るので,特性方程式型は一次分数型の特別な場合と見ることもできるのだ.
+また,隣接3項型の別解で$b_n=\frac{a_{n+1}}{a_n}$と置いて一次分数型を作ったのは,この表の3行目の行列を2行目の見方で読んだことにあたる.
+
+つまり,本編で「既知の形をつくる」ために探してきた$\alpha$や$\gamma$は,どれも行列を一番簡単に掛けられる方向を探す作業だったのである.
 
 \subsection{角度の整数倍と多項式}\label{節：角度の整数倍と多項式}
 
