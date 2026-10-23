@@ -2,15 +2,46 @@
 % subsection: 連立型
 
 \subsection{連立型}\label{節：連立型}
-\begin{bookpoint}
-  \textbf{和と差を追う}\par
-  二つの式を足したり引いたりして,和と差それぞれの漸化式を作る.和と差が求まれば,連立方程式を解いて元の二つの\bookterm{sequence}{数列}を求められる.
-\end{bookpoint}
+ここまでは1つの数列について,隣り合う項の関係を考えてきた.
+では,2つの数列が互いに絡み合って変化する場合はどうなるだろうか.
+一般的な形は
+\[
+  \begin{cases}
+    a_{n+1}=pa_n+qb_n\\
+    b_{n+1}=ra_n+sb_n
+  \end{cases}
+\]
+で与えられる.
+$a_{n+1}$を求めるには$b_n$が,\,$b_{n+1}$を求めるには$a_n$が必要なので,どちらか一方だけを取り出して基本パターンに当てはめることはできない.
+そこで,2つの数列を組み合わせて,等比型になる1つの数列を作ることを目標にしよう.
+
 \subsubsection{和と差で分ける}
-二つの式の係数が入れ替わっているときは,まず足し引きを試そう.
-足すと$a_n,b_n$の係数がそろい,引くと同じ大きさで符号が反対になる.
-そのため,二つの項が和や差という一つの量にまとまる.
-和と差をそれぞれ求め,元の二つの数列へ戻すところまで計算する.
+まずは係数がきれいに入れ替わっている場合から考える.
+例えば
+\[
+  \begin{cases}
+    a_{n+1}=3a_n+b_n\\
+    b_{n+1}=a_n+3b_n
+  \end{cases}
+\]
+を眺めてみると,\,$a_n$と$b_n$の立場が入れ替わっているだけである.
+こういう対称な式を見たら,まず足したり引いたりしてみるのが常套である.
+実際に足すと,
+\[
+  a_{n+1}+b_{n+1}=4a_n+4b_n=4(a_n+b_n)
+\]
+となり,和$a_n+b_n$が公比$4$の等比型になる.
+引くと
+\[
+  a_{n+1}-b_{n+1}=2a_n-2b_n=2(a_n-b_n)
+\]
+となり,差$a_n-b_n$も公比$2$の等比型になる.
+和と差が分かれば,あとは連立方程式を解くだけである.
+
+\begin{bookpoint}
+  \textbf{POINT}\par
+  係数が対称なら,2式を足し引きして和と差の等比型を作り,連立方程式を解いて元に戻す.
+\end{bookpoint}
 
 \noindent \bookblocklink{example-system-1}{problem}{answer}{【例題】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-system-1}{problem}{answer}]
@@ -41,10 +72,10 @@
     \]
     $\bookeqbackref{sim-example-sum}{(1)}+\bookeqbackref{sim-example-difference}{(2)}$から$2a_n=2\cdot4^{n-1}$,
     $\bookeqref{sim-example-sum}{(1)}-\bookeqref{sim-example-difference}{(2)}$から$2b_n=2\cdot4^{n-1}$を得る.
-    従って,\,$a_n=b_n=4^{n-1}$である.
+    したがって,\,$a_n=b_n=4^{n-1}$である.
 \end{enumerate}
 
-\paragraphbf{係数が対称な場合へ広げる}
+\paragraphbf{係数が対称な場合の一般形}
 一般に,係数の位置が入れ替わった\bookterm{recurrence}{漸化式}
 \[
   \begin{cases}
@@ -53,8 +84,7 @@
   \end{cases}
 \]
 では,足すと両方の係数が$p+q$,引くと$p-q$とその符号反転になる.
-従って,和と差がそれぞれ等比型になる.
-以下の冪の式は$p+q,p-q$が非零の場合に使う.零になる方は,初項を別に保ち,\,$n\ge2$で$0$とする.
+したがって,和と差がそれぞれ等比型になる.\footnote{以下の累乗の式は$p+q,\,p-q$が0でない場合に使う.0になる方は,初項を別に扱い,\,$n\ge2$で0とする.}
 \begin{align*}
   &a_{n+1}+b_{n+1}=(p+q)(a_n+b_n),\\
   &a_n+b_n=(a_1+b_1)(p+q)^{n-1}
@@ -79,22 +109,17 @@ $\bookeqbackref{sim-general-sum}{(1)}+\bookeqbackref{sim-general-difference}{(2)
     &\qquad-(a_1-b_1)(p-q)^{n-1}\bigr\}
   \end{aligned}
 \]
-となる.次は係数が対称でない場合へ広げよう.
+となる.
 
 \subsubsection{重みを付けて分ける}
-一般の連立\bookterm{recurrence}{漸化式}
-\[
-  \begin{cases}
-    a_{n+1}=pa_n+qb_n\\
-    b_{n+1}=ra_n+sb_n
-  \end{cases}
-\]
-でも,\bookterm{geometric}{等比数列}になる組合せを探そう.単に足すと,
+では,係数が対称でない一般の連立漸化式ではどうだろうか.
+単に足すと,
 \[
   a_{n+1}+b_{n+1}=(p+r)a_n+(q+s)b_n
 \]
-となり,\,$p+r=q+s$でなければ和を単独で更新できない.
-そこでそれぞれに係数$\alpha,\beta$を掛けて足した,\,$\alpha a_n+\beta b_n$を考える.
+となり,\,$p+r=q+s$でなければ右辺が$a_n+b_n$の定数倍にならない.
+足すだけ,引くだけでうまくいかないなら,足し方に重みを付けてやればよい.
+つまり,それぞれに係数$\alpha,\beta$を掛けて足した$\alpha a_n+\beta b_n$を考え,これが等比型になるように$\alpha,\beta$を決めるのだ.
 \[
   \begin{aligned}
     \alpha a_{n+1}+\beta b_{n+1}
@@ -109,7 +134,7 @@ $\bookeqbackref{sim-general-sum}{(1)}+\bookeqbackref{sim-general-difference}{(2)
     q\alpha+(s-\gamma)\beta=0
   \end{cases}
 \]
-を満たす重みを選べばよい.$\alpha=\beta=0$ではすべての項が$0$となり,$a_n,b_n$を求める関係式にならないので,非零の組を探す.
+を満たす重みを選べばよい.\,$\alpha=\beta=0$では何も分からないので,少なくとも一方が0でない組を探す.
 
 まず$\gamma$を決めよう.第1式を$s-\gamma$倍し,第2式の$r$倍を引けば$\beta$が消える.
 同様に$\alpha$を消去すると,
@@ -117,23 +142,24 @@ $\bookeqbackref{sim-general-sum}{(1)}+\bookeqbackref{sim-general-difference}{(2)
   \{(p-\gamma)(s-\gamma)-qr\}\alpha&=0,\\
   \{(p-\gamma)(s-\gamma)-qr\}\beta&=0
 \end{align*}
-を得る.重みは同時に零でないので,共通の係数が零,すなわち
+を得る.重みは同時に0ではないので,共通の係数が0,すなわち
 \[
   \gamma^2-(p+s)\gamma+(ps-qr)=0
 \]
 が必要になる.これを連立漸化式の\bookterm{characteristic}{特性方程式}と呼ぶ.
+形式的には,係数を並べた$\begin{pmatrix}p&q\\r&s\end{pmatrix}$から作られる方程式である.\footnote{\chapterref{章：解法の背景と広がり}で扱う行列の固有値を求める方程式そのものである.}
 
 その解$\gamma_1,\gamma_2$を順に重みの条件へ入れ,非零の組$(\alpha,\beta),(\alpha',\beta')$を選ぶ.
 \begin{align*}
   c_n&=\alpha a_n+\beta b_n,\\
   d_n&=\alpha'a_n+\beta'b_n
 \end{align*}
-と置けば,\,$c_{n+1}=\gamma_1c_n,\ d_{n+1}=\gamma_2d_n$なので,倍率が非零なら,
+と置けば,\,$c_{n+1}=\gamma_1c_n,\ d_{n+1}=\gamma_2d_n$なので,倍率が0でなければ,
 \[
   c_n=c_1\gamma_1^{n-1},\qquad
   d_n=d_1\gamma_2^{n-1}
 \]
-となる.初項は元の$a_1,b_1$から求める.倍率が零の場合は,その量の初項を別に保ち,\,$n\ge2$で$0$とする.
+となる.初項は元の$a_1,b_1$から求める.\footnote{倍率が0の場合は,その量の初項を別に扱い,\,$n\ge2$で0とする.}
 
 元の項へは,
 \[
@@ -148,11 +174,16 @@ $\bookeqbackref{sim-general-sum}{(1)}+\bookeqbackref{sim-general-difference}{(2)
 \[
   (\gamma_1-\gamma_2)\alpha=(\gamma_1-\gamma_2)\beta=0
 \]
-となり,\,$\gamma_1\ne\gamma_2$より$\alpha=\beta=0$.非零の重みを選んだことに矛盾する.
+となり,\,$\gamma_1\ne\gamma_2$より$\alpha=\beta=0$である.これは0でない重みを選んだことに矛盾する.
 異なる根は十分条件であり,必要条件ではない.
 重解では比例しない二組を取れるかで分かれる.\footnote{例えば$a_{n+1}=2a_n,\ b_{n+1}=2b_n$では$(1,0),(0,1)$を選べる.
   二組を取れない場合は,一方の量を先に求め,残る式へ代入する.\bookproblemref{practice-basic}{25}{標準問25}では,その式を指数の付加項として解く.\booknavref{節：付加項がない場合}{隣接3項型の重解}とも比べられる.}
-このように係数を選べば,元の連立漸化式から等比型の補助数列を作れる.\footnote{非実の二根でもこの方法を使える.実数の形への復元は\sectionref{節：特性根が虚数の場合}で扱う.}
+このように重みを選べば,元の連立漸化式から等比型の数列を2つ作れる.\footnote{特性方程式の解が虚数でもこの方法を使える.実数の形への戻し方は\sectionref{節：特性根が虚数の場合}で扱う.}
+
+\begin{bookpoint}
+  \textbf{POINT}\par
+  $\alpha a_n+\beta b_n$が等比型になるように係数比較し,特性方程式$\gamma^2-(p+s)\gamma+(ps-qr)=0$の2解ごとに重みを決める.
+\end{bookpoint}
 
 \noindent \hyperlink{book:example-system-1:answer:2}{\textbf{【例題】}}\par\nobreak
 \begin{enumerate}[start=2,label=(\arabic*),parsep=3pt,format=\bookitemlink{example-system-1}{problem}{answer}]
@@ -172,14 +203,14 @@ $\bookeqbackref{sim-general-sum}{(1)}+\bookeqbackref{sim-general-difference}{(2)
 \noindent \hyperlink{book:example-system-1:problem:2}{\textbf{【解法】}}\par\nobreak
 \begin{enumerate}[start=2,label=(\arabic*),parsep=3pt,format=\bookitemlink{example-system-1}{solution}{problem}]
   \item $a_1=1,\,b_1=0,\ \begin{cases}a_{n+1}=3a_n+b_n\\ b_{n+1}=2a_n+2b_n\end{cases}$\\
-    本文の係数条件は,
+    重みの条件は,
     \[
       \begin{cases}
         (3-\gamma)\alpha+2\beta=0\\
         \alpha+(2-\gamma)\beta=0
       \end{cases}
     \]
-    となる.非零の重みを取るための方程式は,
+    となる.0でない重みを取るための特性方程式は,
     \begin{align*}
       0&=(3-\gamma)(2-\gamma)-2\\
       &=\gamma^2-5\gamma+4=(\gamma-1)(\gamma-4)
@@ -208,7 +239,7 @@ $\bookeqbackref{sim-general-sum}{(1)}+\bookeqbackref{sim-general-difference}{(2)
     となる.
 \end{enumerate}
 
-\paragraphbf{和と差は重みの一例}
+\paragraphbf{和と差は重みの一例}\label{解釈：和と差は重みの一例}
 \bookproblemref{example-system-1}{1}{最初の例題}へ戻ろう.
 $p=s=3,\ q=r=1$を特性方程式へ入れると,
 \[
@@ -216,11 +247,33 @@ $p=s=3,\ q=r=1$を特性方程式へ入れると,
 \]
 となる.\,$\gamma=2$なら$\alpha+\beta=0$より重み$(1,-1)$,
 $\gamma=4$なら$\alpha=\beta$より$(1,1)$を選べる.
-従って取り出す量は,
+したがって取り出す量は,
 \[
   c_n=a_n-b_n,\qquad d_n=a_n+b_n
 \]
 であり,更新は$c_{n+1}=2c_n,\ d_{n+1}=4d_n$となる.
 初項$c_1=0,\ d_1=2$も最初の解法と一致する.
-対称な係数なら足し引きが早い.重みを求める方法は,非対称な例題(2)にも使える.
-和と差も重みを付ける方法の一例なのである.
+対称な係数なら足し引きが早いが,それは重み$(1,1),(1,-1)$がたまたま見えていたからなのだ.
+和と差も,重みを付ける方法の一例なのである.
+
+\paragraphbf{別解：隣接3項型に帰着させる}
+ここで扱う別解は,計算が楽になるものではない.
+しかしながら,連立型と隣接3項型が同じものであることを示すため,解説する.
+
+$b_n$を消去してみよう.1つ目の式から$qb_n=a_{n+1}-pa_n$である.
+1つ目の式の添字を1つ進めて2つ目の式を代入すると,
+\begin{align*}
+  a_{n+2}&=pa_{n+1}+qb_{n+1}\\
+  &=pa_{n+1}+q(ra_n+sb_n)\\
+  &=pa_{n+1}+qra_n+s(a_{n+1}-pa_n)\\
+  &=(p+s)a_{n+1}-(ps-qr)a_n
+\end{align*}
+となり,\,$a_n$だけの隣接3項型になるのだ.
+その特性方程式
+\[
+  x^2-(p+s)x+(ps-qr)=0
+\]
+は,重みを決めるときに現れた特性方程式と全く同じである.
+2つの方法は,同じ方程式を別の方向から見ていたのである.
+逆に,隣接3項型$a_{n+2}+pa_{n+1}+qa_n=0$も,\,$b_n=a_{n+1}$と置けば$a_n,b_n$の連立型として書ける.
+この見方は\chapterref{章：解法の背景と広がり}の行列でもう一度扱う.
