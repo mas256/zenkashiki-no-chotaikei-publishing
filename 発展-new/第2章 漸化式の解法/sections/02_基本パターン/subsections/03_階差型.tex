@@ -35,10 +35,10 @@
 
 \noindent \bookblocklink{example-difference-1}{problem}{answer}{【例題】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-difference-1}{problem}{answer}]
-  \item $\displaystyle a_1=1,\, a_{n+1}=a_n+n$
-  \item $\displaystyle a_1=1,\, a_{n+1}=a_n+2^n$
-  \item $\displaystyle a_1=0,\, a_{n+1}=a_n+\frac{1}{n(n+1)}$
-  \item $\displaystyle a_1=1,\, a_{n+1}=a_n+(n+1)^2$
+  \item $a_1=1,\, a_{n+1}=a_n+n$
+  \item $a_1=1,\, a_{n+1}=a_n+2^n$
+  \item $a_1=0,\, a_{n+1}=a_n+\frac{1}{n(n+1)}$
+  \item $a_1=1,\, a_{n+1}=a_n+(n+1)^2$
 \end{enumerate}
 
 \noindent\bookblocklink{example-difference-1}{hint}{problem}{【方針】}\par\nobreak
@@ -51,29 +51,29 @@
 
 \noindent\bookblocklink{example-difference-1}{answer}{problem}{【解答】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-difference-1}{answer}{problem}]
-  \item $\displaystyle a_n=1+\frac{n(n-1)}{2}$
-  \item $\displaystyle a_n=2^n-1$
-  \item $\displaystyle a_n=1-\frac{1}{n}$
-  \item $\displaystyle a_n=\frac{1}{6}n(n+1)(2n+1)$
+  \item $a_n=1+\frac{n(n-1)}{2}$
+  \item $a_n=2^n-1$
+  \item $a_n=1-\frac{1}{n}$
+  \item $a_n=\frac{1}{6}n(n+1)(2n+1)$
 \end{enumerate}
 
 \noindent\bookblocklink{example-difference-1}{solution}{problem}{【解法】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-difference-1}{solution}{problem}]
-  \item $\displaystyle a_1=1,\,a_{n+1}=a_n+n$\\
+  \item $a_1=1,\,a_{n+1}=a_n+n$\\
     \bookterm{difference}{階差}型の\bookterm{general}{一般項}と等差数列の和から,
     \[
       a_n=1+\sum_{k=1}^{n-1}k=1+\frac{n(n-1)}2.
     \]
     和は項数と初項・末項の平均を掛けて求めた.導出は\sectionref*{節：等差数列の和}を参照.\,$n=1$でも初項に一致する.
 
-  \item $\displaystyle a_1=1,\,a_{n+1}=a_n+2^n$\\
+  \item $a_1=1,\,a_{n+1}=a_n+2^n$\\
     同様に,
     \[
       a_n=1+\sum_{k=1}^{n-1}2^k=1+(2^n-2)=2^n-1.
     \]
     等比数列の和の公式と,倍率をそろえて引く導出は\sectionref*{節：等比数列の和}にまとめた.
 
-  \item $\displaystyle a_1=0,\,a_{n+1}=a_n+\frac{1}{n(n+1)}$\\
+  \item $a_1=0,\,a_{n+1}=a_n+\frac{1}{n(n+1)}$\\
     \bookterm{partial}{部分分数分解}を用いると,
     \[
       \frac{1}{k(k+1)}
@@ -88,7 +88,7 @@
       &=1-\frac1n
     \end{align*}
 
-  \item $\displaystyle a_1=1,\,a_{n+1}=a_n+(n+1)^2$\\
+  \item $a_1=1,\,a_{n+1}=a_n+(n+1)^2$\\
     \bookterm{difference}{階差}型の\bookterm{general}{一般項}を用いると,
     \begin{align*}
       a_n
