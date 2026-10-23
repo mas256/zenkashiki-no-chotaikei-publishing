@@ -96,6 +96,7 @@
   解き方を模索する際にはまず実験を行うのが常套である.
   $p,q$に適当な値を代入して第10項程度まで求めてみると
   \begin{center}
+    \BookMathLayout{}{\footnotesize\setlength{\tabcolsep}{3pt}}%
     \rowcolors{2}{black!10}{white}
     \begin{tabular}{cccc}\Xhline{1.5pt}
       n&	$p=2,\,q=1$&	$p=4,\,q=1$&	$p=2,\,q=10$\\\hline
@@ -118,7 +119,7 @@
     \begin{tikzpicture}
       \begin{axis}[
           scale only axis,
-          width=4.8cm,
+          width=\BookMathLayout{4.8cm}{3.0cm},
           height=3.4cm,                     % 高さを抑える(旧 4.8cm)
           clip=false,                       % 線の先の式をはみ出して表示
           % --- 軸(矢印つき・枠なし・モノクロ) ---
@@ -237,6 +238,7 @@
   として考えてみよう.
   つまり,\,$a_n$の値による$a_{n+1}$の値の変化をグラフに落とし込むということだ.
   図示すると
+  \begin{center}
   \begin{tikzpicture}[scale=0.8]
     \draw[->,>=stealth,semithick] (-1.5,0)--(5.5,0)node[above]{$x$};
     \draw[->,>=stealth,semithick] (0,-1)--(0,5)node[right]{$y$};
@@ -259,6 +261,7 @@
     \node[below=3pt] at (2,0) {$\alpha$};
     \node[left=3pt] at (0,2) {$\alpha$};
   \end{tikzpicture}
+  \end{center}
   \begin{center}
     \BookFigureCaption{直線の交点として捉える\bookterm{fixed}{不動点}}
   \end{center}
@@ -333,7 +336,7 @@
   \paragraphbf{$p$へのアプローチ}
   
   ここまで$q$を消す試みを続けてきたが,\,$p$に対してうまく操作できないだろうか.
-  \mbox{第\hyperref[節：階差等比複合型]{\ref*{節：階差等比複合型}}項「階差等比複合型」}でも使われる式変形を用いればうまく解くことができる.
+  \booknavref{節：階差等比複合型}{階差等比複合型}でも使われる式変形を用いればうまく解くことができる.
   \[
     a_{n+1}=pa_n+q
   \]

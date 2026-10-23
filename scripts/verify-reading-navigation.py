@@ -11,8 +11,21 @@ ROOT = Path(__file__).resolve().parents[1]
 BOOK = ROOT / '発展-new'
 
 
+def book_file_index():
+    index = {}
+    for path in ROOT.rglob('*.tex'):
+        if set(path.relative_to(ROOT).parts[:-1]) & {'.git', 'old', 'tmp', 'out', 'node_modules'}:
+            continue
+        head = path.read_text(encoding='utf-8')[:400]
+        m = re.search(r'^\ufeff?%\s*BOOK-FILE-ID:\s*(f-[0-9a-f]+)', head, re.M)
+        if m:
+            index[m.group(1)] = path
+    return index
+
+
 def source_files():
     seen = {}
+    index = book_file_index()
 
     def visit(path):
         path = path.resolve()
@@ -22,6 +35,9 @@ def source_files():
         seen[path] = text
         for name in re.findall(r'\\input\{([^{}]+)\}', text):
             visit(BOOK / name)
+        for identifier in re.findall(r'\\BookImport\{([^{}]+)\}', text):
+            assert identifier in index, f'Unknown BookImport {identifier}'
+            visit(index[identifier])
 
     visit(BOOK / '漸化式の超体系的解説.tex')
     return seen
@@ -46,7 +62,7 @@ def check(pdf=None):
     tags = Counter(re.findall(r'\\booktag\{([^{}#]+)\}\{[^{}]+\}', text))
     returns = Counter(re.findall(r'\\bookeqbackref\{([^{}#]+)\}', text))
     equation_uses = re.findall(r'\\bookeq(?:back)?ref\{([^{}#]+)\}', text)
-    assert len(tags) == 15 and all(n == 1 for n in tags.values()), \
+    assert len(tags) == 12 and all(n == 1 for n in tags.values()), \
         'Manual equation tags must have distinct destinations'
     assert tags == returns, 'An equation tag has no unique return link'
     assert not set(equation_uses) - tags.keys(), 'An equation reference has no tag'

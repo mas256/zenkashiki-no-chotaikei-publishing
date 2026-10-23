@@ -31,3 +31,5 @@ pdfcol
 hyperref
 pxjahyper
 ulem
+pgfplots
+makecell

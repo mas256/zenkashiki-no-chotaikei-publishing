@@ -1,6 +1,6 @@
 // Structural checks and exact finite checks for the learning-design revision.
 // These finite calculations supplement the mathematical arguments in the text.
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import { join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -80,12 +80,27 @@ function stripComments(text) {
     return line;
   }).join("\n");
 }
+// \BookImport{f-...} refers to the file whose first lines declare
+// "% BOOK-FILE-ID: f-...". Build that index from the repository tree.
+function bookFileIndex(root) {
+  const index=new Map();
+  for (const entry of readdirSync(root,{recursive:true,withFileTypes:true})) {
+    if (!entry.isFile() || !entry.name.endsWith(".tex")) continue;
+    const full=join(entry.parentPath ?? entry.path,entry.name);
+    if (/(^|[\\/])(\.git|old|tmp|out|node_modules)([\\/]|$)/.test(full.slice(root.length))) continue;
+    const id=readFileSync(full,"utf8").match(/^\uFEFF?%\s*BOOK-FILE-ID:\s*(f-[0-9a-f]+)/m)?.[1];
+    if (id) index.set(id,full.slice(root.length).replace(/^[\\/]/,""));
+  }
+  return index;
+}
 export function verifyTeX(readText, pdfDestinations = null) {
   const files=new Map();
+  const index=bookFileIndex(fileURLToPath(new URL("../",import.meta.url)));
   function visit(path) {
     if (files.has(path)) return;
-    const text=stripComments(readText(path)); files.set(path,text);
-    for (const m of text.matchAll(/\\input\{([^}]+)\}/g)) {
+    const raw=readText(path); const text=stripComments(raw); files.set(path,text);
+    for (const m of text.matchAll(/\\input\{([^}]+)\}|\\BookImport\{([^}]+)\}/g)) {
+      if (m[2]) { assert(index.has(m[2]),"unknown BookImport "+m[2]); visit(index.get(m[2])); continue; }
       const ref=m[1];
       visit(ref.startsWith("../") ? ref.slice(3) : "発展-new/"+ref);
     }

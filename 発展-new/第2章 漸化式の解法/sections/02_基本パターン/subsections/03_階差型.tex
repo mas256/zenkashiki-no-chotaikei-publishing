@@ -9,14 +9,22 @@
 記号の性質は\sectionref*{節：シグマの計算}で確認できる.
 
 実際に今までと同じ様にやってみると
-\begin{align*}
+\BookMathLayout{\begin{align*}
   a_{n}&=a_{n-1}+f(n-1)\\
   &=\left\{a_{n-2}+f(n-2)\right\}+f(n-1)\\
   &=\left[\left\{a_{n-3}+f(n-3)\right\}+f(n-2)\right]+f(n-1)\\
   &\qquad \vdots\\
   &=a_1+\sum_{k=1}^{n-1} f(k)\\
   &\therefore \quad a_n=a_1+\sum_{k=1}^{n-1} f(k)
-\end{align*}
+\end{align*}}{\begin{align*}
+  a_{n}&=a_{n-1}+f(n-1)\\
+  &=\left\{a_{n-2}+f(n-2)\right\}+f(n-1)\\
+  &=\left[\left\{a_{n-3}+f(n-3)\right\}+f(n-2)\right]\\
+  &\qquad+f(n-1)\\
+  &\qquad \vdots\\
+  &=a_1+\sum_{k=1}^{n-1} f(k)\\
+  &\therefore \quad a_n=a_1+\sum_{k=1}^{n-1} f(k)
+\end{align*}}
 漸化式を解くことそのものは個々で終わりである.
 残るのは和の計算であり,\,$f(n)$に応じて,\bookterm{arithmetic}{等差数列}や\bookterm{geometric}{等比数列}の和の公式,\bookterm{partial}{部分分数分解}などを使う.
 
