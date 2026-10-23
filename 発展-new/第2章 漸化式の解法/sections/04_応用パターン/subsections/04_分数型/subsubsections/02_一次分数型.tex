@@ -1,20 +1,20 @@
 % BOOK-FILE-ID: f-3076141c1a19
 % subsubsection: 1次分数型  \, $\displaystyle a_{n+1}=\frac{pa_n+q}{ra_n+s}$
 
-\subsubsection{\texorpdfstring{一次分数型   $a_{n+1}=\frac{pa_n+q}{ra_n+s}$}{一次分数型}}\label{節：一次分数型}
-\booknavref{節：逆数型}{逆数型}の一般形である,
+\subsubsection{\texorpdfstring{一次分数型   $\displaystyle a_{n+1}=\frac{pa_n+q}{ra_n+s}$}{一次分数型}}\label{節：一次分数型}
+\booknavref{節：逆数型}{逆数型}の一般系である,
 \[
   a_{n+1}=\frac{pa_n+q}{ra_n+s}
 \]
 で表される漸化式について考えよう.
 
 以下では$r\ne0$, $ps-qr\ne0$とし,元の分母が$0$にならない範囲で議論する.\footnote{$r=0,\ s\ne0$なら特性方程式型へ戻る.
-  $r\ne0,\ ps-qr=0$なら,分母が非零の入力に対して右辺は定数$\frac{p}{r}$になる.次の分母も確認する.例えば$\frac{a_n-1}{a_n-1}$は,初項が$1$でなくても次項が$1$になり,次の更新は定義できない.}
+  $r\ne0,\ ps-qr=0$なら,分母が非零の入力に対して右辺は定数$\dfrac{p}{r}$になる.次の分母も確認する.例えば$\dfrac{a_n-1}{a_n-1}$は,初項が$1$でなくても次項が$1$になり,次の更新は定義できない.}
   
 既に学んだ逆数型に帰着させることを目標に式変形を進める.
 つまり,
 \[
-  a_{n+1}=\frac{pa_n+q}{ra_n+s} \iff b_{n+1}=\frac{tb_n}{ub_n+v}
+  a_{n+1}=\frac{pa_n+q}{ra_n+s} \iff b_{n+1}=\frac{tb_n}{ua_n+v}
 \]
 となるような$b_n$と$t,u,v$の組を探せば良い.
 言い換えれば$q$を消すということになるので,特性方程式型の考え方を用いて,ある不動点を見つけ,その値を引くことを目標にしよう.
@@ -44,12 +44,12 @@ $a_n=b_n+x$を代入すると,
   \quad\Longleftrightarrow\quad
   x=\frac{px+q}{rx+s}
 \]
-であるから,これを満たす$x$,すなわち元の\bookterm{fixed}{不動点}を引けば,
+であるから,これ満たす$x$,すなわち元の\bookterm{fixed}{不動点}を引けば,
 \[
   b_{n+1}=\frac{(p-rx)b_n}{rb_n+rx+s}
 \]
-という逆数型になる.ここで,\,$p-rx$も$rx+s$も0でない.\footnote{不動点の方程式より,\,$(p-rx)(rx+s)=ps-qr\ne0$.}
-初項が$x$なら定数列である.それ以外では$b_n$は途中で0にならず,逆数を取って解ける.
+という逆数型になる.ここで,\,$p-rx$も$rx+s$も零でない.\footnote{不動点の方程式より,\,$(p-rx)(rx+s)=ps-qr\ne0$.}
+初項が$x$なら定数列である.それ以外では$b_n$は途中で零にならず,逆数を取って解ける.
 定数項$q$を消すための条件は,
 \[
   rx^2+(s-p)x-q=0
@@ -92,15 +92,15 @@ $\alpha,\beta$は別々に選ぶ定数ではなく,もとの漸化式の係数�
 実際に,
 \begin{align*}
   \frac{a_{n+1}-\alpha}{a_{n+1}-\beta}
-  &=\cfrac{
-    \cfrac{(p-r\alpha)(a_n-\alpha)}{ra_n+s}}
-    {
-    \cfrac{(p-r\beta)(a_n-\beta)}{ra_n+s}}\\
+  &=\frac{\displaystyle
+    \frac{(p-r\alpha)(a_n-\alpha)}{ra_n+s}}
+    {\displaystyle
+    \frac{(p-r\beta)(a_n-\beta)}{ra_n+s}}\\
   &=\frac{p-r\alpha}{p-r\beta}
     \frac{a_n-\alpha}{a_n-\beta}
 \end{align*}
 となる.
-したがって,二つの差の比は,項が一つ進むごとに一定の倍率$\frac{p-r\alpha}{p-r\beta}$で変化する.
+したがって,二つの差の比は,項が一つ進むごとに一定の倍率$\dfrac{p-r\alpha}{p-r\beta}$で変化する.
 分子の定数項を消せる二つの式を比べることで,等比数列の法則を見つけられたのである.
 
 ここで
@@ -114,11 +114,28 @@ $\alpha,\beta$は別々に選ぶ定数ではなく,もとの漸化式の係数�
   \frac{p-r\alpha}{p-r\beta}b_n
 \]
 となる.したがって,\,$b_n$は等比数列である.
-なお,\,$\alpha$と$\beta$はどちらをどちらと名付けてもよい.
-結局,複雑な一次分数型をそのまま扱うのではなく,2つの不動点からのずれの比$\frac{a_n-\alpha}{a_n-\beta}$を追えば,等比型に帰着するのだ.\footnote{解と係数の関係から$p-r\alpha=r\beta+s$なので,公比は$\frac{r\beta+s}{r\alpha+s}$とも書ける.この意味は\sectionref*{節：漸化式と行列}で扱う.}
+$\alpha$と$\beta$の大小関係は,解の大小関係を要求されていないことから自由に選んでよい.
+つまり,\,1次分数型漸化式では,
+\[
+  a_{n+1}=\frac{pa_n+q}{ra_n+s}
+\]
+という複雑な形をそのまま扱うのではなく,
+\[
+  \frac{a_n-\alpha}{a_n-\beta}
+\]
+という「$\alpha,\beta$からの距離の比」に置き換えることで,
+等比数列に変えることができる.
+
+そして,\,$\alpha,\beta$は,
+\[
+  rx^2+(s-p)x-q=0
+\]
+の異なる2解として自然に現れる.
+
+したがって\,$\alpha,\beta$は,もとの漸化式の$a_n$を形式的に$\alpha,\beta$に置き換えたときにも値が変化しない数,すなわち不動点である.
 
 なお,$rx^2+(s-p)x-q=0$が重解$\alpha$を持つ場合は,$\beta$と異なる2つの不動点を取れないため,上の議論はそのまま使えない.
-このときは$\alpha=\frac{p-s}{2r}$,すなわち$s=p-2r\alpha$が成り立つため,
+このときは$\alpha=\dfrac{p-s}{2r}$,すなわち$s=p-2r\alpha$が成り立つため,
 \[
   c=p-r\alpha=r\alpha+s\ne0
 \]
@@ -132,7 +149,7 @@ $\alpha,\beta$は別々に選ぶ定数ではなく,もとの漸化式の係数�
   \frac{1}{a_{n+1}-\alpha}
   =\frac{1}{a_n-\alpha}+\frac{r}{c}
 \]
-であるから,右辺も含めて$\frac{1}{a_n-\alpha}$について考えれば等差数列に帰着できる.
+であるから,右辺も含めて$1/(a_n-\alpha)$について考えれば等差数列に帰着できる.
 ここで$b_n=a_n-\alpha$とおくと,
 \[
   b_{n+1}=\frac{cb_n}{rb_n+c}
@@ -145,45 +162,45 @@ $\alpha,\beta$は別々に選ぶ定数ではなく,もとの漸化式の係数�
 
 \begin{bookpoint}
   \textbf{POINT}\par
-  $a_{n+1}$と$a_n$を$x$に置き換えた二次方程式をとき,その2解$\alpha,\beta$によって$b_n=\frac{a_n-\alpha}{a_n-\beta}$とおく.
+  $a_{n+1}$と$a_n$を$x$に置き換えた二次方程式をとき,その2解$\alpha,\beta$によって$\displaystyle b_n=\frac{a_n-\alpha}{a_n-\beta}$とおく.
   $b_n$について等比型漸化式が作れるので,その一般項を得たら$a_n$に戻す.
 \end{bookpoint}
 
 \noindent \bookblocklink{example-mobius-1}{problem}{answer}{【例題】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-mobius-1}{problem}{answer}]
-  \item $a_1=3,\, a_{n+1}=\frac{2a_n+1}{a_n+2}$
-  \item $a_1=0,\, a_{n+1}=\frac{a_n+4}{a_n+1}$
-  \item $a_1=5,\, a_{n+1}=\frac{4a_{n}-9}{a_{n}-2}$
-  \item $a_1=1,\, a_{n+1}=1+\frac{1}{a_n}$
+  \item $\displaystyle a_1=3,\, a_{n+1}=\frac{2a_n+1}{a_n+2}$
+  \item $\displaystyle a_1=0,\, a_{n+1}=\frac{a_n+4}{a_n+1}$
+  \item $\displaystyle a_1=5,\, a_{n+1}=\dfrac{4a_{n}-9}{a_{n}-2}$
+  \item $\displaystyle a_1=1,\, a_{n+1}=1+\frac{1}{a_n}$
 \end{enumerate}
 
 \noindent\bookblocklink{example-mobius-1}{hint}{problem}{【方針】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-mobius-1}{hint}{problem}]
   \item 不動点$1,-1$からの差の比を作ると,共通の分母$a_n+2$が消えます.
   \item 同様に\bookterm{fixed}{不動点}$\alpha,\beta$を求めましょう.今回は片方が負の値になります.
-  \item 今回は\bookterm{fixed}{不動点}の方程式が重解になります.\,$\frac{a_n-\alpha}{a_n-\beta}$は使えないので,\,$b_n=a_n-\alpha$と置いてから逆数型に帰着させる別の手法を使います.
+  \item 今回は\bookterm{fixed}{不動点}の方程式が重解になります.\,$\dfrac{a_n-\alpha}{a_n-\beta}$は使えないので,\,$b_n=a_n-\alpha$と置いてから逆数型に帰着させる別の手法を使います.
   \item このような形も一次分数型です.解と係数の関係を活用して解きましょう.
 \end{enumerate}
 
 \noindent\bookblocklink{example-mobius-1}{answer}{problem}{【解答】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-mobius-1}{answer}{problem}]
-  \item $a_n=\frac{2\cdot3^{n-1}+1}{2\cdot3^{n-1}-1}$
-  \item $a_n=\frac{2\left(3^{n-1}+(-1)^n\right)}{3^{n-1}-(-1)^n}$
-  \item $a_{n}=\frac{6n-1}{2n-1}$
-  \item $a_n=\cfrac{\left(\cfrac{1-\sqrt{5}}{2}\right)^{n+1}-\left(\cfrac{1+\sqrt{5}}{2}\right)^{n+1}}{\left(\cfrac{1-\sqrt{5}}{2}\right)^n-\left(\cfrac{1+\sqrt{5}}{2}\right)^n}$
+  \item $\displaystyle a_n=\frac{2\cdot3^{n-1}+1}{2\cdot3^{n-1}-1}$
+  \item $\displaystyle a_n=\frac{2\left(3^{n-1}+(-1)^n\right)}{3^{n-1}-(-1)^n}$
+  \item $a_{n}=\dfrac{6n-1}{2n-1}$
+  \item $\displaystyle a_n=\cfrac{\left(\cfrac{1-\sqrt{5}}{2}\right)^{n+1}-\left(\cfrac{1+\sqrt{5}}{2}\right)^{n+1}}{\left(\cfrac{1-\sqrt{5}}{2}\right)^n-\left(\cfrac{1+\sqrt{5}}{2}\right)^n}$
 \end{enumerate}
 
 \noindent\bookblocklink{example-mobius-1}{solution}{problem}{【解法】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-mobius-1}{solution}{problem}]
-  \item $a_1=3,\, a_{n+1}=\frac{2a_n+1}{a_n+2}$\\
-    \bookterm{fixed}{不動点}の方程式$x=\frac{2x+1}{x+2}$の解は$1,-1$である.
-    $b_n=\frac{a_n-1}{a_n+1}$と置くと,
+  \item $\displaystyle a_1=3,\, a_{n+1}=\frac{2a_n+1}{a_n+2}$\\
+    \bookterm{fixed}{不動点}の方程式$x=\dfrac{2x+1}{x+2}$の解は$1,-1$である.
+    $b_n=\dfrac{a_n-1}{a_n+1}$と置くと,
     \begin{align*}
       b_{n+1}&=\cfrac{\cfrac{2a_n+1}{a_n+2}-1}{\cfrac{2a_n+1}{a_n+2}+1}\\
       &=\frac{2a_n+1-(a_n+2)}{2a_n+1+(a_n+2)}\\
       &=\frac13\frac{a_n-1}{a_n+1}=\frac13b_n
     \end{align*}
-    $b_1=\frac{3-1}{3+1}=\frac{1}{2}$なので,
+    $b_1=\dfrac{3-1}{3+1}=\dfrac{1}{2}$なので,
     \[
       b_n=\frac12\left(\frac13\right)^{n-1}
       =\frac1{2\cdot3^{n-1}}
@@ -195,9 +212,9 @@ $\alpha,\beta$は別々に選ぶ定数ではなく,もとの漸化式の係数�
       =\frac{2\cdot3^{n-1}+1}{2\cdot3^{n-1}-1}
     \end{align*}
     となる.
-  \item $a_1=0,\, a_{n+1}=\frac{a_n+4}{a_n+1}$\\
-    \bookterm{fixed}{不動点}の方程式$x=\frac{x+4}{x+1}$の解は$2,-2$である.
-    倍率は$\frac{1-2}{1+2}=-\frac{1}{3}$なので,\,$b_n=\frac{a_n-2}{a_n+2}$と置くと,
+  \item $\displaystyle a_1=0,\, a_{n+1}=\frac{a_n+4}{a_n+1}$\\
+    \bookterm{fixed}{不動点}の方程式$x=\dfrac{x+4}{x+1}$の解は$2,-2$である.
+    倍率は$\dfrac{1-2}{1+2}=-\dfrac{1}{3}$なので,\,$b_n=\dfrac{a_n-2}{a_n+2}$と置くと,
     \begin{align*}
       b_{n+1}&=-\frac13b_n,\quad b_1=-1,\\
       b_n&=(-1)\left(-\frac13\right)^{n-1}
@@ -209,8 +226,8 @@ $\alpha,\beta$は別々に選ぶ定数ではなく,もとの漸化式の係数�
       &=\frac{2\left(3^{n-1}+(-1)^n\right)}{3^{n-1}-(-1)^n}
     \end{align*}
     となる.
-  \item $a_1=5,\, a_{n+1}=\frac{4a_n-9}{a_n-2}$\\
-    \bookterm{fixed}{不動点}の方程式$x=\frac{4x-9}{x-2}$は重解$3$を持つ.
+  \item $\displaystyle a_1=5,\, a_{n+1}=\dfrac{4a_n-9}{a_n-2}$\\
+    \bookterm{fixed}{不動点}の方程式$x=\dfrac{4x-9}{x-2}$は重解$3$を持つ.
     $b_n=a_n-3$と置くと,
     \begin{align*}
       b_{n+1}&=\frac{4a_n-9}{a_n-2}-3
@@ -228,8 +245,8 @@ $\alpha,\beta$は別々に選ぶ定数ではなく,もとの漸化式の係数�
       a_n=3+b_n=3+\frac2{2n-1}=\frac{6n-1}{2n-1}
     \]
     を得る.
-  \item $a_1=1,\, a_{n+1}=1+\frac1{a_n}$\\
-    右辺を$\frac{a_n+1}{a_n}$と書けば,一次分数型である.
+  \item $\displaystyle a_1=1,\, a_{n+1}=1+\frac1{a_n}$\\
+    右辺を$\dfrac{a_n+1}{a_n}$と書けば,一次分数型である.
     \bookterm{fixed}{不動点}の方程式
     \[
       x=\frac{x+1}{x}\booktag{mobius-example-fixed}{1}
@@ -244,7 +261,7 @@ $\alpha,\beta$は別々に選ぶ定数ではなく,もとの漸化式の係数�
       \alpha+\beta=1,\qquad \alpha\beta=-1
       \booktag{mobius-example-roots}{2}
     \]
-    である.\,$b_n=\frac{a_n-\alpha}{a_n-\beta}$と置くと,
+    である.\,$b_n=\dfrac{a_n-\alpha}{a_n-\beta}$と置くと,
     \begin{align*}
       b_{n+1}&=\frac{a_n+1-\alpha a_n}{a_n+1-\beta a_n}\\
       &=\frac{(1-\alpha)a_n+1}{(1-\beta)a_n+1}
@@ -256,11 +273,11 @@ $\alpha,\beta$は別々に選ぶ定数ではなく,もとの漸化式の係数�
       &=\frac{\beta(a_n-\alpha)}{\alpha(a_n-\beta)}
       =\frac\beta\alpha b_n
     \end{align*}
-    である.\,$b_1=\frac{1-\alpha}{1-\beta}=\frac{\beta}{\alpha}$より,
+    である.\,$b_1=\dfrac{1-\alpha}{1-\beta}=\dfrac{\beta}{\alpha}$より,
     \[
       b_n=\left(\frac\beta\alpha\right)^n
     \]
-    となる.復元式$a_n=\frac{\beta b_n-\alpha}{b_n-1}$に代入し,分母分子に$\alpha^n$を掛けると,
+    となる.復元式$a_n=\dfrac{\beta b_n-\alpha}{b_n-1}$に代入し,分母分子に$\alpha^n$を掛けると,
     \begin{align*}
       a_n&=\frac{\beta^{n+1}-\alpha^{n+1}}{\beta^n-\alpha^n}\\
       &=\cfrac{\left(\cfrac{1-\sqrt5}{2}\right)^{n+1}-\left(\cfrac{1+\sqrt5}{2}\right)^{n+1}}
@@ -270,7 +287,7 @@ $\alpha,\beta$は別々に選ぶ定数ではなく,もとの漸化式の係数�
 \end{enumerate}
 \paragraphbf{特性方程式が重解の時}
   不動点の方程式が重解$\alpha$を持つときは,差の比を作れない.
-  $\alpha=\frac{p-s}{2r}$なので,\,$c=p-r\alpha=r\alpha+s\ne0$と置けば,
+  $\alpha=\dfrac{p-s}{2r}$なので,\,$c=p-r\alpha=r\alpha+s\ne0$と置けば,
   \[
     a_{n+1}-\alpha
     =\frac{c(a_n-\alpha)}{r(a_n-\alpha)+c}
@@ -292,8 +309,8 @@ $\alpha,\beta$は別々に選ぶ定数ではなく,もとの漸化式の係数�
 
 \paragraphbf{小話：フィボナッチ数列}
   例題(4)は,フィボナッチ\bookterm{sequence}{数列}$F_1=F_2=1,\ F_{n+2}=F_{n+1}+F_n$とつながる.
-  隣接項の比$\frac{F_{n+1}}{F_n}$は同じ更新$a_{n+1}=1+\frac{1}{a_n}$と初項$1$を満たすので,\,$a_n=\frac{F_{n+1}}{F_n}$である.
-  この比の\bookterm{limit}{極限}は黄金比$\frac{1+\sqrt5}{2}$となる.\footnote{リュカ数列も同じ\bookterm{characteristic}{特性方程式}$x^2=x+1$を持ち,隣接項の比が黄金比へ収束する.
+  隣接項の比$\dfrac{F_{n+1}}{F_n}$は同じ更新$a_{n+1}=1+\dfrac{1}{a_n}$と初項$1$を満たすので,\,$a_n=\dfrac{F_{n+1}}{F_n}$である.
+  この比の\bookterm{limit}{極限}は黄金比$\dfrac{1+\sqrt5}{2}$となる.\footnote{リュカ数列も同じ\bookterm{characteristic}{特性方程式}$x^2=x+1$を持ち,隣接項の比が黄金比へ収束する.
     トリボナッチ数列では$x^3=x^2+x+1$となり,比の極限は約$1.839$のトリボナッチ定数になる.}
 
 \paragraphbf{数学的帰納法による一般項の証明}
@@ -303,7 +320,7 @@ $\alpha,\beta$は別々に選ぶ定数ではなく,もとの漸化式の係数�
   \begin{quote}
     以下の\bookterm{recurrence}{漸化式}
     \[
-      a_1=5,\, a_{n+1}=\frac{4a_{n}-9}{a_{n}-2}
+      a_1=5,\, a_{n+1}=\dfrac{4a_{n}-9}{a_{n}-2}
     \]
     を満たす\bookterm{sequence}{数列}$a_n$の\bookterm{general}{一般項}を帰納法を用いて求めよ.
   \end{quote}
@@ -321,7 +338,7 @@ $\alpha,\beta$は別々に選ぶ定数ではなく,もとの漸化式の係数�
   \end{quote}
   \bookblocklink{example-mobius-2}{answer}{problem}{【解答】}
   \begin{quote}
-    予想した\bookterm{general}{一般項}を確かめる.\,$n=1$では$\frac{6-1}{2-1}=5$なので成立する.
+    予想した\bookterm{general}{一般項}を確かめる.\,$n=1$では$\dfrac{6-1}{2-1}=5$なので成立する.
     正の整数$k$について,
     \[
       a_k=\frac{6k-1}{2k-1}
@@ -332,7 +349,7 @@ $\alpha,\beta$は別々に選ぶ定数ではなく,もとの漸化式の係数�
       &=\frac{6k+5}{2k+1}
       =\frac{6(k+1)-1}{2(k+1)-1}
     \end{align*}
-    分母$a_k-2=\frac{2k+1}{2k-1}$も零でなく,\,$n=k+1$で成立する.
-    帰納法より,\,$a_n=\frac{6n-1}{2n-1}$がすべての正の整数$n$で成り立つ.\qed
+    分母$a_k-2=\dfrac{2k+1}{2k-1}$も零でなく,\,$n=k+1$で成立する.
+    帰納法より,\,$a_n=\dfrac{6n-1}{2n-1}$がすべての正の整数$n$で成り立つ.\qed
 
   \end{quote}

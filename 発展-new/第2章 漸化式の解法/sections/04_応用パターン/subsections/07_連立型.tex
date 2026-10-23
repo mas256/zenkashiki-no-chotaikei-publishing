@@ -45,7 +45,7 @@ $a_{n+1}$を求めるには$b_n$が,\,$b_{n+1}$を求めるには$a_n$が必要�
 
 \noindent \bookblocklink{example-system-1}{problem}{answer}{【例題】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-system-1}{problem}{answer}]
-  \item $a_1=1,\,b_1=1.\ \begin{cases}a_{n+1}=3a_n+b_n\\ b_{n+1}=a_n+3b_n\end{cases}$
+  \item $\displaystyle a_1=1,\,b_1=1.\ \begin{cases}a_{n+1}=3a_n+b_n\\ b_{n+1}=a_n+3b_n\end{cases}$
 \end{enumerate}
 
 \noindent \bookblocklink{example-system-1}{hint}{problem}{【方針】}\par\nobreak
@@ -55,7 +55,7 @@ $a_{n+1}$を求めるには$b_n$が,\,$b_{n+1}$を求めるには$a_n$が必要�
 
 \noindent \bookblocklink{example-system-1}{answer}{problem}{【解答】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-system-1}{answer}{problem}]
-  \item $a_n=4^{n-1},\qquad b_n=a_n=4^{n-1}$
+  \item $\displaystyle a_n=4^{n-1},\qquad b_n=a_n=4^{n-1}$
 \end{enumerate}
 
 \noindent \bookblocklink{example-system-1}{solution}{problem}{【解法】}\par\nobreak
@@ -72,7 +72,7 @@ $a_{n+1}$を求めるには$b_n$が,\,$b_{n+1}$を求めるには$a_n$が必要�
     \]
     $\bookeqbackref{sim-example-sum}{(1)}+\bookeqbackref{sim-example-difference}{(2)}$から$2a_n=2\cdot4^{n-1}$,
     $\bookeqref{sim-example-sum}{(1)}-\bookeqref{sim-example-difference}{(2)}$から$2b_n=2\cdot4^{n-1}$を得る.
-    したがって,\,$a_n=b_n=4^{n-1}$である.
+    従って,\,$a_n=b_n=4^{n-1}$である.
 \end{enumerate}
 
 \paragraphbf{係数が対称な場合の一般形}
@@ -187,7 +187,7 @@ $\bookeqbackref{sim-general-sum}{(1)}+\bookeqbackref{sim-general-difference}{(2)
 
 \noindent \hyperlink{book:example-system-1:answer:2}{\textbf{【例題】}}\par\nobreak
 \begin{enumerate}[start=2,label=(\arabic*),parsep=3pt,format=\bookitemlink{example-system-1}{problem}{answer}]
-  \item $a_1=1,\,b_1=0,\ \begin{cases}a_{n+1}=3a_n+b_n\\ b_{n+1}=2a_n+2b_n\end{cases}$
+  \item $\displaystyle a_1=1,\,b_1=0,\ \begin{cases}a_{n+1}=3a_n+b_n\\ b_{n+1}=2a_n+2b_n\end{cases}$
 \end{enumerate}
 
 \noindent \hyperlink{book:example-system-1:problem:2}{\textbf{【方針】}}\par\nobreak
@@ -197,12 +197,12 @@ $\bookeqbackref{sim-general-sum}{(1)}+\bookeqbackref{sim-general-difference}{(2)
 
 \noindent \hyperlink{book:example-system-1:problem:2}{\textbf{【解答】}}\par\nobreak
 \begin{enumerate}[start=2,label=(\arabic*),parsep=3pt,format=\bookitemlink{example-system-1}{answer}{problem}]
-  \item $a_n=\frac{2\cdot4^{n-1}+1}{3},\qquad b_n=\frac{2\cdot4^{n-1}-2}{3}$
+  \item $\displaystyle a_n=\frac{2\cdot4^{n-1}+1}{3},\qquad b_n=\frac{2\cdot4^{n-1}-2}{3}$
 \end{enumerate}
 
 \noindent \hyperlink{book:example-system-1:problem:2}{\textbf{【解法】}}\par\nobreak
 \begin{enumerate}[start=2,label=(\arabic*),parsep=3pt,format=\bookitemlink{example-system-1}{solution}{problem}]
-  \item $a_1=1,\,b_1=0,\ \begin{cases}a_{n+1}=3a_n+b_n\\ b_{n+1}=2a_n+2b_n\end{cases}$\\
+  \item $\displaystyle a_1=1,\,b_1=0,\ \begin{cases}a_{n+1}=3a_n+b_n\\ b_{n+1}=2a_n+2b_n\end{cases}$\\
     重みの条件は,
     \[
       \begin{cases}
@@ -247,7 +247,7 @@ $p=s=3,\ q=r=1$を特性方程式へ入れると,
 \]
 となる.\,$\gamma=2$なら$\alpha+\beta=0$より重み$(1,-1)$,
 $\gamma=4$なら$\alpha=\beta$より$(1,1)$を選べる.
-したがって取り出す量は,
+従って取り出す量は,
 \[
   c_n=a_n-b_n,\qquad d_n=a_n+b_n
 \]

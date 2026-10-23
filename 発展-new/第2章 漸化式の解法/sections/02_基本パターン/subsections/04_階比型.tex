@@ -2,7 +2,7 @@
 % subsection: 階比型 \, $a_{n+1}=f(n)a_n$
 
 \subsection{\texorpdfstring{階比型  $a_{n+1}=f(n)a_n$}{階比型}}\label{節：階比型}
-きっと前節を読んで,「じゃあ関数を掛けたらどうなるの?」と思う人がいただろう.
+きっと前章を読んで,「じゃあ関数を掛けたらどうなるの?」と思う人がいただろう.
 その疑問を解決する.
 \sectionref{節：階差型}と\sectionref{節：等比型}の内容を踏まえて考えていこう.
 なお,この内容は応用パターンに匹敵する難易度であるため,先程までに比べて難易度が1段階上昇する.
@@ -62,9 +62,9 @@ $1$から$n$までの積は\textbf{階乗}といい,\,$n!=1\cdot2\cdots n$と書
 \]
 添字を$n$から$n-1$にした式について,
 \begin{align*}
-  \frac{a_{n}}{n!}&=\frac{a_{n-1}}{(n-1)!}\\
-  &=\frac{a_{n-2}}{(n-2)!}\\
-  &=\frac{a_{n-3}}{(n-3)!}\\
+  \frac{a_{n}}{n!}&=\frac{a_{n-1}}{{n-1}!}\\
+  &=\frac{a_{n-2}}{{n-2}!}\\
+  &=\frac{a_{n-3}}{{n-3}!}\\
   &\qquad \vdots\\
   &=\frac{a_1}{1!}\\
   &\therefore \quad \frac{a_{n}}{n!}=\frac{a_1}{1!}\\
@@ -75,9 +75,9 @@ $1$から$n$までの積は\textbf{階乗}といい,\,$n!=1\cdot2\cdots n$と書
 \[
   \frac{g(n+1)}{g(n)}=\frac{1}{f(n)}
 \]
-と表せる時,漸化式の両辺に$g(n+1)$を掛けると
+と表せる時,漸化式は
 \begin{align*}
-  g(n+1)a_{n+1}&=g(n)a_n\\
+  g(n+1)a_{n}=&g(n)a_n\\
   &=g(n-1)a_{n-1}\\
   &=g(n-2)a_{n-2}\\
   &\qquad \vdots\\
@@ -95,9 +95,9 @@ $1$から$n$までの積は\textbf{階乗}といい,\,$n!=1\cdot2\cdots n$と書
 
 \noindent \bookblocklink{example-ratio-1}{problem}{answer}{【例題】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-ratio-1}{problem}{answer}]
-  \item $a_1=1,\, a_{n+1}=2na_n$
-  \item $a_1=2,\, a_{n+1}=\frac{n+2}{n}a_n$
-  \item $a_1=1,\, a_{n+1}=n(n+1)a_n$
+  \item $\displaystyle a_1=1,\, a_{n+1}=2na_n$
+  \item $\displaystyle a_1=2,\, a_{n+1}=\frac{n+2}{n}a_n$
+  \item $\displaystyle a_1=1,\, a_{n+1}=n(n+1)a_n$
 \end{enumerate}
 
 \noindent\bookblocklink{example-ratio-1}{hint}{problem}{【方針】}\par\nobreak
@@ -109,31 +109,31 @@ $1$から$n$までの積は\textbf{階乗}といい,\,$n!=1\cdot2\cdots n$と書
 
 \noindent\bookblocklink{example-ratio-1}{answer}{problem}{【解答】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-ratio-1}{answer}{problem}]
-  \item $a_n=(n-1)!\cdot 2^{n-1}$
-  \item $a_n=n(n+1)$
-  \item $a_n=n!(n-1)!$
+  \item $\displaystyle a_n=(n-1)!\cdot 2^{n-1}$
+  \item $\displaystyle a_n=n(n+1)$
+  \item $\displaystyle a_n=n!(n-1)!$
 \end{enumerate}
 
 \noindent\bookblocklink{example-ratio-1}{solution}{problem}{【解法】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-ratio-1}{solution}{problem}]
-  \item $a_1=1,\, a_{n+1}=2na_n$\\
+  \item $\displaystyle a_1=1,\, a_{n+1}=2na_n$\\
     両辺を$n!$で割ると,
     \[
       \frac{a_{n+1}}{n!}=2\frac{a_n}{(n-1)!}.
     \]
-    $b_n=\frac{a_n}{(n-1)!}$なら,\,$b_{n+1}$の分母は$n!$になる.添字の違いに注意しよう.
+    $b_n=\dfrac{a_n}{(n-1)!}$なら,\,$b_{n+1}$の分母は$n!$になる.添字の違いに注意しよう.
     \[
       b_{n+1}=2b_n,\quad b_1=1\quad\Longrightarrow\quad b_n=2^{n-1}.
     \]
     戻すと$a_n=(n-1)!2^{n-1}$となる.\,$n=1$でも$0!\cdot2^0=1$である.
 
-  \item $a_1=2,\, a_{n+1}=\frac{n+2}{n}a_n$
-    $n(n+1)$の隣り合う比は$\frac{n+2}{n}$である.与式を$(n+1)(n+2)$で割ると,
+  \item $\displaystyle a_1=2,\, a_{n+1}=\frac{n+2}{n}a_n$
+    $n(n+1)$の隣り合う比は$\dfrac{n+2}{n}$である.与式を$(n+1)(n+2)$で割ると,
     \[
       \frac{a_{n+1}}{(n+1)(n+2)}=\frac{a_n}{n(n+1)}.
     \]
-    従って$\frac{a_n}{n(n+1)}=\frac{a_1}{2}=1$であり,\,$a_n=n(n+1)$となる.
-  \item $a_1=1,\, a_{n+1}=n(n+1)a_n$\\
+    従って$\dfrac{a_n}{n(n+1)}=\dfrac{a_1}{2}=1$であり,\,$a_n=n(n+1)$となる.
+  \item $\displaystyle a_1=1,\, a_{n+1}=n(n+1)a_n$\\
     両辺を$n!(n+1)!$で割って,
     \begin{align*}
       &\frac{a_{n+1}}{n!(n+1)!}=\frac{a_n}{n!(n-1)!}\\

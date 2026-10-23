@@ -85,11 +85,11 @@ $\rho>0$, $0<\theta<\pi$であり,
 \]
 なので,
 \BookMathLayout{\[
-    C=a_1,\qquad D=\cfrac{\cfrac{a_2}{\rho}-a_1\cos\theta}{\sin\theta}
+    C=a_1,\qquad D=\cfrac{\frac{a_2}{\rho}-a_1\cos\theta}{\sin\theta}
   \]}{\[
     \begin{aligned}
       C&=a_1,\\
-      D&=\cfrac{\cfrac{a_2}{\rho}-a_1\cos\theta}{\sin\theta}
+      D&=\cfrac{\frac{a_2}{\rho}-a_1\cos\theta}{\sin\theta}
     \end{aligned}
   \]}
 と決まる.\,$0<\theta<\pi$より$\sin\theta\ne0$なので割ってよい.
@@ -101,27 +101,27 @@ $\rho>0$, $0<\theta<\pi$であり,
 
 \noindent \bookblocklink{example-complex-1}{problem}{answer}{【例題】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-complex-1}{problem}{answer}]
-  \item $a_1=1,\,a_2=0,\quad a_{n+2}=-a_n\quad(n\ge1)$
-  \item \BookMathLayout{$a_1=0,\,a_2=1,\quad a_{n+2}=2a_{n+1}-2a_n\quad(n\ge1)$}{$a_1=0,\,a_2=1$\\ $a_{n+2}=2a_{n+1}-2a_n$\\ $(n\ge1)$}
-  \item $a_1=1,\,a_2=2,\quad a_{n+2}=-4a_n\quad(n\ge1)$
-  \item \BookMathLayout{$a_1=1,\,a_2=0,\quad a_{n+2}=2a_{n+1}-4a_n\quad(n\ge1)$}{$a_1=1,\,a_2=0$\\ $a_{n+2}=2a_{n+1}-4a_n$\\ $(n\ge1)$}
+  \item $\displaystyle a_1=1,\,a_2=0,\quad a_{n+2}=-a_n\quad(n\ge1)$
+  \item \BookMathLayout{$\displaystyle a_1=0,\,a_2=1,\quad a_{n+2}=2a_{n+1}-2a_n\quad(n\ge1)$}{$\displaystyle a_1=0,\,a_2=1$\\ $\displaystyle a_{n+2}=2a_{n+1}-2a_n$\\ $\displaystyle(n\ge1)$}
+  \item $\displaystyle a_1=1,\,a_2=2,\quad a_{n+2}=-4a_n\quad(n\ge1)$
+  \item \BookMathLayout{$\displaystyle a_1=1,\,a_2=0,\quad a_{n+2}=2a_{n+1}-4a_n\quad(n\ge1)$}{$\displaystyle a_1=1,\,a_2=0$\\ $\displaystyle a_{n+2}=2a_{n+1}-4a_n$\\ $\displaystyle(n\ge1)$}
 \end{enumerate}
 
 \noindent\bookblocklink{example-complex-1}{hint}{problem}{【方針】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-complex-1}{hint}{problem}]
   \item 初項から数項を計算して\bookterm{periodic}{周期性}を見つけ,\bookterm{general}{一般項}を予想します.その後,\bookterm{induction}{数学的帰納法}で証明します.
-  \item \bookterm{root}{特性根}を\bookterm{polar}{極形式}で表し,\,$\rho=\sqrt2,\,\theta=\frac{\pi}{4}$を用いて\bookterm{general}{一般項}を置きます.
-  \item \bookterm{root}{特性根}は$\pm2i$です.\,$\rho=2,\,\theta=\frac{\pi}{2}$として\bookterm{initial}{初期条件}を代入します.
-  \item \bookterm{root}{特性根}を\bookterm{polar}{極形式}で表し,\,$\rho=2,\,\theta=\frac{\pi}{3}$として係数を決定します.
+  \item \bookterm{root}{特性根}を\bookterm{polar}{極形式}で表し,\,$\rho=\sqrt2,\,\theta=\dfrac{\pi}{4}$を用いて\bookterm{general}{一般項}を置きます.
+  \item \bookterm{root}{特性根}は$\pm2i$です.\,$\rho=2,\,\theta=\dfrac{\pi}{2}$として\bookterm{initial}{初期条件}を代入します.
+  \item \bookterm{root}{特性根}を\bookterm{polar}{極形式}で表し,\,$\rho=2,\,\theta=\dfrac{\pi}{3}$として係数を決定します.
 \end{enumerate}
 
 \noindent\bookblocklink{example-complex-1}{answer}{problem}{【解答】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-complex-1}{answer}{problem}]
-  \item $a_n=\cos\frac{(n-1)\pi}{2}$
-  \item $a_n=(\sqrt2)^{n-1}\sin\frac{(n-1)\pi}{4}$
-  \item $a_n=2^{n-1}\left(\cos\frac{(n-1)\pi}{2}+\sin\frac{(n-1)\pi}{2}\right)$
-  \item \BookMathLayout{$a_n=2^{n-1}\left(\cos\frac{(n-1)\pi}{3}-\frac1{\sqrt3}\sin\frac{(n-1)\pi}{3}\right)$}{$a_n=2^{n-1}\Bigl(\cos\frac{(n-1)\pi}{3}$\\
-      $\hspace{3zw}-\frac1{\sqrt3}\sin\frac{(n-1)\pi}{3}\Bigr)$}
+  \item $\displaystyle a_n=\cos\frac{(n-1)\pi}{2}$
+  \item $\displaystyle a_n=(\sqrt2)^{n-1}\sin\frac{(n-1)\pi}{4}$
+  \item $\displaystyle a_n=2^{n-1}\left(\cos\frac{(n-1)\pi}{2}+\sin\frac{(n-1)\pi}{2}\right)$
+  \item \BookMathLayout{$\displaystyle a_n=2^{n-1}\left(\cos\frac{(n-1)\pi}{3}-\frac1{\sqrt3}\sin\frac{(n-1)\pi}{3}\right)$}{$\displaystyle a_n=2^{n-1}\Bigl(\cos\frac{(n-1)\pi}{3}$\\
+      $\displaystyle\hspace{3zw}-\frac1{\sqrt3}\sin\frac{(n-1)\pi}{3}\Bigr)$}
 \end{enumerate}
 
 \noindent\bookblocklink{example-complex-1}{solution}{problem}{【解法】}\par\nobreak
@@ -137,16 +137,16 @@ $\rho>0$, $0<\theta<\pi$であり,
     \]
     従って,奇数番目と偶数番目それぞれの\bookterm{induction}{数学的帰納法}で全項について成り立つ.
   \item \bookterm{characteristic}{特性方程式}$x^2-2x+2=0$の根は$1\pm i$.
-    $\rho=\sqrt2,\theta=\frac{\pi}{4}$である.
+    $\rho=\sqrt2,\theta=\dfrac{\pi}{4}$である.
     $a_1=0$から$C=0$,\,$a_2=1$から$D=1$と決まり,【解答】を得る.
-  \item $x^2+4=0$の根は$\pm2i$なので,\,$\rho=2,\theta=\frac{\pi}{2}$.
+  \item $x^2+4=0$の根は$\pm2i$なので,\,$\rho=2,\theta=\dfrac{\pi}{2}$.
     $a_1=1$から$C=1$,\,$a_2=2$から$2D=2$,従って$D=1$となる.
-  \item $x^2-2x+4=0$の根は$1\pm\sqrt3\,i$なので,\,$\rho=2,\theta=\frac{\pi}{3}$.
+  \item $x^2-2x+4=0$の根は$1\pm\sqrt3\,i$なので,\,$\rho=2,\theta=\dfrac{\pi}{3}$.
     $a_1=1$から$C=1$,\,$a_2=0$から
     \[
       0=2\left(\frac12+D\frac{\sqrt3}{2}\right)
     \]
-    となり,\,$D=-\frac{1}{\sqrt3}$を得る.
+    となり,\,$D=-\dfrac{1}{\sqrt3}$を得る.
 \end{enumerate}
 
 \paragraphbf{加法定理による別解}\label{解釈：虚数解と加法定理}
@@ -156,7 +156,7 @@ $\rho>0$, $0<\theta<\pi$であり,
   p=-(\alpha+\overline\alpha)=-2\rho\cos\theta,
   \qquad q=\alpha\overline\alpha=\rho^2.
 \]
-そこで$b_n=\frac{a_n}{\rho^{n-1}}$と置き,元の式を$\rho^{n+1}$で割ると,
+そこで$b_n=\dfrac{a_n}{\rho^{n-1}}$と置き,元の式を$\rho^{n+1}$で割ると,
 \[
   b_{n+2}+b_n=2\cos\theta\,b_{n+1}
 \]
@@ -169,12 +169,12 @@ $\rho>0$, $0<\theta<\pi$であり,
 \]
 と同じ形である.\,$x=n\theta$を代入すれば,
 $\cos((n-1)\theta)$も$\sin((n-1)\theta)$もこの更新を満たす.
-したがってその組み合わせ
+従ってその組み合わせ
 \[
   h_n=C\cos((n-1)\theta)+D\sin((n-1)\theta)
 \]
-も解になる.初めの二項は$b_1=a_1,b_2=\frac{a_2}{\rho}$なので,
-$C=b_1$, $D=\frac{b_2-b_1\cos\theta}{\sin\theta}$と合わせる.
+も解になる.初めの二項は$b_1=a_1,b_2=\dfrac{a_2}{\rho}$なので,
+$C=b_1$, $D=\dfrac{b_2-b_1\cos\theta}{\sin\theta}$と合わせる.
 
 $b_1=h_1,b_2=h_2$であり,\,$b_n=h_n,b_{n+1}=h_{n+1}$なら,
 \[
@@ -204,7 +204,7 @@ $C=D=0$なら,すべての項が0の数列である.それ以外では$R=\sqrt{C
 これは$|a_n|\le R\rho^{n-1}$という上限であり,各項の絶対値が同じ割合で変わるという意味ではない.
 
 三角関数の式でも,整数添字で周期的とは限らない.
-$\rho=1$かつ$\frac{\theta}{2\pi}$が有理数なら,\,$T\theta=2k\pi$となる正整数$T$と整数$k$が存在する.
+$\rho=1$かつ$\dfrac{\theta}{2\pi}$が有理数なら,\,$T\theta=2k\pi$となる正整数$T$と整数$k$が存在する.
 角度が一周の整数倍だけ進むので,\,$a_{n+T}=a_n$となる.
 すべての項が0の数列を除けば,この2条件は必要でもある.これは次で確かめる.
 
@@ -237,12 +237,12 @@ $\rho\sin\theta\ne0$なので,こちらは実数係数で考えた解全体の�
   +\overline A(\overline\alpha^{\,T}-1)\overline\alpha^{\,n-1}=0.
 \]
 独立性から両係数が0となる.すべての項が0ではない実数解では$A,\overline A\ne0$なので,
-$\alpha^T=\overline\alpha^{\,T}=1$.したがって$\rho=1$,\,$\frac{\theta}{2\pi}$は有理数である.
+$\alpha^T=\overline\alpha^{\,T}=1$.したがって$\rho=1$,\,$\dfrac{\theta}{2\pi}$は有理数である.
 
 \paragraphbf{補足：同じ数列を指数$n$で表す}
 ここまでは$a_1,a_2$から始めて指数を$n-1$にしてきたが,指数を$n$にした表示もよく使われるので紹介しておこう.
-0でない解なら$A\alpha^{n-1}=\left(\frac{A}{\alpha}\right)\alpha^n$と係数を取り直せる.
-$\widetilde A=\frac{A}{\alpha}$, $\widetilde B=\frac{B}{\overline\alpha}$とすれば,
+0でない解なら$A\alpha^{n-1}=\left(\dfrac{A}{\alpha}\right)\alpha^n$と係数を取り直せる.
+$\widetilde A=\dfrac{A}{\alpha}$, $\widetilde B=\dfrac{B}{\overline\alpha}$とすれば,
 \[
   \begin{aligned}
     a_n&=\widetilde A\alpha^n+\widetilde B\overline\alpha^{\,n}\\
@@ -268,11 +268,11 @@ $a_2=\rho^2(c\cos2\theta+d\sin2\theta)$から決まり,対応は
 指数$n$の形に$n=0,1$を代入して,
 \[
   C_0=a_0,\qquad
-  D_0=\cfrac{\cfrac{a_1}{\rho}-a_0\cos\theta}{\sin\theta}
+  D_0=\cfrac{\frac{a_1}{\rho}-a_0\cos\theta}{\sin\theta}
 \]
 と決まる.例えば$a_{n+2}=2a_{n+1}-2a_n$,\,$a_0=1,a_1=2$では,
-根$1\pm i$から$\rho=\sqrt2,\theta=\frac{\pi}{4}$.
-$C_0=1$, $2=\frac{\sqrt2(C_0+D_0)}{\sqrt2}=1+D_0$より$D_0=1$なので,
+根$1\pm i$から$\rho=\sqrt2,\theta=\dfrac{\pi}{4}$.
+$C_0=1$, $2=\dfrac{\sqrt2(C_0+D_0)}{\sqrt2}=1+D_0$より$D_0=1$なので,
 \[
   a_n=(\sqrt2)^n\left(\cos\frac{n\pi}{4}+\sin\frac{n\pi}{4}\right)
 \]

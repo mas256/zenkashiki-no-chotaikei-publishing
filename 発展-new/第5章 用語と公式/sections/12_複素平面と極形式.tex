@@ -21,7 +21,7 @@ $i^2=-1$を満たす虚数単位$i$を用い,複素数$z=x+iy$を点$(x,y)$に�
 偏角に$2\pi$の整数倍を加えても同じ点を表す.\,$z=0$では偏角は定まらない.
 \BookFigPolar
 
-例えば$\rho=2$, $\theta=\frac{\pi}{3}$なら
+例えば$\rho=2$, $\theta=\dfrac{\pi}{3}$なら
 \[
   z=2\left(\cos\frac\pi3+i\sin\frac\pi3\right)=1+i\sqrt3
 \]
@@ -38,7 +38,7 @@ $b=u+iv$を加えると,\,$z+b=(x+u)+i(y+v)$となる.
 絶対値は$s$倍,偏角は$\phi$だけ増える.原点を中心に回転し,\,$s>1$なら拡大,\,$0<s<1$なら縮小,\,$s=1$なら回転だけになる.
 \BookFigComplexRotation
 
-特に$i$を掛けると反時計回りに$\frac{\pi}{2}$回転する.
+特に$i$を掛けると反時計回りに$\dfrac{\pi}{2}$回転する.
 中心を$z_0$から$w_0$へ移す変換は
 \[
   w=c(z-z_0)+w_0.
@@ -59,7 +59,7 @@ $n=0$では両辺とも$1$である.
   (\cos\theta+i\sin\theta)^{-1}=\cos(-\theta)+i\sin(-\theta)
 \]
 なので,負の整数も正の整数の場合へ帰着できる.
-例えば$\theta=\frac{\pi}{6}$, $n=6$なら$\cos\pi+i\sin\pi=-1$となる.
+例えば$\theta=\dfrac{\pi}{6}$, $n=6$なら$\cos\pi+i\sin\pi=-1$となる.
 
 \subsection{オイラーの公式}\label{節：オイラーの公式}
 複素数の指数表示を
@@ -67,7 +67,7 @@ $n=0$では両辺とも$1$である.
   e^{i\theta}=\lim_{n\to\infty}\left(1+\frac{i\theta}{n}\right)^n
 \]
 と定め,\,\sectionref{節：極限}の基本極限から値を求める.
-$\theta\ne0$とし,\,$-\frac{\pi}{2}<\phi_n<\frac{\pi}{2}$, $\tan\phi_n=\frac{\theta}{n}$とおく.
+$\theta\ne0$とし,\,$-\dfrac{\pi}{2}<\phi_n<\dfrac{\pi}{2}$, $\tan\phi_n=\dfrac{\theta}{n}$とおく.
 $r_n=\sqrt{1+\dfrac{\theta^2}{n^2}}$なら
 \[
   1+\frac{i\theta}{n}=r_n(\cos\phi_n+i\sin\phi_n).
@@ -76,10 +76,10 @@ $r_n=\sqrt{1+\dfrac{\theta^2}{n^2}}$なら
 \begin{align*}
   \log(r_n^n)
   &=\frac{\theta^2}{2n}\,
-  \cfrac{\log\left(1+\cfrac{\theta^2}{n^2}\right)}{\cfrac{\theta^2}{n^2}}\longrightarrow0,\\
+  \frac{\log\left(1+\dfrac{\theta^2}{n^2}\right)}{\dfrac{\theta^2}{n^2}}\longrightarrow0,\\
   n\phi_n&=\theta\frac{\phi_n}{\tan\phi_n}\longrightarrow\theta.
 \end{align*}
-最初の式では$\frac{\log(1+x)}{x}\to1$,後では$\phi_n\to0$と$\frac{x}{\tan x}\to1$を使った.
+最初の式では$\dfrac{\log(1+x)}{x}\to1$,後では$\phi_n\to0$と$\dfrac{x}{\tan x}\to1$を使った.
 $r_n^n\to1$とド・モアブルの定理から
 \[
   \left(1+\frac{i\theta}{n}\right)^n
@@ -108,7 +108,7 @@ $z=\rho e^{i\theta}$, $\rho>0$とし,偏角$\theta$を一つ固定すれば,実�
 \]
 と定められる.ただし,\,$\theta$を$\theta+2\pi k$へ変えると,整数でない$x$では値が変わりうる.
 整数なら偏角の選び方によらない.
-有理数$x=\frac{m}{n}$, $n\ge1$では$\left(z^{\dfrac{m}{n}}\right)^n=z^m$となり,\,$z^{\dfrac{m}{n}}$は$z^m$の$n$乗根の一つである.
+有理数$x=\dfrac{m}{n}$, $n\ge1$では$\left(z^{\dfrac{m}{n}}\right)^n=z^m$となり,\,$z^{\dfrac{m}{n}}$は$z^m$の$n$乗根の一つである.
 
 \subsection{公式のまとめ}\label{節：公式のまとめ}
 \bookterm{polar}{極形式}$z=\rho e^{i\theta}$では,加法は平行移動,乗法は長さの積と角度の和,整数乗は長さの累乗と角度の整数倍に対応する.

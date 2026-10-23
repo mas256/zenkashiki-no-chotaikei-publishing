@@ -16,6 +16,8 @@
 \usepackage{amsmath,amsthm,amssymb,amsfonts}
 \usepackage{makecell}
 
+% インライン数式は本文中でも displaystyle で統一する。
+\everymath{\displaystyle}
 \usepackage{refcount}
 \usepackage{tikz}
 \usepackage{pgfplots}
@@ -23,8 +25,6 @@
 \usepackage{graphicx}
 \usepackage{import}
 \input{.book-import-map.tex}
-% 基本編・発展編・新解釈で共通の数式設定(tex/book-math.tex)
-\BookImport{f-728762483022}
 \BookImport{f-a3f9ebba4e9c}
 
 
@@ -161,7 +161,7 @@
   \refstepcounter{equation}%
   \item
   \makebox[\linewidth]{%
-    $#2$
+    $\displaystyle #2$
     \hfill
     (\theequation)%
   }%

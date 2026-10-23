@@ -2,24 +2,26 @@
 % subsection: 総和型
     
 \subsection{総和型}\label{節：総和型}
-  \subsubsection{\texorpdfstring{和と項の関係  $S_n=f(n,a_n)$}{和と項の関係}}
-    \bookterm{sequence}{数列}$a_n$の和$S_n=\sum_{k=1}^n a_k$が,$n$と$a_n$の式$f(n,a_n)$を用いて
+  \subsubsection{\texorpdfstring{和と項の関係  $S_n=pa_n+f(n)$}{和と項の関係}}
+    \bookterm{sequence}{数列}$a_n$の和$S_n=\sum_{k=1}^n a_k$が,
     \[
-      S_n=f(n,a_n)
+      S_n=f(a_n)
     \]
-    を満たす場合を考えよう.例えば$S_n=2a_n-n$なら$f(n,a_n)=2a_n-n$である.
-    このとき
+    を満たす場合を考えよう.
+    また,
+    \[
+      S_1=a_1
+    \]
+    である.この条件下で漸化式は
     \begin{align*}
-      S_n&=f(n,a_n) \booktag{sum-relation-1}{1}\\
-      S_{n+1}&=f(n+1,a_{n+1}) \booktag{sum-relation-2}{2}
+      S_n&=f(a_n) \booktag{sum-relation-1}{1}\\
+      S_{n+1}&=+f(a_{n+1}) \booktag{sum-relation-2}{2}
     \end{align*}
     の$\bookeqbackref{sum-relation-2}{(2)}-\bookeqbackref{sum-relation-1}{(1)}$から,
     \begin{align*}
-      a_{n+1}&=f(n+1,a_{n+1})-f(n,a_n)
+      a_{n+1}&=f(a_{n+1})-f(a_{n})\\
     \end{align*}
-    を得る.$S_{n+1}-S_n=a_{n+1}$だからである.
-    ただし,この差の式からは初項が分からないので,$n=1$の式$S_1=a_1$,つまり$a_1=f(1,a_1)$から$a_1$を先に求めておく.
-    $f$の形によって解ける漸化式であるか否かは変化するが,少なくとも2項間漸化式には帰着させられるのである.
+    を得る.$f(n)$によって解ける漸化式であるか否かは変化するが,少なくとも2項間漸化式には帰着させられるのである.
     
     \begin{bookpoint}
       \textbf{POINT}\par
@@ -27,28 +29,28 @@
     \end{bookpoint}
     \noindent \bookblocklink{example-summation-1}{problem}{answer}{【例題】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-summation-1}{problem}{answer}]
-      \item $S_n=2a_n-n$
-      \item $S_n=\frac12a_n+n$
-      \item $S_n=a_n+\binom n2$
+      \item $\displaystyle S_n=2a_n-n$
+      \item $\displaystyle S_n=\frac12a_n+n$
+      \item $\displaystyle S_n=a_n+\binom n2$
     \end{enumerate}
     
     \noindent\bookblocklink{example-summation-1}{hint}{problem}{【方針】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-summation-1}{hint}{problem}]
       \item まず$n=1$を代入して$a_1$を求めてから,本文の変形をなぞって$a_{n+1}$と$a_n$だけの\bookterm{recurrence}{漸化式}を作りましょう.
       \item 同様です.できた\bookterm{recurrence}{漸化式}では,不動点を引いて定数項を消します.
-      \item $a_n$の係数が1の場合です.\,$S_n-S_{n-1}=a_n$と比較して,\,$a_{n-1}$を直接求めましょう.\booknavref{節：二項定理}{二項係数}を使って答えるときれいに書けます.
+      \item $p=1$の場合です.\,$S_n-S_{n-1}=a_n$と比較して,\,$a_{n-1}$を直接求めましょう.\booknavref{節：二項定理}{二項係数}を使って答えるときれいに書けます.
     \end{enumerate}
     
     \noindent\bookblocklink{example-summation-1}{answer}{problem}{【解答】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-summation-1}{answer}{problem}]
-      \item $a_n=2^n-1$
-      \item $a_n=1+(-1)^{n-1}$
-      \item $a_n=n$
+      \item $\displaystyle a_n=2^n-1$
+      \item $\displaystyle a_n=1+(-1)^{n-1}$
+      \item $\displaystyle a_n=n$
     \end{enumerate}
     
     \noindent\bookblocklink{example-summation-1}{solution}{problem}{【解法】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-summation-1}{solution}{problem}]
-      \item $S_n=2a_n-n$\\
+      \item $\displaystyle S_n=2a_n-n$\\
         $n=1$の式$a_1=2a_1-1$から,\,$a_1=1$である.差を取ると,
         \begin{align*}
           a_{n+1}&=\{2a_{n+1}-(n+1)\}-(2a_n-n)\\
@@ -59,21 +61,15 @@
           b_{n+1}=2b_n,\quad b_1=2
         \]
         なので,\,$b_n=2^n$,従って$a_n=2^n-1$を得る.
-      \item $S_n=\frac12a_n+n$\\
+      \item $\displaystyle S_n=\frac12a_n+n$\\
         $n=1$の式$a_1=\frac12a_1+1$から,\,$a_1=2$である.
-        差を取ると,
-        \begin{align*}
-          a_{n+1}&=\left\{\frac12a_{n+1}+(n+1)\right\}\\
-          &\quad-\left(\frac12a_n+n\right)\\
-          &=\frac12a_{n+1}-\frac12a_n+1
-        \end{align*}
-        より,\,$a_{n+1}=-a_n+2$となる.
+        本文の公式に$p=\dfrac{1}{2},\ f(n)=n$を入れると,\,$a_{n+1}=-a_n+2$となる.
         不動点$1$を引き,\,$b_n=a_n-1$と置けば,
         \[
           b_{n+1}=-b_n,\quad b_1=1
         \]
         なので,\,$b_n=(-1)^{n-1}$,従って$a_n=1+(-1)^{n-1}$を得る.
-      \item $S_n=a_n+\binom n2$\\
+      \item $\displaystyle S_n=a_n+\binom n2$\\
         $n=1$では$a_1=a_1+0$となり,この式だけでは$a_1$は定まらない.
         $n\ge2$で差を取ると,
         \begin{align*}
@@ -84,20 +80,20 @@
         より,\,$a_{n-1}=n-1$を得る.\,$n-1$を$n$と読み替えれば,\,$a_n=n$は$n\ge1$で成り立つ.
     \end{enumerate}
     
-  \subsubsection{\texorpdfstring{和の漸化式  $S_{n+1}=f(n,S_n)$}{和の漸化式}}
-    先の漸化式では$S_n$と$a_n$の関係を扱ったが,今度は$S_n$と$S_{n+1}$のように,和だけで書かれている状況について考える.
+  \subsubsection{\texorpdfstring{和の漸化式  $S_{n+1}=f(S_n)$}{和の漸化式}}
+    先の漸化式では$S_n$と$a_n$の関係を扱ったが,ともに$S_n$と$S_{n+1}$などの,$S_n$に関するものだけで書かれているような状況について考える.
     大きく方法は2つで,
     \begin{enumerate}
       \item $S_n$の一般項を出してから,$S_{n}-S_{n-1}$をして$a_n$を得る
-      \item $S_{n+1}=f(n,S_n)$から$S_{n}=f(n-1,S_{n-1})$を引いて$a_{n+1}$と$a_n$の関係式を出して一般項を得る.
+      \item $S_{n+1}=f(S_n)$から$S_{n}=f(S_{n-1})$を引いて$a_{n+1}$と$a_n$の関係式を出して一般項を得る.
     \end{enumerate}
     である.
     いずれにせよ総和が含まれる場合は,どこかで必ず$S_{n+1}-S_n$の処理が発生するのだ.
     
     \noindent \bookblocklink{example-summation-2}{problem}{answer}{【例題】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-summation-2}{problem}{answer}]
-      \item $S_1=1,\ S_{n+1}=2S_n+n$
-      \item $S_1=0,\ S_{n+1}=2S_n+n$
+      \item $\displaystyle S_1=1,\ S_{n+1}=2S_n+n$
+      \item $\displaystyle S_1=0,\ S_{n+1}=2S_n+n$
     \end{enumerate}
     
     \noindent\bookblocklink{example-summation-2}{hint}{problem}{【方針】}\par\nobreak
@@ -108,15 +104,15 @@
     
     \noindent\bookblocklink{example-summation-2}{answer}{problem}{【解答】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-summation-2}{answer}{problem}]
-      \item $a_1=1,\quad a_n=3\cdot2^{n-2}-1\ (n\ge2)$
-      \item $a_n=2^{n-1}-1\ (n\ge1)$
+      \item $\displaystyle a_1=1,\quad a_n=3\cdot2^{n-2}-1\ (n\ge2)$
+      \item $\displaystyle a_n=2^{n-1}-1\ (n\ge1)$
     \end{enumerate}
     
     \noindent\bookblocklink{example-summation-2}{solution}{problem}{【解法】}\par\nobreak
     \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-summation-2}{solution}{problem}]
-      \item $S_1=1,\ S_{n+1}=2S_n+n$\\
+      \item $\displaystyle S_1=1,\ S_{n+1}=2S_n+n$\\
         $a_1=S_1=1,\ S_2=2S_1+1=3$から,\,$a_2=2$である.
-        $n\ge2$では$S_n=2S_{n-1}+(n-1)$も成り立つので,与式から引くと
+        本文の公式に$p=2,\ f(n)=n$を入れると,
         \[
           a_{n+1}=2a_n+1\quad(n\ge2)
         \]
@@ -125,7 +121,7 @@
           a_1=1,\qquad a_n=3\cdot2^{n-2}-1\quad(n\ge2)
         \]
         を得る.この一般項の式は$n=1$には使えない.
-      \item $S_1=0,\ S_{n+1}=2S_n+n$\\
+      \item $\displaystyle S_1=0,\ S_{n+1}=2S_n+n$\\
         $a_1=0,\ S_2=1$から,\,$a_2=1$である.
         (1)と同じ更新$a_{n+1}=2a_n+1$($n\ge2$)を,\,$b_2=a_2+1=2$から解けば,
         \[

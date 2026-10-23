@@ -2,101 +2,176 @@
 % subsubsection: 極形式による図形的解釈
 
 \subsubsection{複素平面で見る}
-  前節では$\frac{a_n-\alpha}{a_n-\beta}$という一見突飛な置き換えで,一次分数型を等比型に帰着させた.
-  この置き換えに図形的な意味はないのだろうか.
-  特性方程式の解が虚数になる場合を例に,複素平面の上で漸化式を眺めてみよう.
-  結論から述べれば,このとき一次分数型漸化式は「回転」として解釈できるのだ.
+  前節の複雑な式変形が図形的に解釈できるだろうか.
+  答えは真だ.
+  複素平面の上で漸化式を眺めてみよう.
 
-  \paragraphbf{特性方程式の解が虚数のとき}
-  $p,q,r,s$が実数で,特性方程式
+  結論から述べれば,特に,$\alpha,\beta$が実数ではなく複素数となる場合には,この変形によって漸化式を「回転」として解釈することができる.
+  $p,q,r,s$が実数であるとき,
   \[
     rx^2+(s-p)x-q=0
   \]
-  の2解が実数でないとする.
-  実数係数の二次方程式なので,2解は互いに共役な複素数であり,\,$\beta=\overline{\alpha}$と書ける.
-  前節と同じく
+  の2解が実数でなければ,2解は互いに共役な複素数となる.
+  そこで,その2解を
+  \[
+    \beta=\overline{\alpha}
+  \]
+  とする.
+  
+  このとき,
   \[
     b_n=\frac{a_n-\alpha}{a_n-\overline{\alpha}}
   \]
-  と置くと,
+  と置くと,先ほどと同じ変形によって
   \[
-    b_{n+1}=\lambda b_n,\qquad
-    \lambda=\frac{p-r\alpha}{p-r\overline{\alpha}}
+    b_{n+1}
+    =
+    \frac{p-r\alpha}{p-r\overline{\alpha}}b_n
   \]
   となる.
-  ここで$p,r$は実数だから$\overline{p-r\alpha}=p-r\overline{\alpha}$であり,\,$\lambda$の分子と分母は互いに共役である.
-  共役な複素数の絶対値は等しいので,
+  
+  ここで,
   \[
-    |\lambda|=1
+    \lambda=\frac{p-r\alpha}{p-r\overline{\alpha}}
   \]
-  が分かる.
-  したがって$\lambda$は極形式で$\lambda=\cos\theta+i\sin\theta$と書ける.
-
-  $b_n=\rho_n(\cos\varphi_n+i\sin\varphi_n)$とすれば,複素数の掛け算は偏角の足し算だったから,
+  とおく.
+  $p,r$は実数であり,$\overline{p-r\alpha}=p-r\overline{\alpha}$であるから,ある$\lambda$を用いて
+  \[
+    |\lambda|
+    =
+    \left|
+    \frac{p-r\alpha}{p-r\overline{\alpha}}
+    \right|
+    =1
+  \]
+  と表せる.
+  
+  したがって,\,$\lambda$は極形式を用いて
+  \[
+    \lambda=\cos\theta+i\sin\theta
+  \]
+  と表すことができる.
+  
+  一方,\,$b_n$も極形式を用いて
+  \[
+    b_n=\rho_n(\cos\varphi_n+i\sin\varphi_n)
+  \]
+  と表すことができる.
+  このとき,
   \begin{align*}
     b_{n+1}
-    &=(\cos\theta+i\sin\theta)\rho_n(\cos\varphi_n+i\sin\varphi_n)\\
-    &=\rho_n\{\cos(\varphi_n+\theta)+i\sin(\varphi_n+\theta)\}
+    &=
+    (\cos\theta+i\sin\theta)
+    \rho_n(\cos\varphi_n+i\sin\varphi_n)\\
+    &=
+    \rho_n
+    \{\cos(\varphi_n+\theta)
+    +i\sin(\varphi_n+\theta)\}
   \end{align*}
-  である.つまり
+  であるから,
   \[
     \rho_{n+1}=\rho_n,
     \qquad
     \varphi_{n+1}=\varphi_n+\theta
   \]
-  となる.\footnote{偏角には$2\pi$の整数倍の違いがあるが,ここでは$\varphi_n=\varphi_1+(n-1)\theta$と選んでいる.}
-  $b_n$は原点からの距離を変えずに,毎回$\theta$ずつ回転しているのだ.
-  等比型への帰着は単なる計算の技巧ではなく,複素平面上の回転を表していたのである.
-
-  \begin{bookpoint}
-    \textbf{POINT}\par
-    特性方程式の解が共役な虚数$\alpha,\overline{\alpha}$のとき,\,$b_n=\frac{a_n-\alpha}{a_n-\overline{\alpha}}$は絶対値1の複素数を掛けられ,原点のまわりを一定の角度ずつ回転する.
-  \end{bookpoint}
-
-  \paragraphbf{具体例}
-  実際に
+  となる.
+  
+  つまり,$b_n$は複素平面上で原点からの距離を変えずに,\,$\theta$だけずつ回転している.
+  
+  このことから,
   \[
-    a_1=\frac12,\qquad a_{n+1}=\frac{a_n+1}{1-a_n}
+    b_{n+1}=\lambda b_n
   \]
-  で確かめてみよう.
-  まずは実験である.順に計算すると
+  という等比数列への帰着は,単なる計算上の技巧ではなく,複素平面上の図形的な変化を表していることが分かる.
+  
+  実際に,次の漸化式を考えてみよう.
   \[
-    \frac12\longrightarrow3\longrightarrow-2
-    \longrightarrow-\frac13\longrightarrow\frac12\longrightarrow\cdots
+    a_{n+1}=\frac{a_n+1}{1-a_n}
   \]
-  となり,4回で元に戻る.\footnote{どの項でも分母$1-a_n$は0でない.}
-  この周期4の正体を調べよう.
-  特性方程式は$x=\frac{x+1}{1-x}$,すなわち$x^2+1=0$なので,\,$\alpha=i,\ \beta=-i$である.
-  そこで
+  この漸化式の不動点は
+  \[
+    x=\frac{x+1}{1-x}
+  \]
+  を解けばよいから,
+  \[
+    x^2+1=0
+  \]
+  より
+  \[
+    \alpha=i,\qquad\beta=-i
+  \]
+  である.
+  
+  そこで,
   \[
     b_n=\frac{a_n-i}{a_n+i}
   \]
   と置くと,
+  \begin{align*}
+    b_{n+1}
+    &=
+    \frac{1+i}{1-i}b_n
+  \end{align*}
+  となる.
+  
+  ここで,
   \[
-    \lambda=\frac{1+i}{1-i}=\frac{(1+i)^2}{2}=i
+    \frac{1+i}{1-i}
+    =
+    \frac{(1+i)^2}{2}
+    =i
   \]
-  より$b_{n+1}=ib_n$を得る.
-  $i=\cos\frac{\pi}{2}+i\sin\frac{\pi}{2}$だから,\,$b_n$は毎回反時計回りに$\frac{\pi}{2}$ずつ回転する.
+  であるから,
+  \[
+    b_{n+1}=ib_n
+  \]
+  を得る.
+  
+  $i$は極形式で
+  \[
+    i=\cos\frac{\pi}{2}+i\sin\frac{\pi}{2}
+  \]
+  と表せる.
+  したがって,\,$b_n$は複素平面上で毎回反時計回りに$\dfrac{\pi}{2}$だけ回転する.
+  
+  例えば,\,$a_1=\dfrac12$とすると,
+  \begin{align*}
+    a_1&=\frac12\\
+    a_2&=3\\
+    a_3&=-2\\
+    a_4&=-\frac13\\
+    a_5&=\frac12
+  \end{align*}
+  となり,\,$a_n$は
+  \[
+    \frac12\longrightarrow3\longrightarrow-2
+    \longrightarrow-\frac13\longrightarrow\frac12\longrightarrow\cdots
+  \]
+  と変化する.
+  
+  一方,\,$b_n$に着目すると,
+  \[
+    b_{n+1}=ib_n
+  \]
+  であるから,
   \[
     b_1\longrightarrow ib_1\longrightarrow-b_1
     \longrightarrow-ib_1\longrightarrow b_1\longrightarrow\cdots
   \]
-  $\frac{\pi}{2}$の回転を4回繰り返せば一周するので,\,$a_n$も4回で元に戻るのだ.
-  実数の上では不規則に見えた変化が,複素平面の上では一定角度の回転だったのである.
-
-  \paragraphbf{小話：正接の加法定理}
-  この漸化式に見覚えはないだろうか.
-  正接の加法定理
+  となる.
+  
+  つまり,実数上では複雑に見える
   \[
-    \tan\left(x+\frac{\pi}{4}\right)=\frac{\tan x+1}{1-\tan x}
+    a_1,a_2,a_3,\ldots
   \]
-  と見比べると,\,$a_n=\tan x_n$と置けば$x_{n+1}=x_n+\frac{\pi}{4}$となる.
-  つまり,この漸化式は角度を$\frac{\pi}{4}$ずつ足す操作だったのだ.
-  実際,\,$a_n=\tan x_n$を$b_n$に代入すると
+  の変化が,
   \[
-    b_n=\frac{\sin x_n-i\cos x_n}{\sin x_n+i\cos x_n}
-    =-(\cos2x_n+i\sin2x_n)
+    b_n=\frac{a_n-i}{a_n+i}
   \]
-  となるので,\,$x_n$が$\frac{\pi}{4}$進むと$b_n$の偏角は$\frac{\pi}{2}$進む.
-  一次分数型の回転と,三角関数の加法定理は同じものを見ていたのである.
-  三角関数を使う解法は\sectionref{節：三角関数型}でも扱う.
+  という変換によって,複素平面上で一定角度ずつ回転する点の運動として表される.
+  
+  このように,1次分数型漸化式では,
+  \[
+    \frac{a_n-\alpha}{a_n-\beta}
+  \]
+  という変換を用いることで,漸化式を等比数列に変形できるだけでなく,その変化を複素平面上の回転として図形的に解釈することができる.

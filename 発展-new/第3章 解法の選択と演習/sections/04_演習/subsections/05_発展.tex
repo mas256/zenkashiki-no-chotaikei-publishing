@@ -10,7 +10,7 @@
 \subsubsection{問題}\label{節：発展：問題}
 \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-entrance}{problem}{answer}]
   % F1: 正方形上の確率移動と分布の収束
-  \item 正方形の頂点を時計回りに$A,B,C,D$とする.点$P$は初め$A$にあり,\,1秒ごとに,その頂点にとどまる,時計回りに隣の頂点へ移る,反時計回りに隣の頂点へ移る,の3つの操作から1つを選ぶ.どの操作も選ばれる確率は$\frac13$であり,各回の選択は独立である.
+  \item 正方形の頂点を時計回りに$A,B,C,D$とする.点$P$は初め$A$にあり,\,1秒ごとに,その頂点にとどまる,時計回りに隣の頂点へ移る,反時計回りに隣の頂点へ移る,の3つの操作から1つを選ぶ.どの操作も選ばれる確率は$\dfrac13$であり,各回の選択は独立である.
     $n$秒後に$P$が$A,C$にいる確率をそれぞれ$p_n,q_n$,\,$B,D$のいずれかにいる確率を$r_n$とする.ただし,\,$n=0,1,2,\ldots$である.
 
     \smallskip
@@ -26,8 +26,8 @@
   \item 正の整数$a_0$から,\bookterm{sequence}{数列}$\{a_n\}$を
     \[
       a_{n+1}=\begin{cases}
-        \frac{a_n}{2}&(a_n\text{が偶数}),\\[3pt]
-        \frac{3a_n+1}{2}&(a_n\text{が奇数})
+        \dfrac{a_n}{2}&(a_n\text{が偶数}),\\[3pt]
+        \dfrac{3a_n+1}{2}&(a_n\text{が奇数})
       \end{cases}
     \]
     によって定める.
@@ -100,7 +100,7 @@
     \par\noindent
     (3) $n\to\infty$のとき,すべての頂点が最初の対角線の交点$O$に近づくことを示せ.
     \par\noindent
-    (4) 初めの図形が辺長$\ell$の正方形で,\,$t=\frac{1}{2}$の場合を考える.
+    (4) 初めの図形が辺長$\ell$の正方形で,\,$\displaystyle t=\frac{1}{2}$の場合を考える.
     操作を$n$回行った正方形の辺長を求めよ.
     また,有向線分$A_nB_n$の向きは,最初の向きからどれだけ回転するか.
     \par\smallskip{\small\textit{\href{https://www.densu.jp/tsukuba/22tsukubaspass.pdf}{筑波大学2022前期 第3問の内分操作を参考に独自に再構成}}}
@@ -124,9 +124,9 @@
     で表される.この円錐のうち$x\geq1$を満たす部分の体積を求めよ.
     \par\smallskip{\small\textit{\href{https://www.nagoya-u.ac.jp/admissions/exam/upload/06_h31_sugakurikakei-seikai.pdf}{名古屋大学2019理系 第1問の構造を参考に独自に再構成}}}
     % F6: 一般項を求めずに減衰の速さを決める
-  \item $a_1=1,\qquad
+  \item $\displaystyle a_1=1,\qquad
       a_{n+1}=\frac{a_n}{(1+2a_n)^2}$
-    で\bookterm{sequence}{数列}$\{a_n\}$を定め,\,$b_n=\frac{1}{a_n}$とする.
+    で\bookterm{sequence}{数列}$\{a_n\}$を定め,\,$\displaystyle b_n=\frac{1}{a_n}$とする.
     \par\noindent
     (1) すべての項が正であることを確かめ,\,$n\geq2$について$b_n>4n-3$を示せ.
     \par\noindent
@@ -134,7 +134,7 @@
     \[
       \lim_{n\to\infty}\frac1n\sum_{k=1}^n a_k
     \]
-    (3) $\lim_{n\to\infty}na_n$を求めよ.
+    (3) $\displaystyle\lim_{n\to\infty}na_n$を求めよ.
     \par\smallskip{\small\textit{\href{https://toudainyuushi.com/wp-content/uploads/2020/06/2006S.pdf}{東京大学2006理科 第5問を参考に再構成した既存題を維持・増補}}}
     % F7: 1往復で整列できる札の配置
   \item $n$枚の札には$1,2,\ldots,n$の数字が1つずつ書かれている.
@@ -157,7 +157,7 @@
     \noindent (3)~$c_n$を求めよ.
     \par\smallskip{\small\textit{\href{https://www.u-tokyo.ac.jp/content/400239118.pdf}{東京大学2025年度理科第5問を参考に再構成}}}
     % F8: 巨大な項の整除と, 添字の互除法
-  \item $a_1=1,\quad a_{n+1}=a_n^2+1$
+  \item $\displaystyle a_1=1,\quad a_{n+1}=a_n^2+1$
     で定まる\bookterm{sequence}{数列}$\{a_n\}$について, 以下の問に答えよ.
     整数$x,y$の最大公約数を$\gcd(x,y)$と表す.
 
@@ -198,7 +198,7 @@
     \smallskip
     \noindent (3)~$(3,u_n,u_{n+1})$がすべての$n\ge0$について上の方程式の正の整数解となることを示せ.
     さらに, 異なる正の整数解が無限個あることを示し,
-    $\lim_{n\to\infty}\frac{u_{n+1}}{u_n}$を求めよ.
+    $\displaystyle\lim_{n\to\infty}\frac{u_{n+1}}{u_n}$を求めよ.
     \par\smallskip{\small\textit{\href{https://toudainyuushi.com/wp-content/uploads/2020/06/2006S.pdf}{東京大学2006年度理科第4問を参考に独自に作成}}}
     % F10: 元のペアをすべて解消する組み替え
   \item $n$を正の整数とする. 互いに異なる$2n$個の要素
@@ -230,7 +230,7 @@
   % F1: 正方形上の確率移動と分布の収束
   \item $A$への移動は,\,$A$にとどまる場合と,\,$B,D$から移る場合に分かれる.\,$p_n+q_n+r_n=1$を使って和の式から$r_n$を消去する.差の式では$r_n$が相殺する.\,$B,D$にいる確率が等しいことも,操作の対称性から確かめる.
     % F2: 奇数が続く条件と2の因子
-  \item 奇数の分岐だけを使える間は,\,$a_{n+1}+1=\frac32(a_n+1)$となる.(2)では,\,$a_m+1$が偶数になる必要条件を求めた後,その条件から実際に各項が奇数になることを確認する.(3)では,\,$a_j+1$から2の因子が1つずつ減ることに注目する.
+  \item 奇数の分岐だけを使える間は,\,$a_{n+1}+1=\dfrac32(a_n+1)$となる.(2)では,\,$a_m+1$が偶数になる必要条件を求めた後,その条件から実際に各項が奇数になることを確認する.(3)では,\,$a_j+1$から2の因子が1つずつ減ることに注目する.
     % F3: 畳み込み和が一定になる数列
   \item (1)は\bookterm{ratio}{階比}型として係数を掛ける.(2)では,\,$n=k+(n-k)$と分け,\,$k$を$n-k$に入れ替えて同じ和が現れることを使う.\bookterm{recurrence}{漸化式}で$kc_k$を$c_{k-1}$に直した後も,添字を逆順にした2つの式を加えると係数が一定になる.(3)は(1)の式を$T_n$に代入する.
     % F4: 内分を繰り返す平行四辺形
@@ -248,7 +248,7 @@
   \item 逆数を取ると,\,$b_{n+1}-b_n=4+4a_n$になる.
     \bookterm{difference}{階差}を足し合わせた式を使い,まず$a_n\to0$を示す.
     平均の\bookterm{limit}{極限}は,有限個の初期項と,十分小さくなった残りの項に分けて評価する.
-    最後に$\frac{b_n}{n}$を調べ,\,$na_n$へ戻す.
+    最後に$\displaystyle \frac{b_n}{n}$を調べ,\,$na_n$へ戻す.
     % F7: 1往復で整列できる札の配置
   \item 最初の比較の後, 左端には$\min(A_1,A_2)$が残る. この札がその後で触れられるのは, 復路の最後の比較だけである.
     個数を数える際には, 最初の2枚のどちらに$1$または$2$があるかで4つに分ける.
@@ -298,7 +298,7 @@
     \[
       \frac14-\frac14\left(-\frac13\right)^n
     \]
-    である.(3)~\bookterm{limit}{極限}はいずれも$\frac14$である.
+    である.(3)~\bookterm{limit}{極限}はいずれも$\dfrac14$である.
     % F2: 奇数が続く条件と2の因子
   \item (1)~
     \[
@@ -333,7 +333,7 @@
     \]
     (3) 四つの頂点はすべて$O$に近づく.
     \par\noindent
-    (4) 辺長は$\ell\,2^{-\frac{n}{2}}$であり,有向線分の向きは反時計回りに$\frac{n\pi}{4}$だけ回転する.
+    (4) 辺長は$\ell\,2^{-\frac{n}{2}}$であり,有向線分の向きは反時計回りに$\displaystyle \frac{n\pi}{4}$だけ回転する.
     向きの角は$2\pi$の整数倍の違いを同一視する.
     % F5: 積分を数列にして円錐を切る
   \item (1)
@@ -361,7 +361,7 @@
     \]
     (2) \bookterm{limit}{極限}は$0$である.
     \par\noindent
-    (3) \bookterm{limit}{極限}は$\frac{1}{4}$である.
+    (3) \bookterm{limit}{極限}は$\displaystyle \frac{1}{4}$である.
     % F7: 1往復で整列できる札の配置
   \item (1)~$c_2=2,\ c_3=6$である.
 
@@ -385,7 +385,7 @@
       \boxed{\gcd(a_{2026},a_{3040})=a_2=2}.
     \]
     % F9: 整数方程式の解を生み出す漸化式
-  \item $\alpha=\frac{3+\sqrt5}2,\quad
+  \item $\displaystyle\alpha=\frac{3+\sqrt5}2,\quad
       \beta=\frac{3-\sqrt5}2$とおくと,
     \[
       \boxed{\displaystyle
@@ -430,7 +430,7 @@
   % F1: 正方形上の確率移動と分布の収束
   \item \textbf{(1)~直前の位置で分ける.}
     $A$にとどまる場合と,\,$B,D$から移る場合は重ならない.
-    どちらの頂点からも$A$への移動確率は$\frac{1}{3}$なので,確率$r_n$にまとめてよい.
+    どちらの頂点からも$A$への移動確率は$\dfrac{1}{3}$なので,確率$r_n$にまとめてよい.
     $C$についても同様であり,
     \[
       p_{n+1}=\frac{p_n+r_n}3,\quad q_{n+1}=\frac{q_n+r_n}3.
@@ -443,21 +443,21 @@
     \[
       v_{n+1}=\frac13v_n,\quad v_0=1
     \]
-    を満たす.和では\bookterm{fixed}{不動点}$\frac{1}{2}$を引くと,
+    を満たす.和では\bookterm{fixed}{不動点}$\dfrac{1}{2}$を引くと,
     \[
       u_n=\frac12+\frac12\left(-\frac13\right)^n,\quad
       v_n=\left(\frac13\right)^n.
     \]
-    $p_n=\frac{u_n+v_n}{2}$, $q_n=\frac{u_n-v_n}{2}$で戻す.
+    $p_n=\dfrac{u_n+v_n}{2}$, $q_n=\dfrac{u_n-v_n}{2}$で戻す.
     時計回りと反時計回りを交換する経路の一対一対応は,\,$A,C$を固定して$B,D$を入れ替え,確率を保つ.
-    よって$B,D$にいる確率はそれぞれ$\frac{r_n}{2}=\frac{1-u_n}{2}$である.
+    よって$B,D$にいる確率はそれぞれ$\dfrac{r_n}{2}=\dfrac{1-u_n}{2}$である.
     \smallskip\textbf{(3)~出発点の影響が消える.}
-    二つの公比の絶対値は$\frac{1}{3}<1$なので,各頂点の確率は$\frac{1}{4}$へ近づく.
-    初めの$A$への偏りが消え,対頂点の組$\{A,C\}$にいる確率$u_n$は$\frac{1}{2}$の上下を交互に行き来する.
+    二つの公比の絶対値は$\dfrac{1}{3}<1$なので,各頂点の確率は$\dfrac{1}{4}$へ近づく.
+    初めの$A$への偏りが消え,対頂点の組$\{A,C\}$にいる確率$u_n$は$\dfrac{1}{2}$の上下を交互に行き来する.
     % F2: 奇数が続く条件と2の因子
   \item \textbf{(1)~分岐を固定する.}
-    奇数が続く区間に限れば$a_{j+1}=\frac{3a_j}{2}+\frac{1}{2}$である.
-    \bookterm{fixed}{不動点}$-1$を引くと$a_{j+1}+1=\frac{3(a_j+1)}{2}$だから,
+    奇数が続く区間に限れば$a_{j+1}=\dfrac{3a_j}{2}+\dfrac{1}{2}$である.
+    \bookterm{fixed}{不動点}$-1$を引くと$a_{j+1}+1=\dfrac{3(a_j+1)}{2}$だから,
     \[
       a_j+1=\frac{3^j}{2^j}(a_0+1)\quad(0\le j\le m).
     \]
@@ -473,7 +473,7 @@
     \[
       b_j=3^j2^{m+1-j}\ell-1\quad(0\le j\le m)
     \]
-    とおくと,すべて正の奇数で,\,$b_0=a_0$かつ$\frac{3b_j+1}{2}=b_{j+1}$（$0\le j<m$）である.
+    とおくと,すべて正の奇数で,\,$b_0=a_0$かつ$\dfrac{3b_j+1}{2}=b_{j+1}$（$0\le j<m$）である.
     実際に奇数の分岐で進むため$a_j=b_j$となり,十分性も示せた.
     最小値は$\ell=1$の$2^{m+1}-1$である.
     \smallskip\textbf{(3)~奇数区間の長さ.}
@@ -487,7 +487,7 @@
     最初の奇数区間の長さは,\,$a_0+1$に含まれる$2$の因子で決まる.
     % F3: 畳み込み和が一定になる数列
   \item \textbf{(1)~\bookterm{ratio}{階比}型で各項を求める.}
-    偶数の積は$2^nn!$,奇数の積は$\frac{(2n)!}{2^nn!}$なので,
+    偶数の積は$2^nn!$,奇数の積は$\dfrac{(2n)!}{2^nn!}$なので,
     \[
       c_n=\prod_{j=0}^{n-1}\frac{2j+1}{2j+2}
       =\frac{(2n)!}{4^n(n!)^2}.
@@ -617,9 +617,9 @@
     同じ評価ができる.したがって四つの頂点はすべて$O$に近づく.
     \par\noindent
     \textbf{(4) 正方形と複素数の積.}
-    正方形が反時計回りに並んでいるとき,\,$\boldsymbol q_n$は$\boldsymbol p_n$を反時計回りに$\frac{\pi}{2}$回転したものである.
+    正方形が反時計回りに並んでいるとき,\,$\boldsymbol q_n$は$\boldsymbol p_n$を反時計回りに$\displaystyle \frac{\pi}{2}$回転したものである.
     それぞれを表す複素数を$z_n,w_n$とすると,\,$w_n=iz_n$である.
-    $t=\frac{1}{2}$を連立式に入れると,
+    $\displaystyle t=\frac{1}{2}$を連立式に入れると,
     \[
       z_{n+1}=\frac{1+i}{2}z_n,
       \qquad
@@ -639,7 +639,7 @@
       z_n=2^{-\frac{n}{2}}
       \left(\cos\frac{n\pi}{4}+i\sin\frac{n\pi}{4}\right)z_0.
     \]
-    よって辺長は$\ell\,2^{-\frac{n}{2}}$,有向線分の回転角は反時計回りに$\frac{n\pi}{4}$である.
+    よって辺長は$\ell\,2^{-\frac{n}{2}}$,有向線分の回転角は反時計回りに$\displaystyle \frac{n\pi}{4}$である.
     \par
     正方形では内分という操作が,中心を固定した回転と縮小そのものになる.
     一般の平行四辺形については,二本の辺を混ぜる連立式と面積の等比性が成り立つが,
@@ -650,7 +650,7 @@
     \par\noindent
     \textbf{(1) 基本となる積分.}
     $I_1$では$u=\sin\theta$と置く.
-    $0\leq\theta\leq\frac{\pi}{3}$では$\cos\theta>0$だから,
+    $\displaystyle 0\leq\theta\leq\frac{\pi}{3}$では$\cos\theta>0$だから,
     \[
       \begin{aligned}
         I_1&=\int_0^{\frac{\sqrt3}{2}}\frac{du}{1-u^2}\\
@@ -668,7 +668,7 @@
     \]
     \par\noindent
     \textbf{(2) 二つ前の積分へ.}
-    $(\tan\theta)'=\frac{1}{\cos^2\theta}$を利用して,
+    $\displaystyle (\tan\theta)'=\frac{1}{\cos^2\theta}$を利用して,
     \[
       I_n=\int_0^{\frac{\pi}{3}}
       \frac1{\cos^{n-2}\theta}\cdot\frac1{\cos^2\theta}\,d\theta
@@ -734,7 +734,7 @@
       \end{aligned}
     \]
     よって体積は$V=\int_1^2 A(z)\,dz$である.
-    $z=\frac{1}{\cos\theta}$と置けば,
+    $\displaystyle z=\frac{1}{\cos\theta}$と置けば,
     \[
       \sqrt{z^2-1}=\tan\theta,
       \qquad dz=\frac{\sin\theta}{\cos^2\theta}\,d\theta.
@@ -746,7 +746,7 @@
         &\quad-\int_0^{\frac{\pi}{3}}\frac{\sin^2\theta}{\cos^3\theta}\,d\theta.
       \end{aligned}
     \]
-    第一項では$(\cos^{-3}\theta)'=\frac{3\sin\theta}{\cos^4\theta}$を使って部分積分する.
+    第一項では$\displaystyle (\cos^{-3}\theta)'=\frac{3\sin\theta}{\cos^4\theta}$を使って部分積分する.
     第二項では$\sin^2\theta=1-\cos^2\theta$を使うと,
     \[
       \begin{aligned}
@@ -765,7 +765,7 @@
     \par\noindent
     \textbf{(1) 逆数の\bookterm{difference}{階差}を足す.}
     $a_1=1>0$であり,\,$a_n>0$なら$(1+2a_n)^2>0$なので$a_{n+1}>0$である.
-    よって\bookterm{induction}{数学的帰納法}からすべての項が正で,\,$b_n=\frac{1}{a_n}$も定義できる.
+    よって\bookterm{induction}{数学的帰納法}からすべての項が正で,\,$\displaystyle b_n=\frac{1}{a_n}$も定義できる.
     逆数を取ると,
     \[
       \begin{aligned}
@@ -805,7 +805,7 @@
         &\leq\frac Cn+\varepsilon.
       \end{aligned}
     \]
-    十分大きい$n$では$\frac{C}{n}<\varepsilon$でもあるため,平均は$2\varepsilon$より小さい.
+    十分大きい$n$では$\displaystyle \frac{C}{n}<\varepsilon$でもあるため,平均は$2\varepsilon$より小さい.
     $\varepsilon$はいくらでも小さく取れるので,
     \[
       \lim_{n\to\infty}\frac1n\sum_{k=1}^{n}a_k=0.
@@ -824,14 +824,14 @@
       0\leq\frac1n\sum_{k=1}^{n-1}a_k
       \leq\frac1n\sum_{k=1}^{n}a_k\longrightarrow0.
     \]
-    したがって$\frac{b_n}{n}\to4$であり,
+    したがって$\displaystyle \frac{b_n}{n}\to4$であり,
     \[
-      na_n=\cfrac{1}{\cfrac{b_n}{n}}\longrightarrow\frac14.
+      na_n=\cfrac{1}{\frac{b_n}{n}}\longrightarrow\frac14.
     \]
     \par
     最初に求めた上界は,\,$a_n\to0$を示すための中間結果である.
     それによって\bookterm{difference}{階差}の追加項$4a_n$の平均が消え,\,$b_n$は最終的に$4n$と同じ割合で増えると分かった.
-    結論$na_n\to\frac{1}{4}$は,\,$a_n$の減少の速さが$\frac{1}{4n}$のそれに近づくことを表す.
+    結論$\displaystyle na_n\to\frac{1}{4}$は,\,$a_n$の減少の速さが$\displaystyle \frac{1}{4n}$のそれに近づくことを表す.
     このように,\bookterm{general}{一般項}を閉じた式で表さなくても,\bookterm{recurrence}{漸化式}から\bookterm{sequence}{数列}の主要な性質を決められる.
     % F7: 1往復で整列できる札の配置
   \item \textbf{(1)~小さい例と左端の札.}
@@ -889,7 +889,7 @@
     \[
       c_n=P(2+\sqrt2)^{n-1}+Q(2-\sqrt2)^{n-1}
     \]
-    に$c_1=1,c_2=2$を入れると$P=Q=\frac{1}{2}$であり,解答の式を得る.
+    に$c_1=1,c_2=2$を入れると$P=Q=\dfrac{1}{2}$であり,解答の式を得る.
     $c_4=20,c_5=68$となる.二つのべきで$\sqrt2$の奇数次の項が相殺され,個数は整数になる.
     この問の中心は,解く前の「何を取り除き,どう戻すか」という設計にある.
     % F8: 巨大な項の整除と, 添字の互除法
@@ -975,8 +975,8 @@
     最後に$0<\beta<1<\alpha$と$P,Q>0$から,
     \[
       \frac{u_{n+1}}{u_n}
-      =\alpha\,\cfrac{P+Q(\cfrac\beta\alpha)^{n+1}}
-      {P+Q(\cfrac\beta\alpha)^n}
+      =\alpha\,\cfrac{P+Q(\frac\beta\alpha)^{n+1}}
+      {P+Q(\frac\beta\alpha)^n}
       \longrightarrow\alpha.
     \]
     更新式は整数性を保証し,\bookterm{general}{一般項}は整数の比が近づく無理数を示している.
@@ -1017,7 +1017,7 @@
       T_n=(n-1)S(n-2)-S(n-1)=-T_{n-1}.
     \]
     $T_1=-1$から$T_n=(-1)^n$となる.
-    $S(n)=nS(n-1)+(-1)^n$の両辺を$n!$で割り,\,$P_n=\frac{S(n)}{n!}$とおけば,
+    $S(n)=nS(n-1)+(-1)^n$の両辺を$n!$で割り,\,$P_n=\dfrac{S(n)}{n!}$とおけば,
     \[
       P_n-P_{n-1}=\frac{(-1)^n}{n!},\quad P_0=1.
     \]
@@ -1031,7 +1031,7 @@
     残す$r$組を選び,残りを完全に組み替えれば$\binom nrS(n-r)$通りである.
     残るペアは完成形から一意に決まり,\,$r=n$も$S(0)=1$によって含む.
     平均には,固定した元のペアが残る$(n-1)!$通りを$n$組分数える.
-    $r$組残る配置は$r$回数えられるので,残る組数の合計は$n(n-1)!$であり,平均は$\frac{n(n-1)!}{n!}=1$となる.
+    $r$組残る配置は$r$回数えられるので,残る組数の合計は$n(n-1)!$であり,平均は$\dfrac{n(n-1)!}{n!}=1$となる.
     \par\smallskip\noindent\textbf{【確率として読む】}\par\nopagebreak[4]
     元の位置に戻る要素のない並べ替えを\textbf{完全順列（錯置）}という.
     全$n!$通りが等確率なら,元のペアが一組も残らない確率は,
@@ -1052,7 +1052,7 @@
     偶数番目は減少,奇数番目は増加し,確率は$0$以上$1$以下である.
     よって両者は共通の\bookterm{limit}{極限}$L$をもつ.
     \par\smallskip\noindent\textbf{【二項定理で極限の値を決める】}\par\nopagebreak[4]
-    整数$M\ge2$について$b_{M,k}=\frac{\binom Mk}{M^k}$とおくと,
+    整数$M\ge2$について$b_{M,k}=\dfrac{\binom Mk}{M^k}$とおくと,
     \[
       \frac{b_{M,k+1}}{b_{M,k}}=\frac{M-k}{M(k+1)}\le1
       \quad(0\le k<M).
@@ -1079,14 +1079,14 @@
       \left(1-\frac1M\right)^M=\left(1+\frac1t\right)^{-t-1}
       \longrightarrow\frac1e
     \]
-    である.\,$\left(1+\frac{1}{t}\right)^t\to e$と$1+\frac{1}{t}\to1$を使った.
-    したがって$P_{2\ell+1}\le\frac{1}{e}\le P_{2\ell}$となる.
+    である.\,$\left(1+\dfrac{1}{t}\right)^t\to e$と$1+\dfrac{1}{t}\to1$を使った.
+    したがって$P_{2\ell+1}\le\dfrac{1}{e}\le P_{2\ell}$となる.
     \textbf{次に$\ell\to\infty$とする.}両端が$L$へ近づくため,
     \[
       \boxed{\lim_{n\to\infty}\frac{S(n)}{n!}=\frac1e\simeq0.368}.
     \]
     \par\smallskip\noindent\textbf{【個数はどこまで近いか】}\par\nopagebreak[4]
-    偶奇の各列が厳密に進むので,\,$\frac{1}{e}$は隣り合う$P_n,P_{n+1}$の間に厳密に入る.
+    偶奇の各列が厳密に進むので,\,$\dfrac{1}{e}$は隣り合う$P_n,P_{n+1}$の間に厳密に入る.
     よって$n\ge1$で,
     \[
       \begin{aligned}
@@ -1094,6 +1094,6 @@
         \left|S(n)-\frac{n!}e\right|&<\frac1{n+1}\le\frac12.
       \end{aligned}
     \]
-    下段は上段を$n!$倍したものであり,\,$S(n)$は$\frac{n!}{e}$に最も近い整数となる.
+    下段は上段を$n!$倍したものであり,\,$S(n)$は$\dfrac{n!}{e}$に最も近い整数となる.
     数え上げの\bookterm{recurrence}{漸化式}が,階乗・確率・自然\bookterm{logarithm}{対数}の底を結んだ.
 \end{enumerate}

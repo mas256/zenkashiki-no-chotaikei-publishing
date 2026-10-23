@@ -37,8 +37,8 @@
   \item $x_1=3$, $y_1=2$,
     $x_{k+1}=3x_k+4y_k$, $y_{k+1}=2x_k+3y_k$ $(k\ge1)$とする.
     $x_k^2-2y_k^2=1$を証明せよ.
-    $r_k=\frac{x_k}{y_k}$について,\,$r_k-\sqrt2$を$y_k,r_k$で表して\bookterm{limit}{極限}を求め,
-    $\frac12\left(r_k+\frac{2}{r_k}\right)=r_{2k}$も示せ.
+    $r_k=\dfrac{x_k}{y_k}$について,\,$r_k-\sqrt2$を$y_k,r_k$で表して\bookterm{limit}{極限}を求め,
+    $\frac12\left(r_k+\dfrac{2}{r_k}\right)=r_{2k}$も示せ.
   \item $j^3=6\binom j3+6\binom j2+\binom j1$を確かめよ.
     二項係数の\bookterm{difference-operator}{差分}を使って,\,$\sum_{j=0}^{N-1}j^3$ $(N\ge0)$を求めよ.
     単項式の係数比較で求める方法と,何が違うか述べよ.
@@ -74,7 +74,7 @@
     \[
       a_n=\frac{(2-\beta)\alpha^{n-1}+(\alpha-2)\beta^{n-1}}{\sqrt5}.
     \]
-    正の初期値$x,y$では$I_n=\frac{x^2+y^2+1}{xy}$となる.
+    正の初期値$x,y$では$I_n=\dfrac{x^2+y^2+1}{xy}$となる.
   \item 境界と加法公式により$A_{n,m}=\binom{n+m}{m}$である.
     $n+m$歩から上への$m$歩を選ぶ数でもある.
   \item $k\ge1$について,
@@ -91,13 +91,13 @@
   \item 各項は$1,2,3,2,1$を繰り返す.
     $n-1$を$5$で割った余りが$0,1,2,3,4$のとき,
     $a_n$はそれぞれ$1,2,3,2,1$である.最小周期は$5$.
-    正の定\bookterm{sequence}{数列}は$a_1=a_2=\frac{1+\sqrt5}{2}$の場合である.
+    正の定\bookterm{sequence}{数列}は$a_1=a_2=\dfrac{1+\sqrt5}{2}$の場合である.
   \item $x_k^2-2y_k^2=1$が保たれ,
     \[
       r_k-\sqrt2=\frac1{y_k^2(r_k+\sqrt2)},\qquad
       \lim_{k\to\infty}r_k=\sqrt2.
     \]
-    また$r_{2k}=\frac12\left(r_k+\frac{2}{r_k}\right)$である.
+    また$r_{2k}=\frac12\left(r_k+\dfrac{2}{r_k}\right)$である.
   \item
     \BookMathLayout{\[
         \sum_{j=0}^{N-1}j^3
@@ -115,11 +115,11 @@
 \subsubsection{解説}
 \begin{enumerate}[label=\textbf{問\arabic*.},format=\bookitemlink{practice-connections}{solution}{problem}]
   \item \textbf{倍率をそろえる.}
-    $h_n=n(n+1)$は$\frac{h_{n+1}}{h_n}=\frac{n+2}{n}$を満たす.
+    $h_n=n(n+1)$は$\dfrac{h_{n+1}}{h_n}=\dfrac{n+2}{n}$を満たす.
     両辺を$(n+1)(n+2)$で割ると$b_{n+1}=b_n+n$であり,
     $b_n=\frac32+\sum_{j=1}^{n-1}j=\frac{n^2-n+3}{2}$となる.
     \par\smallskip\textbf{引く方法との比較.}
-    \bookterm{normalize}{正規化}後の式では,\,$w_n=\frac{n(n-1)}{2}$も$w_{n+1}-w_n=n$を満たす.
+    \bookterm{normalize}{正規化}後の式では,\,$w_n=\dfrac{n(n-1)}{2}$も$w_{n+1}-w_n=n$を満たす.
     $v_n=h_nw_n$は元の\bookterm{inhomogeneous}{非同次}の更新を満たすため,
     $d_n=a_n-v_n$について$d_{n+1}=\frac{n+2}{n}d_n$となる.
     $d_1=3$から$d_n=\frac32n(n+1)$を得る.
@@ -139,7 +139,7 @@
     \]
     となるので,\,$I_{n+1}=I_n$である.
     \par\smallskip\textbf{同じ係数の更新へ戻す.}
-    $I_1=\frac{1+4+1}{2}=3$なので$x+z=3y$となる.
+    $I_1=\dfrac{1+4+1}{2}=3$なので$x+z=3y$となる.
     二つの\bookterm{root}{特性根}で$a_n=C\alpha^{n-1}+D\beta^{n-1}$と置き,
     $C+D=1$, $C\alpha+D\beta=2$を解くと解答の係数になる.
     $I_n$の値は初期値によって変わるが,初期値を一組選べば,その\bookterm{sequence}{数列}の中では一定である.
@@ -162,7 +162,7 @@
   \item \textbf{一周期分をまとめる.}
     $x_k=a_{2k-1}$とすると,\,$a_{2k}=-x_k$から
     $x_{k+1}=-2x_k+1$となる.
-    \bookterm{fixed}{不動点}$\frac{1}{3}$を引けば$x_{k+1}-\frac{1}{3}=-2\left(x_k-\frac{1}{3}\right)$であり,
+    \bookterm{fixed}{不動点}$\dfrac{1}{3}$を引けば$x_{k+1}-\dfrac{1}{3}=-2\left(x_k-\dfrac{1}{3}\right)$であり,
     $x_1=2$から解答の式が得られる.
     係数の周期が$2$でも,一周期後の倍率$-2$によって項の絶対値は大きくなる.
     \sectionref*{節：一周期分をまとめる}へ.
@@ -179,7 +179,7 @@
     \]
     となり,初期値での値$1$が保存される.
     正値性と$y_{k+1}>3y_k$から$y_k\to\infty$であり,
-    $(r_k-\sqrt2)(r_k+\sqrt2)=\frac{1}{y_k^2}$から誤差と\bookterm{limit}{極限}が得られる.
+    $(r_k-\sqrt2)(r_k+\sqrt2)=\dfrac{1}{y_k^2}$から誤差と\bookterm{limit}{極限}が得られる.
     また更新と初期値から$x_k+y_k\sqrt2=(3+2\sqrt2)^k$である.
     平方して$x_{2k}=x_k^2+2y_k^2$, $y_{2k}=2x_ky_k$を得れば,
     比は\bookterm{newton}{ニュートン法}の式になる.

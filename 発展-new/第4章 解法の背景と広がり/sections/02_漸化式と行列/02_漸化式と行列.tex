@@ -111,7 +111,7 @@ $q\ne0$なら\bookterm{fixed}{不動点}はない.重なった\bookterm{eigenval
   a_{n+1}=\frac{2a_n}{1-a_n}
 \]
 を使う.各項で$a_n\ne1$とし,\,$a_1\ne-1$とする.
-一つの値を分子と分母に分けて持ち,\,$a_n=\frac{x_n}{y_n}$と書いてみよう.
+一つの値を分子と分母に分けて持ち,\,$a_n=\dfrac{x_n}{y_n}$と書いてみよう.
 $(x_1,y_1)=(a_1,1)$から
 \[
   \begin{pmatrix}x_{n+1}\\y_{n+1}\end{pmatrix}
@@ -126,7 +126,7 @@ $(x_1,y_1)=(a_1,1)$から
   =\frac{2a_n}{1-a_n}
 \]
 となり,元の更新に戻る.
-本編で用いた$b_n=\frac{a_n}{a_n+1}$は,この二成分では
+本編で用いた$\displaystyle b_n=\frac{a_n}{a_n+1}$は,この二成分では
 \[
   b_n=\frac{x_n}{x_n+y_n}
 \]
@@ -163,7 +163,7 @@ $x_1+y_1=a_1+1\ne0$なので,この比の分母はずっと零でない.
   M=\begin{pmatrix}p&q\\r&s\end{pmatrix}
 \]
 で更新する.
-$a_n=\frac{x_n}{y_n}$とすると
+$\displaystyle a_n=\frac{x_n}{y_n}$とすると
 \[
   \frac{x_{n+1}}{y_{n+1}}
   =\frac{px_n+qy_n}{rx_n+sy_n}
@@ -197,7 +197,7 @@ $\lambda_\alpha=r\alpha+s,\ \lambda_\beta=r\beta+s$ とする.
     x_n-\beta y_n&=(\alpha-\beta)c_n.
   \end{aligned}
 \]
-したがって,\,$a_n=\frac{x_n}{y_n}$より
+したがって,\,$\displaystyle a_n=\frac{x_n}{y_n}$より
 \[
   \frac{a_n-\alpha}{a_n-\beta}=-\frac{d_n}{c_n},
   \qquad
@@ -213,7 +213,7 @@ $\lambda_\alpha=r\alpha+s,\ \lambda_\beta=r\beta+s$ とする.
     \lambda_\alpha&=r\alpha+s=p-r\beta.
   \end{aligned}
 \]
-よって公比は本編と同じ$\frac{\lambda_\beta}{\lambda_\alpha}=\frac{p-r\alpha}{p-r\beta}$になる.
+よって公比は本編と同じ$\displaystyle \frac{\lambda_\beta}{\lambda_\alpha}=\frac{p-r\alpha}{p-r\beta}$になる.
 置き換えは二つの固有方向の成分比を取り出す操作であり,最初の例は倍率$1,2$の場合だった.
 
 \subsection{二つの値を更新する}\label{節：二つの値を更新する}
@@ -540,8 +540,8 @@ $x=\cos\theta$とすると,\bookterm{addition}{加法定理}から
 整数倍の角の余弦を,\,$x=\cos\theta$の多項式で表せた.図は$T_2$による二倍角の横座標を示す.
 \BookFigChebyshev
 
-ここで本編の$a_1=\frac{\sqrt3}{2}$, $a_{n+1}=2a_n^2-1$に戻ろう.
-本編では$a_1=\cos(\frac{\pi}{6})$から角度を二倍ずつ進めたが,多項式の言葉では
+ここで本編の$\displaystyle a_1=\frac{\sqrt3}{2}$, $a_{n+1}=2a_n^2-1$に戻ろう.
+本編では$\displaystyle a_1=\cos(\frac{\pi}{6})$から角度を二倍ずつ進めたが,多項式の言葉では
 \[
   a_{n+1}=T_2(a_n),\qquad
   a_n=T_{2^{n-1}}(a_1)
