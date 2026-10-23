@@ -1,22 +1,27 @@
 % BOOK-FILE-ID: f-08aa092dfc4e
 \subsubsection{止まる値を調べる}\label{節：止まる値を調べる}
-次の値が今の値と等しい\bookterm{fixed}{不動点}に達すると,\bookterm{sequence}{数列}は止まる.
-丸めを外した実数の\bookterm{recurrence}{漸化式}とは,止まる値が異なることがある.
+整数に丸める漸化式では,ある値に達するとそこから動かなくなることがある.
+次の値が今の値と等しい\bookterm{fixed}{不動点}に達すると,数列は止まるのだ.
+注意したいのは,丸めを外した実数の漸化式とは,止まる値が異なることがある点である.
 
 整数$K$を引いて,
 \[
   b_{n+1}=\left\lfloor\frac{b_n}{2}\right\rfloor
 \]
 に帰着できる場合がある.
-正整数$m$に対して,
+そのとき役立つのが,正整数$m$に対して成り立つ
 \[
   \left\lfloor\frac{\lfloor x\rfloor}{m}\right\rfloor
   =\left\lfloor\frac xm\right\rfloor
 \]
-が成り立つ.\,$\lfloor x\rfloor=mq+r\ (0\le r<m)$と書けば,\,$x=mq+r+t\ (0\le t<1)$.
-$0\le r+t<m$より,両方の\bookterm{floor-function}{床関数}が$q$となるからである.
+である.\,$\lfloor x\rfloor=mq+r\ (0\le r<m)$と書けば$x=mq+r+t\ (0\le t<1)$であり,
+$0\le r+t<m$より両辺とも$q$になるからである.
+また,負の数には注意しよう.\,$-1<x<0$なら$\lfloor x\rfloor=-1$であって0ではない.
 
-\textbf{負数にも注意する.}$-1<x<0$なら$\lfloor x\rfloor=-1$である.
+\begin{bookpoint}
+  \textbf{POINT}\par
+  動かなくなる値を探し,何回の更新でそこに達するかを調べる.
+\end{bookpoint}
 
 \noindent \bookblocklink{example-gauss-role-6}{problem}{answer}{【例題】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-6}{problem}{answer}]

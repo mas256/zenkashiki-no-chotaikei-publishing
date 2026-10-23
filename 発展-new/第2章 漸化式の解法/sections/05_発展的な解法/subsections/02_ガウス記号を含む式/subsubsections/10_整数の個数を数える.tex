@@ -1,12 +1,17 @@
 % BOOK-FILE-ID: f-6c65fa1f20a5
 \subsubsection{整数の個数を数える}\label{節：整数の個数を数える}
-$X\ge0$なら$\lfloor X\rfloor$は$1\le k\le X$を満たす整数の個数である.
-$\lfloor \frac{n}{m}\rfloor$なら,\,$1,\ldots,n$の中の$m$の倍数を数える.
-\textbf{\bookterm{floor-function}{床関数}の和を,個数として読み直せる.}
+$X\ge0$なら,\,$\lfloor X\rfloor$は$1\le k\le X$を満たす整数$k$の個数である.
+例えば$\lfloor \frac{n}{m}\rfloor$は,\,$1,\ldots,n$の中にある$m$の倍数の個数を数えている.
+つまり,ガウス記号の和は,何かの個数の和として読み直せるのだ.
 
 座標がともに整数の点を格子点という.
-$c>0$で,\,$\sum_{k=1}^{n}\lfloor ck\rfloor$は,\,$x=k$ごとに$1\le y\le ck$の整数$y$を数えた和である.
-群\bookterm{sequence}{数列}の別解と同じく,整数の組を数える見方になる.
+$c>0$で,\,$\sum_{k=1}^{n}\lfloor ck\rfloor$は,\,$x=k$ごとに$1\le y\le ck$の整数$y$を数えて足したもの,すなわち格子点の個数である.
+群数列の別解と同じく,整数の組を数える見方になる.
+
+\begin{bookpoint}
+  \textbf{POINT}\par
+  ガウス記号の和は,格子点などの個数として数え直す.
+\end{bookpoint}
 
 \noindent \bookblocklink{example-gauss-role-10}{problem}{answer}{【例題】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-10}{problem}{answer}]
