@@ -1,12 +1,16 @@
 % BOOK-FILE-ID: f-ff87377cd31b
 \subsection{非隣接2項型}\label{節：非隣接2項型}
 
-非隣接2項間\bookterm{recurrence}{漸化式}
+今までの漸化式は,隣り合う項どうしの関係であった.
+では,1つ飛ばしの項どうしの関係はどうだろうか.
+一般的な形は
 \[
   a_{n+2}=f(a_n)\qquad(n\ge1)
 \]
-では,\,$a_1$から奇数番目,\,$a_2$から偶数番目が決まる.
-$u_k=a_{2k-1},v_k=a_{2k}$と部分列に分ける.
+で与えられる.
+まずは実験してみよう.\,$a_1$から$a_3,a_5,\ldots$が決まり,\,$a_2$から$a_4,a_6,\ldots$が決まる.
+つまり,奇数番目と偶数番目は互いに全く関係なく,別々の数列として動いているのだ.
+そこで,\,$u_k=a_{2k-1},\ v_k=a_{2k}$と2つの数列に分けてやる.
 \[
   \begin{array}{c|cccc}
     k&1&2&3&\cdots\\ \hline
@@ -14,10 +18,15 @@ $u_k=a_{2k-1},v_k=a_{2k}$と部分列に分ける.
     v_k&a_2&a_4&a_6&\cdots
   \end{array}
 \]
-$n$が2進むと$k$は1進み,\,$u_{k+1}=f(u_k),v_{k+1}=f(v_k)$となる.
-最後に奇数$n$では$k=\frac{n+1}{2}$,偶数$n$では$k=\frac{n}{2}$で戻す.
+$n$が2進むと$k$は1進むので,\,$u_{k+1}=f(u_k),\ v_{k+1}=f(v_k)$という隣接2項間の漸化式になる.
+あとはそれぞれを解き,最後に奇数$n$では$k=\frac{n+1}{2}$,偶数$n$では$k=\frac{n}{2}$として$a_n$に戻せばよい.
 
-また,\,$a_{n+2}=qa_n$では,\,$a_{n+2}=0\cdot a_{n+1}+qa_n$と見て\bookterm{characteristic}{特性方程式}を使うこともできる.
+なお,\,$a_{n+2}=qa_n$のような場合は,\,$a_{n+2}=0\cdot a_{n+1}+qa_n$と見て隣接3項型の\bookterm{characteristic}{特性方程式}を使うこともできる.
+
+\begin{bookpoint}
+  \textbf{POINT}\par
+  奇数番目と偶数番目に分け,それぞれを隣接2項間の漸化式として解く.
+\end{bookpoint}
 
 \noindent \bookblocklink{example-nonadjacent-1}{problem}{answer}{【例題】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-nonadjacent-1}{problem}{answer}]
@@ -78,9 +87,10 @@ $n$が2進むと$k$は1進み,\,$u_{k+1}=f(u_k),v_{k+1}=f(v_k)$となる.
 \end{enumerate}
 
 \subsubsection{一周期分をまとめる}\label{節：一周期分をまとめる}
-更新の係数が奇数回と偶数回で変わる場合も,二回分をまとめられる.
+では,奇数番目と偶数番目で漸化式そのものが変わる場合はどうだろうか.
+この場合も,2回分の操作を1つにまとめてやれば,隣接2項間の漸化式になる.
 
-\paragraphbf{例題：二回分をまとめる}
+\paragraphbf{例題：2回分をまとめる}
 \[
   a_1=1,\qquad
   a_{n+1}=\begin{cases}
@@ -93,7 +103,7 @@ $n$が2進むと$k$は1進み,\,$u_{k+1}=f(u_k),v_{k+1}=f(v_k)$となる.
 \[
   x_{k+1}=3(2x_k+1)+2=6x_k+5
 \]
-を得る.従って$x_1=1$から$x_k=2\cdot6^{k-1}-1$であり,
+を得る.これは特性方程式型なので,\,$x_1=1$から$x_k=2\cdot6^{k-1}-1$であり,
 \BookMathLayout{\[
     a_{2k-1}=2\cdot6^{k-1}-1,\qquad
     a_{2k}=4\cdot6^{k-1}-1\quad(k\ge1)
@@ -104,9 +114,9 @@ $n$が2進むと$k$は1進み,\,$u_{k+1}=f(u_k),v_{k+1}=f(v_k)$となる.
     \end{aligned}
   \]}
 となる.偶数番目は更新の途中から戻した.
-付加項も次の倍率を受けるため,二回分は$1+2$でなく$3\cdot1+2=5$である.
+付加項の$1$も次の操作で3倍されるので,2回分の付加項は$1+2$ではなく$3\cdot1+2=5$になることに注意しよう.
 
-\paragraphbf{一周期への拡張}
+\paragraphbf{1周期への拡張}
 $a_{n+1}=p_na_n+q_n$の係数が周期$L$をもつなら,
 $x_k=a_{1+kL}$ $(k\ge0)$と置き,\,$x_0=a_1$から一周期分を合成する.
 \[
@@ -120,8 +130,9 @@ $P=0$なら$x_k=Q$ $(k\ge1)$,\,$P=1$なら$x_k=x_0+kQ$である.
 それ以外は,\,\sectionref*{節：特性方程式型}と同じく不動点からの差を取る.
 
 \begin{bookpoint}
-  \textbf{更新の間隔を選ぶ}\par
-  係数の一周期分をまとめる.係数の周期性は,項の値の周期性とは異なる.
+  \textbf{POINT}\par
+  漸化式が周期的に変わるなら,1周期分の操作をまとめて1つの漸化式にする.
 \end{bookpoint}
+ただし,漸化式の係数が周期的だからといって,項の値まで周期的になるわけではないので注意しよう.
 付録の\sectionref*{節：二回分の更新}では,同じ計算を行列の積で読む.
 符号も変わる例は\bookproblemref{practice-connections}{4}{接続演習問4}へ.
