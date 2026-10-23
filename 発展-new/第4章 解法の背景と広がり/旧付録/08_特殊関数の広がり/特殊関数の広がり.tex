@@ -264,7 +264,7 @@ $x^2=A$ を解くために接線を使うと,
 まず
 \[
   \Gamma\left(\frac12\right)
-  =\int_0^\infty t^{-1/2}e^{-t}\,dt
+  =\int_0^\infty t^{-\frac{1}{2}}e^{-t}\,dt
 \]
 において $t=u^2$ とおくと,
 \[
@@ -601,7 +601,7 @@ $t$ で微分すると,
   =\frac{2n}{x}J_n(x)-J_{n-1}(x)
 \]
 という漸化式がある.
-係数に $1/x$ が含まれるため,チェビシェフ多項式のような多項式列ではない.
+係数に $\frac{1}{x}$ が含まれるため,チェビシェフ多項式のような多項式列ではない.
 それでも,隣り合う解が一つの規則でつながっている.
 
 \subsubsection{生成関数}
@@ -666,7 +666,7 @@ $t$ で微分すると,
 
 なぜ三項だけなのか.
 内積を$\langle f,g\rangle$と書くとき,\,$x$を掛ける操作は内積に関して対称,すなわち$\langle xf,g\rangle=\langle f,xg\rangle$を満たす.
-いま$xp_n(x)$を直交多項式の基底$\{p_k\}$で展開したとき,\,$p_k$の係数は$\langle xp_n,p_k\rangle/\langle p_k,p_k\rangle=\langle p_n,xp_k\rangle/\langle p_k,p_k\rangle$に等しい.
+いま$xp_n(x)$を直交多項式の基底$\{p_k\}$で展開したとき,\,\,$p_k$の係数は$\frac{\langle xp_n,p_k\rangle}{\langle p_k,p_k\rangle}=\frac{\langle p_n,xp_k\rangle}{\langle p_k,p_k\rangle}$に等しい.
 \,$xp_k$は次数$k+1$の多項式だから,\,$k+1<n$すなわち$k<n-1$なら$p_n$と直交し,係数は$0$になる.次数の関係から$k>n+1$でも係数は$0$である.
 したがって多くの次数の項が消え,隣り合う三つの次数($k=n-1,n,n+1$)だけが残る.
 三項漸化式は,直交性の代数的な影である.

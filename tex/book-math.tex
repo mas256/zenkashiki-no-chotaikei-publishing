@@ -1,0 +1,17 @@
+% BOOK-FILE-ID: f-728762483022
+% 基本編・発展編・新解釈で共通の数式設定。
+% amsmath の読み込み後に input する。
+\everymath{\displaystyle}
+
+% align* は本文を先読みするため、終了マクロまでの本文をまとめて渡す。
+% 単純な \begin / \end の別名では amsmath が終了位置を検出できない。
+\long\def\balign#1\ealigin{\begin{align*}#1\end{align*}}
+% 終了トークンは上のマクロに取り込まれる。単独使用は誤記として検出する。
+\newcommand{\ealigin}{\PackageError{book-math}
+  {Unmatched \string\ealigin}{Use \string\balign ... \string\ealigin.}}
+
+% enumerate の任意引数（enumitem の設定）もそのまま使用できる。
+\newcommand{\benumrate}{\begin{enumerate}}
+\newcommand{\eenumrate}{\end{enumerate}}
+\newcommand{\bcases}{\begin{cases}}
+\newcommand{\ecases}{\end{cases}}
