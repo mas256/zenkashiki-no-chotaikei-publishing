@@ -1,20 +1,28 @@
 % BOOK-FILE-ID: f-5389cc593596
 \subsection{対称式を使う}\label{節：対称式を使う}
-先ほどの\bookterm{recurrence}{漸化式}を考える.
+導入で紹介した3つ目の\bookterm{recurrence}{漸化式}を考える.
 \[
   a_1=3, \quad a_{n+1}=a_n^2-2
 \]
-邪魔な$-2$を消すには,二乗の展開から$2$を生み出したい.そこで,
+邪魔なのは$-2$である.これをうまく消すには,二乗を展開したときに$2$が生まれてくれればよい.
+そこで思い出したいのが,
 \[
   (a+b)^2=a^2+2ab+b^2
 \]
-の$2ab$に注目する.\,$ab=1$なら,ここからちょうど$2$が生まれる.
-そこで積が$1$になる二数として,\,$a=\alpha,b=\frac{1}{\alpha}\ (\alpha\ne0)$と選ぶ.
+である.この$2ab$に注目すると,\,$ab=1$ならちょうど$2$が生まれる.
+そこで積が$1$になる2数として,\,$a=\alpha,\ b=\frac{1}{\alpha}\ (\alpha\ne0)$と選んでやる.
 \[
   \left(\alpha+\frac{1}{\alpha}\right)^2=\alpha^2+2+\frac{1}{\alpha^2}
 \]
-から,\textbf{二乗して2を引くと,二つのべきの指数が2倍になる}.
-第$n$項の指数は$2^{n-1}$.あとは初項に合う$\alpha$を選ぶ.
+だから,\,$\alpha+\frac1\alpha$を2乗して2を引くと,\,$\alpha^2+\frac{1}{\alpha^2}$になるのだ.
+つまり,\,$a_n=\alpha^{k}+\alpha^{-k}$の形をしていれば,1回進むごとに指数$k$が2倍になる.
+第$n$項の指数は$2^{n-1}$であり,あとは初項に合う$\alpha$を選べばよい.
+
+\begin{bookpoint}
+  \textbf{POINT}\par
+  $a_n=\alpha^{k}+\alpha^{-k}$と置いて,漸化式が指数の何倍にあたるかを読む.
+\end{bookpoint}
+
 
 \noindent \bookblocklink{example-symmetric-1}{problem}{answer}{【問題】}\par\nobreak
 \begin{smallquote}
@@ -58,9 +66,9 @@
   &=u^2+u^{-2}+1,
 \end{align*}
 と余分な1が残り,同じ形で二乗を繰り返すことができない.
-係数が近いだけでは同じ方法を使えず,恒等式との一致が必要なのである.
+係数が似ているだけではだめで,恒等式とぴったり一致していることが必要なのである.
 
-同じ考え方は,三次式にも現れる.
+同じ考え方は,3次式にも使える.
 \[
   \left(\alpha+\frac{1}{\alpha}\right)^3
   -3\left(\alpha+\frac{1}{\alpha}\right)
