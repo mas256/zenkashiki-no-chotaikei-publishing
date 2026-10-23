@@ -1,0 +1,92 @@
+% BOOK-FILE-ID: f-847298b7c959
+\subsection{変数係数の一次型}\label{節：変数係数の一次型}
+倍率と付加項が添字に依存する式を,\,\sectionref*{節：階比型}の積と\sectionref*{節：階差等比複合型}の引き算で解く.
+
+\subsubsection{例題：倍率をそろえる}
+まず
+\BookMathLayout{\[
+    a_1=2,\qquad
+    a_{n+1}=\frac{n+2}{n}a_n+(n+1)(n+2)
+    \quad(n\ge1)
+  \]}{\[
+    \begin{aligned}
+      a_1&=2,\\
+      a_{n+1}&=\frac{n+2}{n}a_n+(n+1)(n+2)\\
+      &\quad(n\ge1)
+    \end{aligned}
+  \]}
+を考える.
+倍率の分母$n$と分子$n+2$の間には$n+1$がある.
+$n(n+1)$と一つ先の$(n+1)(n+2)$を比べれば,共通する$n+1$が消えて元の倍率を作れる.
+\[
+  \frac{(n+1)(n+2)}{n(n+1)}=\frac{n+2}{n}
+\]
+から,\textbf{隣り合う比が元の倍率になる量}$h_n=n(n+1)$を選ぶ(\sectionref*{節：補助数列・正規化}).
+$n\ge1$で非零なので,\,$b_n=\dfrac{a_n}{h_n}$と置いて割ると,
+\[
+  \frac{a_{n+1}}{(n+1)(n+2)}
+  =\frac{a_n}{n(n+1)}+1
+\]
+となる.従って$b_1=1$, $b_{n+1}=b_n+1$より$b_n=n$であり,
+\[
+  a_n=n^2(n+1)
+\]
+を得る.
+
+\paragraphbf{初項を変える}
+初項を一般の$a_1=s$に変えると,\,$b_1=\dfrac{s}{2}$となる.
+同じ更新から$b_n=\dfrac{s}{2}+n-1$なので,
+\[
+  a_n=n(n+1)\left(n+\frac{s-2}{2}\right)
+\]
+となる.
+
+\subsubsection{一般の式への拡張}
+$a_{n+1}=p_na_n+q_n$ $(n\ge1)$に対して,
+$h_1=1$, $h_{n+1}=p_nh_n$とする.
+すべての$p_n$が非零なら,\,$h_n$も非零であり,
+\[
+  h_n=\prod_{k=1}^{n-1}p_k
+\]
+である.\footnote{空積は$1$とする.}元の式を$h_{n+1}$で割ると,
+\[
+  b_n=\frac{a_n}{h_n},\qquad
+  b_{n+1}-b_n=\frac{q_n}{h_{n+1}}
+\]
+となる.\,$b_1=a_1$から\bookterm{difference}{階差}を足すと,
+\[
+  b_n=a_1+\sum_{k=1}^{n-1}\frac{q_k}{h_{k+1}}
+\]
+となり,\,$a_n=h_nb_n$へ戻して,
+\[
+  a_n=h_n\left(a_1+\sum_{k=1}^{n-1}\frac{q_k}{h_{k+1}}\right)
+\]
+を得る.\footnote{先ほどは定数倍して$h_n=n(n+1)$を選んだが,
+  その場合の$b_1$を正しく合わせれば同じ答えになる.}
+\begin{bookpoint}
+  \textbf{\bookterm{normalize}{正規化}の役割}\par
+  倍率を取り除くと,残った付加項を足す問題になる.
+  積・和の表示を得ることと,最後まで簡単な式で計算できることは別である.
+\end{bookpoint}
+もし$p_j=0$なら,\,$a_{j+1}=q_j$はそれ以前の項によらず決まる.
+この場合は$a_{j+1}=q_j$を新たな初項として,係数が非零となる範囲で上の方法を使う.
+
+\subsubsection{別解：同じ更新を引く}
+同じ例で,正規化から見つけた$v_n=n^2(n+1)$は元の更新を満たす.
+今度は$d_n=a_n-v_n$と引けば,
+\[
+  d_{n+1}=\frac{n+2}{n}d_n
+\]
+となり,\bookterm{ratio}{階比}型へ戻る.初項$a_1=s$なら$d_1=s-2$であり,
+\[
+  d_n=\frac{s-2}{2}n(n+1),\qquad a_n=v_n+d_n
+\]
+から同じ答えを得る.一つの解$v_n$と\bookterm{homogeneous}{同次}の解の定数倍に分かれた(\sectionref*{節：階差等比複合型}).
+
+\begin{bookpoint}
+  \textbf{引くか,割るか}\par
+  係数$p_n$を消したければ,$h_{n+1}=p_nh_n$を満たす数列で割る.付加項$q_n$を消したければ,元の漸化式を満たす既知の数列を引く.
+  消したい部分に応じて方法を選ぼう.
+\end{bookpoint}
+操作だけの比較は\sectionref*{節：操作を選ぶ練習},
+\bookterm{general}{一般項}まで求める練習は\bookproblemref{practice-connections}{1}{接続演習問1}へ進もう.

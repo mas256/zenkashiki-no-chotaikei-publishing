@@ -27,7 +27,7 @@ jobs:
   build:
     runs-on: ubuntu-24.04
     env:
-      MAIN_TEX: 漸化式の体系と解法.tex
+      MAIN_TEX: 漸化式の超体系的解説.tex
       COMMIT: ${{ inputs.ref != '' && inputs.ref || github.sha }}
     steps:
       - name: Checkout
@@ -66,7 +66,7 @@ jobs:
         run: python3 scripts/build-mobile.py
 
       - name: Verify both layouts
-        run: python3 scripts/verify-tex-layout.py "発展-new/${MAIN_TEX%.tex}.log" out/mobile/mobile.log
+        run: python3 scripts/verify-tex-layout.py "out/latex-aux/${MAIN_TEX%.tex}.log" out/mobile/mobile.log
 
       - name: Verify embedded fonts
         working-directory: 発展-new
@@ -103,12 +103,12 @@ jobs:
 
       - name: Verify glossary and exercise navigation
         run: |
-          python3 scripts/verify-reading-navigation.py --pdf '発展-new/漸化式の体系と解法.pdf'
+          python3 scripts/verify-reading-navigation.py --pdf '発展-new/漸化式の超体系的解説.pdf'
           python3 scripts/verify-reading-navigation.py --pdf out/mobile/mobile.pdf
 
       - name: Verify PDF link margins
         run: |
-          python3 scripts/verify-pdf-link-margins.py '発展-new/漸化式の体系と解法.pdf'
+          python3 scripts/verify-pdf-link-margins.py '発展-new/漸化式の超体系的解説.pdf'
           python3 scripts/verify-pdf-link-margins.py out/mobile/mobile.pdf --header-height 26 --footer-height 12
 
       - name: Verify term first-use decoration

@@ -1,0 +1,837 @@
+% BOOK-FILE-ID: f-49d89f9a5544
+\subsection{発展・特殊型}\label{節：発展・特殊型}
+\sectionref{節：発展的な解法}と\sectionref{節：式の構造を使う}の15題である.
+\bookterm{floor}{ガウス記号}には整数性・余り,多項間の関係には\bookterm{difference}{階差}・\bookterm{characteristic}{特性方程式},
+\bookterm{nonlinear}{非線形}な式には対称式・\bookterm{trigonometric}{三角関数}の恒等式を使う.
+候補は\bookterm{initial}{初期条件}と更新で確かめ,分母や角度の定義域も確認する.
+問14・問15では初項を動かし,定\bookterm{sequence}{数列}・周期列・有界な\bookterm{sequence}{数列}が現れる条件を調べる.
+以下,特に指定しない限り,\,$\displaystyle n$は正の整数とする.
+$\displaystyle \lfloor x\rfloor$は$\displaystyle x$を超えない最大の整数を表す.
+周期の最小値とは,すべての添字で$\displaystyle a_{n+p}=a_n$となる正の整数$\displaystyle p$の最小値をいう.
+
+\subsubsection{問題}\label{節：発展・特殊型：問題}
+\begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-special}{problem}{answer}]
+  % E1: ガウス型・整数の半減
+  \item \bookterm{sequence}{数列}$\displaystyle \{a_n\}$を
+    \[
+      a_1=2026,\qquad
+      a_{n+1}=\left\lfloor\frac{a_n}{2}\right\rfloor
+    \]
+    によって定める.
+    \par\smallskip\noindent
+    (1) \bookterm{general}{一般項}を求めよ.
+    \par\smallskip\noindent
+    (2) 初めて$\displaystyle a_n=0$となる添字$\displaystyle n$を求めよ.
+    % E2: ガウス型・三つずつの群
+  \item \bookterm{sequence}{数列}$\displaystyle \{a_n\}$を
+    \[
+      a_0=0,\qquad
+      a_{n+1}=a_n+\left\lfloor\frac{n+1}{3}\right\rfloor
+      \quad(n\ge0)
+    \]
+    によって定める.\,
+    $\displaystyle n=3q+r$（$\displaystyle q\ge0$,\,$\displaystyle r=0,1,2$）とおき,
+    \bookterm{general}{一般項}を$\displaystyle q,r$で表せ.
+    % E3: ガウス型・余りの有限個の状態
+  \item \bookterm{sequence}{数列}$\displaystyle \{a_n\}$を
+    \[
+      a_1=1,\qquad
+      a_{n+1}=2a_n+1
+      -5\left\lfloor\frac{2a_n+1}{5}\right\rfloor
+    \]
+    によって定める.
+    \par\smallskip\noindent
+    (1) すべての項が$\displaystyle 0,1,2,3,4$のいずれかになることを示せ.
+    \par\smallskip\noindent
+    (2) \bookterm{general}{一般項}を,\,$\displaystyle n$を$\displaystyle 4$で割った余りで場合分けして表せ.
+    また,周期の最小値を求めよ.
+    % E4: 隣接4項間・三階差が定数
+  \item \bookterm{sequence}{数列}$\displaystyle \{a_n\}$を
+    \[
+      a_1=2,\qquad a_2=9,\qquad a_3=28,
+    \]
+    \[
+      a_{n+3}=3a_{n+2}-3a_{n+1}+a_n+6
+    \]
+    によって定める.
+    \par\smallskip\noindent
+    (1) $\displaystyle d_n=a_{n+2}-2a_{n+1}+a_n$とおき,\,$\displaystyle d_n$を求めよ.
+    \par\smallskip\noindent
+    (2) \bookterm{general}{一般項}を求めよ.
+    % E5: 隣接4項間・異なる三つの特性根
+  \item \bookterm{sequence}{数列}$\displaystyle \{a_n\}$を
+    \[
+      a_1=3,\qquad a_2=6,\qquad a_3=14,
+    \]
+    \[
+      a_{n+3}=6a_{n+2}-11a_{n+1}+6a_n
+    \]
+    によって定める.
+    \par\smallskip\noindent
+    (1) $\displaystyle d_n=a_{n+2}-3a_{n+1}+2a_n$とおき,\,$\displaystyle d_n$を求めよ.
+    \par\smallskip\noindent
+    (2) \bookterm{general}{一般項}を求めよ.
+    % E6: 虚数解型・周期6
+  \item \bookterm{sequence}{数列}$\displaystyle \{a_n\}$を
+    \[
+      a_1=0,\qquad a_2=1,\qquad
+      a_{n+2}=a_{n+1}-a_n
+    \]
+    によって定める.
+    \par\smallskip\noindent
+    (1) \bookterm{trigonometric}{三角関数}を用いて\bookterm{general}{一般項}を表せ.
+    \par\smallskip\noindent
+    (2) 周期の最小値を求めよ.
+    % E7: 虚数解型・振幅が減衰する数列
+  \item \bookterm{sequence}{数列}$\displaystyle \{a_n\}$を
+    \[
+      a_1=1,\qquad a_2=0,\qquad
+      a_{n+2}=a_{n+1}-\frac12a_n
+    \]
+    によって定める.\bookterm{trigonometric}{三角関数}を用いて\bookterm{general}{一般項}を表し,
+    $\displaystyle \lim_{n\to\infty}a_n$を求めよ.
+    % E8: 非隣接2項間・奇数列と偶数列の逆数
+  \item \bookterm{sequence}{数列}$\displaystyle \{a_n\}$を
+    \[
+      a_1=1,\qquad a_2=2,\qquad
+      a_{n+2}=\frac{a_n}{1+a_n}
+    \]
+    によって定める.
+    \par\smallskip\noindent
+    (1) すべての項が正であることを示し,
+    $\displaystyle a_{2k-1},a_{2k}$を$\displaystyle k$で表せ.
+    ただし,\,$\displaystyle k$は正の整数とする.
+    \par\smallskip\noindent
+    (2) $\displaystyle \lim_{n\to\infty}a_n$を求めよ.
+    % E9: 基本対称式型・平行移動して恒等式を使う
+  \item \bookterm{sequence}{数列}$\displaystyle \{a_n\}$を
+    \[
+      a_1=\frac72,\qquad
+      a_{n+1}=a_n^2-2a_n
+    \]
+    によって定める.
+    \par\smallskip\noindent
+    (1) $\displaystyle b_n=a_n-1$とおき,\,$\displaystyle b_n$の\bookterm{recurrence}{漸化式}を求めよ.
+    \par\smallskip\noindent
+    (2) 恒等式
+    \[
+      \left(u+u^{-1}\right)^2-2=u^2+u^{-2}
+      \quad(u\ne0)
+    \]
+    を用いて$\displaystyle a_n$の\bookterm{general}{一般項}を求めよ.
+    % E10: 基本対称式型・三乗の対称式
+  \item \bookterm{sequence}{数列}$\displaystyle \{a_n\}$を
+    \[
+      a_1=\frac52,\qquad
+      a_{n+1}=a_n^3-3a_n
+    \]
+    によって定める.
+    \par\smallskip\noindent
+    (1) 恒等式
+    \[
+      \left(u+u^{-1}\right)^3
+      -3\left(u+u^{-1}\right)=u^3+u^{-3}
+    \]
+    を示せ.ただし,\,$\displaystyle u\ne0$とする.
+    \par\smallskip\noindent
+    (2) \bookterm{general}{一般項}を求めよ.
+    % E11: 三角関数型・余弦の倍角と周期3
+  \item \bookterm{sequence}{数列}$\displaystyle \{a_n\}$を
+    \[
+      a_1=\cos\frac{2\pi}{7},\qquad
+      a_{n+1}=2a_n^2-1
+    \]
+    によって定める.
+    \par\smallskip\noindent
+    (1) \bookterm{general}{一般項}を求めよ.
+    \par\smallskip\noindent
+    (2) 周期の最小値を求めよ.
+    % E12: 三角関数型・正接の定義域と周期4
+  \item 初項と次の項を計算する規則を
+    \[
+      a_1=\tan\frac{\pi}{5},\qquad
+      a_{n+1}=\frac{2a_n}{1-a_n^2}
+    \]
+    とする.
+    \par\smallskip\noindent
+    (1) \bookterm{general}{一般項}の候補を求め,すべての段階で分母が$\displaystyle 0$にならず,
+    \bookterm{sequence}{数列}が定義できることを示せ.
+    \par\smallskip\noindent
+    (2) 周期の最小値を求めよ.
+    % E13: ニュートン法型・初項が収束先より小さい場合
+  \item \bookterm{sequence}{数列}$\displaystyle \{a_n\}$を
+    \[
+      a_1=1,\qquad
+      a_{n+1}=\frac{a_n^2+3}{2a_n}
+    \]
+    によって定める.
+    \par\smallskip\noindent
+    (1) すべての項が正であることを示せ.
+    \par\smallskip\noindent
+    (2) $\displaystyle b_n=\frac{a_n-\sqrt3}{a_n+\sqrt3}$とおき,
+    $\displaystyle b_n,a_n$の\bookterm{general}{一般項}を求めよ.
+    \par\smallskip\noindent
+    (3) $\displaystyle n\ge2$で$\displaystyle a_n>\sqrt3$かつ
+    $\displaystyle a_{n+1}<a_n$であることを示し,\,$\displaystyle \lim_{n\to\infty}a_n$を求めよ.
+    % E14: 初項依存型・不動点と2周期点
+  \item 実数$\displaystyle c$を初項として,\bookterm{sequence}{数列}$\displaystyle \{a_n\}$を
+    \[
+      a_1=c,\qquad a_{n+1}=a_n^2-1
+    \]
+    によって定める.
+    \par\smallskip\noindent
+    (1) \bookterm{sequence}{数列}が定\bookterm{sequence}{数列}となる$\displaystyle c$をすべて求めよ.
+    \par\smallskip\noindent
+    \BookMathLayout{(2) 定\bookterm{sequence}{数列}ではなく,すべての$\displaystyle n$で$\displaystyle a_{n+2}=a_n$を満たす
+      $\displaystyle c$をすべて求め,それぞれの場合の\bookterm{general}{一般項}を表せ.}{(2) 定\bookterm{sequence}{数列}ではなく,\\すべての$\displaystyle n$で$\displaystyle a_{n+2}=a_n$を満たす
+      $\displaystyle c$をすべて求め,それぞれの場合の\bookterm{general}{一般項}を表せ.}
+    % E15: 初項依存型・有界になる初項の範囲
+  \item 実数$\displaystyle c$を初項として,\bookterm{sequence}{数列}$\displaystyle \{a_n\}$を
+    \[
+      a_1=c,\qquad a_{n+1}=a_n^2-2
+    \]
+    によって定める.
+    \par\smallskip\noindent
+    (1) $\displaystyle c=-2,-1,0,2$のそれぞれについて,最初の4項を求めよ.
+    \par\smallskip\noindent
+    (2) $\displaystyle -2\le c\le2$のとき,\,$\displaystyle c=2\cos\theta$
+    （$\displaystyle 0\le\theta\le\pi$）とおき,\bookterm{general}{一般項}を求めよ.
+    また,すべての項が$\displaystyle -2$以上$\displaystyle 2$以下であることを示せ.
+    \par\smallskip\noindent
+    (3) $\displaystyle |c|>2$のとき,\,$\displaystyle a_n\to+\infty$を示せ.
+    以上から,\bookterm{sequence}{数列}が有界となる$\displaystyle c$の範囲を求めよ.
+\end{enumerate}
+
+\subsubsection{方針}\label{節：発展・特殊型：方針}
+\begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-special}{hint}{problem}]
+  % E1
+  \item 整数を$\displaystyle 2$で割った商と余りに分け,
+    $\displaystyle \left\lfloor\frac{\lfloor x\rfloor}{2}\right\rfloor
+      =\left\lfloor\frac{x}{2}\right\rfloor$となることを確かめる.
+    初めて$\displaystyle 0$になる位置は,\,$\displaystyle 2026$と$\displaystyle 2$の累乗を比べればよい.
+    % E2
+  \item \bookterm{difference}{階差}を足すと$\displaystyle \sum_{k=1}^{n}\lfloor\frac{k}{3}\rfloor$になる.
+    同じ値を取る添字を三つずつまとめ,最後の群を$\displaystyle r+1$項として数える.
+    % E3
+  \item $\displaystyle x-5\lfloor\frac{x}{5}\rfloor$は整数$\displaystyle x$を$\displaystyle 5$で割った余りである.
+    項の値が五つに絞れたら,それぞれが次にどの値へ移るかを表にする.
+    % E4
+  \item $\displaystyle d_{n+1}-d_n$を作ると元の\bookterm{recurrence}{漸化式}の左辺が現れる.
+    その後,\,$\displaystyle e_n=a_{n+1}-a_n$を求め,もう一度足して$\displaystyle a_n$へ戻す.
+    % E5
+  \item $\displaystyle d_{n+1}-3d_n$を展開すると$\displaystyle 0$になる.
+    得られた3項間の式を満たす$\displaystyle 3^{n-1}$を引き,残りを解く.
+    % E6
+  \item \bookterm{characteristic}{特性方程式}の根の絶対値と\bookterm{argument}{偏角}を調べる.
+    最初の二つの項に合う$\displaystyle \sin$の式を作り,実際の値の並びから周期を確かめる.
+    % E7
+  \item \bookterm{root}{特性根}の絶対値は$\displaystyle 1$未満である.
+    \bookterm{polar}{極形式}から\bookterm{trigonometric}{三角関数}の\bookterm{general}{一般項}を作り,その絶対値を\bookterm{geometric}{等比数列}で上から押さえる.
+    % E8
+  \item 正値を確かめてから逆数を取る.
+    奇数番目と偶数番目を別々の\bookterm{sequence}{数列}にすると,二つの\bookterm{arithmetic}{等差数列}が得られる.
+    % E9
+  \item $\displaystyle a_n^2-2a_n=(a_n-1)^2-1$と\bookterm{square}{平方完成}する.
+    $\displaystyle b_1=2+2^{-1}$と書けば,恒等式によって指数が毎回2倍になる.
+    % E10
+  \item 展開すると,交差項が$\displaystyle 3(u+u^{-1})$であることが分かる.
+    初項を$\displaystyle 2+2^{-1}$と表し,指数を毎回3倍にする候補を作る.
+    % E11
+  \item 余弦の倍角公式で,角度を毎回2倍にする候補を作る.
+    3回倍にした角度と元の角度との差が$\displaystyle 2\pi$の整数倍になることを調べる.
+    % E12
+  \item 正接の倍角公式を使う.
+    候補の角度が$\displaystyle \frac{\pi}{2}$に$\displaystyle \pi$の整数倍を加えた値になるかを,
+    整数の偶奇で判断する.次の角度でも正接が定義できれば,\bookterm{recurrence}{漸化式}の分母も$\displaystyle 0$にならない.
+    % E13
+  \item $\displaystyle a_{n+1}\pm\sqrt3$の分子は平方になる.比を取って$\displaystyle b_{n+1}=b_n^2$を導く.
+    $\displaystyle b_1<0$なので,\bookterm{logarithm}{対数}を取らずにべき乗の形を帰納法で確かめる.
+    減少を示す範囲が$\displaystyle n\ge2$であることにも注意する.
+    % E14
+  \item 定\bookterm{sequence}{数列}には$\displaystyle a_2=a_1$,周期2の候補には$\displaystyle a_3=a_1$が必要である.
+    後者の方程式を因数分解し,定\bookterm{sequence}{数列}の初項を除く.残った初項が実際に二つの値を往復することも確かめる.
+    % E15
+  \item $\displaystyle |c|\le2$では$\displaystyle 2\cos\theta$という表示を使う.
+    $\displaystyle |c|>2$では第2項が$\displaystyle 2$を超えるので,
+    $\displaystyle a_{n+1}-2=(a_n-2)(a_n+2)$から下からの評価を作る.
+\end{enumerate}
+
+\subsubsection{答え}\label{節：発展・特殊型：答え}
+\begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-special}{answer}{problem}]
+  % E1
+  \item (1)
+    \[
+      a_n=\left\lfloor\frac{2026}{2^{n-1}}\right\rfloor.
+    \]
+    (2) $\displaystyle n=12$である.
+    % E2
+  \item
+    \[
+      a_n=\frac{3q(q-1)}2+q(r+1),
+    \]
+    \[
+      n=3q+r,\qquad q\ge0,\quad r=0,1,2.
+    \]
+    % E3
+  \item (1) 整数性と\bookterm{floor-function}{床関数}の定義から,各項は$\displaystyle 0$以上$\displaystyle 4$以下の整数となる.
+    \par\smallskip\noindent
+    (2) $\displaystyle k$を$\displaystyle 0$以上の整数として,
+    \[
+      a_{4k+1}=1,\quad a_{4k+2}=3,
+    \]
+    \[
+      a_{4k+3}=2,\quad a_{4k+4}=0.
+    \]
+    周期の最小値は$\displaystyle 4$である.
+    % E4
+  \item (1) $\displaystyle d_n=6n+6$.
+    \par\smallskip\noindent
+    (2) $\displaystyle a_n=n^3+1$.
+    % E5
+  \item (1) $\displaystyle d_n=2\cdot3^{n-1}$.
+    \par\smallskip\noindent
+    (2)
+    \[
+      a_n=1+2^{n-1}+3^{n-1}.
+    \]
+    % E6
+  \item (1)
+    \[
+      a_n=\frac2{\sqrt3}\sin\frac{(n-1)\pi}{3}.
+    \]
+    (2) 周期の最小値は$\displaystyle 6$である.
+    % E7
+  \item
+    \[
+      a_n=\left(\frac1{\sqrt2}\right)^{n-1}
+      \left(\cos t_n-\sin t_n\right),
+    \]
+    \[
+      t_n=\frac{(n-1)\pi}{4},\qquad
+      \lim_{n\to\infty}a_n=0.
+    \]
+    % E8
+  \item (1) すべての項は正であり,
+    \[
+      a_{2k-1}=\frac1k,\qquad
+      a_{2k}=\frac2{2k-1}\quad(k\ge1).
+    \]
+    (2) \bookterm{limit}{極限}は$\displaystyle 0$である.
+    % E9
+  \item (1) $\displaystyle b_1=\frac52$,\,$\displaystyle b_{n+1}=b_n^2-2$.
+    \par\smallskip\noindent
+    (2)
+    \[
+      a_n=1+2^{\,2^{n-1}}+2^{-2^{n-1}}.
+    \]
+    % E10
+  \item (1) 左辺を展開すると右辺を得る.
+    \par\smallskip\noindent
+    (2)
+    \[
+      a_n=2^{\,3^{n-1}}+2^{-3^{n-1}}.
+    \]
+    % E11
+  \item (1)
+    \[
+      a_n=\cos\left(2^{n-1}\frac{2\pi}{7}\right).
+    \]
+    (2) 周期の最小値は$\displaystyle 3$である.
+    % E12
+  \item (1)
+    \[
+      a_n=\tan\left(2^{n-1}\frac{\pi}{5}\right).
+    \]
+    すべての項で正接が定義でき,\bookterm{recurrence}{漸化式}の分母も$\displaystyle 0$にならない.
+    \par\smallskip\noindent
+    (2) 周期の最小値は$\displaystyle 4$である.
+    % E13
+  \item (1) 初項が正で,正の項から次の正の項が定まる.
+    \par\smallskip\noindent
+    (2) $\displaystyle q=\sqrt3-2$とおくと,
+    \[
+      b_n=q^{\,2^{n-1}},\qquad
+      a_n=\sqrt3\,\frac{1+q^{\,2^{n-1}}}{1-q^{\,2^{n-1}}}.
+    \]
+    (3) $\displaystyle n\ge2$で設問の二つの不等式が成り立ち,
+    \[
+      \lim_{n\to\infty}a_n=\sqrt3.
+    \]
+    % E14
+  \item (1)
+    \[
+      c=\frac{1+\sqrt5}{2},\quad
+      \frac{1-\sqrt5}{2}.
+    \]
+    それぞれ$\displaystyle a_n=c$である.
+    \par\smallskip\noindent
+    (2) $\displaystyle c=0,-1$であり,どちらも
+    \[
+      a_n=-\frac12+\left(c+\frac12\right)(-1)^{n-1}
+    \]
+    と表せる.周期の最小値は$\displaystyle 2$である.
+    % E15
+  \item (1)
+    \[
+      \begin{array}{c|rrrr}
+        c&a_1&a_2&a_3&a_4\\ \hline
+        -2&-2&2&2&2\\
+        -1&-1&-1&-1&-1\\
+        0&0&-2&2&2\\
+        2&2&2&2&2
+      \end{array}
+    \]
+    (2)
+    \[
+      a_n=2\cos(2^{n-1}\theta),\qquad -2\le a_n\le2.
+    \]
+    (3) $\displaystyle n\ge2$で
+    \[
+      a_n\ge2+4^{n-2}(c^2-4)
+    \]
+    となり,\,$\displaystyle a_n\to+\infty$である.
+    有界となる範囲は$\displaystyle -2\le c\le2$である.
+\end{enumerate}
+
+\subsubsection{解説}\label{節：発展・特殊型：解説}
+\begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-special}{solution}{problem}]
+  % E1
+  \item \textbf{(1)~整数部分を分ける.}
+    \sectionref{節：ガウス記号を含む式}の整数性に着目する.
+    非負の実数$\displaystyle x$について,整数$\displaystyle \lfloor x\rfloor$を
+    \[
+      \lfloor x\rfloor=2q+r,\qquad r=0,1
+    \]
+    と表す.\bookterm{floor-function}{床関数}の定義を使って$\displaystyle 2$で割れば,
+    \begin{align*}
+      \frac x2&\ge q+\frac r2\ge q,\\
+      \frac x2&<q+\frac{r+1}{2}\le q+1.
+    \end{align*}
+    したがって,
+    \[
+      \left\lfloor\frac{x}{2}\right\rfloor=q
+      =\left\lfloor\frac{\lfloor x\rfloor}{2}\right\rfloor.
+    \]
+    $\displaystyle a_1=\lfloor2026\rfloor$であり,この恒等式を繰り返し使うと,
+    \[
+      a_n=\left\lfloor\frac{2026}{2^{n-1}}\right\rfloor
+    \]
+    が帰納法で得られる.
+
+    \smallskip
+    \textbf{(2)~1未満になる位置.}
+    $\displaystyle 2^{10}=1024\le2026<2048=2^{11}$だから,
+    \[
+      a_{11}=1,\qquad a_{12}=0.
+    \]
+    $\displaystyle n\le11$では切り捨てる前の値が$\displaystyle 1$以上なので,
+    初めて$\displaystyle 0$となるのは$\displaystyle n=12$である.
+    毎回の切り捨てを一つの\bookterm{floor-function}{床関数}にまとめられる理由は,割る数が正の整数であることにある.
+    % E2
+  \item \textbf{同じ値をまとめて足す.}
+    \sectionref{節：ガウス記号を含む式}の群\bookterm{sequence}{数列}の見方を使う.
+    \bookterm{difference}{階差}を足すと,
+    \[
+      a_n=\sum_{k=1}^{n}\left\lfloor\frac{k}{3}\right\rfloor.
+    \]
+    $k=1,2$では零で,\,$k=3j,3j+1,3j+2$では値が$j$になる.
+    $n=3q+r$, $q\ge1$なら,値$1,\ldots,q-1$の群は三項ずつ,最後の値$q$の群は$r+1$項ある.
+    よって,
+    \begin{align*}
+      a_n&=3\sum_{j=1}^{q-1}j+q(r+1)\\
+      &=\frac{3q(q-1)}2+q(r+1).
+    \end{align*}
+    $q=0$でも実際の値と式は零である.
+    最後の群は途中までなので,常に三項と数えてはいけない.
+    % E3
+  \item \textbf{(1)~余りに読み替える.}
+    \sectionref{節：ガウス記号を含む式}では,\bookterm{floor}{ガウス記号}が整数問題の道具にもなる.
+    整数$\displaystyle x$について\bookterm{floor-function}{床関数}の定義から,
+    \[
+      0\le x-5\left\lfloor\frac{x}{5}\right\rfloor<5.
+    \]
+    整数なので値は$0,1,2,3,4$に限られる.
+    初項の整数性と$x=2a_n+1$を使えば,帰納的に全項がこの範囲に入る.
+
+    \smallskip
+    \textbf{(2)~五つの値の更新.}
+    (1)より,次の表だけを調べれば十分である.
+    \[
+      \begin{array}{c|rrrrr}
+        a_n&0&1&2&3&4\\ \hline
+        a_{n+1}&1&3&0&2&4
+      \end{array}
+    \]
+    初項$\displaystyle 1$からは$\displaystyle 1,3,2,0,1,\ldots$と進む.
+    次は一意に決まるためこの四値を繰り返し,解答の\bookterm{general}{一般項}となる.
+    四値が異なるので最小周期は$4$である.取り得る値を先に絞った.
+    % E4
+  \item \textbf{(1)~4項型から\bookterm{difference}{階差}へ.}
+    \sectionref{節：隣接4項型}と同じく,\bookterm{difference}{階差}の組合せを見る.
+    設問の$\displaystyle d_n$について,
+    \begin{align*}
+      d_{n+1}-d_n
+      &=a_{n+3}-3a_{n+2}\\
+      &\quad+3a_{n+1}-a_n\\
+      &=6.
+    \end{align*}
+    $\displaystyle d_1=28-2\cdot9+2=12$だから,
+    \[
+      d_n=12+6(n-1)=6n+6.
+    \]
+
+    \smallskip
+    \textbf{(2)~\bookterm{difference}{階差}を足して戻す.}
+    $\displaystyle e_n=a_{n+1}-a_n$とおくと,
+    \[
+      e_{n+1}-e_n=d_n=6n+6,
+    \]
+    かつ$\displaystyle e_1=9-2=7$である.したがって,
+    \begin{align*}
+      e_n&=7+\sum_{k=1}^{n-1}(6k+6)\\
+      &=3n^2+3n+1.
+    \end{align*}
+    もう一度足せば,
+    \begin{align*}
+      a_n&=2+\sum_{k=1}^{n-1}(3k^2+3k+1)\\
+      &=n^3+1.
+    \end{align*}
+    ここでは$\displaystyle n=1$の空の和を$\displaystyle 0$とする.
+    初期値を$d_1,e_1,a_1$の順に使った.
+    \bookterm{difference}{階差}で次数を下げ,和で元へ戻す.
+    % E5
+  \item \textbf{(1)~3項をまとめて等比型へ.}
+    \sectionref{節：隣接4項型}の方法を使う.
+    \bookterm{characteristic}{特性方程式}の左辺は
+    \[
+      x^3-6x^2+11x-6=(x-1)(x-2)(x-3)
+    \]
+    であり,\,$\displaystyle 1,2$に対応する二次式から設問の$\displaystyle d_n$が作られる.
+    実際に展開すると,
+    \[
+      d_{n+1}-3d_n
+      =a_{n+3}-6a_{n+2}+11a_{n+1}-6a_n=0.
+    \]
+    $\displaystyle d_1=14-3\cdot6+2\cdot3=2$より,
+    \[
+      d_n=2\cdot3^{n-1}.
+    \]
+    初期値が零でないので,右辺を残して進める.
+
+    \smallskip
+    \textbf{(2)~右辺を作る\bookterm{sequence}{数列}を引く.}
+    $\displaystyle 3^{n-1}$に同じ組合せを施すと,
+    \[
+      3^{n+1}-3\cdot3^n+2\cdot3^{n-1}=2\cdot3^{n-1}.
+    \]
+    そこで$\displaystyle b_n=a_n-3^{n-1}$とおけば,
+    \[
+      b_{n+2}-3b_{n+1}+2b_n=0.
+    \]
+    \bookterm{root}{特性根}は$\displaystyle 1,2$だから$\displaystyle b_n=A+B2^{n-1}$とおける.
+    $\displaystyle b_1=2,b_2=3$から$\displaystyle A=B=1$となり,
+    \[
+      a_n=1+2^{n-1}+3^{n-1}
+    \]
+    を得る.\,4項間を3項間へ,さらに既習の解法へ順に帰着させた.
+    % E6
+  \item \textbf{(1)~\bookterm{root}{特性根}を角度で表す.}
+    \sectionref{節：特性根が虚数の場合}を使う.
+    \bookterm{characteristic}{特性方程式}$\displaystyle x^2-x+1=0$の根は,
+    \[
+      \frac{1\pm\sqrt3\,i}{2}
+      =\cos\frac\pi3\pm i\sin\frac\pi3.
+    \]
+    絶対値が$\displaystyle 1$なので,
+    \[
+      a_n=C\cos\frac{(n-1)\pi}{3}
+      +D\sin\frac{(n-1)\pi}{3}
+    \]
+    とおける.\,$\displaystyle a_1=0$より$\displaystyle C=0$であり,
+    $\displaystyle a_2=1$より$\displaystyle D=\frac2{\sqrt3}$である.
+    得られた更新は$\sin$の\bookterm{addition}{加法定理}からも確認できる.
+
+    \smallskip
+    \textbf{(2)~最小周期を確かめる.}
+    \bookterm{general}{一般項}より$\displaystyle a_{n+6}=a_n$であり,最初の6項は
+    \[
+      0,1,1,0,-1,-1
+    \]
+    である.周期が$\displaystyle 1,2,4,5$なら$\displaystyle a_{1+p}=a_1$が成り立たない.
+    周期が$\displaystyle 3$なら$\displaystyle a_5=a_2$が必要だが,
+    $\displaystyle -1\ne1$である.
+    したがって周期の最小値は$\displaystyle 6$である.
+
+    \smallskip
+    \noindent \textbf{【別解】}\\
+    \bookterm{recurrence}{漸化式}を一つ進めると,
+    \[
+      a_{n+3}=a_{n+2}-a_{n+1}=-a_n.
+    \]
+    さらに3項進めれば$\displaystyle a_{n+6}=a_n$となる.
+    \bookterm{root}{特性根}の角度と,直接の式変形による周期の証明が対応している.
+    % E7
+  \item \textbf{振幅と\bookterm{limit}{極限}.}
+    \sectionref{節：特性根が虚数の場合}では,\bookterm{root}{特性根}の絶対値も見る.
+    \bookterm{characteristic}{特性方程式}$\displaystyle x^2-x+\frac12=0$の根は,
+    \[
+      \frac{1\pm i}{2}
+      =\frac1{\sqrt2}
+      \left(\cos\frac\pi4\pm i\sin\frac\pi4\right).
+    \]
+    したがって$\displaystyle t_n=\frac{(n-1)\pi}{4}$として,
+    \[
+      a_n=\left(\frac1{\sqrt2}\right)^{n-1}
+      (C\cos t_n+D\sin t_n)
+    \]
+    とおける.\,$\displaystyle a_1=1$から$\displaystyle C=1$であり,
+    $\displaystyle a_2=0$から$\displaystyle D=-1$である.
+    よって解答の\bookterm{general}{一般項}を得る.\bookterm{trigonometric}{三角関数}の絶対値は$\displaystyle 1$以下なので,
+    \[
+      |a_n|\le2\left(\frac1{\sqrt2}\right)^{n-1}\longrightarrow0.
+    \]
+    したがって$\displaystyle a_n\to0$となる.
+    角度は一定ずつ進み,振幅は\bookterm{geometric}{等比数列}として縮んでいる.
+    % E8
+  \item \textbf{(1)~正値の確認と奇偶の分割.}
+    \sectionref{節：非隣接2項型}と同じく奇偶に分ける.
+    $a_1,a_2>0$で,正の項から次も正になるので両方で帰納法を使えば全項が正である.
+    逆数を取ると,
+    \[
+      \frac1{a_{n+2}}=\frac1{a_n}+1.
+    \]
+    $\displaystyle b_n=\frac1{a_n}$とおくと,
+    \[
+      b_1=1,\quad b_2=\frac12,\quad b_{n+2}=b_n+1.
+    \]
+    したがって,
+    \[
+      b_{2k-1}=k,\qquad b_{2k}=k-\frac12.
+    \]
+    逆数を取って解答の\bookterm{general}{一般項}を得る.
+
+    \smallskip
+    \textbf{(2)~部分列から\bookterm{limit}{極限}へ.}
+    奇数番目と偶数番目のどちらも$\displaystyle 0$へ近づく.
+    全体としても,\,$\displaystyle n\ge2$では\bookterm{general}{一般項}から
+    \[
+      0<a_n\le\frac2{n-1}
+    \]
+    となるので,\,$\displaystyle a_n\to0$である.
+    添字を分けたあとには,各部分列の答えを元の添字へ戻して確認する.
+    % E9
+  \item \textbf{(1)~値をずらす.}
+    \bookterm{square}{平方完成}して$\displaystyle b_n=a_n-1$とおくと,
+    \begin{align*}
+      b_{n+1}&=a_n^2-2a_n-1\\
+      &=(a_n-1)^2-2=b_n^2-2.
+    \end{align*}
+    初項は$\displaystyle b_1=\frac52$である.
+
+    \smallskip
+    \textbf{(2)~対称式の指数を変える.}
+    \sectionref{節：対称式を使う}と同じ形が現れた.
+    $\displaystyle \frac52=2+2^{-1}$であるから,
+    \[
+      B_n=2^{\,2^{n-1}}+2^{-2^{n-1}}
+    \]
+    を候補とする.設問の恒等式に$\displaystyle u=2^{\,2^{n-1}}$を入れると,
+    \[
+      B_{n+1}=B_n^2-2.
+    \]
+    $\displaystyle B_1=b_1$でもあるので,帰納法により$\displaystyle b_n=B_n$となる.
+    よって$\displaystyle a_n=1+B_n$である.
+    \bookterm{square}{平方完成}の後,逆数となる二量の和として恒等式を使った.
+    % E10
+  \item \textbf{(1)~交差項の打ち消し.}
+    \sectionref{節：対称式を使う}の三次の恒等式を使う.
+    展開すると,
+    \[
+      (u+u^{-1})^3=u^3+3u+3u^{-1}+u^{-3}
+    \]
+    であるから,\,$\displaystyle 3(u+u^{-1})$を引けばよい.
+
+    \smallskip
+    \textbf{(2)~指数を3倍する.}
+    $\displaystyle a_1=2+2^{-1}$に合う候補を
+    \[
+      A_n=2^{\,3^{n-1}}+2^{-3^{n-1}}
+    \]
+    とする.(1)に$\displaystyle u=2^{\,3^{n-1}}$を代入すると,
+    \[
+      A_{n+1}=A_n^3-3A_n
+    \]
+    となる.初項と\bookterm{recurrence}{漸化式}が一致するので,帰納法より$\displaystyle a_n=A_n$である.
+    $\displaystyle -3a_n$の項が交差項を正確に打ち消すため,同じ対称式の形を保って次へ進める.
+    % E11
+  \item \textbf{(1)~倍角から候補を作る.}
+    \sectionref{節：三角関数型}の余弦の倍角公式を使う.
+    $\displaystyle \theta_n=2^{n-1}\frac{2\pi}{7}$とおき,
+    $\displaystyle A_n=\cos\theta_n$とすれば,
+    \[
+      A_{n+1}=\cos(2\theta_n)=2A_n^2-1.
+    \]
+    初項も一致するので,帰納法により$\displaystyle a_n=A_n$である.
+    角度から解を作っており,余弦の値から角度を一意に決めたのではない.
+
+    \smallskip
+    \textbf{(2)~一周の差を比べる.}
+    3回進めると,
+    \[
+      \theta_{n+3}-\theta_n=2^n\pi
+      =2\pi\cdot2^{n-1}.
+    \]
+    これは$\displaystyle 2\pi$の整数倍だから,\,$\displaystyle a_{n+3}=a_n$である.
+    最初の三つの値は,
+    \[
+      \cos\frac{2\pi}{7},\quad
+      \cos\frac{4\pi}{7},\quad
+      \cos\frac{6\pi}{7}
+    \]
+    となる.\,$\displaystyle \cos$は$\displaystyle 0\le\theta\le\pi$で狭義に減少するので,
+    三つの値は異なり,周期の最小値は$\displaystyle 3$である.
+    % E12
+  \item \textbf{(1)~二つの分母を確認する.}
+    \sectionref{節：三角関数型}の正接の倍角公式から,
+    \[
+      \theta_n=2^{n-1}\frac\pi5,\qquad A_n=\tan\theta_n
+    \]
+    を候補とする.\,$\displaystyle \cos\theta_n=0$となるには,
+    ある整数$\displaystyle j$について
+    \[
+      2^{n-1}\frac\pi5=\frac\pi2+j\pi,
+      \quad\text{すなわち}\quad 2^n=5(2j+1)
+    \]
+    が必要である.左辺は偶数,右辺は奇数なので,これは起こらない.
+    よって$\displaystyle A_n$はすべての$\displaystyle n\ge1$で定義できる.
+    さらに,
+    \[
+      1-A_n^2=\frac{\cos(2\theta_n)}{\cos^2\theta_n}
+      =\frac{\cos\theta_{n+1}}{\cos^2\theta_n}\ne0.
+    \]
+    したがって,倍角公式を各段階で使うことができ,
+    \[
+      A_{n+1}=\frac{2A_n}{1-A_n^2}
+    \]
+    となる.初項も一致するから,帰納法で$\displaystyle a_n=A_n$を得る.
+
+    \smallskip
+    \textbf{(2)~正接の周期と角度の差.}
+    4回進めると,
+    \[
+      \theta_{n+4}-\theta_n=3\cdot2^{n-1}\pi.
+    \]
+    $\displaystyle \tan$の周期は$\displaystyle \pi$なので,\,$\displaystyle a_{n+4}=a_n$である.
+    最初の四つの値は,
+    \[
+      \tan\frac\pi5,\quad \tan\frac{2\pi}{5},\quad
+      -\tan\frac\pi5,\quad -\tan\frac{2\pi}{5}
+    \]
+    である.\,$\displaystyle 0<\frac\pi5<\frac{2\pi}{5}<\frac\pi2$で正接は狭義に増加するから,
+    この四つは異なる.よって周期の最小値は$\displaystyle 4$である.
+    % E13
+  \item \textbf{(1)~正値を確かめる.}
+    $\displaystyle a_1=1>0$であり,\,$\displaystyle a_n>0$なら分子・分母がともに正である.
+    よって帰納法によりすべての項が正であり,\,$\displaystyle a_n+\sqrt3$も$\displaystyle 0$にならない.
+
+    \smallskip
+    \textbf{(2)~二つの平方の比.}
+    \sectionref{節：ニュートン法}の$\displaystyle \sqrt2$を$\displaystyle \sqrt3$に置き換えた形である.
+    \[
+      a_{n+1}-\sqrt3=\frac{(a_n-\sqrt3)^2}{2a_n},
+    \]
+    \[
+      a_{n+1}+\sqrt3=\frac{(a_n+\sqrt3)^2}{2a_n}.
+    \]
+    共通の分母を消すために比を取ると,
+    \[
+      b_{n+1}=b_n^2.
+    \]
+    初項は
+    \[
+      b_1=\frac{1-\sqrt3}{1+\sqrt3}=\sqrt3-2=q.
+    \]
+    $q<0$なので最初から実数の\bookterm{logarithm}{対数}は使えない.二乗の繰り返しから帰納的に
+    \[
+      b_n=q^{\,2^{n-1}}
+    \]
+    が得られる.\,$\displaystyle b_n$の定義を$\displaystyle a_n$について解けば,
+    \[
+      a_n=\sqrt3\,\frac{1+b_n}{1-b_n}.
+    \]
+    $\displaystyle -1<q<0$なので$\displaystyle |b_n|<1$であり,
+    分母$\displaystyle 1-b_n$は常に正である.
+
+    \smallskip
+    \textbf{(3)~第2項以降の減少.}
+    $\displaystyle n\ge2$では$\displaystyle b_n>0$なので,\bookterm{general}{一般項}から$\displaystyle a_n>\sqrt3$である.
+    また,
+    \[
+      a_{n+1}-a_n=\frac{3-a_n^2}{2a_n}<0
+      \quad(n\ge2).
+    \]
+    $\displaystyle |q|<1$から$\displaystyle b_n\to0$であり,\,$\displaystyle a_n\to\sqrt3$となる.
+    初項は収束先の下にあるが,第2項で上へ移ってから減少する.
+    誤差を二乗する式も,この移動と速い収束を表す.
+    % E14
+  \item \textbf{(1)~\bookterm{fixed}{不動点}と定\bookterm{sequence}{数列}.}
+    \sectionref{節：初項による違い}の考え方を使う.
+    定\bookterm{sequence}{数列}には$\displaystyle c=c^2-1$が必要だから,
+    \[
+      c^2-c-1=0,\qquad c=\frac{1\pm\sqrt5}{2}.
+    \]
+    これらの初項なら毎回同じ値になるので,十分条件でもある.
+
+    \smallskip
+    \textbf{(2)~二回で戻る初項.}
+    $\displaystyle a_3=a_1$から,
+    \begin{align*}
+      (c^2-1)^2-1&=c,\\
+      c^4-2c^2-c&=0,\\
+      c(c+1)(c^2-c-1)&=0.
+    \end{align*}
+    (1)の定\bookterm{sequence}{数列}を除くと$\displaystyle c=0,-1$だけが残る.
+    実際,更新は$\displaystyle 0\mapsto-1\mapsto0$となるので,
+    どちらの初項もこの二つの値を交互に取る.
+    その\bookterm{general}{一般項}は
+    \[
+      a_n=-\frac12+\left(c+\frac12\right)(-1)^{n-1}
+      \quad(c=0,-1)
+    \]
+    と表せる.二つの値が異なるから周期の最小値は$\displaystyle 2$である.
+    ここでの\bookterm{general}{一般項}は,調べた初項に限って使える.
+    % E15
+  \item \textbf{(1)~初項による振る舞い.}
+    代入すると解答の表を得る.\,$c=-1,2$は初めから定\bookterm{sequence}{数列},\,$c=-2,0$は数項後に$2$で一定になる.
+
+    \smallskip
+    \textbf{(2)~初項に合う表示.}
+    \sectionref{節：初項による違い}から\sectionref{節：三角関数型}へつながる例である.
+    $\displaystyle -2\le c\le2$なら$\displaystyle c=2\cos\theta$
+    （$\displaystyle 0\le\theta\le\pi$）と表せる.
+    $\displaystyle A_n=2\cos(2^{n-1}\theta)$とおくと,
+    \begin{align*}
+      A_n^2-2
+      &=4\cos^2(2^{n-1}\theta)-2\\
+      &=2\cos(2^n\theta)=A_{n+1}.
+    \end{align*}
+    初項も一致するので,帰納法により$\displaystyle a_n=A_n$である.
+    $\displaystyle |\cos x|\le1$から,すべての項で$\displaystyle |a_n|\le2$となる.
+
+    \smallskip
+    \textbf{(3)~2からの距離を評価する.}
+    $\displaystyle |c|>2$なら$\displaystyle a_2=c^2-2>2$である.
+    $\displaystyle a_n>2$のとき,
+    \[
+      a_{n+1}-2=(a_n-2)(a_n+2)>4(a_n-2)>0.
+    \]
+    よって帰納法で$\displaystyle a_n>2$が$\displaystyle n\ge2$のすべてで続く.
+    この不等式を繰り返すと,
+    \[
+      a_n-2\ge4^{n-2}(a_2-2)
+      =4^{n-2}(c^2-4).
+    \]
+    右辺は$\displaystyle +\infty$へ発散するので,\,$\displaystyle a_n\to+\infty$である.
+    したがって有界となる初項はちょうど$\displaystyle -2\le c\le2$である.
+    \bookterm{general}{一般項}が表せる範囲と,不等式で振る舞いを調べる範囲を,初項に応じて選んだ.
+\end{enumerate}

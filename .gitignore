@@ -55,3 +55,6 @@ __pycache__/
 .pytest_cache/
 .vscode/
 .idea/
+
+# Generated stable TeX import map
+.book-import-map.tex

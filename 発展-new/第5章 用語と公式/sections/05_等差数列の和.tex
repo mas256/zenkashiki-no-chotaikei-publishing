@@ -1,0 +1,31 @@
+% BOOK-FILE-ID: f-bce433151fd3
+% section: 等差数列とその総和の導出
+
+\section{等差数列の和}\label{節：等差数列の和}
+\sectionref*{節：階差型}で一次式を足すときに使う.
+初項$a$,公差$d$,末項$l=a+(n-1)d$の\bookterm{arithmetic}{等差数列}の和を$S_n$とする.
+
+\subsection{和の公式}\label{節：等差数列の和：和の公式}
+\[
+  S_n=\frac n2(a+l)=\frac n2\{2a+(n-1)d\}.
+\]
+項数と,初項・末項の平均との積である.
+
+\subsection{公式の導出}\label{節：等差数列の和：公式の導出}
+$d>0$の場合,増分$d,2d,\ldots,(n-1)d$を逆順の列と重ねると,各列の高さが$nd$にそろう.
+\[
+  2\sum_{k=1}^{n-1}kd=n(n-1)d
+\]
+に初項$a$を$n$回加えれば,\,$S_n=na+\dfrac{n(n-1)d}{2}$を得る.
+\BookFigArithmeticSum
+
+同じ工夫を元の数列に使うと,\,$d$の符号によらず導ける.
+\[
+  \begin{array}{rcl}
+    S_n&=&a+(a+d)+(a+2d)\\
+    &&\qquad+\cdots+\{a+(n-1)d\},\\
+    S_n&=&\{a+(n-1)d\}+\{a+(n-2)d\}\\
+    &&\qquad+\cdots+(a+d)+a.
+  \end{array}
+\]
+各列の和は$2a+(n-1)d$であり,\,$n$列あるので$2S_n=n\{2a+(n-1)d\}$となる.

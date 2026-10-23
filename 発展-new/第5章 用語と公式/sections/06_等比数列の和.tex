@@ -1,0 +1,34 @@
+% BOOK-FILE-ID: f-ec481fbc79aa
+% section: 等比数列の総和とその導出
+
+\section{等比数列の和}\label{節：等比数列の和}
+\sectionref*{節：階差型}と\sectionref*{節：特性方程式型}の別解で使う.
+初項$a$,公比$r$の\bookterm{geometric}{等比数列}の和を$S_n=\sum_{k=1}^n ar^{k-1}$とする.
+
+\subsection{和の公式}\label{節：等比数列の和：和の公式}
+\[
+  S_n=\frac{a(1-r^n)}{1-r}=\frac{a(r^n-1)}{r-1}
+  \quad(r\ne1).
+\]
+$r=1$では全項が$a$なので$S_n=na$である.
+
+\subsection{公式の導出}\label{節：等比数列の和：公式の導出}
+総和を$r$倍すると,元の総和の項と位置がそろう.引けば途中の項が消える.
+\BookMathLayout{\[
+    \begin{array}{rrrl}
+      &S_n={}&a+&\hspace{-0.75em}ar+ar^2+\cdots+ar^{n-1}\\
+      -\,) &rS_n={}&{}&\hspace{-0.75em}ar+ar^2+ar^3+\cdots+ar^n\\ \hline
+      &(1-r)S_n={}&{}&\hspace{-0.75em}a-ar^n
+    \end{array}
+  \]}{
+  \[
+    \begin{array}{rl}
+      S_n={}&a+ar+ar^2+\cdots\\
+      &{}+ar^{n-1}\\
+      -\,)\ rS_n={}&ar+ar^2+ar^3+\cdots\\
+      &{}+ar^n\\ \hline
+      (1-r)S_n={}&a-ar^n
+    \end{array}
+  \]
+}
+$r\ne1$なら$1-r$で割り,公式を得る.倍率をそろえて差を取る工夫である.

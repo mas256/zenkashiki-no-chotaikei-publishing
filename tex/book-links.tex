@@ -1,3 +1,4 @@
+% BOOK-FILE-ID: f-9e72811e699c
 % 両版共通のPDF内リンク。パッケージは他の設定の後で読み込む。
 \usepackage[dvipdfmx,bookmarksnumbered,bookmarksopen,linktoc=all,hidelinks]{hyperref}
 \usepackage{pxjahyper}
@@ -21,60 +22,60 @@
 \int_new:N \l_book_cue_current_int
 \int_new:N \l_book_cue_penalty_int
 \cs_new_protected:Npn \bookcueprepared #1
-  {
-    \ifmmode #1\else
-      \bgroup
-      \tl_clear:N \l_book_cue_text_tl
-      \int_zero:N \l_book_cue_previous_int
-      \tl_map_inline:nn {#1}
-        {
-          \token_if_cs:NTF ##1
-            { \int_zero:N \l_book_cue_previous_int }
-            {
-              \int_set:Nn \l_book_cue_current_int { `##1 }
-              \int_compare:nNnT {\l_book_cue_current_int} > {255}
+{
+  \ifmmode #1\else
+    \bgroup
+    \tl_clear:N \l_book_cue_text_tl
+    \int_zero:N \l_book_cue_previous_int
+    \tl_map_inline:nn {#1}
+    {
+      \token_if_cs:NTF ##1
+      { \int_zero:N \l_book_cue_previous_int }
+      {
+        \int_set:Nn \l_book_cue_current_int { `##1 }
+        \int_compare:nNnT {\l_book_cue_current_int} > {255}
+          {
+            \int_compare:nNnT {\l_book_cue_previous_int} > {255}
+              {
+                % ulemの語の中でも、日本語の禁則に従って改行する。
+                \int_set:Nn \l_book_cue_penalty_int
                 {
-                  \int_compare:nNnT {\l_book_cue_previous_int} > {255}
-                    {
-                      % ulemの語の中でも、日本語の禁則に従って改行する。
-                      \int_set:Nn \l_book_cue_penalty_int
-                        {
-                          \tex_prebreakpenalty:D \l_book_cue_current_int
-                          + \tex_postbreakpenalty:D \l_book_cue_previous_int
-                        }
-                      \tl_put_right:Nx \l_book_cue_text_tl
-                        { \exp_not:N \penalty \int_use:N \l_book_cue_penalty_int \exp_not:N \relax }
-                    }
+                  \tex_prebreakpenalty:D \l_book_cue_current_int
+                  + \tex_postbreakpenalty:D \l_book_cue_previous_int
                 }
-              \int_set_eq:NN \l_book_cue_previous_int \l_book_cue_current_int
-            }
-          \tl_put_right:Nn \l_book_cue_text_tl {##1}
-        }
-      \markoverwith{\textcolor{black!45}{\rule[-0.7ex]{0.3pt}{0.3pt}}\kern1.5pt}
-      \exp_args:NV \ULon \l_book_cue_text_tl
-    \fi
-  }
+                \tl_put_right:Nx \l_book_cue_text_tl
+                { \exp_not:N \penalty \int_use:N \l_book_cue_penalty_int \exp_not:N \relax }
+              }
+          }
+        \int_set_eq:NN \l_book_cue_previous_int \l_book_cue_current_int
+      }
+      \tl_put_right:Nn \l_book_cue_text_tl {##1}
+    }
+    \markoverwith{\textcolor{black!45}{\rule[-0.7ex]{0.3pt}{0.3pt}}\kern1.5pt}
+    \exp_args:NV \ULon \l_book_cue_text_tl
+  \fi
+}
 \prop_new:N \g_book_seen_terms_prop
 \tl_new:N \l_book_term_key_tl
 \DeclareRobustCommand{\bookterm}[2]
-  {
-    \ifmmode
-      \hyperlink{term:#1}{#2}
+{
+  \ifmmode
+    \hyperlink{term:#1}{#2}
+  \else
+    \ifbooktermcues
+      \tl_set:Nx \l_book_term_key_tl
+      { \int_use:c {c@chapter} / \int_use:c {c@section} / #1 }
+      \exp_args:NNV \prop_if_in:NnTF \g_book_seen_terms_prop \l_book_term_key_tl
+      { \hyperlink{term:#1}{#2} }
+      {
+        \exp_args:NNV \prop_gput:Nnn \g_book_seen_terms_prop \l_book_term_key_tl {seen}
+        \hyperlink{term:#1}{\booklinkcue{#2}}
+      }
     \else
-      \ifbooktermcues
-        \tl_set:Nx \l_book_term_key_tl
-          { \int_use:c {c@chapter} / \int_use:c {c@section} / #1 }
-        \exp_args:NNV \prop_if_in:NnTF \g_book_seen_terms_prop \l_book_term_key_tl
-          { \hyperlink{term:#1}{#2} }
-          {
-            \exp_args:NNV \prop_gput:Nnn \g_book_seen_terms_prop \l_book_term_key_tl {seen}
-            \hyperlink{term:#1}{\booklinkcue{#2}}
-          }
-      \else
-        \hyperlink{term:#1}{#2}
-      \fi
+      \hyperlink{term:#1}{#2}
     \fi
-  }
+  \fi
+}
 \ExplSyntaxOff
 \makeatletter
 \pretocmd{\@sect}{\booktermcuesfalse}{}{\PackageError{book-links}{Cannot suppress heading cues}{}}

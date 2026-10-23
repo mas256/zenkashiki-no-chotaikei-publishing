@@ -1,0 +1,45 @@
+# Keep indentation consistent without reflowing text or aligning math columns.
+defaultIndent: '  '
+indentPreamble: 1
+
+# Headings do not increase the indentation of the following prose.
+indentAfterHeadings:
+  chapter:
+    lookForThis: 0
+  section:
+    lookForThis: 0
+  subsection:
+    lookForThis: 0
+  subsubsection:
+    lookForThis: 0
+
+noAdditionalIndent:
+  document: 0
+
+specialBeginEnd:
+  - amalgamate: 1
+  - name: texGroup
+    begin: '\\begingroup\b'
+    end: '\\endgroup\b'
+    nested: 1
+
+indentRules:
+  item: '  '
+
+# Preserve spaces and alignment inside equations and tables.
+lookForAlignDelims:
+  align: 0
+  align*: 0
+  aligned: 0
+  alignat: 0
+  alignat*: 0
+  alignedat: 0
+  array: 0
+  cases: 0
+  matrix: 0
+  pmatrix: 0
+  bmatrix: 0
+  tabular: 0
+  tabularx: 0
+  longtable: 0
+  split: 0

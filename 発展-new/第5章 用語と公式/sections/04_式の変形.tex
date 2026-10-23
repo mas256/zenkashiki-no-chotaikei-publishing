@@ -1,0 +1,62 @@
+% BOOK-FILE-ID: f-b663fcdfbdd6
+% section: 式の変形
+
+\section{式の変形}\label{節：式の変形}
+定数の調整は\sectionref*{節：特性方程式型},\bookterm{partial}{部分分数分解}は\sectionref*{節：階差型}の和に使う.
+
+\subsection{同じ数を足して引く}\label{節：同じ数を足して引く}
+$x^2+6x+5$を2乗にまとめたい.\,$(x+3)^2$を作るには$9$が必要なので,同じ$9$を足して引く.
+\[
+  x^2+6x+5=(x+3)^2-9+5=(x+3)^2-4.
+\]
+これを\bookterm{square}{平方完成}という.一般の二次式でも,\,$a\ne0$として
+\begin{align*}
+  &ax^2+bx+c\\
+  &\quad=a\left(x^2+\frac bax\right)+c\\
+  &\quad=a\left(x^2+\frac bax+\frac{b^2}{4a^2}-\frac{b^2}{4a^2}\right)+c
+  \booktag{square-adjust}{☆}\\
+  &\quad=a\left(x+\frac b{2a}\right)^2-\frac{b^2}{4a}+c.
+\end{align*}
+\bookeqbackref{square-adjust}{☆}で値を変えずに平方を作った.二次関数の軸や最大・最小も読み取れる.
+定数をやり取りして,扱いやすい形を作る操作である.
+
+\subsection{部分分数分解}\label{節：部分分数分解}
+$x\ne-1,-2$なら,通分により
+\[
+  \frac1{x+1}-\frac1{x+2}=\frac1{(x+1)(x+2)}.
+\]
+逆向きに読めば,分母が二次式の分数を二つの簡単な分数へ分けられる.
+$x$を一つずつ増やして足すと,隣の項と打ち消し合う.これが\bookterm{partial}{部分分数分解}である.
+
+一般に,\,$x\ne-a,-b$, $a\ne b$として
+分母の二つの因子$x+a,x+b$を,それぞれ別の分母として使ってみる.
+通分すれば元と同じ分母に戻るので,あとは分子が一致するように係数を決めればよい.
+\[
+  \frac1{(x+a)(x+b)}=\frac\alpha{x+a}+\frac\beta{x+b}
+\]
+と置く.通分した分子$(\alpha+\beta)x+\alpha b+\beta a$が\textbf{すべての$x$で}$1$になるには
+\[
+  \alpha+\beta=0,\qquad\alpha b+\beta a=1.
+\]
+$\beta=-\alpha$より$\alpha(b-a)=1$なので
+\[
+  \frac1{(x+a)(x+b)}
+  =\frac1{b-a}\left(\frac1{x+a}-\frac1{x+b}\right).
+\]
+$a=b$ではこの形に分解できない.
+
+三次も,\,$p,q,r\ne0$で根$-\dfrac{a}{p},-\dfrac{b}{q},-\dfrac{c}{r}$が互いに異なれば
+\BookMathLayout{\[
+    \frac1{(px+a)(qx+b)(rx+c)}
+    =\frac\alpha{px+a}+\frac\beta{qx+b}+\frac\gamma{rx+c}
+  \]}{
+  \[
+    \begin{aligned}
+      \frac1{(px+a)(qx+b)(rx+c)}
+      &=\frac\alpha{px+a}+\frac\beta{qx+b}\\
+      &\quad+\frac\gamma{rx+c}
+    \end{aligned}
+  \]
+}
+と置いて係数を決められる.各分母は非零とする.
+因子が重複すると,\,$\dfrac{A}{x+a}+\dfrac{B}{(x+a)^2}$のように重複度に応じた項も必要になる.

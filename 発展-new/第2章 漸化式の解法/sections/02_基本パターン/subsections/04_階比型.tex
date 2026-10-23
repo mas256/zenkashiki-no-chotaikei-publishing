@@ -1,0 +1,143 @@
+% BOOK-FILE-ID: f-07444f82914b
+% subsection: 階比型 \, $a_{n+1}=f(n)a_n$
+
+\subsection{\texorpdfstring{階比型  $a_{n+1}=f(n)a_n$}{階比型}}\label{節：階比型}
+きっと前章を読んで,「じゃあ関数を掛けたらどうなるの?」と思う人がいただろう.
+その疑問を解決する.
+\sectionref{節：階差型}と\sectionref{節：等比型}の内容を踏まえて考えていこう.
+なお,この内容は応用パターンに匹敵する難易度であるため,先程までに比べて難易度が1段階上昇する.
+
+\paragraphbf{ラージパイの導入}
+ここで積の場合のシグマに該当するラージパイという記号を導入する.
+\bookterm{sequence}{数列}$x_n$の積を
+\[
+  \prod_{i=1}^n x_i
+  =x_1\times x_2\times\cdots\times x_n
+\]
+と書く.\,$\prod$（ラージパイ）は\bookterm{product}{総積}記号である.\footnote{$x_i$は番号を付けた数の並びであればよく,特定の規則は不要である.}
+$1$から$n$までの積は\textbf{階乗}といい,\,$n!=1\cdot2\cdots n$と書く.
+
+また,一般に
+\begin{align*}
+  &\prod_{i=1}^{n}i=n!\\
+  &\prod_{i=1}^{n}k=k^n\\
+  &\prod_{i=1}^{n}a_ib_i=\displaystyle\prod_{i=1}^na_i\displaystyle\prod_{i=1}^nb_i\\
+  &\prod_{i=1}^{n}a_i=\displaystyle\prod_{i=1+k}^{n+k}a_{i-k}\\
+  &\prod_{i=1}^{n}(i+k)=\dfrac{(n+k)!}{k!}\qquad(k\ge0)
+\end{align*}
+が成り立つ.
+2行目の$k$は$i$によらない定数,最後の$k$は整数である.
+4行目は番号をずらしただけである.例えば$n=3,k=1$なら両辺とも$a_1a_2a_3$となる.
+
+\paragraphbf{ラージパイを用いた解法}
+本題に戻ると,この階比型漸化式の一般項は
+\begin{align*}
+  a_n&=f(n-1)a_{n-1}\\
+  &=f(n-1)\left\{f(n-2)a_{n-2}\right\}\\
+  &=f(n-1) \left[ f(n-2)\left\{f(n-3)a_{n-3}\right\} \right] \\
+  &\qquad \vdots\\
+  &=a_1\prod_{k=1}^{n-1} f(k)
+\end{align*}
+この積による表示は$f(k)=0$となる場合も成り立つ.\footnote{何も掛けられていない時は$1$とする.}
+\begin{bookpoint}
+  \textbf{POINT}\par
+  掛ける値が一定でなくとも,原理は一緒.第$n$項に至るまでに,階比$f(n)$は$n-1$回掛けられる.
+\end{bookpoint}
+
+また,\,$f(n)$の性質によっては以下のような解法もある.\\
+\paragraphbf{$f(n)$が1次式の積の場合}\label{解法：階比型の1次式の積}
+
+1次式の積,つまりは
+\[
+  n,\, n(n+1), \,(n+1)(n+2)
+\]
+のような式の場合は,その式の階乗で両辺を割ると解ける場合がある.
+例えば
+\[
+  a_1=1,\,a_{n+1}=(n+1)a_n
+\]
+のような式であれば,両辺を$(n+1)!$で割って
+\[
+  \frac{a_{n+1}}{(n+1)!}=\frac{a_n}{n!}
+\]
+添字を$n$から$n-1$にした式について,
+\begin{align*}
+  \frac{a_{n}}{n!}&=\frac{a_{n-1}}{{n-1}!}\\
+  &=\frac{a_{n-2}}{{n-2}!}\\
+  &=\frac{a_{n-3}}{{n-3}!}\\
+  &\qquad \vdots\\
+  &=\frac{a_1}{1!}\\
+  &\therefore \quad \frac{a_{n}}{n!}=\frac{a_1}{1!}\\
+  &\therefore \quad a_n=n!
+\end{align*}
+となる.\footnote{この式変形は\sectionref{節：定数数列}で詳しく述べられている.}
+また,このことについてより一般に書けば,\,$a_{n+1}=f(n)a_n$について,
+\[
+  \frac{g(n+1)}{g(n)}=\frac{1}{f(n)}
+\]
+と表せる時,漸化式は
+\begin{align*}
+  g(n+1)a_{n}=&g(n)a_n\\
+  &=g(n-1)a_{n-1}\\
+  &=g(n-2)a_{n-2}\\
+  &\qquad \vdots\\
+  &=g(1)a_1\\
+  &\therefore \quad a_n=\frac{g(1)a_1}{g(n)}
+\end{align*}
+となる.
+
+\begin{bookpoint}
+  \textbf{POINT}\par
+  両辺で同じ形を作れないか検討する.
+\end{bookpoint}
+
+また,これらの問題は\sectionref{節：対数型}で扱われる対数型としても解くことができる場合がある.
+
+\noindent \bookblocklink{example-ratio-1}{problem}{answer}{【例題】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-ratio-1}{problem}{answer}]
+  \item $\displaystyle a_1=1,\, a_{n+1}=2na_n$
+  \item $\displaystyle a_1=2,\, a_{n+1}=\frac{n+2}{n}a_n$
+  \item $\displaystyle a_1=1,\, a_{n+1}=n(n+1)a_n$
+\end{enumerate}
+
+\noindent\bookblocklink{example-ratio-1}{hint}{problem}{【方針】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-ratio-1}{hint}{problem}]
+  \item ラージパイを使って処理するか,\,$n!$で割ってみましょう.
+  \item 階乗以外で割ることもあります.上手く$n$が$n+1$になると$g(n)$も$g(n+1)$になるような$g$を探しましょう.
+  \item (1)と同じ様に階乗で割ってみたいですが,うまくいきません.\,$n$に依存する関数で割ってみましょう.
+\end{enumerate}
+
+\noindent\bookblocklink{example-ratio-1}{answer}{problem}{【解答】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-ratio-1}{answer}{problem}]
+  \item $\displaystyle a_n=(n-1)!\cdot 2^{n-1}$
+  \item $\displaystyle a_n=n(n+1)$
+  \item $\displaystyle a_n=n!(n-1)!$
+\end{enumerate}
+
+\noindent\bookblocklink{example-ratio-1}{solution}{problem}{【解法】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-ratio-1}{solution}{problem}]
+  \item $\displaystyle a_1=1,\, a_{n+1}=2na_n$\\
+    両辺を$n!$で割ると,
+    \[
+      \frac{a_{n+1}}{n!}=2\frac{a_n}{(n-1)!}.
+    \]
+    $b_n=\dfrac{a_n}{(n-1)!}$なら,\,$b_{n+1}$の分母は$n!$になる.添字の違いに注意しよう.
+    \[
+      b_{n+1}=2b_n,\quad b_1=1\quad\Longrightarrow\quad b_n=2^{n-1}.
+    \]
+    戻すと$a_n=(n-1)!2^{n-1}$となる.\,$n=1$でも$0!\cdot2^0=1$である.
+
+  \item $\displaystyle a_1=2,\, a_{n+1}=\frac{n+2}{n}a_n$
+    $n(n+1)$の隣り合う比は$\dfrac{n+2}{n}$である.与式を$(n+1)(n+2)$で割ると,
+    \[
+      \frac{a_{n+1}}{(n+1)(n+2)}=\frac{a_n}{n(n+1)}.
+    \]
+    従って$\dfrac{a_n}{n(n+1)}=\dfrac{a_1}{2}=1$であり,\,$a_n=n(n+1)$となる.
+  \item $\displaystyle a_1=1,\, a_{n+1}=n(n+1)a_n$\\
+    両辺を$n!(n+1)!$で割って,
+    \begin{align*}
+      &\frac{a_{n+1}}{n!(n+1)!}=\frac{a_n}{n!(n-1)!}\\
+      &\therefore \quad \frac{a_n}{n!(n-1)!}=\frac{a_1}{1!(1-1)!}\\
+      &a_n=n!(n-1)!
+    \end{align*}
+\end{enumerate}
