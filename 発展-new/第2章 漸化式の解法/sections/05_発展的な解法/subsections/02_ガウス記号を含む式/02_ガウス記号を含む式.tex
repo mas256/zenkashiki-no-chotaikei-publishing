@@ -1,0 +1,53 @@
+% BOOK-FILE-ID: f-59858680990d
+\subsection{ガウス記号を含む式}\label{節：ガウス記号を含む式}
+\bookterm{floor}{ガウス記号}を含む\bookterm{recurrence}{漸化式}は,記号があるだけでは解法が決まらない.
+項の値を整数にする場合もあれば,添字を指定したり,余りを表したりする場合もある.
+そのため,式変形に加えて,整数性や不等式,偶奇,数え上げなどの考え方が重要になる.
+\textbf{記号が式の中で何をしているか}から十の使い方を整理し,それぞれに例題を置く.
+群と数え上げのように,一つの問題に複数の見方が重なることもある.
+
+\subsubsection{基本性質と使い方}\label{節：基本性質と使い方}
+\bookterm{floor}{ガウス記号}$\lfloor x\rfloor$または$[x]$は,実数$x$を超えない最大の整数を表し,\bookterm{floor-function}{床関数}と呼ばれる.\footnote{対になる記号として,天井関数$\lceil x\rceil$は$x$以上の最小の整数を表す.
+  整数$k$について$\lceil x\rceil=k\iff k-1<x\le k$である.以下の例題では床関数を使う.}
+整数$k$について,
+\[
+  \lfloor x\rfloor=k\iff k\le x<k+1
+\]
+である.\,$x\ge0$では小数点以下の切り捨てに一致するが,負数では$\lfloor-1.5\rfloor=-2$となる.
+
+\BookFigFloorGraph
+
+\bookterm{floor-function}{床関数}が\textbf{項の値,添字,付加項のどれに作用するか}を確かめ,次の一覧を手掛かりに読む.
+\begin{enumerate}[label=(\arabic*)]
+  \item 整数性・不等式で整数部分を確定する.
+  \item 同じ値を取る区間を群としてまとめる.
+  \item 余りを取り出し,有限個の値と周期を調べる.
+  \item \bookterm{floor-function}{床関数}の差で境界・条件・繰り上がりを検出する.
+  \item 丸め誤差と係数の関係を使う.
+  \item 整数への丸めで\bookterm{fixed}{不動点}と停止を調べる.
+  \item 添字を二つに分割する.
+  \item 商と余りで整数の桁を読む.
+  \item 小数部分を残し,回転として読む.
+  \item 条件を満たす整数や格子点の個数を数える.
+\end{enumerate}
+桁を読む例題では,添字$n$の商と余りを使う.
+\bookterm{general}{一般項}だけでなく,周期,止まる値,数えている対象も調べる.
+
+整数$k$について$\lfloor x+k\rfloor=\lfloor x\rfloor+k$だが,実数同士では和に分配できない.
+数項から得た予想は,不等式や帰納法で確かめる.
+
+\BookImport{f-c645fd39fc8a}
+\BookImport{f-5cbe4e236eb3}
+\BookImport{f-37df9e500439}
+\BookImport{f-c022d2466001}
+\BookImport{f-1d78b7d19b95}
+\BookImport{f-08aa092dfc4e}
+\BookImport{f-d9a31815e10d}
+\BookImport{f-267b502a1839}
+\BookImport{f-2a30e146ab92}
+\BookImport{f-6c65fa1f20a5}
+
+\medskip
+\paragraphbf{着眼点のまとめ}
+記号の位置と役割から方法を選ぶ.
+余りと桁,群\bookterm{sequence}{数列}と数え上げは,同じ量を異なる側から捉えている.

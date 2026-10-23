@@ -1,0 +1,274 @@
+% BOOK-FILE-ID: f-0497b0842775
+\subsection{特性根が虚数の場合}\label{節：特性根が虚数の場合}
+
+隣接3\,項間\bookterm{recurrence}{漸化式}(\sectionref{節：隣接3項型})の式
+$a_n=A\alpha^{n-1}+B\beta^{n-1}$は,異なる\bookterm{root}{特性根}が虚数でも成り立つ.
+ここでは\bookterm{trigonometric}{三角関数}を使い,実数の式へ直す.
+
+\[
+  a_{n+2}+pa_{n+1}+qa_n=0\quad(n\ge1)
+\]
+の$p,q,a_1,a_2$を実数とする.\bookterm{characteristic}{特性方程式}$x^2+px+q=0$が
+$p^2-4q<0$を満たすと,根は互いに\bookterm{conjugate}{共役}な$\alpha,\overline\alpha$となる.
+例えば$a_{n+2}=2a_{n+1}-2a_n$では根が$1\pm i$なので,
+\[
+  a_n=A(1+i)^{n-1}+B(1-i)^{n-1}
+\]
+と書ける.この式の実数性を,\bookterm{polar}{極形式}から読み直そう.
+初めの二項も更新の係数も実数だから,実際の各項も実数である.
+複素数を使った二つの項の中で,虚部が打ち消し合う形を取り出したい.
+
+虚部が正の根$\alpha$について,複素平面上の原点からの距離を$\rho$,正の実軸から測る角度を$\theta$とする.
+この角度が\bookterm{argument}{偏角}であり,\,$\rho>0$, $0<\theta<\pi$である.\footnote{$e^{it}=\cos t+i\sin t$という表記を使う.}
+\[
+  \alpha=\rho e^{i\theta},\qquad
+  \overline\alpha=\rho e^{-i\theta}
+\]
+特性根を一回掛けると,距離は$\rho$倍,向きは$\theta$だけ進む.
+従って,\,$t=(n-1)\theta$と置けば
+\[
+  \begin{aligned}
+    \alpha^{n-1}&=\rho^{n-1}(\cos t+i\sin t),\\
+    \overline\alpha^{\,n-1}&=\rho^{n-1}(\cos t-i\sin t)
+  \end{aligned}
+\]
+となる.
+\BookFigComplexRoots
+
+根の二つの冪は共役で,余弦の部分は同じ,正弦につく虚数の符号は反対になっている.
+$A,B$も\bookterm{conjugate}{共役}にして虚部を消す.
+和$A+B$と$i(A-B)$が実数になるよう,その値を$C,D$と書く.
+\par\noindent\begin{minipage}{\linewidth}
+  実数$C,D$を用いて,
+  \[
+    A=\frac{C-iD}{2},\qquad B=\frac{C+iD}{2}
+  \]
+  と置く.
+\end{minipage}\par
+\BookMathLayout{\[
+    \begin{aligned}
+      &A\alpha^{n-1}+B\overline\alpha^{\,n-1}\\
+      &\quad=\rho^{n-1}\{(A+B)\cos t\\
+      &\qquad+i(A-B)\sin t\}\\
+      &\quad=\rho^{n-1}(C\cos t+D\sin t)
+    \end{aligned}
+  \]}{\[
+    \begin{aligned}
+      &A\alpha^{n-1}+B\overline\alpha^{\,n-1}\\
+      &\quad=\rho^{n-1}\{(A+B)\cos t\\
+      &\qquad+i(A-B)\sin t\}\\
+      &\quad=\rho^{n-1}(C\cos t+D\sin t)
+    \end{aligned}
+  \]}
+より,
+\BookMathLayout{\[
+    a_n=\rho^{n-1}\{C\cos((n-1)\theta)+D\sin((n-1)\theta)\}
+  \]}{\[
+    \begin{aligned}
+      a_n=\rho^{n-1}\{&C\cos((n-1)\theta)\\
+      &+D\sin((n-1)\theta)\}
+    \end{aligned}
+  \]}
+を得る.逆に実数列なら$B=\overline A$が必要なことは,
+\hyperref[解釈：虚数解と基本解]{「二つの基本解を選び直す」}で確かめる.
+
+\paragraphbf{初めの二項を合わせる}
+$n=1,2$を代入すると,
+\[
+  a_1=C,\qquad a_2=\rho(C\cos\theta+D\sin\theta)
+\]
+なので,
+\BookMathLayout{\[
+    C=a_1,\qquad D=\cfrac{\cfrac{a_2}{\rho}-a_1\cos\theta}{\sin\theta}
+  \]}{\[
+    \begin{aligned}
+      C&=a_1,\\
+      D&=\cfrac{\cfrac{a_2}{\rho}-a_1\cos\theta}{\sin\theta}
+    \end{aligned}
+  \]}
+と決まる.\,$\sin\theta\ne0$だから割れる.
+根から$\rho,\theta$を読み,\bookterm{initial}{初期条件}を合わせればよい.
+
+\noindent \bookblocklink{example-complex-1}{problem}{answer}{【例題】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-complex-1}{problem}{answer}]
+  \item $a_1=1,\,a_2=0,\quad a_{n+2}=-a_n\quad(n\ge1)$
+  \item \BookMathLayout{$a_1=0,\,a_2=1,\quad a_{n+2}=2a_{n+1}-2a_n\quad(n\ge1)$}{$a_1=0,\,a_2=1$\\ $a_{n+2}=2a_{n+1}-2a_n$\\ $(n\ge1)$}
+  \item $a_1=1,\,a_2=2,\quad a_{n+2}=-4a_n\quad(n\ge1)$
+  \item \BookMathLayout{$a_1=1,\,a_2=0,\quad a_{n+2}=2a_{n+1}-4a_n\quad(n\ge1)$}{$a_1=1,\,a_2=0$\\ $a_{n+2}=2a_{n+1}-4a_n$\\ $(n\ge1)$}
+\end{enumerate}
+
+\noindent\bookblocklink{example-complex-1}{hint}{problem}{【方針】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-complex-1}{hint}{problem}]
+  \item 初項から数項を計算して\bookterm{periodic}{周期性}を見つけ,\bookterm{general}{一般項}を予想します.その後,\bookterm{induction}{数学的帰納法}で証明します.
+  \item \bookterm{root}{特性根}を\bookterm{polar}{極形式}で表し,\,$\rho=\sqrt2,\,\theta=\frac{\pi}{4}$を用いて\bookterm{general}{一般項}を置きます.
+  \item \bookterm{root}{特性根}は$\pm2i$です.\,$\rho=2,\,\theta=\frac{\pi}{2}$として\bookterm{initial}{初期条件}を代入します.
+  \item \bookterm{root}{特性根}を\bookterm{polar}{極形式}で表し,\,$\rho=2,\,\theta=\frac{\pi}{3}$として係数を決定します.
+\end{enumerate}
+
+\noindent\bookblocklink{example-complex-1}{answer}{problem}{【解答】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-complex-1}{answer}{problem}]
+  \item $a_n=\cos\frac{(n-1)\pi}{2}$
+  \item $a_n=(\sqrt2)^{n-1}\sin\frac{(n-1)\pi}{4}$
+  \item $a_n=2^{n-1}\left(\cos\frac{(n-1)\pi}{2}+\sin\frac{(n-1)\pi}{2}\right)$
+  \item \BookMathLayout{$a_n=2^{n-1}\left(\cos\frac{(n-1)\pi}{3}-\frac1{\sqrt3}\sin\frac{(n-1)\pi}{3}\right)$}{$a_n=2^{n-1}\Bigl(\cos\frac{(n-1)\pi}{3}$\\
+      $\hspace{3zw}-\frac1{\sqrt3}\sin\frac{(n-1)\pi}{3}\Bigr)$}
+\end{enumerate}
+
+\noindent\bookblocklink{example-complex-1}{solution}{problem}{【解法】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-complex-1}{solution}{problem}]
+  \item 初めの並びは$1,0,-1,0,1,0,-1,0,\ldots$なので,
+    $a_n=\cos\frac{(n-1)\pi}{2}$と予想する.
+    $n=1,2$で初期値に合い,\,$a_k=\cos\frac{(k-1)\pi}{2}$なら,
+    \[
+      \begin{aligned}
+        a_{k+2}&=-a_k=\cos\left(\frac{(k-1)\pi}{2}+\pi\right)\\
+        &=\cos\frac{(k+1)\pi}{2}.
+      \end{aligned}
+    \]
+    従って,奇数番目と偶数番目それぞれの\bookterm{induction}{数学的帰納法}で全項について成り立つ.
+  \item \bookterm{characteristic}{特性方程式}$x^2-2x+2=0$の根は$1\pm i$.
+    $\rho=\sqrt2,\theta=\frac{\pi}{4}$である.
+    $a_1=0$から$C=0$,\,$a_2=1$から$D=1$と決まり,【解答】を得る.
+  \item $x^2+4=0$の根は$\pm2i$なので,\,$\rho=2,\theta=\frac{\pi}{2}$.
+    $a_1=1$から$C=1$,\,$a_2=2$から$2D=2$,従って$D=1$となる.
+  \item $x^2-2x+4=0$の根は$1\pm\sqrt3\,i$なので,\,$\rho=2,\theta=\frac{\pi}{3}$.
+    $a_1=1$から$C=1$,\,$a_2=0$から
+    \[
+      0=2\left(\frac12+D\frac{\sqrt3}{2}\right)
+    \]
+    となり,\,$D=-\frac{1}{\sqrt3}$を得る.
+\end{enumerate}
+
+\paragraphbf{加法定理による別解}\label{解釈：虚数解と加法定理}
+複素数の冪を変形する代わりに,元の漸化式と加法定理を直接比べてみよう.
+解と係数の関係より,
+\[
+  p=-(\alpha+\overline\alpha)=-2\rho\cos\theta,
+  \qquad q=\alpha\overline\alpha=\rho^2.
+\]
+そこで$b_n=\frac{a_n}{\rho^{n-1}}$と置き,元の式を$\rho^{n+1}$で割ると,
+\[
+  b_{n+2}+b_n=2\cos\theta\,b_{n+1}
+\]
+を得る.これは\bookterm{addition}{加法定理}
+\[
+  \begin{aligned}
+    \cos(x+\theta)+\cos(x-\theta)&=2\cos\theta\cos x,\\
+    \sin(x+\theta)+\sin(x-\theta)&=2\cos\theta\sin x
+  \end{aligned}
+\]
+と同じ形である.\,$x=n\theta$を代入すれば,
+$\cos((n-1)\theta)$も$\sin((n-1)\theta)$もこの更新を満たす.
+従ってその組み合わせ
+\[
+  h_n=C\cos((n-1)\theta)+D\sin((n-1)\theta)
+\]
+も解になる.初めの二項は$b_1=a_1,b_2=\frac{a_2}{\rho}$なので,
+$C=b_1$, $D=\frac{b_2-b_1\cos\theta}{\sin\theta}$と合わせる.
+
+$b_1=h_1,b_2=h_2$であり,\,$b_n=h_n,b_{n+1}=h_{n+1}$なら,
+\[
+  b_{n+2}=2\cos\theta\,h_{n+1}-h_n=h_{n+2}.
+\]
+\textbf{加法定理で候補の更新を確かめ,帰納法で全項の一致を得た.}
+最後に$a_n=\rho^{n-1}b_n$へ戻せば,前と同じ一般項になる.
+
+\paragraphbf{振幅・位相・周期}
+$C=D=0$なら零数列である.それ以外では$R=\sqrt{C^2+D^2}>0$とし,
+\[
+  \cos\varphi=\frac CR,\qquad \sin\varphi=\frac DR
+\]
+を満たす角$\varphi$を選ぶ.加法定理から,
+\[
+  a_n=R\rho^{n-1}\cos((n-1)\theta-\varphi)
+\]
+とまとまる.\,$\varphi$は波の位置をずらす角度(位相),\,$\theta$は一回で進む角度である.
+振幅$R\rho^{n-1}$は,
+\[
+  \begin{cases}
+    0<\rho<1 & \text{減衰する},\\
+    \rho=1 & \text{一定である},\\
+    \rho>1 & \text{増大する}.
+  \end{cases}
+\]
+これは$|a_n|\le R\rho^{n-1}$という上限であり,各項の絶対値が同じ割合で変わるという意味ではない.
+
+三角関数の式でも,整数添字で周期的とは限らない.
+$\rho=1$かつ$\frac{\theta}{2\pi}$が有理数なら,\,$T\theta=2k\pi$となる正整数$T$と整数$k$が存在する.
+角度が一周の整数倍だけ進むので,\,$a_{n+T}=a_n$となる.
+零数列を除けば,この二条件は必要でもある.次に独立性から確かめる.
+
+\paragraphbf{二つの基本解を選び直す}\phantomsection\label{解釈：虚数解と基本解}
+\sectionref*{節：補助数列・正規化}では,目標の更新に合う量を作った.
+$b_n=\frac{a_n}{\rho^{n-1}}$も,根の絶対値$\rho$の累乗で$a_n$を割り,
+係数の$\rho,\rho^2$を取り除く操作である.残る更新が加法定理になった.
+
+\sectionref*{節：隣接3項型}の見方では,解を表す\bookterm{basis}{基底}を選び直している.
+$p^2-4q<0$から$q>0$で,根$\alpha,\overline\alpha$は異なる非零の数である.
+二つの冪$\alpha^{n-1},\overline\alpha^{\,n-1}$の\bookterm{combination}{線形結合}が零数列なら,初めの二項から
+\[
+  U+V=0,\qquad U\alpha+V\overline\alpha=0
+\]
+となる.\,$\alpha\ne\overline\alpha$より$U=V=0$なので,\bookterm{independent}{一次独立}である.
+同じ連立式で任意の初期二項を合わせられ,更新の一意性から全項も一致する.
+従って二つの冪は複素数係数で考えた解全体の基底であり,解全体は2\bookterm{dimension}{次元}となる.
+
+実数解なら$a_n=\overline{a_n}$より,
+\[
+  A\alpha^{n-1}+B\overline\alpha^{\,n-1}
+  =\overline B\alpha^{n-1}+\overline A\,\overline\alpha^{\,n-1}.
+\]
+係数の一意性から$A=\overline B,B=\overline A$が必要である.
+一方,実数解$\rho^{n-1}\cos((n-1)\theta)$と$\rho^{n-1}\sin((n-1)\theta)$の初めの二項は,
+それぞれ$(1,\rho\cos\theta)$と$(0,\rho\sin\theta)$である.
+$\rho\sin\theta\ne0$なので,こちらは実数係数で考えた解全体の基底となる.
+虚部を消す計算は,実数の解を表す基底への変更だった.
+
+\bookterm{periodic}{周期性}の必要条件も示せる.周期$T$があるなら,
+\[
+  A(\alpha^T-1)\alpha^{n-1}
+  +\overline A(\overline\alpha^{\,T}-1)\overline\alpha^{\,n-1}=0.
+\]
+独立性から両係数が零となる.非零の実数解では$A,\overline A\ne0$なので,
+$\alpha^T=\overline\alpha^{\,T}=1$.従って$\rho=1$,\,$\frac{\theta}{2\pi}$は有理数である.
+
+\paragraphbf{補足：指数と初項の番号}
+主な導出では$a_1,a_2$と指数$n-1$を使った.指数$n$の表示と,第0項から始める表示も区別しておこう.
+
+\paragraphbf{同じ数列を指数$n$で表す}
+非零の根なら$A\alpha^{n-1}=\left(\frac{A}{\alpha}\right)\alpha^n$と係数を取り直せる.
+$\widetilde A=\frac{A}{\alpha}$, $\widetilde B=\frac{B}{\overline\alpha}$とすれば,
+\[
+  \begin{aligned}
+    a_n&=\widetilde A\alpha^n+\widetilde B\overline\alpha^{\,n}\\
+    &=\rho^n(c\cos n\theta+d\sin n\theta).
+  \end{aligned}
+\]
+$c,d$は$C,D$と別の係数である.
+$a_1=\rho(c\cos\theta+d\sin\theta)$,
+$a_2=\rho^2(c\cos2\theta+d\sin2\theta)$から決まり,対応は
+\BookMathLayout{\[
+    c=\frac{C\cos\theta-D\sin\theta}{\rho},\qquad
+    d=\frac{C\sin\theta+D\cos\theta}{\rho}
+  \]}{\[
+    \begin{aligned}
+      c&=\frac{C\cos\theta-D\sin\theta}{\rho},\\
+      d&=\frac{C\sin\theta+D\cos\theta}{\rho}
+    \end{aligned}
+  \]}
+となる.変えたのは表示と係数であり,項の番号ではない.
+
+\paragraphbf{第0項から始める場合}
+初期条件を$a_0,a_1$とし,\,$n\ge0$で更新する場合は,別の係数$C_0,D_0$を使う.
+指数$n$の形に$n=0,1$を代入して,
+\[
+  C_0=a_0,\qquad
+  D_0=\cfrac{\cfrac{a_1}{\rho}-a_0\cos\theta}{\sin\theta}
+\]
+と決まる.例えば$a_{n+2}=2a_{n+1}-2a_n$,\,$a_0=1,a_1=2$では,
+根$1\pm i$から$\rho=\sqrt2,\theta=\frac{\pi}{4}$.
+$C_0=1$, $2=\frac{\sqrt2(C_0+D_0)}{\sqrt2}=1+D_0$より$D_0=1$なので,
+\[
+  a_n=(\sqrt2)^n\left(\cos\frac{n\pi}{4}+\sin\frac{n\pi}{4}\right)
+\]
+となる.

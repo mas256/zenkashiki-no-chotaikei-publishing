@@ -1,0 +1,54 @@
+% BOOK-FILE-ID: f-07547b0d25e1
+\section{三角関数}\label{節：三角関数}
+\paragraphbf{本編とのつながり}
+角度と座標の対応から,\bookterm{addition}{加法定理}と倍角公式を確認する.\,\sectionref*{節：三角関数型}で公式の形を手掛かりにし,\,\sectionref*{節：特性根が虚数の場合}で実数の\bookterm{general}{一般項}を表すために使う.
+
+原点を中心とする半径$1$の円を考える.
+正の横軸から反時計回りに角度$x$だけ進んだ点の横座標が$\cos x$,縦座標が$\sin x$である.
+時計回りの角度は負に数える.
+弧度法では,この円で進んだ弧の長さを角度とし,一周は$2\pi$となる.
+したがって,
+\[
+  \cos^2x+\sin^2x=1
+\]
+である.また,\,$\cos x\ne0$のとき,
+\[
+  \tan x=\frac{\sin x}{\cos x}
+\]
+と定める.これは,原点とその点を結ぶ直線の傾きに当たる.
+角度を一周増やしても座標は変わらないので,\,$\sin x$と$\cos x$は$2\pi$の周期をもつ.
+\booknavref{節：複素数を平面に表す}{複素数を絶対値と角度で表す方法}も,この座標の対応を使う.
+
+\paragraphbf{角度を足す公式}
+\bookterm{trigonometric}{三角関数}には,角度の和を表す\bookterm{addition}{加法定理}
+\begin{align*}
+  \sin(\alpha+\beta)
+  &=\sin\alpha\cos\beta+\cos\alpha\sin\beta\\
+  \cos(\alpha+\beta)
+  &=\cos\alpha\cos\beta-\sin\alpha\sin\beta\\
+  \tan(\alpha+\beta)
+  &=\frac{\tan\alpha+\tan\beta}
+  {1-\tan\alpha\tan\beta}
+\end{align*}
+が成り立つ.\,$\sin$と$\cos$の式は,すべての実数$\alpha,\beta$で使える.
+以下の$\tan$を含む式は,両辺が定義される範囲で使う.
+例えば上の式では,\,$\cos\alpha$,\,$\cos\beta$,\,$\cos(\alpha+\beta)$がいずれも零でないことを確かめる.
+\paragraphbf{同じ角度を二度,三度足す}
+ここで $\alpha=\beta=x$ とすれば,倍角公式
+\begin{align*}
+  \sin 2x&=2\sin x\cos x\\
+  \cos 2x&=2\cos^2x-1=1-2\sin^2x\\
+  \tan 2x&=\frac{2\tan x}{1-\tan^2x}
+\end{align*}
+を得る.また,倍角公式から
+\begin{align*}
+  \sin^2x&=\frac{1-\cos 2x}{2}\\
+  \cos^2x&=\frac{1+\cos 2x}{2}\\
+  \tan^2x&=\frac{1-\cos 2x}{1+\cos 2x}
+\end{align*}
+を導くことができる.また,\bookterm{addition}{加法定理}から,\,$3x=2x+x$とすることで,
+\begin{align*}
+  \sin 3x&=3\sin x-4\sin^3x\\
+  \cos 3x&=4\cos^3x-3\cos x
+\end{align*}
+が求められる.

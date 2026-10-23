@@ -1,0 +1,68 @@
+% BOOK-FILE-ID: f-08aa092dfc4e
+\subsubsection{止まる値を調べる}\label{節：止まる値を調べる}
+次の値が今の値と等しい\bookterm{fixed}{不動点}に達すると,\bookterm{sequence}{数列}は止まる.
+丸めを外した実数の\bookterm{recurrence}{漸化式}とは,止まる値が異なることがある.
+
+整数$K$を引いて,
+\[
+  b_{n+1}=\left\lfloor\frac{b_n}{2}\right\rfloor
+\]
+に帰着できる場合がある.
+正整数$m$に対して,
+\[
+  \left\lfloor\frac{\lfloor x\rfloor}{m}\right\rfloor
+  =\left\lfloor\frac xm\right\rfloor
+\]
+が成り立つ.\,$\lfloor x\rfloor=mq+r\ (0\le r<m)$と書けば,\,$x=mq+r+t\ (0\le t<1)$.
+$0\le r+t<m$より,両方の\bookterm{floor-function}{床関数}が$q$となるからである.
+
+\textbf{負数にも注意する.}$-1<x<0$なら$\lfloor x\rfloor=-1$である.
+
+\noindent \bookblocklink{example-gauss-role-6}{problem}{answer}{【例題】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-6}{problem}{answer}]
+  \item 非負整数$M$に対し,\bookterm{sequence}{数列}を次のように定める.
+    \[
+      a_1=M,\qquad
+      a_{n+1}=\left\lfloor\frac{a_n+6}{2}\right\rfloor
+      \quad(n\ge1).
+    \]
+    \bookterm{general}{一般項}と,最終的に一定になる値を求めよ.
+\end{enumerate}
+
+\noindent \bookblocklink{example-gauss-role-6}{hint}{problem}{【方針】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-6}{hint}{problem}]
+  \item 6を引くと,\bookterm{floor-function}{床関数}によって半分にする\bookterm{recurrence}{漸化式}になります.
+    初項が6より小さい場合は,負の数の\bookterm{floor-function}{床関数}を使って考えましょう.
+\end{enumerate}
+
+\noindent \bookblocklink{example-gauss-role-6}{answer}{problem}{【解答】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-6}{answer}{problem}]
+  \item \[
+      a_n=6+\left\lfloor\frac{M-6}{2^{n-1}}\right\rfloor.
+    \]
+    有限回の操作の後で,\,$M<6$なら5,\,$M\ge6$なら6に固定される.
+\end{enumerate}
+
+\noindent \bookblocklink{example-gauss-role-6}{solution}{problem}{【解法】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-6}{solution}{problem}]
+  \item 初項からすべての項が非負整数となる.
+    $b_n=a_n-6$とおくと,整数6を\bookterm{floor-function}{床関数}の外に出せるので,
+    \begin{align*}
+      b_{n+1}
+      &=\left\lfloor\frac{b_n+12}{2}\right\rfloor-6\\
+      &=\left\lfloor\frac{b_n}{2}\right\rfloor.
+    \end{align*}
+    \bookterm{floor-function}{床関数}の合成の性質と帰納法により,
+    \[
+      b_n=\left\lfloor\frac{M-6}{2^{n-1}}\right\rfloor.
+    \]
+    十分大きな$n$で,中身は$M\ge6$なら$[0,1)$,\,$M<6$なら$(-1,0)$に入る.
+    床関数の値はそれぞれ0,\,$-1$なので,6または5に有限回で到達する.
+
+    実際,整数$x$が\bookterm{fixed}{不動点}となる条件は,
+    \[
+      x\le\frac{x+6}{2}<x+1
+      \iff 4<x\le6
+    \]
+    より5と6が\bookterm{fixed}{不動点}となる.初項による分岐は\sectionref{節：初項による違い}でも見る.
+\end{enumerate}

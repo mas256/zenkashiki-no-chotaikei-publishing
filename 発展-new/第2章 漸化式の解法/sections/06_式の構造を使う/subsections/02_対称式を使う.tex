@@ -1,0 +1,106 @@
+% BOOK-FILE-ID: f-5389cc593596
+\subsection{対称式を使う}\label{節：対称式を使う}
+先ほどの\bookterm{recurrence}{漸化式}を考える.
+\[
+  a_1=3, \quad a_{n+1}=a_n^2-2
+\]
+邪魔な$-2$を消すには,二乗の展開から$2$を生み出したい.そこで,
+\[
+  (a+b)^2=a^2+2ab+b^2
+\]
+の$2ab$に注目する.\,$ab=1$なら,ここからちょうど$2$が生まれる.
+そこで積が$1$になる二数として,\,$a=\alpha,b=\frac{1}{\alpha}\ (\alpha\ne0)$と選ぶ.
+\[
+  \left(\alpha+\frac{1}{\alpha}\right)^2=\alpha^2+2+\frac{1}{\alpha^2}
+\]
+から,\textbf{二乗して2を引くと,二つのべきの指数が2倍になる}.
+第$n$項の指数は$2^{n-1}$.あとは初項に合う$\alpha$を選ぶ.
+
+\noindent \bookblocklink{example-symmetric-1}{problem}{answer}{【問題】}\par\nobreak
+\begin{smallquote}
+  次の\bookterm{recurrence}{漸化式}で定義される\bookterm{sequence}{数列}の\bookterm{general}{一般項}を求めよ.
+  \[
+    a_1=3, \quad a_{n+1}=a_n^2-2
+  \]
+\end{smallquote}
+\bookblocklink{example-symmetric-1}{answer}{problem}{【解答】}
+\begin{smallquote}
+  \bookterm{general}{一般項}が
+  \[
+    b_n=\alpha^{2^{n-1}}+\alpha^{-2^{n-1}}
+  \]
+  で表される\bookterm{sequence}{数列}$b_n$を考える.
+  \begin{align*}
+    b_{n+1}&=\alpha^{2^{n}}+\alpha^{-2^{n}}\\
+    &=\left(\alpha^{2^{n-1}}+\alpha^{-2^{n-1}}\right)^2-2\\
+    &=b_n^2-2
+  \end{align*}
+  と更新が一致する.初項を合わせると,
+  \begin{align*}
+    &\alpha+\alpha^{-1}=3\\
+    &\alpha^2-3\alpha+1=0\\
+    &\therefore \quad \alpha=\frac{3\pm \sqrt{5}}{2}
+  \end{align*}
+  二つの根は互いに逆数で,同じ$b_n$を与える.初項と更新の一致から,
+  \[
+    a_n=\left(\frac{3+ \sqrt{5}}{2}\right)^{2^{n-1}}+\left(\frac{3- \sqrt{5}}{2}\right)^{2^{n-1}}
+  \]
+\end{smallquote}
+
+ここで,定数を $-2$ から $-1$ に変えてみよう.
+\[
+  a_{n+1}=a_n^2-1
+\]
+同じ置換では,
+\begin{align*}
+  a_n^2-1
+  &=\left(u+u^{-1}\right)^2-1\\
+  &=u^2+u^{-2}+1,
+\end{align*}
+と余分な1が残り,同じ形で二乗を繰り返すことができない.
+係数が近いだけでは同じ方法を使えず,恒等式との一致が必要なのである.
+
+同じ考え方は,三次式にも現れる.
+\[
+  \left(\alpha+\frac{1}{\alpha}\right)^3
+  -3\left(\alpha+\frac{1}{\alpha}\right)
+  =\alpha^3+\frac{1}{\alpha^3}
+\]
+対称な組み合わせを保ったまま,指数を3倍できる.
+
+和を取るか差を取るかで,打ち消せる項の符号も変わる.
+差の三乗を展開すれば,
+\[
+  \left(\alpha-\frac{1}{\alpha}\right)^3
+  +3\left(\alpha-\frac{1}{\alpha}\right)
+  =\alpha^3-\frac{1}{\alpha^3}
+\]
+となる.指数$3^{n-1}$の候補を例題で確かめよう.
+
+\noindent\bookblocklink{example-symmetric-2}{problem}{answer}{【問題】}\par\nobreak
+\begin{smallquote}
+  $a_1=\frac{8}{3},\quad a_{n+1}=a_n^3+3a_n$
+\end{smallquote}
+\bookblocklink{example-symmetric-2}{answer}{problem}{【解答】}
+\begin{smallquote}
+  \bookterm{general}{一般項}が
+  \[
+    b_n=\alpha^{3^{n-1}}-\alpha^{-3^{n-1}}
+  \]
+  で表される\bookterm{sequence}{数列}$b_n$を考える.
+  \begin{align*}
+    b_{n+1}&=\alpha^{3^{n}}-\alpha^{-3^{n}}\\
+    &=b_n^3+3b_n
+  \end{align*}
+  と更新が一致する.初項を合わせると,
+  \begin{align*}
+    &\alpha-\alpha^{-1}=\frac{8}{3}\\
+    &3\alpha^2-8\alpha-3=0\\
+    &\therefore \quad \alpha=3,\,-\frac13
+  \end{align*}
+  $3^{n-1}$は奇数なので,どちらを選んでも$b_n$は同じ値になる.
+  初項と更新の一致から,\,$\alpha=3$を選べば,
+  \[
+    a_n=3^{3^{n-1}}-3^{-3^{n-1}}
+  \]
+\end{smallquote}

@@ -1,0 +1,54 @@
+% BOOK-FILE-ID: f-2a30e146ab92
+\subsubsection{小数部分と回転}\label{節：小数部分と回転}
+$\{x\}=x-\lfloor x\rfloor$は$x$の小数部分を表し,\,$0\le\{x\}<1$である.
+例えば,\,$\{-0.2\}=0.8$となる.
+一定の量を加えて整数部分を捨てれば,\,$[0,1)$へ戻る.
+両端をつないで円周と見れば,\textbf{境界を越えても同じ割合で進む回転}である.
+越えた回数は\bookterm{floor-function}{床関数}が記録する.周期は,進む割合が有理数かどうかで決まる.
+
+\noindent \bookblocklink{example-gauss-role-9}{problem}{answer}{【例題】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-9}{problem}{answer}]
+  \item $\alpha=\sqrt2-1$とし,\bookterm{sequence}{数列}を次のように定める.
+    \[
+      a_0=0,\qquad
+      a_{n+1}=a_n+\alpha-\lfloor a_n+\alpha\rfloor
+      \quad(n\ge0).
+    \]
+    \bookterm{general}{一般項}を求め,異なる添字の項が同じ値になるか調べよ.
+\end{enumerate}
+
+\noindent \bookblocklink{example-gauss-role-9}{hint}{problem}{【方針】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-9}{hint}{problem}]
+  \item 整数部分を捨てると小数部分だけが残ることから,\,$n\alpha$の小数部分を予想します.
+    一致する二項があれば,添字の差と$\alpha$の積が整数になることを使いましょう.
+\end{enumerate}
+
+\noindent \bookblocklink{example-gauss-role-9}{answer}{problem}{【解答】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-9}{answer}{problem}]
+  \item \[
+      a_n=n\alpha-\lfloor n\alpha\rfloor\quad(n\ge0).
+    \]
+    異なる添字の項は同じ値にならず,周期的ではない.
+\end{enumerate}
+
+\noindent \bookblocklink{example-gauss-role-9}{solution}{problem}{【解法】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-9}{solution}{problem}]
+  \item $n=0$では予想した式は$a_0=0$を与える.
+    $a_n=n\alpha-\lfloor n\alpha\rfloor$とすると,整数との和の性質から,
+    \begin{align*}
+      \lfloor a_n+\alpha\rfloor
+      &=\lfloor(n+1)\alpha\rfloor-\lfloor n\alpha\rfloor,\\
+      a_{n+1}
+      &=(n+1)\alpha-\lfloor(n+1)\alpha\rfloor.
+    \end{align*}
+    より帰納的に【解答】を得る.各項は$[0,1)$に入る.
+
+    $a_{n+p}=a_n\ (p\ge1)$とすると,
+    \[
+      p\alpha=\lfloor(n+p)\alpha\rfloor-\lfloor n\alpha\rfloor
+    \]
+    が整数となり,\,$\alpha$が無理数であることに矛盾する.従って異なる項は一致しない.
+
+    同じ\bookterm{recurrence}{漸化式}で$\alpha$が有理数$\frac pq\ (0<p<q)$であり,\,$p,q$が互いに素なら,
+    最小周期は$q$となる.\,$q\alpha$は整数で,\,$T\alpha$が整数となる正整数$T$は$q$の倍数だからである.
+\end{enumerate}

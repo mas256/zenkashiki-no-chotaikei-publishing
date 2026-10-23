@@ -1,0 +1,115 @@
+% BOOK-FILE-ID: f-9f1867a090b7
+% section: 極形式と複素平面
+
+\section{複素平面と極形式}\label{節：複素平面と極形式}
+複素数の積を回転と拡大・縮小として読む.
+\sectionref*{節：一次分数型}の図形的解釈と\sectionref*{節：特性根が虚数の場合}で使う.
+\bookterm{polar}{極形式}には\bookterm{trigonometric}{三角関数},\bookterm{euler}{オイラーの公式}の導出には\bookterm{limit}{極限}を使う.
+
+\subsection{複素数を平面に表す}\label{節：複素数を平面に表す}
+$i^2=-1$を満たす虚数単位$i$を用い,複素数$z=x+iy$を点$(x,y)$に対応させたものを\bookterm{complex-plane}{複素平面}という.
+横軸が実軸,縦軸が虚軸である.
+原点からの距離を$\rho=\sqrt{x^2+y^2}$,正の実軸から反時計回りに測る角を$\theta$とすると,
+\[
+  x=\rho\cos\theta,\qquad y=\rho\sin\theta
+\]
+より
+\[
+  z=\rho(\cos\theta+i\sin\theta).
+\]
+これが\bookterm{polar}{極形式}である.\,$\rho=|z|$は絶対値,\,$z\ne0$のとき$\theta$は\bookterm{argument}{偏角}である.
+偏角に$2\pi$の整数倍を加えても同じ点を表す.\,$z=0$では偏角は定まらない.
+\BookFigPolar
+
+例えば$\rho=2$, $\theta=\frac{\pi}{3}$なら
+\[
+  z=2\left(\cos\frac\pi3+i\sin\frac\pi3\right)=1+i\sqrt3
+\]
+であり,点$(1,\sqrt3)$を表す.
+
+\subsection{複素数と平面の変換}\label{節：複素数と平面の変換}
+$b=u+iv$を加えると,\,$z+b=(x+u)+i(y+v)$となる.
+これはベクトル$(u,v)$だけの平行移動である.
+次に,\,$c=s(\cos\phi+i\sin\phi)$, $s>0$を掛ける.
+\bookterm{addition}{加法定理}より
+\[
+  cz=s\rho\{\cos(\theta+\phi)+i\sin(\theta+\phi)\}.
+\]
+絶対値は$s$倍,偏角は$\phi$だけ増える.原点を中心に回転し,\,$s>1$なら拡大,\,$0<s<1$なら縮小,\,$s=1$なら回転だけになる.
+\BookFigComplexRotation
+
+特に$i$を掛けると反時計回りに$\frac{\pi}{2}$回転する.
+中心を$z_0$から$w_0$へ移す変換は
+\[
+  w=c(z-z_0)+w_0.
+\]
+中心からの差に$c$を掛け,最後に移動先の中心を加える.
+
+\subsection{ド・モアブルの定理}\label{節：ド・モアブルの定理}
+先の積の公式では,絶対値が$1$なら偏角だけが加わる.繰り返すと
+\[
+  (\cos\theta+i\sin\theta)^n=\cos(n\theta)+i\sin(n\theta)
+\]
+を得る.これを\bookterm{de-moivre}{ド・モアブルの定理}という.
+正の整数$n$では\bookterm{induction}{数学的帰納法}で示せる.
+$n=1$で一致し,\,$n$での式に$\cos\theta+i\sin\theta$を掛けると,加法定理で角度が$n\theta$から$(n+1)\theta$になる.
+$n=0$では両辺とも$1$である.
+また,
+\[
+  (\cos\theta+i\sin\theta)^{-1}=\cos(-\theta)+i\sin(-\theta)
+\]
+なので,負の整数も正の整数の場合へ帰着できる.
+例えば$\theta=\frac{\pi}{6}$, $n=6$なら$\cos\pi+i\sin\pi=-1$となる.
+
+\subsection{オイラーの公式}\label{節：オイラーの公式}
+複素数の指数表示を
+\[
+  e^{i\theta}=\lim_{n\to\infty}\left(1+\frac{i\theta}{n}\right)^n
+\]
+と定め,\,\sectionref{節：極限}の基本極限から値を求める.
+$\theta\ne0$とし,\,$-\frac{\pi}{2}<\phi_n<\frac{\pi}{2}$, $\tan\phi_n=\frac{\theta}{n}$とおく.
+$r_n=\sqrt{1+\dfrac{\theta^2}{n^2}}$なら
+\[
+  1+\frac{i\theta}{n}=r_n(\cos\phi_n+i\sin\phi_n).
+\]
+長さと角度の極限を別々に求める.
+\begin{align*}
+  \log(r_n^n)
+  &=\frac{\theta^2}{2n}\,
+  \cfrac{\log\left(1+\cfrac{\theta^2}{n^2}\right)}{\cfrac{\theta^2}{n^2}}\longrightarrow0,\\
+  n\phi_n&=\theta\frac{\phi_n}{\tan\phi_n}\longrightarrow\theta.
+\end{align*}
+最初の式では$\frac{\log(1+x)}{x}\to1$,後では$\phi_n\to0$と$\frac{x}{\tan x}\to1$を使った.
+$r_n^n\to1$とド・モアブルの定理から
+\[
+  \left(1+\frac{i\theta}{n}\right)^n
+  =r_n^n\{\cos(n\phi_n)+i\sin(n\phi_n)\}.
+\]
+三角関数の連続性により
+\[
+  e^{i\theta}=\cos\theta+i\sin\theta
+\]
+を得る.\,$\theta=0$でも両辺は$1$である.これが\bookterm{euler}{オイラーの公式}である.
+
+極形式は$z=\rho e^{i\theta}$と短く書ける.\,$z\ne0$,すなわち$\rho>0$なら,逆数を含む整数乗も
+\[
+  \begin{aligned}
+    z^n&=\rho^n e^{in\theta}\\
+    &=\rho^n\{\cos(n\theta)+i\sin(n\theta)\}
+    \quad(n\in\mathbb Z)
+  \end{aligned}
+\]
+と表せる.\,$z=0$では負の整数乗を定めず,正の整数$n$について$0^n=0$とする.
+
+\subsection{複素数の実数乗}\label{節：複素数の実数乗}
+$z=\rho e^{i\theta}$, $\rho>0$とし,偏角$\theta$を一つ固定すれば,実数$x$について
+\[
+  z^x=\rho^x e^{ix\theta}
+\]
+と定められる.ただし,\,$\theta$を$\theta+2\pi k$へ変えると,整数でない$x$では値が変わりうる.
+整数なら偏角の選び方によらない.
+有理数$x=\frac{m}{n}$, $n\ge1$では$\left(z^{\dfrac{m}{n}}\right)^n=z^m$となり,\,$z^{\dfrac{m}{n}}$は$z^m$の$n$乗根の一つである.
+
+\subsection{公式のまとめ}\label{節：公式のまとめ}
+\bookterm{polar}{極形式}$z=\rho e^{i\theta}$では,加法は平行移動,乗法は長さの積と角度の和,整数乗は長さの累乗と角度の整数倍に対応する.
+複素数の計算を平面の変換として読めるのである.

@@ -1,0 +1,55 @@
+% BOOK-FILE-ID: f-c645fd39fc8a
+\subsubsection{整数部分を確定する}\label{節：整数部分を確定する}
+\bookterm{floor}{ガウス記号}の中の整数部分を探す.
+整数$k$と実数$x$に対して,
+\[
+  \lfloor k+x\rfloor=k+\lfloor x\rfloor
+\]
+が成り立つ.整数$a_n$なら$\lfloor a_n+\sqrt3\rfloor=a_n+1$である.
+先に,初項から整数性が保たれることを確かめる.
+
+中身を$k\le X<k+1$に挟んでもよい.平方根なら隣り合う平方数を使う.
+\textbf{\bookterm{floor-function}{床関数}の値を確定し,既知の\bookterm{recurrence}{漸化式}へ戻す.}
+
+\noindent \bookblocklink{example-gauss-role-1}{problem}{answer}{【例題】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-1}{problem}{answer}]
+  \item \bookterm{sequence}{数列}を次のように定める.\bookterm{general}{一般項}を求めよ.
+    \BookMathLayout{            \[
+        a_1=1,\qquad
+        a_{n+1}=\left\lfloor\sqrt{a_n^2+4a_n+5}\right\rfloor
+        \quad(n\ge1).
+      \]}{            \[
+        \begin{aligned}
+          a_1&=1,\\
+          a_{n+1}&=\left\lfloor\sqrt{a_n^2+4a_n+5}\right\rfloor
+          \\              &\quad(n\ge1).
+        \end{aligned}
+      \]}
+\end{enumerate}
+
+\noindent \bookblocklink{example-gauss-role-1}{hint}{problem}{【方針】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-1}{hint}{problem}]
+  \item 整数$a_n$に対して,平方根の中身を$(a_n+2)^2$と$(a_n+3)^2$で挟みます.
+    まず各項が非負整数であることを確かめましょう.
+\end{enumerate}
+
+\noindent \bookblocklink{example-gauss-role-1}{answer}{problem}{【解答】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-1}{answer}{problem}]
+  \item \[
+      a_n=2n-1\quad(n\ge1).
+    \]
+\end{enumerate}
+
+\noindent \bookblocklink{example-gauss-role-1}{solution}{problem}{【解法】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-1}{solution}{problem}]
+  \item 初項と更新から,帰納的に各項は非負整数となる.
+    非負整数$x$について,
+    \[
+      (x+2)^2\le x^2+4x+5<(x+3)^2
+    \]
+    である(左の差は1,右の差は$2x+4>0$).平方根を取ると,
+    \[
+      x+2\le\sqrt{x^2+4x+5}<x+3
+    \]
+    より$a_{n+1}=a_n+2$.\,\sectionref{節：等差型}に帰着し,\,$a_n=2n-1$を得る.
+\end{enumerate}
