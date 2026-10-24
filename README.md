@@ -29,6 +29,20 @@ PDFの目次は章・節・項（`chapter` から `subsubsection`）までクリ
 
 現行PDFの再レビューを受けた説明順序・数学的条件・図とリンクの改訂は[具体例から構造へ進む改訂](docs/reader-centered-revision-2026-10-12.md)にまとめています。
 
+## 数式の執筆ルール
+
+基本編・発展編・新解釈は共通の `tex/book-math.tex` を読み込み、インライン数式をすべて `\displaystyle` で組みます。独立した数式には `\[ ... \]` または `align*` を使います。分数は `/` で書かず、入れ子の場合は外側・内側とも `\cfrac` を使います。
+
+| 省略コマンド | 対応する環境 |
+| --- | --- |
+| `\balign ... \ealigin` | `\begin{align*} ... \end{align*}` |
+| `\benumrate ... \eenumrate` | `\begin{enumerate} ... \end{enumerate}` |
+| `\bcases ... \ecases` | `\begin{cases} ... \end{cases}` |
+
+`enumerate` の省略コマンドでも `[label=...]` などの任意引数や入れ子を使えます。これらの綴りと今後の作業ルールは [AGENTS.md](AGENTS.md) に記録しています。保存資料の `old/`・`tmp/` を除く現行3冊のTeX原稿を変換しました。URL・ファイルパス・TikZの計算式はそのまま扱います。
+
+表記は `python3 scripts/verify-math-style.py` で検査できます。CIではこの検査と省略コマンドの組版確認を行い、A4版・スマホ版のビルドと既存の検査を実行します。
+
 ## スマホ版
 
 付録を含む発展-newの全文を、縦160mm × 横90mm・四辺8mmの余白・1段組みで読む版です。本文の文字サイズと数式のスタイルは本編と同じで、ディスプレイ数式のインデントは全角1文字（`1zw`）です。長い数式は等号や項のまとまりで改行し、目次・柱・図も紙幅に収めます。

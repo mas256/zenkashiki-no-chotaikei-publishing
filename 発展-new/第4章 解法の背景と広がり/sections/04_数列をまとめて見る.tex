@@ -19,7 +19,7 @@ $2x$を掛けると,一つ先へずれた係数が元の係数と重なる.
     G(x)-2xG(x)&=1.
   \end{aligned}
 \]
-したがって$G(x)=\dfrac{1}{1-2x}$である.「ずらして引く」が,ただの掛け算と引き算になったのだ.
+したがって$G(x)=\frac{1}{1-2x}$である.「ずらして引く」が,ただの掛け算と引き算になったのだ.
 このように各項を係数として並べた式を\bookterm{generating}{母関数}といい,本編の\bookterm{characteristic}{特性方程式}や総和型も同じ仕組みで扱える.
 
 \subsection{母関数と数列の操作}
@@ -40,7 +40,7 @@ $S_n=\sum_{k=0}^n a_k$とし,その\bookterm{generating}{母関数}を$S(x)$と�
 \[
   S(x)=\frac{A(x)}{1-x}.
 \]
-これは,形式的な等比級数$\displaystyle \frac{1}{1-x}=1+x+x^2+\cdots$を掛けたとき,\,$x^n$の係数が$a_0+\cdots+a_n$になるからである.
+これは,形式的な等比級数$\frac{1}{1-x}=1+x+x^2+\cdots$を掛けたとき,\,$x^n$の係数が$a_0+\cdots+a_n$になるからである.
 逆に$(1-x)S(x)=A(x)$では,係数が$S_n-S_{n-1}=a_n$になる.\footnote{ただし$n=0$では$S_{-1}=0$として読む.}
 総和型の「ずらして引く」は$1-x$倍になった.\,$a_1$からの和なら$a_0=0$として使える.
 
@@ -74,7 +74,7 @@ $S_n=\sum_{k=0}^n a_k$とし,その\bookterm{generating}{母関数}を$S(x)$と�
 を得る.
 \bookterm{recurrence}{漸化式}が\bookterm{generating}{母関数}の分母になった.
 
-分母の方程式$1-x-x^2=0$に$r=\dfrac{1}{x}$を入れると,\,$r^2-r-1=0$になる.
+分母の方程式$1-x-x^2=0$に$r=\frac{1}{x}$を入れると,\,$r^2-r-1=0$になる.
 分母の零点は\bookterm{root}{特性根}の逆数だった.行列の\bookterm{eigenvalue}{固有値}が一歩の倍率を表すのに対し,母関数の分母は全項の係数関係を表す.
 
 本編の符号に合わせ,\,$a_{n+2}+pa_{n+1}+qa_n=0$ $(n\ge0)$を考えても同じである.
@@ -93,7 +93,7 @@ $A(x)$の係数をそろえると
   +\frac{D}{1-\lambda_2x}
 \]
 と書ける.
-$\displaystyle \frac{1}{1-\lambda x}=\sum_{n=0}^\infty\lambda^n x^n$の係数を比べれば,\,$a_n=C\lambda_1^n+D\lambda_2^n$となり,本編の\bookterm{general}{一般項}と同じ形が得られる.
+$\frac{1}{1-\lambda x}=\sum_{n=0}^\infty\lambda^n x^n$の係数を比べれば,\,$a_n=C\lambda_1^n+D\lambda_2^n$となり,本編の\bookterm{general}{一般項}と同じ形が得られる.
 根の一つが零の場合も扱えるが,そのときは多項式の部分を分けて係数を読めばよい.
 
 重解$r\ne0$の場合には分母が$(1-rx)^2$になる.
@@ -109,7 +109,7 @@ $\displaystyle \frac{1}{1-\lambda x}=\sum_{n=0}^\infty\lambda^n x^n$の係数を
 重解で$n$が現れた理由は,同じ因子の二乗からも読める.
 
 \subsection{長期的な増え方}
-\sectionref*{節：二つの値を更新する}のフィボナッチ数列の式$F_n=\dfrac{\varphi^n-\psi^n}{\sqrt5}$では,\,$|\psi|<1<\varphi$なので
+\sectionref*{節：二つの値を更新する}のフィボナッチ数列の式$F_n=\frac{\varphi^n-\psi^n}{\sqrt5}$では,\,$|\psi|<1<\varphi$なので
 \[
   F_n\sim\frac{\varphi^n}{\sqrt5}
 \]
