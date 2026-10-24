@@ -1,16 +1,21 @@
 % BOOK-FILE-ID: f-d9a31815e10d
 \subsubsection{添字を分ける}\label{節：添字を分ける}
-\bookterm{floor-function}{床関数}で,\textbf{参照する項}を指定する場合もある.
-正整数$n$に対して,
+ガウス記号は項の値だけでなく,どの項を参照するかを指定するのにも使われる.
+例えば正整数$n$に対して
 \[
   \left\lfloor\frac{n+1}{2}\right\rfloor
   +\left\lfloor\frac n2\right\rfloor=n
 \]
-は$n$の二分割である.偶数なら同じ添字,奇数なら隣り合う添字になる.
+であり,\,$n$を2つに分けている.偶数なら同じ添字,奇数なら隣り合う添字になる.
+こういうときは,\,$n$を偶数と奇数に分けてやればガウス記号を外せる.
+得られた2つの式から,隣り合う項の階差を調べてみよう.
+半分の添字との関係が出てきたら,\,$1,\ 2\le n<4,\ 4\le n<8,\ldots$のように群で整理するとよい.
+ただし,同じ添字を参照する式だけでは初項が決まらないこともあるので注意しよう.
 
-$n$を偶数と奇数に分けると,ガウス記号を外せる.得られた二つの式を使い,隣り合う項の\bookterm{difference}{階差}を調べよう.
-半分の添字との関係が出れば,\,$1,\ 2\le n<4,\ 4\le n<8,\ldots$の群で整理できる.
-ただし,元と同じ添字を参照する式だけでは初項が決まらないこともある.
+\begin{bookpoint}
+  \textbf{POINT}\par
+  添字を偶奇で分けてガウス記号を外し,階差や群で整理する.
+\end{bookpoint}
 
 \noindent \bookblocklink{example-gauss-role-7}{problem}{answer}{【例題】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-7}{problem}{answer}]

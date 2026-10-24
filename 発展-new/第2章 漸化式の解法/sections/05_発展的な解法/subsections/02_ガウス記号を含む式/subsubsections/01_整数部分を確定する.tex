@@ -1,15 +1,19 @@
 % BOOK-FILE-ID: f-c645fd39fc8a
 \subsubsection{整数部分を確定する}\label{節：整数部分を確定する}
-\bookterm{floor}{ガウス記号}の中の整数部分を探す.
-整数$k$と実数$x$に対して,
+ガウス記号があると,そのままでは式変形ができない.
+まず考えたいのは,ガウス記号の中身の整数部分を確定させて,記号そのものを外してしまうことである.
+整数$k$と実数$x$に対しては
 \[
   \lfloor k+x\rfloor=k+\lfloor x\rfloor
 \]
-が成り立つ.整数$a_n$なら$\lfloor a_n+\sqrt3\rfloor=a_n+1$である.
-先に,初項から整数性が保たれることを確かめる.
+が成り立つので,例えば$a_n$が整数なら$\lfloor a_n+\sqrt3\rfloor=a_n+1$と外せる.
+中身が平方根なら,隣り合う平方数で挟んでやればよい.
+いずれにせよ,先に各項が整数であることを確かめておく必要がある.
 
-中身を$k\le X<k+1$に挟んでもよい.平方根なら隣り合う平方数を使う.
-\textbf{\bookterm{floor-function}{床関数}の値を確定し,既知の\bookterm{recurrence}{漸化式}へ戻す.}
+\begin{bookpoint}
+  \textbf{POINT}\par
+  中身を$k\le X<k+1$の形に挟んでガウス記号を外し,既知の漸化式に帰着させる.
+\end{bookpoint}
 
 \noindent \bookblocklink{example-gauss-role-1}{problem}{answer}{【例題】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-1}{problem}{answer}]

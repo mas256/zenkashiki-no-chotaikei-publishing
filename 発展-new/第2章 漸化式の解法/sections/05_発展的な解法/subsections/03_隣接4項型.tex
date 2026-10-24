@@ -1,14 +1,20 @@
 % BOOK-FILE-ID: f-5d9116720103
 \subsection{隣接4項型}\label{節：隣接4項型}
-隣接3項型では直前の二項から次の項を求めた.今度は直前の三項を使う,
+隣接3項型では,直前の2項から次の項が決まった.
+では,直前の3項から次の項が決まる場合はどうなるだろうか.
+一般的な形は
 \[
   a_{n+3}+pa_{n+2}+qa_{n+1}+ra_n=0
 \]
-のような\bookterm{recurrence}{漸化式}を,\,$n\ge1$で考える.
-初めの三項を自由に選ぶ三階の\bookterm{homogeneous}{同次}\bookterm{linear}{線形}\bookterm{recurrence}{漸化式}なので,解全体は3\bookterm{dimension}{次元}である(\sectionref*{節：隣接3項型}).
-\sectionref*{節：隣接3項型}と同じく,\,$d_{n+1}=\gamma d_n$を目標に,
-\bookterm{auxiliary}{補助数列}$d_n=a_{n+2}+\alpha a_{n+1}+\beta a_n$を作る.
-その条件は
+で与えられる.
+隣接3項型を解いたときは,3項間を2項間にできないかと考えた.
+今回も同じく,4項間を3項間に落とせないか挑戦してみよう.
+結論から言えば,
+\[
+  d_n=a_{n+2}+\alpha a_{n+1}+\beta a_n
+\]
+が等比型$d_{n+1}=\gamma d_n$になるように$\alpha,\beta,\gamma$を選べばよいのだ.
+条件は
 \BookMathLayout{\[
     a_{n+3}+\alpha a_{n+2}+\beta a_{n+1}=\gamma \left(a_{n+2}+\alpha a_{n+1}+\beta a_{n}\right)
   \]}{
@@ -19,13 +25,13 @@
     \end{aligned}
   \]
 }
-である.両辺を左側に集め,元の\bookterm{recurrence}{漸化式}と係数を比べると,
+である.両辺を左側に集め,元の\bookterm{recurrence}{漸化式}と係数比較すると,
 \[
   \alpha-\gamma=p,\qquad
   \beta-\gamma\alpha=q,\qquad
   -\gamma\beta=r
 \]
-となる.最初の二式から
+となる.最初の2式から
 \[
   \alpha=p+\gamma,\qquad
   \beta=q+p\gamma+\gamma^2
@@ -34,15 +40,19 @@
 \[
   \gamma^3+p\gamma^2+q\gamma+r=0
 \]
-を得る.実数解を一つ選べば,\,$\alpha,\beta$も決まる.\footnote{三次方程式は少なくとも一つ実数解を持つが,計算しやすい値を見つけられるかは別の問題である.}
-例題では因数分解や\bookterm{difference}{階差}を手掛かりに選ぶ.
+を得る.
+形式的には,\,$a_{n+3}$を$\gamma^3$,\,$a_{n+2}$を$\gamma^2$,\,$a_{n+1}$を$\gamma$,\,$a_n$を1に置き換えた三次方程式であり,これが隣接4項型の\bookterm{characteristic}{特性方程式}である.
+隣接3項型の特性方程式と全く同じ作り方をしていることに注目しよう.
+その実数解を1つ選べば,\,$\alpha,\beta$も決まる.\footnote{三次方程式は少なくとも1つ実数解を持つが,計算しやすい値を見つけられるかは別の問題である.例題では因数分解や階差を手掛かりに選ぶ.}
+
 $d_1=a_3+\alpha a_2+\beta a_1$から$d_n$を求めると,
 \[
   a_{n+2}+\alpha a_{n+1}+\beta a_n=d_1\gamma^{\,n-1}
 \]
-という3項間\bookterm{recurrence}{漸化式}が得られる.\footnote{$\gamma=0$の場合は$d_1$を初項として,\,$n\ge2$では$d_n=0$と読む.
-  また,\,\sectionref{節：定数の付加項がある場合}で扱ったのは右辺が定数$r$の場合であり,ここでは右辺が指数関数$d_1\gamma^{n-1}$になる点が異なる.}
-$d_n$を求めた後,\,$a_n$へ戻す.
+という3項間の漸化式が得られる.\footnote{$\gamma=0$の場合は$d_1$を初項として,\,$n\ge2$では$d_n=0$と読む.
+  また,\,\sectionref{節：定数の付加項がある場合}で扱ったのは右辺が定数の場合であり,ここでは右辺が指数関数$d_1\gamma^{n-1}$になる点が異なる.}
+右辺に付加項が残っているが,これは\sectionref{節：階差等比複合型}と同じく,右辺と同じ漸化式を満たす式を引いて解ける場合が多い.
+初期条件は次のように使い分ける.
 \[
   \begin{array}{c|c}
     \text{求める量}&\text{使う初期値}\\ \hline
@@ -51,11 +61,16 @@ $d_n$を求めた後,\,$a_n$へ戻す.
   \end{array}
 \]
 $a_3$の情報は$d_1$に入っている.
-得られた式は\sectionref{節：階差等比複合型}の考え方で,右辺と同じ更新をする量を引いて解ける場合がある.
-例えば第1問では,\,$p=-3,q=3,r=-1$なので上の方程式は$(\gamma-1)^3=0$となり,
-$\gamma=1,\alpha=-2,\beta=1$を得る.
+
+例えば例題(1)では,\,$p=-3,\ q=3,\ r=-1$なので特性方程式は$(\gamma-1)^3=0$となり,
+$\gamma=1,\ \alpha=-2,\ \beta=1$を得る.
 こうして$d_n=a_{n+2}-2a_{n+1}+a_n$が決まる.
-元の式を\mbox{三\bookterm{difference}{階差}}と見ても,同じ量が得られる.
+これは階差の階差のそのまた階差を取っていることにほかならない.
+
+\begin{bookpoint}
+  \textbf{POINT}\par
+  特性方程式$\gamma^3+p\gamma^2+q\gamma+r=0$の実数解$\gamma$を1つ選び,\,$d_n=a_{n+2}+\alpha a_{n+1}+\beta a_n$の等比型を作って隣接3項型に帰着させる.
+\end{bookpoint}
 
 \noindent \bookblocklink{example-four-term-1}{problem}{answer}{【例題】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-four-term-1}{problem}{answer}]
