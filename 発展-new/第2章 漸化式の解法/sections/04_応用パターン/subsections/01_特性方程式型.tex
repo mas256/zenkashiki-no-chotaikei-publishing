@@ -267,17 +267,18 @@
   \end{center}
 
   となる.
-  $y=x$のグラフは$a_{n+1}=a_n$という公比1の等比数列としてみなしたときに,これらのグラフの交点を原点と思って漸化式を見直してやれば,点$(\alpha,\alpha)$が原点であるような等比数列となるのだ.
+  $y=x$のグラフは$a_{n+1}=a_n$,つまり値が変わらない状態を表している.
+  2つのグラフの交点$(\alpha,\alpha)$を原点と思って漸化式を見直してやれば,その原点からのずれが公比$p$の等比数列となるのだ.
 
   このような点$(\alpha,\alpha)$を不動点という.
-  特性方程式は不動点を求める漸化式で,不動点は特性方程式型漸化式を等比型漸化式としてみなせるようになる(ずらすことで"きれい"にできる)点である.
+  特性方程式は不動点を求める方程式で,不動点は特性方程式型漸化式を等比型漸化式としてみなせるようになる(ずらすことで"きれい"にできる)点である.
   
   初項が$\alpha$なら定数解,異なるなら$|p|>1$でずれが増大し,\,$|p|<1$で$0$へ近づく.
   後者では$a_n\to\alpha$となる.
 
   \paragraphbf{別の等式を用意して代入}
   
-  同じ$q$を消すには,隣り合う2つの漸化式をを引く方法もある.
+  同じ$q$を消すには,隣り合う2つの漸化式を引く方法もある.
   \begin{align*}
     &a_{n+1}=pa_n+q \booktag{affine-difference-1}{♡}\\
     &a_{n+2}=pa_{n+1}+q \booktag{affine-difference-2}{♢}\\
@@ -307,7 +308,7 @@
   \[
     f(x)-f(y)=(px+q)-(py+q)=p(x-y)
   \]
-  となる.\,$x=a_{n+1},\ y=a_n$としたものが\bookeqref{affine-difference-2}{(2)}から\bookeqref{affine-difference-1}{(1)}を引いた式である.\footnote{添字を一つずらして引く操作は,付録\sectionref{節：和と差から微積分へ}で扱う\bookterm{difference-operator}{差分}の考え方につながる.}
+  となる.\,$x=a_{n+1},\ y=a_n$としたものが\bookeqref{affine-difference-2}{(♢)}から\bookeqref{affine-difference-1}{(♡)}を引いた式である.\footnote{添字を一つずらして引く操作は,付録\sectionref{節：和と差から微積分へ}で扱う\bookterm{difference-operator}{差分}の考え方につながる.}
   共通の$q$が消えた.\,2つの直線も確認しよう.
   
   \begin{tikzpicture}[scale=0.8]
