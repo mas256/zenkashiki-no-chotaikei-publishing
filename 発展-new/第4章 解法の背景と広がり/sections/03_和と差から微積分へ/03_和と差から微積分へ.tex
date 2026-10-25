@@ -63,6 +63,47 @@ $S_n=An^3+Bn^2+Cn+D$を候補にする.
 が確かめられる.
 和の公式は,差を取ると目的の式になるものを探して作れる.
 
+\paragraphbf{付加項の次数が上がる理由}\label{節：付加項の次数が上がる理由}
+本編の\sectionref*{節：階差等比複合型}では,付加項と同じ次数の不動関数を引いた.
+ところが,同じように見える漸化式でも次数が1つ上がることがある.例えば
+\[
+  a_1=0,\qquad a_{n+1}-2a_n=n2^n
+\]
+では,\,$a_n=2^{n-1}b_n$と置いて両辺を$2^n$で割ると$b_{n+1}-b_n=n$となり,
+\[
+  b_n=\frac{n(n-1)}{2},\qquad a_n=2^{n-2}n(n-1)
+\]
+を得る.付加項の$n$は1次式なのに,\,$b_n$は2次式になった.なぜだろうか.
+
+差分$\Delta$で考えると理由が見える.
+$\Delta$を多項式に施すと次数が1つ下がる.微分で$x^k$が$kx^{k-1}$になるのと同じである.
+逆に$\Delta Q=P$となる$Q$を探すことは,微分すると$P$になる関数,つまり原始関数を探すことにあたるので,\,$Q$の次数は$P$より1つ上がるのだ.
+
+一般に,\,$p,q\ne0$,\,$P(n)$を多項式として
+\[
+  a_{n+1}-pa_n=P(n)q^n
+\]
+を考える.\,$Q(n)q^n$の形の不動関数を探すと,代入して$q^n$で割り,
+\[
+  qQ(n+1)-pQ(n)=P(n)
+\]
+を満たす多項式$Q$を求める問題になる.
+\begin{itemize}
+  \item $p\ne q$なら,左辺の最高次の係数は$q-p$倍されるだけなので,\,$Q$は$P$と同じ次数で見つかる.
+  \item $p=q$なら,左辺は$q\{Q(n+1)-Q(n)\}=q\,\Delta Q(n)$となる.したがって$Q$は$P$より次数が1つ高くなければならない.
+\end{itemize}
+付加項の指数$q$が,付加項のない式の公比$p$と一致すると,次数が1つ上がるのである.
+
+隣接3項型でも同じことが起こる.
+添字を1つ進める操作を$E$と書けば,\,$a_{n+2}+pa_{n+1}+qa_n$は$(E^2+pE+q)a_n$と書ける.
+特性方程式が重解$\alpha$を持つときは$(E-\alpha)^2$となり,
+\[
+  (E-\alpha)^2\bigl(\alpha^nQ(n)\bigr)=\alpha^{n+2}\Delta^2Q(n)
+\]
+なので,\,$\Delta^2Q=0$となる$Q$,すなわち1次以下の多項式が付加項のない式の解を作る.
+重解のとき一般項が$(A+Bn)\alpha^{n-1}$になったのはこのためである.
+\sectionref*{節：一つの値を更新する}で,重なった\bookterm{eigenvalue}{固有値}のもとで$n$が現れたのも同じ現象なのだ.
+
 \BookImport{f-9925c47f754b}
 
 \BookImport{f-d7df492a82ce}
@@ -110,6 +151,55 @@ $1<h<2$では符号を交互に変えながら近づくが,\,$h=2$では$1,-1,1,
 \]
 この例では,刻みを細かくした近似の収束を指数関数の\bookterm{limit}{極限}で確かめられる.一般の保証には関数や刻み幅の条件が要る.
 
+\subsection{不動点付近の線形化}\label{節：不動点付近の線形化}
+
+\sectionref*{節：特性方程式型}では,不動点からのずれが$p$倍され,\,$|p|<1$なら近づいた.
+\bookterm{nonlinear}{非線形}の更新でも,微分係数と一次近似で不動点付近の倍率を読める.
+一項前から次が決まる\bookterm{recurrence}{漸化式}
+\[
+  a_{n+1}=f(a_n)
+\]
+を考え,\,$\,\alpha$ を\bookterm{fixed}{不動点} $f(\alpha)=\alpha$ とする.
+そこからのずれを $e_n=a_n-\alpha$ と置くと
+\[
+  e_{n+1}=f(\alpha+e_n)-f(\alpha)
+\]
+である.
+$f$ が $\alpha$ で微分可能なら,微分係数の定義から
+\[
+  \frac{f(\alpha+e)-f(\alpha)}{e}\longrightarrow f'(\alpha)
+  \qquad(e\longrightarrow0)
+\]
+である.
+つまり,ずれ $e$ が十分小さい範囲では
+\[
+  f(\alpha+e)-f(\alpha)\approx f'(\alpha)e
+\]
+となる.
+不動点の近くで曲線を接線に置き換えたのである.収束も調べられる.
+もし $|f'(\alpha)|<1$ なら,\,$\,|f'(\alpha)|$ より大きく $1$ より小さい数 $c$ を選べる.
+微分係数の定義により,\,$\,a_n$ が $\alpha$ に十分近ければ
+\[
+  |e_{n+1}|
+  =|f(\alpha+e_n)-f(\alpha)|
+  \le c|e_n|
+\]
+となる.
+誤差が毎回$c$倍以下に縮むので,十分近い初期値は近くにとどまり,\,$\alpha$へ収束する.
+行列の\bookterm{eigenvalue}{固有値}と同じく,\,$f'(\alpha)$が局所的なずれの倍率を表す.
+\sectionref*{節：分数を二つの成分で追う}の一次分数型で,2つの異なる\bookterm{fixed}{不動点}がある場合には
+\[
+  \begin{aligned}
+    f'(\alpha)
+    &=\frac{ps-qr}{(r\alpha+s)^2}\\
+    &=\frac{\lambda_\alpha\lambda_\beta}{\lambda_\alpha^2}
+    =\frac{\lambda_\beta}{\lambda_\alpha}.
+  \end{aligned}
+\]
+特性方程式から$ps-qr=\lambda_\alpha\lambda_\beta$である.
+比の置き換えで得た\textbf{正確な公比}と,微分による\textbf{局所的な倍率}が一致した.
+\bookterm{linear}{線形}代数と微分は,一歩の変化を倍率で測る見方でつながる.
+
 \subsection{ニュートン法の誤差}
 \sectionref{節：ニュートン法}では,\BookMathLayout{}{\\}%
 $a_{n+1}=\frac12\left(a_n+\frac{2}{a_n}\right)$の$\sqrt2$への誤差がほぼ二乗された.
@@ -148,6 +238,22 @@ $g(\alpha)=0$, $g'(\alpha)\ne0$とし,根$\alpha$の近くで$g$は二回連続�
   e_{n+1}=\frac{e_n^2}{2a_n}
 \]
 は,その具体例である.
+
+本編では$\sqrt2$を求めたが,一般の$c>0$でも同じ計算ができる.
+\[
+  a_1>0,\qquad a_{n+1}=\frac12\left(a_n+\frac{c}{a_n}\right)
+\]
+の2つの不動点$\pm\sqrt c$からのずれの比$b_n=\frac{a_n-\sqrt c}{a_n+\sqrt c}$を取ると,\,$b_{n+1}=b_n^2$となり,
+\[
+  a_n=\sqrt c\cdot\frac{1+b_1^{\,2^{n-1}}}{1-b_1^{\,2^{n-1}}}
+\]
+を得る.\,$a_1>0$より$|b_1|<1$なので$b_n\to0$,すなわち$a_n\to\sqrt c$である.
+特に$a_1>\sqrt c$なら$0<b_1<1$なので$b_1=e^{-2s}\ (s>0)$と書け,
+\[
+  a_n=\sqrt c\cdot\frac{\cosh(2^{n-1}s)}{\sinh(2^{n-1}s)}
+\]
+となる.\footnote{$0<a_1<\sqrt c$のときも,相加平均と相乗平均の関係から$a_2\ge\sqrt c$となるので,\,$n\ge2$では同じ形で表せる.}
+ここでも,\,$s$にあたる量が毎回2倍されている.\sectionref*{節：双曲線関数とチェビシェフ多項式}で見た$\cosh$の倍角と同じ仕組みである.
 
 前節の\bookterm{fixed}{不動点}の見方でも確かめられる.
 更新関数$N(x)=x-\frac{g(x)}{g'(x)}$について
