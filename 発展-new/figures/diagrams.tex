@@ -102,7 +102,7 @@
 
 \newcommand{\BookFigClassification}{\BookDiagram{解法の系統と,それぞれの入口}{
 
-    \node[box](a)at(0,0){漸化式}; \node[box](b)at(-2.7,-1.15){共通の更新へ帰着};\node[box](c)at(2.7,-1.15){式固有の構造};
+    \node[box](a)at(0,0){漸化式}; \node[box](b)at(-2.7,-1.15){基本パターンへ帰着};\node[box](c)at(2.7,-1.15){式固有の構造};
     \draw[->](a)--(b);\draw[->](a)--(c);
     \node[box](d)at(-4.6,-2.6){基本パターン\\（4つ）};\node[box](e)at(-2.25,-2.6){応用パターン\\（7つ）};\node[box](f)at(.1,-2.6){発展型};\node[box](g)at(2.8,-2.6){式の構造を使う解法};
     \draw[->](b)--(d);\draw[->](b)--(e);\draw[->](b)--(f);\draw[->](c)--(g);
@@ -143,18 +143,18 @@
     \node[font=\scriptsize]at(1.3,-1.65){$\varphi=\arg b_n$};
   }}
 
-\newcommand{\BookFigThreeTerm}{\BookDiagram{二項を記録する更新から,等比型になる量を取り出す}{
+\newcommand{\BookFigThreeTerm}{\BookDiagram{隣り合う2項の組から,等比型になる量を取り出す}{
 
     \node[box](a)at(0,0){$a_n,\ a_{n+1}$};
     \node[box](b)at(5,0){$a_{n+1},\ a_{n+2}$};
     \node[box](c)at(0,-1.7){$b_n=a_{n+1}-\alpha a_n$};
     \node[box](d)at(5,-1.7){$b_{n+1}=a_{n+2}-\alpha a_{n+1}$};
-    \draw[->,thick](a)--node[above]{元の更新}(b);
+    \draw[->,thick](a)--node[above]{元の漸化式}(b);
     \draw[->,dashed](a)--(c);\draw[->,dashed](b)--(d);
     \draw[->,thick](c)--node[above]{$\times\beta$}(d);
   }}
 
-\newcommand{\BookFigSystem}{\BookGraph{回転した座標軸では和と差が独立に更新される}{
+\newcommand{\BookFigSystem}{\BookGraph{回転した座標軸では和と差が別々の等比型になる}{
 
     \draw[->](-2,0)--(3.2,0)node[right]{$x$};\draw[->](0,-2.2)--(0,2.3)node[above]{$y$};
     \draw[very thick,->](0,0)--(2.2,1.05)node[right]{$(x_n,y_n)$};
@@ -163,7 +163,7 @@
     \draw[dashed](-1.6,-1.6)--(2,2);\draw[dashed](-1.6,1.6)--(2,-2);
   }}
 
-\newcommand{\BookFigFloorGraph}{\BookGraph{床関数は各整数区間で値が一定になる}{
+\newcommand{\BookFigFloorGraph}{\BookGraph{ガウス記号は各整数区間で値が一定になる}{
 
     \draw[->](-2.5,0)--(3.3,0)node[right]{$x$};\draw[->](0,-2.4)--(0,3.2)node[above]{$y$};
     \foreach \k in {-2,-1,0,1,2}{
@@ -172,7 +172,7 @@
       }
   }}
 
-\newcommand{\BookFigComplexRoots}{\BookGraph{特性根の累乗は回転と伸縮の繰り返しになる}{
+\newcommand{\BookFigComplexRoots}{\BookGraph{特性方程式の解の累乗は回転と伸縮の繰り返しになる}{
 
     \draw[->](-3.5,0)--(3.2,0)node[right]{実軸};\draw[->](0,-2.7)--(0,3.15)node[above]{虚軸};
     \foreach \k in {0,1,2,3,4}{
@@ -192,7 +192,7 @@
     \fill(1.5,0)circle(2pt)node[above left]{$a_{n+1}$};\node[below]at(2,0){$a_n$};
   }}
 
-\newcommand{\BookFigCobweb}{\BookGraph{初項からの反復を $y=f(x)$ と $y=x$ で追う}{
+\newcommand{\BookFigCobweb}{\BookGraph{漸化式を繰り返し用いる様子を $y=f(x)$ と $y=x$ で表す}{
     % Section example: f(x)=(x^2-1)/2; a1=2 -> a2=3/2 -> a3=5/8.
     % Match characteristic-equation figures (scale=0.8) using natural coordinate sizes.
     \begin{scope}[x=1.7cm,y=1.45cm]
