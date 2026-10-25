@@ -148,6 +148,13 @@ $x_1+y_1=a_1+1\ne0$なので,この比の分母はずっと零でない.
 対応する\bookterm{eigenvalue}{固有値}はそれぞれ$1,2$である.
 差の比は,二方向の倍率の比を追っていた.
 
+ここで,不動点と固有値の役割を区別しておこう.
+行列で$(x_n,y_n)$を動かすのは一次変換であり,その成分の比$\frac{x_n}{y_n}$だけを読んだものが一次分数変換である.
+比を読むと長さの情報は消えるので,\bookterm{eigenvector}{固有ベクトル}は向き,すなわち成分の比だけが残る.これが\bookterm{fixed}{不動点}である.
+一方,その向きが何倍されるかを表すのが\bookterm{eigenvalue}{固有値}であり,一次分数型では2つの固有値の比$2:1$が,差の比の公比$2$として現れた.
+後で見る隣接3項型や連立型では,この固有値そのものが特性根になる.
+不動点は「方向」を,特性根は「その方向の倍率」を求めているのである.
+
 \paragraphbf{一般の一次分数型へ}
 一般の係数でも,二成分の\bookterm{column-vector}{列ベクトル}で表せる.
 \[
@@ -466,21 +473,19 @@ $|\psi|<1<\varphi$だから,\,$\psi^n$は符号を交互に変えながら減衰
 より,隣り合う項の差が一定で $a_n=C+Dn$ となる.
 重解が $r=0$ の場合は $a_{n+2}=0$ となる退化した\bookterm{recurrence}{漸化式}であり,直接調べればよい.
 
-\paragraphbf{まとめ：特性方程式はすべて同じもの}
-本編では,いくつもの場面で「特性方程式」が現れた.
-ここまでの議論で,それらがすべて同じ1つのものだったことが分かる.
-\begin{itemize}
-  \item \textbf{特性方程式型}：行列$\begin{pmatrix}p&q\\0&1\end{pmatrix}$の,固有値1の固有ベクトルの成分比$\alpha$を求める.
-  \item \textbf{一次分数型}：行列$\begin{pmatrix}p&q\\r&s\end{pmatrix}$の,固有ベクトルの成分比$\alpha,\beta$を求める.
-  \item \textbf{隣接3項型}：行列$\begin{pmatrix}-p&-q\\1&0\end{pmatrix}$の固有値$\lambda$を求める.
-  \item \textbf{連立型}：行列$\begin{pmatrix}p&q\\r&s\end{pmatrix}$の固有値$\gamma$を求める.重み$(\alpha,\beta)$は行ベクトルの固有ベクトルである.
-\end{itemize}
-特性方程式型の$\alpha=p\alpha+q$は,\,$\begin{pmatrix}p&q\\0&1\end{pmatrix}\begin{pmatrix}\alpha\\1\end{pmatrix}=\begin{pmatrix}\alpha\\1\end{pmatrix}$という固有値1の条件そのものである.
-もう1つの固有値$p$は,不動点からのずれが掛けられる公比として現れていた.
-一次分数型で$r=0$とすれば特性方程式型に戻るので,特性方程式型は一次分数型の特別な場合と見ることもできるのだ.
-また,隣接3項型の別解で$b_n=\frac{a_{n+1}}{a_n}$と置いて一次分数型を作ったのは,この表の3行目の行列を2行目の見方で読んだことにあたる.
-
-つまり,本編で「既知の形をつくる」ために探してきた$\alpha$や$\gamma$は,どれも行列を一番簡単に掛けられる方向を探す作業だったのである.
+\paragraphbf{固有値が重なっても$n$が現れないとき}
+では,固有値が重なれば必ず$n$が現れるのだろうか.
+連立型
+\[
+  x_{n+1}=2x_n,\qquad y_{n+1}=2y_n
+\]
+の更新行列$\begin{pmatrix}2&0\\0&2\end{pmatrix}$は,固有値2を重ねて持つ.
+しかし$x_n=2^{n-1}x_1,\ y_n=2^{n-1}y_1$であり,\,$n$はどこにも現れない.
+この行列ではどの向きのベクトルも2倍されるので,固有ベクトルが2方向とも取れるからである.
+$n$が現れるのは,固有値が重なり,\textbf{しかも固有ベクトルが足りない}ときなのだ.
+隣接3項型の行列$B$では,固有値$\lambda$の固有ベクトルは$\begin{pmatrix}\lambda\\1\end{pmatrix}$の向きしかないので,重解なら必ず足りなくなる.
+固有ベクトルが足りないとき,等比型に分けきれずに残る部分は,倍率を取り除いて差分を追えば求められる.
+これは\sectionref*{節：差分で線形漸化式を解く}で扱う.
 
 \subsection{角度の整数倍と多項式}\label{節：角度の整数倍と多項式}
 
@@ -574,6 +579,61 @@ $x=\cos\theta$とすると,\bookterm{addition}{加法定理}から
 $-1\le a_1\le1$なら$a_1=\cos\theta$と表せるため,これは本編の$a_n=\cos(m^{n-1}\theta)$と一致する.
 多項式としての式は,\bookterm{trigonometric}{三角関数}で表せない初項についても成り立つ.
 
+\paragraphbf{三角関数で表せない初項：双曲線関数}\label{節：双曲線関数とチェビシェフ多項式}
+では,\,$|a_1|>1$のとき,\,$a_n=T_{m^{n-1}}(a_1)$は何を表しているのだろうか.
+ここで,次の関数を導入しよう.
+\[
+  \cosh x=\frac{e^x+e^{-x}}{2}
+\]
+これを双曲線余弦関数という.\footnote{$\sinh x=\frac{e^x-e^{-x}}{2}$と合わせて$\cosh^2x-\sinh^2x=1$を満たす.点$(\cos x,\sin x)$が円$X^2+Y^2=1$を描くのに対し,点$(\cosh x,\sinh x)$は双曲線$X^2-Y^2=1$を描くので,この名前がある.}
+$\cosh x\ge1$であり,1以上のどんな値も$\cosh x$の形で表せる.
+定義から直接計算すると,
+\begin{align*}
+  &\cosh((n+1)x)+\cosh((n-1)x)\\
+  &\qquad=2\cosh x\cosh(nx)
+\end{align*}
+が成り立つ.余弦の加法定理から得た式と全く同じ形である.
+したがって,\,$x=\cosh t$と置いても$T_n$と同じ規則で値が進み,
+\[
+  T_n(\cosh t)=\cosh(nt)
+\]
+となる.特に$\cosh2t=2\cosh^2t-1$は,倍角の公式そのものである.
+$a_1>1$なら$a_1=\cosh t$と書けるので,\,$a_{n+1}=T_m(a_n)$の一般項は$a_n=\cosh(m^{n-1}t)$になるのだ.
+$\cos$が角度を整数倍するのに対し,\,$\cosh$は$t$を整数倍する.
+
+この見方で,本編の\sectionref*{節：対称式を使う}を振り返ろう.
+\[
+  a_1=3,\qquad a_{n+1}=a_n^2-2
+\]
+は,\,$\frac{a_n}{2}$について$\frac{a_{n+1}}{2}=2\left(\frac{a_n}{2}\right)^2-1=T_2\left(\frac{a_n}{2}\right)$を満たす.
+つまり,三角関数型の$a_n$を2倍しただけの漸化式だったのである.
+$\frac{a_1}{2}=\frac32>1$なので,\,$a_n=2\cosh t_n$と置けば$t_{n+1}=2t_n$であり,
+\[
+  a_n=2\cosh\left(2^{n-1}t_1\right),\qquad e^{t_1}=\frac{3+\sqrt5}{2}
+\]
+を得る.\footnote{$2\cosh t_1=3$は$e^{t_1}+e^{-t_1}=3$なので,\,$e^{t_1}$は$u^2-3u+1=0$の解である.}
+$2\cosh t=e^t+e^{-t}$だから,\,$u=e^t$と置けばこれは$u+\frac1u$にほかならない.
+本編で「積が1になる2数の和」という置き換えを使ったのは,\,$\cosh$の倍角の公式を使っていたことにあたるのだ.
+一般に
+\[
+  2T_m\left(\frac{u+u^{-1}}{2}\right)=u^m+u^{-m}
+\]
+が成り立つので,\,$a_{n+1}=a_n^3-3a_n$のような3倍角の漸化式も同じく解ける.\footnote{$m=3$では$2T_3\left(\frac a2\right)=a^3-3a$である.}
+
+実数の初項で整理しておこう.
+\begin{itemize}
+  \item $-2\le a_1\le2$なら$a_1=2\cos\theta$と書け,\,$a_n=2\cos(2^{n-1}\theta)$となる.
+  \item $a_1\ge2$なら$a_1=2\cosh t$と書け,\,$a_n=2\cosh(2^{n-1}t)$となる.
+  \item $a_1<-2$なら$a_1=-2\cosh t$と書ける.\,$a_2=a_1^2-2=2\cosh2t$で符号が消えるので,\,$n\ge2$では$a_n=2\cosh(2^{n-1}t)$である.
+\end{itemize}
+三角関数型と基本対称式型は,初項が$[-2,2]$の内側か外側かで呼び名が変わっただけの,同じ漸化式なのである.
+
+\paragraphbf{小話：リュカ数}
+$\frac{3+\sqrt5}{2}=\left(\frac{1+\sqrt5}{2}\right)^2$なので,\,$a_1=3$の場合の各項$3,\allowbreak 7,\allowbreak 47,\allowbreak 2207,\allowbreak \ldots$は,黄金比$\varphi=\frac{1+\sqrt5}{2}$を使って$a_n=\varphi^{2^n}+\varphi^{-2^n}$と書ける.
+$L_k=\varphi^k+\left(-\frac1\varphi\right)^k$で定まる数列$2,\allowbreak 1,\allowbreak 3,\allowbreak 4,\allowbreak 7,\allowbreak 11,\allowbreak 18,\allowbreak 29,\allowbreak 47,\allowbreak \ldots$はリュカ数と呼ばれ,フィボナッチ数列と同じ漸化式$L_{k+2}=L_{k+1}+L_k$を満たす.
+$a_n=L_{2^n}$であり,この漸化式はリュカ数の$2,4,8,16,\ldots$番目を順に取り出していたのだ.
+
+
 多項式列を\bookterm{recurrence}{漸化式}で作る例は,\bookterm{chebyshev}{チェビシェフ多項式}だけではない.
 \bookterm{legendre}{ルジャンドル多項式} $P_n(x)$ は,初期値
 \[
@@ -634,54 +694,5 @@ $x=k$ のとき $k$ 番目の積は $1$ になり,ほかの積には $x-k$ の�
 \BookFigLagrange
 
 \bookterm{interpolation}{ラグランジュ補間}は一つの延長候補を作る.それを元の規則と結論づけるには,次数や\bookterm{recurrence}{漸化式}など追加の条件が要る.
-
-\subsection{不動点付近の線形化}\label{節：不動点付近の線形化}
-
-\sectionref*{節：特性方程式型}では,不動点からのずれが$p$倍され,\,$|p|<1$なら近づいた.
-\bookterm{nonlinear}{非線形}の更新でも,微分係数と一次近似で不動点付近の倍率を読める.
-一項前から次が決まる\bookterm{recurrence}{漸化式}
-\[
-  a_{n+1}=f(a_n)
-\]
-を考え,\,$\,\alpha$ を\bookterm{fixed}{不動点} $f(\alpha)=\alpha$ とする.
-そこからのずれを $e_n=a_n-\alpha$ と置くと
-\[
-  e_{n+1}=f(\alpha+e_n)-f(\alpha)
-\]
-である.
-$f$ が $\alpha$ で微分可能なら,微分係数の定義から
-\[
-  \frac{f(\alpha+e)-f(\alpha)}{e}\longrightarrow f'(\alpha)
-  \qquad(e\longrightarrow0)
-\]
-である.
-つまり,ずれ $e$ が十分小さい範囲では
-\[
-  f(\alpha+e)-f(\alpha)\approx f'(\alpha)e
-\]
-となる.
-不動点の近くで曲線を接線に置き換えたのである.収束も調べられる.
-もし $|f'(\alpha)|<1$ なら,\,$\,|f'(\alpha)|$ より大きく $1$ より小さい数 $c$ を選べる.
-微分係数の定義により,\,$\,a_n$ が $\alpha$ に十分近ければ
-\[
-  |e_{n+1}|
-  =|f(\alpha+e_n)-f(\alpha)|
-  \le c|e_n|
-\]
-となる.
-誤差が毎回$c$倍以下に縮むので,十分近い初期値は近くにとどまり,\,$\alpha$へ収束する.
-行列の\bookterm{eigenvalue}{固有値}と同じく,\,$f'(\alpha)$が局所的なずれの倍率を表す.
-一次分数型で先ほどの二つの異なる\bookterm{fixed}{不動点}がある場合には
-\[
-  \begin{aligned}
-    f'(\alpha)
-    &=\frac{ps-qr}{(r\alpha+s)^2}\\
-    &=\frac{\lambda_\alpha\lambda_\beta}{\lambda_\alpha^2}
-    =\frac{\lambda_\beta}{\lambda_\alpha}.
-  \end{aligned}
-\]
-特性方程式から$ps-qr=\lambda_\alpha\lambda_\beta$である.
-比の置き換えで得た\textbf{正確な公比}と,微分による\textbf{局所的な倍率}が一致した.
-\bookterm{linear}{線形}代数と微分は,一歩の変化を倍率で測る見方でつながる.
 
 \BookImport{f-947cf9e311ee}
