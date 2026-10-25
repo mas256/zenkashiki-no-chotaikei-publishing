@@ -1,5 +1,5 @@
 % BOOK-FILE-ID: f-0497b0842775
-\subsection{特性根が虚数の場合}\label{節：特性根が虚数の場合}
+\subsection{特性方程式の解が虚数の場合}\label{節：特性根が虚数の場合}
 
 \sectionref{節：隣接3項型}では,特性方程式の2解$\alpha,\beta$を使って
 \[
@@ -110,9 +110,9 @@ $\rho>0$, $0<\theta<\pi$であり,
 \noindent\bookblocklink{example-complex-1}{hint}{problem}{【方針】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-complex-1}{hint}{problem}]
   \item 初項から数項を計算して\bookterm{periodic}{周期性}を見つけ,\bookterm{general}{一般項}を予想します.その後,\bookterm{induction}{数学的帰納法}で証明します.
-  \item \bookterm{root}{特性根}を\bookterm{polar}{極形式}で表し,\,$\rho=\sqrt2,\,\theta=\frac{\pi}{4}$を用いて\bookterm{general}{一般項}を置きます.
-  \item \bookterm{root}{特性根}は$\pm2i$です.\,$\rho=2,\,\theta=\frac{\pi}{2}$として\bookterm{initial}{初期条件}を代入します.
-  \item \bookterm{root}{特性根}を\bookterm{polar}{極形式}で表し,\,$\rho=2,\,\theta=\frac{\pi}{3}$として係数を決定します.
+  \item 特性方程式の解を\bookterm{polar}{極形式}で表し,\,$\rho=\sqrt2,\,\theta=\frac{\pi}{4}$を用いて\bookterm{general}{一般項}を置きます.
+  \item 特性方程式の解は$\pm2i$です.\,$\rho=2,\,\theta=\frac{\pi}{2}$として\bookterm{initial}{初期条件}を代入します.
+  \item 特性方程式の解を極形式で表し,\,$\rho=2,\,\theta=\frac{\pi}{3}$として係数を決定します.
 \end{enumerate}
 
 \noindent\bookblocklink{example-complex-1}{answer}{problem}{【解答】}\par\nobreak
@@ -168,7 +168,7 @@ $\rho>0$, $0<\theta<\pi$であり,
   \end{aligned}
 \]
 と同じ形である.\,$x=n\theta$を代入すれば,
-$\cos((n-1)\theta)$も$\sin((n-1)\theta)$もこの更新を満たす.
+$\cos((n-1)\theta)$も$\sin((n-1)\theta)$もこの漸化式を満たす.
 従ってその組み合わせ
 \[
   h_n=C\cos((n-1)\theta)+D\sin((n-1)\theta)
@@ -208,17 +208,17 @@ $\rho=1$かつ$\frac{\theta}{2\pi}$が有理数なら,\,$T\theta=2k\pi$となる
 角度が一周の整数倍だけ進むので,\,$a_{n+T}=a_n$となる.
 すべての項が0の数列を除けば,この2条件は必要でもある.これは次で確かめる.
 
-\paragraphbf{2つの基本解を選び直す}\phantomsection\label{解釈：虚数解と基本解}
+\paragraphbf{2つの表し方の関係}\phantomsection\label{解釈：虚数解と基本解}
 最後に,ここまでの計算が何をしていたのかを考えよう.
-結論から言えば,解を表すための\bookterm{basis}{基底}を選び直していたのである.
+結論から言えば,一般項を組み立てる2つの数列を,複素数の累乗から実数の三角関数へ取り替えていたのである.
 $p^2-4q<0$から$q>0$で,2解$\alpha,\overline\alpha$は異なる0でない数である.
-二つの冪$\alpha^{n-1},\overline\alpha^{\,n-1}$の\bookterm{combination}{線形結合}がすべての項で0になるなら,初めの二項から
+$U\alpha^{n-1}+V\overline\alpha^{\,n-1}$がすべての項で0になるなら,初めの2項から
 \[
   U+V=0,\qquad U\alpha+V\overline\alpha=0
 \]
-となる.\,$\alpha\ne\overline\alpha$より$U=V=0$なので,\bookterm{independent}{一次独立}である.
-同じ連立式で任意の初期二項を合わせられ,更新の一意性から全項も一致する.
-したがって2つの累乗は,複素数係数で考えた解全体の基底であり,解全体は2\bookterm{dimension}{次元}となる.
+となる.\,$\alpha\ne\overline\alpha$より$U=V=0$である.
+同じ連立方程式で任意の初めの2項に合わせられ,それ以降の項は漸化式によってすべて決まる.
+したがって,どの解も複素数$A,B$を用いて$A\alpha^{n-1}+B\overline\alpha^{\,n-1}$とただ1通りに表せる.
 
 実数解なら$a_n=\overline{a_n}$より,
 \[
@@ -226,17 +226,17 @@ $p^2-4q<0$から$q>0$で,2解$\alpha,\overline\alpha$は異なる0でない数�
   =\overline B\alpha^{n-1}+\overline A\,\overline\alpha^{\,n-1}.
 \]
 係数の一意性から$A=\overline B,B=\overline A$が必要である.
-一方,実数解$\rho^{n-1}\cos((n-1)\theta)$と$\rho^{n-1}\sin((n-1)\theta)$の初めの二項は,
+一方,実数解$\rho^{n-1}\cos((n-1)\theta)$と$\rho^{n-1}\sin((n-1)\theta)$の初めの2項は,
 それぞれ$(1,\rho\cos\theta)$と$(0,\rho\sin\theta)$である.
-$\rho\sin\theta\ne0$なので,こちらは実数係数で考えた解全体の基底となる.
-虚部を消す計算は,実数の解を表す基底への変更だった.
+$\rho\sin\theta\ne0$なので,どの実数解もこの2つの数列を実数倍して足した形にただ1通りに表せる.
+虚部を消す計算は,一般項を組み立てる2つの数列を取り替える計算だったのである.
 
 \bookterm{periodic}{周期性}の必要条件も示せる.周期$T$があるなら,
 \[
   A(\alpha^T-1)\alpha^{n-1}
   +\overline A(\overline\alpha^{\,T}-1)\overline\alpha^{\,n-1}=0.
 \]
-独立性から両係数が0となる.すべての項が0ではない実数解では$A,\overline A\ne0$なので,
+先ほど示した表し方の一意性から,両係数が0となる.すべての項が0ではない実数解では$A,\overline A\ne0$なので,
 $\alpha^T=\overline\alpha^{\,T}=1$.したがって$\rho=1$,\,$\frac{\theta}{2\pi}$は有理数である.
 
 \paragraphbf{補足：同じ数列を指数$n$で表す}
@@ -264,7 +264,7 @@ $a_2=\rho^2(c\cos2\theta+d\sin2\theta)$から決まり,対応は
 となる.変えたのは表示と係数であり,項の番号ではない.
 
 \paragraphbf{補足：第0項から始める場合}
-初期条件を$a_0,a_1$とし,\,$n\ge0$で更新する場合は,別の係数$C_0,D_0$を使う.
+初期条件を$a_0,a_1$とし,\,$n\ge0$で漸化式を用いる場合は,別の係数$C_0,D_0$を使う.
 指数$n$の形に$n=0,1$を代入して,
 \[
   C_0=a_0,\qquad

@@ -12,7 +12,7 @@
 \paragraphbf{解法を選ぶ手順}
 次の4段階を繰り返すと良い.ただし,チャートの行き先はあくまで候補である.
 \begin{enumerate}
-  \item \textbf{観察}：総和,分母,倍率,付加項など,目立つ特徴を見つける.
+  \item \textbf{観察}：総和,分母,係数,付加項など,目立つ特徴を見つける.
   \item \textbf{候補}：何を変えると,その特徴が消えるか,一定になるかを考える.
   \item \textbf{条件}：割る量の非零,\bookterm{logarithm}{対数}の真数の正値,初項による定数解の分岐を確かめる.
   \item \textbf{変形と評価}：置換後の数列が満たす漸化式を実際に計算する.簡単にならなければ,残った項から候補を選び直す.
@@ -48,7 +48,7 @@
 
     \item \textbf{繰り返すまとまり}
 
-      $a_n+n$と$a_{n+1}+(n+1)$が現れるなら,\,$b_n=a_n+n$を追う.
+      $a_n+n$と$a_{n+1}+(n+1)$が現れるなら,\,$b_n=a_n+n$と置く.
 
     \item \textbf{既知の公式}
 
@@ -59,14 +59,14 @@
 
       \begin{samepage}
         \item \textbf{複数の\bookterm{sequence}{数列}}\\*[3pt]
-        定数係数の\bookterm{linear}{線形}連立漸化式なら,和と差などで別々の更新へ分ける（連立型）.
+        定数係数の\bookterm{linear}{線形}連立漸化式なら,和と差などで別々の漸化式へ分ける（連立型）.
         \par
       \end{samepage}
 
     \item \textbf{整数部分}
 
       記号の位置を見る（ガウス型）.項の値なら整数性や余り,添字なら偶奇や群,付加項なら同じ値を取る範囲に注目する.
-      \bookterm{floor-function}{床関数}を外すには,整数性と上下の不等式を確かめる.
+      \bookterm{floor}{ガウス記号}を外すには,整数性と上下の不等式を確かめる.
   \end{enumerate}
 
   \medskip
@@ -79,7 +79,7 @@
       \begin{itemize}[beginpenalty=10000]
         \item 一定なら等比型や特性方程式型の解法を試す.\,$1$なら\bookterm{difference}{階差}を見る.
         \item $n$に依存するなら積を調べる（\bookterm{ratio}{階比}型）.
-          付加項もあれば,数列で割って倍率をそろえる.例えば係数$\frac{n+1}{n}$なら$b_n=\frac{a_n}{n}$が候補になる.
+          付加項もあれば,両辺を数列で割って$a_n$の係数を1にする.例えば係数$\frac{n+1}{n}$なら$b_n=\frac{a_n}{n}$が候補になる.
       \end{itemize}
       付加項も併せて見る.
 
@@ -124,7 +124,7 @@
   \paragraphbf{補足：初項の手掛かり}
 
   初項$\frac{1}{\sqrt6-\sqrt2}$を有理化すると$\frac{\sqrt6+\sqrt2}{4}=\cos15^\circ=\sin75^\circ$となる.
-  三角関数を試す手掛かりだが,更新式の形と合わせて判断する.
+  三角関数を試す手掛かりだが,漸化式の形と合わせて判断する.
   \par
 \endgroup
 

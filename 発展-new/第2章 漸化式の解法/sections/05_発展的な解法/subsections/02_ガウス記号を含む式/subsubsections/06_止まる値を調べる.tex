@@ -20,7 +20,7 @@ $0\le r+t<m$より両辺とも$q$になるからである.
 
 \begin{bookpoint}
   \textbf{POINT}\par
-  動かなくなる値を探し,何回の更新でそこに達するかを調べる.
+  動かなくなる値を探し,漸化式を何回用いればそこに達するかを調べる.
 \end{bookpoint}
 
 \noindent \bookblocklink{example-gauss-role-6}{problem}{answer}{【例題】}\par\nobreak
@@ -36,8 +36,8 @@ $0\le r+t<m$より両辺とも$q$になるからである.
 
 \noindent \bookblocklink{example-gauss-role-6}{hint}{problem}{【方針】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-6}{hint}{problem}]
-  \item 6を引くと,\bookterm{floor-function}{床関数}によって半分にする\bookterm{recurrence}{漸化式}になります.
-    初項が6より小さい場合は,負の数の\bookterm{floor-function}{床関数}を使って考えましょう.
+  \item 6を引くと,\bookterm{floor}{ガウス記号}によって半分にする\bookterm{recurrence}{漸化式}になります.
+    初項が6より小さい場合は,負の数の\bookterm{floor}{ガウス記号}を使って考えましょう.
 \end{enumerate}
 
 \noindent \bookblocklink{example-gauss-role-6}{answer}{problem}{【解答】}\par\nobreak
@@ -51,18 +51,18 @@ $0\le r+t<m$より両辺とも$q$になるからである.
 \noindent \bookblocklink{example-gauss-role-6}{solution}{problem}{【解法】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-6}{solution}{problem}]
   \item 初項からすべての項が非負整数となる.
-    $b_n=a_n-6$とおくと,整数6を\bookterm{floor-function}{床関数}の外に出せるので,
+    $b_n=a_n-6$とおくと,整数6を\bookterm{floor}{ガウス記号}の外に出せるので,
     \begin{align*}
       b_{n+1}
       &=\left\lfloor\frac{b_n+12}{2}\right\rfloor-6\\
       &=\left\lfloor\frac{b_n}{2}\right\rfloor.
     \end{align*}
-    \bookterm{floor-function}{床関数}の合成の性質と帰納法により,
+    \bookterm{floor}{ガウス記号}の合成の性質と帰納法により,
     \[
       b_n=\left\lfloor\frac{M-6}{2^{n-1}}\right\rfloor.
     \]
     十分大きな$n$で,中身は$M\ge6$なら$[0,1)$,\,$M<6$なら$(-1,0)$に入る.
-    床関数の値はそれぞれ0,\,$-1$なので,6または5に有限回で到達する.
+    ガウス記号の値はそれぞれ0,\,$-1$なので,6または5に有限回で到達する.
 
     実際,整数$x$が\bookterm{fixed}{不動点}となる条件は,
     \[

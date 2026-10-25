@@ -127,7 +127,7 @@ $\bookeqbackref{sim-general-sum}{(1)}+\bookeqbackref{sim-general-difference}{(2)
     &\quad+(q\alpha+s\beta)b_n
   \end{aligned}
 \]
-これを$\gamma(\alpha a_n+\beta b_n)$にそろえるには,係数を比較して
+これを$\gamma(\alpha a_n+\beta b_n)$の形にするには,係数を比較して
 \[
   \begin{cases}
     (p-\gamma)\alpha+r\beta=0\\
@@ -154,12 +154,12 @@ $\bookeqbackref{sim-general-sum}{(1)}+\bookeqbackref{sim-general-difference}{(2)
   c_n&=\alpha a_n+\beta b_n,\\
   d_n&=\alpha'a_n+\beta'b_n
 \end{align*}
-と置けば,\,$c_{n+1}=\gamma_1c_n,\ d_{n+1}=\gamma_2d_n$なので,倍率が0でなければ,
+と置けば,\,$c_{n+1}=\gamma_1c_n,\ d_{n+1}=\gamma_2d_n$なので,公比が0でなければ,
 \[
   c_n=c_1\gamma_1^{n-1},\qquad
   d_n=d_1\gamma_2^{n-1}
 \]
-となる.初項は元の$a_1,b_1$から求める.\footnote{倍率が0の場合は,その量の初項を別に扱い,\,$n\ge2$で0とする.}
+となる.初項は元の$a_1,b_1$から求める.\footnote{公比が0の場合は,その量の初項を別に扱い,\,$n\ge2$で0とする.}
 
 元の項へは,
 \[
@@ -179,7 +179,7 @@ $\bookeqbackref{sim-general-sum}{(1)}+\bookeqbackref{sim-general-difference}{(2)
 異なる根は十分条件であり,必要条件ではない.
 重解では比例しない二組を取れるかで分かれる.\footnote{例えば$a_{n+1}=2a_n,\ b_{n+1}=2b_n$では$(1,0),(0,1)$を選べる.
   二組を取れない場合は,一方の量を先に求め,残る式へ代入する.\bookproblemref{practice-basic}{25}{標準問25}では,その式を指数の付加項として解く.\booknavref{節：付加項がない場合}{隣接3項型の重解}とも比べられる.}
-このように重みを選べば,元の連立漸化式から等比型の数列を2つ作れる.\footnote{解が虚数の場合は\booknavref{節：特性根が虚数の場合}{特性根が虚数の場合}を参照.}
+このように重みを選べば,元の連立漸化式から等比型の数列を2つ作れる.\footnote{解が虚数の場合は\booknavref{節：特性根が虚数の場合}{特性方程式の解が虚数の場合}を参照.}
 
 % スマホ版では直前の脚注とPOINTの縦方向のはみ出しを避ける.
 \BookMathLayout{}{\pagebreak}
@@ -254,7 +254,7 @@ $\gamma=4$なら$\alpha=\beta$より$(1,1)$を選べる.
 \[
   c_n=a_n-b_n,\qquad d_n=a_n+b_n
 \]
-であり,更新は$c_{n+1}=2c_n,\ d_{n+1}=4d_n$となる.
+であり,漸化式は$c_{n+1}=2c_n,\ d_{n+1}=4d_n$となる.
 初項$c_1=0,\ d_1=2$も最初の解法と一致する.
 対称な係数なら足し引きが早いが,それは重み$(1,1),(1,-1)$がたまたま見えていたからなのだ.
 和と差も,重みを付ける方法の一例なのである.
@@ -279,4 +279,4 @@ $b_n$を消去してみよう.1つ目の式から$qb_n=a_{n+1}-pa_n$である.
 は,重みを決めるときに現れた特性方程式と全く同じである.
 2つの方法は,同じ方程式を別の方向から見ていたのである.
 逆に,隣接3項型$a_{n+2}+pa_{n+1}+qa_n=0$も,\,$b_n=a_{n+1}$と置けば$a_n,b_n$の連立型として書ける.
-この見方は\chapterref{章：解法の背景と広がり}の行列でもう一度扱う.
+この解法は\chapterref{章：解法の背景と広がり}の行列でもう一度扱う.

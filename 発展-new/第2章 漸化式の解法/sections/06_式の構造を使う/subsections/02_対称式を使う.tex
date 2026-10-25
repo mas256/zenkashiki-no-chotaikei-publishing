@@ -43,13 +43,13 @@
     &=\left(\alpha^{2^{n-1}}+\alpha^{-2^{n-1}}\right)^2-2\\
     &=b_n^2-2
   \end{align*}
-  と更新が一致する.初項を合わせると,
+  と漸化式が一致する.初項を合わせると,
   \begin{align*}
     &\alpha+\alpha^{-1}=3\\
     &\alpha^2-3\alpha+1=0\\
     &\therefore \quad \alpha=\frac{3\pm \sqrt{5}}{2}
   \end{align*}
-  二つの根は互いに逆数で,同じ$b_n$を与える.初項と更新の一致から,
+  2つの解は互いに逆数で,同じ$b_n$を与える.初項と漸化式の一致から,
   \[
     a_n=\left(\frac{3+ \sqrt{5}}{2}\right)^{2^{n-1}}+\left(\frac{3- \sqrt{5}}{2}\right)^{2^{n-1}}
   \]
@@ -100,14 +100,14 @@
     b_{n+1}&=\alpha^{3^{n}}-\alpha^{-3^{n}}\\
     &=b_n^3+3b_n
   \end{align*}
-  と更新が一致する.初項を合わせると,
+  と漸化式が一致する.初項を合わせると,
   \begin{align*}
     &\alpha-\alpha^{-1}=\frac{8}{3}\\
     &3\alpha^2-8\alpha-3=0\\
     &\therefore \quad \alpha=3,\,-\frac13
   \end{align*}
   $3^{n-1}$は奇数なので,どちらを選んでも$b_n$は同じ値になる.
-  初項と更新の一致から,\,$\alpha=3$を選べば,
+  初項と漸化式の一致から,\,$\alpha=3$を選べば,
   \[
     a_n=3^{3^{n-1}}-3^{-3^{n-1}}
   \]
