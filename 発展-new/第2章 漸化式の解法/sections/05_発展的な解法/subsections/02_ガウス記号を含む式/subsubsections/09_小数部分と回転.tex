@@ -2,9 +2,15 @@
 \subsubsection{小数部分と回転}\label{節：小数部分と回転}
 $\{x\}=x-\lfloor x\rfloor$は$x$の小数部分を表し,\,$0\le\{x\}<1$である.
 例えば,\,$\{-0.2\}=0.8$となる.
-一定の量を加えて整数部分を捨てれば,\,$[0,1)$へ戻る.
-両端をつないで円周と見れば,\textbf{境界を越えても同じ割合で進む回転}である.
-越えた回数は\bookterm{floor-function}{床関数}が記録する.周期は,進む割合が有理数かどうかで決まる.
+一定の量を足しては整数部分を捨てる,という操作を繰り返すとどうなるだろうか.
+値は$0$と$1$の間を行ったり来たりするが,両端をつないで円周だと思えば,これは一定の割合で進む回転なのだ.
+円周を何周したかはガウス記号が記録してくれる.
+周期があるかどうかは,進む割合が有理数かどうかで決まる.
+
+\begin{bookpoint}
+  \textbf{POINT}\par
+  小数部分を取る漸化式は,円周上の回転として見る.
+\end{bookpoint}
 
 \noindent \bookblocklink{example-gauss-role-9}{problem}{answer}{【例題】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-9}{problem}{answer}]

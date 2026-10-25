@@ -1,43 +1,48 @@
 % BOOK-FILE-ID: f-0497b0842775
 \subsection{特性根が虚数の場合}\label{節：特性根が虚数の場合}
 
-隣接3\,項間\bookterm{recurrence}{漸化式}(\sectionref{節：隣接3項型})の式
-$a_n=A\alpha^{n-1}+B\beta^{n-1}$は,異なる\bookterm{root}{特性根}が虚数でも成り立つ.
-ここでは\bookterm{trigonometric}{三角関数}を使い,実数の式へ直す.
+\sectionref{節：隣接3項型}では,特性方程式の2解$\alpha,\beta$を使って
+\[
+  a_n=A\alpha^{n-1}+B\beta^{n-1}
+\]
+と表した.
+では,特性方程式の解が虚数になったらどうなるだろうか.
+実は,この式は2解が虚数でもそのまま成り立つ.
+しかし,実数の数列の一般項が虚数を使って書かれているのは,どうにも気持ちが悪い.
+ここでは三角関数を使って,実数だけの式に直すことを目標にしよう.
 
 \[
   a_{n+2}+pa_{n+1}+qa_n=0\quad(n\ge1)
 \]
 の$p,q,a_1,a_2$を実数とする.\bookterm{characteristic}{特性方程式}$x^2+px+q=0$が
-$p^2-4q<0$を満たすと,根は互いに\bookterm{conjugate}{共役}な$\alpha,\overline\alpha$となる.
-例えば$a_{n+2}=2a_{n+1}-2a_n$では根が$1\pm i$なので,
+$p^2-4q<0$を満たすと,2解は互いに\bookterm{conjugate}{共役}な虚数$\alpha,\overline\alpha$となる.
+例えば$a_{n+2}=2a_{n+1}-2a_n$では2解が$1\pm i$なので,
 \[
   a_n=A(1+i)^{n-1}+B(1-i)^{n-1}
 \]
-と書ける.この式の実数性を,\bookterm{polar}{極形式}から読み直そう.
-初めの二項も更新の係数も実数だから,実際の各項も実数である.
-複素数を使った二つの項の中で,虚部が打ち消し合う形を取り出したい.
+と書ける.
+初めの2項も漸化式の係数も実数だから,実際には各項は実数のはずである.
+つまり,この式の中で虚部がうまく打ち消し合っているのだ.その様子を\bookterm{polar}{極形式}で見てみよう.
 
-虚部が正の根$\alpha$について,複素平面上の原点からの距離を$\rho$,正の実軸から測る角度を$\theta$とする.
-この角度が\bookterm{argument}{偏角}であり,\,$\rho>0$, $0<\theta<\pi$である.\footnote{$e^{it}=\cos t+i\sin t$という表記を使う.}
+\paragraphbf{極形式で書き直す}
+虚部が正の解$\alpha$について,原点からの距離を$\rho$,\bookterm{argument}{偏角}を$\theta$とする.
+$\rho>0$, $0<\theta<\pi$であり,
 \[
-  \alpha=\rho e^{i\theta},\qquad
-  \overline\alpha=\rho e^{-i\theta}
+  \alpha=\rho(\cos\theta+i\sin\theta),\qquad
+  \overline\alpha=\rho(\cos\theta-i\sin\theta)
 \]
-特性根を一回掛けると,距離は$\rho$倍,向きは$\theta$だけ進む.
-従って,\,$t=(n-1)\theta$と置けば
+である.ド・モアブルの定理より,\,$t=(n-1)\theta$と置けば
 \[
   \begin{aligned}
     \alpha^{n-1}&=\rho^{n-1}(\cos t+i\sin t),\\
     \overline\alpha^{\,n-1}&=\rho^{n-1}(\cos t-i\sin t)
   \end{aligned}
 \]
-となる.
+となる.解を1回掛けるごとに,距離は$\rho$倍,向きは$\theta$だけ回転するのだ.
 \BookFigComplexRoots
 
-根の二つの冪は共役で,余弦の部分は同じ,正弦につく虚数の符号は反対になっている.
-$A,B$も\bookterm{conjugate}{共役}にして虚部を消す.
-和$A+B$と$i(A-B)$が実数になるよう,その値を$C,D$と書く.
+2つの累乗は互いに共役で,\,$\cos t$の部分は同じ,\,$i\sin t$の符号だけが反対になっている.
+したがって$A,B$も互いに共役に選べば,虚部が消えてくれそうだ.
 \par\noindent\begin{minipage}{\linewidth}
   実数$C,D$を用いて,
   \[
@@ -45,6 +50,7 @@ $A,B$も\bookterm{conjugate}{共役}にして虚部を消す.
   \]
   と置く.
 \end{minipage}\par
+すると$A+B=C$, $i(A-B)=D$なので,
 \BookMathLayout{\[
     \begin{aligned}
       &A\alpha^{n-1}+B\overline\alpha^{\,n-1}\\
@@ -69,11 +75,11 @@ $A,B$も\bookterm{conjugate}{共役}にして虚部を消す.
       &+D\sin((n-1)\theta)\}
     \end{aligned}
   \]}
-を得る.逆に実数列なら$B=\overline A$が必要なことは,
-\hyperref[解釈：虚数解と基本解]{「二つの基本解を選び直す」}で確かめる.
+を得る.虚数がきれいに消えた.\footnote{逆に,実数の数列なら$B=\overline A$でなければならないことは,
+\hyperref[解釈：虚数解と基本解]{「2つの基本解を選び直す」}で確かめる.}
 
-\paragraphbf{初めの二項を合わせる}
-$n=1,2$を代入すると,
+\paragraphbf{初めの2項を合わせる}
+あとは$C,D$を初期条件から決めればよい.\,$n=1,2$を代入すると,
 \[
   a_1=C,\qquad a_2=\rho(C\cos\theta+D\sin\theta)
 \]
@@ -86,8 +92,12 @@ $n=1,2$を代入すると,
       D&=\cfrac{\cfrac{a_2}{\rho}-a_1\cos\theta}{\sin\theta}
     \end{aligned}
   \]}
-と決まる.\,$\sin\theta\ne0$だから割れる.
-根から$\rho,\theta$を読み,\bookterm{initial}{初期条件}を合わせればよい.
+と決まる.\,$0<\theta<\pi$より$\sin\theta\ne0$なので割ってよい.
+
+\begin{bookpoint}
+  \textbf{POINT}\par
+  特性方程式の虚数解を$\rho(\cos\theta\pm i\sin\theta)$と極形式で表し,\,$a_n=\rho^{n-1}\{C\cos((n-1)\theta)+D\sin((n-1)\theta)\}$と置いて初期条件から$C,D$を決める.
+\end{bookpoint}
 
 \noindent \bookblocklink{example-complex-1}{problem}{answer}{【例題】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-complex-1}{problem}{answer}]
@@ -170,11 +180,11 @@ $b_1=h_1,b_2=h_2$であり,\,$b_n=h_n,b_{n+1}=h_{n+1}$なら,
 \[
   b_{n+2}=2\cos\theta\,h_{n+1}-h_n=h_{n+2}.
 \]
-\textbf{加法定理で候補の更新を確かめ,帰納法で全項の一致を得た.}
+加法定理で漸化式を満たすことを確かめ,帰納法で全項の一致を示したのである.
 最後に$a_n=\rho^{n-1}b_n$へ戻せば,前と同じ一般項になる.
 
 \paragraphbf{振幅・位相・周期}
-$C=D=0$なら零数列である.それ以外では$R=\sqrt{C^2+D^2}>0$とし,
+$C=D=0$なら,すべての項が0の数列である.それ以外では$R=\sqrt{C^2+D^2}>0$とし,
 \[
   \cos\varphi=\frac CR,\qquad \sin\varphi=\frac DR
 \]
@@ -196,22 +206,19 @@ $C=D=0$なら零数列である.それ以外では$R=\sqrt{C^2+D^2}>0$とし,
 三角関数の式でも,整数添字で周期的とは限らない.
 $\rho=1$かつ$\frac{\theta}{2\pi}$が有理数なら,\,$T\theta=2k\pi$となる正整数$T$と整数$k$が存在する.
 角度が一周の整数倍だけ進むので,\,$a_{n+T}=a_n$となる.
-零数列を除けば,この二条件は必要でもある.次に独立性から確かめる.
+すべての項が0の数列を除けば,この2条件は必要でもある.これは次で確かめる.
 
-\paragraphbf{二つの基本解を選び直す}\phantomsection\label{解釈：虚数解と基本解}
-\sectionref*{節：補助数列・正規化}では,目標の更新に合う量を作った.
-$b_n=\frac{a_n}{\rho^{n-1}}$も,根の絶対値$\rho$の累乗で$a_n$を割り,
-係数の$\rho,\rho^2$を取り除く操作である.残る更新が加法定理になった.
-
-\sectionref*{節：隣接3項型}の見方では,解を表す\bookterm{basis}{基底}を選び直している.
-$p^2-4q<0$から$q>0$で,根$\alpha,\overline\alpha$は異なる非零の数である.
-二つの冪$\alpha^{n-1},\overline\alpha^{\,n-1}$の\bookterm{combination}{線形結合}が零数列なら,初めの二項から
+\paragraphbf{2つの基本解を選び直す}\phantomsection\label{解釈：虚数解と基本解}
+最後に,ここまでの計算が何をしていたのかを考えよう.
+結論から言えば,解を表すための\bookterm{basis}{基底}を選び直していたのである.
+$p^2-4q<0$から$q>0$で,2解$\alpha,\overline\alpha$は異なる0でない数である.
+二つの冪$\alpha^{n-1},\overline\alpha^{\,n-1}$の\bookterm{combination}{線形結合}がすべての項で0になるなら,初めの二項から
 \[
   U+V=0,\qquad U\alpha+V\overline\alpha=0
 \]
 となる.\,$\alpha\ne\overline\alpha$より$U=V=0$なので,\bookterm{independent}{一次独立}である.
 同じ連立式で任意の初期二項を合わせられ,更新の一意性から全項も一致する.
-従って二つの冪は複素数係数で考えた解全体の基底であり,解全体は2\bookterm{dimension}{次元}となる.
+したがって2つの累乗は,複素数係数で考えた解全体の基底であり,解全体は2\bookterm{dimension}{次元}となる.
 
 実数解なら$a_n=\overline{a_n}$より,
 \[
@@ -229,14 +236,12 @@ $\rho\sin\theta\ne0$なので,こちらは実数係数で考えた解全体の�
   A(\alpha^T-1)\alpha^{n-1}
   +\overline A(\overline\alpha^{\,T}-1)\overline\alpha^{\,n-1}=0.
 \]
-独立性から両係数が零となる.非零の実数解では$A,\overline A\ne0$なので,
-$\alpha^T=\overline\alpha^{\,T}=1$.従って$\rho=1$,\,$\frac{\theta}{2\pi}$は有理数である.
+独立性から両係数が0となる.すべての項が0ではない実数解では$A,\overline A\ne0$なので,
+$\alpha^T=\overline\alpha^{\,T}=1$.したがって$\rho=1$,\,$\frac{\theta}{2\pi}$は有理数である.
 
-\paragraphbf{補足：指数と初項の番号}
-主な導出では$a_1,a_2$と指数$n-1$を使った.指数$n$の表示と,第0項から始める表示も区別しておこう.
-
-\paragraphbf{同じ数列を指数$n$で表す}
-非零の根なら$A\alpha^{n-1}=\left(\frac{A}{\alpha}\right)\alpha^n$と係数を取り直せる.
+\paragraphbf{補足：同じ数列を指数$n$で表す}
+ここまでは$a_1,a_2$から始めて指数を$n-1$にしてきたが,指数を$n$にした表示もよく使われるので紹介しておこう.
+0でない解なら$A\alpha^{n-1}=\left(\frac{A}{\alpha}\right)\alpha^n$と係数を取り直せる.
 $\widetilde A=\frac{A}{\alpha}$, $\widetilde B=\frac{B}{\overline\alpha}$とすれば,
 \[
   \begin{aligned}
@@ -258,7 +263,7 @@ $a_2=\rho^2(c\cos2\theta+d\sin2\theta)$から決まり,対応は
   \]}
 となる.変えたのは表示と係数であり,項の番号ではない.
 
-\paragraphbf{第0項から始める場合}
+\paragraphbf{補足：第0項から始める場合}
 初期条件を$a_0,a_1$とし,\,$n\ge0$で更新する場合は,別の係数$C_0,D_0$を使う.
 指数$n$の形に$n=0,1$を代入して,
 \[

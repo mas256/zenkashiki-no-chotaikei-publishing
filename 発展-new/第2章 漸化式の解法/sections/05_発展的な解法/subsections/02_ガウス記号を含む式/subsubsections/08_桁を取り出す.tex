@@ -1,14 +1,19 @@
 % BOOK-FILE-ID: f-267b502a1839
 \subsubsection{桁を取り出す}\label{節：桁を取り出す}
+ガウス記号を使うと,整数の桁を1つずつ取り出すことができる.
 正整数$b\ge2$に対し,非負整数$n$を$b$で割って,
 \[
   q=\left\lfloor\frac nb\right\rfloor,
   \qquad r=n-b\left\lfloor\frac nb\right\rfloor
 \]
 とおくと,\,$n=bq+r,\ 0\le r<b$である.
-$b$進法は,数字0から$b-1$を使い,位を$b$倍ずつにする表し方である.
-$q$は最後の桁を除いた整数,\,$r$はその桁の数字となる.十進法なら一の位に当たる.
-\textbf{商は最後の桁を除いた数,余りは最後の桁の数字を表す.}
+$b$進法は,数字$0$から$b-1$を使い,位を$b$倍ずつにする表し方であった.
+したがって,\,$q$は最後の桁を除いた整数,\,$r$は最後の桁の数字である.十進法なら$r$は一の位に当たる.
+
+\begin{bookpoint}
+  \textbf{POINT}\par
+  $b$で割った商は最後の桁を除いた数,余りは最後の桁の数字を表す.
+\end{bookpoint}
 
 \noindent \bookblocklink{example-gauss-role-8}{problem}{answer}{【例題】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-8}{problem}{answer}]

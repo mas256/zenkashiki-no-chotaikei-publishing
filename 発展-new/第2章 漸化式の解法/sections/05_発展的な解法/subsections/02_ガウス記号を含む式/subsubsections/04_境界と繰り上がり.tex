@@ -1,6 +1,7 @@
 % BOOK-FILE-ID: f-c022d2466001
 \subsubsection{境界と繰り上がり}\label{節：境界と繰り上がり}
-正整数$n$と整数$m\ge2$に対して,
+ガウス記号の差を取ると,値が切り替わる瞬間だけを取り出すことができる.
+例えば正整数$n$と整数$m\ge2$に対して
 \[
   \left\lfloor\frac nm\right\rfloor-
   \left\lfloor\frac{n-1}{m}\right\rfloor
@@ -9,17 +10,21 @@
     0 & (\text{それ以外})
   \end{cases}
 \]
-となり,商が増える境界を検出する.
-$\lfloor\sqrt n\rfloor-\lfloor\sqrt{n-1}\rfloor$なら平方数のときだけ1になる.
-\textbf{条件を式で表し,\bookterm{recurrence}{漸化式}に組み込める.}
+となる.\,$\lfloor\sqrt n\rfloor-\lfloor\sqrt{n-1}\rfloor$なら,平方数のときだけ1になる.
+「$n$が$m$の倍数のとき」といった条件を,式として漸化式に組み込めるのだ.
 
-和の繰り上がりも検出できる.小数部分を$\{x\}=x-\lfloor x\rfloor$と書けば,
+和の繰り上がりも同じように検出できる.小数部分を$\{x\}=x-\lfloor x\rfloor$と書けば,
 \begin{align*}
   &\lfloor x+y\rfloor-\lfloor x\rfloor-\lfloor y\rfloor\\
-  &\qquad=\lfloor\{x\}+\{y\}\rfloor\in\{0,1\}.
+  &\qquad=\lfloor\{x\}+\{y\}\rfloor\in\{0,1\}
 \end{align*}
-は小数部分の和が1以上のときだけ1となる.
-\bookterm{floor-function}{床関数}を和に分配したときのずれは,繰り上がりを表す.
+であり,小数部分の和が1以上のときだけ1になる.
+ガウス記号を和に分配できない理由は,この繰り上がりにあったのである.
+
+\begin{bookpoint}
+  \textbf{POINT}\par
+  ガウス記号の差は,境界を越えたときだけ1になる.条件を式で表すのに使う.
+\end{bookpoint}
 
 \noindent \bookblocklink{example-gauss-role-4}{problem}{answer}{【例題】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-4}{problem}{answer}]
