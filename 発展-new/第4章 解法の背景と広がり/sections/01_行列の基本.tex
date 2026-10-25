@@ -126,6 +126,51 @@ $B$の各列に$A$を掛けた結果を並べると,積$AB$が得られる.
 $I$を\textbf{\bookterm{identity}{単位行列}}という.
 数の累乗で$a^0=1$とするのに対応して,\bookterm{matrix}{行列}では$A^0=I$と定める.
 
+\subsection{回転と複素数の掛け算}\label{節：回転と複素数の掛け算}
+
+同じ\bookterm{matrix}{行列}を繰り返し掛けると何が起こるのか,図で見やすい例を1つ用意しておこう.
+原点を中心に,点を角$\theta$だけ回す操作である.
+
+長さ1の点$(\cos\varphi,\sin\varphi)$を角$\theta$だけ回すと,\,$(\cos(\varphi+\theta),\sin(\varphi+\theta))$に移る.
+\bookterm{addition}{加法定理}で展開すると
+\[
+  \begin{aligned}
+    \cos(\varphi+\theta)&=\cos\theta\cos\varphi-\sin\theta\sin\varphi,\\
+    \sin(\varphi+\theta)&=\sin\theta\cos\varphi+\cos\theta\sin\varphi
+  \end{aligned}
+\]
+である.\,$\cos\varphi,\sin\varphi$に掛かる係数を並べると
+\[
+  R(\theta)=\begin{pmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{pmatrix}
+\]
+となり,\,$R(\theta)\begin{pmatrix}\cos\varphi\\\sin\varphi\end{pmatrix}=\begin{pmatrix}\cos(\varphi+\theta)\\\sin(\varphi+\theta)\end{pmatrix}$と書ける.
+長さ$r$の点$r(\cos\varphi,\sin\varphi)$も,両辺を$r$倍すれば同じように回る.
+この$R(\theta)$を\textbf{回転行列}という.
+
+回転を2回続ければ角$2\theta$の回転になるので,\,$R(\theta)^2=R(2\theta)$である.
+繰り返せば
+\[
+  R(\theta)^n=R(n\theta)
+\]
+となる.同じ行列を繰り返し掛けることが,一定の角を何度も足すことになるのだ.
+
+この行列は,複素数の掛け算にも現れる.
+複素数$a+bi$を$x+yi$に掛けると
+\[
+  (a+bi)(x+yi)=(ax-by)+(bx+ay)i
+\]
+となる.実部と虚部を縦に並べたベクトルで見ると
+\[
+  \begin{pmatrix}ax-by\\bx+ay\end{pmatrix}
+  =\begin{pmatrix}a&-b\\b&a\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}
+\]
+である.ここで$a+bi=r(\cos\theta+i\sin\theta)$と極形式で書けば,
+\[
+  \begin{pmatrix}a&-b\\b&a\end{pmatrix}=rR(\theta)
+\]
+となる.つまり,複素数を掛けることは,\textbf{角$\theta$の回転と$r$倍の拡大・縮小}を表す行列を掛けることなのである.
+\sectionref*{節：特性根が虚数の場合}で複素数の冪が回転として現れたのは,このためだったのだ.
+
 \subsection{固有ベクトルと固有値}
 
 毎回\bookterm{matrix}{行列}の積を計算するのは手間がかかる.
@@ -218,11 +263,11 @@ $k=0$のときは元の分解式を読み,\,$k\ge1$で\bookterm{eigenvalue}{固�
   \end{aligned}
 \]
 である.
-一般に,零でない\bookterm{row-vector}{行ベクトル}$L$が$LA=\gamma L$を満たすとき,\,$L$を\textbf{\bookterm{left-eigen}{左固有ベクトル}}という.
+一般に,零でない\bookterm{row-vector}{行ベクトル}$L$が$LA=\lambda L$を満たすとき,\,$L$を\textbf{\bookterm{left-eigen}{左固有ベクトル}}という.
 この場合,\bookterm{column-vector}{列ベクトル}$\boldsymbol{v}$から作った数$L\boldsymbol{v}$は,更新後には
 \[
   L(A\boldsymbol{v})=(LA)\boldsymbol{v}
-  =\gamma L\boldsymbol{v}
+  =\lambda L\boldsymbol{v}
 \]
 となる.
 たとえば$L=(1,\,1)$なら,\,$x+y$という和が更新によって$3$倍される.
@@ -263,7 +308,7 @@ $(a,b)=(0,\,0)$の場合も,残る一つの式から零でない解を選べる.
     &=\lambda^2-(p+s)\lambda+(ps-qr)=0.
   \end{aligned}
 \]
-これを\bookterm{matrix}{行列}$A$の\textbf{\bookterm{characteristic}{特性方程式}}という.
+本書ではこれを\bookterm{matrix}{行列}$A$の\textbf{固有値の方程式}と呼ぶ.\footnote{行列の\bookterm{characteristic}{特性方程式}と呼ぶのが一般的である.本編で「特性方程式」と呼んだ方程式には,この固有値の方程式にあたるものと,不動点の値を求める方程式にあたるものがあるので,付録では呼び分けておく.}
 $\lambda$を求めた後,成分の連立方程式から対応する\bookterm{eigenvector}{固有ベクトル}を求められる.
 たとえば$A=\begin{pmatrix}2&1\\1&2\end{pmatrix}$では
 \[
