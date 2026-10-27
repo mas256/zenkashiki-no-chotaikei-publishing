@@ -113,7 +113,7 @@
 \newcommand{\BookFigApproach}{\BookDiagram{『きれいな形』へ帰着させるための一連の操作}{
 
     \node[box](a)at(0,0){元の漸化式};\node[box](b)at(2.6,0){特徴を観察};\node[box](c)at(5.2,0){新しい量 $b_n$};
-    \node[box](d)at(5.2,-1.5){単純な更新};\node[box](e)at(2.6,-1.5){計算・性質を調べる};\node[box](f)at(0,-1.5){元の項に戻す};
+    \node[box](d)at(5.2,-1.5){簡単な漸化式};\node[box](e)at(2.6,-1.5){計算・性質を調べる};\node[box](f)at(0,-1.5){元の項に戻す};
     \draw[->](a)--(b);\draw[->](b)--(c);\draw[->](c)--(d);\draw[->](d)--(e);\draw[->](e)--(f);
     \draw[->,dashed](f.west)to[out=180,in=180,looseness=1.45]node[left]{検算}(a.west);
   }}
@@ -121,11 +121,11 @@
 \newcommand{\BookFigBasicFour}{\BookDiagram{差と比に着目すると4つの基本パターンが並んで見える}{
 
     \node[anchor=west]at(0,0){等差型：$a_{n+1}-a_n=d$}; \node[anchor=west]at(7,0){差が一定};
-    \node[anchor=west]at(0,-.9){等比型：$a_{n+1}=ra_n$}; \node[anchor=west]at(7,-.9){一定の倍率};
+    \node[anchor=west]at(0,-.9){等比型：$a_{n+1}=ra_n$}; \node[anchor=west]at(7,-.9){一定の公比};
     \node[anchor=west]at(0,-1.8){階差型：$a_{n+1}-a_n=f(n)$}; \node[anchor=west]at(7,-1.8){差を足す};
-    \node[anchor=west]at(0,-2.7){階比型：$a_{n+1}=g(n)a_n$}; \node[anchor=west]at(7,-2.7){倍率を掛ける};
+    \node[anchor=west]at(0,-2.7){階比型：$a_{n+1}=g(n)a_n$}; \node[anchor=west]at(7,-2.7){比を掛ける};
     \foreach \y in {0,-.9,-1.8,-2.7}{\draw[->](6.3,\y)--(6.8,\y);}
-    \node[anchor=west,font=\scriptsize]at(0,-3.45){$a_n\ne0$のとき,倍率は$\frac{a_{n+1}}{a_n}$として読める.};
+    \node[anchor=west,font=\scriptsize]at(0,-3.45){$a_n\ne0$のとき,比は$\frac{a_{n+1}}{a_n}$として読める.};
   }}
 
 \newcommand{\BookFigMobius}{\BookGraph{複素数の比は距離の比と偏角の差の両方を表す}{
