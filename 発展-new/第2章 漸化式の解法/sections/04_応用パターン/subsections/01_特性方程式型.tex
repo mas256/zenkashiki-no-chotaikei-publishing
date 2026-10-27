@@ -11,6 +11,7 @@
   
   結論から言えば漸化式を等比数列に変形することで,一般項を得ることができる.
   また,多くの複雑な漸化式は等比型に帰着させることでその解を得る.\footnote{基本的に等比型,特性方程式型,定数数列への帰着が多い.既知のパターンを増やしていくことが解ける漸化式を増やすためには重要である.}
+  まず$p\ne1$の場合を考える.\,$p=1$なら等差型である.
   等比型にするためには$q$が邪魔なので,それをうまく消せるように
   \[
     \begin{array}{rrl}
@@ -29,7 +30,10 @@
   \[
     a_{n+1}-\alpha=p(a_n-\alpha)
   \]
-  とすることで等比型に帰着させることで一般項を得る.
+  として等比型に帰着させ,一般項を得る.
+
+  $\alpha$は,もとの漸化式に代入しても次の値が変わらない点である.
+  このような値を\bookterm{fixed}{不動点}という.
 
   形式的には,\,$a_n$を$\alpha$に置き換えてできる方程式によってその解を得れば良い.
   また,方程式
@@ -310,25 +314,24 @@
     f(x)-f(y)=(px+q)-(py+q)=p(x-y)
   \]
   となる.\,$x=a_{n+1},\ y=a_n$としたものが\bookeqref{affine-difference-2}{(♢)}から\bookeqref{affine-difference-1}{(♡)}を引いた式である.\footnote{添字を1つずらして引く操作は,付録\sectionref{節：和と差から微積分へ}で詳しく扱う.}
-  共通の$q$が消えた.\,2つの直線も確認しよう.
+  共通の$q$が消えた.次の図では,\,$p=2,\ q=1,\ a_n=0$として,入力と出力の差を比べる.
   
-  \begin{tikzpicture}[scale=0.8]
-    \draw[->,>=stealth,semithick] (-1.5,0)--(5.5,0)node[above]{$x$};
-    \draw[->,>=stealth,semithick] (0,-1)--(0,5)node[right]{$y$};
-    \draw (0,0)node[below right]{O};
-  
-    \draw[very thick,domain=-1.5:4]
-    plot(\x,\x/2)node[right]{$y=px$};
-  
-    \draw[very thick,domain=-1.5:4]
-    plot(\x,\x/2+1) node[right] {$y=px+q$};
-  
-    % q
-    \node[left=3pt] at (0,1) {$q$};
-  
+  \begin{tikzpicture}[scale=0.9]
+    \draw[->,>=stealth,semithick] (-0.3,0)--(2.5,0)node[right]{$x$};
+    \draw[->,>=stealth,semithick] (0,-0.3)--(0,4)node[above]{$y$};
+    \draw[very thick,domain=0:1.45] plot(\x,2*\x+1)node[right]{$y=2x+1$};
+    \draw[dashed] (1,0)--(1,3)--(0,3);
+    \draw[dashed] (0,1)--(1.5,1);
+    \fill (0,1) circle (1.5pt) (1,3) circle (1.5pt);
+    \node[below] at (0,0) {$a_n$};
+    \node[below] at (1,0) {$a_{n+1}$};
+    \node[left] at (0,1) {$a_{n+1}$};
+    \node[left] at (0,3) {$a_{n+2}$};
+    \draw[<->] (0,-0.55)--(1,-0.55) node[midway,below] {$a_{n+1}-a_n$};
+    \draw[<->] (1.5,1)--(1.5,3) node[midway,right] {$a_{n+2}-a_{n+1}$};
   \end{tikzpicture}
   \begin{center}
-    \BookFigureCaption{定数項の違いを表す平行な直線}
+    \BookFigureCaption{隣り合う項の差と,次の差}
   \end{center}
   
   不動点からのずれを取る方法と隣り合う項の差を取る方法は,どちらも定数項を消すための式変形である.

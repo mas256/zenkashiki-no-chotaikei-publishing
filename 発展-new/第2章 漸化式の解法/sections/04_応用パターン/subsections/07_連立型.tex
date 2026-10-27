@@ -119,28 +119,29 @@ $\bookeqbackref{sim-general-sum}{(1)}+\bookeqbackref{sim-general-difference}{(2)
 \]
 となり,\,$p+r=q+s$でなければ右辺が$a_n+b_n$の定数倍にならない.
 足すだけ,引くだけでうまくいかないなら,足し方に重みを付けてやればよい.
-つまり,それぞれに係数$\alpha,\beta$を掛けて足した$\alpha a_n+\beta b_n$を考え,これが等比型になるように$\alpha,\beta$を決めるのだ.
+つまり,それぞれに係数$u,v$を掛けて足した$u a_n+v b_n$を考え,これが等比型になるように$u,v$を決める.
+特性方程式の解が虚数の場合は,重みも複素数の範囲で選ぶ.
 \[
   \begin{aligned}
-    \alpha a_{n+1}+\beta b_{n+1}
-    &=(p\alpha+r\beta)a_n\\
-    &\quad+(q\alpha+s\beta)b_n
+    u a_{n+1}+v b_{n+1}
+    &=(pu+rv)a_n\\
+    &\quad+(qu+sv)b_n
   \end{aligned}
 \]
-これを$\gamma(\alpha a_n+\beta b_n)$の形にするには,係数を比較して
+これを$\gamma(u a_n+v b_n)$の形にするには,係数を比較して
 \[
   \begin{cases}
-    (p-\gamma)\alpha+r\beta=0\\
-    q\alpha+(s-\gamma)\beta=0
+    (p-\gamma)u+rv=0\\
+    qu+(s-\gamma)v=0
   \end{cases}
 \]
-を満たす重みを選べばよい.\,$\alpha=\beta=0$では何も分からないので,少なくとも一方が0でない組を探す.
+を満たす重みを選べばよい.\,$u=v=0$では何も分からないので,少なくとも一方が0でない組を探す.
 
-まず$\gamma$を決めよう.第1式を$s-\gamma$倍し,第2式の$r$倍を引けば$\beta$が消える.
-同様に$\alpha$を消去すると,
+まず$\gamma$を決めよう.第1式を$s-\gamma$倍し,第2式の$r$倍を引けば$v$が消える.
+同様に$u$を消去すると,
 \begin{align*}
-  \{(p-\gamma)(s-\gamma)-qr\}\alpha&=0,\\
-  \{(p-\gamma)(s-\gamma)-qr\}\beta&=0
+  \{(p-\gamma)(s-\gamma)-qr\}u&=0,\\
+  \{(p-\gamma)(s-\gamma)-qr\}v&=0
 \end{align*}
 を得る.重みは同時に0ではないので,共通の係数が0,すなわち
 \[
@@ -149,10 +150,17 @@ $\bookeqbackref{sim-general-sum}{(1)}+\bookeqbackref{sim-general-difference}{(2)
 が必要になる.これを連立漸化式の\bookterm{characteristic}{特性方程式}と呼ぶ.
 形式的には,係数を並べた$\begin{pmatrix}p&q\\r&s\end{pmatrix}$から作られる方程式である.\footnote{\chapterref{章：解法の背景と広がり}で扱う行列の固有値を求める方程式そのものである.}
 
-その解$\gamma_1,\gamma_2$を順に重みの条件へ入れ,非零の組$(\alpha,\beta),(\alpha',\beta')$を選ぶ.
+逆に,この方程式の解$\gamma$に対しては,0でない重みを選べる.
+まず$(p-\gamma,r)\ne(0,0)$なら,\,$(u,v)=(r,\gamma-p)$とすれば第1式を満たし,
+第2式の左辺も$qr-(s-\gamma)(p-\gamma)=0$となる.
+第1式の係数が両方0で,第2式の係数$(q,s-\gamma)$が両方0でなければ,
+$(u,v)=(\gamma-s,q)$と選べる.両式の係数がすべて0なら,\,$(1,0)$を選べばよい.
+したがって,いずれの場合にも0でない重みが存在する.
+
+2つの解$\gamma_1,\gamma_2$を順に重みの条件へ入れ,0でない組$(u,v),(u',v')$を選ぶ.
 \begin{align*}
-  c_n&=\alpha a_n+\beta b_n,\\
-  d_n&=\alpha'a_n+\beta'b_n
+  c_n&=u a_n+v b_n,\\
+  d_n&=u'a_n+v'b_n
 \end{align*}
 と置けば,\,$c_{n+1}=\gamma_1c_n,\ d_{n+1}=\gamma_2d_n$なので,公比が0でなければ,
 \[
@@ -164,28 +172,29 @@ $\bookeqbackref{sim-general-sum}{(1)}+\bookeqbackref{sim-general-difference}{(2)
 元の項へは,
 \[
   \begin{cases}
-    c_n=\alpha a_n+\beta b_n\\
-    d_n=\alpha'a_n+\beta'b_n
+    c_n=u a_n+v b_n\\
+    d_n=u'a_n+v'b_n
   \end{cases}
 \]
-を解いて戻す.一意に復元するには,重みの二組が比例しないこと,すなわち$\alpha\beta'-\alpha'\beta\ne0$が必要である.
+を解いて戻す.一意に復元するには,重みの二組が比例しないこと,すなわち$uv'-u'v\ne0$が必要である.
 \textbf{異なる二根なら,重みは比例しない.}
-もし比例すれば,同じ非零の重みが両方の係数条件を満たす.条件を引くと
+もし比例すれば,同じ0でない重みが両方の係数条件を満たす.条件を引くと
 \[
-  (\gamma_1-\gamma_2)\alpha=(\gamma_1-\gamma_2)\beta=0
+  (\gamma_1-\gamma_2)u=(\gamma_1-\gamma_2)v=0
 \]
-となり,\,$\gamma_1\ne\gamma_2$より$\alpha=\beta=0$である.これは0でない重みを選んだことに矛盾する.
+となり,\,$\gamma_1\ne\gamma_2$より$u=v=0$である.これは0でない重みを選んだことに矛盾する.
 
 異なる根は十分条件であり,必要条件ではない.
 重解では比例しない二組を取れるかで分かれる.\footnote{例えば$a_{n+1}=2a_n,\ b_{n+1}=2b_n$では$(1,0),(0,1)$を選べる.
   二組を取れない場合は,一方の量を先に求め,残る式へ代入する.\bookproblemref{practice-basic}{25}{標準問25}では,その式を指数の付加項として解く.\booknavref{節：付加項がない場合}{隣接3項型の重解}とも比べられる.}
-このように重みを選べば,元の連立漸化式から等比型の数列を2つ作れる.\footnote{解が虚数の場合は\booknavref{節：特性方程式の解が虚数の場合}{特性方程式の解が虚数の場合}を参照.}
+異なる2根の場合は,このようにして等比型の数列を2つ作り,元の項を復元できる.
+重解で比例しない2組を選べない場合は,脚注のように別の方法を使う.\footnote{解が虚数の場合は\booknavref{節：特性方程式の解が虚数の場合}{特性方程式の解が虚数の場合}を参照.}
 
 % スマホ版では直前の脚注とPOINTの縦方向のはみ出しを避ける.
 \BookMathLayout{}{\pagebreak}
 \begin{bookpoint}
   \textbf{POINT}\par
-  $\alpha a_n+\beta b_n$が等比型になるように係数比較し,特性方程式$\gamma^2-(p+s)\gamma+(ps-qr)=0$の2解ごとに重みを決める.
+  $u a_n+v b_n$が等比型になるように係数比較し,特性方程式$\gamma^2-(p+s)\gamma+(ps-qr)=0$の2解ごとに重みを決める.
 \end{bookpoint}
 
 \noindent \hyperlink{book:example-system-1:answer:2}{\textbf{【例題】}}\par\nobreak
@@ -209,8 +218,8 @@ $\bookeqbackref{sim-general-sum}{(1)}+\bookeqbackref{sim-general-difference}{(2)
     重みの条件は,
     \[
       \begin{cases}
-        (3-\gamma)\alpha+2\beta=0\\
-        \alpha+(2-\gamma)\beta=0
+        (3-\gamma)u+2v=0\\
+        u+(2-\gamma)v=0
       \end{cases}
     \]
     となる.0でない重みを取るための特性方程式は,
@@ -220,13 +229,13 @@ $\bookeqbackref{sim-general-sum}{(1)}+\bookeqbackref{sim-general-difference}{(2)
     \end{align*}
     なので,\,$\gamma_1=1,\ \gamma_2=4$である.
 
-    $\gamma=1$では$\alpha+\beta=0$となり,\,$(\alpha,\beta)=(1,-1)$を選べる.
+    $\gamma=1$では$u+v=0$となり,\,$(u,v)=(1,-1)$を選べる.
     $c_n=a_n-b_n$と置くと,
     \[
       c_{n+1}=c_n,\quad c_1=1
       \quad\Longrightarrow\quad c_n=1
     \]
-    である.\,$\gamma=4$では$\alpha=2\beta$となり,\,$(2,1)$を選べる.
+    である.\,$\gamma=4$では$u=2v$となり,\,$(2,1)$を選べる.
     $d_n=2a_n+b_n$と置くと,
     \[
       \begin{aligned}
@@ -248,8 +257,8 @@ $p=s=3,\ q=r=1$を特性方程式へ入れると,
 \[
   \gamma^2-6\gamma+8=(\gamma-2)(\gamma-4)=0
 \]
-となる.\,$\gamma=2$なら$\alpha+\beta=0$より重み$(1,-1)$,
-$\gamma=4$なら$\alpha=\beta$より$(1,1)$を選べる.
+となる.\,$\gamma=2$なら$u+v=0$より重み$(1,-1)$,
+$\gamma=4$なら$u=v$より$(1,1)$を選べる.
 従って取り出す量は,
 \[
   c_n=a_n-b_n,\qquad d_n=a_n+b_n

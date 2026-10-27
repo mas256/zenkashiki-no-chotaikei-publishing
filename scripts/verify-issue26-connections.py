@@ -23,7 +23,7 @@ counts['variable_coefficient_updates'] = 720
 # The invariant matches a linear update for varied positive rational initial pairs.
 checks = 0
 for x0 in [F(1, 2), F(1), F(2), F(3)]:
-    for y0 in [F(1, 3), F(1), F(2), F(4)]:
+    for y0 in [F(1, 3), F(1), F(2), F(3), F(4)]:
         x, y = x0, y0
         invariant = (x*x+y*y+1)/(x*y)
         for _ in range(30):
@@ -33,6 +33,44 @@ for x0 in [F(1, 2), F(1), F(2), F(3)]:
             x, y = y, z
             checks += 1
 counts['invariant_updates'] = checks
+# Check the revised exercise's radical expression exactly in Q(sqrt(85)).
+def quadratic_product(x, y):
+    return (x[0]*y[0]+85*x[1]*y[1], x[0]*y[1]+x[1]*y[0])
+
+alpha = (F(11, 6), F(1, 6))
+beta = (F(11, 6), F(-1, 6))
+power_alpha = power_beta = (F(1), F(0))
+x, y = F(1), F(3)
+for _ in range(30):
+    first = quadratic_product((F(7, 6), F(1, 6)), power_alpha)
+    second = quadratic_product((F(-7, 6), F(1, 6)), power_beta)
+    assert first[0]+second[0] == 0
+    assert 3*(first[1]+second[1]) == x
+    power_alpha = quadratic_product(power_alpha, alpha)
+    power_beta = quadratic_product(power_beta, beta)
+    x, y = y, (y*y+1)/x
+counts['revised_invariant_closed_form_terms'] = 30
+
+# Each characteristic root admits a nonzero weight, including degenerate rows.
+weight_checks = 0
+for p in range(-2, 3):
+    for q in range(-2, 3):
+        for r in range(-2, 3):
+            for s in range(-2, 3):
+                for gamma in range(-3, 4):
+                    if (p-gamma)*(s-gamma)-q*r != 0:
+                        continue
+                    if (p-gamma, r) != (0, 0):
+                        u, v = r, gamma-p
+                    elif (q, s-gamma) != (0, 0):
+                        u, v = gamma-s, q
+                    else:
+                        u, v = 1, 0
+                    assert (u, v) != (0, 0)
+                    assert (p-gamma)*u+r*v == 0
+                    assert q*u+(s-gamma)*v == 0
+                    weight_checks += 1
+counts['characteristic_weight_cases'] = weight_checks
 # Boundary propagation, mixed differences, and lattice-path counting.
 checks = 0
 for c in [-3, -2, 0, 1, 2, 3]:

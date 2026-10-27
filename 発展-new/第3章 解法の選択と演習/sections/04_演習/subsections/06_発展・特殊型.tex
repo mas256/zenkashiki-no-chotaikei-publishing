@@ -216,7 +216,7 @@ $\lfloor x\rfloor$は$x$を超えない最大の整数を表す.
   \item $x-5\lfloor\frac{x}{5}\rfloor$は整数$x$を$5$で割った余りである.
     項の値が五つに絞れたら,それぞれが次にどの値へ移るかを表にする.
     % E4
-  \item $d_{n+1}-d_n$を作ると元の\bookterm{recurrence}{漸化式}の左辺が現れる.
+  \item $d_{n+1}-d_n$を作ると元の\bookterm{recurrence}{漸化式}を移項した式の左辺が現れる.
     その後,\,$e_n=a_{n+1}-a_n$を求め,もう一度足して$a_n$へ戻す.
     % E5
   \item $d_{n+1}-3d_n$を展開すると$0$になる.
@@ -434,14 +434,14 @@ $\lfloor x\rfloor$は$x$を超えない最大の整数を表す.
     \[
       a_n=\sum_{k=1}^{n}\left\lfloor\frac{k}{3}\right\rfloor.
     \]
-    $k=1,2$では零で,\,$k=3j,3j+1,3j+2$では値が$j$になる.
+    $k=1,2$では0で,\,$k=3j,3j+1,3j+2$では値が$j$になる.
     $n=3q+r$, $q\ge1$なら,値$1,\ldots,q-1$の群は三項ずつ,最後の値$q$の群は$r+1$項ある.
     よって,
     \begin{align*}
       a_n&=3\sum_{j=1}^{q-1}j+q(r+1)\\
       &=\frac{3q(q-1)}2+q(r+1).
     \end{align*}
-    $q=0$でも実際の値と式は零である.
+    $q=0$でも実際の値と式は0である.
     最後の群は途中までなので,常に三項と数えてはいけない.
     % E3
   \item \textbf{(1)~余りに読み替える.}
@@ -516,7 +516,7 @@ $\lfloor x\rfloor$は$x$を超えない最大の整数を表す.
     \[
       d_n=2\cdot3^{n-1}.
     \]
-    初期値が零でないので,右辺を残して進める.
+    初期値が0でないので,右辺を残して進める.
 
     \smallskip
     \textbf{(2)~右辺を作る\bookterm{sequence}{数列}を引く.}
@@ -682,7 +682,7 @@ $\lfloor x\rfloor$は$x$を超えない最大の整数を表す.
       =2\pi\cdot2^{n-1}.
     \]
     これは$2\pi$の整数倍だから,\,$a_{n+3}=a_n$である.
-    最初の三つの値は,
+    $\cos\frac{8\pi}{7}=\cos\left(2\pi-\frac{8\pi}{7}\right)=\cos\frac{6\pi}{7}$に注意すると,最初の三つの値は,
     \[
       \cos\frac{2\pi}{7},\quad
       \cos\frac{4\pi}{7},\quad

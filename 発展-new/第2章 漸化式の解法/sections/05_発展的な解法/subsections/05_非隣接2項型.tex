@@ -28,8 +28,6 @@
   という隣接2項間の漸化式になる.
   あとはそれぞれを解き,最後に奇数$n$では$k=\frac{n+1}{2}$,偶数$n$では$k=\frac{n}{2}$として$a_n$に戻せばよい.
   
-  なお,\,$a_{n+2}=qa_n$のような場合は,\,$a_{n+2}=0\cdot a_{n+1}+qa_n$と見て隣接3項型の\bookterm{characteristic}{特性方程式}を使うこともできる.
-  
   \begin{bookpoint}
     \textbf{POINT}\par
     奇数番目と偶数番目に分け,それぞれを隣接2項間の漸化式として解く.
@@ -40,8 +38,7 @@
   \[
     a_{n+2}=4a_n
   \]
-  のような漸化式の場合,偶奇で分ける手法以外にも$0$倍の$a_{n+1}$が存在すると考える手法がある.
-  式をその様に解釈することで,隣接3項間型に帰着させて解くことができる.
+  のような漸化式は,\,$a_{n+1}$の係数を$0$と見ることで隣接3項型としても解ける.
 \noindent \bookblocklink{example-nonadjacent-1}{problem}{answer}{【例題】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-nonadjacent-1}{problem}{answer}]
   \item $a_1=2,\,a_2=3,\,a_{n+2}=a_n^2$
@@ -87,9 +84,9 @@
     となる.\,$a_n=b_n-1$に戻せば【解答】を得る.
   \item \bookterm{characteristic}{特性方程式}は
     \[
-      r^2-4=0
+      x^2-4=0
     \]
-    であり,解は$r=2,-2$である.したがって,
+    であり,解は$x=2,-2$である.したがって,
     \[
       a_n=A\,2^{n-1}+B\,(-2)^{n-1}
     \]

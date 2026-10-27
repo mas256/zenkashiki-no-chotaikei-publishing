@@ -30,6 +30,8 @@
 \]
 を\textbf{\bookterm{column-vector}{列ベクトル}}と呼ぶ.
 太字の$\boldsymbol{v}$は二つの値をまとめた記号で,平面上の点$(x,y)$への矢印とも読める.
+0でない二つのベクトルが直交するとは,矢印が垂直に交わることである.
+成分が$(u_1,u_2)$と$(v_1,v_2)$なら,直交する条件は$u_1v_1+u_2v_2=0$である.
 
 \bookterm{column-vector}{列ベクトル}の足し算と定数倍は,成分ごとに行う.
 \[
@@ -198,7 +200,7 @@ $I$を\textbf{\bookterm{identity}{単位行列}}という.
 \]
 となる.
 
-一般に,零でない\bookterm{column-vector}{列ベクトル}$\boldsymbol{u}$が
+一般に,0でない\bookterm{column-vector}{列ベクトル}$\boldsymbol{u}$が
 \[
   A\boldsymbol{u}=\lambda\boldsymbol{u}
 \]
@@ -244,7 +246,7 @@ $I$を\textbf{\bookterm{identity}{単位行列}}という.
   =c\lambda_1^k\boldsymbol{u}_1+d\lambda_2^k\boldsymbol{u}_2
 \]
 で計算できる.
-$k=0$のときは元の分解式を読み,\,$k\ge1$で\bookterm{eigenvalue}{固有値}が$0$なら対応する部分は零になる.
+$k=0$のときは元の分解式を読み,\,$k\ge1$で\bookterm{eigenvalue}{固有値}が$0$なら対応する部分は0になる.
 
 \subsection{行ベクトルと左固有ベクトル}
 
@@ -270,8 +272,8 @@ $k=0$のときは元の分解式を読み,\,$k\ge1$で\bookterm{eigenvalue}{固�
   \end{aligned}
 \]
 である.
-一般に,零でない\bookterm{row-vector}{行ベクトル}$L$が$LA=\lambda L$を満たすとき,\,$L$を\textbf{\bookterm{left-eigen}{左固有ベクトル}}という.
-この場合,\bookterm{column-vector}{列ベクトル}$\boldsymbol{v}$から作った数$L\boldsymbol{v}$は,$A$を掛けた後には
+一般に,0でない\bookterm{row-vector}{行ベクトル}$L$が$LA=\lambda L$を満たすとき,\,$L$を\textbf{\bookterm{left-eigen}{左固有ベクトル}}という.
+この場合,\bookterm{column-vector}{列ベクトル}$\boldsymbol{v}$から作った数$L\boldsymbol{v}$は,\,$A$を掛けた後には
 \[
   L(A\boldsymbol{v})=(LA)\boldsymbol{v}
   =\lambda L\boldsymbol{v}
@@ -293,9 +295,9 @@ $k=0$のときは元の分解式を読み,\,$k\ge1$で\bookterm{eigenvalue}{固�
 二つの式$ax+by=0,\ cx+dy=0$について,\,$ad-bc\ne0$なら解は$x=y=0$だけになる.
 たとえば,第一の式を$d$倍したものから第二の式を$b$倍したものを引くと,\,$(ad-bc)x=0$となる.
 同様に$(ad-bc)y=0$も得られる.
-逆に$ad-bc=0$なら,零でない解が存在する.
+逆に$ad-bc=0$なら,0でない解が存在する.
 実際,\,$(a,b)\ne(0,\,0)$なら$(x,y)=(b,-a)$が両方の式を満たす.
-$(a,b)=(0,\,0)$の場合も,残る一つの式から零でない解を選べる.
+$(a,b)=(0,\,0)$の場合も,残る一つの式から0でない解を選べる.
 
 \bookterm{eigenvalue}{固有値}の式$A\boldsymbol{u}=\lambda\boldsymbol{u}$は
 \[
@@ -307,7 +309,7 @@ $(a,b)=(0,\,0)$の場合も,残る一つの式から零でない解を選べる.
   \lambda I-A
   =\begin{pmatrix}\lambda-p&-q\\-r&\lambda-s\end{pmatrix}.
 \]
-零でない解が存在する条件は
+0でない解が存在する条件は
 \[
   \begin{aligned}
     \det(\lambda I-A)
@@ -326,7 +328,7 @@ $\lambda$を求めた後,成分の連立方程式から対応する\bookterm{eig
 これは数値例で確かめた倍数と一致する.
 
 \bookterm{recurrence}{漸化式}では,次の項を計算するために記録しておく値の組を\textbf{状態}と呼ぶ.
-また,\bookterm{matrix}{行列}式が$0$でないときは,$A$を掛けた後の2つの値から掛ける前の2つの値を一意に求め直せる.
+また,\bookterm{matrix}{行列}式が$0$でないときは,\,$A$を掛けた後の2つの値から掛ける前の2つの値を一意に求め直せる.
 このように逆向きに戻せる\bookterm{matrix}{行列}を\textbf{可逆な\bookterm{matrix}{行列}}という.
 
 次節では,本編で引いた定数や作った比・和を,\bookterm{matrix}{行列}の中で見直す.

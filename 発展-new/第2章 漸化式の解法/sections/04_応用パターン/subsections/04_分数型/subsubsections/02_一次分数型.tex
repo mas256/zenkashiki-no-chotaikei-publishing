@@ -1,5 +1,5 @@
 % BOOK-FILE-ID: f-3076141c1a19
-% subsubsection: 1次分数型  \, $\displaystyle a_{n+1}=\frac{pa_n+q}{ra_n+s}$
+% subsubsection: 一次分数型  \, $\displaystyle a_{n+1}=\frac{pa_n+q}{ra_n+s}$
 
 \subsubsection{\texorpdfstring{一次分数型   $a_{n+1}=\frac{pa_n+q}{ra_n+s}$}{一次分数型}}\label{節：一次分数型}
 \booknavref{節：逆数型}{逆数型}の一般形である,
@@ -49,7 +49,7 @@ $a_n=b_n+x$を代入すると,
   b_{n+1}=\frac{(p-rx)b_n}{rb_n+rx+s}
 \]
 という逆数型になる.ここで,\,$p-rx$も$rx+s$も0でない.\footnote{特性方程式より,\,$(p-rx)(rx+s)=ps-qr\ne0$.}
-初項が$x$なら定数列である.それ以外では$b_n$は途中で零にならず,逆数を取って解ける.
+初項が$x$なら定数数列である.それ以外では$b_n$は途中で0にならず,逆数を取って解ける.
 定数項$q$を消すための条件は,
 \[
   rx^2+(s-p)x-q=0
@@ -115,7 +115,7 @@ $\alpha,\beta$は別々に選ぶ定数ではなく,もとの漸化式の係数�
 \]
 となる.したがって,\,$b_n$は等比数列である.
 $\alpha$と$\beta$の大小関係は,解の大小関係を要求されていないことから自由に選んでよい.
-つまり,\,1次分数型漸化式では,
+つまり,\,一次分数型漸化式では,
 \[
   a_{n+1}=\frac{pa_n+q}{ra_n+s}
 \]
@@ -134,7 +134,7 @@ $\alpha$と$\beta$の大小関係は,解の大小関係を要求されていな�
 
 したがって\,$\alpha,\beta$は,もとの漸化式の$a_n$を形式的に$\alpha,\beta$に置き換えたときにも値が変化しない数,すなわち不動点である.
 
-なお,$rx^2+(s-p)x-q=0$が重解$\alpha$を持つ場合は,$\beta$と異なる2つの不動点を取れないため,上の議論はそのまま使えない.
+なお,\,$rx^2+(s-p)x-q=0$が重解$\alpha$を持つ場合は,\,$\beta$と異なる2つの不動点を取れないため,上の議論はそのまま使えない.
 このときは$\alpha=\frac{p-s}{2r}$,すなわち$s=p-2r\alpha$が成り立つため,
 \[
   c=p-r\alpha=r\alpha+s\ne0
@@ -174,7 +174,7 @@ $\alpha$と$\beta$の大小関係は,解の大小関係を要求されていな�
 \noindent\bookblocklink{example-mobius-1}{hint}{problem}{【方針】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-mobius-1}{hint}{problem}]
   \item 不動点$1,-1$からの差の比を作ると,共通の分母$a_n+2$が消えます.
-  \item 同様に\bookterm{fixed}{不動点}$\alpha,\beta$を求めましょう.今回は片方が負の値になります.
+  \item 同様に\bookterm{fixed}{不動点}$\alpha,\beta$を求めましょう.この例では片方が負の値です.
   \item 今回は\bookterm{fixed}{不動点}の方程式が重解になります.\,$\frac{a_n-\alpha}{a_n-\beta}$は使えないので,\,$b_n=a_n-\alpha$と置いてから逆数型に帰着させる別の手法を使います.
   \item このような形も一次分数型です.解と係数の関係を活用して解きましょう.
 \end{enumerate}
@@ -231,7 +231,7 @@ $\alpha$と$\beta$の大小関係は,解の大小関係を要求されていな�
       =\frac{a_n-3}{a_n-2}\\
       &=\frac{b_n}{b_n+1},\quad b_1=2
     \end{align*}
-    となる.正の$b_n$が続くので,\,$b_n$も元の分母$b_n+1$も零でない.
+    となる.正の$b_n$が続くので,\,$b_n$も元の分母$b_n+1$も0でない.
     逆数を取れば,
     \begin{align*}
       \frac1{b_{n+1}}&=\frac1{b_n}+1,\\
@@ -335,7 +335,7 @@ $\alpha$と$\beta$の大小関係は,解の大小関係を要求されていな�
       &=\frac{6k+5}{2k+1}
       =\frac{6(k+1)-1}{2(k+1)-1}
     \end{align*}
-    分母$a_k-2=\frac{2k+1}{2k-1}$も零でなく,\,$n=k+1$で成立する.
+    分母$a_k-2=\frac{2k+1}{2k-1}$も0でなく,\,$n=k+1$で成立する.
     帰納法より,\,$a_n=\frac{6n-1}{2n-1}$がすべての正の整数$n$で成り立つ.\qed
 
   \end{quote}
