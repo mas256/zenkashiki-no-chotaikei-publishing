@@ -1,7 +1,7 @@
 % BOOK-FILE-ID: f-b08f6a7fe2cd
 \subsection{発展}\label{節：発展}
 ここでは,\bookterm{recurrence}{漸化式}を場合の数,確率,整数,図形,積分,\bookterm{limit}{極限}の問題に使う10題を扱う.
-まず何を\bookterm{sequence}{数列}として追うかを選び,元の条件から\bookterm{recurrence}{漸化式}を立て,最後に元の問いへ戻そう.
+まず何を\bookterm{sequence}{数列}として置くかを選び,元の条件から\bookterm{recurrence}{漸化式}を立て,最後に元の問いへ戻そう.
 \bookterm{general}{一般項}を求めることだけが目的ではない. 求めたい量の性質に応じて,和,差,剰余,\bookterm{invariant}{不変量}にも注目する.
 問1から問9は大学入試問題の構造・発想を参考に,問いや誘導を本書向けに再構成した演習である.
 問10は著者の掲載問題を改稿したもので,完全順列の古典的題材を扱う.
@@ -79,7 +79,7 @@
       \binom{2n-2k}{n-k}=4^n
     \]
     が成り立つことを示せ.
-    \par\smallskip{\small\textit{\href{https://www.osaka-u.ac.jp/ja/admissions/faculty/general/files/9o1vy3/@@download/file}{大阪大学2025年文系第2問の\bookterm{convolution}{畳み込み}構造を参考に再構成}}}
+    \par\smallskip{\small\textit{\href{https://www.osaka-u.ac.jp/ja/admissions/faculty/general/files/9o1vy3/@@download/file}{大阪大学2025年文系第2問の和の構造を参考に再構成}}}
     % F4: 内分を繰り返す平行四辺形
   \item 平行四辺形$A_0B_0C_0D_0$の頂点を反時計回りに並べる.
     一定の実数$t$が$0<t<1$を満たすとする.
@@ -493,8 +493,8 @@
       =\frac{(2n)!}{4^n(n!)^2}.
     \]
     $n=0$では空積を$1$とする.
-    \smallskip\textbf{(2)~和そのものを追う.}
-    階乗の式を直接代入する代わりに,\,$T_n$の更新を探す.
+    \smallskip\textbf{(2)~和そのものを数列として扱う.}
+    階乗の式を直接代入する代わりに,\,$T_n$が満たす漸化式を探す.
     $n=k+(n-k)$を掛け,第2の和の添字を逆順にすると,
     \[
       \begin{aligned}
@@ -511,7 +511,7 @@
     \[
       U_n=\sum_{j=0}^{n-1}(2n-2j-1)c_jc_{n-1-j}.
     \]
-    二式を加えると係数が$2n$でそろうため,\,$2U_n=2nT_{n-1}$となる.
+    二式を加えると係数が$2n$で一致するため,\,$2U_n=2nT_{n-1}$となる.
     $n\ge1$で割れば$T_n=T_{n-1}$であり,\,$T_0=1$から$T_n=1$を得る.
     添字の和が一定で,二つの添字を交換しても積が変わらないことが決め手だった.
     \smallskip\textbf{(3)~二項係数の恒等式.}
@@ -522,9 +522,9 @@
     \]
     $T_n=1$を$4^n$倍すれば設問の恒等式となる.
     例えば$n=2$では$1\cdot6+2\cdot2+6\cdot1=16$である.
-    複雑な各項でも,和を一つの\bookterm{sequence}{数列}として追うと簡単な性質が現れる.
+    複雑な各項でも,和を一つの\bookterm{sequence}{数列}として扱うと簡単な性質が現れる.
     % F4: 内分を繰り返す平行四辺形
-  \item 図形が変わるたびに四つの頂点を別々に追うと,計算が増える.
+  \item 図形が変わるたびに4つの頂点を別々に計算すると,計算量が増える.
     平行四辺形を決める二本の辺と,図形の中心に注目する.
     \par\noindent
     \textbf{(1) 内分をベクトルで表す.}
@@ -894,13 +894,13 @@
     この問の中心は,解く前の「何を取り除き,どう戻すか」という設計にある.
     % F8: 巨大な項の整除と, 添字の互除法
   \item \textbf{(1)~余りの\bookterm{recurrence}{漸化式}.}\par\nobreak
-    項は$1,2,5,26,677,\ldots$と急増するが,法$5$で余りの更新を追えば,
+    項は$1,2,5,26,677,\ldots$と急増するが,法$5$で余りの漸化式を調べれば,
     \[
       1\longmapsto2\longmapsto0\longmapsto1
     \]
     と繰り返す.同じ余りから次は一意に決まるため,\,$5$の倍数となるのは$n=3,6,9,\ldots$である.
     \smallskip\textbf{(2)~項を法に取る.}
-    $a_0=0$を補えば更新は$n\ge0$で使える.正整数$m$を固定すると,
+    $a_0=0$を補えば漸化式は$n\ge0$で使える.正整数$m$を固定すると,
     \[
       a_{m+j}\equiv a_j\pmod{a_m}\quad(j\ge0)
     \]
@@ -956,14 +956,14 @@
     \]
     となり,解答の式を得る.
     \smallskip\textbf{(3)~整数性と方程式の確認.}
-    初期値と更新の係数から全項が整数である.
+    初期値と漸化式の係数から全項が整数である.
     $u_2=6>u_1=3$であり,\,$u_{n+1}>u_n>0$なら$u_{n+2}>2u_{n+1}>u_{n+1}$となるため,
     $n\ge1$で正値と厳密な増加が続く.
     隣接する二項から作る
     \[
       I_n=u_n^2+u_{n+1}^2-3u_nu_{n+1}
     \]
-    に更新式を入れると,
+    に漸化式を入れると,
     \[
       \begin{aligned}
         I_{n+1}&=u_{n+1}^2+(3u_{n+1}-u_n)^2\\
@@ -979,7 +979,7 @@
       {P+Q(\cfrac\beta\alpha)^n}
       \longrightarrow\alpha.
     \]
-    更新式は整数性を保証し,\bookterm{general}{一般項}は整数の比が近づく無理数を示している.
+    漸化式は整数性を保証し,\bookterm{general}{一般項}は整数の比が近づく無理数を示している.
     % F10: 元のペアをすべて解消する組み替え
   \item \textbf{(1) 小さい場合を数える.}
     $n=1$では相手がいないので$S(1)=0$である.
@@ -1026,7 +1026,7 @@
       S(n)=n!\sum_{k=0}^n\frac{(-1)^k}{k!}.
     \]
     $S(4)=9,S(5)=44$となる.
-    等比型,\bookterm{ratio}{階比}による\bookterm{normalize}{正規化},\bookterm{difference}{階差}型を順に使った.
+    等比型,\bookterm{ratio}{階比}型の解で両辺を割る変形,\bookterm{difference}{階差}型を順に使った.
     \par\smallskip\textbf{(4) 残る組数で数える.}
     残す$r$組を選び,残りを完全に組み替えれば$\binom nrS(n-r)$通りである.
     残るペアは完成形から一意に決まり,\,$r=n$も$S(0)=1$によって含む.

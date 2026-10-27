@@ -6,7 +6,7 @@ $X\ge0$なら,\,$\lfloor X\rfloor$は$1\le k\le X$を満たす整数$k$の個数
 
 座標がともに整数の点を格子点という.
 $c>0$で,\,$\sum_{k=1}^{n}\lfloor ck\rfloor$は,\,$x=k$ごとに$1\le y\le ck$の整数$y$を数えて足したもの,すなわち格子点の個数である.
-群数列の別解と同じく,整数の組を数える見方になる.
+群数列の別解と同じく,整数の組を数える解法になる.
 
 \begin{bookpoint}
   \textbf{POINT}\par
@@ -27,7 +27,7 @@ $c>0$で,\,$\sum_{k=1}^{n}\lfloor ck\rfloor$は,\,$x=k$ごとに$1\le y\le ck$�
 \noindent \bookblocklink{example-gauss-role-10}{hint}{problem}{【方針】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-10}{hint}{problem}]
   \item $\lfloor\frac{5k}{2}\rfloor=2k+\lfloor\frac k2\rfloor$と分けます.
-    後者の和を偶奇で求め,\bookterm{floor-function}{床関数}が数えている整数$y$の範囲も確認しましょう.
+    後者の和を偶奇で求め,\bookterm{floor}{ガウス記号}が数えている整数$y$の範囲も確認しましょう.
 \end{enumerate}
 
 \noindent \bookblocklink{example-gauss-role-10}{answer}{problem}{【解答】}\par\nobreak
@@ -44,7 +44,7 @@ $c>0$で,\,$\sum_{k=1}^{n}\lfloor ck\rfloor$は,\,$x=k$ごとに$1\le y\le ck$�
 
 \noindent \bookblocklink{example-gauss-role-10}{solution}{problem}{【解法】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-10}{solution}{problem}]
-  \item \bookterm{difference}{階差}を足し,整数$2k$を\bookterm{floor-function}{床関数}の外に出すと,
+  \item \bookterm{difference}{階差}を足し,整数$2k$を\bookterm{floor}{ガウス記号}の外に出すと,
     \begin{align*}
       a_n&=\sum_{k=1}^{n}\left\lfloor\frac{5k}{2}\right\rfloor\\
       &=n(n+1)+\sum_{k=1}^{n}\left\lfloor\frac k2\right\rfloor.
