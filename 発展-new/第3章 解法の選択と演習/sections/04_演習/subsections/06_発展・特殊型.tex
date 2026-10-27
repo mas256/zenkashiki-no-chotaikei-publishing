@@ -256,147 +256,10 @@ $\lfloor x\rfloor$は$x$を超えない最大の整数を表す.
     $a_{n+1}-2=(a_n-2)(a_n+2)$から下からの評価を作る.
 \end{enumerate}
 
-\subsubsection{答え}\label{節：発展・特殊型：答え}
+\subsubsection{解答}\label{節：発展・特殊型：解答}\label{節：発展・特殊型：答え}\label{節：発展・特殊型：解説}
 \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-special}{answer}{problem}]
-  % E1
-  \item (1)
-    \[
-      a_n=\left\lfloor\frac{2026}{2^{n-1}}\right\rfloor.
-    \]
-    (2) $n=12$である.
-    % E2
-  \item
-    \[
-      a_n=\frac{3q(q-1)}2+q(r+1),
-    \]
-    \[
-      n=3q+r,\qquad q\ge0,\quad r=0,1,2.
-    \]
-    % E3
-  \item (1) 整数性と\bookterm{floor}{ガウス記号}の定義から,各項は$0$以上$4$以下の整数となる.
-    \par\smallskip\noindent
-    (2) $k$を$0$以上の整数として,
-    \[
-      a_{4k+1}=1,\quad a_{4k+2}=3,
-    \]
-    \[
-      a_{4k+3}=2,\quad a_{4k+4}=0.
-    \]
-    周期の最小値は$4$である.
-    % E4
-  \item (1) $d_n=6n+6$.
-    \par\smallskip\noindent
-    (2) $a_n=n^3+1$.
-    % E5
-  \item (1) $d_n=2\cdot3^{n-1}$.
-    \par\smallskip\noindent
-    (2)
-    \[
-      a_n=1+2^{n-1}+3^{n-1}.
-    \]
-    % E6
-  \item (1)
-    \[
-      a_n=\frac2{\sqrt3}\sin\frac{(n-1)\pi}{3}.
-    \]
-    (2) 周期の最小値は$6$である.
-    % E7
-  \item
-    \[
-      a_n=\left(\frac1{\sqrt2}\right)^{n-1}
-      \left(\cos t_n-\sin t_n\right),
-    \]
-    \[
-      t_n=\frac{(n-1)\pi}{4},\qquad
-      \lim_{n\to\infty}a_n=0.
-    \]
-    % E8
-  \item (1) すべての項は正であり,
-    \[
-      a_{2k-1}=\frac1k,\qquad
-      a_{2k}=\frac2{2k-1}\quad(k\ge1).
-    \]
-    (2) \bookterm{limit}{極限}は$0$である.
-    % E9
-  \item (1) $b_1=\frac52$,\,$b_{n+1}=b_n^2-2$.
-    \par\smallskip\noindent
-    (2)
-    \[
-      a_n=1+2^{\,2^{n-1}}+2^{-2^{n-1}}.
-    \]
-    % E10
-  \item (1) 左辺を展開すると右辺を得る.
-    \par\smallskip\noindent
-    (2)
-    \[
-      a_n=2^{\,3^{n-1}}+2^{-3^{n-1}}.
-    \]
-    % E11
-  \item (1)
-    \[
-      a_n=\cos\left(2^{n-1}\frac{2\pi}{7}\right).
-    \]
-    (2) 周期の最小値は$3$である.
-    % E12
-  \item (1)
-    \[
-      a_n=\tan\left(2^{n-1}\frac{\pi}{5}\right).
-    \]
-    すべての項で正接が定義でき,\bookterm{recurrence}{漸化式}の分母も$0$にならない.
-    \par\smallskip\noindent
-    (2) 周期の最小値は$4$である.
-    % E13
-  \item (1) 初項が正で,正の項から次の正の項が定まる.
-    \par\smallskip\noindent
-    (2) $q=\sqrt3-2$とおくと,
-    \[
-      b_n=q^{\,2^{n-1}},\qquad
-      a_n=\sqrt3\,\frac{1+q^{\,2^{n-1}}}{1-q^{\,2^{n-1}}}.
-    \]
-    (3) $n\ge2$で設問の二つの不等式が成り立ち,
-    \[
-      \lim_{n\to\infty}a_n=\sqrt3.
-    \]
-    % E14
-  \item (1)
-    \[
-      c=\frac{1+\sqrt5}{2},\quad
-      \frac{1-\sqrt5}{2}.
-    \]
-    それぞれ$a_n=c$である.
-    \par\smallskip\noindent
-    (2) $c=0,-1$であり,どちらも
-    \[
-      a_n=-\frac12+\left(c+\frac12\right)(-1)^{n-1}
-    \]
-    と表せる.周期の最小値は$2$である.
-    % E15
-  \item (1)
-    \[
-      \begin{array}{c|rrrr}
-        c&a_1&a_2&a_3&a_4\\ \hline
-        -2&-2&2&2&2\\
-        -1&-1&-1&-1&-1\\
-        0&0&-2&2&2\\
-        2&2&2&2&2
-      \end{array}
-    \]
-    (2)
-    \[
-      a_n=2\cos(2^{n-1}\theta),\qquad -2\le a_n\le2.
-    \]
-    (3) $n\ge2$で
-    \[
-      a_n\ge2+4^{n-2}(c^2-4)
-    \]
-    となり,\,$a_n\to+\infty$である.
-    有界となる範囲は$-2\le c\le2$である.
-\end{enumerate}
-
-\subsubsection{解説}\label{節：発展・特殊型：解説}
-\begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-special}{solution}{problem}]
-  % E1
-  \item \textbf{(1)~整数部分を分ける.}
+  \item \textbf{チャートの経路：}式全体の整数部分から商と余りを選び,半減を繰り返した商を一つの式にする.\par\smallskip
+    \textbf{(1)~整数部分を分ける.}
     \sectionref{節：ガウス記号を含む式}の整数性に着目する.
     非負の実数$x$について,整数$\lfloor x\rfloor$を
     \[
@@ -427,8 +290,9 @@ $\lfloor x\rfloor$は$x$を超えない最大の整数を表す.
     $n\le11$では切り捨てる前の値が$1$以上なので,
     初めて$0$となるのは$n=12$である.
     毎回の切り捨てを一つの\bookterm{floor}{ガウス記号}にまとめられる理由は,割る数が正の整数であることにある.
-    % E2
-  \item \textbf{同じ値をまとめて足す.}
+
+  \item \textbf{チャートの経路：}整数部分を含む付加項を階差と見て,同じ値を取る群ごとに和を求める.\par\smallskip
+    \textbf{同じ値をまとめて足す.}
     \sectionref{節：ガウス記号を含む式}の群\bookterm{sequence}{数列}の考え方を使う.
     \bookterm{difference}{階差}を足すと,
     \[
@@ -443,8 +307,21 @@ $\lfloor x\rfloor$は$x$を超えない最大の整数を表す.
     \end{align*}
     $q=0$でも実際の値と式は0である.
     最後の群は途中までなので,常に三項と数えてはいけない.
-    % E3
-  \item \textbf{(1)~余りに読み替える.}
+
+  \item \textbf{チャートの経路：}式全体のガウス記号を余りと読み,有限個の値の移り変わりから周期を求める.\par\smallskip
+    \textbf{結論}\par\nopagebreak[4]
+(1) 整数性と\bookterm{floor}{ガウス記号}の定義から,各項は$0$以上$4$以下の整数となる.
+    \par\smallskip\noindent
+    (2) $k$を$0$以上の整数として,
+    \[
+      a_{4k+1}=1,\quad a_{4k+2}=3,
+    \]
+    \[
+      a_{4k+3}=2,\quad a_{4k+4}=0.
+    \]
+    周期の最小値は$4$である.
+\par\smallskip\noindent\textbf{計算・証明}\par\nopagebreak[4]
+\textbf{(1)~余りに読み替える.}
     \sectionref{節：ガウス記号を含む式}では,\bookterm{floor}{ガウス記号}が整数問題の道具にもなる.
     整数$x$について\bookterm{floor}{ガウス記号}の定義から,
     \[
@@ -465,8 +342,9 @@ $\lfloor x\rfloor$は$x$を超えない最大の整数を表す.
     初項$1$からは$1,3,2,0,1,\ldots$と進む.
     次は一意に決まるためこの四値を繰り返し,解答の\bookterm{general}{一般項}となる.
     四値が異なるので最小周期は$4$である.取り得る値を先に絞った.
-    % E4
-  \item \textbf{(1)~4項型から\bookterm{difference}{階差}へ.}
+
+  \item \textbf{チャートの経路：}隣接4項の係数から階差を繰り返し作り,定数の和を順に求める.\par\smallskip
+    \textbf{(1)~4項型から\bookterm{difference}{階差}へ.}
     \sectionref{節：隣接4項型}と同じく,\bookterm{difference}{階差}の組合せを見る.
     設問の$d_n$について,
     \begin{align*}
@@ -499,8 +377,9 @@ $\lfloor x\rfloor$は$x$を超えない最大の整数を表す.
     ここでは$n=1$の空の和を$0$とする.
     初期値を$d_1,e_1,a_1$の順に使った.
     \bookterm{difference}{階差}で次数を下げ,和で元へ戻す.
-    % E5
-  \item \textbf{(1)~3項をまとめて等比型へ.}
+
+  \item \textbf{チャートの経路：}隣接4項の定数係数から補助数列を作り,等比型と隣接3項型へ帰着する.\par\smallskip
+    \textbf{(1)~3項をまとめて等比型へ.}
     \sectionref{節：隣接4項型}の方法を使う.
     \bookterm{characteristic}{特性方程式}の左辺は
     \[
@@ -534,8 +413,9 @@ $\lfloor x\rfloor$は$x$を超えない最大の整数を表す.
       a_n=1+2^{n-1}+3^{n-1}
     \]
     を得る.\,4項間を3項間へ,さらに既習の解法へ順に帰着させた.
-    % E6
-  \item \textbf{(1)~特性方程式の解を角度で表す.}
+
+  \item \textbf{チャートの経路：}隣接3項の特性方程式を解き,極形式から三角関数の一般項と周期を求める.\par\smallskip
+    \textbf{(1)~特性方程式の解を角度で表す.}
     \sectionref{節：特性方程式の解が虚数の場合}を使う.
     \bookterm{characteristic}{特性方程式}$x^2-x+1=0$の根は,
     \[
@@ -570,8 +450,19 @@ $\lfloor x\rfloor$は$x$を超えない最大の整数を表す.
     \]
     さらに3項進めれば$a_{n+6}=a_n$となる.
     特性方程式の解の角度と,直接の式変形による周期の証明が対応している.
-    % E7
-  \item \textbf{振幅と\bookterm{limit}{極限}.}
+
+  \item \textbf{チャートの経路：}隣接3項の特性方程式を解き,解の絶対値と偏角から一般項と極限を求める.\par\smallskip
+    \textbf{結論}\par\nopagebreak[4]
+\[
+      a_n=\left(\frac1{\sqrt2}\right)^{n-1}
+      \left(\cos t_n-\sin t_n\right),
+    \]
+    \[
+      t_n=\frac{(n-1)\pi}{4},\qquad
+      \lim_{n\to\infty}a_n=0.
+    \]
+\par\smallskip\noindent\textbf{計算・証明}\par\nopagebreak[4]
+\textbf{振幅と\bookterm{limit}{極限}.}
     \sectionref{節：特性方程式の解が虚数の場合}では,特性方程式の解の絶対値も見る.
     \bookterm{characteristic}{特性方程式}$x^2-x+\frac12=0$の根は,
     \[
@@ -592,8 +483,17 @@ $\lfloor x\rfloor$は$x$を超えない最大の整数を表す.
     \]
     したがって$a_n\to0$となる.
     角度は一定ずつ進み,振幅は\bookterm{geometric}{等比数列}として縮んでいる.
-    % E8
-  \item \textbf{(1)~正値の確認と奇偶の分割.}
+
+  \item \textbf{チャートの経路：}式全体の非隣接性から偶奇に分け,正値を確認して逆数を等差型にする.\par\smallskip
+    \textbf{結論}\par\nopagebreak[4]
+(1) すべての項は正であり,
+    \[
+      a_{2k-1}=\frac1k,\qquad
+      a_{2k}=\frac2{2k-1}\quad(k\ge1).
+    \]
+    (2) \bookterm{limit}{極限}は$0$である.
+\par\smallskip\noindent\textbf{計算・証明}\par\nopagebreak[4]
+\textbf{(1)~正値の確認と奇偶の分割.}
     \sectionref{節：非隣接2項型}と同じく奇偶に分ける.
     $a_1,a_2>0$で,正の項から次も正になるので両方で帰納法を使えば全項が正である.
     逆数を取ると,
@@ -619,8 +519,9 @@ $\lfloor x\rfloor$は$x$を超えない最大の整数を表す.
     \]
     となるので,\,$a_n\to0$である.
     添字を分けたあとには,各部分列の答えを元の添字へ戻して確認する.
-    % E9
-  \item \textbf{(1)~値をずらす.}
+
+  \item \textbf{チャートの経路：}数列の項を平方完成し,指定された置換の後に基本対称式の恒等式を使う.\par\smallskip
+    \textbf{(1)~値をずらす.}
     \bookterm{square}{平方完成}して$b_n=a_n-1$とおくと,
     \begin{align*}
       b_{n+1}&=a_n^2-2a_n-1\\
@@ -642,8 +543,9 @@ $\lfloor x\rfloor$は$x$を超えない最大の整数を表す.
     $B_1=b_1$でもあるので,帰納法により$b_n=B_n$となる.
     よって$a_n=1+B_n$である.
     \bookterm{square}{平方完成}の後,逆数となる二量の和として恒等式を使った.
-    % E10
-  \item \textbf{(1)~交差項の打ち消し.}
+
+  \item \textbf{チャートの経路：}数列の項の三乗と一次の項から,指定された基本対称式の恒等式を使う.\par\smallskip
+    \textbf{(1)~交差項の打ち消し.}
     \sectionref{節：対称式を使う}の三次の恒等式を使う.
     展開すると,
     \[
@@ -663,8 +565,9 @@ $\lfloor x\rfloor$は$x$を超えない最大の整数を表す.
     \]
     となる.初項と\bookterm{recurrence}{漸化式}が一致するので,帰納法より$a_n=A_n$である.
     $-3a_n$の項が交差項を正確に打ち消すため,同じ対称式の形を保って次へ進める.
-    % E11
-  \item \textbf{(1)~倍角から候補を作る.}
+
+  \item \textbf{チャートの経路：}数列の項の二乗と初項から余弦の倍角公式を選び,角度の周期を求める.\par\smallskip
+    \textbf{(1)~倍角から候補を作る.}
     \sectionref{節：三角関数型}の余弦の倍角公式を使う.
     $\theta_n=2^{n-1}\frac{2\pi}{7}$とおき,
     $A_n=\cos\theta_n$とすれば,
@@ -690,8 +593,9 @@ $\lfloor x\rfloor$は$x$を超えない最大の整数を表す.
     \]
     となる.\,$\cos$は$0\le\theta\le\pi$で狭義に減少するので,
     三つの値は異なり,周期の最小値は$3$である.
-    % E12
-  \item \textbf{(1)~二つの分母を確認する.}
+
+  \item \textbf{チャートの経路：}式全体の分数と初項から正接の倍角公式を選び,定義域を確認して周期を求める.\par\smallskip
+    \textbf{(1)~二つの分母を確認する.}
     \sectionref{節：三角関数型}の正接の倍角公式から,
     \[
       \theta_n=2^{n-1}\frac\pi5,\qquad A_n=\tan\theta_n
@@ -729,8 +633,9 @@ $\lfloor x\rfloor$は$x$を超えない最大の整数を表す.
     \]
     である.\,$0<\frac\pi5<\frac{2\pi}{5}<\frac\pi2$で正接は狭義に増加するから,
     この四つは異なる.よって周期の最小値は$4$である.
-    % E13
-  \item \textbf{(1)~正値を確かめる.}
+
+  \item \textbf{チャートの経路：}式全体の平均の形からニュートン法型を選び,正値を確認して指定された差の比を作る.\par\smallskip
+    \textbf{(1)~正値を確かめる.}
     $a_1=1>0$であり,\,$a_n>0$なら分子・分母がともに正である.
     よって帰納法によりすべての項が正であり,\,$a_n+\sqrt3$も$0$にならない.
 
@@ -773,8 +678,9 @@ $\lfloor x\rfloor$は$x$を超えない最大の整数を表す.
     $|q|<1$から$b_n\to0$であり,\,$a_n\to\sqrt3$となる.
     初項は収束先の下にあるが,第2項で上へ移ってから減少する.
     誤差を二乗する式も,この移動と速い収束を表す.
-    % E14
-  \item \textbf{(1)~\bookterm{fixed}{不動点}と定\bookterm{sequence}{数列}.}
+
+  \item \textbf{チャートの経路：}初項の条件に注目し,1回・2回の計算で元の値に戻る方程式を作る.\par\smallskip
+    \textbf{(1)~\bookterm{fixed}{不動点}と定\bookterm{sequence}{数列}.}
     \sectionref{節：初項による違い}の考え方を使う.
     定\bookterm{sequence}{数列}には$c=c^2-1$が必要だから,
     \[
@@ -800,8 +706,31 @@ $\lfloor x\rfloor$は$x$を超えない最大の整数を表す.
     \]
     と表せる.二つの値が異なるから周期の最小値は$2$である.
     ここでの\bookterm{general}{一般項}は,調べた初項に限って使える.
-    % E15
-  \item \textbf{(1)~初項による振る舞い.}
+
+  \item \textbf{チャートの経路：}数列の項の二乗と初項の範囲から三角関数を選び,使えない範囲では不等式で評価する.\par\smallskip
+    \textbf{結論}\par\nopagebreak[4]
+(1)
+    \[
+      \begin{array}{c|rrrr}
+        c&a_1&a_2&a_3&a_4\\ \hline
+        -2&-2&2&2&2\\
+        -1&-1&-1&-1&-1\\
+        0&0&-2&2&2\\
+        2&2&2&2&2
+      \end{array}
+    \]
+    (2)
+    \[
+      a_n=2\cos(2^{n-1}\theta),\qquad -2\le a_n\le2.
+    \]
+    (3) $n\ge2$で
+    \[
+      a_n\ge2+4^{n-2}(c^2-4)
+    \]
+    となり,\,$a_n\to+\infty$である.
+    有界となる範囲は$-2\le c\le2$である.
+\par\smallskip\noindent\textbf{計算・証明}\par\nopagebreak[4]
+\textbf{(1)~初項による振る舞い.}
     代入すると解答の表を得る.\,$c=-1,2$は初めから定\bookterm{sequence}{数列},\,$c=-2,0$は数項後に$2$で一定になる.
 
     \smallskip

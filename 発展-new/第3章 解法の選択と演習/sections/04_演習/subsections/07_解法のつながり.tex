@@ -61,60 +61,18 @@
     各二項係数の和は,上の添字$N$で下の添字を一つ増やしたものになる.
 \end{enumerate}
 
-\subsubsection{答え}
+\subsubsection{解答}\label{節：解法のつながり：解答}\label{節：解法のつながり：答え}
 \begin{enumerate}[label=\textbf{問\arabic*.},format=\bookitemlink{practice-connections}{answer}{problem}]
-  \item $b_{n+1}-b_n=n$, $b_1=\frac32$より,
+  \item \textbf{チャートの経路：}数列の項の係数から指定の式で割り,階差型にする方法と一つの解を引く方法を比べる.\par\smallskip
+    \textbf{結論}\par\nopagebreak[4]
+$b_{n+1}-b_n=n$, $b_1=\frac32$より,
     \[
       a_n=\frac{n(n+1)(n^2-n+3)}2.
     \]
     $v_n=\frac{n^2(n-1)(n+1)}2$を選ぶと,
     $a_n-v_n=\frac32n(n+1)$となる.
-  \item $I_n=\frac{11}{3}$なので$a_{n+2}=\frac{11}{3}a_{n+1}-a_n$となる.
-    $\alpha=\frac{11+\sqrt{85}}{6}$, $\beta=\frac{11-\sqrt{85}}{6}$とすると,
-    \[
-      a_n=\frac{(3-\beta)\alpha^{n-1}+(\alpha-3)\beta^{n-1}}{\alpha-\beta}.
-    \]
-    正の初期値$x,y$では$I_n=\frac{x^2+y^2+1}{xy}$となる.
-  \item 境界と加法公式により$A_{n,m}=\binom{n+m}{m}$である.
-    $n+m$歩から上への$m$歩を選ぶ数でもある.
-  \item $k\ge1$について,
-    \BookMathLayout{\[
-        a_{2k-1}=\frac{1+5(-2)^{k-1}}3,\qquad
-        a_{2k}=-\frac{1+5(-2)^{k-1}}3.
-      \]}{\[
-        \begin{aligned}
-          a_{2k-1}&=\frac{1+5(-2)^{k-1}}3,\\
-          a_{2k}&=-\frac{1+5(-2)^{k-1}}3.
-        \end{aligned}
-      \]}
-    絶対値が非有界になるので,\bookterm{sequence}{数列}自身は周期的ではない.
-  \item 各項は$1,2,3,2,1$を繰り返す.
-    $n-1$を$5$で割った余りが$0,1,2,3,4$のとき,
-    $a_n$はそれぞれ$1,2,3,2,1$である.最小周期は$5$.
-    正の定\bookterm{sequence}{数列}は$a_1=a_2=\frac{1+\sqrt5}{2}$の場合である.
-  \item $x_k^2-2y_k^2=1$が保たれ,
-    \[
-      r_k-\sqrt2=\frac1{y_k^2(r_k+\sqrt2)},\qquad
-      \lim_{k\to\infty}r_k=\sqrt2.
-    \]
-    また$r_{2k}=\frac12\left(r_k+\frac{2}{r_k}\right)$である.
-  \item
-    \BookMathLayout{\[
-        \sum_{j=0}^{N-1}j^3
-        =6\binom N4+6\binom N3+\binom N2
-        =\frac{N^2(N-1)^2}{4}.
-      \]}{\[
-        \begin{aligned}
-          \sum_{j=0}^{N-1}j^3&=6\binom N4+6\binom N3+\binom N2\\
-          &=\frac{N^2(N-1)^2}{4}.
-        \end{aligned}
-      \]}
-    階差を取りやすい部品へ表し直してから,部品ごとに和を取った.
-\end{enumerate}
-
-\subsubsection{解説}
-\begin{enumerate}[label=\textbf{問\arabic*.},format=\bookitemlink{practice-connections}{solution}{problem}]
-  \item \textbf{両辺を割って階差型にする.}
+\par\smallskip\noindent\textbf{計算・証明}\par\nopagebreak[4]
+\textbf{両辺を割って階差型にする.}
     $h_n=n(n+1)$は$\frac{h_{n+1}}{h_n}=\frac{n+2}{n}$を満たす.
     両辺を$(n+1)(n+2)$で割ると$b_{n+1}=b_n+n$であり,
     $b_n=\frac32+\sum_{j=1}^{n-1}j=\frac{n^2-n+3}{2}$となる.
@@ -125,7 +83,17 @@
     $d_1=3$から$d_n=\frac32n(n+1)$を得る.
     この場合は割る方法から引く量も発見できた.
     \sectionref*{節：変数係数の一次型}へ戻って比べよう.
-  \item \textbf{正値と保存の確認.}
+
+  \item \textbf{チャートの経路：}項どうしの積から指定の不変量を確かめ,正値を用いて隣接3項型へ直す.\par\smallskip
+    \textbf{結論}\par\nopagebreak[4]
+$I_n=\frac{11}{3}$なので$a_{n+2}=\frac{11}{3}a_{n+1}-a_n$となる.
+    $\alpha=\frac{11+\sqrt{85}}{6}$, $\beta=\frac{11-\sqrt{85}}{6}$とすると,
+    \[
+      a_n=\frac{(3-\beta)\alpha^{n-1}+(\alpha-3)\beta^{n-1}}{\alpha-\beta}.
+    \]
+    正の初期値$x,y$では$I_n=\frac{x^2+y^2+1}{xy}$となる.
+\par\smallskip\noindent\textbf{計算・証明}\par\nopagebreak[4]
+\textbf{正値と保存の確認.}
     正の二項から次も正になる.\,$x=a_n,y=a_{n+1},z=a_{n+2}$とすると,\,$xz=y^2+1$である.
     これを不変量の分子に使えば,
     \[
@@ -145,7 +113,9 @@
     本文の例とは初期値が異なり,不変量の値も$3$とは異なる.
     $I_n$の値は初期値によって変わるが,初期値を一組選べば,その\bookterm{sequence}{数列}の中では一定である.
     \sectionref*{節：変わらない量を使う}へ.
-  \item \textbf{境界から内側へ.}
+
+  \item \textbf{チャートの経路：}式全体の二つの添字に注目し,添字の和による帰納法と格子経路の計数を使う.\par\smallskip
+    \textbf{境界から内側へ.}
     $n=0$または$m=0$では式は$1$になる.
     $n,m\ge1$の場合,\,$n+m$より小さい添字の和で式が成立すると仮定し,
     \BookMathLayout{\[
@@ -160,20 +130,53 @@
     を得る.格子経路では最後の一歩が右か上かで分けた和であり,
     全歩の並べ方を直接数えても同じ二項係数になる.
     \sectionref*{節：二方向の階差}へ.
-  \item \textbf{一周期分をまとめる.}
+
+  \item \textbf{チャートの経路：}係数の周期から2回分の式をまとめ,奇数番目を特性方程式型にする.\par\smallskip
+    \textbf{結論}\par\nopagebreak[4]
+$k\ge1$について,
+    \BookMathLayout{\[
+        a_{2k-1}=\frac{1+5(-2)^{k-1}}3,\qquad
+        a_{2k}=-\frac{1+5(-2)^{k-1}}3.
+      \]}{\[
+        \begin{aligned}
+          a_{2k-1}&=\frac{1+5(-2)^{k-1}}3,\\
+          a_{2k}&=-\frac{1+5(-2)^{k-1}}3.
+        \end{aligned}
+      \]}
+    絶対値が非有界になるので,\bookterm{sequence}{数列}自身は周期的ではない.
+\par\smallskip\noindent\textbf{計算・証明}\par\nopagebreak[4]
+\textbf{一周期分をまとめる.}
     $x_k=a_{2k-1}$とすると,\,$a_{2k}=-x_k$から
     $x_{k+1}=-2x_k+1$となる.
     \bookterm{fixed}{不動点}$\frac{1}{3}$を引けば$x_{k+1}-\frac{1}{3}=-2\left(x_k-\frac{1}{3}\right)$であり,
     $x_1=2$から解答の式が得られる.
     係数の周期が$2$でも,一周期後の係数$-2$によって項の絶対値は大きくなる.
     \sectionref*{節：一周期分をまとめる}へ.
-  \item \textbf{二項の組が戻る.}
+
+  \item \textbf{チャートの経路：}非線形な3項間の式で正値を確かめ,2項の組の繰り返しから周期を求める.\par\smallskip
+    \textbf{結論}\par\nopagebreak[4]
+各項は$1,2,3,2,1$を繰り返す.
+    $n-1$を$5$で割った余りが$0,1,2,3,4$のとき,
+    $a_n$はそれぞれ$1,2,3,2,1$である.最小周期は$5$.
+    正の定\bookterm{sequence}{数列}は$a_1=a_2=\frac{1+\sqrt5}{2}$の場合である.
+\par\smallskip\noindent\textbf{計算・証明}\par\nopagebreak[4]
+\textbf{二項の組が戻る.}
     $a_3=3,a_4=2,a_5=1,a_6=1,a_7=2$なので,
     $(a_6,a_7)=(a_1,a_2)$である.連続する2項から以降の項はすべて決まるので,全体が繰り返す.
     周期$5$の最小周期は$1$または$5$であり,定\bookterm{sequence}{数列}ではないので$5$である.
     定数$t>0$では$t^2=t+1$が必要十分である.
     \sectionref*{節：非線形の周期性}へ.
-  \item \textbf{保存・近似・添字の倍増.}
+
+  \item \textbf{チャートの経路：}連立の平方差を不変量として確かめ,積と比の関係から誤差と添字の倍増を調べる.\par\smallskip
+    \textbf{結論}\par\nopagebreak[4]
+$x_k^2-2y_k^2=1$が保たれ,
+    \[
+      r_k-\sqrt2=\frac1{y_k^2(r_k+\sqrt2)},\qquad
+      \lim_{k\to\infty}r_k=\sqrt2.
+    \]
+    また$r_{2k}=\frac12\left(r_k+\frac{2}{r_k}\right)$である.
+\par\smallskip\noindent\textbf{計算・証明}\par\nopagebreak[4]
+\textbf{保存・近似・添字の倍増.}
     漸化式を代入して展開すれば
     \[
       (3x+4y)^2-2(2x+3y)^2=x^2-2y^2
@@ -185,7 +188,22 @@
     平方して$x_{2k}=x_k^2+2y_k^2$, $y_{2k}=2x_ky_k$を得れば,
     比は\bookterm{newton}{ニュートン法}の式になる.
     \sectionref*{節：整数から作る近似分数}へ.
-  \item \textbf{操作に合う表示.}
+
+  \item \textbf{チャートの経路：}和を求めるため多項式を二項係数で表し,隣接する二項係数の差を使う.\par\smallskip
+    \textbf{結論}\par\nopagebreak[4]
+\BookMathLayout{\[
+        \sum_{j=0}^{N-1}j^3
+        =6\binom N4+6\binom N3+\binom N2
+        =\frac{N^2(N-1)^2}{4}.
+      \]}{\[
+        \begin{aligned}
+          \sum_{j=0}^{N-1}j^3&=6\binom N4+6\binom N3+\binom N2\\
+          &=\frac{N^2(N-1)^2}{4}.
+        \end{aligned}
+      \]}
+    階差を取りやすい部品へ表し直してから,部品ごとに和を取った.
+\par\smallskip\noindent\textbf{計算・証明}\par\nopagebreak[4]
+\textbf{操作に合う表示.}
     $j(j-1)(j-2)+3j(j-1)+j=j^3$だから,提示された恒等式が成り立つ.
     階差の和の公式をそれぞれに使うと,
     $6\binom N4+6\binom N3+\binom N2$となる.
@@ -193,4 +211,46 @@
     $N=0,1,2,3$でも,範囲外の二項係数を0とする規約で直接確かめられる.
     係数比較で差を逆に戻す方法に対し,ここでは階差を取ると添字が1つ下がる部品を使った.
     \sectionref*{節：二項係数で多項式を表す}へ.
+\end{enumerate}
+
+\subsubsection{解説}\label{節：解法のつながり：解説}
+解法1は解答で用いた方法である.以下では,その選択の理由や別解との違いを説明する.
+\begin{enumerate}[label=\textbf{問\arabic*.},format=\bookitemlink{practice-connections}{solution}{problem}]
+  \item \textbf{【解法の選択】}\par\nopagebreak[4]
+両辺を割る方法では,隣接する比が係数$\frac{n+2}{n}$になる$n(n+1)$を選ぶ.
+一つの解を引く方法では,元の漸化式全体を満たす$v_n$を探す.
+\par\smallskip\noindent\textbf{【比較】}\par\nopagebreak[4]
+割った後の階差型で一つの解を作り,それに$n(n+1)$を掛ければ,引く数列$v_n$を作れる.
+二つの方法は独立した技巧ではなく,同じ係数を処理した後,付加項を和で扱うか一つの解として先に引くかの違いである.
+設問で要求された両方法の計算は,解答に示した.
+\end{enumerate}
+
+\begin{enumerate}[start=6,label=\textbf{問\arabic*.},format=\bookitemlink{practice-connections}{solution}{problem}]
+  \item \textbf{【解法の選択】}\par\nopagebreak[4]
+平方差が一定であることは代入で確認できる.これを因数分解すれば近似値の誤差を評価できる.
+添字が倍になる式は,元の二つの数列を使って考えよう.
+\par\smallskip\noindent\textbf{【もう一つの導き方】}\par\nopagebreak[4]
+$z_k=x_k+\sqrt2y_k$とおくと,\,$z_{k+1}=(3+2\sqrt2)z_k$である.
+初項から$z_k=(3+2\sqrt2)^k$なので,\,$z_{2k}=z_k^2$が成り立つ.
+共役な式も合わせて実数部分と$\sqrt2$の係数を比べれば,
+\begin{align*}
+  x_{2k}&=x_k^2+2y_k^2,\\
+  y_{2k}&=2x_ky_k.
+\end{align*}
+したがって
+\begin{align*}
+  r_{2k}&=\frac{x_k^2+2y_k^2}{2x_ky_k}\\
+        &=\frac12\left(r_k+\frac2{r_k}\right).
+\end{align*}
+\par\smallskip\noindent\textbf{【比較】}\par\nopagebreak[4]
+元の整数列で添字を倍にすることは,その比にニュートン法を1回使うことに対応する.
+整数性や不変量を示すには元の連立式が便利であり,近似値の改善を読むには比の式が便利である.
+
+  \item \textbf{【解法の選択】}\par\nopagebreak[4]
+二項係数では隣接する差を取ると下の添字が一つ下がる.
+そのため,\,$j^3$を二項係数で表せば,和を取る操作を逆向きに行える.
+\par\smallskip\noindent\textbf{【別の方法との比較】}\par\nopagebreak[4]
+通常の係数比較なら,和を$AN^4+BN^3+CN^2+DN$と置き,隣接する差が$N^3$になるよう四つの係数を決める.
+二項係数を使う方法では,差の取り方が既知なので,和を取るたびに係数を解き直す必要がない.
+ただし,最初に多項式を二項係数で表す計算が必要である.どちらも同じ和を求めるが,計算しやすい式の選び方が異なる.
 \end{enumerate}

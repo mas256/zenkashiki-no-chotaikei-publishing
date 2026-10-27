@@ -20,3 +20,17 @@ const mismatched=original.replace(/start=2,(.*?\{example-system-1\}\{answer\})/,
 assert.notEqual(mismatched,original);
 assert.throws(()=>checkMutation(mismatched),/item number mismatch/);
 console.log("Split example navigation verified: actual numbers, duplicate targets, gaps, and answer mismatches");
+
+// Commentary may be sparse, but every answer still needs its route and number.
+const standard="発展-new/第3章 解法の選択と演習/sections/04_演習/subsections/02_標準.tex";
+const manuscript=read(standard);
+const checkExerciseMutation=text=>verifyTeX(path=>path===standard ? text : read(path));
+assert.throws(()=>checkExerciseMutation(manuscript.replace("\\textbf{チャートの経路：}","")),/one chart route/);
+assert.throws(()=>checkExerciseMutation(manuscript.replace("\\textbf{チャートの経路：}","\\textbf{チャートの経路：}\\textbf{チャートの経路：}")),/one chart route/);
+const orphan=manuscript.replace(/start=55,(.*?\{practice-basic\}\{solution\})/,"start=56,$1");
+assert.notEqual(orphan,manuscript);
+assert.throws(()=>checkExerciseMutation(orphan),/item number mismatch/);
+const repeated=manuscript.replace(/start=19,(.*?\{practice-basic\}\{solution\})/,"start=16,$1");
+assert.notEqual(repeated,manuscript);
+assert.throws(()=>checkExerciseMutation(repeated),/duplicate item target/);
+console.log("Exercise navigation verified: sparse commentary, missing/duplicate routes, orphan/duplicate commentary numbers");

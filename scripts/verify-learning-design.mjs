@@ -138,15 +138,23 @@ export function verifyTeX(readText, pdfDestinations = null) {
     for (const m of text.matchAll(/\\begin\{enumerate\}\[([^\n]*)\]/g)) {
       const f=m[1].match(/\\bookitemlink\{([^}]+)\}\{([^}]+)\}\{([^}]+)\}/);
       if (!f) continue;
-      let depth=1,count=0,t;
+      let depth=1,count=0,t,blockEnd=text.length;
+      const itemPositions=[];
       const tokens=/\\(begin|end)\{enumerate\}|\\item\b/g;
       tokens.lastIndex=m.index+m[0].length;
       while ((t=tokens.exec(text)) && depth) {
         if (t[1]==="begin") depth++;
-        else if (t[1]==="end") depth--;
-        else if (depth===1) count++;
+        else if (t[1]==="end") { depth--; if (depth===0) { blockEnd=t.index; break; } }
+        else if (depth===1) { count++; itemPositions.push(t.index); }
       }
       const id=f[1],role=f[2]; groups[id]??={};
+      if (id.startsWith("practice-") && role==="answer") {
+        for (let i=0;i<itemPositions.length;i++) {
+          const item=text.slice(itemPositions[i],itemPositions[i+1] ?? blockEnd);
+          assert((item.match(/\\textbf\{チャートの経路：\}/g)||[]).length===1,
+            "exercise answer must have one chart route "+id+":"+(i+1));
+        }
+      }
       const start=Number(m[1].match(/(?:^|,)\s*start\s*=\s*(\d+)/)?.[1] ?? 1);
       assert(start>0,"invalid first item number "+id+":"+role);
       groups[id][role]??=new Set();
@@ -163,9 +171,11 @@ export function verifyTeX(readText, pdfDestinations = null) {
     assert(roles.problem,"missing problem list "+id);
     for (let number=1;number<=roles.problem.size;number++)
       assert(roles.problem.has(number),"non-contiguous problem numbers "+id);
-    for (const [role,numbers] of Object.entries(roles))
-      assert(numbers.size===roles.problem.size && [...numbers].every(number=>roles.problem.has(number)),
+    for (const [role,numbers] of Object.entries(roles)) {
+      const allowSparse=id.startsWith("practice-") && role==="solution";
+      assert((allowSparse || numbers.size===roles.problem.size) && [...numbers].every(number=>roles.problem.has(number)),
         "item number mismatch "+id+":"+role);
+    }
   }
   assert(groups["practice-basic"].problem.size===55,"standard exercise count changed");
   assert(groups["practice-advanced"].problem.size===10,"advanced exercise count changed");
@@ -193,7 +203,15 @@ export function verifyTeX(readText, pdfDestinations = null) {
       }
     }
   }
-  return { ...(pdfDestinations ? {pdfProblemDestinations} : {}), inputFiles:files.size,labels:labels.size,headingReferences:references.length,problemReferences:problemRefs.length,exerciseCount:Object.entries(groups).filter(([id])=>id.startsWith("practice-")).reduce((sum,[,roles])=>sum+roles.problem.size,0) };
+  const exerciseGroups=Object.entries(groups).filter(([id])=>id.startsWith("practice-"));
+  return {
+    ...(pdfDestinations ? {pdfProblemDestinations} : {}),
+    inputFiles:files.size,labels:labels.size,
+    headingReferences:references.length,problemReferences:problemRefs.length,
+    exerciseCount:exerciseGroups.reduce((sum,[,roles])=>sum+roles.problem.size,0),
+    exerciseRoutes:exerciseGroups.reduce((sum,[,roles])=>sum+(roles.answer?.size ?? 0),0),
+    exerciseCommentary:exerciseGroups.reduce((sum,[,roles])=>sum+(roles.solution?.size ?? 0),0),
+  };
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url)===resolve(process.argv[1])) {

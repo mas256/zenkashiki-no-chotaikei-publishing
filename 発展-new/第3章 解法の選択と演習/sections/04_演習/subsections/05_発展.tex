@@ -270,165 +270,10 @@
     平均値は, 各元のペアが何通りの組合せに含まれるかを数えると短い.
 \end{enumerate}
 
-\subsubsection{答え}\label{節：発展：答え}
+\subsubsection{解答}\label{節：発展：解答}\label{節：発展：答え}
 \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-entrance}{answer}{problem}]
-  % F1: 正方形上の確率移動と分布の収束
-  \item (1)~
-    \[
-      p_{n+1}=\frac{p_n+r_n}{3},\qquad
-      q_{n+1}=\frac{q_n+r_n}{3}.
-    \]
-    (2)~
-    \[
-      \begin{aligned}
-        u_n&=\frac12+\frac12\left(-\frac13\right)^n,\\
-        v_n&=\left(\frac13\right)^n.
-      \end{aligned}
-    \]
-    したがって
-    \[
-      \begin{aligned}
-        p_n&=\frac14+\frac12\left(\frac13\right)^n
-        +\frac14\left(-\frac13\right)^n,\\
-        q_n&=\frac14-\frac12\left(\frac13\right)^n
-        +\frac14\left(-\frac13\right)^n.
-      \end{aligned}
-    \]
-    $B,D$にいる確率はそれぞれ
-    \[
-      \frac14-\frac14\left(-\frac13\right)^n
-    \]
-    である.(3)~\bookterm{limit}{極限}はいずれも$\frac14$である.
-    % F2: 奇数が続く条件と2の因子
-  \item (1)~
-    \[
-      a_j+1=\frac{3^j}{2^j}(a_0+1)
-      \quad(0\le j\le m).
-    \]
-    (2)~求める初期値は
-    \[
-      a_0=2^{m+1}\ell-1
-      \quad(\ell=1,2,3,\ldots)
-    \]
-    であり,最小値は$2^{m+1}-1$である.
-
-    (3)~奇数項の個数は$s$である.\,$s\ge1$のとき,\,$a_0,\ldots,a_{s-1}$が奇数であり,\,$a_s=3^s t-1$は偶数である.\,$s=0$のときは初項から偶数である.
-    % F3: 畳み込み和が一定になる数列
-  \item (1)~
-    \[
-      c_n=\frac{(2n)!}{4^n(n!)^2}
-      =\frac1{4^n}\binom{2n}{n}.
-    \]
-    (2)~設問の等式から$T_n=T_{n-1}$が得られ,\,$T_0=1$より
-    \[
-      T_n=1\quad(n=0,1,2,\ldots).
-    \]
-    (3)~$c_kc_{n-k}$を(1)の式で表し,\,$T_n=1$の両辺を$4^n$倍すれば示される.
-    % F4: 内分を繰り返す平行四辺形
-  \item (1) 対角線の交点は常に$O$である.
-    \par\noindent
-    (2) $\rho=(1-t)^2+t^2$と置くと,
-    \[
-      S_n=S_0\rho^n.
-    \]
-    (3) 四つの頂点はすべて$O$に近づく.
-    \par\noindent
-    (4) 辺長は$\ell\,2^{-\frac{n}{2}}$であり,有向線分の向きは反時計回りに$\frac{n\pi}{4}$だけ回転する.
-    向きの角は$2\pi$の整数倍の違いを同一視する.
-    % F5: 積分を数列にして円錐を切る
-  \item (1)
-    \[
-      I_1=\log(2+\sqrt3),\qquad I_2=\sqrt3.
-    \]
-    (2)
-    \[
-      (n-1)I_n=(n-2)I_{n-2}+2^{n-2}\sqrt3,
-    \]
-    \[
-      I_3=\sqrt3+\frac12\log(2+\sqrt3).
-    \]
-    (3) 求める体積は
-    \[
-      \frac{8\pi}{9}-\frac{4\sqrt3}{3}
-      +\frac13\log(2+\sqrt3).
-    \]
-    ここで$\log$は自然\bookterm{logarithm}{対数}である.
-    % F6: 一般項を求めずに減衰の速さを決める
-  \item (1) すべての項は正であり,
-    \[
-      b_n=4n-3+4\sum_{k=1}^{n-1}a_k>4n-3
-      \qquad(n\geq2).
-    \]
-    (2) \bookterm{limit}{極限}は$0$である.
-    \par\noindent
-    (3) \bookterm{limit}{極限}は$\frac{1}{4}$である.
-    % F7: 1往復で整列できる札の配置
-  \item (1)~$c_2=2,\ c_3=6$である.
-
-    (2)~$n\ge3$に対して
-    \[
-      c_n=4c_{n-1}-2c_{n-2}.
-    \]
-    (3)~したがって,
-    \[
-      \boxed{\displaystyle
-        c_n=\frac{(2+\sqrt2)^{n-1}+(2-\sqrt2)^{n-1}}2}
-      \quad(n\ge1).
-    \]
-    % F8: 巨大な項の整除と, 添字の互除法
-  \item (1)~$n=3,6,9,\ldots$, すなわち$3$の正の倍数である.
-
-    (2)~$a_m\mid a_n\ \Longleftrightarrow\ m\mid n$である.
-
-    (3)~$\gcd(a_m,a_n)=a_{\gcd(m,n)}$であり,
-    \[
-      \boxed{\gcd(a_{2026},a_{3040})=a_2=2}.
-    \]
-    % F9: 整数方程式の解を生み出す漸化式
-  \item $\alpha=\frac{3+\sqrt5}2,\quad
-      \beta=\frac{3-\sqrt5}2$とおくと,
-    \[
-      \boxed{\displaystyle
-        u_n=\frac32\left\{
-        \alpha^n+\beta^n-
-        \frac{\alpha^n-\beta^n}{\sqrt5}
-        \right\}}.
-    \]
-    $(3,u_n,u_{n+1})$は正の整数解であり,\,$n\ge1$で$u_{n+1}>u_n$だから異なる解が無限個得られる.
-    また,
-    \[
-      \boxed{\displaystyle
-        \lim_{n\to\infty}\frac{u_{n+1}}{u_n}
-        =\frac{3+\sqrt5}2}.
-    \]
-    % F10: 元のペアをすべて解消する組み替え
-  \item (1)
-    \[
-      S(1)=0,\quad S(2)=1,\quad S(3)=2.
-    \]
-    (2)
-    \[
-      S(n)=(n-1)\{S(n-1)+S(n-2)\}
-      \quad(n\ge2).
-    \]
-    (3)
-    \[
-      S(n)-nS(n-1)=(-1)^n,
-    \]
-    \[
-      \boxed{S(n)=n!\sum_{k=0}^{n}\frac{(-1)^k}{k!}}.
-    \]
-    (4) 組合せの数は
-    \[
-      \binom{n}{r}S(n-r).
-    \]
-    元のペアが残る組数の平均値は$1$である.
-\end{enumerate}
-
-\subsubsection{解説}\label{節：発展：解説}
-\begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-entrance}{solution}{problem}]
-  % F1: 正方形上の確率移動と分布の収束
-  \item \textbf{(1)~直前の位置で分ける.}
+  \item \textbf{チャートの経路：}移動の対称性から連立式を立て,和と差を作り特性方程式型と等比型にする.\par\smallskip
+    \textbf{(1)~直前の位置で分ける.}
     $A$にとどまる場合と,\,$B,D$から移る場合は重ならない.
     どちらの頂点からも$A$への移動確率は$\frac{1}{3}$なので,確率$r_n$にまとめてよい.
     $C$についても同様であり,
@@ -454,8 +299,9 @@
     \smallskip\textbf{(3)~出発点の影響が消える.}
     二つの公比の絶対値は$\frac{1}{3}<1$なので,各頂点の確率は$\frac{1}{4}$へ近づく.
     初めの$A$への偏りが消え,対頂点の組$\{A,C\}$にいる確率$u_n$は$\frac{1}{2}$の上下を交互に行き来する.
-    % F2: 奇数が続く条件と2の因子
-  \item \textbf{(1)~分岐を固定する.}
+
+  \item \textbf{チャートの経路：}奇数の分岐を使える範囲を確かめ,1を加えて等比型にし2の因子を数える.\par\smallskip
+    \textbf{(1)~分岐を固定する.}
     奇数が続く区間に限れば$a_{j+1}=\frac{3a_j}{2}+\frac{1}{2}$である.
     \bookterm{fixed}{不動点}$-1$を引くと$a_{j+1}+1=\frac{3(a_j+1)}{2}$だから,
     \[
@@ -485,8 +331,9 @@
     となる.\,$j<s$では奇数,\,$j=s$では偶数なので連続する奇数項は$s$個である.
     例えば$a_0=7$では$7,11,17,26,\ldots$となる.
     最初の奇数区間の長さは,\,$a_0+1$に含まれる$2$の因子で決まる.
-    % F3: 畳み込み和が一定になる数列
-  \item \textbf{(1)~\bookterm{ratio}{階比}型で各項を求める.}
+
+  \item \textbf{チャートの経路：}階比型で各項を求め,式全体の総和は添字を入れ替えて係数を一定にする.\par\smallskip
+    \textbf{(1)~\bookterm{ratio}{階比}型で各項を求める.}
     偶数の積は$2^nn!$,奇数の積は$\frac{(2n)!}{2^nn!}$なので,
     \[
       c_n=\prod_{j=0}^{n-1}\frac{2j+1}{2j+2}
@@ -523,8 +370,9 @@
     $T_n=1$を$4^n$倍すれば設問の恒等式となる.
     例えば$n=2$では$1\cdot6+2\cdot2+6\cdot1=16$である.
     複雑な各項でも,和を一つの\bookterm{sequence}{数列}として扱うと簡単な性質が現れる.
-    % F4: 内分を繰り返す平行四辺形
-  \item 図形が変わるたびに4つの頂点を別々に計算すると,計算量が増える.
+
+  \item \textbf{チャートの経路：}図形の分点からベクトルの式を立て,面積比と長さの平方和を等比型にする.\par\smallskip
+    図形が変わるたびに4つの頂点を別々に計算すると,計算量が増える.
     平行四辺形を決める二本の辺と,図形の中心に注目する.
     \par\noindent
     \textbf{(1) 内分をベクトルで表す.}
@@ -644,8 +492,9 @@
     正方形では内分という操作が,中心を固定した回転と縮小そのものになる.
     一般の平行四辺形については,二本の辺を混ぜる連立式と面積の等比性が成り立つが,
     図形全体が毎回同じ平面回転と一様な縮小を受けるとは限らない.
-    % F5: 積分を数列にして円錐を切る
-  \item ここでは\bookterm{sequence}{数列}の項が積分で定義されている.
+
+  \item \textbf{チャートの経路：}部分積分で非隣接2項間の式を作り,体積の断面積を置換して同じ積分を使う.\par\smallskip
+    ここでは\bookterm{sequence}{数列}の項が積分で定義されている.
     各積分を別々に計算するのでなく,べきの指数が異なる積分どうしの関係を作る.
     \par\noindent
     \textbf{(1) 基本となる積分.}
@@ -759,8 +608,9 @@
     \]
     断面の半径と切断位置の関係を角度で表すと,最初に調べた$I_3$が自然に現れた.
     積分の\bookterm{recurrence}{漸化式}は\bookterm{sequence}{数列}だけの技法ではなく,図形から生まれる積分を計算するためにも使える.
-    % F6: 一般項を求めずに減衰の速さを決める
-  \item 分母に$a_n$があるが,第2章の分数型と違って分母が二乗になっている.
+
+  \item \textbf{チャートの経路：}項を含む分母から逆数を候補に選び,正値を確認して階差とその和を評価する.\par\smallskip
+    分母に$a_n$があるが,第2章の分数型と違って分母が二乗になっている.
     まず逆数を取って,\bookterm{general}{一般項}が求められるかだけでなく,増え方を評価できるかを調べる.
     \par\noindent
     \textbf{(1) 逆数の\bookterm{difference}{階差}を足す.}
@@ -828,8 +678,23 @@
     それによって\bookterm{difference}{階差}の追加項$4a_n$の平均が消え,\,$b_n$は最終的に$4n$と同じ割合で増えると分かった.
     結論$na_n\to\frac{1}{4}$は,\,$a_n$の減少の速さが$\frac{1}{4n}$のそれに近づくことを表す.
     このように,\bookterm{general}{一般項}を求めなくても,\bookterm{recurrence}{漸化式}から\bookterm{sequence}{数列}の主要な性質を決められる.
-    % F7: 1往復で整列できる札の配置
-  \item \textbf{(1)~小さい例と左端の札.}
+
+  \item \textbf{チャートの経路：}小さい配置と最初の比較を調べ,場合分けで隣接3項型の式を立てる.\par\smallskip
+    \textbf{結論}\par\nopagebreak[4]
+(1)~$c_2=2,\ c_3=6$である.
+
+    (2)~$n\ge3$に対して
+    \[
+      c_n=4c_{n-1}-2c_{n-2}.
+    \]
+    (3)~したがって,
+    \[
+      \boxed{\displaystyle
+        c_n=\frac{(2+\sqrt2)^{n-1}+(2-\sqrt2)^{n-1}}2}
+      \quad(n\ge1).
+    \]
+\par\smallskip\noindent\textbf{計算・証明}\par\nopagebreak[4]
+\textbf{(1)~小さい例と左端の札.}
     二枚ならすべて成功して$c_2=2$となる.
     三枚では往路で$3$が右端へ移り,復路の最後に残り二枚が昇順になるので$c_3=6$である.
     一般に最初の比較後,左端には$b=\min(A_1,A_2)$が残る.
@@ -887,8 +752,9 @@
     に$c_1=1,c_2=2$を入れると$P=Q=\frac{1}{2}$であり,解答の式を得る.
     $c_4=20,c_5=68$となる.二つのべきで$\sqrt2$の奇数次の項が相殺され,個数は整数になる.
     この問の中心は,解く前の「何を取り除き,どう戻すか」という設計にある.
-    % F8: 巨大な項の整除と, 添字の互除法
-  \item \textbf{(1)~余りの\bookterm{recurrence}{漸化式}.}\par\nobreak
+
+  \item \textbf{チャートの経路：}数列の項の整数性から余りを選び,法を項へ変えて添字の互除法を使う.\par\smallskip
+    \textbf{(1)~余りの\bookterm{recurrence}{漸化式}.}\par\nobreak
     項は$1,2,5,26,677,\ldots$と急増するが,法$5$で余りの漸化式を調べれば,
     \[
       1\longmapsto2\longmapsto0\longmapsto1
@@ -927,8 +793,27 @@
     例では$3040=2026+1014$, $2026=1014+1012$, $1014=1012+2$, $1012=506\cdot2$より$d=2$である.
     したがって$\gcd(a_{2026},a_{3040})=a_2=2$となる.
     巨大な項どうしの整除関係を,小さな添字の計算へ移せた.
-    % F9: 整数方程式の解を生み出す漸化式
-  \item \textbf{(1)~一つの解から次の解へ.}
+
+  \item \textbf{チャートの経路：}整数方程式で保たれる関係から式を立て,隣接3項型の一般項と比を求める.\par\smallskip
+    \textbf{結論}\par\nopagebreak[4]
+$\alpha=\frac{3+\sqrt5}2,\quad
+      \beta=\frac{3-\sqrt5}2$とおくと,
+    \[
+      \boxed{\displaystyle
+        u_n=\frac32\left\{
+        \alpha^n+\beta^n-
+        \frac{\alpha^n-\beta^n}{\sqrt5}
+        \right\}}.
+    \]
+    $(3,u_n,u_{n+1})$は正の整数解であり,\,$n\ge1$で$u_{n+1}>u_n$だから異なる解が無限個得られる.
+    また,
+    \[
+      \boxed{\displaystyle
+        \lim_{n\to\infty}\frac{u_{n+1}}{u_n}
+        =\frac{3+\sqrt5}2}.
+    \]
+\par\smallskip\noindent\textbf{計算・証明}\par\nopagebreak[4]
+\textbf{(1)~一つの解から次の解へ.}
     $9+y^2+z^2=3yz$を$y$の二次方程式と見ると,もう一つの根は$3z-y$である.
     実際,
     \[
@@ -975,8 +860,9 @@
       \longrightarrow\alpha.
     \]
     漸化式は整数性を保証し,\bookterm{general}{一般項}は整数の比が近づく無理数を示している.
-    % F10: 元のペアをすべて解消する組み替え
-  \item \textbf{(1) 小さい場合を数える.}
+
+  \item \textbf{チャートの経路：}組み替えの対応から3項間の式を立て,差を作った後に階乗で割り階差型にする.\par\smallskip
+    \textbf{(1) 小さい場合を数える.}
     $n=1$では相手がいないので$S(1)=0$である.
     $n=2$では$(A_1,B_2),(A_2,B_1)$の一通り,
     $n=3$では相手の添字が$(2,3,1),(3,1,2)$の二通りである.
@@ -1091,4 +977,65 @@
     \]
     下段は上段を$n!$倍したものであり,\,$S(n)$は$\frac{n!}{e}$に最も近い整数となる.
     数え上げの\bookterm{recurrence}{漸化式}が,階乗・確率・自然\bookterm{logarithm}{対数}の底を結んだ.
+\end{enumerate}
+
+\subsubsection{解説}\label{節：発展：解説}
+解法1は解答で用いた方法である.以下では,その選択の理由や別解との違いを説明する.
+\begin{enumerate}[start=6,label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-entrance}{solution}{problem}]
+  \item \textbf{【解法の選択】}\par\nopagebreak[4]
+一般項を求めることよりも,設問が要求する極限に必要な情報を選ぼう.
+逆数の差は定数4に$4a_n$を加えた形になるので,和を取れば$b_n$の増え方を評価できる.
+\par\smallskip\noindent\textbf{【解法1】}\par\nopagebreak[4]
+まず$b_n$の下限から$a_n\to0$を示す.
+次に平均$\frac1n\sum_{k=1}^na_k$を評価すれば,\,$\frac{b_n}{n}$の極限が分かる.
+最後に逆数へ戻すことで,\,$na_n$の極限が得られる.
+単に$a_n\to0$を示すだけでは,その減衰の速さまでは決まらない.
+
+  \item \textbf{【実験】}\par\nopagebreak[4]
+札が2枚なら2通り,3枚なら6通りとも成功する.
+少ない枚数では配置を列挙し,往路の最初の比較後に左端に残る札を観察しよう.
+その札は復路の最後まで比較されないため,小さい数字が最初の2枚に必要だと分かる.
+\par\smallskip\noindent\textbf{【解法の選択】}\par\nopagebreak[4]
+最終状態を直接数えるより,最初の2枚に1があるか,1はなく2があるかで分ける.
+小さい配置との対応を作れれば,隣接3項型の式を立てられる.
+\par\smallskip\noindent\textbf{【解法1】}\par\nopagebreak[4]
+対応の詳細と,漸化式から一般項を求める計算は解答のとおりである.
+取り除く札が1の場合と2の場合では,元に戻す操作が異なる.
+少ない枚数の実験は立式の手掛かりであり,対応の証明の代わりにはならない.
+
+  \item \textbf{【実験】}\par\nopagebreak[4]
+最初の項は$1,2,5,26,677$となり,値を直接求め続けるのは大変である.
+一方,5で割った余りだけなら$1,2,0,1,2,0,\ldots$となる.
+次の余りは前の余りで決まるので,この繰り返しを証明できる.
+\par\smallskip\noindent\textbf{【解法の選択】}\par\nopagebreak[4]
+同じ考えを法$a_m$へ広げる.$a_m$の余りは0なので,補助的に置いた$a_0=0$からの計算へ戻る.
+途中の項は正で$a_m$より小さいため,0に戻る位置も確定できる.
+\par\smallskip\noindent\textbf{【解法1】}\par\nopagebreak[4]
+項の最大公約数を変えずに添字の余りへ進むと,添字について互除法を行える.
+ここでは一般項を求めるより,割り切れることに必要な余りだけを扱う方がよい.
+\end{enumerate}
+
+\begin{enumerate}[start=10,label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-entrance}{solution}{problem}]
+  \item \textbf{【実験】}\par\nopagebreak[4]
+2組では入れ替える1通り,3組では三つの相手を巡回させる2通りとなる.
+この図を描くと,2組が互いの相手を選ぶ場合と,それより長い巡回を作る場合を分けたくなる.
+\par\smallskip\noindent\textbf{【解法の選択】}\par\nopagebreak[4]
+$A_1$が$B_j$を選んでも,\,$A_j$が$B_1$を選ばなければ,4個を除くだけでは同じ条件の問題にならない.
+解答では,\,$B_1$の相手$A_k$を$B_j$へ結び直し,小さい問題との対応を作った.
+取り除いた要素の数だけから答えを決めず,残る禁止条件まで確かめる必要がある.
+\par\smallskip\noindent\textbf{【解法1：漸化式】}\par\nopagebreak[4]
+対応から3項間の式を立てた後は,\,$S(n)-nS(n-1)$を作り,階乗で割って階差型へ進む.
+立式の発想と,得た式を解く変形を分けて考える.
+\par\smallskip\noindent\textbf{【解法2：包除原理】}\par\nopagebreak[4]
+特定の$k$組を元のまま残す配置は$(n-k)!$通りであり,その$k$組の選び方は$\binom nk$通りである.
+包除原理から
+\begin{align*}
+  S(n)&=\sum_{k=0}^{n}(-1)^k\binom nk(n-k)!\\
+      &=n!\sum_{k=0}^{n}\frac{(-1)^k}{k!}.
+\end{align*}
+この式では,元のペアが$m$組残る一つの配置の寄与が$\sum_{k=0}^{m}(-1)^k\binom mk$になる.
+したがって$m=0$では1,\,$m>0$では0となり,目的の配置だけを数えている.
+\par\smallskip\noindent\textbf{【比較】}\par\nopagebreak[4]
+包除原理は有限和を直接作れる.漸化式は,小さい問題への対応を使い,個数を順に計算する方法を与える.
+前者では重複を打ち消す理由,後者では対応の逆操作まで示すことが証明の要点である.
 \end{enumerate}

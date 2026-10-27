@@ -115,83 +115,17 @@
   \item 分子と分母の和・差を使って$a_{n+1}\pm1$を計算する.それらの比を取ると平方が現れるが,係数$2^n$も残る.その次に\bookterm{logarithm}{対数}を使う.
 \end{enumerate}
 
-\subsubsection{答え}\label{節：応用：答え}
+\subsubsection{解答}\label{節：応用：解答}\label{節：応用：答え}
 \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-advanced}{answer}{problem}]
-  % A1: 階乗で重みをそろえた総和
-  \item \bookterm{general}{一般項}は
+  \item \textbf{チャートの経路：}式全体の総和内の項に合わせて階乗で割り,総和を消して重解の隣接3項型にする.\par\smallskip
+    \textbf{結論}\par\nopagebreak[4]
+\bookterm{general}{一般項}は
     \[
       a_n=n!(n+1)2^{n-2}
     \]
     である.この式は$n=1$でも成り立つ.
-    % A2: 添字を含む分母と不動点
-  \item \bookterm{general}{一般項}は
-    \[
-      a_n
-      =1+\frac{1}{3\cdot2^{n-1}-n-1}
-    \]
-    である.
-    % A3: 三角形状の重みをもつ積
-  \item $\alpha=\frac{3+\sqrt5}{2},\quad
-      \beta=\frac{3-\sqrt5}{2}$
-    とおくと,\bookterm{general}{一般項}は
-    \[
-      a_n=2^{\frac{\alpha^{n-1}-\beta^{n-1}}{\sqrt5}}
-    \]
-    である.
-    % A4: 非線形3項間式から階比を作る
-  \item \bookterm{general}{一般項}は
-    \[
-      a_n
-      =\frac{4^{n-1}\{(n-1)!\}^2}{(2n-2)!}
-    \]
-    である.ここでは$0!=1$とする.
-    % A5: 和と差で異なる構造が現れる連立
-  \item \bookterm{general}{一般項}は
-    \begin{align*}
-      a_n&=2^{n-1}n!+\frac3{n^2+n+4},\\
-      b_n&=2^{n-1}n!-\frac3{n^2+n+4}
-    \end{align*}
-    である.
-    % A6: 積の3項間関係と二重の階差
-  \item $E_n=\frac{n(n-1)(2n-1)}6+2n-1$
-    とおくと,
-    \[
-      a_n=2^{E_n}
-    \]
-    である.
-    % A7: 添字とともに動く基準点
-  \item \bookterm{general}{一般項}は
-    \[
-      a_n
-      =n\,\frac{n^2+n+1}{n^2+n-1}
-    \]
-    である.
-    % A8: 係数の和が0になる3項間関係
-  \item \bookterm{general}{一般項}は
-    \[
-      a_n
-      =\frac{10}{3}-\frac4{n+1}-\frac4{n+2}
-    \]
-    である.
-    % A9: 掛け算で結び付いた二つの数列
-  \item \bookterm{general}{一般項}は
-    \begin{align*}
-      a_n&=2^{\,3^{n-1}+n^2-1},\\
-      b_n&=2^{\,3^{n-1}-n^2+1}
-    \end{align*}
-    である.
-    % A10: 二つの平方が作る分数式
-  \item $E_n=n+1+2^{n-1}$ とおくと,\bookterm{general}{一般項}は
-    \[
-      a_n=\frac{2^{E_n}+1}{2^{E_n}-1}
-    \]
-    である.
-\end{enumerate}
-
-\subsubsection{解説}\label{節：応用：解説}
-\begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-advanced}{solution}{problem}]
-  % A1: 階乗で重みをそろえた総和
-  \item 先に総和を消すと階乗も係数も変わるので,総和の各項に合わせて
+\par\smallskip\noindent\textbf{計算・証明}\par\nopagebreak[4]
+先に総和を消すと階乗も係数も変わるので,総和の各項に合わせて
     \[
       b_n=\frac{a_n}{n!},\qquad
       T_n=\sum_{k=1}^{n}b_k
@@ -223,8 +157,17 @@
     \]
     よって$b_n=(n+1)2^{n-2}$を$a_n=n!b_n$へ戻す.
     最初に両辺を割る変形から,総和型・重解型へと順に帰着させた.
-    % A2: 添字を含む分母と不動点
-  \item 分子と分母の係数を個別に計算するより,差を計算しよう.
+
+  \item \textbf{チャートの経路：}分母と付加項から1との差を作り,逆数を取った後に階差等比複合型を選ぶ.\par\smallskip
+    \textbf{結論}\par\nopagebreak[4]
+\bookterm{general}{一般項}は
+    \[
+      a_n
+      =1+\frac{1}{3\cdot2^{n-1}-n-1}
+    \]
+    である.
+\par\smallskip\noindent\textbf{計算・証明}\par\nopagebreak[4]
+分子と分母の係数を個別に計算するより,差を計算しよう.
     \[
       a_{n+1}-1
       =\frac{a_n-1}{2+n(a_n-1)}.
@@ -257,30 +200,17 @@
 
     $1$を引き,逆数を取り,一次式を加えることで,順に等比型へ帰着させた.
 
-    \noindent \textbf{【別解】}\\
-    $b_n$の式を$2^n$で割ると,
+  \item \textbf{チャートの経路：}式全体の積から対数を選び,正値を確認して差を2回取り総和を消す.\par\smallskip
+    \textbf{結論}\par\nopagebreak[4]
+$\alpha=\frac{3+\sqrt5}{2},\quad
+      \beta=\frac{3-\sqrt5}{2}$
+    とおくと,\bookterm{general}{一般項}は
     \[
-      \frac{b_{n+1}}{2^n}
-      -\frac{b_n}{2^{n-1}}=\frac{n}{2^n}.
+      a_n=2^{\frac{\alpha^{n-1}-\beta^{n-1}}{\sqrt5}}
     \]
-    したがって
-    \[
-      \frac{b_n}{2^{n-1}}
-      =1+\sum_{k=1}^{n-1}\frac{k}{2^k}.
-    \]
-    ここで
-    \[
-      \frac{k}{2^k}
-      =\frac{k+1}{2^{k-1}}-\frac{k+2}{2^k}
-    \]
-    だから総和は相殺し,
-    \[
-      \sum_{k=1}^{n-1}\frac{k}{2^k}
-      =2-\frac{n+1}{2^{n-1}}.
-    \]
-    これから同じ$b_n$を得る.一次式を加える解法は,この相殺を\bookterm{auxiliary}{補助数列}の形で先に組み込んだものといえる.
-    % A3: 三角形状の重みをもつ積
-  \item 各項が正なので,
+    である.
+\par\smallskip\noindent\textbf{計算・証明}\par\nopagebreak[4]
+各項が正なので,
     \[
       x_n=\log_2a_n
     \]
@@ -332,8 +262,17 @@
     \]
     この式は3項間の関係と2つの初期値を満たす.この漸化式では初めの2項から全項が決まるので,\,$x_n$に一致する.
     $a_n=2^{x_n}$で戻す.指数は$0,1,3,8,21,\ldots$となり,重み付き総和の差を二回取ると巨大な積を避けられた.
-    % A4: 非線形3項間式から階比を作る
-  \item 各項の積の次数が$2$でそろい,各項は正なので,
+
+  \item \textbf{チャートの経路：}数列の項どうしの積から隣接項の比を選び,逆数を経て階比型にする.\par\smallskip
+    \textbf{結論}\par\nopagebreak[4]
+\bookterm{general}{一般項}は
+    \[
+      a_n
+      =\frac{4^{n-1}\{(n-1)!\}^2}{(2n-2)!}
+    \]
+    である.ここでは$0!=1$とする.
+\par\smallskip\noindent\textbf{計算・証明}\par\nopagebreak[4]
+各項の積の次数が$2$でそろい,各項は正なので,
     \[
       r_n=\frac{a_{n+1}}{a_n}
     \]
@@ -385,18 +324,16 @@
     \]
     $m=0$の空積は$1$なので初項も含む.最初の\bookterm{ratio}{階比}が決め手だった.
 
-    \noindent \textbf{【別解】}\\
-    逆数の式で,平行移動せず直接両辺に$n+1$を掛けてもよい.
-    \[
-      (n+1)c_{n+1}-nc_n=1.
-    \]
-    したがって$e_n=nc_n$は公差$1$の\bookterm{arithmetic}{等差数列}であり, $e_1=\frac{1}{2}$から
-    \[
-      e_n=n-\frac12,\qquad c_n=1-\frac1{2n}
-    \]
-    となる.\bookterm{fixed}{不動点}を引く方法と,添字を掛けて\bookterm{difference}{階差}を一定にする方法の両方が使える.
-    % A5: 和と差で異なる構造が現れる連立
-  \item 共通部分は引き,逆符号の部分は足して消すため,
+  \item \textbf{チャートの経路：}連立の共通部分と符号に注目して和と差を取り,階比型と逆数型に分ける.\par\smallskip
+    \textbf{結論}\par\nopagebreak[4]
+\bookterm{general}{一般項}は
+    \begin{align*}
+      a_n&=2^{n-1}n!+\frac3{n^2+n+4},\\
+      b_n&=2^{n-1}n!-\frac3{n^2+n+4}
+    \end{align*}
+    である.
+\par\smallskip\noindent\textbf{計算・証明}\par\nopagebreak[4]
+共通部分は引き,逆符号の部分は足して消すため,
     \[
       s_n=a_n+b_n,\qquad d_n=a_n-b_n
     \]
@@ -445,8 +382,17 @@
     と戻して\bookterm{general}{一般項}を得る.
 
     和と差にはそれぞれに適した解法を使える.
-    % A6: 積の3項間関係と二重の階差
-  \item 正値の条件を使って$x_n=\log_2a_n$とおくと,
+
+  \item \textbf{チャートの経路：}項どうしの積から対数を選び,正値を確認して階差の階差を求める.\par\smallskip
+    \textbf{結論}\par\nopagebreak[4]
+$E_n=\frac{n(n-1)(2n-1)}6+2n-1$
+    とおくと,
+    \[
+      a_n=2^{E_n}
+    \]
+    である.
+\par\smallskip\noindent\textbf{計算・証明}\par\nopagebreak[4]
+正値の条件を使って$x_n=\log_2a_n$とおくと,
     \BookMathLayout{\[
         x_{n+2}-2x_{n+1}+x_n=2n+1,
         \qquad x_1=1,\quad x_2=4.
@@ -491,26 +437,16 @@
     付加項は$n$に依存するが,二重の\bookterm{difference}{階差}なら二回の和で解ける.
     \bookterm{characteristic}{特性方程式}より先に左辺の構造を見た.
 
-    \noindent \textbf{【別解】}\\
-    $r_n=\frac{a_{n+1}}{a_n}$とおき,元の式を$a_na_{n+1}$で割ると,
-    \[
-      r_{n+1}=2^{2n+1}r_n,\qquad r_1=8.
-    \]
-    これは\bookterm{ratio}{階比}型なので,
-    \begin{align*}
-      r_n
-      &=2^{\,3+\sum_{k=1}^{n-1}(2k+1)}\\
-      &=2^{\,n^2+2}.
-    \end{align*}
-    もう一度比を掛け合わせて,
+  \item \textbf{チャートの経路：}添字を含む係数と分母から$\frac{a_n}{n}$を試し,一次分数型の差の比を階比型にする.\par\smallskip
+    \textbf{結論}\par\nopagebreak[4]
+\bookterm{general}{一般項}は
     \[
       a_n
-      =2\prod_{k=1}^{n-1}2^{k^2+2}
-      =2^{\,1+\sum_{k=1}^{n-1}(k^2+2)}
+      =n\,\frac{n^2+n+1}{n^2+n-1}
     \]
-    を得る.\bookterm{logarithm}{対数}で差を取る方法と,元の\bookterm{sequence}{数列}で比を取る方法は,同じ構造を異なる形で使っている.
-    % A7: 添字とともに動く基準点
-  \item $a_n=n$なら$a_{n+1}=n+1$となるので,基準になる値も$n$に応じて変わっている.そこで
+    である.
+\par\smallskip\noindent\textbf{計算・証明}\par\nopagebreak[4]
+$a_n=n$なら$a_{n+1}=n+1$となるので,基準になる値も$n$に応じて変わっている.そこで
     \[
       c_n=\frac{a_n}{n}
     \]
@@ -551,19 +487,16 @@
     \]
     最後に$a_n=nc_n$で戻す.両辺を割る変形から分数型,\bookterm{ratio}{階比}型へ順に変えた.
 
-    \noindent \textbf{【別解】}\\
-    $c_n$の式から$u_n=\frac{1}{c_n-1}$とおいてもよい.
+  \item \textbf{チャートの経路：}隣接3項の係数の和が0なので階差を作り,階比型を経て和を取る.\par\smallskip
+    \textbf{結論}\par\nopagebreak[4]
+\bookterm{general}{一般項}は
     \[
-      u_{n+1}=\frac{n+2}{n}u_n+\frac1n.
+      a_n
+      =\frac{10}{3}-\frac4{n+1}-\frac4{n+2}
     \]
-    定数$\frac{1}{2}$を加えると,
-    \[
-      u_{n+1}+\frac12
-      =\frac{n+2}{n}\left(u_n+\frac12\right).
-    \]
-    $u_1=\frac{1}{2}$から,\, $u_n+\frac{1}{2}=\frac{n(n+1)}{2}$を得る.二つの不動点との差の比を取る方法と,一つの不動点との差の逆数を取ってから定数を加える方法が,同じ答えを与える.
-    % A8: 係数の和が0になる3項間関係
-  \item 係数は$n$に依存するため,\bookterm{constant}{定数係数}の\bookterm{characteristic}{特性方程式}型ではない.一方,
+    である.
+\par\smallskip\noindent\textbf{計算・証明}\par\nopagebreak[4]
+係数は$n$に依存するため,\bookterm{constant}{定数係数}の\bookterm{characteristic}{特性方程式}型ではない.一方,
     \[
       2n^2+10n+11
       =(n+2)(n+4)+(n+1)(n+3)
@@ -602,16 +535,16 @@
     整理すると解答の式となり,\,$n=1$でも$a_1=0$に合う.
     \bookterm{difference}{階差}の\bookterm{ratio}{階比}を解き,最後に和で戻した.
 
-    \noindent \textbf{【別解】}\\
-    \bookterm{difference}{階差}の式に両辺の係数を掛ける形のまま,
-    \[
-      (n+2)(n+4)d_{n+1}
-      =(n+1)(n+3)d_n
-    \]
-    から$e_n=(n+1)(n+3)d_n$は一定で,\,$e_1=8$から$d_n=\frac{8}{(n+1)(n+3)}$を得る.
-    積で残る因子を\bookterm{auxiliary}{補助数列}へ組み込んだ.
-    % A9: 掛け算で結び付いた二つの数列
-  \item 各項は正なので,
+  \item \textbf{チャートの経路：}連立する項の積と累乗から対数を選び,正値を確認して和と差を作る.\par\smallskip
+    \textbf{結論}\par\nopagebreak[4]
+\bookterm{general}{一般項}は
+    \begin{align*}
+      a_n&=2^{\,3^{n-1}+n^2-1},\\
+      b_n&=2^{\,3^{n-1}-n^2+1}
+    \end{align*}
+    である.
+\par\smallskip\noindent\textbf{計算・証明}\par\nopagebreak[4]
+各項は正なので,
     \[
       x_n=\log_2a_n,\qquad y_n=\log_2b_n
     \]
@@ -651,35 +584,15 @@
     \]
     指数に戻して答えを得る.\bookterm{logarithm}{対数}型から連立型へつながった.
 
-    \noindent \textbf{【別解】}\\
-    \bookterm{logarithm}{対数}を取らずに,積と商を作っても分離できる.
+  \item \textbf{チャートの経路：}分子と分母の平方から差の比を作り,残る二乗と指数の係数を対数で処理する.\par\smallskip
+    \textbf{結論}\par\nopagebreak[4]
+$E_n=n+1+2^{n-1}$ とおくと,\bookterm{general}{一般項}は
     \[
-      P_n=a_nb_n,\qquad R_n=\frac{a_n}{b_n}
+      a_n=\frac{2^{E_n}+1}{2^{E_n}-1}
     \]
-    とおくと,
-    \BookMathLayout{
-      \[
-        \begin{aligned}
-          P_{n+1}&=P_n^3,\quad P_1=4,\\
-          R_{n+1}&=2^{4n+2}R_n,\quad R_1=1.
-        \end{aligned}
-      \]
-    }{
-      \[
-        \begin{aligned}
-          P_{n+1}&=P_n^3,\quad P_1=4,\\
-          R_{n+1}&=2^{4n+2}R_n,\quad R_1=1.
-        \end{aligned}
-      \]
-    }
-    よって,
-    \[
-      P_n=2^{\,2\cdot3^{n-1}},\qquad
-      R_n=2^{\,2(n^2-1)}.
-    \]
-    正値を使って$a_n=\sqrt{P_nR_n}$, $b_n=\sqrt{\frac{P_n}{R_n}}$と戻せば同じ答えになる.\bookterm{logarithm}{対数}の和と差は,元の\bookterm{sequence}{数列}の積と商に対応する.
-    % A10: 二つの平方が作る分数式
-  \item 分子だけを展開すると構造が見えにくくなる.分母を$D_n$と書けば,
+    である.
+\par\smallskip\noindent\textbf{計算・証明}\par\nopagebreak[4]
+分子だけを展開すると構造が見えにくくなる.分母を$D_n$と書けば,
     \BookMathLayout{\[
         a_{n+1}-1=\frac{2^{n+1}(a_n-1)^2}{D_n},
         \qquad
@@ -729,15 +642,215 @@
     \]
     $a_n=\frac{1+b_n}{1-b_n}$と戻して答えを得る.
     比と\bookterm{logarithm}{対数}で,分数と二乗を順に消した.
+\end{enumerate}
 
-    \par\smallskip\noindent\textbf{【別解：$2$の累乗を掛ける】}\par\nopagebreak[4]
+\subsubsection{解説}\label{節：応用：解説}
+解法1は解答で用いた方法である.以下では,その選択の理由や別解との違いを説明する.
+\begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-advanced}{solution}{problem}]
+  \item \textbf{【解法の選択】}\par\nopagebreak[4]
+総和が見えるので隣接する式を引きたくなるが,そのままでは階乗も係数も変わる.
+総和の各項が$\frac{a_k}{k!}$であることに合わせ,先に$b_n=\frac{a_n}{n!}$と置こう.
+すると総和を消す変形を,定数係数の式で行える.
+\par\smallskip\noindent\textbf{【解法1】}\par\nopagebreak[4]
+階乗で割った後は総和型,総和を消した後は特性方程式が重解をもつ隣接3項型である.
+一つの変形で終わらず,得た式に合わせて次の解法を選ぶ.
+最後に$n!$を掛けて戻すことも忘れてはならない.
+
+  \item \textbf{【解法の選択】}\par\nopagebreak[4]
+係数に$n$があるので,最初から一定の公比を探すのは難しい.
+まず1を代入すると次項も1になることを手掛かりに,その差を計算する.
+分子に$a_n-1$が残るので逆数を取れば,階差等比複合型へ進める.
+\noindent \textbf{【解法2】}\\
+    $b_n$の式を$2^n$で割ると,
+    \[
+      \frac{b_{n+1}}{2^n}
+      -\frac{b_n}{2^{n-1}}=\frac{n}{2^n}.
+    \]
+    したがって
+    \[
+      \frac{b_n}{2^{n-1}}
+      =1+\sum_{k=1}^{n-1}\frac{k}{2^k}.
+    \]
+    ここで
+    \[
+      \frac{k}{2^k}
+      =\frac{k+1}{2^{k-1}}-\frac{k+2}{2^k}
+    \]
+    だから総和は相殺し,
+    \[
+      \sum_{k=1}^{n-1}\frac{k}{2^k}
+      =2-\frac{n+1}{2^{n-1}}.
+    \]
+    これから同じ$b_n$を得る.一次式を加える解法は,この相殺を\bookterm{auxiliary}{補助数列}の形で先に組み込んだものといえる.
+\par\smallskip\noindent\textbf{【比較】}\par\nopagebreak[4]
+解法1は一次式を加えて等比型を作り,解法2は指数で割って階差型を作る.
+解法2で和を計算するときの相殺は,解法1の一次式を加える操作にも含まれている.
+分数を直す段階と,その後の付加項を処理する段階を分けて選ぶとよい.
+
+  \item \textbf{【実験と解法の選択】}\par\nopagebreak[4]
+積の重み$n-k+1$は,添字を一つ進めると1ずつ増える.
+対数を取った式を二つ並べると,共通する項の差が総和になる.
+さらに隣接する総和の差を取れば,個々の項だけの関係にできるだろう.
+\par\smallskip\noindent\textbf{【解法1：対数を取って差を作る】}\par\nopagebreak[4]
+対数で積を和にし,差を2回取る順序は解答のとおりである.
+重みを見て差を取る回数を決めており,最初から特性方程式を作っているわけではない.
+\par\smallskip\noindent\textbf{【解法2：積の比から始める】}\par\nopagebreak[4]
+対数の前に隣接する式の比を取っても,重みの差は1になる.
+実際,元の式から
+\[
+  \frac{a_{n+1}}{a_n}=2\prod_{k=1}^{n}a_k
+\]
+を得る.これは$n=1$でも成り立つ.
+隣接する二つの式の比をもう一度取ると,
+\[
+  a_{n+2}a_n=a_{n+1}^3.
+\]
+ここで対数を取れば,解法1と同じ隣接3項型になる.
+\par\smallskip\noindent\textbf{【比較】}\par\nopagebreak[4]
+対数の後の引き算は,元の積の割り算に対応する.
+計算を和で進めたいなら解法1,積の相殺が見えやすいなら解法2から始められる.
+
+  \item \textbf{【解法の選択】}\par\nopagebreak[4]
+式には$a_{n+2},a_{n+1},a_n$の積があり,係数の積だけでは各項を求められない.
+隣接項の比を作ると,同じ項の因子が消えて二つの比の関係になる.
+その分母を消すために逆数を取る,という順序である.
+\noindent \textbf{【解法2】}\\
+    逆数の式で,平行移動せず直接両辺に$n+1$を掛けてもよい.
+    \[
+      (n+1)c_{n+1}-nc_n=1.
+    \]
+    したがって$e_n=nc_n$は公差$1$の\bookterm{arithmetic}{等差数列}であり, $e_1=\frac{1}{2}$から
+    \[
+      e_n=n-\frac12,\qquad c_n=1-\frac1{2n}
+    \]
+    となる.\bookterm{fixed}{不動点}を引く方法と,添字を掛けて\bookterm{difference}{階差}を一定にする方法の両方が使える.
+\par\smallskip\noindent\textbf{【比較】}\par\nopagebreak[4]
+逆数を取った後,解法1では1を引いて階比型にし,解法2では添字を掛けて階差型にする.
+どちらも係数$n$と$n+1$の関係を使う.
+最後は得られた隣接項の比を掛け,元の数列へ戻す必要がある.
+
+  \item \textbf{【解法の選択】}\par\nopagebreak[4]
+二つの式の共通部分は同じ符号で,分数部分だけ符号が反対である.
+そこで和と差を作ると,和には分数が,差には共通部分が残らない.
+別々の式を解こうとする前に,この対称性を使おう.
+\par\smallskip\noindent\textbf{【解法1】}\par\nopagebreak[4]
+和は階比型として解ける.差の式は逆数を取ると階差型になる.
+同じ連立から出た二つの数列でも,変形後に使う解法は同じとは限らない.
+和と差が求まれば,元の二つの数列は加減して2で割れば戻せる.
+
+  \item \textbf{【解法の選択】}\par\nopagebreak[4]
+積・商を和・差へ変えれば,隣接3項の差の関係を使えそうである.
+対数を取る解法1はこの方針で進める.
+一方,先に隣接項の比を作る候補もある.
+\noindent \textbf{【解法2】}\\
+    $r_n=\frac{a_{n+1}}{a_n}$とおき,元の式を$a_na_{n+1}$で割ると,
+    \[
+      r_{n+1}=2^{2n+1}r_n,\qquad r_1=8.
+    \]
+    これは\bookterm{ratio}{階比}型なので,
+    \begin{align*}
+      r_n
+      &=2^{\,3+\sum_{k=1}^{n-1}(2k+1)}\\
+      &=2^{\,n^2+2}.
+    \end{align*}
+    もう一度比を掛け合わせて,
+    \[
+      a_n
+      =2\prod_{k=1}^{n-1}2^{k^2+2}
+      =2^{\,1+\sum_{k=1}^{n-1}(k^2+2)}
+    \]
+    を得る.\bookterm{logarithm}{対数}で差を取る方法と,元の\bookterm{sequence}{数列}で比を取る方法は,同じ構造を異なる形で使っている.
+\par\smallskip\noindent\textbf{【比較】}\par\nopagebreak[4]
+対数を取ってから差を作ることと,元の項の比を作ることは対応する.
+解法1は差の差を和で求め,解法2は比を階比型で求めてから積に戻す.
+両者が行っている指数の計算は同じである.
+
+  \item \textbf{【解法の選択】}\par\nopagebreak[4]
+一定の値だけでなく,\,$a_n=n$を代入してみよう.次項は$n+1$になる.
+同様に$a_n=-n$なら次項は$-(n+1)$となる.
+この二つを一定の値にするには,\,$c_n=\frac{a_n}{n}$と置けばよい.
+\par\smallskip\noindent\textbf{【解法1：差の比】}\par\nopagebreak[4]
+置換後は1と$-1$が不動点になる.二つの差の比を作ると,今度は階比型が得られる.
+添字を含む式を割る段階と,一次分数型を解く段階を分けて考える.
+\noindent \textbf{【解法2】}\\
+    $c_n$の式から$u_n=\frac{1}{c_n-1}$とおいてもよい.
+    \[
+      u_{n+1}=\frac{n+2}{n}u_n+\frac1n.
+    \]
+    定数$\frac{1}{2}$を加えると,
+    \[
+      u_{n+1}+\frac12
+      =\frac{n+2}{n}\left(u_n+\frac12\right).
+    \]
+    $u_1=\frac{1}{2}$から,\, $u_n+\frac{1}{2}=\frac{n(n+1)}{2}$を得る.二つの不動点との差の比を取る方法と,一つの不動点との差の逆数を取ってから定数を加える方法が,同じ答えを与える.
+\par\smallskip\noindent\textbf{【比較】}\par\nopagebreak[4]
+解法2は一つの不動点からの差の逆数を使い,さらに定数を加える.
+解法1は二つの不動点を一度に使うので計算が短いが,どちらも同じ分数式を階比型へ直している.
+
+  \item \textbf{【解法の選択】}\par\nopagebreak[4]
+3項をまとめる前に,符号も含めて係数を足してみよう.和は0になる.
+したがって,同じ定数を全項に足しても式は変わらず,隣接する差でまとめる候補がある.
+差の式を計算してから,階比型を選ぶ.
+\noindent \textbf{【解法2】}\\
+    \bookterm{difference}{階差}の式に両辺の係数を掛ける形のまま,
+    \[
+      (n+2)(n+4)d_{n+1}
+      =(n+1)(n+3)d_n
+    \]
+    から$e_n=(n+1)(n+3)d_n$は一定で,\,\,$e_1=8$から$d_n=\frac{8}{(n+1)(n+3)}$を得る.
+    積で残る因子を\bookterm{auxiliary}{補助数列}へ組み込んだ.
+\par\smallskip\noindent\textbf{【比較】}\par\nopagebreak[4]
+解法1では階比の積を作り,解法2では一定になる量を直接作る.
+最後の部分分数の和は共通である.ここでは,まず差を作る判断が解法全体の入口となる.
+
+  \item \textbf{【解法の選択】}\par\nopagebreak[4]
+累乗と積を和や定数倍に直すため,解法1では対数を取る.
+すると対称な連立式になるので,次に和と差を選べる.
+対数型と連立型をこの順に組み合わせている.
+\noindent \textbf{【解法2】}\\
+    \bookterm{logarithm}{対数}を取らずに,積と商を作っても分離できる.
+    \[
+      P_n=a_nb_n,\qquad R_n=\frac{a_n}{b_n}
+    \]
+    とおくと,
+    \BookMathLayout{
+      \[
+        \begin{aligned}
+          P_{n+1}&=P_n^3,\quad P_1=4,\\
+          R_{n+1}&=2^{4n+2}R_n,\quad R_1=1.
+        \end{aligned}
+      \]
+    }{
+      \[
+        \begin{aligned}
+          P_{n+1}&=P_n^3,\quad P_1=4,\\
+          R_{n+1}&=2^{4n+2}R_n,\quad R_1=1.
+        \end{aligned}
+      \]
+    }
+    よって,
+    \[
+      P_n=2^{\,2\cdot3^{n-1}},\qquad
+      R_n=2^{\,2(n^2-1)}.
+    \]
+    正値を使って$a_n=\sqrt{P_nR_n}$, $b_n=\sqrt{\frac{P_n}{R_n}}$と戻せば同じ答えになる.\bookterm{logarithm}{対数}の和と差は,元の\bookterm{sequence}{数列}の積と商に対応する.
+\par\smallskip\noindent\textbf{【比較】}\par\nopagebreak[4]
+対数の和は元の項の積の対数,対数の差は商の対数である.
+したがって,解法2で直接積と商を作ることは,解法1と同じ組み合わせを対数の前に作る操作である.
+解法1は一次式の計算で進められる.解法2は短い式を得られるが,平方根で戻すときにも正値を使う.
+
+  \item \textbf{【解法の選択】}\par\nopagebreak[4]
+分子と分母は二つの平方の和と差である.
+次項から1を引くと一方,1を加えると他方の平方が残るので,その比を試す.
+ただし,二乗型になっても係数$2^n$が残るため,もう一度解法を選ぶ必要がある.
+\par\smallskip\noindent\textbf{【解法2：$2$の累乗を掛ける】}\par\nopagebreak[4]\nopagebreak[4]
     同じ比を\bookterm{logarithm}{対数}なしで整理する.
     $c_n=2^{n+1}b_n$とおくと,
     \[
       c_{n+1}=2^{n+2}\cdot2^n b_n^2
         =(2^{n+1}b_n)^2=c_n^2.
     \]
-    $2^{n+1}$を掛けたのは,\,$2^{n+2}\cdot2^n=(2^{n+1})^2$となり,\,$c_{n+1}=c_n^2$の形にできるためである.
+    $2^{n+1}$を掛けたのは,\,\,$2^{n+2}\cdot2^n=(2^{n+1})^2$となり,\,\,$c_{n+1}=c_n^2$の形にできるためである.
     $c_1=\frac{1}{2}$なので,二乗を繰り返すと
     \[
       c_n=2^{-2^{n-1}},\qquad
@@ -751,4 +864,8 @@
       &=-\log_2(2^{n+1}b_n)=-\log_2c_n
     \end{align*}
     である.\bookterm{logarithm}{対数}で引く操作と,元の比へ因子を掛ける操作が対応する.
+\par\smallskip\noindent\textbf{【比較】}\par\nopagebreak[4]
+解法1は差の比の対数を取り,一次式を引いて等比型にする.
+解法2は対数を使わず,2の累乗を掛けて二乗型を作る.
+対数の後に一次式を引くことと,元の比に因子を掛けることが対応する.
 \end{enumerate}
