@@ -22,6 +22,7 @@
 \]
 は二行二列の\bookterm{matrix}{行列}である.横の並びを\textbf{行},縦の並びを\textbf{列},各数を\textbf{成分}という.
 行は上から,列は左から数え,この例の第一行・第二列の成分は$1$である.
+行列の定数倍は各成分をその定数倍する.
 
 また,二つの数を縦に並べた
 \[
@@ -78,6 +79,7 @@ $A$は$x,y$を$2x+y,x+2y$へ移す規則を表す.
   =\begin{pmatrix}px+qy\\rx+sy\end{pmatrix}
 \]
 と定める.連立式$x'=px+qy,\ y'=rx+sy$を積一つにまとめたもので,\,$x',y'$は$A$を掛けた後の値を表す.
+このように行列を掛けてベクトルを移す操作を一次変換という.
 
 また,成分ごとに展開すれば
 \[
@@ -249,6 +251,11 @@ $k=0$のときは元の分解式を読み,\,$k\ge1$で\bookterm{eigenvalue}{固�
 数を横に並べた$L=(\alpha,\beta)$を\textbf{\bookterm{row-vector}{行ベクトル}}という.
 \bookterm{column-vector}{列ベクトル}$\boldsymbol{\ell}$を横に並べ直す操作を\textbf{\bookterm{transpose}{転置}}といい,\,$\boldsymbol{\ell}^{\mathsf T}$と書く.
 たとえば$\boldsymbol{\ell}=\begin{pmatrix}\alpha\\\beta\end{pmatrix}$なら,\,$\boldsymbol{\ell}^{\mathsf T}=(\alpha,\beta)$である.
+行列の転置も,行と列を入れ替える操作であり,\,$A^{\mathsf T}$と書く.
+\[
+  \begin{pmatrix}p&q\\r&s\end{pmatrix}^{\mathsf T}
+  =\begin{pmatrix}p&r\\q&s\end{pmatrix}.
+\]
 \bookterm{row-vector}{行ベクトル}と\bookterm{column-vector}{列ベクトル}の積は,対応する成分を掛けて足す.
 \[
   (\alpha,\beta)\begin{pmatrix}x\\y\end{pmatrix}

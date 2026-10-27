@@ -123,7 +123,7 @@ $\alpha$と$\beta$の大小関係は,解の大小関係を要求されていな�
 \[
   \frac{a_n-\alpha}{a_n-\beta}
 \]
-という「$\alpha,\beta$からの距離の比」に置き換えることで,
+という「$\alpha,\beta$からの差の比」に置き換えることで,
 等比数列に変えることができる.
 
 そして,\,$\alpha,\beta$は,
@@ -145,16 +145,12 @@ $\alpha$と$\beta$の大小関係は,解の大小関係を要求されていな�
   =\frac{c(a_n-\alpha)}{r(a_n-\alpha)+c}
 \]
 となる.したがって,
+初項が$\alpha$なら定数数列になるので,以下では$a_1\ne\alpha$とする.
+上の式では$c\ne0$であり,元の分母が0でない範囲では$a_n-\alpha$は途中で0にならない.
 \[
-  \frac{1}{a_{n+1}-\alpha}
-  =\frac{1}{a_n-\alpha}+\frac{r}{c}
+  b_n=a_n-\alpha
 \]
-であるから,右辺も含めて$\frac{1}{a_n-\alpha}$について考えれば等差数列に帰着できる.
-ここで$b_n=a_n-\alpha$とおくと,
-\[
-  b_{n+1}=\frac{cb_n}{rb_n+c}
-\]
-という逆数型漸化式に帰着する(先ほどの一般式で$\beta=\alpha$とした場合に対応する).したがって両辺の逆数を取れば
+とおけば逆数を取ることができ,
 \[
   \frac1{b_{n+1}}=\frac1{b_n}+\frac rc
 \]
@@ -162,7 +158,8 @@ $\alpha$と$\beta$の大小関係は,解の大小関係を要求されていな�
 
 \begin{bookpoint}
   \textbf{POINT}\par
-  $a_{n+1}$と$a_n$を$x$に置き換えた二次方程式をとき,その2解$\alpha,\beta$によって$b_n=\frac{a_n-\alpha}{a_n-\beta}$とおく.
+  $a_{n+1}$と$a_n$を$x$に置き換えた二次方程式を解き,異なる2解$\alpha,\beta$を得たとき,\,$b_n=\frac{a_n-\alpha}{a_n-\beta}$とおく.
+  初項が不動点のときは定数数列として分け,分母が0でないことを確かめる.
   $b_n$について等比型漸化式が作れるので,その一般項を得たら$a_n$に戻す.
 \end{bookpoint}
 
@@ -287,18 +284,7 @@ $\alpha$と$\beta$の大小関係は,解の大小関係を要求されていな�
 \end{enumerate}
 \paragraphbf{特性方程式が重解の時}
   特性方程式が重解$\alpha$を持つときは,差の比を作れない.
-  $\alpha=\frac{p-s}{2r}$なので,\,$c=p-r\alpha=r\alpha+s\ne0$と置けば,
-  \[
-    a_{n+1}-\alpha
-    =\frac{c(a_n-\alpha)}{r(a_n-\alpha)+c}
-  \]
-  となる.\,$a_1=\alpha$なら定数\bookterm{sequence}{数列}として分ける.
-  それ以外では,分母が非零の範囲で$c\ne0$より
-  \[
-    a_{n+1}-\alpha=0
-    \quad\Longleftrightarrow\quad a_n-\alpha=0
-  \]
-  であり,途中で$\alpha$に到達しない.従って逆数を取れて,
+  先ほど見たように,\,$a_1=\alpha$を定数数列として分け,それ以外では$c=p-r\alpha$とすると,
   \[
     \frac1{a_{n+1}-\alpha}
     =\frac1{a_n-\alpha}+\frac rc
