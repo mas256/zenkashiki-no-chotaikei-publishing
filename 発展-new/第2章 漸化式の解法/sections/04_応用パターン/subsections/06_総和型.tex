@@ -85,13 +85,12 @@
     \end{enumerate}
     
   \subsubsection{\texorpdfstring{和の漸化式  $S_{n+1}=f(n,S_n)$}{和の漸化式}}
-    先の漸化式では$S_n$と$a_n$の関係を扱ったが,次は$S_n$と$S_{n+1}$だけで書かれた漸化式を考える.
-    大きく方法は2つで,
+    先の漸化式では$S_n$と$a_n$の関係を扱ったが,次は$S_n$,\,$S_{n+1}$と$n$で書かれた漸化式を考える.
+    大きく方法は次の2つである.
     \begin{enumerate}
-      \item $S_n$の一般項を出してから,\,$S_{n}-S_{n-1}$をして$a_n$を得る
+      \item $S_n$の一般項を出してから,\,$S_{n}-S_{n-1}$をして$a_n$を得る.
       \item $S_{n+1}=f(n,S_n)$から$S_{n}=f(n-1,S_{n-1})$を引く.\,$f$が$S_n$について一次で,係数が$n$によらない場合などには,\,$a_{n+1}$と$a_n$の関係式に直せる.
     \end{enumerate}
-    である.
     いずれにせよ総和が含まれる場合は,どこかで必ず$S_{n+1}-S_n$の処理が発生するのだ.
     
     \noindent \bookblocklink{example-summation-2}{problem}{answer}{【例題】}\par\nobreak
