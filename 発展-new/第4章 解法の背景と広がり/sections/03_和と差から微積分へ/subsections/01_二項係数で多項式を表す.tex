@@ -41,7 +41,7 @@ $n+1$個から$k$個を選ぶとき,特定の一個を選ぶかどうかで分�
 \[
   \Delta\binom nk=\binom n{k-1}\quad(k\ge1)
 \]
-となる.\,$\Delta$は前進の差で,\,$\binom n0=1$の差は別に零となる.
+となる.\,$\Delta$は前進の差で,\,$\binom n0=1$の差は別に0となる.
 
 逆に差を足すと,途中の項が消えるので,
 \[
@@ -51,12 +51,13 @@ $n+1$個から$k$個を選ぶとき,特定の一個を選ぶかどうかで分�
 となる.\,$N=0$では空和$0$,\,$k=0$では和が$N$となり,右辺と一致する.
 \BookFigBinomialDifference
 
+一般に,\,$k=0,1,\ldots,d$について$\binom nk$は$n$の$k$次式で,
+最高次係数が0でない.高い次数から係数を合わせれば,
+$d$次以下の多項式を一意にその\bookterm{combination}{線形結合}で表せる.
+このように,対象となる式を一通りに組み合わせて表せる部品の組を\bookterm{basis}{基底}という.
 \begin{bookpoint}
   \textbf{式の部品を選ぶ}\par
-  目的の操作が簡単になる\bookterm{basis}{基底}を選ぶ.
+  目的の操作が簡単になる基底を選ぶ.
   \sectionref*{節：隣接3項型}の考え方が,多項式の表示にも現れた.
 \end{bookpoint}
-実際,\,$\binom n0,\ldots,\binom nd$はそれぞれ次数が$0,\ldots,d$で,
-最高次係数が非零である.高い次数から係数を合わせれば,
-$d$次以下の多項式を一意にその\bookterm{combination}{線形結合}で表せる.
 三乗和は\bookproblemref{practice-connections}{7}{接続演習問7}で試そう.

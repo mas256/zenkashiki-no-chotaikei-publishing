@@ -11,14 +11,14 @@ import json
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
-DIR = ROOT / '発展-new/第2章 漸化式の解法/sections/07_発展的な解法/subsections/02_ガウス記号を含む式'
+DIR = ROOT / '発展-new/第2章 漸化式の解法/sections/05_発展的な解法/subsections/02_ガウス記号を含む式'
 N = 10000
 report = {}
 
 def verify_sources():
     files = sorted((DIR / 'subsubsections').glob('[0-9][0-9]_*.tex'))
     assert len(files) == 10, f'expected 10 pattern files, got {len(files)}'
-    overview = (DIR / 'ガウス記号を含む式.tex').read_text(encoding='utf-8')
+    overview = (DIR / '02_ガウス記号を含む式.tex').read_text(encoding='utf-8')
     all_source = '\n'.join(p.read_text(encoding='utf-8')
                            for p in (ROOT / '発展-new').rglob('*.tex'))
     labels = re.findall(r'\\label\{([^}]+)\}', all_source)
@@ -26,7 +26,8 @@ def verify_sources():
     for i,path in enumerate(files,1):
         source = path.read_text(encoding='utf-8')
         pid = f'example-gauss-role-{i}'
-        assert f'/{path.name}' in overview
+        file_id = re.search(r'^% BOOK-FILE-ID: (f-[0-9a-f]+)$', source, re.M)
+        assert file_id and f'\\BookImport{{{file_id.group(1)}}}' in overview
         assert source.count('\\subsubsection{') == 1
         assert source.count('\\begin{enumerate}') == 4
         assert len(re.findall(r'^\s*\\item\b',source,re.M)) == 4

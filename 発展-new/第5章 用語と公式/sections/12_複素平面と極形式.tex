@@ -3,12 +3,16 @@
 
 \section{複素平面と極形式}\label{節：複素平面と極形式}
 複素数の積を回転と拡大・縮小として読む.
-\sectionref*{節：一次分数型}の図形的解釈と\sectionref*{節：特性方程式の解が虚数の場合}で使う.
+\sectionref*{節：複素平面で見る}と\sectionref*{節：特性方程式の解が虚数の場合}で使う.
 \bookterm{polar}{極形式}には\bookterm{trigonometric}{三角関数},\bookterm{euler}{オイラーの公式}の導出には\bookterm{limit}{極限}を使う.
 
 \subsection{複素数を平面に表す}\label{節：複素数を平面に表す}
 $i^2=-1$を満たす虚数単位$i$を用い,複素数$z=x+iy$を点$(x,y)$に対応させたものを\bookterm{complex-plane}{複素平面}という.
 横軸が実軸,縦軸が虚軸である.
+$z=x+iy$に対して,\,$\overline z=x-iy$を$z$の共役複素数という.
+複素平面上では実軸について対称な点であり,\,$|\overline z|=|z|$である.
+また,\,$\overline{z+w}=\overline z+\overline w$,\,$\overline{zw}=\overline z\,\overline w$が成り立つ.
+したがって,係数が実数の式では,\,$z$を$\overline z$に変えると式の値も共役になる.
 原点からの距離を$\rho=\sqrt{x^2+y^2}$,正の実軸から反時計回りに測る角を$\theta$とすると,
 \[
   x=\rho\cos\theta,\qquad y=\rho\sin\theta
@@ -36,6 +40,7 @@ $b=u+iv$を加えると,\,$z+b=(x+u)+i(y+v)$となる.
   cz=s\rho\{\cos(\theta+\phi)+i\sin(\theta+\phi)\}.
 \]
 絶対値は$s$倍,偏角は$\phi$だけ増える.原点を中心に回転し,\,$s>1$なら拡大,\,$0<s<1$なら縮小,\,$s=1$なら回転だけになる.
+特に$|cz|=|c||z|$であり,\,$w\ne0$なら$\left|\frac zw\right|=\frac{|z|}{|w|}$である.
 \BookFigComplexRotation
 
 特に$i$を掛けると反時計回りに$\frac{\pi}{2}$回転する.

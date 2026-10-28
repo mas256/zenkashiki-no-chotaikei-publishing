@@ -1,5 +1,5 @@
 % BOOK-FILE-ID: f-3076141c1a19
-% subsubsection: 1次分数型  \, $\displaystyle a_{n+1}=\frac{pa_n+q}{ra_n+s}$
+% subsubsection: 一次分数型  \, $\displaystyle a_{n+1}=\frac{pa_n+q}{ra_n+s}$
 
 \subsubsection{\texorpdfstring{一次分数型   $a_{n+1}=\frac{pa_n+q}{ra_n+s}$}{一次分数型}}\label{節：一次分数型}
 \booknavref{節：逆数型}{逆数型}の一般形である,
@@ -49,14 +49,7 @@ $a_n=b_n+x$を代入すると,
   b_{n+1}=\frac{(p-rx)b_n}{rb_n+rx+s}
 \]
 という逆数型になる.ここで,\,$p-rx$も$rx+s$も0でない.\footnote{特性方程式より,\,$(p-rx)(rx+s)=ps-qr\ne0$.}
-初項が$x$なら定数列である.それ以外では$b_n$は途中で零にならず,逆数を取って解ける.
-定数項$q$を消すための条件は,
-\[
-  rx^2+(s-p)x-q=0
-  \quad\Longleftrightarrow\quad
-  x=\frac{px+q}{rx+s}
-\]
-と書けるので,この$x$はもとの漸化式の不動点でもある.
+初項が$x$なら定数数列である.それ以外では$b_n$は途中で0にならず,逆数を取って解ける.
 
 ここまでで逆数型として解くことができるが,定数項を消せる値を求める問題は,
 \[
@@ -115,7 +108,7 @@ $\alpha,\beta$は別々に選ぶ定数ではなく,もとの漸化式の係数�
 \]
 となる.したがって,\,$b_n$は等比数列である.
 $\alpha$と$\beta$の大小関係は,解の大小関係を要求されていないことから自由に選んでよい.
-つまり,\,1次分数型漸化式では,
+つまり,\,一次分数型漸化式では,
 \[
   a_{n+1}=\frac{pa_n+q}{ra_n+s}
 \]
@@ -123,7 +116,7 @@ $\alpha$と$\beta$の大小関係は,解の大小関係を要求されていな�
 \[
   \frac{a_n-\alpha}{a_n-\beta}
 \]
-という「$\alpha,\beta$からの距離の比」に置き換えることで,
+という「$\alpha,\beta$からの差の比」に置き換えることで,
 等比数列に変えることができる.
 
 そして,\,$\alpha,\beta$は,
@@ -134,7 +127,7 @@ $\alpha$と$\beta$の大小関係は,解の大小関係を要求されていな�
 
 したがって\,$\alpha,\beta$は,もとの漸化式の$a_n$を形式的に$\alpha,\beta$に置き換えたときにも値が変化しない数,すなわち不動点である.
 
-なお,$rx^2+(s-p)x-q=0$が重解$\alpha$を持つ場合は,$\beta$と異なる2つの不動点を取れないため,上の議論はそのまま使えない.
+なお,\,$rx^2+(s-p)x-q=0$が重解$\alpha$を持つ場合は,\,$\beta$と異なる2つの不動点を取れないため,上の議論はそのまま使えない.
 このときは$\alpha=\frac{p-s}{2r}$,すなわち$s=p-2r\alpha$が成り立つため,
 \[
   c=p-r\alpha=r\alpha+s\ne0
@@ -144,17 +137,13 @@ $\alpha$と$\beta$の大小関係は,解の大小関係を要求されていな�
   a_{n+1}-\alpha
   =\frac{c(a_n-\alpha)}{r(a_n-\alpha)+c}
 \]
-となる.したがって,
+となる.
+初項が$\alpha$なら定数数列になるので,以下では$a_1\ne\alpha$とする.
+上の式では$c\ne0$であり,元の分母が0でない範囲では$a_n-\alpha$は途中で0にならない.
 \[
-  \frac{1}{a_{n+1}-\alpha}
-  =\frac{1}{a_n-\alpha}+\frac{r}{c}
+  b_n=a_n-\alpha
 \]
-であるから,右辺も含めて$\frac{1}{a_n-\alpha}$について考えれば等差数列に帰着できる.
-ここで$b_n=a_n-\alpha$とおくと,
-\[
-  b_{n+1}=\frac{cb_n}{rb_n+c}
-\]
-という逆数型漸化式に帰着する(先ほどの一般式で$\beta=\alpha$とした場合に対応する).したがって両辺の逆数を取れば
+とおけば逆数を取ることができ,
 \[
   \frac1{b_{n+1}}=\frac1{b_n}+\frac rc
 \]
@@ -162,7 +151,8 @@ $\alpha$と$\beta$の大小関係は,解の大小関係を要求されていな�
 
 \begin{bookpoint}
   \textbf{POINT}\par
-  $a_{n+1}$と$a_n$を$x$に置き換えた二次方程式をとき,その2解$\alpha,\beta$によって$b_n=\frac{a_n-\alpha}{a_n-\beta}$とおく.
+  $a_{n+1}$と$a_n$を$x$に置き換えた二次方程式を解き,異なる2解$\alpha,\beta$を得たとき,\,$b_n=\frac{a_n-\alpha}{a_n-\beta}$とおく.
+  初項が不動点のときは定数数列として分け,分母が0でないことを確かめる.
   $b_n$について等比型漸化式が作れるので,その一般項を得たら$a_n$に戻す.
 \end{bookpoint}
 
@@ -177,7 +167,7 @@ $\alpha$と$\beta$の大小関係は,解の大小関係を要求されていな�
 \noindent\bookblocklink{example-mobius-1}{hint}{problem}{【方針】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-mobius-1}{hint}{problem}]
   \item 不動点$1,-1$からの差の比を作ると,共通の分母$a_n+2$が消えます.
-  \item 同様に\bookterm{fixed}{不動点}$\alpha,\beta$を求めましょう.今回は片方が負の値になります.
+  \item 同様に\bookterm{fixed}{不動点}$\alpha,\beta$を求めましょう.今回は差の比の公比が負の値になります.
   \item 今回は\bookterm{fixed}{不動点}の方程式が重解になります.\,$\frac{a_n-\alpha}{a_n-\beta}$は使えないので,\,$b_n=a_n-\alpha$と置いてから逆数型に帰着させる別の手法を使います.
   \item このような形も一次分数型です.解と係数の関係を活用して解きましょう.
 \end{enumerate}
@@ -234,7 +224,7 @@ $\alpha$と$\beta$の大小関係は,解の大小関係を要求されていな�
       =\frac{a_n-3}{a_n-2}\\
       &=\frac{b_n}{b_n+1},\quad b_1=2
     \end{align*}
-    となる.正の$b_n$が続くので,\,$b_n$も元の分母$b_n+1$も零でない.
+    となる.正の$b_n$が続くので,\,$b_n$も元の分母$b_n+1$も0でない.
     逆数を取れば,
     \begin{align*}
       \frac1{b_{n+1}}&=\frac1{b_n}+1,\\
@@ -287,18 +277,7 @@ $\alpha$と$\beta$の大小関係は,解の大小関係を要求されていな�
 \end{enumerate}
 \paragraphbf{特性方程式が重解の時}
   特性方程式が重解$\alpha$を持つときは,差の比を作れない.
-  $\alpha=\frac{p-s}{2r}$なので,\,$c=p-r\alpha=r\alpha+s\ne0$と置けば,
-  \[
-    a_{n+1}-\alpha
-    =\frac{c(a_n-\alpha)}{r(a_n-\alpha)+c}
-  \]
-  となる.\,$a_1=\alpha$なら定数\bookterm{sequence}{数列}として分ける.
-  それ以外では,分母が非零の範囲で$c\ne0$より
-  \[
-    a_{n+1}-\alpha=0
-    \quad\Longleftrightarrow\quad a_n-\alpha=0
-  \]
-  であり,途中で$\alpha$に到達しない.従って逆数を取れて,
+  先ほど見たように,\,$a_1=\alpha$を定数数列として分け,それ以外では$c=p-r\alpha$とすると,
   \[
     \frac1{a_{n+1}-\alpha}
     =\frac1{a_n-\alpha}+\frac rc
@@ -349,7 +328,7 @@ $\alpha$と$\beta$の大小関係は,解の大小関係を要求されていな�
       &=\frac{6k+5}{2k+1}
       =\frac{6(k+1)-1}{2(k+1)-1}
     \end{align*}
-    分母$a_k-2=\frac{2k+1}{2k-1}$も零でなく,\,$n=k+1$で成立する.
+    分母$a_k-2=\frac{2k+1}{2k-1}$も0でなく,\,$n=k+1$で成立する.
     帰納法より,\,$a_n=\frac{6n-1}{2n-1}$がすべての正の整数$n$で成り立つ.\qed
 
   \end{quote}
