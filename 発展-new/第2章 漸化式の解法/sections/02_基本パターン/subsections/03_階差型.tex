@@ -3,102 +3,107 @@
 
 \subsection{\texorpdfstring{階差型  $a_{n+1}=a_n+f(n)$}{階差型}}\label{節：階差型}
 
-等差型では定数が足されていたが,,$f(n)$のような関数\footnote{$f(n)$は$n$に関する数だけで作られた式を意味する.,$f(a_n)$や$f(n)=a_n+1$のように未知の項の値に依存する場合は別の手法が必要になる.}が足されている場合はどうなるだろうか.
-ここで便利のため,シグマという記号を導入する.
-\[
-  \sum_{k=1}^{n}f(k)=f(1)+f(2)+\cdots+f(n)
-\]
-と書き,\,$k$を$1$から$n$まで動かしたときの$f(k)$の和を表す.\,$k$は和の中で動く番号で,\,$n$は和の上端である.
-記号の性質は\sectionref*{節：シグマの計算}で確認できる.
-
-実際に今までと同じようにやってみると
-\BookMathLayout{\begin{align*}
-  a_{n}&=a_{n-1}+f(n-1)\\
-  &=\left\{a_{n-2}+f(n-2)\right\}+f(n-1)\\
-  &=\left[\left\{a_{n-3}+f(n-3)\right\}+f(n-2)\right]+f(n-1)\\
-  &\qquad \vdots\\
-  &=a_1+\sum_{k=1}^{n-1} f(k)\\
-  &\therefore \quad a_n=a_1+\sum_{k=1}^{n-1} f(k)
-\end{align*}}{\begin{align*}
-  a_{n}&=a_{n-1}+f(n-1)\\
-  &=\left\{a_{n-2}+f(n-2)\right\}+f(n-1)\\
-  &=\left[\left\{a_{n-3}+f(n-3)\right\}+f(n-2)\right]\\
-  &\qquad+f(n-1)\\
-  &\qquad \vdots\\
-  &=a_1+\sum_{k=1}^{n-1} f(k)\\
-  &\therefore \quad a_n=a_1+\sum_{k=1}^{n-1} f(k)
-\end{align*}}
-$n=1$では和に項がないため0とし,この式は初項にも成り立つ.
-漸化式を解くことそのものはここで終わりである.
-残るのは和の計算であり,\,$f(n)$に応じて,\bookterm{arithmetic}{等差数列}や\bookterm{geometric}{等比数列}の和の公式,\bookterm{partial}{部分分数分解}などを使う.
-
-\begin{bookpoint}
-  \textbf{POINT}\par
-  足す値が一定でなくとも,原理は一緒.第$n$項に至るまでに,階差$f(1),\ldots,f(n-1)$の$n-1$個が足される.
-\end{bookpoint}
-
-\noindent \bookblocklink{example-difference-1}{problem}{answer}{【例題】}\par\nobreak
-\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-difference-1}{problem}{answer}]
-  \item $a_1=1,\, a_{n+1}=a_n+n$
-  \item $a_1=1,\, a_{n+1}=a_n+2^n$
-  \item $a_1=0,\, a_{n+1}=a_n+\frac{1}{n(n+1)}$
-  \item $a_1=1,\, a_{n+1}=a_n+(n+1)^2$
-\end{enumerate}
-
-\noindent\bookblocklink{example-difference-1}{hint}{problem}{【方針】}\par\nobreak
-\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-difference-1}{hint}{problem}]
-  \item 階差を書き下して足し合わせ,等差数列の和を使います.
-  \item 指数の階差も同じように足し合わせます.等比数列の和を使います.
-  \item \bookterm{sigma}{シグマ}は\bookterm{partial}{部分分数分解}で処理しましょう.
-  \item 初項の$1$も含めると,\,$1^2+2^2+\cdots+n^2$という平方の和になります.
-\end{enumerate}
-
-\noindent\bookblocklink{example-difference-1}{answer}{problem}{【解答】}\par\nobreak
-\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-difference-1}{answer}{problem}]
-  \item $a_n=1+\frac{n(n-1)}{2}$
-  \item $a_n=2^n-1$
-  \item $a_n=1-\frac{1}{n}$
-  \item $a_n=\frac{1}{6}n(n+1)(2n+1)$
-\end{enumerate}
-
-\noindent\bookblocklink{example-difference-1}{solution}{problem}{【解法】}\par\nobreak
-\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-difference-1}{solution}{problem}]
-  \item $a_1=1,\,a_{n+1}=a_n+n$\\
-    \bookterm{difference}{階差}型の\bookterm{general}{一般項}と等差数列の和から,
+  等差型では定数が足されていたが,$f(n)$のような関数\footnote{$f(n)$は$n$に関する数だけで作られた式を意味する.,$f(a_n)$や$f(n)=a_n+1$のように未知の項の値に依存する場合は別の手法が必要になる.}が足されている場合はどうなるだろうか.
+  \paragraphbf{シグマの導入}
+    ここで便利のため,シグマという記号を導入する.
+    シグマはギリシャ文字の一つで$\sum$と書く.
+    数学的な意味は,
     \[
-      a_n=1+\sum_{k=1}^{n-1}k=1+\frac{n(n-1)}2.
+      \sum_{k=1}^{n}f(k)=f(1)+f(2)+\cdots+f(n)
     \]
-    和は項数と初項・末項の平均を掛けて求めた.導出は\sectionref*{節：等差数列の和}を参照.\,$n=1$でも初項に一致する.
-
-  \item $a_1=1,\,a_{n+1}=a_n+2^n$\\
-    同様に,
-    \[
-      a_n=1+\sum_{k=1}^{n-1}2^k=1+(2^n-2)=2^n-1.
-    \]
-    等比数列の和の公式と,両辺に公比を掛けて引く導出は\sectionref*{節：等比数列の和}にまとめた.
-
-  \item $a_1=0,\,a_{n+1}=a_n+\frac{1}{n(n+1)}$\\
-    \bookterm{partial}{部分分数分解}を用いると,
-    \[
-      \frac{1}{k(k+1)}
-      =\frac{1}{k}-\frac{1}{k+1}
-    \]
-    と分ければ隣の項が消える.係数の求め方は\sectionref*{節：部分分数分解}を参照.
-    \begin{align*}
-      a_n
-      &=\sum_{k=1}^{n-1}\frac{1}{k(k+1)}\\
-      &=\left(1-\frac12\right)+\left(\frac12-\frac13\right)\\
-      &\quad+\cdots+\left(\frac1{n-1}-\frac1n\right)\\
-      &=1-\frac1n
-    \end{align*}
-
-  \item $a_1=1,\,a_{n+1}=a_n+(n+1)^2$\\
-    \bookterm{difference}{階差}型の\bookterm{general}{一般項}を用いると,
-    \begin{align*}
-      a_n
-      &=1+\sum_{k=1}^{n-1}(k+1)^2\\
-      &=\sum_{j=1}^{n}j^2\\
-      &=\frac{1}{6}n(n+1)(2n+1)
-    \end{align*}
-    最後に平方和の公式を用いた.\booknavref{節：シグマの計算}{公式の一覧}で確認できる.
-\end{enumerate}
+    を表す.
+    日本語にすれば$f(1)$から$f(n)$まで,$k$を1づつ動かしながら足し合わせていった結果の値を表す.
+    $k$は和の中で動く番号で,$n$は和の上端である.
+    記号の性質は\sectionref*{節：シグマの計算}で確認できる.
+  \paragraphbf{解法の議論}  
+    実際に今までと同じようにやってみると
+    \BookMathLayout{\begin{align*}
+      a_{n}&=a_{n-1}+f(n-1)\\
+      &=\left\{a_{n-2}+f(n-2)\right\}+f(n-1)\\
+      &=\left[\left\{a_{n-3}+f(n-3)\right\}+f(n-2)\right]+f(n-1)\\
+      &\qquad \vdots\\
+      &=a_1+\sum_{k=1}^{n-1} f(k)\\
+      &\therefore \quad a_n=a_1+\sum_{k=1}^{n-1} f(k)
+    \end{align*}}{\begin{align*}
+      a_{n}&=a_{n-1}+f(n-1)\\
+      &=\left\{a_{n-2}+f(n-2)\right\}+f(n-1)\\
+      &=\left[\left\{a_{n-3}+f(n-3)\right\}+f(n-2)\right]\\
+      &\qquad+f(n-1)\\
+      &\qquad \vdots\\
+      &=a_1+\sum_{k=1}^{n-1} f(k)\\
+      &\therefore \quad a_n=a_1+\sum_{k=1}^{n-1} f(k)
+    \end{align*}}
+    $n=1$では和に項がないため0とし,この式は初項にも成り立つ.
+    漸化式を解くことそのものはここで終わりである.
+    残るのは和の計算であり,\,$f(n)$に応じて,\bookterm{arithmetic}{等差数列}や\bookterm{geometric}{等比数列}の和の公式,\bookterm{partial}{部分分数分解}などを使う.
+    
+    \begin{bookpoint}
+      \textbf{POINT}\par
+      足す値が一定でなくとも,原理は一緒.第$n$項に至るまでに,階差$f(1),\ldots,f(n-1)$の$n-1$個が足される.
+    \end{bookpoint}
+    
+  \noindent \bookblocklink{example-difference-1}{problem}{answer}{【例題】}\par\nobreak
+  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-difference-1}{problem}{answer}]
+    \item $a_1=1,\, a_{n+1}=a_n+n$
+    \item $a_1=1,\, a_{n+1}=a_n+2^n$
+    \item $a_1=0,\, a_{n+1}=a_n+\frac{1}{n(n+1)}$
+    \item $a_1=1,\, a_{n+1}=a_n+(n+1)^2$
+  \end{enumerate}
+  
+  \noindent\bookblocklink{example-difference-1}{hint}{problem}{【方針】}\par\nobreak
+  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-difference-1}{hint}{problem}]
+    \item 階差を書き下して足し合わせ,等差数列の和を使います.
+    \item 指数の階差も同じように足し合わせます.等比数列の和を使います.
+    \item \bookterm{sigma}{シグマ}は\bookterm{partial}{部分分数分解}で処理しましょう.
+    \item 初項の$1$も含めると,\,$1^2+2^2+\cdots+n^2$という平方の和になります.
+  \end{enumerate}
+  
+  \noindent\bookblocklink{example-difference-1}{answer}{problem}{【解答】}\par\nobreak
+  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-difference-1}{answer}{problem}]
+    \item $a_n=1+\frac{n(n-1)}{2}$
+    \item $a_n=2^n-1$
+    \item $a_n=1-\frac{1}{n}$
+    \item $a_n=\frac{1}{6}n(n+1)(2n+1)$
+  \end{enumerate}
+  
+  \noindent\bookblocklink{example-difference-1}{solution}{problem}{【解法】}\par\nobreak
+  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-difference-1}{solution}{problem}]
+    \item $a_1=1,\,a_{n+1}=a_n+n$\\
+      \bookterm{difference}{階差}型の\bookterm{general}{一般項}と等差数列の和から,
+      \[
+        a_n=1+\sum_{k=1}^{n-1}k=1+\frac{n(n-1)}2.
+      \]
+      和は項数と初項・末項の平均を掛けて求めた.導出は\sectionref*{節：等差数列の和}を参照.\,$n=1$でも初項に一致する.
+  
+    \item $a_1=1,\,a_{n+1}=a_n+2^n$\\
+      同様に,
+      \[
+        a_n=1+\sum_{k=1}^{n-1}2^k=1+(2^n-2)=2^n-1.
+      \]
+      等比数列の和の公式と,両辺に公比を掛けて引く導出は\sectionref*{節：等比数列の和}にまとめた.
+  
+    \item $a_1=0,\,a_{n+1}=a_n+\frac{1}{n(n+1)}$\\
+      \bookterm{partial}{部分分数分解}を用いると,
+      \[
+        \frac{1}{k(k+1)}
+        =\frac{1}{k}-\frac{1}{k+1}
+      \]
+      と分ければ隣の項が消える.係数の求め方は\sectionref*{節：部分分数分解}を参照.
+      \begin{align*}
+        a_n
+        &=\sum_{k=1}^{n-1}\frac{1}{k(k+1)}\\
+        &=\left(1-\frac12\right)+\left(\frac12-\frac13\right)\\
+        &\quad+\cdots+\left(\frac1{n-1}-\frac1n\right)\\
+        &=1-\frac1n
+      \end{align*}
+  
+    \item $a_1=1,\,a_{n+1}=a_n+(n+1)^2$\\
+      \bookterm{difference}{階差}型の\bookterm{general}{一般項}を用いると,
+      \begin{align*}
+        a_n
+        &=1+\sum_{k=1}^{n-1}(k+1)^2\\
+        &=\sum_{j=1}^{n}j^2\\
+        &=\frac{1}{6}n(n+1)(2n+1)
+      \end{align*}
+      最後に平方和の公式を用いた.\booknavref{節：シグマの計算}{公式の一覧}で確認できる.
+  \end{enumerate}
