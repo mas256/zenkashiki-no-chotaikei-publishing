@@ -2,7 +2,7 @@
 \subsection{解法のつながり}\label{節：解法のつながり}
 既習の操作を別の対象へ使う7題である.
 問1・2は置く量,問3・4は添字の扱い,問5〜7は周期・近似・和を扱う.
-本文と関係が深いのは問1・2・4・5,\,\chapterref*{章：解法の背景と広がり}と関係が深いのは問3・6・7である.
+本文と関係が深いのは問1・2・4・5,\chapterref*{章：解法の背景と広がり}と関係が深いのは問3・6・7である.
 読んだ説明に対応する題を選べる.
 
 \subsubsection{問題}
@@ -17,7 +17,7 @@
     各項が正であることを示し,
     $I_n=\frac{a_n^2+a_{n+1}^2+1}{a_na_{n+1}}$を使って\bookterm{general}{一般項}を求めよ.
     初めの二項を正の値$x,y$に変えると,\bookterm{invariant}{不変量}の値はどう変わるか.
-  \item $n,m\ge0$とする.\,$A_{n,0}=A_{0,m}=1$,
+  \item $n,m\ge0$とする.$A_{n,0}=A_{0,m}=1$,
     $A_{n,m}=A_{n-1,m}+A_{n,m-1}$ $(n,m\ge1)$から,
     $A_{n,m}=\binom{n+m}{m}$を$n+m$に関する帰納法で証明せよ.
     また右と上に進む格子経路の数として説明せよ.
@@ -37,10 +37,10 @@
   \item $x_1=3$, $y_1=2$,
     $x_{k+1}=3x_k+4y_k$, $y_{k+1}=2x_k+3y_k$ $(k\ge1)$とする.
     $x_k^2-2y_k^2=1$を証明せよ.
-    $r_k=\frac{x_k}{y_k}$について,\,$r_k-\sqrt2$を$y_k,r_k$で表して\bookterm{limit}{極限}を求め,
+    $r_k=\frac{x_k}{y_k}$について,$r_k-\sqrt2$を$y_k,r_k$で表して\bookterm{limit}{極限}を求め,
     $\frac12\left(r_k+\frac{2}{r_k}\right)=r_{2k}$も示せ.
   \item $j^3=6\binom j3+6\binom j2+\binom j1$を確かめよ.
-    二項係数の\bookterm{difference}{階差}を使って,\,$\sum_{j=0}^{N-1}j^3$ $(N\ge0)$を求めよ.
+    二項係数の\bookterm{difference}{階差}を使って,$\sum_{j=0}^{N-1}j^3$ $(N\ge0)$を求めよ.
     単項式の係数比較で求める方法と,何が違うか述べよ.
 \end{enumerate}
 
@@ -48,11 +48,11 @@
 \begin{enumerate}[label=\textbf{問\arabic*.},format=\bookitemlink{practice-connections}{hint}{problem}]
   \item 割る因子の隣り合う比を確認する.残った\bookterm{difference}{階差}は$n$となる.
     両辺を割った後の式の1つの解から,引く量$v_n$を逆に作る.
-  \item 正値性を先に帰納的に確かめる.\,$xz=y^2+1$から$I_{n+1}=I_n$を示し,
+  \item 正値性を先に帰納的に確かめる.$xz=y^2+1$から$I_{n+1}=I_n$を示し,
     初期値で係数を決める.
   \item 内側の二つの位置では添字の和が一つ小さい.
     境界を先に確かめ,二項係数の加法公式を使う.
-  \item 2回分の漸化式をまとめる.\,$x_k=a_{2k-1}$は\bookterm{constant}{定数係数}の一次\bookterm{recurrence}{漸化式}になる.
+  \item 2回分の漸化式をまとめる.$x_k=a_{2k-1}$は\bookterm{constant}{定数係数}の一次\bookterm{recurrence}{漸化式}になる.
   \item 最初の七項を計算し,直前の二項の組が戻ることを確かめる.
     \bookterm{initial}{初期条件}が変わる場合は文字で計算する.
   \item 保存される式は,漸化式を代入する前後で展開して比べる.
@@ -119,14 +119,14 @@
     両辺を$(n+1)(n+2)$で割ると$b_{n+1}=b_n+n$であり,
     $b_n=\frac32+\sum_{j=1}^{n-1}j=\frac{n^2-n+3}{2}$となる.
     \par\smallskip\textbf{引く方法との比較.}
-    両辺を割った後の式では,\,$w_n=\frac{n(n-1)}{2}$も$w_{n+1}-w_n=n$を満たす.
+    両辺を割った後の式では,$w_n=\frac{n(n-1)}{2}$も$w_{n+1}-w_n=n$を満たす.
     $v_n=h_nw_n$は元の漸化式を満たすため,
     $d_n=a_n-v_n$について$d_{n+1}=\frac{n+2}{n}d_n$となる.
     $d_1=3$から$d_n=\frac32n(n+1)$を得る.
     この場合は割る方法から引く量も発見できた.
     \sectionref*{節：変数係数の一次型}へ戻って比べよう.
   \item \textbf{正値と保存の確認.}
-    正の二項から次も正になる.\,$x=a_n,y=a_{n+1},z=a_{n+2}$とすると,\,$xz=y^2+1$である.
+    正の二項から次も正になる.$x=a_n,y=a_{n+1},z=a_{n+2}$とすると,$xz=y^2+1$である.
     これを不変量の分子に使えば,
     \[
       I_n=\frac{x^2+y^2+1}{xy}
@@ -137,7 +137,7 @@
       I_{n+1}=\frac{y^2+z^2+1}{yz}
       =\frac{xz+z^2}{yz}=\frac{x+z}{y}
     \]
-    となるので,\,$I_{n+1}=I_n$である.
+    となるので,$I_{n+1}=I_n$である.
     \par\smallskip\textbf{定数係数の漸化式へ戻す.}
     $I_1=\frac{1+9+1}{3}=\frac{11}{3}$なので$x+z=\frac{11}{3}y$となる.
     特性方程式の2つの解で$a_n=C\alpha^{n-1}+D\beta^{n-1}$と置き,
@@ -147,7 +147,7 @@
     \sectionref*{節：変わらない量を使う}へ.
   \item \textbf{境界から内側へ.}
     $n=0$または$m=0$では式は$1$になる.
-    $n,m\ge1$の場合,\,$n+m$より小さい添字の和で式が成立すると仮定し,
+    $n,m\ge1$の場合,$n+m$より小さい添字の和で式が成立すると仮定し,
     \BookMathLayout{\[
         A_{n,m}=\binom{n+m-1}{m}+\binom{n+m-1}{m-1}
         =\binom{n+m}{m}
@@ -161,7 +161,7 @@
     全歩の並べ方を直接数えても同じ二項係数になる.
     \sectionref*{節：二方向の階差}へ.
   \item \textbf{一周期分をまとめる.}
-    $x_k=a_{2k-1}$とすると,\,$a_{2k}=-x_k$から
+    $x_k=a_{2k-1}$とすると,$a_{2k}=-x_k$から
     $x_{k+1}=-2x_k+1$となる.
     \bookterm{fixed}{不動点}$\frac{1}{3}$を引けば$x_{k+1}-\frac{1}{3}=-2\left(x_k-\frac{1}{3}\right)$であり,
     $x_1=2$から解答の式が得られる.

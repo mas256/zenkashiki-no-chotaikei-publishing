@@ -26,7 +26,7 @@ $\alpha=2\alpha+1$から$\alpha=-1$となる.
 \[
  a_{n+1}=pa_n+q,\qquad p\ne1
 \]
-では,\,$\alpha=\frac{q}{1-p}$が不動点になる.
+では,$\alpha=\frac{q}{1-p}$が不動点になる.
 二つの式を引けば
 \[
  a_{n+1}-\alpha=p(a_n-\alpha).
@@ -35,7 +35,7 @@ $\alpha=2\alpha+1$から$\alpha=-1$となる.
 \[
  a_n=\alpha+p^{n-1}(a_1-\alpha).
 \]
-ただし$p=0$では,\,$n=1$は初項そのものを読み,
+ただし$p=0$では,$n=1$は初項そのものを読み,
 $n\ge2$では$a_n=q$とする.
 零の零乗を計算する必要はない.
 
@@ -76,7 +76,7 @@ $p=1$の場合も行列の表示は使える.
  \begin{pmatrix}1&q\\0&1\end{pmatrix}^{m}
  =\begin{pmatrix}1&mq\\0&1\end{pmatrix}
 \]
-なので,\,$a_n=a_1+(n-1)q$となる.
+なので,$a_n=a_1+(n-1)q$となる.
 $q\ne0$では不動点がなく,\,ずれの倍率だけには直せない.
 足し算が積み重なって$n$が現れることを覚えておこう.
 
@@ -116,7 +116,7 @@ $a_n$一つだけでは次の状態を決められないが,\,隣り合う二項
 \[
  B\boldsymbol u=\lambda\boldsymbol u
 \]
-を満たすとき,\,$\boldsymbol u$を\textbf{固有ベクトル},
+を満たすとき,$\boldsymbol u$を\textbf{固有ベクトル},
 $\lambda$を対応する\textbf{固有値}という.
 固有値は,\,その方向の一回の更新の倍率である.
 零ベクトルはどんな$\lambda$でも式を満たすため,\,定義から除く.
@@ -127,7 +127,7 @@ $\lambda$を対応する\textbf{固有値}という.
 \[
  a_{n+2}=s a_{n+1}+t a_n
 \]
-では,\,$B=\begin{pmatrix}s&t\\1&0\end{pmatrix}$である.
+では,$B=\begin{pmatrix}s&t\\1&0\end{pmatrix}$である.
 固有ベクトルを$\begin{pmatrix}x\\y\end{pmatrix}$とすると
 \[
  sx+ty=\lambda x,\qquad x=\lambda y.
@@ -147,7 +147,7 @@ $y$で割って$\begin{pmatrix}\lambda\\1\end{pmatrix}$にそろえると,
 
 二行二列の一般の行列
 $A=\begin{pmatrix}p&q\\r&s\end{pmatrix}$
-でも,\,$(\lambda I-A)\boldsymbol u=\boldsymbol0$に零でない解がある条件は
+でも,$(\lambda I-A)\boldsymbol u=\boldsymbol0$に零でない解がある条件は
 \[
  \begin{aligned}
  \det(\lambda I-A)
@@ -182,7 +182,7 @@ $\begin{pmatrix}\lambda_2\\1\end{pmatrix}$は比例しないので,\,初期状�
 初期値を合わせた後は更新の一意性によって,\,全項がこの式に一致する.
 
 \noindent\textbf{【例題】}\par\nobreak
-$a_1=1,\,a_2=4$,\,$a_{n+2}=5a_{n+1}-6a_n$の一般項を求めよ.
+$a_1=1,\,a_2=4$,$a_{n+2}=5a_{n+1}-6a_n$の一般項を求めよ.
 
 \noindent\textbf{【方針】}\par\nobreak
 2倍と3倍の方向に初期状態を分けます.
@@ -192,7 +192,7 @@ $a_1=1,\,a_2=4$,\,$a_{n+2}=5a_{n+1}-6a_n$の一般項を求めよ.
  a_n=-2^{n-1}+2\cdot3^{n-1}.
 \]
 \noindent\textbf{【解法】}\par\nobreak
-特性根は2,\,3である. 初期状態は
+特性根は2,3である. 初期状態は
 \[
  \begin{pmatrix}4\\1\end{pmatrix}
  =-\begin{pmatrix}2\\1\end{pmatrix}
@@ -282,10 +282,10 @@ $\boldsymbol v_n=c_n\boldsymbol u+d_n\boldsymbol w$と書くと
  d_{n+1}=2d_n,\qquad c_{n+1}=2c_n+d_n.
 \]
 各係数から$2^{n-1}$を取り除けば,\,第二の式は一定量を足す式になる.
-毎回の寄与が積み重なるため,\,$n$が現れるのである.
+毎回の寄与が積み重なるため,$n$が現れるのである.
 
 \noindent\textbf{【例題】}\par\nobreak
-$a_1=1,\,a_2=4$,\,$a_{n+2}=4a_{n+1}-4a_n$の一般項を求めよ.
+$a_1=1,\,a_2=4$,$a_{n+2}=4a_{n+1}-4a_n$の一般項を求めよ.
 
 \noindent\textbf{【方針】}\par\nobreak
 公比2の成長を取り除き,\,差を調べます.

@@ -4,6 +4,7 @@
 
 - 独立した数式は `\[ ... \]` または `\begin{align*} ... \end{align*}` で組む。複数行を `\[ ... \]` 内の `aligned` で組むこともできる。`$$ ... $$` や番号付き数式環境は使わない。
 - インライン数式はすべて `\displaystyle` で組む。共通プリアンブル `tex/book-math.tex` の `\everymath{\displaystyle}` を使用し、局所的に `\textstyle` や `\tfrac` に戻さない。
+- 本文のカンマ・ピリオド直後のインライン数式・数字・参照の前の薄い空白は `scripts/tex-spacing.py` がビルド時に補う。この用途の `\,` を手書きしない。数式内部などの空白は従来どおり記述する。手動指定の残存は `python3 scripts/tex-spacing.py --book 原稿ディレクトリ --check-clean` で確認する。
 - 分数は `\frac{分子}{分母}` を使い、除算を `/` で書かない。分数の中に分数がある場合は、外側と内側の分数に必ず `\cfrac` を使う。
 - `\balign ... \ealigin` は `align*`、`\benumrate ... \eenumrate` は `enumerate`、`\bcases ... \ecases` は `cases` と同じ意味で使える。省略コマンドの綴りはこの指定を維持する。標準環境名は `align*`・`enumerate` とする。
 - 共通プリアンブルは基本編・発展編・新解釈から読み込む。スマホ版にも同じ数式設定を適用する。

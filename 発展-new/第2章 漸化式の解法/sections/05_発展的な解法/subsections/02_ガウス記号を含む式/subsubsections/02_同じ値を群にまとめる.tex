@@ -19,7 +19,7 @@
 \end{smallquote}
 \paragraphbf{証明1}
 \begin{smallquote}
-  正整数$k$について,\,$a_n=k$となる番号$n$は,
+  正整数$k$について,$a_n=k$となる番号$n$は,
   \[
     k\le\sqrt{n}<k+1
   \]
@@ -54,12 +54,12 @@
       a_{n+1}=a_n+\lfloor\sqrt{n+2}\rfloor
       \quad(n\ge1).
     \]
-    必要ならば,\,$m=\lfloor\sqrt{n+1}\rfloor$を用いてよい.
+    必要ならば,$m=\lfloor\sqrt{n+1}\rfloor$を用いてよい.
 \end{enumerate}
 
 \noindent \bookblocklink{example-gauss-role-2}{hint}{problem}{【方針】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-2}{hint}{problem}]
-  \item \bookterm{difference}{階差}を足し,\,$\lfloor\sqrt k\rfloor$の和にします.
+  \item \bookterm{difference}{階差}を足し,$\lfloor\sqrt k\rfloor$の和にします.
     $k=1,2$で値がともに1であることを使い,和の範囲を合わせましょう.
 \end{enumerate}
 
@@ -78,7 +78,7 @@
       a_n=2+\sum_{k=3}^{n+1}\lfloor\sqrt k\rfloor
       =\sum_{k=1}^{n+1}\lfloor\sqrt k\rfloor.
     \]
-    $n=1$では$\sum_{k=3}^{2}$を空の和として0とする.\,$N=n+1,\ m=\lfloor\sqrt N\rfloor$とおく.
+    $n=1$では$\sum_{k=3}^{2}$を空の和として0とする.$N=n+1,\ m=\lfloor\sqrt N\rfloor$とおく.
     項番号$k$で足し,第$m-1$群までは全部,第$m$群は$N$までを使う.
     \[
       \begin{array}{c|c|c}
@@ -94,11 +94,11 @@
       &\quad+m(N-m^2+1)\\
       &=m(N+1)-\frac{m(m+1)(2m+1)}6.
     \end{align*}
-    $N=n+1$を戻す.\,$m=1$では最初の和が0となり,初項にも合う.
+    $N=n+1$を戻す.$m=1$では最初の和が0となり,初項にも合う.
 
     \noindent \textbf{【別解】}\\
     $\lfloor\sqrt k\rfloor$は$j^2\le k$を満たす正整数$j$の個数でもある.
-    組$(j,k)$の条件$1\le k\le N$, $1\le j$, $j^2\le k$を,\,$j$ごとに数え直す.
+    組$(j,k)$の条件$1\le k\le N$, $1\le j$, $j^2\le k$を,$j$ごとに数え直す.
     $k=j^2,\ldots,N$の$N-j^2+1$個から,
     \begin{align*}
       a_n&=\sum_{j=1}^{m}(N-j^2+1)\\

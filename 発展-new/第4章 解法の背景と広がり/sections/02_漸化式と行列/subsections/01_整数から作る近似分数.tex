@@ -1,6 +1,6 @@
 % BOOK-FILE-ID: f-947cf9e311ee
 \subsubsection{整数から作る近似分数}\label{節：整数から作る近似分数}
-\sectionref*{節：ニュートン法}では,\,$a_1=2$から$\sqrt2$を近似した.
+\sectionref*{節：ニュートン法}では,$a_1=2$から$\sqrt2$を近似した.
 ここでは同じ漸化式$a_{n+1}=\frac12\left(a_n+\frac{2}{a_n}\right)$で,初項を$a_1=1$に変えてみる.
 \[
   a_2=\frac32,\qquad a_3=\frac{17}{12},\qquad a_4=\frac{577}{408}
@@ -18,7 +18,7 @@ $3+2\sqrt2$倍して係数を比べると,
 \[
   x_{k+1}=3x_k+4y_k,\qquad y_{k+1}=2x_k+3y_k
 \]
-となる.\,$x_1=3$, $y_1=2$なので,両方とも正の整数である.
+となる.$x_1=3$, $y_1=2$なので,両方とも正の整数である.
 $\sqrt2$の符号を変えた式との積から
 \[
   x_k^2-2y_k^2=(3+2\sqrt2)^k(3-2\sqrt2)^k=1
@@ -61,17 +61,17 @@ $(x_k+y_k\sqrt2)^2$の展開から,
 \[
   a_n=r_{2^{n-2}}\qquad(n\ge2)
 \]
-となる.\,$\frac{3}{2}$, $\frac{17}{12}$, $\frac{577}{408}$は$r_1$, $r_2$, $r_4$であり,連続する三項ではない.
+となる.$\frac{3}{2}$, $\frac{17}{12}$, $\frac{577}{408}$は$r_1$, $r_2$, $r_4$であり,連続する三項ではない.
 \BookFigPellDoubling
 $x_k^2-2y_k^2=1$を因数分解すれば,
 \[
   r_k-\sqrt2=\frac1{y_k^2(r_k+\sqrt2)}>0.
 \]
-$y_{k+1}>3y_k$なので$y_k\to\infty$であり,\,$r_k\to\sqrt2$となる.
+$y_{k+1}>3y_k$なので$y_k\to\infty$であり,$r_k\to\sqrt2$となる.
 添字の倍増からも,ニュートン法の速さを読める.
 
 \paragraphbf{ペル方程式}
-平方数でない正の整数$d$に対し,\,$x^2-dy^2=1$の整数解を求める問題を\textbf{\bookterm{pell}{ペル方程式}}という.\footnote{ここでは$d=2$の具体例を扱い,一般の解の存在や全解の分類には進まない.}
+平方数でない正の整数$d$に対し,$x^2-dy^2=1$の整数解を求める問題を\textbf{\bookterm{pell}{ペル方程式}}という.\footnote{ここでは$d=2$の具体例を扱い,一般の解の存在や全解の分類には進まない.}
 
 \paragraphbf{連分数にも現れる分数}
 $\sqrt2=1+\frac1{1+\sqrt2}$から,有限段階の近似を
@@ -79,12 +79,12 @@ $\sqrt2=1+\frac1{1+\sqrt2}$から,有限段階の近似を
   C_0=1,\qquad C_{j+1}=1+\frac1{1+C_j}
   \quad(j\ge0)
 \]
-で定める.\,$C_1=\frac{3}{2}$, $C_2=\frac{7}{5}$, $C_3=\frac{17}{12}$である.
-$C_j=\frac{P_j}{Q_j}$とすると,\,$P_0=Q_0=1$から
+で定める.$C_1=\frac{3}{2}$, $C_2=\frac{7}{5}$, $C_3=\frac{17}{12}$である.
+$C_j=\frac{P_j}{Q_j}$とすると,$P_0=Q_0=1$から
 \[
   P_{j+1}=P_j+2Q_j,\qquad Q_{j+1}=P_j+Q_j
 \]
-が得られ,\,$P_j+Q_j\sqrt2=(1+\sqrt2)^{j+1}$となる.
+が得られ,$P_j+Q_j\sqrt2=(1+\sqrt2)^{j+1}$となる.
 $(1+\sqrt2)^2=3+2\sqrt2$だから,
 \[
   C_{2k-1}=r_k\qquad(k\ge1)
@@ -100,4 +100,4 @@ $(1+\sqrt2)^2=3+2\sqrt2$だから,
   置く量と漸化式を用いる回数を変えると,解法どうしが結び付く.
 \end{bookpoint}
 保存される式と誤差を\bookproblemref{practice-connections}{6}{接続演習問6}で確かめよう.
-\bookterm{pell}{ペル方程式}と\bookterm{continued}{連分数}の補足資料は,\,\chapterref*{章：参考文献}のKeith Conradの二つの解説にある.
+\bookterm{pell}{ペル方程式}と\bookterm{continued}{連分数}の補足資料は,\chapterref*{章：参考文献}のKeith Conradの二つの解説にある.

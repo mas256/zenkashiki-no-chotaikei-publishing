@@ -7,8 +7,8 @@ $a_{n+1}=\lfloor\lambda a_n\rfloor$のように,無理数を掛けてから切�
   \varepsilon_n=\lambda a_n-a_{n+1},
   \qquad 0\le\varepsilon_n<1
 \]
-と置けば,\,$\varepsilon_n$の範囲が分かっているので,次の整数部分を確定できることがある.
-手掛かりになるのは,\,$\lambda^2$が$\lambda$と整数で表せることである.
+と置けば,$\varepsilon_n$の範囲が分かっているので,次の整数部分を確定できることがある.
+手掛かりになるのは,$\lambda^2$が$\lambda$と整数で表せることである.
 ただし,誤差の範囲をきちんと示せて初めて隣接3項型に帰着できることを忘れないようにしよう.
 
 \begin{bookpoint}
@@ -28,7 +28,7 @@ $a_{n+1}=\lfloor\lambda a_n\rfloor$のように,無理数を掛けてから切�
 
 \noindent \bookblocklink{example-gauss-role-5}{hint}{problem}{【方針】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-5}{hint}{problem}]
-  \item $\lambda=1+\sqrt2$とおき,\,$\lambda^2=2\lambda+1$を使います.
+  \item $\lambda=1+\sqrt2$とおき,$\lambda^2=2\lambda+1$を使います.
     整数から正の1未満の誤差を引く形にして,\bookterm{floor}{ガウス記号}の値を確定しましょう.
 \end{enumerate}
 
@@ -47,7 +47,7 @@ $a_{n+1}=\lfloor\lambda a_n\rfloor$のように,無理数を掛けてから切�
 \noindent \bookblocklink{example-gauss-role-5}{solution}{problem}{【解法】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-5}{solution}{problem}]
   \item $\lambda=1+\sqrt2>2$とおく.正整数$a_n$から次の項も正整数となる.
-    また,\,$\lambda a_n$は無理数なので,
+    また,$\lambda a_n$は無理数なので,
     \[
       \varepsilon_n=\lambda a_n-a_{n+1}
     \]
@@ -58,7 +58,7 @@ $a_{n+1}=\lfloor\lambda a_n\rfloor$のように,無理数を掛けてから切�
       &=\lambda(\lambda a_n-\varepsilon_n)\\
       &=2a_{n+1}+a_n-(\lambda-2)\varepsilon_n.
     \end{align*}
-    $M_n=2a_{n+1}+a_n$は整数で,\,$0<(\lambda-2)\varepsilon_n<1$だから,
+    $M_n=2a_{n+1}+a_n$は整数で,$0<(\lambda-2)\varepsilon_n<1$だから,
     \[
       M_n-1<\lambda a_{n+1}<M_n.
     \]

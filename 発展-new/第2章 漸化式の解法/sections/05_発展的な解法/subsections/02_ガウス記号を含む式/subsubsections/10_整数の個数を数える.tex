@@ -1,11 +1,11 @@
 % BOOK-FILE-ID: f-6c65fa1f20a5
 \subsubsection{整数の個数を数える}\label{節：整数の個数を数える}
-$X\ge0$なら,\,$\lfloor X\rfloor$は$1\le k\le X$を満たす整数$k$の個数である.
-例えば$\lfloor \frac{n}{m}\rfloor$は,\,$1,\ldots,n$の中にある$m$の倍数の個数を数えている.
+$X\ge0$なら,$\lfloor X\rfloor$は$1\le k\le X$を満たす整数$k$の個数である.
+例えば$\lfloor \frac{n}{m}\rfloor$は,$1,\ldots,n$の中にある$m$の倍数の個数を数えている.
 つまり,ガウス記号の和は,何かの個数の和として読み直せるのだ.
 
 座標がともに整数の点を格子点という.
-$c>0$で,\,$\sum_{k=1}^{n}\lfloor ck\rfloor$は,\,$x=k$ごとに$1\le y\le ck$の整数$y$を数えて足したもの,すなわち格子点の個数である.
+$c>0$で,$\sum_{k=1}^{n}\lfloor ck\rfloor$は,$x=k$ごとに$1\le y\le ck$の整数$y$を数えて足したもの,すなわち格子点の個数である.
 群数列の別解と同じく,整数の組を数える解法になる.
 
 \begin{bookpoint}
@@ -21,7 +21,7 @@ $c>0$で,\,$\sum_{k=1}^{n}\lfloor ck\rfloor$は,\,$x=k$ごとに$1\le y\le ck$�
       a_n=a_{n-1}+\left\lfloor\frac{5n}{2}\right\rfloor
       \quad(n\ge1).
     \]
-    \bookterm{general}{一般項}を求め,\,$a_n$をある範囲の格子点の個数として説明せよ.
+    \bookterm{general}{一般項}を求め,$a_n$をある範囲の格子点の個数として説明せよ.
 \end{enumerate}
 
 \noindent \bookblocklink{example-gauss-role-10}{hint}{problem}{【方針】}\par\nobreak
@@ -49,7 +49,7 @@ $c>0$で,\,$\sum_{k=1}^{n}\lfloor ck\rfloor$は,\,$x=k$ごとに$1\le y\le ck$�
       a_n&=\sum_{k=1}^{n}\left\lfloor\frac{5k}{2}\right\rfloor\\
       &=n(n+1)+\sum_{k=1}^{n}\left\lfloor\frac k2\right\rfloor.
     \end{align*}
-    後ろの和は,\,$n=2m$なら,
+    後ろの和は,$n=2m$なら,
     \[
       0+1+1+2+2+\cdots+(m-1)+(m-1)+m=m^2,
     \]
@@ -59,8 +59,8 @@ $c>0$で,\,$\sum_{k=1}^{n}\lfloor ck\rfloor$は,\,$x=k$ごとに$1\le y\le ck$�
       \sum_{k=1}^{n}\left\lfloor\frac k2\right\rfloor
       =\left\lfloor\frac{n^2}{4}\right\rfloor
     \]
-    となり,【解答】を得る.\,$n=0$にも合う.
+    となり,【解答】を得る.$n=0$にも合う.
 
-    $x=k$にある格子点は,\,$1\le y\le\frac{5k}{2}$の$\lfloor\frac{5k}{2}\rfloor$個.
+    $x=k$にある格子点は,$1\le y\le\frac{5k}{2}$の$\lfloor\frac{5k}{2}\rfloor$個.
     $k=1,\ldots,n$について足した$a_n$が,【解答】の範囲の点の個数となる.
 \end{enumerate}

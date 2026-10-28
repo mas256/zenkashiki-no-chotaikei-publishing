@@ -7,7 +7,7 @@
 移項や約分で整理し,差や比を取る量を選ぼう.
 別解では手掛かり・計算量・条件を比較できる.
 特に\bookterm{ratio}{階比}型と\bookterm{logarithm}{対数}型には共通する考え方がある.
-以下,\,$n$は正の整数とし,必要なときは
+以下,$n$は正の整数とし,必要なときは
 \[
   S_n=\sum_{k=1}^{n}a_k
 \]
@@ -156,7 +156,7 @@
     \[
       a_{n+1}=ra_n
     \]
-    を満たし,\,$a_2=-6$, $a_5=48$である.\,$r$および\bookterm{general}{一般項}$a_n$を求めよ.
+    を満たし,$a_2=-6$, $a_5=48$である.$r$および\bookterm{general}{一般項}$a_n$を求めよ.
     % F4
   \item $a_1=0,\qquad a_{n+1}=a_n+\frac{2}{(n+1)(n+3)}$
     で定められる\bookterm{sequence}{数列}の\bookterm{general}{一般項}を求めよ.
@@ -192,7 +192,7 @@
     \[
       a_{n+1}=a_n+d
     \]
-    を満たし,\,$a_3=8$, $a_8=-7$である.\,$d$, $a_1$および\bookterm{general}{一般項}$a_n$を求めよ.
+    を満たし,$a_3=8$, $a_8=-7$である.$d$, $a_1$および\bookterm{general}{一般項}$a_n$を求めよ.
     % M4
   \item $a_1=2,\qquad a_{n+1}=2a_n+3\cdot2^n$
     で定められる\bookterm{sequence}{数列}$\{a_n\}$の\bookterm{general}{一般項}を求めよ.
@@ -229,7 +229,7 @@
     \[
       a_1=8,\qquad a_2=5,\qquad a_3=\frac72
     \]
-    であることが分かっている.\,$p,q$の値と\bookterm{general}{一般項}を求めよ.
+    であることが分かっている.$p,q$の値と\bookterm{general}{一般項}を求めよ.
     % T5
   \item $a_1=1,\,a_2=2$ とし,
     \[
@@ -250,17 +250,17 @@
 \subsubsection{方針}\label{節：標準：方針}
 \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-basic}{hint}{problem}]
   % Q1
-  \item $a_{n+1}$について解き,両辺の逆数を取る.\,$\frac{1}{a_n}$の増え方に注目する.
+  \item $a_{n+1}$について解き,両辺の逆数を取る.$\frac{1}{a_n}$の増え方に注目する.
     % S1
   \item $n=1$から初項を求める. 次に$S_{n+1}-S_n=a_{n+1}$を使い, 総和を消す. 得られた\bookterm{recurrence}{漸化式}では$a_n$に$n$の一次式を加えて\bookterm{geometric}{等比数列}を作る.
     % R1
-  \item $(n+1)!=(n+1)n!$を使い,\,$a_n$を$n!$で割る.
+  \item $(n+1)!=(n+1)n!$を使い,$a_n$を$n!$で割る.
     % M1
   \item $a_n$から適切な一次式を引き,残りが\bookterm{geometric}{等比数列}になるようにする.
     % G1
-  \item 初項から第$n$項までに,\,$-\frac12$を掛ける回数を考える.
+  \item 初項から第$n$項までに,$-\frac12$を掛ける回数を考える.
     % T1
-  \item \bookterm{characteristic}{特性方程式}を解き,\,$a_{n+1}-2a_n$と$a_{n+1}-3a_n$を求める.二式の差で$a_n$が残る.
+  \item \bookterm{characteristic}{特性方程式}を解き,$a_{n+1}-2a_n$と$a_{n+1}-3a_n$を求める.二式の差で$a_n$が残る.
     % U1
   \item 2つの式を足すと和は変わらず, 引くと差は3倍になる. 和と差を求めてから$a_n,b_n$に戻す.
     % L1
@@ -268,7 +268,7 @@
     % C1
   \item $a_n$の値が変わらないとしたときの値を求め,その値との差を考える.
     % D1
-  \item 両辺を$3$で割り,\,$a_{n+1}-a_n$を求める.
+  \item 両辺を$3$で割り,$a_{n+1}-a_n$を求める.
     % F1
   \item $a_{k+1}-a_k=3k-1$を$k=1$から$n-1$まで加える.
     % T2
@@ -284,33 +284,33 @@
     % D2
   \item 両辺から$a_n$を引き,その後で$2$で割る.
     % G2
-  \item $a_{n+1}$を左辺に,\,$a_n$を右辺にまとめる.
+  \item $a_{n+1}$を左辺に,$a_n$を右辺にまとめる.
     % R2
   \item 係数を$\frac{n}{n+1}\frac{n+3}{n+2}$と分解し,順に掛ける.
     % M2
   \item 右辺を$(n+1)^2+n^2$と見れば,引くべき二次式が分かる.
     % S2
-  \item $S_{n+1}-S_n=a_{n+1}$に代入する. 両辺の$a_{n+1}$が消え,\,$a_n$が直接求まる. $n=1$の与式だけでは初項が決まらないことにも注意する.
+  \item $S_{n+1}-S_n=a_{n+1}$に代入する. 両辺の$a_{n+1}$が消え,$a_n$が直接求まる. $n=1$の与式だけでは初項が決まらないことにも注意する.
     % L2
   \item \bookterm{square}{平方完成}すると$a_{n+1}-2=(a_n-2)^2$となる.正の量$a_n-2$の\bookterm{logarithm}{対数}を取る.
     % T3
-  \item \bookterm{characteristic}{特性方程式}は重解$2$を持つ.\,$a_{n+1}-2a_n$を\bookterm{geometric}{等比数列}にした後,\,$\frac{a_n}{2^{n-1}}$を考える.
+  \item \bookterm{characteristic}{特性方程式}は重解$2$を持つ.$a_{n+1}-2a_n$を\bookterm{geometric}{等比数列}にした後,$\frac{a_n}{2^{n-1}}$を考える.
     % M3
-  \item $2^n$に関係する\bookterm{geometric}{等比数列}を引くか,\,$2^{n-1}$で割って一次の\bookterm{recurrence}{漸化式}にする.
+  \item $2^n$に関係する\bookterm{geometric}{等比数列}を引くか,$2^{n-1}$で割って一次の\bookterm{recurrence}{漸化式}にする.
     % U3
-  \item $b_n$は$a_n$と関係なく先に解ける. その結果を第1式に代入し,\,$\frac{a_n}{2^{n-1}}$の\bookterm{difference}{階差}を調べる.
+  \item $b_n$は$a_n$と関係なく先に解ける. その結果を第1式に代入し,$\frac{a_n}{2^{n-1}}$の\bookterm{difference}{階差}を調べる.
     % Q3
-  \item \bookterm{fixed}{不動点}は$2$と$-1$である.\,$\frac{a_n-2}{a_n+1}$を考える.\,$\frac{1}{a_n-2}$を考える別解もある.
+  \item \bookterm{fixed}{不動点}は$2$と$-1$である.$\frac{a_n-2}{a_n+1}$を考える.$\frac{1}{a_n-2}$を考える別解もある.
     % G3
-  \item $n$は正整数なので,\,$n+1$で割ることができる.
+  \item $n$は正整数なので,$n+1$で割ることができる.
     % D3
   \item 両辺に現れる$n$を消去してから,隣り合う項の差を見る.
     % L3
   \item \bookterm{logarithm}{対数}を取った\bookterm{sequence}{数列}の\bookterm{ratio}{階比}が$\frac{n+2}{n}$となる.積の途中の因子が消えることに注目する.
     % S3
-  \item $S_n+1$を\bookterm{geometric}{等比数列}として解いてから,\,$a_n=S_n-S_{n-1}$を使う. この差の公式を使う範囲と$a_1$を区別する.
+  \item $S_n+1$を\bookterm{geometric}{等比数列}として解いてから,$a_n=S_n-S_{n-1}$を使う. この差の公式を使う範囲と$a_1$を区別する.
     % F3
-  \item \bookterm{difference}{階差}を加えた後,\,$3+3^2+\cdots+3^{n-1}$を求める.
+  \item \bookterm{difference}{階差}を加えた後,$3+3^2+\cdots+3^{n-1}$を求める.
     % R3
   \item 左辺は第$n+1$項に$(n+1)^2$を掛けた形,右辺は第$n$項に$n^2$を掛けた形である.
     % C3
@@ -342,7 +342,7 @@
     % R5
   \item $(n-1)!n!$の次の項との比が$n(n+1)$であることを使う.
     % Q5
-  \item \bookterm{fixed}{不動点}の方程式は重解$1$を持つ.二つの差の比の代わりに,\,$\frac{1}{a_n-1}$を考える.
+  \item \bookterm{fixed}{不動点}の方程式は重解$1$を持つ.二つの差の比の代わりに,$\frac{1}{a_n-1}$を考える.
     % G5
   \item $0$に$7$を掛けても$0$のままである.項で割らずに考える.
     % L5
@@ -352,11 +352,11 @@
     % C5
   \item $n=1,2$の漸化式を引けば$q$が消える.係数を求めた後,\bookterm{fixed}{不動点}との差を取る.
     % T5
-  \item 定数を引くだけでは右辺を$0$にできない.\,$d_n=a_{n+1}-a_n$を考え,一次の\bookterm{recurrence}{漸化式}に帰着させる.
+  \item 定数を引くだけでは右辺を$0$にできない.$d_n=a_{n+1}-a_n$を考え,一次の\bookterm{recurrence}{漸化式}に帰着させる.
     % D5
   \item $a_{n+1}=a_n$なら,項の値は変わらない.
     % M5
-  \item $(-1)^n$も指数の形である.\,$(-1)^{n-1}$で割った\bookterm{sequence}{数列}を考える.
+  \item $(-1)^n$も指数の形である.$(-1)^{n-1}$で割った\bookterm{sequence}{数列}を考える.
     % S5
   \item $S_{n+1}-S_n=a_{n+1}$から$\frac{a_{n+1}}{a_n}$を求める. 比を順に掛けると, 分子と分母の大部分が打ち消し合う.
 \end{enumerate}
@@ -605,15 +605,15 @@
 \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-basic}{solution}{problem}]
   % Q1
   \item \booknavref{節：逆数型}{〔復習：逆数型〕}\BookMathLayout{}{\\}
-    $a_1>0$であり,\,$a_n>0$なら$a_{n+1}=\frac{3a_n}{2a_n+3}>0$である.
-    全項が正なので逆数を取れる.\,$b_n=\frac{1}{a_n}$とおくと,
+    $a_1>0$であり,$a_n>0$なら$a_{n+1}=\frac{3a_n}{2a_n+3}>0$である.
+    全項が正なので逆数を取れる.$b_n=\frac{1}{a_n}$とおくと,
     \[
       b_{n+1}=b_n+\frac23,\qquad b_1=\frac13.
     \]
     よって$b_n=\frac{2n-1}{3}$, $a_n=\frac{3}{2n-1}$となる.復元の分母も正である.
     \par\smallskip\noindent\textbf{【別解】}\par
     最初の三項$\frac{3}{1},\frac{3}{3},\frac{3}{5}$から同じ式を予想する.
-    初項と一致し,\,$a_k=\frac{3}{2k-1}$を漸化式へ入れると$a_{k+1}=\frac{3}{2k+1}$となるので,
+    初項と一致し,$a_k=\frac{3}{2k-1}$を漸化式へ入れると$a_{k+1}=\frac{3}{2k+1}$となるので,
     \bookterm{induction}{数学的帰納法}で確かめられる.
 
     % S1
@@ -637,13 +637,13 @@
       b_{n+1}=2b_n,\quad b_1=3,\quad b_n=3\cdot2^{n-1}.
     \]
     したがって$a_n=3\cdot2^{n-1}n!$である.
-    係数$n+1$を約分するため,\,$(n-1)!$ではなく$n!$で割った.
+    係数$n+1$を約分するため,$(n-1)!$ではなく$n!$で割った.
     \par\smallskip\noindent\textbf{【別解】}\par
     係数を順に掛けても,
     \[
       a_n=3\prod_{k=1}^{n-1}2(k+1)=3\cdot2^{n-1}n!
     \]
-    となる.\,$2$は$n-1$個あり,\,$n=1$の空積は$1$とする.
+    となる.$2$は$n-1$個あり,$n=1$の空積は$1$とする.
 
     % M1
   \item \booknavref{節：階差等比複合型}{〔復習：階差等比複合型〕}\BookMathLayout{}{\\}
@@ -652,12 +652,12 @@
     \[
       u=2u+1,\quad u+v=2v-1
     \]
-    より$g(n)=-n$である.\,$b_n=a_n+n$とおくと,
+    より$g(n)=-n$である.$b_n=a_n+n$とおくと,
     \[
       b_{n+1}=2b_n,\quad b_1=3,\quad a_n=3\cdot2^{n-1}-n.
     \]
     \par\smallskip\noindent\textbf{【別解：\bookterm{difference}{階差}を先に求める】}\par
-    隣り合う2つの漸化式を引くと,\,$d_n=a_{n+1}-a_n$は
+    隣り合う2つの漸化式を引くと,$d_n=a_{n+1}-a_n$は
     \[
       d_{n+1}=2d_n+1,\quad d_1=2
     \]
@@ -708,8 +708,8 @@
       b_n=\frac{s_n-d_n}{2}=2-3^{n-1}.
     \]
     \par\smallskip\noindent\textbf{【別解】}\par
-    和が一定なので$b_n=4-a_n$を代入すると,\,$a_{n+1}=3a_n-4$となる.
-    $a_{n+1}-2=3(a_n-2)$と$a_1-2=1$から$a_n$を求め,\,$b_n=4-a_n$で戻す.
+    和が一定なので$b_n=4-a_n$を代入すると,$a_{n+1}=3a_n-4$となる.
+    $a_{n+1}-2=3(a_n-2)$と$a_1-2=1$から$a_n$を求め,$b_n=4-a_n$で戻す.
 
     % L1
   \item \booknavref{節：対数型}{〔復習：対数型〕}\BookMathLayout{}{\\}
@@ -749,13 +749,13 @@
 
     % C1
   \item \booknavref{節：特性方程式型}{〔復習：特性方程式型〕}\BookMathLayout{}{\\}
-    定数項を消すため,\,$\alpha=3\alpha-4$を解いて$\alpha=2$を引く.
+    定数項を消すため,$\alpha=3\alpha-4$を解いて$\alpha=2$を引く.
     $b_n=a_n-2$とおくと,
     \[
       b_{n+1}=3b_n,\quad b_1=3,\quad a_n=2+3^n.
     \]
     \par\smallskip\noindent\textbf{【別解：\bookterm{difference}{階差}を使う】}\par
-    添字を1つずらした式と引くと,\,$d_n=a_{n+1}-a_n$は$d_{n+1}=3d_n$, $d_1=6$を満たす.
+    添字を1つずらした式と引くと,$d_n=a_{n+1}-a_n$は$d_{n+1}=3d_n$, $d_1=6$を満たす.
     よって,
     \[
       a_n=5+6\sum_{k=1}^{n-1}3^{k-1}=2+3^n.
@@ -813,15 +813,15 @@
     途中の立方数が相殺するため,平方和の計算を省ける.空の和なら初項も含む.
     \par\smallskip\noindent\textbf{【別解1】}\par
     最初の三項$1,8,27$から$a_n=n^3$を予想する.
-    初項に合い,\,$a_{n+1}=n^3+3n^2+3n+1=(n+1)^3$となるので,
+    初項に合い,$a_{n+1}=n^3+3n^2+3n+1=(n+1)^3$となるので,
     \bookterm{induction}{数学的帰納法}で示せる.
     \par\smallskip\noindent\textbf{【別解2】}\par
-    $a_{n+1}-(n+1)^3=a_n-n^3$と書けば,\,$a_n-n^3$は初項での値$0$に等しい.
+    $a_{n+1}-(n+1)^3=a_n-n^3$と書けば,$a_n-n^3$は初項での値$0$に等しい.
 
     % Q2
   \item \booknavref{節：逆数型}{〔復習：逆数型〕}\BookMathLayout{}{\\}
     初めの項は$2,-\frac{1}{2},2$となり,前の二値は互いに移り合う.
-    その分母$3a_n+2$は$8$と$\frac{1}{2}$であるため,全項が定まり,\,$0$にもならない.
+    その分母$3a_n+2$は$8$と$\frac{1}{2}$であるため,全項が定まり,$0$にもならない.
     $b_n=\frac{1}{a_n}$とおくと,
     \[
       b_{n+1}=-b_n-\frac32,\quad b_1=\frac12.
@@ -875,7 +875,7 @@
       a_{n+2}=4a_{n+1}-2(a_n+b_n)=5a_{n+1}-6a_n.
     \]
     \bookterm{characteristic}{特性方程式}の根$2,3$から$a_n=C2^{n-1}+D3^{n-1}$とおく.
-    $a_1=3,a_2=10$より$C=-1,D=4$となり,\,$b_n=\frac{4a_n-a_{n+1}}{2}$で戻せる.
+    $a_1=3,a_2=10$より$C=-1,D=4$となり,$b_n=\frac{4a_n-a_{n+1}}{2}$で戻せる.
 
     % D2
   \item \booknavref{節：等差型}{〔復習：等差型〕}\BookMathLayout{}{\\}
@@ -898,14 +898,14 @@
         =\frac{2(n+2)}n.
       \end{aligned}
     \]
-    中間の因子が相殺し,両端だけが残る.\,$n=1$でも初項に合う.
+    中間の因子が相殺し,両端だけが残る.$n=1$でも初項に合う.
     \par\smallskip\noindent\textbf{【別解】}\par
-    相殺後の因子を組み込み,\,$b_n=\frac{na_n}{n+2}$とおくと,
+    相殺後の因子を組み込み,$b_n=\frac{na_n}{n+2}$とおくと,
     \[
       b_{n+1}=\frac{n+1}{n+3}
       \frac{n(n+3)}{(n+1)(n+2)}a_n=b_n.
     \]
-    $b_1=2$なので,\,$a_n=\frac{2(n+2)}{n}$となる.
+    $b_1=2$なので,$a_n=\frac{2(n+2)}{n}$となる.
 
     % M2
   \item \booknavref{節：階差等比複合型}{〔復習：階差等比複合型〕}\BookMathLayout{}{\\}
@@ -930,7 +930,7 @@
       \end{aligned}
     \]
     両辺の$a_{n+1}$を消すと$a_n=(n+1)2^{n-1}$となる.
-    この計算は$n\ge1$で使え,\,$a_1=2$も決まる.
+    この計算は$n\ge1$で使え,$a_1=2$も決まる.
 
     % L2
   \item \booknavref{節：対数型}{〔復習：対数型〕}\BookMathLayout{}{\\}
@@ -951,11 +951,11 @@
     % T3
   \item \booknavref{節：隣接3項型}{〔復習：隣接3項型〕}\BookMathLayout{}{\\}
     \bookterm{characteristic}{特性方程式}は$(x-2)^2=0$である.
-    異なる2本の\bookterm{auxiliary}{補助数列}は作れないので,\,$b_n=a_{n+1}-2a_n$だけを考える.
+    異なる2本の\bookterm{auxiliary}{補助数列}は作れないので,$b_n=a_{n+1}-2a_n$だけを考える.
     \[
       b_{n+1}=2b_n,\quad b_1=-2,\quad b_n=-2^n.
     \]
-    $a_{n+1}-2a_n=-2^n$を$2^n$で割り,\,$c_n=\frac{a_n}{2^{n-1}}$とおくと,
+    $a_{n+1}-2a_n=-2^n$を$2^n$で割り,$c_n=\frac{a_n}{2^{n-1}}$とおくと,
     \[
       c_{n+1}-c_n=-1,\quad c_1=1,
     \]
@@ -1001,7 +1001,7 @@
       a_{n+2}=4a_{n+1}-4a_n.
     \]
     \bookterm{characteristic}{特性方程式}は$(r-2)^2=0$であり,指数を除けば$c_{n+2}-2c_{n+1}+c_n=0$となる.
-    $a_1=1,a_2=4$より$c_1=1,c_2=2$なので,\,$c_n=n$を得る.
+    $a_1=1,a_2=4$より$c_1=1,c_2=2$なので,$c_n=n$を得る.
 
     % Q3
   \item \booknavref{節：一次分数型}{〔復習：一次分数型〕}\BookMathLayout{}{\\}
@@ -1026,13 +1026,13 @@
     \[
       c_{n+1}=1+4c_n,\quad c_1=\frac12
     \]
-    より$c_n+\frac{1}{3}=\left(\frac{5}{6}\right)4^{n-1}$となり,\,$a_n=2+\frac{1}{c_n}$で戻せる.
+    より$c_n+\frac{1}{3}=\left(\frac{5}{6}\right)4^{n-1}$となり,$a_n=2+\frac{1}{c_n}$で戻せる.
     二つの\bookterm{fixed}{不動点}からの差の比と,一つからの差の逆数が,同じ分数型を簡単にしている.
 
     % G3
   \item \booknavref{節：等比型}{〔復習：等比型〕}\BookMathLayout{}{\\}
     $n\ge1$なので$n+1$で割ると$a_{n+1}=\frac{a_n}{3}$となる.
-    見た目の係数に$n$があっても公比は一定であり,\,$a_n=4\left(\frac{1}{3}\right)^{n-1}$である.
+    見た目の係数に$n$があっても公比は一定であり,$a_n=4\left(\frac{1}{3}\right)^{n-1}$である.
 
     % D3
   \item \booknavref{節：等差型}{〔復習：等差型〕}\BookMathLayout{}{\\}
@@ -1079,7 +1079,7 @@
       a_{n+1}=(3S_n+2)-(3S_{n-1}+2)=3a_n.
     \]
     $S_2=5$より$a_2=4$なので同じ式を得る.
-    添字を1つ戻した式を使ったため$n\ge2$であり,\,$a_1$は別に付け加える.
+    添字を1つ戻した式を使ったため$n\ge2$であり,$a_1$は別に付け加える.
 
     % F3
   \item \booknavref{節：階差型}{〔復習：階差型〕}\BookMathLayout{}{\\}
@@ -1089,18 +1089,18 @@
     \]
     空の和を$0$とすれば初項も含む.
     \par\smallskip\noindent\textbf{【別解1】}\par
-    $2\cdot3^n=3^{n+1}-3^n$から,\,$a_{n+1}-3^{n+1}=a_n-3^n$となる.
+    $2\cdot3^n=3^{n+1}-3^n$から,$a_{n+1}-3^{n+1}=a_n-3^n$となる.
     この差は初項で$0$なので$a_n=3^n$である.
     \par\smallskip\noindent\textbf{【別解2】}\par
-    同じ式を予想しても,初項に合い,\,$a_{n+1}=3^n+2\cdot3^n=3^{n+1}$となるので帰納法で示せる.
+    同じ式を予想しても,初項に合い,$a_{n+1}=3^n+2\cdot3^n=3^{n+1}$となるので帰納法で示せる.
 
     % R3
   \item \booknavref{節：階比型}{〔復習：階比型〕}\BookMathLayout{}{\\}
-    両辺が「添字の平方×その項」になっているので,\,$b_n=n^2a_n$とおく.
-    $b_{n+1}=b_n$, $b_1=4$より$a_n=\frac{4}{n^2}$となる.\,$n\ge1$なので割る因子は0でない.
+    両辺が「添字の平方×その項」になっているので,$b_n=n^2a_n$とおく.
+    $b_{n+1}=b_n$, $b_1=4$より$a_n=\frac{4}{n^2}$となる.$n\ge1$なので割る因子は0でない.
     \par\smallskip\noindent\textbf{【別解】}\par
     最初の項$4,1,\frac{4}{9},\frac{1}{4}$から同じ式を予想する.
-    初項と一致し,\,$a_{n+1}=\frac{n^2a_n}{(n+1)^2}=\frac{4}{(n+1)^2}$となるので,
+    初項と一致し,$a_{n+1}=\frac{n^2a_n}{(n+1)^2}=\frac{4}{(n+1)^2}$となるので,
     \bookterm{induction}{数学的帰納法}で確かめられる.
 
     % C3
@@ -1112,7 +1112,7 @@
     \]
     $a_1-6=-6$から$a_n=6-6\left(\frac{2}{3}\right)^{n-1}$となる.
     \par\smallskip\noindent\textbf{【別解：増加量を求める】}\par
-    添字を1つずらした式と引くと,\,$d_n=a_{n+1}-a_n$は$d_{n+1}=\frac{2d_n}{3}$, $d_1=2$を満たす.
+    添字を1つずらした式と引くと,$d_n=a_{n+1}-a_n$は$d_{n+1}=\frac{2d_n}{3}$, $d_1=2$を満たす.
     よって,
     \[
       a_n=\sum_{k=1}^{n-1}2\left(\frac23\right)^{k-1}
@@ -1174,7 +1174,7 @@
 
     % G4
   \item \booknavref{節：等比型}{〔復習：等比型〕}\BookMathLayout{}{\\}
-    第2項から第5項までに$r$を三回掛けるので,\,$48=-6r^3$である.
+    第2項から第5項までに$r$を三回掛けるので,$48=-6r^3$である.
     $r$は実数だから$r=-2$, $a_1=\frac{a_2}{r}=3$となり,
     \[
       a_n=3(-2)^{n-1}.
@@ -1198,11 +1198,11 @@
   \item \booknavref{節：隣接3項型}{〔復習：隣接3項型〕}\BookMathLayout{}{\\}
     定数解$\alpha=2\alpha+3\alpha-8$から$2$を引く.
     $b_n=a_n-2$は$b_{n+2}=2b_{n+1}+3b_n$, $b_1=1,b_2=3$を満たす.
-    \bookterm{characteristic}{特性方程式}の根$3,-1$のうち$3$を使い,\,$c_n=b_{n+1}-3b_n$とおくと,
+    \bookterm{characteristic}{特性方程式}の根$3,-1$のうち$3$を使い,$c_n=b_{n+1}-3b_n$とおくと,
     \[
       c_{n+1}=-c_n,\quad c_1=0.
     \]
-    よって$c_n=0$から$b_{n+1}=3b_n$となり,\,$a_n=2+3^{n-1}$を得る.
+    よって$c_n=0$から$b_{n+1}=3b_n$となり,$a_n=2+3^{n-1}$を得る.
     一方の\bookterm{auxiliary}{補助数列}が0になるので,二本目を解く前に復元できる.
     \par\smallskip\noindent\textbf{【別解】}\par
     2項間の漸化式$a_{n+1}=3a_n-4$が成り立つことを帰納法で示す.
@@ -1241,7 +1241,7 @@
       \qquad a_n=2^{\,2-2^{2-n}}.
     \]
     \par\smallskip\noindent\textbf{【別解：\bookterm{fixed}{不動点}で割る】}\par
-    正の\bookterm{fixed}{不動点}$4$で割り,\,$c_n=\frac{a_n}{4}$とおくと$c_{n+1}=\sqrt{c_n}$, $c_1=\frac{1}{4}$である.
+    正の\bookterm{fixed}{不動点}$4$で割り,$c_n=\frac{a_n}{4}$とおくと$c_{n+1}=\sqrt{c_n}$, $c_1=\frac{1}{4}$である.
     指数が毎回半分になるので,
     \[
       c_n=\left(\frac14\right)^{(\frac12)^{n-1}},
@@ -1253,7 +1253,7 @@
     \bookterm{fixed}{不動点}$3$との差$b_n=a_n-3$は$b_{n+1}=4b_n$, $b_1=t-3$を満たす.
     したがって$a_n=3+(t-3)4^{n-1}$である.
     $t-3$で割っていないため$t=3$も含み,このときは定\bookterm{sequence}{数列}となる.
-    逆に定\bookterm{sequence}{数列}には$a_2=a_1$,すなわち$4t-9=t$が必要なので,\,$t=3$だけである.
+    逆に定\bookterm{sequence}{数列}には$a_2=a_1$,すなわち$4t-9=t$が必要なので,$t=3$だけである.
 
     % R4
   \item \booknavref{節：階比型}{〔復習：階比型〕}\BookMathLayout{}{\\}
@@ -1270,7 +1270,7 @@
     \[
       b_n=1+\sum_{k=1}^{n-1}(2k+1)=n^2
     \]
-    と求め,\,$a_n=2^{b_n}$で戻す.
+    と求め,$a_n=2^{b_n}$で戻す.
     \par\smallskip\noindent\textbf{【別解2】}\par
     $2n+1=(n+1)^2-n^2$に合わせれば,
     \[
@@ -1278,31 +1278,31 @@
     \]
     となる.最後の値は初項から決まる.
     積と\bookterm{logarithm}{対数}は同じ和を計算し,別解2はその和の計算も省く.
-    初項が負でも積と別解2は使えるが,\,$\log_2a_n$は使えない.
+    初項が負でも積と別解2は使えるが,$\log_2a_n$は使えない.
     \sectionref*{節：操作を選ぶ練習}の第3問に対応する.
 
     % D4
   \item \booknavref{節：等差型}{〔復習：等差型〕}\BookMathLayout{}{\\}
-    第3項から第8項までに公差を五回加えるので,\,$-7-8=5d$より$d=-3$である.
-    $a_3=a_1+2d$から$a_1=14$となり,\,$a_n=14-3(n-1)=17-3n$を得る.
+    第3項から第8項までに公差を五回加えるので,$-7-8=5d$より$d=-3$である.
+    $a_3=a_1+2d$から$a_1=14$となり,$a_n=14-3(n-1)=17-3n$を得る.
 
     % M4
   \item \booknavref{節：階差等比複合型}{〔復習：階差等比複合型〕}\BookMathLayout{}{\\}
-    係数と付加項の指数の底がともに$2$なので,\,$b_n=\frac{a_n}{2^{n-1}}$とおく.
+    係数と付加項の指数の底がともに$2$なので,$b_n=\frac{a_n}{2^{n-1}}$とおく.
     $b_{n+1}=b_n+3$, $b_1=2$から$b_n=3n-1$であり,
     \[
       a_n=(3n-1)2^{n-1}.
     \]
     底が等しいため,割った残りは\bookterm{fixed}{不動点}を使わずに等差型で解ける.
     \par\smallskip\noindent\textbf{【別解：形を置く】}\par
-    付加項$3\cdot2^n$と同じ形$A\cdot2^{n-1}$は付加項のない式の解なので,\,$n$を掛けて$g(n)=An\cdot2^{n-1}$と置く.
+    付加項$3\cdot2^n$と同じ形$A\cdot2^{n-1}$は付加項のない式の解なので,$n$を掛けて$g(n)=An\cdot2^{n-1}$と置く.
     $g(n+1)=2g(n)+3\cdot2^n$に代入すると$A=3$であり,
     $a_n=C\cdot2^{n-1}+3n\cdot2^{n-1}$に初項を入れれば$C=-1$となる.
     \sectionref*{節：答えの形を見通す}の考え方である.
 
     % U5
   \item \booknavref{節：連立型}{〔復習：連立型〕}\BookMathLayout{}{\\}
-    \BookMathLayout{第1式を進めて第2式を代入すると,\,$a_{n+2}=a_{n+1}+2a_n$となる.}{第1式を進めて第2式を代入すると,\newline
+    \BookMathLayout{第1式を進めて第2式を代入すると,$a_{n+2}=a_{n+1}+2a_n$となる.}{第1式を進めて第2式を代入すると,\newline
       $a_{n+2}=a_{n+1}+2a_n$となる.}
     \bookterm{characteristic}{特性方程式}の根は$2,-1$であり,
     $a_n=C2^{n-1}+D(-1)^{n-1}$とおく.
@@ -1326,8 +1326,8 @@
 
     % R5
   \item \booknavref{節：階比型}{〔復習：階比型〕}\BookMathLayout{}{\\}
-    添字を一つ進めると,\,$(n-1)!$には$n$が,\,$n!$には$n+1$が掛かる.
-    2つの階乗を組み合わせれば,\,$n$によって変わる係数$n(n+1)$を作れる.
+    添字を一つ進めると,$(n-1)!$には$n$が,$n!$には$n+1$が掛かる.
+    2つの階乗を組み合わせれば,$n$によって変わる係数$n(n+1)$を作れる.
     $n(n+1)$を約分するために両辺を$n!(n+1)!$で割り,\BookMathLayout{}{\\}%
     $b_n=\frac{a_n}{(n-1)!n!}$とおくと,
     \[
@@ -1354,7 +1354,7 @@
     \[
       a_{n+1}-1=\frac{a_n-1}{a_n}
     \]
-    を調べる.\,$a_1>1$から全項で$a_n>1$となり,元の分母と差はともに0でない.
+    を調べる.$a_1>1$から全項で$a_n>1$となり,元の分母と差はともに0でない.
     $b_n=\frac{1}{a_n-1}$とおくと,
     \[
       b_{n+1}=b_n+1,\quad b_1=1,
@@ -1363,16 +1363,16 @@
     重なる\bookterm{fixed}{不動点}からの差の逆数が等差型になった.
     \par\smallskip\noindent\textbf{【別解】}\par
     最初の三項$\frac{2}{1},\frac{3}{2},\frac{4}{3}$から同じ式を予想する.
-    初項に合い,\,$a_k=\frac{k+1}{k}$なら$a_{k+1}=2-\frac{k}{k+1}=\frac{k+2}{k+1}$となるので,
+    初項に合い,$a_k=\frac{k+1}{k}$なら$a_{k+1}=2-\frac{k}{k+1}=\frac{k+2}{k+1}$となるので,
     \bookterm{induction}{数学的帰納法}で示せる.
     \par\smallskip\noindent\textbf{【初項を変えたとき】}\par\nopagebreak[4]
     初項$1$なら定数数列となり差の逆数は使えない.
-    初項$0$なら第2項が定義できず,\,$\frac{1}{2}$なら次項が$0$になって第3項が定義できない.
+    初項$0$なら第2項が定義できず,$\frac{1}{2}$なら次項が$0$になって第3項が定義できない.
     置き換えに必要な条件と,元の漸化式に必要な条件を区別する.
 
     % G5
   \item \booknavref{節：等比型}{〔復習：等比型〕}\BookMathLayout{}{\\}
-    $a_1=0$であり,\,$0$からは次も$0$となるので全項が$0$である.
+    $a_1=0$であり,$0$からは次も$0$となるので全項が$0$である.
     \bookterm{geometric}{等比数列}の式でも$a_n=0\cdot7^{n-1}=0$となるが,
     項で割って$\frac{a_{n+1}}{a_n}$を作ってはいけない.
 
@@ -1383,7 +1383,7 @@
     \[
       b_{n+1}=2b_n-n+1,\quad b_1=2.
     \]
-    $b_{n+1}=2b_n-n+1$を満たす一次式$g(n)=un+v$を探すと,\,$u=2u-1$, $u+v=2v+1$より$g(n)=n$である.
+    $b_{n+1}=2b_n-n+1$を満たす一次式$g(n)=un+v$を探すと,$u=2u-1$, $u+v=2v+1$より$g(n)=n$である.
     $c_n=b_n-n$は$c_{n+1}=2c_n$, $c_1=1$を満たすので,
     \[
       b_n=n+2^{n-1},\qquad a_n=2^{\,n+2^{n-1}}.
@@ -1394,7 +1394,7 @@
     \[
       d_{n+1}=\frac{a_n^2}{2^{2n}}=d_n^2,\quad d_1=2.
     \]
-    よって$d_n=2^{2^{n-1}}$であり,\,$a_n=2^nd_n$で同じ答えを得る.
+    よって$d_n=2^{2^{n-1}}$であり,$a_n=2^nd_n$で同じ答えを得る.
 
     % F5
   \item \booknavref{節：階差型}{〔復習：階差型〕}\BookMathLayout{}{\\}
@@ -1418,7 +1418,7 @@
     \]
     より$a_n=2+6\left(\frac{1}{2}\right)^{n-1}$となる.
     \par\smallskip\noindent\textbf{【別解：\bookterm{difference}{階差}から\bookterm{general}{一般項}へ】}\par
-    添字を1つずらした式と引くと,\,$d_n=a_{n+1}-a_n$は$d_{n+1}=\frac{d_n}{2}$, $d_1=-3$を満たす.
+    添字を1つずらした式と引くと,$d_n=a_{n+1}-a_n$は$d_{n+1}=\frac{d_n}{2}$, $d_1=-3$を満たす.
     よって,
     \[
       a_n=8-3\sum_{k=1}^{n-1}\left(\frac12\right)^{k-1}

@@ -1,7 +1,7 @@
 % BOOK-FILE-ID: f-2a30e146ab92
 \subsubsection{小数部分と回転}\label{節：小数部分と回転}
-$\{x\}=x-\lfloor x\rfloor$は$x$の小数部分を表し,\,$0\le\{x\}<1$である.
-例えば,\,$\{-0.2\}=0.8$となる.
+$\{x\}=x-\lfloor x\rfloor$は$x$の小数部分を表し,$0\le\{x\}<1$である.
+例えば,$\{-0.2\}=0.8$となる.
 一定の量を足しては整数部分を捨てる,という操作を繰り返すとどうなるだろうか.
 値は$0$と$1$の間を行ったり来たりするが,両端をつないで円周だと思えば,これは一定の割合で進む回転なのだ.
 円周を何周したかはガウス記号が記録してくれる.
@@ -25,7 +25,7 @@ $\{x\}=x-\lfloor x\rfloor$は$x$の小数部分を表し,\,$0\le\{x\}<1$であ�
 
 \noindent \bookblocklink{example-gauss-role-9}{hint}{problem}{【方針】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-9}{hint}{problem}]
-  \item 整数部分を捨てると小数部分だけが残ることから,\,$n\alpha$の小数部分を予想します.
+  \item 整数部分を捨てると小数部分だけが残ることから,$n\alpha$の小数部分を予想します.
     一致する二項があれば,添字の差と$\alpha$の積が整数になることを使いましょう.
 \end{enumerate}
 
@@ -53,8 +53,8 @@ $\{x\}=x-\lfloor x\rfloor$は$x$の小数部分を表し,\,$0\le\{x\}<1$であ�
     \[
       T\alpha=\lfloor(n+T)\alpha\rfloor-\lfloor n\alpha\rfloor
     \]
-    が整数となり,\,$\alpha$が無理数であることに矛盾する.従って異なる項は一致しない.
+    が整数となり,$\alpha$が無理数であることに矛盾する.従って異なる項は一致しない.
 
-    同じ\bookterm{recurrence}{漸化式}で$\alpha$が有理数$\frac pq\ (0<p<q)$であり,\,$p,q$が互いに素なら,
-    最小周期は$q$となる.\,$q\alpha$は整数で,\,$T\alpha$が整数となる正整数$T$は$q$の倍数だからである.
+    同じ\bookterm{recurrence}{漸化式}で$\alpha$が有理数$\frac pq\ (0<p<q)$であり,$p,q$が互いに素なら,
+    最小周期は$q$となる.$q\alpha$は整数で,$T\alpha$が整数となる正整数$T$は$q$の倍数だからである.
 \end{enumerate}

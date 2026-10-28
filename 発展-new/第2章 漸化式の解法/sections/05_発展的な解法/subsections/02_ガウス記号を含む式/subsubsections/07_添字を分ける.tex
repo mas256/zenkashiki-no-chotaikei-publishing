@@ -6,10 +6,10 @@
   \left\lfloor\frac{n+1}{2}\right\rfloor
   +\left\lfloor\frac n2\right\rfloor=n
 \]
-であり,\,$n$を2つに分けている.偶数なら同じ添字,奇数なら隣り合う添字になる.
-こういうときは,\,$n$を偶数と奇数に分けてやればガウス記号を外せる.
+であり,$n$を2つに分けている.偶数なら同じ添字,奇数なら隣り合う添字になる.
+こういうときは,$n$を偶数と奇数に分けてやればガウス記号を外せる.
 得られた2つの式から,隣り合う項の階差を調べてみよう.
-半分の添字との関係が出てきたら,\,$1,\ 2\le n<4,\ 4\le n<8,\ldots$のように群で整理するとよい.
+半分の添字との関係が出てきたら,$1,\ 2\le n<4,\ 4\le n<8,\ldots$のように群で整理するとよい.
 ただし,同じ添字を参照する式だけでは初項が決まらないこともあるので注意しよう.
 
 \begin{bookpoint}
@@ -33,12 +33,12 @@
           \\              &\quad(n\ge2).
         \end{aligned}
       \]}
-    必要ならば,\,$2^m\le n<2^{m+1}$を満たす整数$m\ge0$を用いてよい.
+    必要ならば,$2^m\le n<2^{m+1}$を満たす整数$m\ge0$を用いてよい.
 \end{enumerate}
 
 \noindent \bookblocklink{example-gauss-role-7}{hint}{problem}{【方針】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-7}{hint}{problem}]
-  \item 偶奇で式を分け,\,$b_n=a_{n+1}-a_n$を考えます.
+  \item 偶奇で式を分け,$b_n=a_{n+1}-a_n$を考えます.
     $b_{2k}$と$b_{2k+1}$が$b_k+1$になることを示し,群ごとに足しましょう.
 \end{enumerate}
 
@@ -53,7 +53,7 @@
 \noindent \bookblocklink{example-gauss-role-7}{solution}{problem}{【解法】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-7}{solution}{problem}]
   \item $n\ge2$では二つの添字は1以上$n-1$以下なので,\bookterm{sequence}{数列}は順に定義できる.
-    偶奇で分けると,\,$k\ge1$について,
+    偶奇で分けると,$k\ge1$について,
     \[
       \begin{aligned}
         a_{2k}&=2a_k+2k-1,\\
@@ -61,14 +61,14 @@
       \end{aligned}
     \]
     $b_n=a_{n+1}-a_n$とおくと,両式の差から$b_{2k}=b_k+1$.
-    また,\,$a_{2k+2}=2a_{k+1}+2k+1$を使うと$b_{2k+1}=b_k+1$である.
+    また,$a_{2k+2}=2a_{k+1}+2k+1$を使うと$b_{2k+1}=b_k+1$である.
     $a_2=5$より$b_1=3$なので,
     \[
       b_{2k}=b_{2k+1}=b_k+1,\qquad b_1=3.
     \]
 
     $m=0$では$b_1=3$.次の群の添字を半分にすると前の群へ入り,値が1増える.
-    群番号$m$について帰納的に,\,$2^m\le n<2^{m+1}$で$b_n=m+3$となる.
+    群番号$m$について帰納的に,$2^m\le n<2^{m+1}$で$b_n=m+3$となる.
 
     従って,完全な群と最後の群を分けて足すと,
     \begin{align*}
@@ -82,7 +82,7 @@
     \[
       \sum_{j=0}^{m-1}j2^j=(m-2)2^m+2
     \]
-    を使う(後者は和$T$に対する$2T-T$から得る).\,$m=0$でも空の和として成立する.
+    を使う(後者は和$T$に対する$2T-T$から得る).$m=0$でも空の和として成立する.
     代入すると,
     \[
       a_n=(m+3)n-2^{m+1}+1
