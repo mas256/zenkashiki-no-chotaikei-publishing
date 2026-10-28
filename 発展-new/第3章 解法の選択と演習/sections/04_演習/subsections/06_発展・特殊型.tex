@@ -22,6 +22,13 @@ $\lfloor x\rfloor$は$x$を超えない最大の整数を表す.
     (1) \bookterm{general}{一般項}を求めよ.
     \par\smallskip\noindent
     (2) 初めて$a_n=0$となる添字$n$を求めよ.
+    \par\smallskip\noindent
+    (3) 非負整数$M$に対し,別の数列を
+    \[
+      b_1=M,\qquad
+      b_{n+1}=\left\lfloor\frac{b_n+6}{2}\right\rfloor
+    \]
+    と定める.$b_n$の一般項と,最終的に一定になる値を求めよ.
     % E2: ガウス型・三つずつの群
   \item \bookterm{sequence}{数列}$\{a_n\}$を
     \[
@@ -30,8 +37,13 @@ $\lfloor x\rfloor$は$x$を超えない最大の整数を表す.
       \quad(n\ge0)
     \]
     によって定める.\,
-    $n=3q+r$（$q\ge0$,$r=0,1,2$）とおき,
+    (1) $n=3q+r$（$q\ge0$,$r=0,1,2$）とおき,
     \bookterm{general}{一般項}を$q,r$で表せ.
+    \par\smallskip\noindent
+    (2) $a_n$を,次の範囲にある格子点（座標がともに整数の点）の個数として説明せよ.
+    \[
+      1\le x\le n,\qquad 1\le y\le\frac{x}{3}.
+    \]
     % E3: ガウス型・余りの有限個の状態
   \item \bookterm{sequence}{数列}$\{a_n\}$を
     \[
@@ -209,9 +221,11 @@ $\lfloor x\rfloor$は$x$を超えない最大の整数を表す.
     $\left\lfloor\frac{\lfloor x\rfloor}{2}\right\rfloor
       =\left\lfloor\frac{x}{2}\right\rfloor$となることを確かめる.
     初めて$0$になる位置は,$2026$と$2$の累乗を比べればよい.
+    (3)では$b_n-6$を考え,負の数の切り捨てにも注意する.
     % E2
   \item \bookterm{difference}{階差}を足すと$\sum_{k=1}^{n}\lfloor\frac{k}{3}\rfloor$になる.
     同じ値を取る添字を三つずつまとめ,最後の群を$r+1$項として数える.
+    $\lfloor\frac{k}{3}\rfloor$は,$x=k$上にある指定範囲の格子点の個数でもある.
     % E3
   \item $x-5\lfloor\frac{x}{5}\rfloor$は整数$x$を$5$で割った余りである.
     項の値が五つに絞れたら,それぞれが次にどの値へ移るかを表にする.
@@ -264,14 +278,21 @@ $\lfloor x\rfloor$は$x$を超えない最大の整数を表す.
       a_n=\left\lfloor\frac{2026}{2^{n-1}}\right\rfloor.
     \]
     (2) $n=12$である.
+    \par\smallskip\noindent
+    (3)
+    \[
+      b_n=6+\left\lfloor\frac{M-6}{2^{n-1}}\right\rfloor.
+    \]
+    有限回の操作の後で,$M<6$なら$5$,$M\ge6$なら$6$に固定される.
     % E2
-  \item
+  \item (1)
     \[
       a_n=\frac{3q(q-1)}2+q(r+1),
     \]
     \[
       n=3q+r,\qquad q\ge0,\quad r=0,1,2.
     \]
+    (2) $x=k$ごとに$\lfloor\frac{k}{3}\rfloor$個の点があり,その和が$a_n$である.
     % E3
   \item (1) 整数性と\bookterm{floor}{ガウス記号}の定義から,各項は$0$以上$4$以下の整数となる.
     \par\smallskip\noindent
@@ -398,7 +419,7 @@ $\lfloor x\rfloor$は$x$を超えない最大の整数を表す.
   % E1
   \item \textbf{(1)~整数部分を分ける.}
     \sectionref{節：ガウス記号を含む式}の整数性に着目する.
-    非負の実数$x$について,整数$\lfloor x\rfloor$を
+    実数$x$について,整数$\lfloor x\rfloor$を
     \[
       \lfloor x\rfloor=2q+r,\qquad r=0,1
     \]
@@ -427,9 +448,29 @@ $\lfloor x\rfloor$は$x$を超えない最大の整数を表す.
     $n\le11$では切り捨てる前の値が$1$以上なので,
     初めて$0$となるのは$n=12$である.
     毎回の切り捨てを一つの\bookterm{floor}{ガウス記号}にまとめられる理由は,割る数が正の整数であることにある.
+
+    \smallskip
+    \textbf{(3)~整数を引いて同じ操作にする.}
+    $c_n=b_n-6$とおく.整数をガウス記号の外へ出すと,
+    \[
+      c_{n+1}=\left\lfloor\frac{c_n}{2}\right\rfloor,
+      \qquad c_1=M-6.
+    \]
+    (1)の恒等式は負の$x$にも成り立つので,
+    \[
+      c_n=\left\lfloor\frac{M-6}{2^{n-1}}\right\rfloor
+    \]
+    となる.十分大きな$n$では,中身が$M\ge6$なら$[0,1)$,$M<6$なら$(-1,0)$に入る.
+    したがって$b_n$は,それぞれ$6$,$5$に有限回で到達する.
+    実際,整数$x$が不動点となる条件は
+    \[
+      x\le\frac{x+6}{2}<x+1
+      \iff 4<x\le6
+    \]
+    である.丸めを外した実数の漸化式の不動点は$6$だけだが,切り捨てると$5$も不動点となる.
     % E2
-  \item \textbf{同じ値をまとめて足す.}
-    \sectionref{節：ガウス記号を含む式}の群\bookterm{sequence}{数列}の考え方を使う.
+  \item \textbf{(1)~同じ値をまとめて足す.}
+    \sectionref{節：同じ値を群にまとめる}の考え方を使う.
     \bookterm{difference}{階差}を足すと,
     \[
       a_n=\sum_{k=1}^{n}\left\lfloor\frac{k}{3}\right\rfloor.
@@ -443,6 +484,12 @@ $\lfloor x\rfloor$は$x$を超えない最大の整数を表す.
     \end{align*}
     $q=0$でも実際の値と式は0である.
     最後の群は途中までなので,常に三項と数えてはいけない.
+
+    \smallskip
+    \textbf{(2)~和を個数として読む.}
+    $x=k$のとき,指定範囲の整数$y$は$1$から$\lfloor\frac{k}{3}\rfloor$まである.
+    $k=1,\ldots,n$について足せば,(1)の和に一致する.
+    群ごとに値と項数を掛けて足す方法と,格子点の個数を数える方法は,同じ和の二つの見方である.
     % E3
   \item \textbf{(1)~余りに読み替える.}
     \sectionref{節：ガウス記号を含む式}では,\bookterm{floor}{ガウス記号}が整数問題の道具にもなる.

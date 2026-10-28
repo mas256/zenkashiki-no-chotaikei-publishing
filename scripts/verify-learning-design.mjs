@@ -171,6 +171,8 @@ export function verifyTeX(readText, pdfDestinations = null) {
   assert(groups["practice-advanced"].problem.size===10,"advanced exercise count changed");
   assert(groups["practice-bridge"].problem.size===10,"bridge exercise count changed");
   assert(groups["practice-entrance"].problem.size===10,"research exercise count changed");
+  assert(groups["practice-special"].problem.size===15,"special exercise count changed");
+  assert(groups["practice-gauss"].problem.size===3,"floor-function exercise count changed");
   // These question identities are used by the reading routes and comparisons.
   // Use the unstripped source comments to check stable question identities.
   const original=readText("発展-new/第3章 解法の選択と演習/sections/04_演習/subsections/02_標準.tex");

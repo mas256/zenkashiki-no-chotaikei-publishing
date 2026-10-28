@@ -11,7 +11,7 @@ const system="発展-new/第2章 漸化式の解法/sections/04_応用パター�
 const read=path=>readFileSync(join(root,path),"utf8");
 const original=read(system);
 assert.equal((original.match(/start=2,label=/g) || []).length,4);
-assert.equal(verifyTeX(read).exerciseCount,107);
+assert.equal(verifyTeX(read).exerciseCount,110);
 
 const checkMutation=text=>verifyTeX(path=>path===system ? text : read(path));
 assert.throws(()=>checkMutation(original.replace("start=2,label=","start=1,label=")),/duplicate item target/);
