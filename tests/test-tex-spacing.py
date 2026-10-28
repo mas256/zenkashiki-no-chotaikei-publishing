@@ -145,6 +145,10 @@ class ImportPipelineTests(unittest.TestCase):
 
     @unittest.skipUnless(ENGINE, 'A LaTeX engine is needed for the compilation check')
     def test_actual_compiler_uses_spacing_and_synctex_points_at_original_sources(self):
+        self.main.write_text(self.main.read_text().replace(
+            r'\begin{document}',
+            r'\AddToHook{file/before}{\typeout{BOOK-BEGIN:\CurrentFilePath\CurrentFile}}'
+            r'\begin{document}'))
         self.body.write_text(
             '% BOOK-FILE-ID: body\n'
             r'\setbox0=\hbox{Text,\,$x$}\setbox1=\hbox{Text,$x$}' '\n'
@@ -159,12 +163,26 @@ class ImportPipelineTests(unittest.TestCase):
         self.assertEqual(result, 0, log[-3000:])
         self.assertIn('SPACE-PASS', log)
         self.assertIn(self.body.as_posix(), log)
+        self.assertIn('BOOK-BEGIN:' + self.body.as_posix(), log)
         self.assertNotIn((self.cache / 'tree').as_posix(), log)
         recorder = (self.book / 'main.fls').read_text()
         self.assertIn('INPUT ' + self.body.as_posix(), recorder)
         navigation = gzip.decompress((self.book / 'main.synctex.gz').read_bytes()).decode('utf-8')
         self.assertIn(self.body.as_posix(), navigation)
         self.assertNotIn((self.cache / 'tree').as_posix(), navigation)
+
+    @unittest.skipUnless(ENGINE, 'A LaTeX engine is needed for the error-location check')
+    def test_failed_compilation_reports_the_original_source(self):
+        self.body.write_text('% BOOK-FILE-ID: body\n' + r'\errmessage{INTENTIONAL TEST ERROR}')
+        previous = Path.cwd()
+        os.chdir(self.book)
+        self.addCleanup(os.chdir, previous)
+        result = spacing.compile_tex(['-halt-on-error', '-interaction=batchmode', '-file-line-error',
+                                      '-recorder', str(self.main)], self.book, self.cache, engine=ENGINE)
+        self.assertNotEqual(result, 0)
+        log = (self.book / 'main.log').read_text(errors='replace')
+        self.assertIn(self.body.as_posix() + ':2:', log)
+        self.assertNotIn((self.cache / 'tree').as_posix(), log)
 
     @unittest.skipUnless(ENGINE, 'A LaTeX engine is needed for the mobile wrapper check')
     def test_mobile_wrapper_outside_book_and_source_edits_are_picked_up(self):

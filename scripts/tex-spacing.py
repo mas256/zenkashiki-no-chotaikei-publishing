@@ -371,6 +371,11 @@ def restore_source_paths(base, book, cache, names, extra_paths=None):
         text, encoding = decode_tex(log.read_bytes())
         for generated, original in sorted(paths.items(), key=lambda item: len(str(item[0])), reverse=True):
             text = text.replace(generated.as_posix(), original)
+            # LaTeX's file hooks expose CurrentFilePath without a trailing slash.
+            # The manuscript concatenates it with CurrentFile in BOOK-* markers.
+            for marker in ('BOOK-BEGIN:', 'BOOK-END:'):
+                text = text.replace(marker + generated.parent.as_posix() + generated.name,
+                                    marker + original)
         atomic_write(log, text.encode(encoding))
 
     recorder = Path(str(base) + '.fls')
@@ -443,10 +448,8 @@ def compile_tex(arguments, book, cache=None, *, engine='uplatex'):
     run = subprocess.run([engine, *arguments], env={
         **os.environ, 'max_print_line': os.environ.get('max_print_line', '1000'),
     })
-    if run.returncode:
-        return run.returncode
     restore_source_paths(directory / name, book, cache, names, extra_paths)
-    return 0
+    return run.returncode
 
 
 def main():
