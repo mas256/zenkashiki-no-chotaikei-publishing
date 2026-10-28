@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify the ten floor-function examples with exact finite checks.
+"""Verify five floor-function methods and their related exercises exactly.
 
 These checks supplement the proofs in the textbook; they are not proofs for
 all indices. No floating-point arithmetic or external packages are used.
@@ -12,20 +12,25 @@ import re
 
 ROOT = Path(__file__).resolve().parents[1]
 DIR = ROOT / '発展-new/第2章 漸化式の解法/sections/05_発展的な解法/subsections/02_ガウス記号を含む式'
+PRACTICE = ROOT / '発展-new/第3章 解法の選択と演習/sections/04_演習/subsections'
 N = 10000
 report = {}
 
 def verify_sources():
     files = sorted((DIR / 'subsubsections').glob('[0-9][0-9]_*.tex'))
-    assert len(files) == 10, f'expected 10 pattern files, got {len(files)}'
+    assert len(files) == 5, f'expected 5 method files, got {len(files)}'
     overview = (DIR / '02_ガウス記号を含む式.tex').read_text(encoding='utf-8')
     all_source = '\n'.join(p.read_text(encoding='utf-8')
                            for p in (ROOT / '発展-new').rglob('*.tex'))
     labels = re.findall(r'\\label\{([^}]+)\}', all_source)
-    ids = []
-    for i,path in enumerate(files,1):
+    ids, examples = [], set()
+    for path in files:
         source = path.read_text(encoding='utf-8')
-        pid = f'example-gauss-role-{i}'
+        example = re.search(r'\\bookblocklink\{(example-gauss-role-\d+)\}\{problem\}', source)
+        assert example, path.name
+        pid = example.group(1)
+        assert pid not in examples, f'duplicate example {pid}'
+        examples.add(pid)
         file_id = re.search(r'^% BOOK-FILE-ID: (f-[0-9a-f]+)$', source, re.M)
         assert file_id and f'\\BookImport{{{file_id.group(1)}}}' in overview
         assert source.count('\\subsubsection{') == 1
@@ -45,9 +50,21 @@ def verify_sources():
             else:
                 assert environments and environments.pop() == name, path.name
         assert not environments, path.name
-    assert len(set(ids)) == 40
+    assert examples == {f'example-gauss-role-{i}' for i in (1,2,3,5,7)}
+    assert len(set(ids)) == 20
+    related = (PRACTICE / '07_ガウス記号の関連問題.tex').read_text(encoding='utf-8')
+    special = (PRACTICE / '06_発展・特殊型.tex').read_text(encoding='utf-8')
+    for source, group, count in [(related,'practice-gauss',3),(special,'practice-special',15)]:
+        for role in ('problem','hint','answer','solution'):
+            pattern = (r'\\begin\{enumerate\}\[[^\n]*\\bookitemlink\{'
+                       + group + r'\}\{' + role
+                       + r'\}[^\n]*\](.*?)\\end\{enumerate\}')
+            match = re.search(pattern, source, re.S)
+            assert match and len(re.findall(r'^\s*\\item\b',match.group(1),re.M)) == count, \
+                f'{group}:{role}: missing or mismatched questions'
     assert '例題草案.tex' not in overview
-    report['structure'] = {'patterns':10,'examples':10,'blocks':40,'links':80}
+    report['structure'] = {'methods':5,'main_examples':5,'related_exercises':3,
+                           'integrated_exercises':2,'example_blocks':20}
 
 def verify_math():
     a = 1
@@ -98,6 +115,11 @@ def verify_math():
             assert a == 6+(M-6)//(2**(n-1))
             a = (a+6)//2
         assert a == (5 if M<6 else 6)
+    a = 2026
+    for n in range(1,13):
+        assert a == 2026//(2**(n-1))
+        assert (a == 0) == (n == 12)
+        a //= 2
     report['06_fixed_points'] = {'initials':101,'terms':16}
 
     terms = [None,2]
@@ -139,13 +161,16 @@ def verify_math():
     report['09_fractional_rotation'] = {'irrational_terms':N+1,'rational_cases':4}
 
     a = 0
-    for n in range(1,N+1):
-        a += (5*n)//2
-        assert a == n*(n+1)+(n*n)//4
+    for n in range(N+1):
+        q,r = divmod(n,3)
+        expected = 3*q*(q-1)//2+q*(r+1)
+        assert a == expected
+        a += (n+1)//3
     for n in range(31):
-        actual = sum(1 for x in range(1,n+1) for y in range(1,3*n+1)
-                     if 2*y <= 5*x)
-        assert actual == n*(n+1)+(n*n)//4
+        actual = sum(1 for x in range(1,n+1) for y in range(1,n+1)
+                     if 3*y <= x)
+        q,r = divmod(n,3)
+        assert actual == 3*q*(q-1)//2+q*(r+1)
     report['10_lattice_count'] = {'terms':N,'geometric_cases':31}
 
 if __name__ == '__main__':

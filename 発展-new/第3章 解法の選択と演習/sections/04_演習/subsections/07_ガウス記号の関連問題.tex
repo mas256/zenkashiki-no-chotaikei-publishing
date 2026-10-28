@@ -1,0 +1,142 @@
+% BOOK-FILE-ID: f-e569b3cc73ba
+\subsection{ガウス記号の関連問題}\label{節：ガウス記号の関連問題}
+\sectionref{節：ガウス記号を含む式}の方法を,境界の検出,桁,小数部分へ使う3題である.
+停止する値は\bookproblemref{practice-special}{1}{発展・特殊型問1},
+群と格子点の関係は\bookproblemref{practice-special}{2}{問2}で扱った.
+ここでは,ガウス記号の差が表す条件や,商と余りの意味を読み取ろう.
+問3では,取り得る値が無限個ある場合の周期も考える.
+
+\subsubsection{問題}\label{節：ガウス記号の関連問題：問題}
+\begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-gauss}{problem}{answer}]
+  % G1: 境界と繰り上がり
+  \item \bookterm{sequence}{数列}を次のように定める.\bookterm{general}{一般項}を求め,\bookterm{difference}{階差}の意味を説明せよ.
+    \[
+      a_0=0,\qquad a_n=a_{n-1}+d_n\quad(n\ge1),
+    \]
+    \[
+      \begin{aligned}
+        d_n={}&\left\lfloor\frac n4\right\rfloor
+        -\left\lfloor\frac{n-1}{4}\right\rfloor\\
+        &-\left\lfloor\frac n6\right\rfloor
+        +\left\lfloor\frac{n-1}{6}\right\rfloor.
+      \end{aligned}
+    \]
+  % G2: 桁を取り出す
+  \item \bookterm{sequence}{数列}を次のように定める.
+    \[
+      a_0=0,\qquad
+      a_n=a_{\left\lfloor\frac n3\right\rfloor}
+      +n-3\left\lfloor\frac n3\right\rfloor
+      \quad(n\ge1).
+    \]
+    $a_n$が$n$の3進表示とどのような関係を持つか説明し,$a_{14}$を求めよ.
+  % G3: 小数部分と回転
+  \item $\alpha=\sqrt2-1$とし,\bookterm{sequence}{数列}を次のように定める.
+    \[
+      a_0=0,\qquad
+      a_{n+1}=a_n+\alpha-\lfloor a_n+\alpha\rfloor
+      \quad(n\ge0).
+    \]
+    \bookterm{general}{一般項}を求め,異なる添字の項が同じ値になるか調べよ.
+    また,$\alpha=\frac pq$（$0<p<q$,$p,q$は互いに素な整数）に変えた場合の最小周期を求めよ.
+\end{enumerate}
+
+\subsubsection{方針}\label{節：ガウス記号の関連問題：方針}
+\begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-gauss}{hint}{problem}]
+  % G1: 境界と繰り上がり
+  \item 各差を倍数かどうかの判定として読みます.
+    和を取ると,途中の\bookterm{floor}{ガウス記号}が打ち消し合います.
+  % G2: 桁を取り出す
+  \item $n=3q+r\ (0\le r<3)$と書くと,\bookterm{recurrence}{漸化式}は$a_n=a_q+r$になります.
+    $q$の3進表示に最後の桁$r$を付けると$n$になることを使いましょう.
+  % G3: 小数部分と回転
+  \item 整数部分を捨てると小数部分だけが残ることから,$n\alpha$の小数部分を予想します.
+    一致する二項があれば,添字の差と$\alpha$の積が整数になることを使いましょう.
+    有理数の場合は,$T\alpha$が整数となる最小の正整数$T$を調べます.
+\end{enumerate}
+
+\subsubsection{答え}\label{節：ガウス記号の関連問題：答え}
+\begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-gauss}{answer}{problem}]
+  % G1: 境界と繰り上がり
+  \item \[
+      a_n=\left\lfloor\frac n4\right\rfloor
+      -\left\lfloor\frac n6\right\rfloor.
+    \]
+    $d_n$は4の倍数だけなら1,6の倍数だけなら$-1$,両方またはいずれでもないなら0である.
+  % G2: 桁を取り出す
+  \item $a_n$は$n$の3進表示の各桁の数字の和である.
+    $14=(112)_3$より,
+    \[
+      a_{14}=1+1+2=4.
+    \]
+  % G3: 小数部分と回転
+  \item \[
+      a_n=n\alpha-\lfloor n\alpha\rfloor\quad(n\ge0).
+    \]
+    異なる添字の項は同じ値にならず,周期的ではない.
+    $\alpha=\frac pq$の場合の最小周期は$q$である.
+\end{enumerate}
+
+\subsubsection{解説}\label{節：ガウス記号の関連問題：解説}
+\begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-gauss}{solution}{problem}]
+  % G1: 境界と繰り上がり
+  \item 整数$m\ge2$で割った商と余りを用いて$n=mq+r$（$0\le r<m$）と書く.
+    $r=0$なら$\lfloor\frac{n-1}{m}\rfloor=q-1$,$r>0$なら$q$なので,
+    \[
+      \left\lfloor\frac nm\right\rfloor
+      -\left\lfloor\frac{n-1}{m}\right\rfloor
+      =\begin{cases}
+        1&(r=0),\\
+        0&(r>0)
+      \end{cases}
+    \]
+    となる.つまり,$n$が$m$の倍数のときだけ1になる.
+    $m=4,6$に適用すれば,$d_n$は答えに述べた条件を表す.
+    また,$a_n=\sum_{k=1}^{n}d_k$であり,
+    \begin{align*}
+      \sum_{k=1}^{n}\left(
+      \left\lfloor\frac k4\right\rfloor-
+      \left\lfloor\frac{k-1}{4}\right\rfloor\right)
+      &=\left\lfloor\frac n4\right\rfloor,\\
+      \sum_{k=1}^{n}\left(
+      \left\lfloor\frac k6\right\rfloor-
+      \left\lfloor\frac{k-1}{6}\right\rfloor\right)
+      &=\left\lfloor\frac n6\right\rfloor.
+    \end{align*}
+    両式の差が答えとなり,$n=0$にも合う.
+    条件ごとの計算を,差の和で一度に処理した.
+  % G2: 桁を取り出す
+  \item $n\ge1$では$0\le q=\lfloor\frac n3\rfloor<n$なので,初期値$a_0$から各項を定義できる.
+    $r=n-3q$とおけば$r$は0,1,2のいずれかで,
+    \[
+      a_n=a_q+r.
+    \]
+    0の桁の和を0とする.$n=3q+r$の表示は,$q$の最後に$r$を付けたものなので,桁の和も$r$増える.
+    $a_0=0$は0の桁の和に一致する.また,$n$未満のすべての添字で一致すると仮定すれば,$q<n$より$a_q$は$q$の桁の和である.従って$a_n=a_q+r$も$n$の桁の和になる.このように,それより前のすべての場合を仮定する帰納法を,強い帰納法という.
+
+    実際,$14=3\cdot4+2,\ 4=3\cdot1+1,\ 1=3\cdot0+1$なので,
+    \[
+      a_{14}=a_4+2=a_1+3=a_0+4=4.
+    \]
+    値の意味を読むことも,\bookterm{sequence}{数列}を理解する方法である.
+  % G3: 小数部分と回転
+  \item $n=0$では予想した式は$a_0=0$を与える.
+    $a_n=n\alpha-\lfloor n\alpha\rfloor$とすると,整数との和の性質から,
+    \begin{align*}
+      \lfloor a_n+\alpha\rfloor
+      &=\lfloor(n+1)\alpha\rfloor-\lfloor n\alpha\rfloor,\\
+      a_{n+1}
+      &=(n+1)\alpha-\lfloor(n+1)\alpha\rfloor.
+    \end{align*}
+    より帰納的に答えを得る.各項は$[0,1)$に入る.
+
+    $a_{n+T}=a_n\ (T\ge1)$とすると,
+    \[
+      T\alpha=\lfloor(n+T)\alpha\rfloor-\lfloor n\alpha\rfloor
+    \]
+    が整数となり,$\alpha$が無理数であることに矛盾する.従って異なる項は一致しない.
+
+    同じ\bookterm{recurrence}{漸化式}で$\alpha$が有理数$\frac pq\ (0<p<q)$であり,$p,q$が互いに素なら,
+    最小周期は$q$となる.$q\alpha$は整数で,$T\alpha$が整数となる正整数$T$は$q$の倍数だからである.
+\end{enumerate}
+
