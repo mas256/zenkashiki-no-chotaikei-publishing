@@ -131,7 +131,7 @@ export function verifyTeX(readText, pdfDestinations = null) {
     for (const m of text.matchAll(/\\label\{([^}]+)\}/g)) {
       assert(!labels.has(m[1]),"duplicate label "+m[1]); labels.add(m[1]);
     }
-    for (const m of text.matchAll(/\\(?:sectionref|chapterref|headingref|ref)\*?\{([^}#]+)\}|\\hyperref\[([^]#]+)\]/g))
+    for (const m of text.matchAll(/\\(?:sectionref|chapterref|headingref|booknavref|ref)\*?\{([^}#]+)\}|\\hyperref\[([^]#]+)\]/g))
       references.push(m[1]||m[2]);
     for (const m of text.matchAll(/\\bookproblemref\{([^}#]+)\}\{(\d+)\}\{[^}]+\}/g))
       problemRefs.push({id:m[1],number:Number(m[2])});
