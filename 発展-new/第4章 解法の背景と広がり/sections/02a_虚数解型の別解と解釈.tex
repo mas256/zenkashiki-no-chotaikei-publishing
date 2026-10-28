@@ -15,7 +15,7 @@
 とすれば,もう一方は$\overline\alpha$であり,$p=-2\rho\cos\theta$, $q=\rho^2$である.
 
 \subsection{複素数の表示と実数の表示}
-\subsubsection{2つの表し方の関係}\phantomsection\label{解釈：虚数解と基本解}
+\subsubsection{2つの表し方の関係}\phantomsection\label{解釈：2つの表し方の関係}
 本編の計算が何をしていたのかを,表し方の一意性から確かめよう.
 結論から言えば,一般項を組み立てる2つの数列を,複素数の累乗から実数の三角関数へ取り替えていたのである.
 $p^2-4q<0$から$q>0$で,2解$\alpha,\overline\alpha$は異なる0でない数である.
@@ -61,7 +61,51 @@ $\rho\sin\theta\ne0$なので,どの実数解もこの2つの数列を実数倍�
 \]
 とも書ける.二つの初期値が,それぞれどの項へ影響するかを分けた表示である.
 
-\subsection{連立型から複素数の等比型へ}\label{節：虚数解と複素数の補助数列}
+\subsection{指数と初項の番号}
+\subsubsection{補足：同じ数列を指数$n$で表す}
+本編では$a_1,a_2$から始めて指数を$n-1$にしてきたが,指数を$n$にした表示もよく使われるので紹介しておこう.
+$\alpha\ne0$なので$A\alpha^{n-1}=\left(\frac{A}{\alpha}\right)\alpha^n$と係数を取り直せる.
+$\widetilde A=\frac{A}{\alpha}$, $\widetilde B=\frac{B}{\overline\alpha}$とすれば,
+\[
+  \begin{aligned}
+    a_n&=\widetilde A\alpha^n+\widetilde B\overline\alpha^{\,n}\\
+    &=\rho^n(c\cos n\theta+d\sin n\theta).
+  \end{aligned}
+\]
+ここで$C,D$は本編の表示
+\[
+  a_n=\rho^{n-1}\{C\cos((n-1)\theta)+D\sin((n-1)\theta)\}
+\]
+の係数であり,$c,d$とは異なる.
+$a_1=\rho(c\cos\theta+d\sin\theta)$,
+$a_2=\rho^2(c\cos2\theta+d\sin2\theta)$から決まり,対応は
+\BookMathLayout{\[
+    c=\frac{C\cos\theta-D\sin\theta}{\rho},\qquad
+    d=\frac{C\sin\theta+D\cos\theta}{\rho}
+  \]}{\[
+    \begin{aligned}
+      c&=\frac{C\cos\theta-D\sin\theta}{\rho},\\
+      d&=\frac{C\sin\theta+D\cos\theta}{\rho}
+    \end{aligned}
+  \]}
+となる.変えたのは表示と係数であり,項の番号ではない.
+
+\subsubsection{補足：第0項から始める場合}
+初期条件を$a_0,a_1$とし,$n\ge0$で漸化式を用いる場合は,別の係数$C_0,D_0$を使う.
+指数$n$の形に$n=0,1$を代入して,
+\[
+  C_0=a_0,\qquad
+  D_0=\cfrac{\cfrac{a_1}{\rho}-a_0\cos\theta}{\sin\theta}
+\]
+と決まる.例えば$a_{n+2}=2a_{n+1}-2a_n$,$a_0=1,a_1=2$では,
+根$1\pm i$から$\rho=\sqrt2,\theta=\frac{\pi}{4}$.
+$C_0=1$, $2=\frac{\sqrt2(C_0+D_0)}{\sqrt2}=1+D_0$より$D_0=1$なので,
+\[
+  a_n=(\sqrt2)^n\left(\cos\frac{n\pi}{4}+\sin\frac{n\pi}{4}\right)
+\]
+となる.
+
+\subsection{連立型から複素数の等比型へ}\label{節：連立型から複素数の等比型へ}
 隣接する二項を$x_n=a_{n+1}$, $y_n=a_n$とすれば,
 \[
   \begin{cases}
@@ -104,9 +148,13 @@ $\alpha=u+iv$と書けば$v>0$であり,
 \]
 なので,$z_n=(1+i)^{n-1}$の虚部を取るだけで本編の一般項を得る.
 $z_n$の点は,毎回$\theta$回転しながら距離が$\rho$倍になる.
-\sectionref*{節：実数でない解と回転}の円と楕円は,この座標の取り替えを図形として見たものだった.
+\sectionref*{節：特性方程式の解が実数でない場合と回転}の円と楕円は,この座標の取り替えを図形として見たものだった.
 
-\subsection{一次分数型には角度が残る}\label{節：虚数解と隣接項の比}
+\BookImport{f-6dfda5da3083}
+
+\subsection{一次分数型には角度が残る}\label{節：一次分数型には角度が残る}
+ここからは節の冒頭の隣接3項型$a_{n+2}+pa_{n+1}+qa_n=0$に戻る.
+その特性根を再び$\alpha=\rho(\cos\theta+i\sin\theta)$と$\overline\alpha$とする.
 $a_n\ne0$の範囲で$r_n=\frac{a_{n+1}}{a_n}$と置けば,
 \[
   r_{n+1}=-p-\frac{q}{r_n}
@@ -123,7 +171,7 @@ $a_n\ne0$の範囲で$r_n=\frac{a_{n+1}}{a_n}$と置けば,
 \]
 である.公比は$\cos2\theta-i\sin2\theta$なので,$w_n$は$-2\theta$ずつ回転する.
 
-先ほどの補助数列を使えば,この式の意味がよく分かる.
+\sectionref*{節：連立型から複素数の等比型へ}で作った補助数列$z_n$を使えば,この式の意味がよく分かる.
 \[
   \begin{aligned}
     w_n&=\frac{a_{n+1}-\alpha a_n}{a_{n+1}-\overline\alpha a_n}
@@ -163,9 +211,9 @@ $z_n$の距離が$\rho$倍されても,共役な二つの数の比ではその�
 となる.従って$t_{n+1}=t_n+\theta$としてよい.分母が0でない範囲での表示である.
 $\frac{\sin(t+\theta)}{\sin t}=\cos\theta+\sin\theta\cot t$より,どの実数の$r_n$もこの形で表せる.
 一次分数型を角度を足す漸化式へ変えたのである.
-本編\sectionref{節：三角関数型}の角度を倍にする漸化式との違いは,\sectionref*{節：角度の整数倍と多項式}とも比べてみよう.
+本編\sectionref{節：三角関数型}の角度を倍にする漸化式との違いは,\sectionref*{節：角度を足す漸化式と,角度を倍にする漸化式}とも比べてみよう.
 
-\subsection{隣接二項から振幅を測る}\label{節：虚数解と振幅周期}
+\subsection{隣接二項から振幅を測る}\label{節：隣接二項から振幅を測る}
 $z_{n+1}=\alpha z_n$の絶対値の二乗を取ると,$|z_{n+1}|^2=q|z_n|^2$である.
 これを元の項で書けば,
 \[
@@ -182,7 +230,7 @@ $z_{n+1}=\alpha z_n$の絶対値の二乗を取ると,$|z_{n+1}|^2=q|z_n|^2$で�
 \]
 で,$q-\frac{p^2}{4}>0$である.
 一項ずつの絶対値が増減しても,隣接二項を組み合わせたこの量には単純な法則がある.
-$q=1$のとき,零数列を除いて$E_n$が一定となる曲線が,\sectionref*{節：実数でない解と回転}で現れた楕円である.
+$q=1$のとき,零数列を除いて$E_n$が一定となる曲線が,\sectionref*{節：特性方程式の解が実数でない場合と回転}で現れた楕円である.
 不変量の使い方は,本編の\sectionref{節：変わらない量を使う}へもつながる.
 
 \subsubsection{振幅・位相・周期}
@@ -218,7 +266,7 @@ $\rho=1$かつ$\frac{\theta}{2\pi}$が有理数なら,$T\theta=2k\pi$となる�
 先ほど示した表し方の一意性から,両係数が0となる.すべての項が0ではない実数解では$A,\overline A\ne0$なので,
 $\alpha^T=\overline\alpha^{\,T}=1$.したがって$\rho=1$,$\frac{\theta}{2\pi}$は有理数である.
 
-\subsection{一定間隔で項を取り出す}\label{節：虚数解と一定間隔}
+\subsection{一定間隔で項を取り出す}\label{節：一定間隔で項を取り出す}
 特性方程式の2解の$m$乗を考えると,
 \[
   \alpha^m+\overline\alpha^{\,m}=2\rho^m\cos(m\theta),
@@ -247,7 +295,7 @@ $\alpha^T=\overline\alpha^{\,T}=1$.したがって$\rho=1$,$\frac{\theta}{2\pi}$
 $\theta=\frac{\pi}{2}$なら$a_{n+2}=-\rho^2a_n$で,奇数番目と偶数番目がそれぞれ等比型になる.
 本編\sectionref{節：非隣接2項型}の添字を分ける方法と同じである.
 
-\subsection{階差から振動を読む}\label{節：虚数解と振動の階差}
+\subsection{階差から振動を読む}\label{節：階差から振動を読む}
 $b_n=\frac{a_n}{\rho^{n-1}}$に対する式を,添字を一つ戻して書くと,
 \[
   b_{n+1}-2\cos\theta\,b_n+b_{n-1}=0\quad(n\ge2)
@@ -298,44 +346,4 @@ $b_1=0,b_2=1$とすれば,
 $p^2-4q<0$なら特性方程式は実数1を解に持たないため,$1+p+q\ne0$が保証される.
 本編\sectionref{節：定数の付加項がある場合}で用いた定数解を引く操作である.
 $\rho<1$なら$b_n\to0$だから$a_n\to L$であり,振動の中心が0から$L$へ移る.
-定数以外の付加項と母関数による別解は,\sectionref*{節：虚数解と母関数}で扱う.
-
-\subsection{指数と初項の番号}
-\subsubsection{補足：同じ数列を指数$n$で表す}
-本編では$a_1,a_2$から始めて指数を$n-1$にしてきたが,指数を$n$にした表示もよく使われるので紹介しておこう.
-$\alpha\ne0$なので$A\alpha^{n-1}=\left(\frac{A}{\alpha}\right)\alpha^n$と係数を取り直せる.
-$\widetilde A=\frac{A}{\alpha}$, $\widetilde B=\frac{B}{\overline\alpha}$とすれば,
-\[
-  \begin{aligned}
-    a_n&=\widetilde A\alpha^n+\widetilde B\overline\alpha^{\,n}\\
-    &=\rho^n(c\cos n\theta+d\sin n\theta).
-  \end{aligned}
-\]
-$c,d$は$C,D$と別の係数である.
-$a_1=\rho(c\cos\theta+d\sin\theta)$,
-$a_2=\rho^2(c\cos2\theta+d\sin2\theta)$から決まり,対応は
-\BookMathLayout{\[
-    c=\frac{C\cos\theta-D\sin\theta}{\rho},\qquad
-    d=\frac{C\sin\theta+D\cos\theta}{\rho}
-  \]}{\[
-    \begin{aligned}
-      c&=\frac{C\cos\theta-D\sin\theta}{\rho},\\
-      d&=\frac{C\sin\theta+D\cos\theta}{\rho}
-    \end{aligned}
-  \]}
-となる.変えたのは表示と係数であり,項の番号ではない.
-
-\subsubsection{補足：第0項から始める場合}
-初期条件を$a_0,a_1$とし,$n\ge0$で漸化式を用いる場合は,別の係数$C_0,D_0$を使う.
-指数$n$の形に$n=0,1$を代入して,
-\[
-  C_0=a_0,\qquad
-  D_0=\cfrac{\cfrac{a_1}{\rho}-a_0\cos\theta}{\sin\theta}
-\]
-と決まる.例えば$a_{n+2}=2a_{n+1}-2a_n$,$a_0=1,a_1=2$では,
-根$1\pm i$から$\rho=\sqrt2,\theta=\frac{\pi}{4}$.
-$C_0=1$, $2=\frac{\sqrt2(C_0+D_0)}{\sqrt2}=1+D_0$より$D_0=1$なので,
-\[
-  a_n=(\sqrt2)^n\left(\cos\frac{n\pi}{4}+\sin\frac{n\pi}{4}\right)
-\]
-となる.
+定数以外の付加項と母関数による別解は,\sectionref*{節：虚数解型を母関数で解く}で扱う.
