@@ -1,0 +1,306 @@
+% BOOK-FILE-ID: f-5d9116720103
+\subsection{隣接多項式}\label{節：隣接多項式}\label{節：隣接4項型}
+隣接3項型では,直前の2項から次の項が決まった.
+では,直前の3項から次の項が決まる場合はどうなるだろうか.
+まず,係数$p,q,r$が$n$によらない定数である4項間の形
+
+\[
+  a_{n+3}+pa_{n+2}+qa_{n+1}+ra_n=0
+\]
+を考える.この節では4項間から出発し,例題の後で項数を増やした場合へ進む.
+隣接3項型を解いたときは,3項間を2項間にできないかと考えた.
+今回も同じく,4項間を3項間に落とせないか挑戦してみよう.
+結論から言えば,
+\[
+  d_n=a_{n+2}+\alpha a_{n+1}+\beta a_n
+\]
+が等比型$d_{n+1}=\gamma d_n$になるように$\alpha,\beta,\gamma$を選べばよいのだ.
+条件は
+\BookMathLayout{\[
+    a_{n+3}+\alpha a_{n+2}+\beta a_{n+1}=\gamma \left(a_{n+2}+\alpha a_{n+1}+\beta a_{n}\right)
+  \]}{
+  \[
+    \begin{aligned}
+      a_{n+3}+\alpha a_{n+2}+\beta a_{n+1}\\
+      {}=\gamma\left(a_{n+2}+\alpha a_{n+1}+\beta a_n\right)
+    \end{aligned}
+  \]
+}
+である.両辺を左側に集め,元の\bookterm{recurrence}{漸化式}と係数比較すると,
+\[
+  \alpha-\gamma=p,\qquad
+  \beta-\gamma\alpha=q,\qquad
+  -\gamma\beta=r
+\]
+となる.最初の2式から
+\[
+  \alpha=p+\gamma,\qquad
+  \beta=q+p\gamma+\gamma^2
+\]
+なので,最後の式へ代入すると
+\[
+  \gamma^3+p\gamma^2+q\gamma+r=0
+\]
+を得る.
+未知数を$x$と書き直した
+\[
+  x^3+px^2+qx+r=0
+\]
+は,形式的には,$a_{n+3}$を$x^3$,$a_{n+2}$を$x^2$,$a_{n+1}$を$x$,$a_n$を1に置き換えた三次方程式であり,これが4項間の場合の\bookterm{characteristic}{特性方程式}である.
+隣接3項型の特性方程式と全く同じ作り方をしていることに注目しよう.
+この三次方程式の解を$\gamma$として1つ選べば,$\alpha,\beta$も決まる.複素数の解を選んでも同じ変形が成り立つ.
+実数係数の三次方程式には実数解もあるが,その存在を一般に示すには連続関数の中間値の性質を使う.
+例題では因数分解や階差を手掛かりに解を選ぶ.
+
+$d_1=a_3+\alpha a_2+\beta a_1$から$d_n$を求めると,
+\[
+  a_{n+2}+\alpha a_{n+1}+\beta a_n=d_1\gamma^{\,n-1}
+\]
+という3項間の漸化式が得られる.\footnote{$\gamma=0$の場合は$d_1$を初項として,$n\ge2$では$d_n=0$と読む.
+  また,\booknavref{節：定数の付加項がある場合}{定数の付加項の場合}は右辺が定数であり,ここでは右辺が指数関数$d_1\gamma^{n-1}$になる点が異なる.}
+右辺に付加項が残っているが,これは\booknavref{節：階差等比複合型}{階差等比複合型}と同じく,右辺と同じ漸化式を満たす式を引いて解ける場合が多い.
+初期条件は次のように使い分ける.
+\[
+  \begin{array}{c|c}
+    \text{求める量}&\text{使う初期値}\\ \hline
+    d_n&d_1\\
+    a_n&a_1,a_2
+  \end{array}
+\]
+$a_3$の情報は$d_1$に入っている.
+
+例えば例題(1)では,$p=-3,\ q=3,\ r=-1$なので特性方程式は$(x-1)^3=0$となり,
+$\gamma=1,\ \alpha=-2,\ \beta=1$を得る.
+こうして$d_n=a_{n+2}-2a_{n+1}+a_n$が決まる.
+これは階差の階差を取ったものであり,$d_{n+1}=d_n$はそのまた階差が0であることを表す.\footnote{例題(2)(3)も,係数の和が$1-2-1+2=0$,$1-5+7-3=0$となっている.係数の和が0なら差を取って項数を1つ減らせることや,階差を重ねて足し合わせる別解は,付録の\sectionref*{節：差分で線形漸化式を解く}で扱う.}
+
+\begin{bookpoint}
+  \textbf{POINT}\par
+  定数係数の4項間漸化式では,三次の特性方程式の解を1つ使って等比型の補助数列を作る.
+  その一般項を元の数列の式に戻すと,付加項を含む3項間漸化式になる.
+\end{bookpoint}
+
+\noindent \bookblocklink{example-four-term-1}{problem}{answer}{【例題】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-four-term-1}{problem}{answer}]
+  \item $a_1=1,\,a_2=2,\,a_3=4$\\
+    $a_{n+3}=3a_{n+2}-3a_{n+1}+a_n\quad(n\ge1)$
+  \item $a_1=2,\,a_2=1,\,a_3=5$\\
+    $a_{n+3}=2a_{n+2}+a_{n+1}-2a_n\quad(n\ge1)$
+  \item $a_1=1,\,a_2=4,\,a_3=11$\\
+    $a_{n+3}=5a_{n+2}-7a_{n+1}+3a_n\quad(n\ge1)$
+\end{enumerate}
+
+\noindent\bookblocklink{example-four-term-1}{hint}{problem}{【方針】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-four-term-1}{hint}{problem}]
+  \item $d_n=a_{n+2}-2a_{n+1}+a_n$とおき,\bookterm{difference}{階差}をさらにとると一定になることを利用します.
+  \item $d_n=a_{n+2}-a_{n+1}-2a_n$とおくと$d_{n+1}=d_n$となります.\bookterm{initial}{初期条件}から$d_n=0$を導き,3項間\bookterm{recurrence}{漸化式}として解きます.
+  \item $d_n=a_{n+2}-2a_{n+1}+a_n$とおくと$d_{n+1}=3d_n$となります.得られた右辺を満たす\bookterm{sequence}{数列}を引き,\bookterm{difference}{階差}が一定の形に帰着させます.
+\end{enumerate}
+
+\noindent\bookblocklink{example-four-term-1}{answer}{problem}{【解答】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-four-term-1}{answer}{problem}]
+  \item $a_n=\frac{n^2-n+2}{2}$
+  \item $a_n=2^{n-1}+(-1)^{n-1}$
+  \item $a_n=n-1+3^{n-1}$
+\end{enumerate}
+
+\noindent\bookblocklink{example-four-term-1}{solution}{problem}{【解法】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-four-term-1}{solution}{problem}]
+  \item $d_n=a_{n+2}-2a_{n+1}+a_n$と置くと,
+    \[
+      d_{n+1}-d_n=a_{n+3}-3a_{n+2}+3a_{n+1}-a_n=0
+    \]
+    より$d_n=d_1=1$である.
+    $e_n=a_{n+1}-a_n$と置けば,$e_{n+1}-e_n=1,e_1=1$より$e_n=n$.従って,
+    \[
+      a_n=a_1+\sum_{k=1}^{n-1}e_k
+      =1+\sum_{k=1}^{n-1}k
+      =\frac{n^2-n+2}{2}
+    \]
+    を得る.
+  \item
+    \[
+      d_n=a_{n+2}-a_{n+1}-2a_n
+    \]
+    とおくと,
+    \[
+      d_{n+1}-d_n=a_{n+3}-2a_{n+2}-a_{n+1}+2a_n=0
+    \]
+    である.また,$d_1=5-1-2\cdot2=0$だから$d_n=0$であり,
+    \[
+      a_{n+2}-a_{n+1}-2a_n=0
+    \]
+    となる.\bookterm{characteristic}{特性方程式}$x^2-x-2=0$の解は$2,-1$なので,
+    \[
+      a_n=A\,2^{n-1}+B(-1)^{n-1}
+    \]
+    とおける.\bookterm{initial}{初期条件}より$A+B=2,\,2A-B=1$であるから$A=B=1$を得る.
+  \item
+    \[
+      d_n=a_{n+2}-2a_{n+1}+a_n
+    \]
+    とおくと,与えられた\bookterm{recurrence}{漸化式}から$d_{n+1}=3d_n$である.\bookterm{initial}{初期条件}より$d_1=11-2\cdot4+1=4$なので,
+    \[
+      a_{n+2}-2a_{n+1}+a_n=4\cdot3^{n-1}
+    \]
+    となる.一方,$3^{n-1}$の2\bookterm{difference}{階差}も$4\cdot3^{n-1}$である.そこで$b_n=a_n-3^{n-1}$とおくと,
+    \[
+      b_{n+2}-2b_{n+1}+b_n=0
+    \]
+    となる.$b_1=0,\,b_2=1$より$b_n=n-1$であるから,
+    \[
+      a_n=b_n+3^{n-1}=n-1+3^{n-1}
+    \]
+    を得る.
+\end{enumerate}
+
+
+\subsubsection{特性多項式の因数分解と項数を減らす操作}
+4項間で行った係数比較を,多項式の積として見直そう.
+特性方程式の左辺を$P(x)$とすると,先ほど求めた条件は
+\[
+  \begin{aligned}
+    P(x)&=x^3+px^2+qx+r\\
+        &=(x-\gamma)(x^2+\alpha x+\beta)
+  \end{aligned}
+\]
+と因数分解できるという条件と同じである.
+実際,積を展開した係数は$\alpha-\gamma,\ \beta-\gamma\alpha,\ -\gamma\beta$となる.
+ここで$P(x)$を\textbf{特性多項式}と呼ぶ.特性方程式は$P(x)=0$である.
+
+二次式$x^2+\alpha x+\beta$の係数で作ったのが$d_n$であり,
+一次式$x-\gamma$に対応するのが$d_{n+1}-\gamma d_n$であった.
+つまり,多項式から一次因子を1つ取り出す操作が,補助数列を使って項数を1つ減らす操作に対応する.
+この対応を使えば,5項間以上でも補助数列の係数を順に決められる.
+
+\subsubsection{一般の項数で補助数列を作る}
+$m\ge2$として,定数$c_1,\ldots,c_m$を係数に持つ隣接$m+1$項間の漸化式
+\[
+  a_{n+m}+c_1a_{n+m-1}+\cdots+c_ma_n=0
+  \qquad(n\ge1)
+\]
+を考える.初期値は$a_1,\ldots,a_m$の$m$個である.
+$m=3$なら先ほどの4項間に戻る.
+対応する特性多項式は
+\[
+  P(x)=x^m+c_1x^{m-1}+\cdots+c_m
+\]
+である.$P(\gamma)=0$となる解$\gamma$を1つ選ぶと,因数定理によって
+\[
+  \begin{aligned}
+    P(x)&=(x-\gamma)Q(x),\\
+    Q(x)&=x^{m-1}+b_1x^{m-2}+\cdots+b_{m-1}
+  \end{aligned}
+\]
+と書ける.複素数まで考えれば,正の次数の多項式には必ず解がある.
+ただし,高次方程式の解を具体的に求めることは別の問題なので,実際の計算では因数分解しやすい形や既知の解を手掛かりにする.
+
+$Q(x)$の係数は,積を展開して高い次数から比較すればよい.
+$b_0=1$とおくと,
+\[
+  b_j=c_j+\gamma b_{j-1}
+  \qquad(j=1,\ldots,m-1)
+\]
+で順に決まる.定数項の条件は$c_m=-\gamma b_{m-1}$であり,これは$P(\gamma)=0$によって満たされる.
+4項間なら$b_1=\alpha,\ b_2=\beta$であり,先ほどと同じ計算である.
+
+ここで,$Q(x)$の係数を使って
+\[
+  d_n=a_{n+m-1}+b_1a_{n+m-2}+\cdots+b_{m-1}a_n
+\]
+とおく.$d_{n+1}-\gamma d_n$を計算すると,先頭の係数は1,途中の係数は$b_j-\gamma b_{j-1}=c_j$,最後の係数は$-\gamma b_{m-1}=c_m$なので,
+\[
+  \begin{aligned}
+    d_{n+1}-\gamma d_n
+      &=a_{n+m}+c_1a_{n+m-1}\\
+      &\quad{}+\cdots+c_ma_n=0
+  \end{aligned}
+\]
+となる.従って,$\gamma\ne0$なら$d_n=d_1\gamma^{n-1}$であり,
+\[
+  \begin{aligned}
+    a_{n+m-1}+b_1a_{n+m-2}\\
+    {}+\cdots+b_{m-1}a_n=d_1\gamma^{n-1}
+  \end{aligned}
+\]
+を得る.これが項数を1つ減らした漸化式である.
+$\gamma=0$なら$d_1$をそのまま使い,$n\ge2$では$d_n=0$とする.この場合も項数を減らす変形は成り立つ.
+
+ここまでで求まったのは$d_n$であり,$a_n$ではない.
+$d_1$には$a_1,\ldots,a_m$を代入し,得られた$m$項間漸化式には$a_1,\ldots,a_{m-1}$を初期値として使う.
+最高の初期値$a_m$の情報は$d_1$に移されているので,項数を減らしても初期条件を失ったわけではない.
+
+\subsubsection{帰着後の付加項をどう扱うか}
+帰着した式の右辺は一般には0ではない.
+従って,同じ手順を繰り返すには,右辺を含めて処理する必要がある.
+例えば$\gamma\ne0$かつ$Q(\gamma)\ne0$なら,
+\[
+  v_n=\frac{d_1}{Q(\gamma)}\gamma^{n-1}
+\]
+が帰着後の式を満たす.実際,$a_n$の代わりに$v_n$を左辺に代入すると,$\gamma^{n-1}$の係数が$Q(\gamma)$倍され,右辺$d_1\gamma^{n-1}$になる.
+そこで$u_n=a_n-v_n$とおけば,
+\[
+  u_{n+m-1}+b_1u_{n+m-2}+\cdots+b_{m-1}u_n=0
+\]
+となる.この式の特性多項式は$Q(x)$なので,さらにその解を1つ選んで同じ操作を行える.
+初期値も$u_j=a_j-v_j$に直して使う.
+
+例えば5項間の式
+\[
+  \begin{aligned}
+    a_{n+4}-10a_{n+3}+35a_{n+2}\\
+    {}-50a_{n+1}+24a_n=0
+  \end{aligned}
+\]
+では,特性多項式は
+\[
+  P(x)=(x-1)(x-2)(x-3)(x-4)
+\]
+となる.$\gamma=4$を選ぶと,
+\[
+  \begin{aligned}
+    Q(x)&=(x-1)(x-2)(x-3)\\
+        &=x^3-6x^2+11x-6
+  \end{aligned}
+\]
+だから,
+\[
+  d_n=a_{n+3}-6a_{n+2}+11a_{n+1}-6a_n
+\]
+とおけば$d_{n+1}=4d_n$となる.
+$d_1=a_4-6a_3+11a_2-6a_1$を求めると,
+\[
+  \begin{aligned}
+    a_{n+3}-6a_{n+2}+11a_{n+1}-6a_n\\
+    {}=d_1\,4^{n-1}
+  \end{aligned}
+\]
+を得る.ここで$Q(4)=6$なので,$v_n=\frac{d_1}{6}4^{n-1}$を引けば,右辺が0の4項間になる.
+その特性多項式は$Q(x)$で,残る解は$1,2,3$である.
+さらに同じ操作で3項間,2項間へと進めば,
+\[
+  a_n=A+B\,2^{n-1}+C\,3^{n-1}+\frac{d_1}{6}4^{n-1}
+\]
+を得る.残る定数$A,B,C$は$a_1,a_2,a_3$から決めればよい.
+4項間で行ったことを,最初にもう1段重ねているのである.
+
+一方,$Q(\gamma)=0$なら,$\gamma$は$P(x)$の重解であり,$\gamma^{n-1}$の定数倍を代入しても左辺は0になる.
+このときは上の分母を持つ式は使えず,$n\gamma^{n-1}$などを候補にして付加項を消すか,階差を使って順に解く.
+例えば$\gamma\ne0$のとき,
+\[
+  u_{n+1}-\gamma u_n=C\gamma^{n-1}
+\]
+を$\gamma^n$で割り,$w_n=\frac{u_n}{\gamma^{n-1}}$とおくと,
+\[
+  w_{n+1}-w_n=\frac{C}{\gamma}
+\]
+となる.$w_n$は$n$の一次式だから,$u_n$に$n\gamma^{n-1}$の形が現れる理由も分かる.
+実際,この節の例題(1)では解1が3重に重なり,階差を順に足し戻した結果,$n$の二次式が現れた.
+重なりが増える場合の詳しい扱いは,\sectionref*{節：差分で線形漸化式を解く}で説明する.
+
+\begin{bookpoint}
+  \textbf{POINT}\par
+  定数係数で右辺が0の隣接$k$項間漸化式では,特性多項式の次数は$k-1$である.
+  解を1つ選んで一次因子を取り出すと,等比型の補助数列を作れ,$k-1$項間へ帰着できる.
+  帰着後に残る付加項と初期値を処理しながら,順に項数を減らして元の数列を求める.
+\end{bookpoint}
