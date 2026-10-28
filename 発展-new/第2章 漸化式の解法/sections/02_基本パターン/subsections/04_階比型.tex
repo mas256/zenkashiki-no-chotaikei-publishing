@@ -14,8 +14,8 @@
       \prod_{i=1}^n x_i
       =x_1\times x_2\times\cdots\times x_n
     \]
-    と書く.\,$\prod$（ラージパイ）は\bookterm{product}{総積}記号である.\footnote{$x_i$は番号を付けた数の並びであればよく,特定の規則は不要である.}
-    $1$から$n$までの積は\textbf{階乗}といい,\,$n!=1\cdot2\cdots n$と書く.
+    と書く.$\prod$（ラージパイ）は\bookterm{product}{総積}記号である.\footnote{$x_i$は番号を付けた数の並びであればよく,特定の規則は不要である.}
+    $1$から$n$までの積は\textbf{階乗}といい,$n!=1\cdot2\cdots n$と書く.
     
     また,一般に
     \begin{align*}
@@ -44,7 +44,7 @@
       掛ける値が一定でなくとも,原理は一緒.第$n$項に至るまでに,階比$f(n)$は$n-1$回掛けられる.
     \end{bookpoint}
     
-    また,\,$f(n)$の性質によっては以下のような解法もある.\\
+    また,$f(n)$の性質によっては以下のような解法もある.\\
     \paragraphbf{$f(n)$が1次式の積の場合}\label{解法：階比型の1次式の積}
     
     1次式の積,つまりは
@@ -71,7 +71,7 @@
       &\therefore \quad a_n=n!
     \end{align*}
     となる.\footnote{この式で一定になった量と補助数列の関係は\sectionref{節：定数数列}で扱う.}
-    また,このことについてより一般に書けば,\,$a_{n+1}=f(n)a_n$について,
+    また,このことについてより一般に書けば,$a_{n+1}=f(n)a_n$について,
     \[
       \frac{g(n+1)}{g(n)}=\frac{1}{f(n)}
     \]
@@ -102,9 +102,9 @@
   
   \noindent\bookblocklink{example-ratio-1}{hint}{problem}{【方針】}\par\nobreak
   \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-ratio-1}{hint}{problem}]
-    \item ラージパイを使って処理するか,\,$n!$で割ってみましょう.
+    \item ラージパイを使って処理するか,$n!$で割ってみましょう.
     \item 階乗以外で割ることもあります.上手く$n$が$n+1$になると$g(n)$も$g(n+1)$になるような$g$を探しましょう.
-    \item (1)と同じように階乗で割ってみたいですが,うまくいきません.\,$n$に依存する関数で割ってみましょう.
+    \item (1)と同じように階乗で割ってみたいですが,うまくいきません.$n$に依存する関数で割ってみましょう.
   \end{enumerate}
   
   \noindent\bookblocklink{example-ratio-1}{answer}{problem}{【解答】}\par\nobreak
@@ -121,18 +121,18 @@
       \[
         \frac{a_{n+1}}{n!}=2\frac{a_n}{(n-1)!}.
       \]
-      $b_n=\frac{a_n}{(n-1)!}$なら,\,$b_{n+1}$の分母は$n!$になる.添字の違いに注意しよう.
+      $b_n=\frac{a_n}{(n-1)!}$なら,$b_{n+1}$の分母は$n!$になる.添字の違いに注意しよう.
       \[
         b_{n+1}=2b_n,\quad b_1=1\quad\Longrightarrow\quad b_n=2^{n-1}.
       \]
-      戻すと$a_n=(n-1)!2^{n-1}$となる.\,$n=1$でも$0!\cdot2^0=1$である.
+      戻すと$a_n=(n-1)!2^{n-1}$となる.$n=1$でも$0!\cdot2^0=1$である.
   
     \item $a_1=2,\, a_{n+1}=\frac{n+2}{n}a_n$\\
       $n(n+1)$の隣り合う比は$\frac{n+2}{n}$である.与式を$(n+1)(n+2)$で割ると,
       \[
         \frac{a_{n+1}}{(n+1)(n+2)}=\frac{a_n}{n(n+1)}.
       \]
-      従って$\frac{a_n}{n(n+1)}=\frac{a_1}{2}=1$であり,\,$a_n=n(n+1)$となる.
+      従って$\frac{a_n}{n(n+1)}=\frac{a_1}{2}=1$であり,$a_n=n(n+1)$となる.
     \item $a_1=1,\, a_{n+1}=n(n+1)a_n$\\
       両辺を$n!(n+1)!$で割って,
       \begin{align*}

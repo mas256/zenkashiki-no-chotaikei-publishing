@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the smartphone PDF from the A4 manuscript, without copying its body."""
+"""Build the smartphone PDF from the same sources and spacing pipeline as A4."""
 import argparse
 import os
 import subprocess

@@ -12,7 +12,7 @@
   \end{cases}
 \]
 で与えられる.
-$a_{n+1}$を求めるには$b_n$が,\,$b_{n+1}$を求めるには$a_n$が必要なので,どちらか一方だけを取り出して基本パターンに当てはめることはできない.
+$a_{n+1}$を求めるには$b_n$が,$b_{n+1}$を求めるには$a_n$が必要なので,どちらか一方だけを取り出して基本パターンに当てはめることはできない.
 そこで,2つの数列を組み合わせて,等比型になる1つの数列を作ることを目標にしよう.
 
 \subsubsection{和と差で分ける}
@@ -24,7 +24,7 @@ $a_{n+1}$を求めるには$b_n$が,\,$b_{n+1}$を求めるには$a_n$が必要�
     b_{n+1}=a_n+3b_n
   \end{cases}
 \]
-を眺めてみると,\,$a_n$と$b_n$の立場が入れ替わっているだけである.
+を眺めてみると,$a_n$と$b_n$の立場が入れ替わっているだけである.
 こういう対称な式を見たら,まず足したり引いたりしてみるのが常套である.
 実際に足すと,
 \[
@@ -50,7 +50,7 @@ $a_{n+1}$を求めるには$b_n$が,\,$b_{n+1}$を求めるには$a_n$が必要�
 
 \noindent \bookblocklink{example-system-1}{hint}{problem}{【方針】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-system-1}{hint}{problem}]
-  \item 係数$3,1$が入れ替わるので,和と差がそれぞれ等比型になります.和と差の初項を求めてから,\,$a_n,b_n$へ戻します.
+  \item 係数$3,1$が入れ替わるので,和と差がそれぞれ等比型になります.和と差の初項を求めてから,$a_n,b_n$へ戻します.
 \end{enumerate}
 
 \noindent \bookblocklink{example-system-1}{answer}{problem}{【解答】}\par\nobreak
@@ -72,7 +72,7 @@ $a_{n+1}$を求めるには$b_n$が,\,$b_{n+1}$を求めるには$a_n$が必要�
     \]
     $\bookeqbackref{sim-example-sum}{(1)}+\bookeqbackref{sim-example-difference}{(2)}$から$2a_n=2\cdot4^{n-1}$,
     $\bookeqref{sim-example-sum}{(1)}-\bookeqref{sim-example-difference}{(2)}$から$2b_n=2\cdot4^{n-1}$を得る.
-    従って,\,$a_n=b_n=4^{n-1}$である.
+    従って,$a_n=b_n=4^{n-1}$である.
 \end{enumerate}
 
 \paragraphbf{係数が対称な場合の一般形}
@@ -84,7 +84,7 @@ $a_{n+1}$を求めるには$b_n$が,\,$b_{n+1}$を求めるには$a_n$が必要�
   \end{cases}
 \]
 では,足すと両方の係数が$p+q$,引くと$p-q$とその符号反転になる.
-したがって,和と差がそれぞれ等比型になる.\footnote{以下の累乗の式は$p+q,\,p-q$が0でない場合に使う.0になる方は,初項を別に扱い,\,$n\ge2$で0とする.}
+したがって,和と差がそれぞれ等比型になる.\footnote{以下の累乗の式は$p+q,\,p-q$が0でない場合に使う.0になる方は,初項を別に扱い,$n\ge2$で0とする.}
 \begin{align*}
   &a_{n+1}+b_{n+1}=(p+q)(a_n+b_n),\\
   &a_n+b_n=(a_1+b_1)(p+q)^{n-1}
@@ -102,7 +102,7 @@ $\bookeqbackref{sim-general-sum}{(1)}+\bookeqbackref{sim-general-difference}{(2)
     &\qquad+(a_1-b_1)(p-q)^{n-1}\bigr\}
   \end{aligned}
 \]
-を得る.\,$\bookeqref{sim-general-sum}{(1)}-\bookeqref{sim-general-difference}{(2)}$からは,
+を得る.$\bookeqref{sim-general-sum}{(1)}-\bookeqref{sim-general-difference}{(2)}$からは,
 \[
   \begin{aligned}
     b_n&=\frac12\bigl\{(a_1+b_1)(p+q)^{n-1}\\
@@ -117,7 +117,7 @@ $\bookeqbackref{sim-general-sum}{(1)}+\bookeqbackref{sim-general-difference}{(2)
 \[
   a_{n+1}+b_{n+1}=(p+r)a_n+(q+s)b_n
 \]
-となり,\,$p+r=q+s$でなければ右辺が$a_n+b_n$の定数倍にならない.
+となり,$p+r=q+s$でなければ右辺が$a_n+b_n$の定数倍にならない.
 足すだけ,引くだけでうまくいかないなら,足し方に重みを付けてやればよい.
 つまり,それぞれに係数$u,v$を掛けて足した$u a_n+v b_n$を考え,これが等比型になるように$u,v$を決める.
 \[
@@ -134,7 +134,7 @@ $\bookeqbackref{sim-general-sum}{(1)}+\bookeqbackref{sim-general-difference}{(2)
     qu+(s-\gamma)v=0
   \end{cases}
 \]
-を満たす重みを選べばよい.\,$u=v=0$では何も分からないので,少なくとも一方が0でない組を探す.
+を満たす重みを選べばよい.$u=v=0$では何も分からないので,少なくとも一方が0でない組を探す.
 
 まず$\gamma$を決めよう.第1式を$s-\gamma$倍し,第2式の$r$倍を引けば$v$が消える.
 同様に$u$を消去すると,
@@ -151,10 +151,10 @@ $\bookeqbackref{sim-general-sum}{(1)}+\bookeqbackref{sim-general-difference}{(2)
 この方程式の解が虚数の場合は,重みも複素数の範囲で選ぶ.\footnote{解が虚数の場合は\booknavref{節：特性方程式の解が虚数の場合}{特性方程式の解が虚数の場合}を参照.}
 
 逆に,この方程式の解$\gamma$に対しては,0でない重みを選べる.
-まず$(p-\gamma,r)\ne(0,0)$なら,\,$(u,v)=(r,\gamma-p)$とすれば第1式を満たし,
+まず$(p-\gamma,r)\ne(0,0)$なら,$(u,v)=(r,\gamma-p)$とすれば第1式を満たし,
 第2式の左辺も$qr-(s-\gamma)(p-\gamma)=0$となる.
 第1式の係数が両方0で,第2式の係数が$(q,s-\gamma)\ne(0,0)$なら,
-$(u,v)=(\gamma-s,q)$と選べる.両式の係数がすべて0なら,\,$(1,0)$を選べばよい.
+$(u,v)=(\gamma-s,q)$と選べる.両式の係数がすべて0なら,$(1,0)$を選べばよい.
 したがって,いずれの場合にも0でない重みが存在する.
 
 2つの解$\gamma_1,\gamma_2$を順に重みの条件へ入れ,0でない組$(u,v),(u',v')$を選ぶ.
@@ -162,12 +162,12 @@ $(u,v)=(\gamma-s,q)$と選べる.両式の係数がすべて0なら,\,$(1,0)$を
   c_n&=u a_n+v b_n,\\
   d_n&=u'a_n+v'b_n
 \end{align*}
-と置けば,\,$c_{n+1}=\gamma_1c_n,\ d_{n+1}=\gamma_2d_n$なので,公比が0でなければ,
+と置けば,$c_{n+1}=\gamma_1c_n,\ d_{n+1}=\gamma_2d_n$なので,公比が0でなければ,
 \[
   c_n=c_1\gamma_1^{n-1},\qquad
   d_n=d_1\gamma_2^{n-1}
 \]
-となる.初項は元の$a_1,b_1$から求める.\footnote{公比が0の場合は,その量の初項を別に扱い,\,$n\ge2$で0とする.}
+となる.初項は元の$a_1,b_1$から求める.\footnote{公比が0の場合は,その量の初項を別に扱い,$n\ge2$で0とする.}
 
 元の項へは,
 \[
@@ -182,7 +182,7 @@ $(u,v)=(\gamma-s,q)$と選べる.両式の係数がすべて0なら,\,$(1,0)$を
 \[
   (\gamma_1-\gamma_2)u=(\gamma_1-\gamma_2)v=0
 \]
-となり,\,$\gamma_1\ne\gamma_2$より$u=v=0$である.これは0でない重みを選んだことに矛盾する.
+となり,$\gamma_1\ne\gamma_2$より$u=v=0$である.これは0でない重みを選んだことに矛盾する.
 
 異なる根は十分条件であり,必要条件ではない.
 重解では比例しない二組を取れるかで分かれる.\footnote{例えば$a_{n+1}=2a_n,\ b_{n+1}=2b_n$では$(1,0),(0,1)$を選べる.
@@ -204,7 +204,7 @@ $(u,v)=(\gamma-s,q)$と選べる.両式の係数がすべて0なら,\,$(1,0)$を
 
 \noindent \hyperlink{book:example-system-1:problem:2}{\textbf{【方針】}}\par\nobreak
 \begin{enumerate}[start=2,label=(\arabic*),parsep=3pt,format=\bookitemlink{example-system-1}{hint}{problem}]
-  \item $\gamma$を求めてから重みを選ぶと,\,$a_n-b_n$と$2a_n+b_n$がそれぞれ等比型になります.
+  \item $\gamma$を求めてから重みを選ぶと,$a_n-b_n$と$2a_n+b_n$がそれぞれ等比型になります.
 \end{enumerate}
 
 \noindent \hyperlink{book:example-system-1:problem:2}{\textbf{【解答】}}\par\nobreak
@@ -227,15 +227,15 @@ $(u,v)=(\gamma-s,q)$と選べる.両式の係数がすべて0なら,\,$(1,0)$を
       0&=(3-\gamma)(2-\gamma)-2\\
       &=\gamma^2-5\gamma+4=(\gamma-1)(\gamma-4)
     \end{align*}
-    なので,\,$\gamma_1=1,\ \gamma_2=4$である.
+    なので,$\gamma_1=1,\ \gamma_2=4$である.
 
-    $\gamma=1$では$u+v=0$となり,\,$(u,v)=(1,-1)$を選べる.
+    $\gamma=1$では$u+v=0$となり,$(u,v)=(1,-1)$を選べる.
     $c_n=a_n-b_n$と置くと,
     \[
       c_{n+1}=c_n,\quad c_1=1
       \quad\Longrightarrow\quad c_n=1
     \]
-    である.\,$\gamma=4$では$u=2v$となり,\,$(2,1)$を選べる.
+    である.$\gamma=4$では$u=2v$となり,$(2,1)$を選べる.
     $d_n=2a_n+b_n$と置くと,
     \[
       \begin{aligned}
@@ -257,7 +257,7 @@ $p=s=3,\ q=r=1$を特性方程式へ入れると,
 \[
   \gamma^2-6\gamma+8=(\gamma-2)(\gamma-4)=0
 \]
-となる.\,$\gamma=2$なら$u+v=0$より重み$(1,-1)$,
+となる.$\gamma=2$なら$u+v=0$より重み$(1,-1)$,
 $\gamma=4$なら$u=v$より$(1,1)$を選べる.
 従って取り出す量は,
 \[
@@ -280,12 +280,12 @@ $b_n$を消去してみよう.1つ目の式から$qb_n=a_{n+1}-pa_n$である.
   &=pa_{n+1}+qra_n+s(a_{n+1}-pa_n)\\
   &=(p+s)a_{n+1}-(ps-qr)a_n
 \end{align*}
-となり,\,$a_n$だけの隣接3項型になるのだ.
+となり,$a_n$だけの隣接3項型になるのだ.
 その特性方程式
 \[
   x^2-(p+s)x+(ps-qr)=0
 \]
 は,重みを決めるときに現れた特性方程式と全く同じである.
 2つの方法は,同じ方程式を別の方向から見ていたのである.
-逆に,隣接3項型$a_{n+2}+pa_{n+1}+qa_n=0$も,\,$b_n=a_{n+1}$と置けば$a_n,b_n$の連立型として書ける.
+逆に,隣接3項型$a_{n+2}+pa_{n+1}+qa_n=0$も,$b_n=a_{n+1}$と置けば$a_n,b_n$の連立型として書ける.
 この解法は\chapterref{章：解法の背景と広がり}の行列でもう一度扱う.

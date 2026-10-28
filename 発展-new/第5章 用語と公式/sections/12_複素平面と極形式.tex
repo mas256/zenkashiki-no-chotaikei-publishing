@@ -9,10 +9,10 @@
 \subsection{複素数を平面に表す}\label{節：複素数を平面に表す}
 $i^2=-1$を満たす虚数単位$i$を用い,複素数$z=x+iy$を点$(x,y)$に対応させたものを\bookterm{complex-plane}{複素平面}という.
 横軸が実軸,縦軸が虚軸である.
-$z=x+iy$に対して,\,$\overline z=x-iy$を$z$の共役複素数という.
-複素平面上では実軸について対称な点であり,\,$|\overline z|=|z|$である.
-また,\,$\overline{z+w}=\overline z+\overline w$,\,$\overline{zw}=\overline z\,\overline w$が成り立つ.
-したがって,係数が実数の式では,\,$z$を$\overline z$に変えると式の値も共役になる.
+$z=x+iy$に対して,$\overline z=x-iy$を$z$の共役複素数という.
+複素平面上では実軸について対称な点であり,$|\overline z|=|z|$である.
+また,$\overline{z+w}=\overline z+\overline w$,$\overline{zw}=\overline z\,\overline w$が成り立つ.
+したがって,係数が実数の式では,$z$を$\overline z$に変えると式の値も共役になる.
 原点からの距離を$\rho=\sqrt{x^2+y^2}$,正の実軸から反時計回りに測る角を$\theta$とすると,
 \[
   x=\rho\cos\theta,\qquad y=\rho\sin\theta
@@ -21,8 +21,8 @@ $z=x+iy$に対して,\,$\overline z=x-iy$を$z$の共役複素数という.
 \[
   z=\rho(\cos\theta+i\sin\theta).
 \]
-これが\bookterm{polar}{極形式}である.\,$\rho=|z|$は絶対値,\,$z\ne0$のとき$\theta$は\bookterm{argument}{偏角}である.
-偏角に$2\pi$の整数倍を加えても同じ点を表す.\,$z=0$では偏角は定まらない.
+これが\bookterm{polar}{極形式}である.$\rho=|z|$は絶対値,$z\ne0$のとき$\theta$は\bookterm{argument}{偏角}である.
+偏角に$2\pi$の整数倍を加えても同じ点を表す.$z=0$では偏角は定まらない.
 \BookFigPolar
 
 例えば$\rho=2$, $\theta=\frac{\pi}{3}$なら
@@ -32,15 +32,15 @@ $z=x+iy$に対して,\,$\overline z=x-iy$を$z$の共役複素数という.
 であり,点$(1,\sqrt3)$を表す.
 
 \subsection{複素数と平面の変換}\label{節：複素数と平面の変換}
-$b=u+iv$を加えると,\,$z+b=(x+u)+i(y+v)$となる.
+$b=u+iv$を加えると,$z+b=(x+u)+i(y+v)$となる.
 これはベクトル$(u,v)$だけの平行移動である.
-次に,\,$c=s(\cos\phi+i\sin\phi)$, $s>0$を掛ける.
+次に,$c=s(\cos\phi+i\sin\phi)$, $s>0$を掛ける.
 \bookterm{addition}{加法定理}より
 \[
   cz=s\rho\{\cos(\theta+\phi)+i\sin(\theta+\phi)\}.
 \]
-絶対値は$s$倍,偏角は$\phi$だけ増える.原点を中心に回転し,\,$s>1$なら拡大,\,$0<s<1$なら縮小,\,$s=1$なら回転だけになる.
-特に$|cz|=|c||z|$であり,\,$w\ne0$なら$\left|\frac zw\right|=\frac{|z|}{|w|}$である.
+絶対値は$s$倍,偏角は$\phi$だけ増える.原点を中心に回転し,$s>1$なら拡大,$0<s<1$なら縮小,$s=1$なら回転だけになる.
+特に$|cz|=|c||z|$であり,$w\ne0$なら$\left|\frac zw\right|=\frac{|z|}{|w|}$である.
 \BookFigComplexRotation
 
 特に$i$を掛けると反時計回りに$\frac{\pi}{2}$回転する.
@@ -57,7 +57,7 @@ $b=u+iv$を加えると,\,$z+b=(x+u)+i(y+v)$となる.
 \]
 を得る.これを\bookterm{de-moivre}{ド・モアブルの定理}という.
 正の整数$n$では\bookterm{induction}{数学的帰納法}で示せる.
-$n=1$で一致し,\,$n$での式に$\cos\theta+i\sin\theta$を掛けると,加法定理で角度が$n\theta$から$(n+1)\theta$になる.
+$n=1$で一致し,$n$での式に$\cos\theta+i\sin\theta$を掛けると,加法定理で角度が$n\theta$から$(n+1)\theta$になる.
 $n=0$では両辺とも$1$である.
 また,
 \[
@@ -71,8 +71,8 @@ $n=0$では両辺とも$1$である.
 \[
   e^{i\theta}=\lim_{n\to\infty}\left(1+\frac{i\theta}{n}\right)^n
 \]
-と定め,\,\sectionref{節：極限}の基本極限から値を求める.
-$\theta\ne0$とし,\,$-\frac{\pi}{2}<\phi_n<\frac{\pi}{2}$, $\tan\phi_n=\frac{\theta}{n}$とおく.
+と定め,\sectionref{節：極限}の基本極限から値を求める.
+$\theta\ne0$とし,$-\frac{\pi}{2}<\phi_n<\frac{\pi}{2}$, $\tan\phi_n=\frac{\theta}{n}$とおく.
 $r_n=\sqrt{1+\dfrac{\theta^2}{n^2}}$なら
 \[
   1+\frac{i\theta}{n}=r_n(\cos\phi_n+i\sin\phi_n).
@@ -94,9 +94,9 @@ $r_n^n\to1$とド・モアブルの定理から
 \[
   e^{i\theta}=\cos\theta+i\sin\theta
 \]
-を得る.\,$\theta=0$でも両辺は$1$である.これが\bookterm{euler}{オイラーの公式}である.
+を得る.$\theta=0$でも両辺は$1$である.これが\bookterm{euler}{オイラーの公式}である.
 
-極形式は$z=\rho e^{i\theta}$と短く書ける.\,$z\ne0$,すなわち$\rho>0$なら,逆数を含む整数乗も
+極形式は$z=\rho e^{i\theta}$と短く書ける.$z\ne0$,すなわち$\rho>0$なら,逆数を含む整数乗も
 \[
   \begin{aligned}
     z^n&=\rho^n e^{in\theta}\\
@@ -104,16 +104,16 @@ $r_n^n\to1$とド・モアブルの定理から
     \quad(n\in\mathbb Z)
   \end{aligned}
 \]
-と表せる.\,$z=0$では負の整数乗を定めず,正の整数$n$について$0^n=0$とする.
+と表せる.$z=0$では負の整数乗を定めず,正の整数$n$について$0^n=0$とする.
 
 \subsection{複素数の実数乗}\label{節：複素数の実数乗}
 $z=\rho e^{i\theta}$, $\rho>0$とし,偏角$\theta$を一つ固定すれば,実数$x$について
 \[
   z^x=\rho^x e^{ix\theta}
 \]
-と定められる.ただし,\,$\theta$を$\theta+2\pi k$へ変えると,整数でない$x$では値が変わりうる.
+と定められる.ただし,$\theta$を$\theta+2\pi k$へ変えると,整数でない$x$では値が変わりうる.
 整数なら偏角の選び方によらない.
-有理数$x=\frac{m}{n}$, $n\ge1$では$\left(z^{\dfrac{m}{n}}\right)^n=z^m$となり,\,$z^{\dfrac{m}{n}}$は$z^m$の$n$乗根の一つである.
+有理数$x=\frac{m}{n}$, $n\ge1$では$\left(z^{\dfrac{m}{n}}\right)^n=z^m$となり,$z^{\dfrac{m}{n}}$は$z^m$の$n$乗根の一つである.
 
 \subsection{公式のまとめ}\label{節：公式のまとめ}
 \bookterm{polar}{極形式}$z=\rho e^{i\theta}$では,加法は平行移動,乗法は長さの積と角度の和,整数乗は長さの累乗と角度の整数倍に対応する.

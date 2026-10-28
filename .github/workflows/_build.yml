@@ -63,6 +63,13 @@ jobs:
           path: ${{ runner.temp }}/texlive
           key: ${{ steps.texlive_cache.outputs.cache-primary-key }}
 
+      - name: Verify automatic punctuation spacing
+        run: |
+          python3 tests/test-tex-spacing.py
+          for book in 基本-new 発展-new 新解釈; do
+            python3 scripts/tex-spacing.py --book "$book" --check-clean
+          done
+
       - name: Verify common math commands
         run: |
           mkdir -p out/math-style

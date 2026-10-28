@@ -48,7 +48,7 @@ $a_n=b_n+x$を代入すると,
 \[
   b_{n+1}=\frac{(p-rx)b_n}{rb_n+rx+s}
 \]
-という逆数型になる.ここで,\,$p-rx$も$rx+s$も0でない.\footnote{特性方程式より,\,$(p-rx)(rx+s)=ps-qr\ne0$.}
+という逆数型になる.ここで,$p-rx$も$rx+s$も0でない.\footnote{特性方程式より,$(p-rx)(rx+s)=ps-qr\ne0$.}
 初項が$x$なら定数数列である.それ以外では$b_n$は途中で0にならず,逆数を取って解ける.
 
 ここまでで逆数型として解くことができるが,定数項を消せる値を求める問題は,
@@ -62,7 +62,7 @@ $a_n=b_n+x$を代入すると,
 \]
 と因数分解できる.
 $\alpha,\beta$は別々に選ぶ定数ではなく,もとの漸化式の係数から決まる,同じ二次方程式の二つの解なのである.
-そして,どちらの解も定数項を消す条件を満たすので,\, $a_n-\alpha$と$a_n-\beta$のどちらについても,同じ変形ができる.
+そして,どちらの解も定数項を消す条件を満たすので, $a_n-\alpha$と$a_n-\beta$のどちらについても,同じ変形ができる.
 先ほどの逆数型の式を,もとの$a_n$を使って書き直すと,
 \begin{align*}
   a_{n+1}-\alpha
@@ -79,8 +79,8 @@ $\alpha,\beta$は別々に選ぶ定数ではなく,もとの漸化式の係数�
 
 初項が$\alpha$または$\beta$なら定数数列になるので,先に扱っておこう.
 以下では初項がどちらの不動点とも異なる場合を考える.
-また,\, $p-r\beta=0$なら不動点の条件から$q=s\beta$となり,\, $ps-qr=0$となって仮定に反する.
-よって,\, $p-r\beta\ne0$であり,上の式から$a_n\ne\beta$なら$a_{n+1}\ne\beta$である.
+また, $p-r\beta=0$なら不動点の条件から$q=s\beta$となり, $ps-qr=0$となって仮定に反する.
+よって, $p-r\beta\ne0$であり,上の式から$a_n\ne\beta$なら$a_{n+1}\ne\beta$である.
 初項から順に考えると,すべての項で$a_n\ne\beta$なので,二つの差の比を取ることができる.
 実際に,
 \begin{align*}
@@ -106,7 +106,7 @@ $\alpha,\beta$は別々に選ぶ定数ではなく,もとの漸化式の係数�
   =
   \frac{p-r\alpha}{p-r\beta}b_n
 \]
-となる.したがって,\,$b_n$は等比数列である.
+となる.したがって,$b_n$は等比数列である.
 $\alpha$と$\beta$の大小関係は,解の大小関係を要求されていないことから自由に選んでよい.
 つまり,\,一次分数型漸化式では,
 \[
@@ -119,7 +119,7 @@ $\alpha$と$\beta$の大小関係は,解の大小関係を要求されていな�
 という「$\alpha,\beta$からの差の比」に置き換えることで,
 等比数列に変えることができる.
 
-そして,\,$\alpha,\beta$は,
+そして,$\alpha,\beta$は,
 \[
   rx^2+(s-p)x-q=0
 \]
@@ -127,7 +127,7 @@ $\alpha$と$\beta$の大小関係は,解の大小関係を要求されていな�
 
 したがって\,$\alpha,\beta$は,もとの漸化式の$a_n$を形式的に$\alpha,\beta$に置き換えたときにも値が変化しない数,すなわち不動点である.
 
-なお,\,$rx^2+(s-p)x-q=0$が重解$\alpha$を持つ場合は,\,$\beta$と異なる2つの不動点を取れないため,上の議論はそのまま使えない.
+なお,$rx^2+(s-p)x-q=0$が重解$\alpha$を持つ場合は,$\beta$と異なる2つの不動点を取れないため,上の議論はそのまま使えない.
 このときは$\alpha=\frac{p-s}{2r}$,すなわち$s=p-2r\alpha$が成り立つため,
 \[
   c=p-r\alpha=r\alpha+s\ne0
@@ -151,7 +151,7 @@ $\alpha$と$\beta$の大小関係は,解の大小関係を要求されていな�
 
 \begin{bookpoint}
   \textbf{POINT}\par
-  $a_{n+1}$と$a_n$を$x$に置き換えた二次方程式を解き,異なる2解$\alpha,\beta$を得たとき,\,$b_n=\frac{a_n-\alpha}{a_n-\beta}$とおく.
+  $a_{n+1}$と$a_n$を$x$に置き換えた二次方程式を解き,異なる2解$\alpha,\beta$を得たとき,$b_n=\frac{a_n-\alpha}{a_n-\beta}$とおく.
   初項が不動点のときは定数数列として分け,分母が0でないことを確かめる.
   $b_n$について等比型漸化式が作れるので,その一般項を得たら$a_n$に戻す.
 \end{bookpoint}
@@ -168,7 +168,7 @@ $\alpha$と$\beta$の大小関係は,解の大小関係を要求されていな�
 \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-mobius-1}{hint}{problem}]
   \item 不動点$1,-1$からの差の比を作ると,共通の分母$a_n+2$が消えます.
   \item 同様に\bookterm{fixed}{不動点}$\alpha,\beta$を求めましょう.今回は差の比の公比が負の値になります.
-  \item 今回は\bookterm{fixed}{不動点}の方程式が重解になります.\,$\frac{a_n-\alpha}{a_n-\beta}$は使えないので,\,$b_n=a_n-\alpha$と置いてから逆数型に帰着させる別の手法を使います.
+  \item 今回は\bookterm{fixed}{不動点}の方程式が重解になります.$\frac{a_n-\alpha}{a_n-\beta}$は使えないので,$b_n=a_n-\alpha$と置いてから逆数型に帰着させる別の手法を使います.
   \item このような形も一次分数型です.解と係数の関係を活用して解きましょう.
 \end{enumerate}
 
@@ -204,13 +204,13 @@ $\alpha$と$\beta$の大小関係は,解の大小関係を要求されていな�
     となる.
   \item $a_1=0,\, a_{n+1}=\frac{a_n+4}{a_n+1}$\\
     \bookterm{fixed}{不動点}の方程式$x=\frac{x+4}{x+1}$の解は$2,-2$である.
-    公比は$\frac{1-2}{1+2}=-\frac{1}{3}$なので,\,$b_n=\frac{a_n-2}{a_n+2}$と置くと,
+    公比は$\frac{1-2}{1+2}=-\frac{1}{3}$なので,$b_n=\frac{a_n-2}{a_n+2}$と置くと,
     \begin{align*}
       b_{n+1}&=-\frac13b_n,\quad b_1=-1,\\
       b_n&=(-1)\left(-\frac13\right)^{n-1}
       =\frac{(-1)^n}{3^{n-1}}
     \end{align*}
-    を得る.\,$b_n(a_n+2)=a_n-2$から復元して,
+    を得る.$b_n(a_n+2)=a_n-2$から復元して,
     \begin{align*}
       a_n&=\frac{2(1+b_n)}{1-b_n}\\
       &=\frac{2\left(3^{n-1}+(-1)^n\right)}{3^{n-1}-(-1)^n}
@@ -224,7 +224,7 @@ $\alpha$と$\beta$の大小関係は,解の大小関係を要求されていな�
       =\frac{a_n-3}{a_n-2}\\
       &=\frac{b_n}{b_n+1},\quad b_1=2
     \end{align*}
-    となる.正の$b_n$が続くので,\,$b_n$も元の分母$b_n+1$も0でない.
+    となる.正の$b_n$が続くので,$b_n$も元の分母$b_n+1$も0でない.
     逆数を取れば,
     \begin{align*}
       \frac1{b_{n+1}}&=\frac1{b_n}+1,\\
@@ -251,7 +251,7 @@ $\alpha$と$\beta$の大小関係は,解の大小関係を要求されていな�
       \alpha+\beta=1,\qquad \alpha\beta=-1
       \booktag{mobius-example-roots}{2}
     \]
-    である.\,$b_n=\frac{a_n-\alpha}{a_n-\beta}$と置くと,
+    である.$b_n=\frac{a_n-\alpha}{a_n-\beta}$と置くと,
     \begin{align*}
       b_{n+1}&=\frac{a_n+1-\alpha a_n}{a_n+1-\beta a_n}\\
       &=\frac{(1-\alpha)a_n+1}{(1-\beta)a_n+1}
@@ -263,7 +263,7 @@ $\alpha$と$\beta$の大小関係は,解の大小関係を要求されていな�
       &=\frac{\beta(a_n-\alpha)}{\alpha(a_n-\beta)}
       =\frac\beta\alpha b_n
     \end{align*}
-    である.\,$b_1=\frac{1-\alpha}{1-\beta}=\frac{\beta}{\alpha}$より,
+    である.$b_1=\frac{1-\alpha}{1-\beta}=\frac{\beta}{\alpha}$より,
     \[
       b_n=\left(\frac\beta\alpha\right)^n
     \]
@@ -277,7 +277,7 @@ $\alpha$と$\beta$の大小関係は,解の大小関係を要求されていな�
 \end{enumerate}
 \paragraphbf{特性方程式が重解の時}
   特性方程式が重解$\alpha$を持つときは,差の比を作れない.
-  先ほど見たように,\,$a_1=\alpha$を定数数列として分け,それ以外では$c=p-r\alpha$とすると,
+  先ほど見たように,$a_1=\alpha$を定数数列として分け,それ以外では$c=p-r\alpha$とすると,
   \[
     \frac1{a_{n+1}-\alpha}
     =\frac1{a_n-\alpha}+\frac rc
@@ -288,7 +288,7 @@ $\alpha$と$\beta$の大小関係は,解の大小関係を要求されていな�
 
 \paragraphbf{小話：フィボナッチ数列}
   例題(4)は,フィボナッチ\bookterm{sequence}{数列}$F_1=F_2=1,\ F_{n+2}=F_{n+1}+F_n$と関係している.
-  隣接項の比$\frac{F_{n+1}}{F_n}$は同じ漸化式$a_{n+1}=1+\frac{1}{a_n}$と初項$1$を満たすので,\,$a_n=\frac{F_{n+1}}{F_n}$である.
+  隣接項の比$\frac{F_{n+1}}{F_n}$は同じ漸化式$a_{n+1}=1+\frac{1}{a_n}$と初項$1$を満たすので,$a_n=\frac{F_{n+1}}{F_n}$である.
   この比の\bookterm{limit}{極限}は黄金比$\frac{1+\sqrt5}{2}$となる.\footnote{リュカ数列も同じ\bookterm{characteristic}{特性方程式}$x^2=x+1$を持ち,隣接項の比が黄金比へ収束する.
     トリボナッチ数列では$x^3=x^2+x+1$となり,比の極限は約$1.839$のトリボナッチ定数になる.}
 
@@ -317,7 +317,7 @@ $\alpha$と$\beta$の大小関係は,解の大小関係を要求されていな�
   \end{quote}
   \bookblocklink{example-mobius-2}{answer}{problem}{【解答】}
   \begin{quote}
-    予想した\bookterm{general}{一般項}を確かめる.\,$n=1$では$\frac{6-1}{2-1}=5$なので成立する.
+    予想した\bookterm{general}{一般項}を確かめる.$n=1$では$\frac{6-1}{2-1}=5$なので成立する.
     正の整数$k$について,
     \[
       a_k=\frac{6k-1}{2k-1}
@@ -328,7 +328,7 @@ $\alpha$と$\beta$の大小関係は,解の大小関係を要求されていな�
       &=\frac{6k+5}{2k+1}
       =\frac{6(k+1)-1}{2(k+1)-1}
     \end{align*}
-    分母$a_k-2=\frac{2k+1}{2k-1}$も0でなく,\,$n=k+1$で成立する.
-    帰納法より,\,$a_n=\frac{6n-1}{2n-1}$がすべての正の整数$n$で成り立つ.\qed
+    分母$a_k-2=\frac{2k+1}{2k-1}$も0でなく,$n=k+1$で成立する.
+    帰納法より,$a_n=\frac{6n-1}{2n-1}$がすべての正の整数$n$で成り立つ.\qed
 
   \end{quote}

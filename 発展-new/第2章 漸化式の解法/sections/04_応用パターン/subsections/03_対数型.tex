@@ -2,7 +2,7 @@
 % subsection: 対数型 \, $a_{n+1}=pa_n^q$
 
 \subsection{\texorpdfstring{対数型  $a_{n+1}=pa_n^q$}{対数型}}\label{節：対数型}
-  今までは$a_n$に対して$f(n)$を足したり掛けたりしてきたが,\,$a_n$自体を掛けたり足したりしたらどうなるだろう.
+  今までは$a_n$に対して$f(n)$を足したり掛けたりしてきたが,$a_n$自体を掛けたり足したりしたらどうなるだろう.
 
   まずはシンプルに
   \[
@@ -36,12 +36,12 @@
     b_{n+1}=qb_n+1
   \]
   を得る.
-  対数を取った先では,\,$q$乗という見慣れない操作が,\,$q$倍という既知の操作に変わったのだ.
+  対数を取った先では,$q$乗という見慣れない操作が,$q$倍という既知の操作に変わったのだ.
   よってこの漸化式は特性方程式型になったので,これを解くと
   \[
     b_n=\left(b_1-\frac{1}{1-q}\right)q^{n-1}+\frac{1}{1-q}
   \]
-  となる.ただし$b_1=\log_pa_1$であり,この式は$q\ne0,1$の場合である.\footnote{$q=1$なら等差型に帰着する.\,$q=0$なら元の式から$n\ge2$で$a_n=p$と分かる.}
+  となる.ただし$b_1=\log_pa_1$であり,この式は$q\ne0,1$の場合である.\footnote{$q=1$なら等差型に帰着する.$q=0$なら元の式から$n\ge2$で$a_n=p$と分かる.}
   したがって
   \[
     b_n=\log_p a_n  \iff a_n=p^{b_n}
@@ -84,7 +84,7 @@
   \noindent\bookblocklink{example-logarithmic-1}{solution}{problem}{【解法】}\par\nobreak
   
   (1),(2),(3),(5),(6)は初項が正で,正の項から次も正になる.\bookterm{induction}{数学的帰納法}より全項が正である.
-  (4)は$a_1-1=4>0$と$a_{n+1}-1=(a_n-1)^2$から,\,$a_n-1>0$を保つ.この量に\bookterm{logarithm}{対数}を取る.
+  (4)は$a_1-1=4>0$と$a_{n+1}-1=(a_n-1)^2$から,$a_n-1>0$を保つ.この量に\bookterm{logarithm}{対数}を取る.
   \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-logarithmic-1}{solution}{problem}]
     \item $b_n=\log_2a_n$と置くと,
       \[
@@ -98,7 +98,7 @@
       \[
         b_{n+1}=-b_n,\qquad b_1=\log_2\frac12=-1
       \]
-      に変わる.従って$b_n=(-1)^n$であり,\,$a_n=2^{(-1)^n}$となる.
+      に変わる.従って$b_n=(-1)^n$であり,$a_n=2^{(-1)^n}$となる.
     \item 自然\bookterm{logarithm}{対数}を取れば$\log a_{n+1}=\log a_n+n\log2$である.差を足すと,
       \[
         \log a_n=\sum_{k=1}^{n-1}k\log2=\frac{n(n-1)}2\log2.
@@ -108,8 +108,8 @@
       \[
         \log_2(a_{n+1}-1)=2\log_2(a_n-1).
       \]
-      初項は$\log_2(a_1-1)=2$だから,\,$\log_2(a_n-1)=2^n$であり,\,$a_n=2^{2^n}+1$となる.
-    \item $b_n=\log_2a_n$と置くと,\,$b_{n+1}=2b_n-n,\ b_1=1$である.
+      初項は$\log_2(a_1-1)=2$だから,$\log_2(a_n-1)=2^n$であり,$a_n=2^{2^n}+1$となる.
+    \item $b_n=\log_2a_n$と置くと,$b_{n+1}=2b_n-n,\ b_1=1$である.
       一次式$n+1$を引けば,
       \[
         b_{n+1}-(n+2)=2\{b_n-(n+1)\}.
@@ -128,7 +128,7 @@
   \paragraphbf{補足}
   
   (3),(6)の$\log$は底が$e$の自然\bookterm{logarithm}{対数}である.
-  変形後の真数が$0$や負なら,実数の\bookterm{logarithm}{対数}は取れない.例えば(4)で初項が$1$なら定数\bookterm{sequence}{数列}$a_n=1$となり,\,$\log(a_n-1)$を取らずに扱う.
+  変形後の真数が$0$や負なら,実数の\bookterm{logarithm}{対数}は取れない.例えば(4)で初項が$1$なら定数\bookterm{sequence}{数列}$a_n=1$となり,$\log(a_n-1)$を取らずに扱う.
   
   \noindent\bookblocklink{check-log-domain}{problem}{answer}{【確認問題】}\par\nobreak
   \begin{enumerate}[format=\bookitemlink{check-log-domain}{problem}{answer}]
