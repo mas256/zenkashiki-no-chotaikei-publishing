@@ -8,96 +8,150 @@
 と表した.
 では,特性方程式の解が虚数になったらどうなるだろうか.
 実は,この式は2解が虚数でもそのまま成り立つ.
-もとの$p,q$自体は実数であることから,$a_n$は常に実数を取る.
-しかしながら$A\alpha$や$B\beta$に虚数が含まれていると一見してそれが実数のみを生む数列であるか,判断しがたい.                                           
-したがってここでは,三角関数を使って,実数だけの式に直すことを目標にしよう.\footnote{複素数の表示や極形式は\sectionref*{節：複素平面と極形式}で確認できる.}
+初めの2項も漸化式の係数も実数なら,各項は実数のはずである.
+しかし,複素数の累乗が並んだ式からは,実数であることが分かりにくい.
+そこで,まずこれまでと同じ方法で係数を決め,三角関数を使って実数の式に直してみよう.\footnote{複素数の表示や極形式は\sectionref*{節：複素平面と極形式}で確認できる.}
+
+以下では
 \[
   a_{n+2}+pa_{n+1}+qa_n=0\quad(n\ge1)
 \]
-の$p,q,a_1,a_2$を実数とする.\bookterm{characteristic}{特性方程式}$x^2+px+q=0$が
-$p^2-4q<0$を満たすと,2解は互いに\bookterm{conjugate}{共役}な虚数$\alpha,\overline\alpha$となる.
-例えば$a_{n+2}=2a_{n+1}-2a_n$では2解が$1\pm i$なので,
-\[
-  a_n=A(1+i)^{n-1}+B(1-i)^{n-1}
-\]
-と書ける.
-初めの2項も漸化式の係数も実数だから,実際には各項は実数のはずである.
-つまり,この式の中で虚部がうまく打ち消し合っているのだ.その様子を\bookterm{polar}{極形式}で見てみよう.
+の$p,q,a_1,a_2$を実数とし,$p^2-4q<0$の場合を考える.
+\bookterm{characteristic}{特性方程式}$x^2+px+q=0$の2解は,互いに\bookterm{conjugate}{共役}な虚数$\alpha,\overline\alpha$となる.
 
-\paragraphbf{極形式で書き直す}
-虚部が正の解$\alpha$について,原点からの距離を$\rho$,\bookterm{argument}{偏角}を$\theta$とする.
-$\rho>0$, $0<\theta<\pi$であり,
+\subsubsection{係数を決めてから実数の式に直す}
 \[
-  \alpha=\rho(\cos\theta+i\sin\theta),\qquad
-  \overline\alpha=\rho(\cos\theta-i\sin\theta)
+  a_n=A\alpha^{n-1}+B\overline\alpha^{\,n-1}
 \]
-である.ド・モアブルの定理より,$t=(n-1)\theta$と置けば
+に$n=1,2$を代入すると,
 \[
-  \begin{aligned}
-    \alpha^{n-1}&=\rho^{n-1}(\cos t+i\sin t),\\
-    \overline\alpha^{\,n-1}&=\rho^{n-1}(\cos t-i\sin t)
-  \end{aligned}
+  A+B=a_1,\qquad A\alpha+B\overline\alpha=a_2
 \]
-となる.解を1回掛けるごとに,距離は$\rho$倍,向きは$\theta$だけ回転するのだ.
-\BookFigComplexRoots
-
-2つの累乗は互いに共役で,$\cos t$の部分は同じ,$i\sin t$の符号だけが反対になっている.
-したがって$A,B$も互いに共役に選べば,虚部が消えてくれそうだ.
-\par\noindent\begin{minipage}{\linewidth}
-  実数$C,D$を用いて,
-  \[
-    A=\frac{C-iD}{2},\qquad B=\frac{C+iD}{2}
-  \]
-  と置く.
-\end{minipage}\par
-すると$A+B=C$, $i(A-B)=D$なので,
-\BookMathLayout{\[
-    \begin{aligned}
-      &A\alpha^{n-1}+B\overline\alpha^{\,n-1}\\
-      &\quad=\rho^{n-1}\{(A+B)\cos t\\
-      &\qquad+i(A-B)\sin t\}\\
-      &\quad=\rho^{n-1}(C\cos t+D\sin t)
-    \end{aligned}
-  \]}{\[
-    \begin{aligned}
-      &A\alpha^{n-1}+B\overline\alpha^{\,n-1}\\
-      &\quad=\rho^{n-1}\{(A+B)\cos t\\
-      &\qquad+i(A-B)\sin t\}\\
-      &\quad=\rho^{n-1}(C\cos t+D\sin t)
-    \end{aligned}
-  \]}
-より,
-\BookMathLayout{\[
-    a_n=\rho^{n-1}\{C\cos((n-1)\theta)+D\sin((n-1)\theta)\}
-  \]}{\[
-    \begin{aligned}
-      a_n=\rho^{n-1}\{&C\cos((n-1)\theta)\\
-      &+D\sin((n-1)\theta)\}
-    \end{aligned}
-  \]}
-を得る.虚数がきれいに消えた.\footnote{逆に,実数の数列なら$B=\overline A$でなければならないことは,
-\hyperref[解釈：虚数解と基本解]{「2つの表し方の関係」}で確かめる.}
-
-\paragraphbf{初めの2項を合わせる}
-あとは$C,D$を初期条件から決めればよい.$n=1,2$を代入すると,
+である.この連立方程式を解けば,
 \[
-  a_1=C,\qquad a_2=\rho(C\cos\theta+D\sin\theta)
+  A=\frac{a_2-\overline\alpha a_1}{\alpha-\overline\alpha},
+  \qquad
+  B=\frac{\alpha a_1-a_2}{\alpha-\overline\alpha}
+\]
+と決まる.$\alpha\ne\overline\alpha$なので割ってよい.
+初期値が実数だから,この2つの係数も互いに共役になっている.
+
+例えば$a_1=0,a_2=1$, $a_{n+2}=2a_{n+1}-2a_n$では,2解は$1\pm i$である.
+$A+B=0$, $(1+i)A+(1-i)B=1$より,
+\[
+  A=-\frac{i}{2},\qquad B=\frac{i}{2}
 \]
 なので,
-\BookMathLayout{\[
-    C=a_1,\qquad D=\cfrac{\cfrac{a_2}{\rho}-a_1\cos\theta}{\sin\theta}
-  \]}{\[
-    \begin{aligned}
-      C&=a_1,\\
-      D&=\cfrac{\cfrac{a_2}{\rho}-a_1\cos\theta}{\sin\theta}
-    \end{aligned}
-  \]}
+\[
+  a_n=-\frac{i}{2}(1+i)^{n-1}+\frac{i}{2}(1-i)^{n-1}
+\]
+を得る.ここまででも一般項は求まっている.
+次に,$1\pm i$を\bookterm{polar}{極形式}で表すと,
+\[
+  1\pm i=\sqrt2\left(\cos\frac{\pi}{4}\pm i\sin\frac{\pi}{4}\right)
+\]
+である.ド・モアブルの定理を使い,$t=\frac{(n-1)\pi}{4}$と置けば,
+\[
+  \begin{aligned}
+    a_n&=(\sqrt2)^{n-1}\left\{-\frac{i}{2}(\cos t+i\sin t)\right.\\
+    &\qquad\left.+\frac{i}{2}(\cos t-i\sin t)\right\}\\
+    &=(\sqrt2)^{n-1}\sin t
+  \end{aligned}
+\]
+となり,実数だけの式に直せた.
+
+一般にも,虚部が正の解を
+\[
+  \alpha=\rho(\cos\theta+i\sin\theta),
+  \qquad \rho>0,\quad 0<\theta<\pi
+\]
+と表す.$\rho$は原点からの距離,$\theta$は\bookterm{argument}{偏角}である.
+共役な係数を,実数$C,D$を用いて
+\[
+  A=\frac{C-iD}{2},\qquad B=\frac{C+iD}{2}
+\]
+と書けば,$A+B=C$, $i(A-B)=D$なので,
+\[
+  \begin{aligned}
+    a_n=\rho^{n-1}\{&C\cos((n-1)\theta)\\
+      &+D\sin((n-1)\theta)\}
+  \end{aligned}
+\]
+となる.共役な2項の虚部が打ち消し合い,余弦と正弦が残ったのだ.
+\BookFigComplexRoots
+
+\subsubsection{漸化式を変形して三角関数を見つける}\label{解釈：虚数解と加法定理}
+今度は,係数$A,B$を求めずに,元の漸化式から三角関数を見つけてみよう.
+解と係数の関係より,
+\[
+  p=-2\rho\cos\theta,\qquad q=\rho^2
+\]
+だから,元の式は
+\[
+  a_{n+2}-2\rho\cos\theta\,a_{n+1}+\rho^2a_n=0
+\]
+と書ける.ここで$b_n=\frac{a_n}{\rho^{n-1}}$と置き,両辺を$\rho^{n+1}$で割ると,
+\[
+  b_{n+2}+b_n=2\cos\theta\,b_{n+1}
+\]
+となる.これは\bookterm{addition}{加法定理}
+\[
+  \begin{aligned}
+    \cos(x+\theta)+\cos(x-\theta)&=2\cos\theta\cos x,\\
+    \sin(x+\theta)+\sin(x-\theta)&=2\cos\theta\sin x
+  \end{aligned}
+\]
+と同じ形である.$x=n\theta$を代入すれば,$\cos((n-1)\theta)$も$\sin((n-1)\theta)$もこの漸化式を満たす.
+したがって,
+\[
+  h_n=C\cos((n-1)\theta)+D\sin((n-1)\theta)
+\]
+も解になる.初めの2項を$b_n$と合わせると,
+\[
+  C=a_1,\qquad
+  D=\cfrac{\cfrac{a_2}{\rho}-a_1\cos\theta}{\sin\theta}
+\]
 と決まる.$0<\theta<\pi$より$\sin\theta\ne0$なので割ってよい.
+$b_1=h_1,b_2=h_2$であり,$b_n=h_n,b_{n+1}=h_{n+1}$なら,
+\[
+  b_{n+2}=2\cos\theta\,h_{n+1}-h_n=h_{n+2}
+\]
+となる.帰納法により全項が一致し,$a_n=\rho^{n-1}b_n$に戻せば先ほどと同じ一般項を得る.
+
+最初の例なら$\rho=\sqrt2$, $\theta=\frac{\pi}{4}$である.
+$a_1=0$から$C=0$, $a_2=1$から$D=1$となり,
+\[
+  a_n=(\sqrt2)^{n-1}\sin\frac{(n-1)\pi}{4}
+\]
+が得られる.$A,B$を先に決める方法と,三角関数の形にしてから$C,D$を決める方法があるのである.
 
 \begin{bookpoint}
   \textbf{POINT}\par
-  特性方程式の虚数解を$\rho(\cos\theta\pm i\sin\theta)$と極形式で表し,$a_n=\rho^{n-1}\{C\cos((n-1)\theta)+D\sin((n-1)\theta)\}$と置いて初期条件から$C,D$を決める.
+  特性方程式の虚数解を$\rho(\cos\theta\pm i\sin\theta)$と極形式で表し,
+  $a_n=\rho^{n-1}\{C\cos((n-1)\theta)+D\sin((n-1)\theta)\}$と置いて初期条件から$C,D$を決める.
 \end{bookpoint}
+
+\subsubsection{一般項を予想して帰納法で示す}
+一般項を容易に予想できる場合には,特性方程式を解く前に,その予想を帰納法で確かめることもできる.
+例えば$a_1=a_2=1$, $a_{n+2}=a_{n+1}-a_n$の初めの並びは
+\[
+  1,1,0,-1,-1,0,1,1,\ldots
+\]
+である.正弦の値と比べると,$a_n=\frac{2}{\sqrt3}\sin\frac{n\pi}{3}$と予想できる.
+初めの2項では確かに成り立つ.$n=k,k+1$で成り立つと仮定すると,加法定理より,
+\[
+  \begin{aligned}
+    a_{k+2}
+    &=\frac{2}{\sqrt3}\left(\sin\frac{(k+1)\pi}{3}-\sin\frac{k\pi}{3}\right)\\
+    &=\frac{2}{\sqrt3}\sin\frac{(k+2)\pi}{3}
+  \end{aligned}
+\]
+となる.したがって,数学的帰納法によりすべての項で成り立つ.
+帰納法自体は一般にも使えるが,この方法で候補を見つけやすいのは,短い周期などが見える場合である.
+例題(1)でも,初めの並びから一般項を予想してみよう.
+
+このように現れる振動は,連立型の複素数の重みや,一次分数型の回転ともつながっている.
+その関係と振幅・周期の詳しい説明は,付録の\sectionref*{節：虚数解型の別解と解釈}に託す.
 
 \noindent \bookblocklink{example-complex-1}{problem}{answer}{【例題】}\par\nobreak
 \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-complex-1}{problem}{answer}]
@@ -120,8 +174,8 @@ $\rho>0$, $0<\theta<\pi$であり,
   \item $a_n=\cos\frac{(n-1)\pi}{2}$
   \item $a_n=(\sqrt2)^{n-1}\sin\frac{(n-1)\pi}{4}$
   \item $a_n=2^{n-1}\left(\cos\frac{(n-1)\pi}{2}+\sin\frac{(n-1)\pi}{2}\right)$
-  \item \BookMathLayout{$a_n=2^{n-1}\left(\cos\frac{(n-1)\pi}{3}-\frac1{\sqrt3}\sin\frac{(n-1)\pi}{3}\right)$}{$a_n=2^{n-1}\Bigl(\cos\frac{(n-1)\pi}{3}$\\
-      $\hspace{3zw}-\frac1{\sqrt3}\sin\frac{(n-1)\pi}{3}\Bigr)$}
+  \item \BookMathLayout{$a_n=2^{n-1}\left(\cos\frac{(n-1)\pi}{3}-\frac{1}{\sqrt3}\sin\frac{(n-1)\pi}{3}\right)$}{$a_n=2^{n-1}\Bigl(\cos\frac{(n-1)\pi}{3}$\\
+      $\hspace{3zw}-\frac{1}{\sqrt3}\sin\frac{(n-1)\pi}{3}\Bigr)$}
 \end{enumerate}
 
 \noindent\bookblocklink{example-complex-1}{solution}{problem}{【解法】}\par\nobreak
@@ -144,136 +198,7 @@ $\rho>0$, $0<\theta<\pi$であり,
   \item $x^2-2x+4=0$の根は$1\pm\sqrt3\,i$なので,$\rho=2,\theta=\frac{\pi}{3}$.
     $a_1=1$から$C=1$,$a_2=0$から
     \[
-      0=2\left(\frac12+D\frac{\sqrt3}{2}\right)
+      0=2\left(\frac{1}{2}+D\frac{\sqrt3}{2}\right)
     \]
     となり,$D=-\frac{1}{\sqrt3}$を得る.
 \end{enumerate}
-
-\paragraphbf{加法定理による別解}\label{解釈：虚数解と加法定理}
-複素数の冪を変形する代わりに,元の漸化式と加法定理を直接比べてみよう.
-解と係数の関係より,
-\[
-  p=-(\alpha+\overline\alpha)=-2\rho\cos\theta,
-  \qquad q=\alpha\overline\alpha=\rho^2.
-\]
-そこで$b_n=\frac{a_n}{\rho^{n-1}}$と置き,元の式を$\rho^{n+1}$で割ると,
-\[
-  b_{n+2}+b_n=2\cos\theta\,b_{n+1}
-\]
-を得る.これは\bookterm{addition}{加法定理}
-\[
-  \begin{aligned}
-    \cos(x+\theta)+\cos(x-\theta)&=2\cos\theta\cos x,\\
-    \sin(x+\theta)+\sin(x-\theta)&=2\cos\theta\sin x
-  \end{aligned}
-\]
-と同じ形である.$x=n\theta$を代入すれば,
-$\cos((n-1)\theta)$も$\sin((n-1)\theta)$もこの漸化式を満たす.
-従ってその組み合わせ
-\[
-  h_n=C\cos((n-1)\theta)+D\sin((n-1)\theta)
-\]
-も解になる.初めの二項は$b_1=a_1,b_2=\frac{a_2}{\rho}$なので,
-$C=b_1$, $D=\frac{b_2-b_1\cos\theta}{\sin\theta}$と合わせる.
-
-$b_1=h_1,b_2=h_2$であり,$b_n=h_n,b_{n+1}=h_{n+1}$なら,
-\[
-  b_{n+2}=2\cos\theta\,h_{n+1}-h_n=h_{n+2}.
-\]
-加法定理で漸化式を満たすことを確かめ,帰納法で全項の一致を示したのである.
-最後に$a_n=\rho^{n-1}b_n$へ戻せば,前と同じ一般項になる.
-
-\paragraphbf{振幅・位相・周期}
-$C=D=0$なら,すべての項が0の数列である.それ以外では$R=\sqrt{C^2+D^2}>0$とし,
-\[
-  \cos\varphi=\frac CR,\qquad \sin\varphi=\frac DR
-\]
-を満たす角$\varphi$を選ぶ.加法定理から,
-\[
-  a_n=R\rho^{n-1}\cos((n-1)\theta-\varphi)
-\]
-とまとまる.$\varphi$は波の位置をずらす角度(位相),$\theta$は一回で進む角度である.
-振幅$R\rho^{n-1}$は,
-\[
-  \begin{cases}
-    0<\rho<1 & \text{減衰する},\\
-    \rho=1 & \text{一定である},\\
-    \rho>1 & \text{増大する}.
-  \end{cases}
-\]
-これは$|a_n|\le R\rho^{n-1}$という上限であり,各項の絶対値が同じ割合で変わるという意味ではない.
-
-三角関数の式でも,整数添字で周期的とは限らない.
-$\rho=1$かつ$\frac{\theta}{2\pi}$が有理数なら,$T\theta=2k\pi$となる正整数$T$と整数$k$が存在する.
-角度が一周の整数倍だけ進むので,$a_{n+T}=a_n$となる.
-すべての項が0の数列を除けば,この2条件は必要でもある.これは次で確かめる.
-
-\paragraphbf{2つの表し方の関係}\phantomsection\label{解釈：虚数解と基本解}
-最後に,ここまでの計算が何をしていたのかを考えよう.
-結論から言えば,一般項を組み立てる2つの数列を,複素数の累乗から実数の三角関数へ取り替えていたのである.
-$p^2-4q<0$から$q>0$で,2解$\alpha,\overline\alpha$は異なる0でない数である.
-$U\alpha^{n-1}+V\overline\alpha^{\,n-1}$がすべての項で0になるなら,初めの2項から
-\[
-  U+V=0,\qquad U\alpha+V\overline\alpha=0
-\]
-となる.$\alpha\ne\overline\alpha$より$U=V=0$である.
-同じ連立方程式で任意の初めの2項に合わせられ,それ以降の項は漸化式によってすべて決まる.
-したがって,どの解も複素数$A,B$を用いて$A\alpha^{n-1}+B\overline\alpha^{\,n-1}$とただ1通りに表せる.
-
-実数解なら$a_n=\overline{a_n}$より,
-\[
-  A\alpha^{n-1}+B\overline\alpha^{\,n-1}
-  =\overline B\alpha^{n-1}+\overline A\,\overline\alpha^{\,n-1}.
-\]
-係数の一意性から$A=\overline B,B=\overline A$が必要である.
-一方,実数解$\rho^{n-1}\cos((n-1)\theta)$と$\rho^{n-1}\sin((n-1)\theta)$の初めの2項は,
-それぞれ$(1,\rho\cos\theta)$と$(0,\rho\sin\theta)$である.
-$\rho\sin\theta\ne0$なので,どの実数解もこの2つの数列を実数倍して足した形にただ1通りに表せる.
-虚部を消す計算は,一般項を組み立てる2つの数列を取り替える計算だったのである.
-
-\bookterm{periodic}{周期性}の必要条件も示せる.周期$T$があるなら,
-\[
-  A(\alpha^T-1)\alpha^{n-1}
-  +\overline A(\overline\alpha^{\,T}-1)\overline\alpha^{\,n-1}=0.
-\]
-先ほど示した表し方の一意性から,両係数が0となる.すべての項が0ではない実数解では$A,\overline A\ne0$なので,
-$\alpha^T=\overline\alpha^{\,T}=1$.したがって$\rho=1$,$\frac{\theta}{2\pi}$は有理数である.
-
-\paragraphbf{補足：同じ数列を指数$n$で表す}
-ここまでは$a_1,a_2$から始めて指数を$n-1$にしてきたが,指数を$n$にした表示もよく使われるので紹介しておこう.
-$\alpha\ne0$なので$A\alpha^{n-1}=\left(\frac{A}{\alpha}\right)\alpha^n$と係数を取り直せる.
-$\widetilde A=\frac{A}{\alpha}$, $\widetilde B=\frac{B}{\overline\alpha}$とすれば,
-\[
-  \begin{aligned}
-    a_n&=\widetilde A\alpha^n+\widetilde B\overline\alpha^{\,n}\\
-    &=\rho^n(c\cos n\theta+d\sin n\theta).
-  \end{aligned}
-\]
-$c,d$は$C,D$と別の係数である.
-$a_1=\rho(c\cos\theta+d\sin\theta)$,
-$a_2=\rho^2(c\cos2\theta+d\sin2\theta)$から決まり,対応は
-\BookMathLayout{\[
-    c=\frac{C\cos\theta-D\sin\theta}{\rho},\qquad
-    d=\frac{C\sin\theta+D\cos\theta}{\rho}
-  \]}{\[
-    \begin{aligned}
-      c&=\frac{C\cos\theta-D\sin\theta}{\rho},\\
-      d&=\frac{C\sin\theta+D\cos\theta}{\rho}
-    \end{aligned}
-  \]}
-となる.変えたのは表示と係数であり,項の番号ではない.
-
-\paragraphbf{補足：第0項から始める場合}
-初期条件を$a_0,a_1$とし,$n\ge0$で漸化式を用いる場合は,別の係数$C_0,D_0$を使う.
-指数$n$の形に$n=0,1$を代入して,
-\[
-  C_0=a_0,\qquad
-  D_0=\cfrac{\cfrac{a_1}{\rho}-a_0\cos\theta}{\sin\theta}
-\]
-と決まる.例えば$a_{n+2}=2a_{n+1}-2a_n$,$a_0=1,a_1=2$では,
-根$1\pm i$から$\rho=\sqrt2,\theta=\frac{\pi}{4}$.
-$C_0=1$, $2=\frac{\sqrt2(C_0+D_0)}{\sqrt2}=1+D_0$より$D_0=1$なので,
-\[
-  a_n=(\sqrt2)^n\left(\cos\frac{n\pi}{4}+\sin\frac{n\pi}{4}\right)
-\]
-となる.

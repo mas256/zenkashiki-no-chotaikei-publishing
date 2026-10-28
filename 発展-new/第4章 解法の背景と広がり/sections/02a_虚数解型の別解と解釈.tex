@@ -1,0 +1,341 @@
+% BOOK-FILE-ID: f-0c28a4d3b9f1
+\section{虚数解型の別解と解釈}\label{節：虚数解型の別解と解釈}
+
+本編\sectionref{節：特性方程式の解が虚数の場合}では,係数を決める方法,加法定理に帰着させる方法,予想を帰納法で示す方法を扱った.
+ここでは,その一般項がなぜ振動を表すのか,連立型や一次分数型とどうつながるのかを見ていこう.
+以下では$p,q,a_1,a_2$を実数とし,
+\[
+  a_{n+2}+pa_{n+1}+qa_n=0,\qquad p^2-4q<0
+\]
+を考える.虚部が正の解を
+\[
+  \alpha=\rho(\cos\theta+i\sin\theta),
+  \quad \rho>0,\quad 0<\theta<\pi
+\]
+とすれば,もう一方は$\overline\alpha$であり,$p=-2\rho\cos\theta$, $q=\rho^2$である.
+
+\subsection{複素数の表示と実数の表示}
+\subsubsection{2つの表し方の関係}\phantomsection\label{解釈：虚数解と基本解}
+本編の計算が何をしていたのかを,表し方の一意性から確かめよう.
+結論から言えば,一般項を組み立てる2つの数列を,複素数の累乗から実数の三角関数へ取り替えていたのである.
+$p^2-4q<0$から$q>0$で,2解$\alpha,\overline\alpha$は異なる0でない数である.
+$U\alpha^{n-1}+V\overline\alpha^{\,n-1}$がすべての項で0になるなら,初めの2項から
+\[
+  U+V=0,\qquad U\alpha+V\overline\alpha=0
+\]
+となる.$\alpha\ne\overline\alpha$より$U=V=0$である.
+同じ連立方程式で任意の初めの2項に合わせられ,それ以降の項は漸化式によってすべて決まる.
+したがって,どの解も複素数$A,B$を用いて$A\alpha^{n-1}+B\overline\alpha^{\,n-1}$とただ1通りに表せる.
+
+実数解なら$a_n=\overline{a_n}$より,
+\[
+  A\alpha^{n-1}+B\overline\alpha^{\,n-1}
+  =\overline B\alpha^{n-1}+\overline A\,\overline\alpha^{\,n-1}.
+\]
+係数の一意性から$A=\overline B,B=\overline A$が必要である.
+一方,実数解$\rho^{n-1}\cos((n-1)\theta)$と$\rho^{n-1}\sin((n-1)\theta)$の初めの2項は,
+それぞれ$(1,\rho\cos\theta)$と$(0,\rho\sin\theta)$である.
+$\rho\sin\theta\ne0$なので,どの実数解もこの2つの数列を実数倍して足した形にただ1通りに表せる.
+虚部を消す計算は,一般項を組み立てる2つの数列を取り替える計算だったのである.
+
+\subsubsection{初期二項の影響を分ける}
+初めの2項が$(1,0)$となる解を$u_n$,$(0,1)$となる解を$v_n$としよう.
+すると$a_1u_n+a_2v_n$は元の漸化式と初期二項を満たすから,
+\[
+  a_n=a_1u_n+a_2v_n
+\]
+となる.本編の三角関数形へそれぞれの初期値を入れると,
+\[
+  \begin{aligned}
+    u_n&=-\rho^{n-1}\frac{\sin((n-2)\theta)}{\sin\theta},\\
+    v_n&=\rho^{n-2}\frac{\sin((n-1)\theta)}{\sin\theta}
+  \end{aligned}
+\]
+である.実際,$n=1,2$でそれぞれ$(1,0),(0,1)$になる.
+従って,係数$C,D$を残さずに
+\[
+  \begin{aligned}
+    a_n={}&-a_1\rho^{n-1}\frac{\sin((n-2)\theta)}{\sin\theta}\\
+          &+a_2\rho^{n-2}\frac{\sin((n-1)\theta)}{\sin\theta}
+  \end{aligned}
+\]
+とも書ける.二つの初期値が,それぞれどの項へ影響するかを分けた表示である.
+
+\subsection{連立型から複素数の等比型へ}\label{節：虚数解と複素数の補助数列}
+隣接する二項を$x_n=a_{n+1}$, $y_n=a_n$とすれば,
+\[
+  \begin{cases}
+    x_{n+1}=-px_n-qy_n,\\
+    y_{n+1}=x_n
+  \end{cases}
+\]
+という連立型になる.本編の\sectionref{節：連立型}では,重みを付けて足し,等比型を作った.
+その重みを複素数に広げて,
+\[
+  z_n=a_{n+1}-\overline\alpha a_n
+\]
+と置こう.解と係数の関係から,
+\[
+  \begin{aligned}
+    z_{n+1}&=a_{n+2}-\overline\alpha a_{n+1}\\
+      &=\alpha a_{n+1}-\alpha\overline\alpha a_n\\
+      &=\alpha z_n
+  \end{aligned}
+\]
+となる.従って,
+\[
+  z_n=\alpha^{n-1}(a_2-\overline\alpha a_1).
+\]
+$\alpha=u+iv$と書けば$v>0$であり,
+\[
+  z_n=(a_{n+1}-ua_n)+iv a_n
+\]
+だから,
+\[
+  a_n=\frac{\operatorname{Im}z_n}{v},\qquad
+  a_{n+1}=\operatorname{Re}z_n+ua_n
+\]
+と元に戻せる.二つの実数を一つの複素数にまとめても,情報は失われていない.
+一般項の形を先に仮定しなくても,複素数の等比型を解けばよいのである.
+
+例えば$a_1=0,a_2=1$, $a_{n+2}=2a_{n+1}-2a_n$なら$\alpha=1+i$である.
+\[
+  z_n=(a_{n+1}-a_n)+ia_n,\qquad z_1=1
+\]
+なので,$z_n=(1+i)^{n-1}$の虚部を取るだけで本編の一般項を得る.
+$z_n$の点は,毎回$\theta$回転しながら距離が$\rho$倍になる.
+\sectionref*{節：実数でない解と回転}の円と楕円は,この座標の取り替えを図形として見たものだった.
+
+\subsection{一次分数型には角度が残る}\label{節：虚数解と隣接項の比}
+$a_n\ne0$の範囲で$r_n=\frac{a_{n+1}}{a_n}$と置けば,
+\[
+  r_{n+1}=-p-\frac{q}{r_n}
+\]
+となる.これは本編\sectionref{節：隣接3項型}の別解で作った一次分数型である.
+不動点の方程式は$x^2+px+q=0$なので,不動点も$\alpha,\overline\alpha$となる.
+\sectionref*{節：複素平面で見る}と同じように,
+\[
+  w_n=\frac{r_n-\alpha}{r_n-\overline\alpha}
+\]
+と置くと,
+\[
+  w_{n+1}=\frac{\overline\alpha}{\alpha}w_n
+\]
+である.公比は$\cos2\theta-i\sin2\theta$なので,$w_n$は$-2\theta$ずつ回転する.
+
+先ほどの補助数列を使えば,この式の意味がよく分かる.
+\[
+  \begin{aligned}
+    w_n&=\frac{a_{n+1}-\alpha a_n}{a_{n+1}-\overline\alpha a_n}
+       =\frac{\overline z_n}{z_n},\\
+    w_{n+1}&=\frac{\overline\alpha\,\overline z_n}{\alpha z_n}.
+  \end{aligned}
+\]
+$z_n$の距離が$\rho$倍されても,共役な二つの数の比ではその大きさが打ち消される.
+また,$z_n$と$\overline z_n$の角度は逆向きに進むため,差の比では回転角が$-2\theta$となった.
+\textbf{元の数列の振幅が変わっていても,差の比は回転だけを表す}のである.
+
+例えば$a_1=1,a_2=3$, $a_{n+2}=2a_{n+1}-2a_n$では,
+\[
+  a_n:\quad1,3,4,2,-4,-12,-16,-8,\ldots
+\]
+に対し,隣接項の比は
+\[
+  r_n:\quad3,\frac{4}{3},\frac{1}{2},-2,3,\ldots
+\]
+と周期4になる.実際,$\alpha=1+i$だから$\frac{\overline\alpha}{\alpha}=-i$であり,$w_n$は4回で一周する.
+一方,$\alpha^4=\overline\alpha^{\,4}=-4$なので,$a_{n+4}=-4a_n$である.元の数列自体は周期的ではない.
+
+比を使うときは零の項にも注意しよう.$a_n=0$では$r_n$を作れないが,元の漸化式は続けられる.
+零数列でない実数解なら$z_1\ne0$であり,$\alpha\ne0$よりすべての$z_n$も0ではない.
+従って,$\frac{\overline z_n}{z_n}$は$a_n=0$でも定義できる.
+比の分母が0になることと,元の数列が定義できなくなることは別の問題である.
+
+\subsubsection{実数の角度で書き直す}
+同じ変形は,正弦の加法定理でも読める.
+\[
+  r_n=\rho\frac{\sin(t_n+\theta)}{\sin t_n}
+\]
+と表せば,$2\cos\theta\sin(t_n+\theta)-\sin t_n=\sin(t_n+2\theta)$から,
+\[
+  r_{n+1}=\rho\frac{\sin(t_n+2\theta)}{\sin(t_n+\theta)}
+\]
+となる.従って$t_{n+1}=t_n+\theta$としてよい.分母が0でない範囲での表示である.
+$\frac{\sin(t+\theta)}{\sin t}=\cos\theta+\sin\theta\cot t$より,どの実数の$r_n$もこの形で表せる.
+一次分数型を角度を足す漸化式へ変えたのである.
+本編\sectionref{節：三角関数型}の角度を倍にする漸化式との違いは,\sectionref*{節：角度の整数倍と多項式}とも比べてみよう.
+
+\subsection{隣接二項から振幅を測る}\label{節：虚数解と振幅周期}
+$z_{n+1}=\alpha z_n$の絶対値の二乗を取ると,$|z_{n+1}|^2=q|z_n|^2$である.
+これを元の項で書けば,
+\[
+  \begin{aligned}
+    E_n&=a_{n+1}^2+pa_{n+1}a_n+qa_n^2,\\
+    E_{n+1}&=qE_n
+  \end{aligned}
+\]
+となる.従って$\frac{E_n}{q^{n-1}}$は$n$によらず一定であり,$q=1$なら$E_n$自体が不変量になる.
+また,
+\[
+  E_n=\left(a_{n+1}+\frac{p}{2}a_n\right)^2
+      +\left(q-\frac{p^2}{4}\right)a_n^2
+\]
+で,$q-\frac{p^2}{4}>0$である.
+一項ずつの絶対値が増減しても,隣接二項を組み合わせたこの量には単純な法則がある.
+$q=1$のとき,零数列を除いて$E_n$が一定となる曲線が,\sectionref*{節：実数でない解と回転}で現れた楕円である.
+不変量の使い方は,本編の\sectionref{節：変わらない量を使う}へもつながる.
+
+\subsubsection{振幅・位相・周期}
+$C=D=0$なら,すべての項が0の数列である.それ以外では$R=\sqrt{C^2+D^2}>0$とし,
+\[
+  \cos\varphi=\frac{C}{R},\qquad \sin\varphi=\frac{D}{R}
+\]
+を満たす角$\varphi$を選ぶ.加法定理から,
+\[
+  a_n=R\rho^{n-1}\cos((n-1)\theta-\varphi)
+\]
+とまとまる.$\varphi$は波の位置をずらす角度(位相),$\theta$は一回で進む角度である.
+振幅$R\rho^{n-1}$は,
+\[
+  \begin{cases}
+    0<\rho<1 & \text{減衰する},\\
+    \rho=1 & \text{一定である},\\
+    \rho>1 & \text{増大する}.
+  \end{cases}
+\]
+これは$|a_n|\le R\rho^{n-1}$という上限であり,各項の絶対値が同じ割合で変わるという意味ではない.
+
+三角関数の式でも,整数添字で周期的とは限らない.
+$\rho=1$かつ$\frac{\theta}{2\pi}$が有理数なら,$T\theta=2k\pi$となる正整数$T$と整数$k$が存在する.
+角度が一周の整数倍だけ進むので,$a_{n+T}=a_n$となる.
+すべての項が0の数列を除けば,この2条件は必要でもある.先ほどの表し方の一意性を使って確かめよう.
+
+\bookterm{periodic}{周期性}の必要条件も示せる.周期$T$があるなら,
+\[
+  A(\alpha^T-1)\alpha^{n-1}
+  +\overline A(\overline\alpha^{\,T}-1)\overline\alpha^{\,n-1}=0.
+\]
+先ほど示した表し方の一意性から,両係数が0となる.すべての項が0ではない実数解では$A,\overline A\ne0$なので,
+$\alpha^T=\overline\alpha^{\,T}=1$.したがって$\rho=1$,$\frac{\theta}{2\pi}$は有理数である.
+
+\subsection{一定間隔で項を取り出す}\label{節：虚数解と一定間隔}
+特性方程式の2解の$m$乗を考えると,
+\[
+  \alpha^m+\overline\alpha^{\,m}=2\rho^m\cos(m\theta),
+  \qquad \alpha^m\overline\alpha^{\,m}=\rho^{2m}
+\]
+である.従って,元の一般項を代入すれば,
+\[
+  \begin{aligned}
+    a_{n+2m}&-2\rho^m\cos(m\theta)a_{n+m}\\
+             &+\rho^{2m}a_n=0
+  \end{aligned}
+\]
+となる.一定間隔で取り出した数列も隣接3項型を満たすのだ.
+特に$m\theta=k\pi$となる整数$k$があれば,両方の根の$m$乗が$(-1)^k\rho^m$となり,
+\[
+  a_{n+m}=(-1)^k\rho^m a_n
+\]
+を得る.添字を$m$で割った余りごとに分けると,それぞれ等比数列になる.
+
+本編の帰納法の例$a_{n+2}=a_{n+1}-a_n$なら,$\rho=1$, $\theta=\frac{\pi}{3}$なので$a_{n+3}=-a_n$である.
+この例では,三角関数を使わずに
+\[
+  a_{n+3}=a_{n+2}-a_{n+1}=-a_n
+\]
+と直接確かめられる.従って$a_{n+6}=a_n$であり,短い周期を見つける別解にもなる.
+$\theta=\frac{\pi}{2}$なら$a_{n+2}=-\rho^2a_n$で,奇数番目と偶数番目がそれぞれ等比型になる.
+本編\sectionref{節：非隣接2項型}の添字を分ける方法と同じである.
+
+\subsection{階差から振動を読む}\label{節：虚数解と振動の階差}
+$b_n=\frac{a_n}{\rho^{n-1}}$に対する式を,添字を一つ戻して書くと,
+\[
+  b_{n+1}-2\cos\theta\,b_n+b_{n-1}=0\quad(n\ge2)
+\]
+である.これを
+\[
+  \begin{aligned}
+    &(b_{n+1}-b_n)-(b_n-b_{n-1})\\
+    &\qquad=-4\sin^2\frac{\theta}{2}\,b_n
+  \end{aligned}
+\]
+と変形しよう.左辺は隣接項の差がどれだけ変化したかを表す.
+$b_n>0$なら差を小さくし,$b_n<0$なら差を大きくする方向に働く.
+$v_n=b_n-b_{n-1}$, $\kappa=4\sin^2\frac{\theta}{2}$と置けば,
+\[
+  \begin{cases}
+    v_{n+1}=v_n-\kappa b_n,\\
+    b_{n+1}=b_n+v_{n+1}
+  \end{cases}
+\]
+となる.位置$b_n$とその変化$v_n$を記録すると,原点へ戻す作用を受ける振動と読める.
+連続的な単振動の$y''=-\omega^2y$に対応する離散的な関係であり,微分と階差は同じものではない.
+階差と微分の関係は\sectionref*{節：和と差から微積分へ}で扱う.
+
+\subsection{重解になる境界を見る}
+$b_1=0,b_2=1$とすれば,
+\[
+  b_n=\frac{\sin((n-1)\theta)}{\sin\theta}
+\]
+である.ここで三角関数の極限
+\[
+  \lim_{x\to0}\frac{\sin x}{x}=1
+\]
+を使おう.各$n$を固定して$\theta\to0$とすると,
+\[
+  b_n\longrightarrow n-1
+\]
+となる.一方,漸化式は$b_{n+2}=2b_{n+1}-b_n$に近づき,特性方程式は重解1を持つ.
+本編で重解の一般項に一次式が現れたことを,三角関数の極限からも見られるのである.
+極限を使うこの説明は,本編の重解の導出とは別の補足である.
+
+\subsection{定数の周りで振動する場合}
+定数$c$が加わった
+\[
+  a_{n+2}+pa_{n+1}+qa_n=c
+\]
+でも,$L=\frac{c}{1+p+q}$と置き,$b_n=a_n-L$とすれば,付加項のない式へ戻る.
+$p^2-4q<0$なら特性方程式は実数1を解に持たないため,$1+p+q\ne0$が保証される.
+本編\sectionref{節：定数の付加項がある場合}で用いた定数解を引く操作である.
+$\rho<1$なら$b_n\to0$だから$a_n\to L$であり,振動の中心が0から$L$へ移る.
+定数以外の付加項と母関数による別解は,\sectionref*{節：虚数解と母関数}で扱う.
+
+\subsection{指数と初項の番号}
+\subsubsection{補足：同じ数列を指数$n$で表す}
+本編では$a_1,a_2$から始めて指数を$n-1$にしてきたが,指数を$n$にした表示もよく使われるので紹介しておこう.
+$\alpha\ne0$なので$A\alpha^{n-1}=\left(\frac{A}{\alpha}\right)\alpha^n$と係数を取り直せる.
+$\widetilde A=\frac{A}{\alpha}$, $\widetilde B=\frac{B}{\overline\alpha}$とすれば,
+\[
+  \begin{aligned}
+    a_n&=\widetilde A\alpha^n+\widetilde B\overline\alpha^{\,n}\\
+    &=\rho^n(c\cos n\theta+d\sin n\theta).
+  \end{aligned}
+\]
+$c,d$は$C,D$と別の係数である.
+$a_1=\rho(c\cos\theta+d\sin\theta)$,
+$a_2=\rho^2(c\cos2\theta+d\sin2\theta)$から決まり,対応は
+\BookMathLayout{\[
+    c=\frac{C\cos\theta-D\sin\theta}{\rho},\qquad
+    d=\frac{C\sin\theta+D\cos\theta}{\rho}
+  \]}{\[
+    \begin{aligned}
+      c&=\frac{C\cos\theta-D\sin\theta}{\rho},\\
+      d&=\frac{C\sin\theta+D\cos\theta}{\rho}
+    \end{aligned}
+  \]}
+となる.変えたのは表示と係数であり,項の番号ではない.
+
+\subsubsection{補足：第0項から始める場合}
+初期条件を$a_0,a_1$とし,$n\ge0$で漸化式を用いる場合は,別の係数$C_0,D_0$を使う.
+指数$n$の形に$n=0,1$を代入して,
+\[
+  C_0=a_0,\qquad
+  D_0=\cfrac{\cfrac{a_1}{\rho}-a_0\cos\theta}{\sin\theta}
+\]
+と決まる.例えば$a_{n+2}=2a_{n+1}-2a_n$,$a_0=1,a_1=2$では,
+根$1\pm i$から$\rho=\sqrt2,\theta=\frac{\pi}{4}$.
+$C_0=1$, $2=\frac{\sqrt2(C_0+D_0)}{\sqrt2}=1+D_0$より$D_0=1$なので,
+\[
+  a_n=(\sqrt2)^n\left(\cos\frac{n\pi}{4}+\sin\frac{n\pi}{4}\right)
+\]
+となる.
