@@ -51,6 +51,12 @@ $S_n=\sum_{k=0}^n a_k$とし,その\bookterm{generating}{母関数}を$S(x)$と�
 のように組み合わせる操作は\bookterm{convolution}{畳み込み}と呼ばれ,\bookterm{generating}{母関数}を掛けたときの $x^n$ の係数になる.
 例えば全体を二つに分けて数える場合,それぞれの個数を掛けて分け方ごとに足す.このような和を,\bookterm{generating}{母関数}の積で表せる.
 
+\begin{bookpoint}
+  \textbf{POINT}\par
+  各項を係数として母関数に記録すると,添字のずれは$x$倍,総和は$\frac{1}{1-x}$倍,畳み込みは積になる.
+  ここでは級数の収束を仮定せず,各次数の係数を比較する.
+\end{bookpoint}
+
 \subsection{分母に現れる漸化式}
 この翻訳をフィボナッチ\bookterm{sequence}{数列}で確かめてみよう.
 \[
@@ -107,6 +113,12 @@ $\frac{1}{1-\lambda x}=\sum_{n=0}^\infty\lambda^n x^n$の係数を比べれば,$
   =\sum_{n=0}^\infty(n+1)r^n x^n.
 \]
 重解で$n$が現れた理由は,同じ因子の二乗からも読める.
+
+\begin{bookpoint}
+  \textbf{POINT}\par
+  定数係数の同次線形漸化式は母関数の分母に,初期値は分子に現れる.
+  分母の因子に応じて部分分数分解し,係数を読むと一般項に戻せる.重なった因子からは,累乗に掛かる$n$の式が現れる.
+\end{bookpoint}
 
 \subsection{長期的な増え方}
 \sectionref*{節：隣接3項間を行列で解く}のフィボナッチ数列の式$F_n=\frac{\varphi^n-\psi^n}{\sqrt5}$では,$|\psi|<1<\varphi$なので
@@ -300,3 +312,9 @@ $n\ge2$ では $a_n\ge2$ であり, $a_{n+1}\ge a_n^2$ だから, 帰納的に
 行列・差分・母関数は,本編の操作を別の表現へ移す道具だった.
 不動点からのずれ,\bookterm{left-eigen}{左固有ベクトル}で取り出す量,添字のずれは,それぞれ同じ漸化式の別の表し方である.
 一般項に加え,増大・確率・周期・保存される量も,見たい性質に合わせて調べられる.
+
+\begin{bookpoint}
+  \textbf{POINT}\par
+  調べたい性質に合わせ,数列全体を母関数で表したり,確率や余りなどの量に注目したりする.
+  極限の候補を不動点の式から得た場合も,収束そのものは単調性・有界性などで別に確かめる.
+\end{bookpoint}
