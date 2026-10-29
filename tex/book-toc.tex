@@ -1,0 +1,52 @@
+% BOOK-FILE-ID: f-book-toc
+% 番号なし小見出しの目次位置と、折り返し行の字下げ。
+% hyperref と etoolbox の読み込み後に使用する。
+\makeatletter
+
+% 通常見出しを開くたびに、その直下の小見出しの階層を更新する。
+% カウンタの値には依存しないので、*付き見出しや章・節の切替にも対応する。
+\def\book@paragraphlevel{section}
+\AddToHook{cmd/chapter/before}{\gdef\book@paragraphlevel{section}}
+\AddToHook{cmd/section/before}{\gdef\book@paragraphlevel{subsection}}
+\AddToHook{cmd/subsection/before}{\gdef\book@paragraphlevel{subsubsection}}
+\AddToHook{cmd/subsubsection/before}{\gdef\book@paragraphlevel{paragraph}}
+
+% 字下げは対応する通常見出しから取り、番号用の幅だけを0にする。
+% 番号がない行にも番号用の幅を残すと、2行目から右へずれてしまう。
+\newcommand{\book@unnumberedtocline}[3]{%
+  \begingroup
+    \let\book@dottedtocline\@dottedtocline
+    \def\@dottedtocline##1##2##3{\book@dottedtocline{##1}{##2}{0zw}}%
+    \csname l@#1\endcsname{#2}{#3}%
+  \endgroup
+}
+\newcommand{\book@declareparagraph}[2]{%
+  \@namedef{l@bookparagraph#1}{\book@unnumberedtocline{#1}}%
+  \@namedef{toclevel@bookparagraph#1}{#2}%
+}
+\book@declareparagraph{section}{1}
+\book@declareparagraph{subsection}{2}
+\book@declareparagraph{subsubsection}{3}
+\book@declareparagraph{paragraph}{4}
+
+\ifdefined\BookMobile
+  % 深い階層でも見出し本文の幅を確保する。通常見出しと小見出しで共用。
+  \renewcommand*{\l@subsection}{\@dottedtocline{2}{2zw}{3.5zw}}
+  \renewcommand*{\l@subsubsection}{\@dottedtocline{3}{3zw}{4.5zw}}
+  \renewcommand*{\l@paragraph}{\@dottedtocline{4}{4zw}{5.5zw}}
+\fi
+
+% 本文の表示は従来どおり。目次・しおりでは通常見出しの直下に配置する。
+% オプション引数は目次用の短い見出し。
+\newcommand{\paragraphbf}[2][]{%
+  \par\medskip
+  \phantomsection
+  \if\relax\detokenize{#1}\relax
+    \addcontentsline{toc}{bookparagraph\book@paragraphlevel}{【#2】}%
+  \else
+    \addcontentsline{toc}{bookparagraph\book@paragraphlevel}{【#1】}%
+  \fi
+  \noindent\begingroup\booktermcuesfalse\textbf{【#2】}\endgroup\par
+  \nobreak\smallskip
+}
+\makeatother

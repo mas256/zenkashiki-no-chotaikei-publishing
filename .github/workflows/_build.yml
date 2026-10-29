@@ -102,6 +102,9 @@ jobs:
             grep -q 'HaranoAji' "$fonts" || { echo "::error::$variant: 原ノ味フォントがありません"; exit 1; }
           done
 
+      - name: Verify contents hierarchy and wrapping in both layouts
+        run: python3 tests/test-toc-layout.py
+
       - name: Verify both page dimensions
         working-directory: 発展-new
         run: |
@@ -179,3 +182,4 @@ jobs:
           retention-days: ${{ inputs.retention-days }}
           compression-level: 0
           if-no-files-found: error
+
