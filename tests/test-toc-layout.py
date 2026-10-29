@@ -35,7 +35,7 @@ def verify(variant):
         ("subsection", "次の節直下"), ("section", "次の章直下"),
     ], entries
     bookmarks = re.findall(r"\\BOOKMARK\s*\[(\d+)\]", (output / "toc.out").read_text())
-    assert list(map(int, bookmarks)) == [0, 1, 1, 2, 2, 3, 3, 4, 4, 4, 4, 1, 2, 1, 2, 0, 1], bookmarks
+    assert list(map(int, bookmarks)) == [0, 1, 1, 2, 2, 3, 3, 4, 4, 4, 4, 2, 1, 2, 0, 1], bookmarks
     log = (output / "toc.log").read_text()
     assert "Overfull" not in log, log
     bbox = ET.fromstring(run("pdftotext", "-bbox-layout", str(output / "toc.pdf"), "-"))
