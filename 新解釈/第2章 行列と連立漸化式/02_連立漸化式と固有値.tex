@@ -1,7 +1,7 @@
-\section{連立漸化式}\label{節：連立漸化式}
+\section{連立漸化式と固有値}\label{節：連立漸化式と固有値}
 \subsection{和と差は新しい座標}
 
-2階の漸化式を二成分の更新にできたなら,\,最初から二つの数列が与えられた場合も同じである.
+前節の行列で更新される二つの数列の一般項を求めよう.
 \[
  \begin{aligned}
  x_{n+1}&=2x_n+y_n,\\
@@ -41,11 +41,38 @@ $u_1=v_1=1$なので$u_n=3^{n-1},\,v_n=1$である.
 行列$A=\begin{pmatrix}2&1\\1&2\end{pmatrix}$は,
 $\begin{pmatrix}1\\1\end{pmatrix}$を3倍し,
 $\begin{pmatrix}1\\-1\end{pmatrix}$を1倍する.
-\sectionref{節：座標と基底}の二方向が,\,更新に適した方向でもあった.
-状態を分ける座標は$\frac{u_n}{2},\,\frac{v_n}{2}$,
-更新の量を取り出す左固有ベクトルは$(1,1),\,(1,-1)$である.
+一般に零でない$\boldsymbol u$が
+\[
+ A\boldsymbol u=\lambda\boldsymbol u
+\]
+を満たすとき,$\boldsymbol u$を\textbf{固有ベクトル},
+$\lambda$を対応する\textbf{固有値}という.
+固有値は,その方向の一回の更新の倍率である.
+負の倍率では向きが反転するが,原点を通る同じ直線上にとどまる.
+零ベクトルはどんな$\lambda$でも式を満たすため,\,定義から除く.
 
-\subsection{対角化は更新の分離}\label{節：対角化}
+
+\sectionref{節：座標と基底}の二方向が,\,更新に適した方向でもあった.
+新しい座標は$\frac{u_n}{2},\frac{v_n}{2}$であり,一方は3倍,他方は1倍される.
+和と差を選ぶ理由は,この二方向に分けると更新が混ざらなくなることにある.
+
+二行二列の一般の行列
+$A=\begin{pmatrix}p&q\\r&s\end{pmatrix}$
+でも,$(\lambda I-A)\boldsymbol u=\boldsymbol0$に零でない解がある条件は
+\[
+ \begin{aligned}
+ \det(\lambda I-A)
+ &=(\lambda-p)(\lambda-s)-qr\\
+ &=\lambda^2-(p+s)\lambda+ps-qr=0.
+ \end{aligned}
+\]
+この方程式を行列$A$の\textbf{特性方程式}という.
+行列式が0であることは,対応する連立一次方程式に零でない解があることを意味する.
+前節の行列式を使えば,和と差を思い付かない場合も固有値を探せる.
+ここで求めるのは,不動点の値ではなく各方向の倍率である.
+
+
+\subsection{対角化は更新の分離}\label{節：対角化は更新の分離}
 
 固有ベクトルを列に並べた
 \[
@@ -75,39 +102,7 @@ $D^m$では対角成分を$m$乗するだけでよい.
 一般の二成分でも,\,二つの異なる実固有値があれば実数の範囲で対角化できる.
 異なる固有値の固有ベクトルが比例すると,\,同じ零でないベクトルに異なる倍率を指定することになり矛盾するからである.
 固有値が非実数の場合は,\,実数の二方向には分けられない.
-その場合を第3章で平面の回転として扱う.
-
-\subsection{分離できないとき}
-
-対角化できるために必要なのは,\,状態を一意に表せるだけの固有ベクトルである.
-例えば
-\[
- A=\begin{pmatrix}r&1\\0&r\end{pmatrix}
-\]
-では,\,固有値は$r$だけである.
-$(A-rI)\begin{pmatrix}x\\y\end{pmatrix}=\boldsymbol0$から$y=0$となるため,\,固有方向は一本しかない.
-二成分の状態全体を固有ベクトルだけでは表せない.
-
-しかし,\,この表示のままでも
-\[
- y_{n+1}=ry_n,\qquad x_{n+1}=rx_n+y_n
-\]
-と順に解ける.
-$r\ne0$では
-\[
- \begin{aligned}
- y_n&=r^{n-1}y_1,\\
- x_n&=r^{n-1}x_1+(n-1)r^{n-2}y_1.
- \end{aligned}
-\]
-これは\sectionref{節：重解と足し算}と同じ蓄積である.
-$r=0$では二回の更新で両成分が零になる.
-
-\begin{bookpoint}
-対角化できれば各成分が独立する.
-できない場合にも,\,ある成分から別の成分への寄与を順に追えることがある.
-等比的な倍率に重なる多項式は,\,その寄与の蓄積を表す.
-\end{bookpoint}
+その場合は\chapterref{章：複素平面と漸化式}で平面の回転として扱う.
 
 \subsection{多くの数列を同時に追う}
 
@@ -142,44 +137,4 @@ $r=0$では二回の更新で両成分が零になる.
 一般に$d$個の数列を$\boldsymbol z_n$にまとめれば,
 $d$行$d$列の行列で$\boldsymbol z_{n+1}=A\boldsymbol z_n$と書ける.
 $d$本の一次独立な固有ベクトルがあれば,\,それらを基底にして$d$個の等比型へ分けられる.
-次節の高階漸化式も,\,こうした連立更新の特別な場合に当たる.
-
-\subsection{定数項がある連立漸化式}
-
-定数ベクトル$\boldsymbol b$が加わる
-\[
- \boldsymbol z_{n+1}=A\boldsymbol z_n+\boldsymbol b
-\]
-では,\,まず不動点$\boldsymbol z_*$を探す.
-もし
-\[
- \boldsymbol z_*=A\boldsymbol z_*+\boldsymbol b
-\]
-を満たせば,$\boldsymbol e_n=\boldsymbol z_n-\boldsymbol z_*$
-によって
-\[
- \boldsymbol e_{n+1}=A\boldsymbol e_n
-\]
-に戻る. 一つの数を更新する特性方程式型と同じ発想である.
-
-例えば
-\[
- \begin{aligned}
- x_{n+1}&=2x_n+y_n+1,\\
- y_{n+1}&=x_n+2y_n+1
- \end{aligned}
-\]
-の不動点は$(0,-1)$である.
-$u_n=x_n,\,v_n=y_n+1$と置けば,\,定数項のない冒頭の連立式に戻る.
-ただし不動点が存在するとは限らず,\,複数ある場合もある.
-その有無は$(I-A)\boldsymbol z_*=\boldsymbol b$という連立方程式で確かめる.
-
-不動点が見つからなくても,\,一定成分1を加えれば
-\[
- \begin{pmatrix}\boldsymbol z_{n+1}\\1\end{pmatrix}
- =
- \begin{pmatrix}A&\boldsymbol b\\0&1\end{pmatrix}
- \begin{pmatrix}\boldsymbol z_n\\1\end{pmatrix}
-\]
-と書ける. 右下の0は,\,必要な個数の零を横に並べた部分を表す.
-次節では,\,さらに多くの成分を持つ更新へ進む.
+\chapterref{章：隣接多項間漸化式}の隣接多項間漸化式も,\,こうした連立更新の特別な場合に当たる.

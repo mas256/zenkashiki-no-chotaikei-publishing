@@ -1,0 +1,40 @@
+\section{成分の比を追う}\label{節：成分の比を追う}
+
+一次分数型
+\[
+ a_{n+1}=\frac{pa_n+q}{ra_n+s}
+\]
+を考える. 本章では係数は実数,$r\ne0$,$ps-qr\ne0$とする.
+まず二つの数の比として$a_n$を記録してみよう.
+$(x_1,y_1)=(a_1,1)$から
+\[
+ \begin{pmatrix}x_{n+1}\\y_{n+1}\end{pmatrix}
+ =M\begin{pmatrix}x_n\\y_n\end{pmatrix},
+ \qquad
+ M=\begin{pmatrix}p&q\\r&s\end{pmatrix}
+\]
+と更新すれば,
+\[
+ \frac{x_{n+1}}{y_{n+1}}
+ =\cfrac{p\cfrac{x_n}{y_n}+q}{r\cfrac{x_n}{y_n}+s}.
+\]
+従って,\,分母が非零の範囲では$a_n=\frac{x_n}{y_n}$となる.
+一次の連立更新を比として記録すると,一次分数型が生まれるのである.
+
+二つの成分を同じ非零数で倍しても比は変わらない.
+長さと矢印の正負を区別せず,\,原点を通る直線としての方向を記録するこの考え方を,\,\textbf{射影的な見方}という.
+分母$y_n=0$は,\,成分比を有限の実数で記録できなくなる方向に当たる.
+元の実数列で定義できる範囲と,\,行列で状態を追える範囲は区別する.
+
+不動点$\alpha$については
+\[
+ M\begin{pmatrix}\alpha\\1\end{pmatrix}
+ =(r\alpha+s)\begin{pmatrix}\alpha\\1\end{pmatrix}.
+\]
+従って,\,\textbf{不動点は固有値ではなく,\,固有ベクトルの成分比}である.
+対応する固有値は$\lambda_\alpha=r\alpha+s$であり,\,役割が異なる.
+\NewFigProjective
+
+
+ただし固有ベクトルの成分比が分かっても,一般の初期値からの比の変化はまだ分からない.
+次節では,二つの不動点を基準にすれば等比数列を作れることを確かめる.
