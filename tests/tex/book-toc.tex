@@ -1,0 +1,48 @@
+\documentclass[dvipdfmx,a4paper,10pt,nomag,openany]{jsbook}
+\ifdefined\BookMobile
+  \usepackage[paperwidth=90truemm,paperheight=160truemm,margin=8truemm]{geometry}
+\else
+  \usepackage[margin=20truemm]{geometry}
+\fi
+\usepackage{etoolbox}
+\usepackage[dvipdfmx,bookmarksopen,linktoc=all,hidelinks]{hyperref}
+\usepackage{pxjahyper}
+\newif\ifbooktermcues
+\input{tex/book-toc.tex}
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+\pagestyle{empty}
+\begin{document}
+\tableofcontents
+\clearpage
+\chapter{章}
+\paragraphbf{章直下}
+\section{節}
+\paragraphbf{節直下}
+\subsection{項}
+\paragraphbf{項直下}
+\subsubsection{小項}
+\paragraphbf{小項直下}
+\paragraphbf{続く小見出し}
+\paragraphbf{2つの解の和で表せる理由}
+\paragraphbf[目次用の短い題]{本文用の長い題}
+\section*{番号なしの節}
+\paragraphbf{番号なしの節直下}
+\section{次の節}
+\paragraphbf{次の節直下}
+\chapter{次の章}
+\paragraphbf{次の章直下}
+% 画像の不具合を小さな幅で再現する。目次と同じ描画処理を通す。
+\clearpage
+\begingroup
+  \makeatletter
+  \jsc@tocl@width=2zw
+  \textwidth=\dimexpr\jsc@tocl@width+10.683zw+7zw+\@tocrmarg\relax
+  \ifdefined\BookMobile
+    \textwidth=\dimexpr4zw+7zw+\@tocrmarg\relax
+  \fi
+  \hsize=\textwidth
+  \l@bookparagraphparagraph{【2つの解の和で表せる理由】}{94}
+  \makeatother
+\endgroup
+\end{document}
