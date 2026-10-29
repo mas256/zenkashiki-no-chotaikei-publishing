@@ -1,0 +1,127 @@
+\section{定数項のある漸化式}\label{節：定数項のある漸化式}
+\subsection{不動点からのずれを追う}
+
+まず
+\[
+ a_1=1,\qquad a_{n+1}=2a_n+1
+\]
+を考える. 項は$1,3,7,15,\ldots$と進む.
+毎回1を足すため,\,元の数列は等比数列ではない.
+しかし,\,各項に1を加えると
+\[
+ a_{n+1}+1=2(a_n+1)
+\]
+となる. $b_n=a_n+1$は初項2,\,公比2の等比数列だから
+\[
+ b_n=2^n,\qquad a_n=2^n-1.
+\]
+
+なぜ1を加えるのだろうか.
+更新$f(x)=2x+1$で変わらない値を探すと,
+$\alpha=2\alpha+1$から$\alpha=-1$となる.
+このような$f(\alpha)=\alpha$を満たす値を\textbf{不動点}という.
+先ほど追った$a_n+1$は,\,不動点からのずれ$a_n-\alpha$であった.
+
+一般に
+\[
+ a_{n+1}=pa_n+q,\qquad p\ne1
+\]
+では,$\alpha=\frac{q}{1-p}$が不動点になる.
+二つの式を引けば
+\[
+ a_{n+1}-\alpha=p(a_n-\alpha).
+\]
+従って
+\[
+ a_n=\alpha+p^{n-1}(a_1-\alpha).
+\]
+ただし$p=0$では,$n=1$は初項そのものを読み,
+$n\ge2$では$a_n=q$とする.
+零の零乗を計算する必要はない.
+
+\NewFigFixed
+原点を$\alpha$へ移せば,\,毎回の更新は$p$倍だけになる.
+$p<0$なら向きが反転する.
+$|p|<1$ならずれは零に近づき,\,数列は$\alpha$へ収束する.
+$|p|>1$では,\,不動点から出発する場合を除いてずれの絶対値が増大する.
+$p=-1$なら,\,不動点を挟んだ二つの値を交互に取る.
+式変形は,\,数直線上の動きも説明していたのである.
+
+\subsection{定数項も一つの成分にする}
+
+この更新を行列で書くため,\,変化しない数1をもう一つの成分に加える.
+\[
+ \boldsymbol x_n=\begin{pmatrix}a_n\\1\end{pmatrix},
+ \qquad
+ A=\begin{pmatrix}p&q\\0&1\end{pmatrix}
+\]
+とすれば
+\[
+ \boldsymbol x_{n+1}=A\boldsymbol x_n.
+\]
+下の成分は常に1で,\,上の成分だけが元の規則に従う.
+記録する成分を一つ増やすと,\,定数の足し算も行列の積に含められる.
+
+$p\ne1$では
+\[
+ \begin{pmatrix}a_n\\1\end{pmatrix}
+ =\begin{pmatrix}\alpha\\1\end{pmatrix}
+ +(a_n-\alpha)\begin{pmatrix}1\\0\end{pmatrix}.
+\]
+前者は更新しても変わらず,\,後者の方向は$p$倍になる.
+つまり,\,不動点とずれを分ける解法は,\,\textbf{変化の倍率が異なる二方向への分解}だった.
+
+$p=1$の場合も行列の表示は使える.
+\[
+ \begin{pmatrix}1&q\\0&1\end{pmatrix}^{m}
+ =\begin{pmatrix}1&mq\\0&1\end{pmatrix}
+\]
+なので,$a_n=a_1+(n-1)q$となる.
+$q\ne0$では不動点がなく,\,ずれの倍率だけには直せない.
+足し算が積み重なって$n$が現れることを覚えておこう.
+
+\subsection{定数項がある連立漸化式}
+
+定数ベクトル$\boldsymbol b$が加わる
+\[
+ \boldsymbol z_{n+1}=A\boldsymbol z_n+\boldsymbol b
+\]
+では,\,まず不動点$\boldsymbol z_*$を探す.
+もし
+\[
+ \boldsymbol z_*=A\boldsymbol z_*+\boldsymbol b
+\]
+を満たせば,$\boldsymbol e_n=\boldsymbol z_n-\boldsymbol z_*$
+によって
+\[
+ \boldsymbol e_{n+1}=A\boldsymbol e_n
+\]
+に戻る. 一つの数を更新する場合と同じように,不動点からのずれを追っている.
+
+例えば
+\[
+ \begin{aligned}
+ x_{n+1}&=2x_n+y_n+1,\\
+ y_{n+1}&=x_n+2y_n+1
+ \end{aligned}
+\]
+の不動点は$(0,-1)$である.
+$u_n=x_n,\,v_n=y_n+1$と置けば,\,定数項のない冒頭の連立式に戻る.
+ただし不動点が存在するとは限らず,\,複数ある場合もある.
+その有無は$(I-A)\boldsymbol z_*=\boldsymbol b$という連立方程式で確かめる.
+
+不動点が見つからなくても,\,一定成分1を加えれば
+\[
+ \begin{pmatrix}\boldsymbol z_{n+1}\\1\end{pmatrix}
+ =
+ \begin{pmatrix}A&\boldsymbol b\\0&1\end{pmatrix}
+ \begin{pmatrix}\boldsymbol z_n\\1\end{pmatrix}
+\]
+と書ける. 右下の0は,\,必要な個数の零を横に並べた部分を表す.
+次章では,隣り合う項を成分に選び,一つの数列を連立漸化式として調べる.
+
+
+\begin{bookpoint}
+一つの数でも複数の数でも,不動点を引けば定数項が消える.
+不動点を持たない場合にも,一定成分1を加えれば行列で更新できる.
+\end{bookpoint}

@@ -185,6 +185,7 @@
 \setcounter{secnumdepth}{4}
 
 \input{../tex/book-links.tex}
+\input{../tex/book-toc.tex}
 % 用語の初出表示・巻末の参照案内・式番号のリンクは共通設定で扱う。
 
 \hypersetup{
@@ -362,5 +363,6 @@
 % 両版のログから、はみ出した式の入力ファイルを特定する。
 \AddToHook{file/before}{\typeout{BOOK-BEGIN:\CurrentFilePath\CurrentFile}}
 \AddToHook{file/after}{\typeout{BOOK-END:\CurrentFilePath\CurrentFile}}
+
 
 

@@ -1,0 +1,188 @@
+\section{不動点からの差の比}\label{節：不動点からの差の比}
+\subsection{商は長さの比と角度の差}
+
+二点$\alpha,\beta$を基準にして,\,点$z$の位置を
+\[
+ w=\frac{z-\alpha}{z-\beta}\qquad(z\ne\beta)
+\]
+で記録してみよう.
+絶対値は
+\[
+ |w|=\frac{|z-\alpha|}{|z-\beta|}
+\]
+だから,\,二つの基準点からの距離の比を表す.
+$z\ne\alpha$なら偏角は,ベクトル$z-\beta$から$z-\alpha$への有向角である.
+二つの矢印を同じ始点に平行移動して角度を比較してもよい.
+$z=\alpha$では$w=0$となり,偏角は定めない.
+\NewFigRatio
+
+この比が一定倍率で変わるなら,\,距離の比と角度の差の変化を同時に追える.
+この比を使って,一次分数型の更新を簡単にしよう.
+
+\begin{bookpoint}
+複素数の積は\textbf{倍率と回転角}をまとめて記録する.
+複素数の商は\textbf{長さの比と角度の差}をまとめて記録する.
+\end{bookpoint}
+
+\subsection{二つの不動点を使う}
+
+次の項が
+\[
+ a_{n+1}=f(a_n),\qquad
+ f(z)=\frac{pz+q}{rz+s}
+\]
+によって決まる場合を考える.
+この形の$f$を\textbf{一次分数変換}という.
+本節では係数は実数,$r\ne0$,$ps-qr\ne0$とし,\,元の更新で分母が零にならない範囲を扱う.
+$r=0$なら$a_{n+1}=Aa_n+B$の形へ戻り,$ps-qr=0$なら定義できる入力で右辺が定数になるため,\,別に調べればよい.
+
+不動点$\alpha$は
+\[
+ \alpha=\frac{p\alpha+q}{r\alpha+s}
+\]
+を満たすので,
+\[
+ r\alpha^2+(s-p)\alpha-q=0
+\]
+から求まる.
+この方程式の根では$r\alpha+s\ne0$である.
+もし零なら,\,元の方程式から$p\alpha+q=0$にもなり,$ps-qr\ne0$に反する.
+
+不動点の式を使って引き算すると
+\[
+ f(z)-\alpha
+ =\frac{(p-r\alpha)(z-\alpha)}{rz+s}.
+\]
+定数項は消えるが,\,まだ分母に$z$が残る.
+ここで,\,異なるもう一つの不動点$\beta$があれば
+\[
+ f(z)-\beta
+ =\frac{(p-r\beta)(z-\beta)}{rz+s}.
+\]
+二式の比を取れば,\,共通の分母が消える.
+\[
+ \frac{f(z)-\alpha}{f(z)-\beta}
+ =\frac{p-r\alpha}{p-r\beta}
+  \frac{z-\alpha}{z-\beta}.
+\]
+つまり
+\[
+ b_n=\frac{a_n-\alpha}{a_n-\beta},\qquad
+ \kappa=\frac{p-r\alpha}{p-r\beta}
+\]
+と置くと,$b_{n+1}=\kappa b_n$である.
+ここで$p-r\alpha,\,p-r\beta$も非零である.
+実際,\,不動点の式から
+$(p-r\alpha)(r\alpha+s)=ps-qr$となる.
+
+初項が不動点なら定数列として先に扱う.
+$a_1\ne\beta$なら,\,上の差の式から$a_n\ne\beta$が続くため,\,比を取れる.
+解いた後は
+\[
+ b_n=b_1\kappa^{n-1},\qquad
+ a_n=\frac{\beta b_n-\alpha}{b_n-1}
+\]
+で元へ戻す.
+$b_n=1$になる場合は有限の$a_n$へ戻せず,\,元の更新もその項まで実数列としては定義できない.
+
+\begin{bookpoint}
+一つの不動点を引くと定数項が消える.
+二つの不動点からの差の比を取ると,\,残った共通の分母も消える.
+置き換えは,\,消したい部分に合わせて組み立てられる.
+\end{bookpoint}
+
+\noindent\textbf{【例題】}\par\nobreak
+$a_1=3$,$a_{n+1}=\frac{2a_n+1}{a_n+2}$を解け.
+
+\noindent\textbf{【方針】}\par\nobreak
+不動点1と$-1$からの差の比を取ります.
+
+\noindent\textbf{【解答】}\par\nobreak
+\[
+ a_n=\frac{2\cdot3^{n-1}+1}{2\cdot3^{n-1}-1}.
+\]
+\noindent\textbf{【解法】}\par\nobreak
+$b_n=\frac{a_n-1}{a_n+1}$とすると
+$b_{n+1}=\frac13b_n$,$b_1=\frac12$である.
+従って$b_n=\frac1{2\cdot3^{n-1}}$となり,
+$a_n=\frac{1+b_n}{1-b_n}$から答えを得る.
+分母は正で,\,各項も正なので元の分母$a_n+2$は零にならない.
+また$b_n\to0$だから$a_n\to1$となる.
+不動点からの距離そのものではなく,\,二つの差の比が縮小していた.
+
+\subsection{不動点が重なる場合}
+
+不動点の方程式が重解$\alpha$を持つと,\,異なる二つの差を作れない.
+この場合は
+\[
+ 2r\alpha=p-s,\qquad
+ p-r\alpha=r\alpha+s=\ell
+\]
+となり,$\ell\ne0$である.
+$u_n=a_n-\alpha$と置くと
+\[
+ u_{n+1}=\frac{\ell u_n}{ru_n+\ell}.
+\]
+初項が不動点の場合を除き,\,逆数を取って
+\[
+ \frac1{u_{n+1}}=\frac1{u_n}+\frac r\ell
+\]
+という等差型へ直せる.
+二つの固有方向が分かれない場合に足し算が残った\sectionref{節：重解で現れる足し算}と同じように,等比的な変化だけでは捉えられない足し算が残った.
+
+例えば
+\[
+ a_1=5,\qquad a_{n+1}=\frac{4a_n-9}{a_n-2}
+\]
+では$\alpha=3$であり,
+\[
+ \frac1{a_{n+1}-3}=\frac1{a_n-3}+1.
+\]
+従って$a_n=3+\frac2{2n-1}$となる.
+この例では$a_n>3$が保たれ,\,元の分母も非零である.
+
+\subsection{差の比は固有成分の比}
+
+異なる二つの不動点$\alpha,\beta$に対し,\,状態を
+\[
+ \begin{pmatrix}x_n\\y_n\end{pmatrix}
+ =c_n\begin{pmatrix}\alpha\\1\end{pmatrix}
+ +d_n\begin{pmatrix}\beta\\1\end{pmatrix}
+\]
+と分ける. 固有値を$\lambda_\alpha,\lambda_\beta$とすれば
+\[
+ c_{n+1}=\lambda_\alpha c_n,\qquad
+ d_{n+1}=\lambda_\beta d_n.
+\]
+成分を比較すると
+\[
+ x_n-\alpha y_n=(\beta-\alpha)d_n,
+\]
+\[
+ x_n-\beta y_n=(\alpha-\beta)c_n.
+\]
+従って,\,比が定義できる場合には
+\[
+ \frac{a_n-\alpha}{a_n-\beta}=-\frac{d_n}{c_n}
+\]
+となり,\,その公比は$\frac{\lambda_\beta}{\lambda_\alpha}$である.
+不動点の和$r(\alpha+\beta)=p-s$から
+\[
+ \lambda_\beta=p-r\alpha,\qquad
+ \lambda_\alpha=p-r\beta
+\]
+なので,\,前の一次分数型の公比と一致する.
+
+本節でも$r\ne0,\,ps-qr\ne0$を仮定する.
+このとき$M$は逆行列を持ち,\,固有値も非零である.
+不動点を初項とする定数列を除けば,\,必要な成分比を取り続けられる.
+元の更新の分母が零にならない条件は別に確かめる.
+
+実係数で不動点が共役な非実数なら,\,固有値も共役である.
+両者は絶対値が等しいため,\,\textbf{比を取ると共通の拡大率が消えて回転だけが残る}.
+\sectionref{節：隣接3項間漸化式と回転}では回転に拡大・縮小が伴った. 次節で扱う一次分数型の円周上の座標では,成分比を取ることで共通の倍率が消える.
+
+不動点が重なる場合は,\,行列も二つの固有方向に分けられない.
+$r\ne0$だから$M$は単位行列の定数倍ではなく,\,固有方向は一本になる.
+その寄与の蓄積を比で読み直すと,\,逆数を取った等差型が現れる.
+隣接3項間漸化式の重解と,一次分数型の重なった不動点は,同じ行列の性質から生じている.
