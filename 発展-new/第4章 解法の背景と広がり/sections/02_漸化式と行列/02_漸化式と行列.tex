@@ -66,7 +66,7 @@ $(u,v)A=\lambda(u,v)$なら,$c_{n+1}=\lambda c_n$となる.
 異なる2つの固有値があれば,取り出した2つの量から$a_n,b_n$を求め直せる.
 
 \subsubsection{座標軸を回すことと,点を回すこと}
-先ほどの例で$(1,1)$と$(1,-1)$の向きを新しい座標軸にすると,座標軸を$\frac{\pi}{4}$回して見ることになる.
+先ほどの例で$(1,1)$と$(-1,1)$の向きを新しい座標軸の正方向にすると,座標軸を$\frac{\pi}{4}$回して見ることになる.
 \BookFigSystem
 回転行列
 \[
@@ -76,7 +76,9 @@ $(u,v)A=\lambda(u,v)$なら,$c_{n+1}=\lambda c_n$となる.
     1&1
   \end{pmatrix}
 \]
-で新しい座標$\boldsymbol w_n=Q^{\mathsf T}\boldsymbol z_n$を作ると,$Q^{\mathsf T}Q=QQ^{\mathsf T}=I$より$\boldsymbol z_n=Q\boldsymbol w_n$と戻せて,
+で新しい座標$\boldsymbol w_n=Q^{\mathsf T}\boldsymbol z_n$を作る.
+図の軸に示したその成分$w_{1,n},w_{2,n}$は,それぞれ和$x_n+y_n$と差$y_n-x_n$を$\sqrt2$で割ったものである.
+$Q^{\mathsf T}Q=QQ^{\mathsf T}=I$より$\boldsymbol z_n=Q\boldsymbol w_n$と戻せて,
 \[
   \boldsymbol w_{n+1}
   =Q^{\mathsf T}AQ\boldsymbol w_n,
@@ -557,7 +559,7 @@ $(x_1,y_1)=(1,0)$なら,それぞれ$2^{n-1}$倍,$(-1)^{n-1}$倍して戻すと
   \item 直前の$k$項を状態にすれば,ベクトルについての隣接2項間の漸化式$\boldsymbol v_{n+1}=M\boldsymbol v_n$になる.
   \item 固有ベクトルは$(\lambda^{k-1},\ldots,\lambda,1)$の形であり,固有値の方程式は$a_n=\lambda^n$を代入して得る特性方程式と一致する.
   \item 特性方程式が異なる解をちょうど$k$個持てば,一般項はそれらの累乗の線形結合になる.
-  \item 解が重なれば固有ベクトルが足りず,\sectionref*{節：差分で線形漸化式を解く}のように累乗で割ってから差分を取る.
+  \item 解が重なれば固有ベクトルが足りない.0でない解が重なるときは,\sectionref*{節：差分で線形漸化式を解く}のようにその累乗で割ってから差分を取る.0が重解のときは,同節で見るように累乗で割らず別に扱う.
 \end{itemize}
 どれだけ項数が増えても,行列を公比のように見て,掛けても定数倍になる向きを探す,という考え方は変わらないのである.
 
