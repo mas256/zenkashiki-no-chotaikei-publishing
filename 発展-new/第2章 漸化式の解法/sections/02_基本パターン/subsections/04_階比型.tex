@@ -38,7 +38,8 @@
       &\qquad \vdots\\
       &=a_1\prod_{k=1}^{n-1} f(k)
     \end{align*}
-    この積による表示は$f(k)=0$となる場合も成り立つ.\footnote{何も掛けられていない時は$1$とする.}
+    この積による表示は,$f(k)=0$となる場合も成り立つ.
+    また$n=1$では何も掛けないので積を$1$とし,この式は初項にも成り立つ.
     \begin{bookpoint}
       \textbf{POINT}\par
       掛ける値が一定でなくとも,原理は一緒.第$n$項に至るまでに,$f(1),f(2),\ldots,f(n-1)$の$n-1$個が順に掛けられる.
@@ -51,8 +52,9 @@
     \[
       n,\, n(n+1), \,(n+1)(n+2)
     \]
-    のような式の場合は,その式の階乗で両辺を割ると解ける場合がある.
-    例えば
+    のような式の場合は,その式を作る1次式それぞれの階乗を掛け合わせたもので両辺を割ると解ける場合がある.
+    例えば$f(n)=n(n+1)$なら$n!(n+1)!$で割る.
+    まずは簡単な
     \[
       a_1=1,\,a_{n+1}=(n+1)a_n
     \]
@@ -70,7 +72,7 @@
       &\therefore \quad \frac{a_{n}}{n!}=\frac{a_1}{1!}\\
       &\therefore \quad a_n=n!
     \end{align*}
-    となる.\footnote{この式で一定になった量と補助数列の関係は\sectionref{節：定数型}で扱う.}
+    となる.\footnote{この式で一定になった量$\frac{a_n}{n!}$を新しい数列と見る考え方は\sectionref{節：定数型}で扱う.}
     また,このことについてより一般に書けば,$a_{n+1}=f(n)a_n$について,
     \[
       \frac{g(n+1)}{g(n)}=\frac{1}{f(n)}
@@ -104,7 +106,7 @@
   \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-ratio-1}{hint}{answer}]
     \item ラージパイを使って処理するか,$n!$で割ってみましょう.
     \item 階乗以外で割ることもあります.上手く$n$が$n+1$になると$g(n)$も$g(n+1)$になるような$g$を探しましょう.
-    \item (1)と同じように階乗で割ってみたいですが,うまくいきません.$n$に依存する関数で割ってみましょう.
+    \item (1)のように1つの階乗で割るだけではうまくいきません.階乗を2つ掛けたもので割ってみましょう.
   \end{enumerate}
   
   \noindent\bookblocklink{example-ratio-1}{answer}{solution}{【解答】}\par\nobreak
