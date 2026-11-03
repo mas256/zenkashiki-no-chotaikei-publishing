@@ -89,18 +89,18 @@ $A(x)$の係数を比べると
   (1+px+qx^2)A(x)=a_0+(a_1+pa_0)x.
 \]
 次数$2$以上の係数が\bookterm{recurrence}{漸化式}によってすべて0になるので,初期値の部分だけが右辺に残る.
-\bookterm{characteristic}{特性方程式}$\lambda^2+p\lambda+q=0$の根を$\lambda_1,\lambda_2$とすると
+\bookterm{characteristic}{特性方程式}$\lambda^2+p\lambda+q=0$の解を$\lambda_1,\lambda_2$とすると
 \[
   1+px+qx^2=(1-\lambda_1x)(1-\lambda_2x).
 \]
-異なる0でない根の場合,\bookterm{partial}{部分分数分解}して
+異なる0でない解の場合,\bookterm{partial}{部分分数分解}して
 \[
   A(x)=\frac{C}{1-\lambda_1x}
   +\frac{D}{1-\lambda_2x}
 \]
 と書ける.
 $\frac{1}{1-\lambda x}=\sum_{n=0}^\infty\lambda^n x^n$の係数を比べれば,$a_n=C\lambda_1^n+D\lambda_2^n$となり,本編の\bookterm{general}{一般項}と同じ形が得られる.
-根の一つが0の場合も扱えるが,そのときは多項式の部分を分けて係数を読めばよい.
+解の一つが0の場合も扱えるが,そのときは多項式の部分を分けて係数を読めばよい.
 
 重解$r\ne0$の場合には分母が$(1-rx)^2$になる.
 二つの等比級数を掛けると,$x^n$の係数は
@@ -129,7 +129,7 @@ $\frac{1}{1-\lambda x}=\sum_{n=0}^\infty\lambda^n x^n$の係数を比べれば,$
 \]
 となる.
 ここで $\sim$ は,二つの量の比が $1$ に近づくという意味である.
-大きい絶対値の根が増大を支配する.同じ根を分母から読むことで,\bookterm{generating}{母関数}からも長期的な増大が読み取れる.
+絶対値の大きい解が増大を支配する.同じ解を分母から読むことで,\bookterm{generating}{母関数}からも長期的な増大が読み取れる.
 
 \subsection{畳み込みと積}
 次は,項どうしを掛けて足す\bookterm{convolution}{畳み込み}を,数え上げの問題で使う.
