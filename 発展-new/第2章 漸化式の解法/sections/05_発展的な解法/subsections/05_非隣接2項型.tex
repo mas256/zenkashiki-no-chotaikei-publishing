@@ -1,5 +1,5 @@
 % BOOK-FILE-ID: f-ff87377cd31b
-\subsection{非隣接2項型}\label{節：非隣接2項型}
+\subsection{非隣接2項間型}\label{節：非隣接2項型}
   今までの漸化式は,隣り合う項どうしの関係であったが,1つ飛ばしの項どうしの関係はどうだろうか.
   一般的な形を
   \[
@@ -37,24 +37,24 @@
     \[
       a_{n+2}=4a_n
     \]
-    のような漸化式は,$a_{n+1}$の係数を$0$と見ることで隣接3項型としても解ける.
+    のような漸化式は,$a_{n+1}$の係数を$0$と見ることで隣接3項間型としても解ける.
   
-  \noindent \bookblocklink{example-nonadjacent-1}{problem}{answer}{【例題】}\par\nobreak
-  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-nonadjacent-1}{problem}{answer}]
+  \noindent \bookblocklink{example-nonadjacent-1}{problem}{hint}{【例題】}\par\nobreak
+  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-nonadjacent-1}{problem}{hint}]
     \item $a_1=2,\,a_2=3,\,a_{n+2}=a_n^2$
     \item $a_1=1,\,a_2=2,\,a_{n+2}=2a_n+1$
     \item $a_1=1,\,a_2=3,\,a_{n+2}=4a_n$
   \end{enumerate}
   
-  \noindent\bookblocklink{example-nonadjacent-1}{hint}{problem}{【方針】}\par\nobreak
-  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-nonadjacent-1}{hint}{problem}]
+  \noindent\bookblocklink{example-nonadjacent-1}{hint}{answer}{【方針】}\par\nobreak
+  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-nonadjacent-1}{hint}{answer}]
     \item 奇数番目と偶数番目を別々の\bookterm{sequence}{数列}とみなし,それぞれの二乗関係を調べます.
     \item $b_n=a_n+1$とおいて定数項を消してから,奇数番目と偶数番目に分けます.
     \item $a_{n+2}=0\cdot a_{n+1}+4a_n$と見て,\bookterm{characteristic}{特性方程式}を解きます.
   \end{enumerate}
   
-  \noindent\bookblocklink{example-nonadjacent-1}{answer}{problem}{【解答】}\par\nobreak
-  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-nonadjacent-1}{answer}{problem}]
+  \noindent\bookblocklink{example-nonadjacent-1}{answer}{solution}{【解答】}\par\nobreak
+  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-nonadjacent-1}{answer}{solution}]
     \item $a_{2k-1}=2^{\,2^{k-1}},\quad a_{2k}=3^{\,2^{k-1}}\quad(k\ge1)$
     \item $a_{2k-1}=2^k-1,\quad a_{2k}=3\cdot2^{k-1}-1\quad(k\ge1)$
     \item $a_n=\frac54\,2^{n-1}-\frac14\,(-2)^{n-1}$
@@ -129,7 +129,7 @@
   
   \paragraphbf{1周期への拡張}
   $a_{n+1}=p_na_n+q_n$の係数が周期$L$をもつなら,
-  $x_k=a_{1+kL}$ $(k\ge0)$と置き,$x_0=a_1$から一周期分を合成する.
+  $x_k=a_{1+(k-1)L}$ $(k\ge1)$と置き,$x_1=a_1$から一周期分を合成する.
   \[
     x_{k+1}=Px_k+Q
   \]
@@ -137,7 +137,7 @@
     $P=\prod_{j=1}^L p_j$, $Q=\sum_{j=1}^L q_j\prod_{i=j+1}^L p_i$である.空積は$1$とする.
     この表示は係数に$0$を含む場合も成り立つ.}
   途中の項は,元の漸化式を1回ずつ用いて求められる.
-  $P=0$なら$x_k=Q$ $(k\ge1)$,$P=1$なら$x_k=x_0+kQ$である.
+  $P=0$なら$x_k=Q$ $(k\ge2)$,$P=1$なら$x_k=x_1+(k-1)Q$である.
   それ以外は,\sectionref*{節：特性方程式型}と同じく不動点からの差を取る.
   
   \begin{bookpoint}

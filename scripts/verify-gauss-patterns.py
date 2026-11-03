@@ -36,8 +36,8 @@ def verify_sources():
         assert source.count('\\subsubsection{') == 1
         assert source.count('\\begin{enumerate}') == 4
         assert len(re.findall(r'^\s*\\item\b',source,re.M)) == 4
-        for role,dest in [('problem','answer'),('hint','problem'),
-                          ('answer','problem'),('solution','problem')]:
+        for role,dest in [('problem','hint'),('hint','answer'),
+                          ('answer','solution'),('solution','problem')]:
             assert f'\\bookblocklink{{{pid}}}{{{role}}}{{{dest}}}' in source
             assert f'\\bookitemlink{{{pid}}}{{{role}}}{{{dest}}}' in source
             ids.append(f'{pid}:{role}')

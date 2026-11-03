@@ -3,7 +3,7 @@
 
 \subsection{\texorpdfstring{階差型  $a_{n+1}=a_n+f(n)$}{階差型}}\label{節：階差型}
 
-  等差型では定数が足されていたが,$f(n)$のような関数\footnote{$f(n)$は$n$に関する数だけで作られた式を意味する.,$f(a_n)$や$f(n)=a_n+1$のように未知の項の値に依存する場合は別の手法が必要になる.}が足されている場合はどうなるだろうか.
+  等差型では定数が足されていたが,$f(n)$のような関数\footnote{$f(n)$は$n$に関する数だけで作られた式を意味する.$f(a_n)$や$f(n)=a_n+1$のように未知の項の値に依存する場合は別の手法が必要になる.}が足されている場合はどうなるだろうか.
   \paragraphbf{シグマの導入}
     ここで便利のため,\bookterm{sigma}{シグマ}という記号を導入する.
     シグマはギリシャ文字の一つで$\sum$と書く.
@@ -12,7 +12,7 @@
       \sum_{k=1}^{n}f(k)=f(1)+f(2)+\cdots+f(n)
     \]
     を表す.
-    日本語にすれば$f(1)$から$f(n)$まで,$k$を1づつ動かしながら足し合わせていった結果の値を表す.
+    日本語にすれば$f(1)$から$f(n)$まで,$k$を1ずつ動かしながら足し合わせていった結果の値を表す.
     $k$は和の中で動く番号で,$n$は和の上端である.
     記号の性質は\sectionref*{節：シグマの計算}で確認できる.
   \paragraphbf{解法の議論}  
@@ -42,24 +42,24 @@
       足す値が一定でなくとも,原理は一緒.第$n$項に至るまでに,階差$f(1),\ldots,f(n-1)$の$n-1$個が足される.
     \end{bookpoint}
     
-  \noindent \bookblocklink{example-difference-1}{problem}{answer}{【例題】}\par\nobreak
-  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-difference-1}{problem}{answer}]
+  \noindent \bookblocklink{example-difference-1}{problem}{hint}{【例題】}\par\nobreak
+  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-difference-1}{problem}{hint}]
     \item $a_1=1,\, a_{n+1}=a_n+n$
     \item $a_1=1,\, a_{n+1}=a_n+2^n$
     \item $a_1=0,\, a_{n+1}=a_n+\frac{1}{n(n+1)}$
     \item $a_1=1,\, a_{n+1}=a_n+(n+1)^2$
   \end{enumerate}
   
-  \noindent\bookblocklink{example-difference-1}{hint}{problem}{【方針】}\par\nobreak
-  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-difference-1}{hint}{problem}]
+  \noindent\bookblocklink{example-difference-1}{hint}{answer}{【方針】}\par\nobreak
+  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-difference-1}{hint}{answer}]
     \item 階差を書き下して足し合わせ,等差数列の和を使います.
     \item 指数の階差も同じように足し合わせます.等比数列の和を使います.
     \item \bookterm{sigma}{シグマ}は\bookterm{partial}{部分分数分解}で処理しましょう.
     \item 初項の$1$も含めると,$1^2+2^2+\cdots+n^2$という平方の和になります.
   \end{enumerate}
   
-  \noindent\bookblocklink{example-difference-1}{answer}{problem}{【解答】}\par\nobreak
-  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-difference-1}{answer}{problem}]
+  \noindent\bookblocklink{example-difference-1}{answer}{solution}{【解答】}\par\nobreak
+  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-difference-1}{answer}{solution}]
     \item $a_n=1+\frac{n(n-1)}{2}$
     \item $a_n=2^n-1$
     \item $a_n=1-\frac{1}{n}$

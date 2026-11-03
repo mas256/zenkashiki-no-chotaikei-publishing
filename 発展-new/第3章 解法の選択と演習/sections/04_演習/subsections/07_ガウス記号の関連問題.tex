@@ -9,7 +9,7 @@
 問3では,取り得る値が無限個ある場合の周期も考える.
 
 \subsubsection{問題}\label{節：ガウス記号の関連問題：問題}
-\begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-gauss}{problem}{answer}]
+\begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-gauss}{problem}{hint}]
   % G1: 境界と繰り上がり
   \item \bookterm{sequence}{数列}を次のように定める.\bookterm{general}{一般項}を求め,\bookterm{difference}{階差}の意味を説明せよ.
     \[
@@ -44,7 +44,7 @@
 \end{enumerate}
 
 \subsubsection{方針}\label{節：ガウス記号の関連問題：方針}
-\begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-gauss}{hint}{problem}]
+\begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-gauss}{hint}{answer}]
   % G1: 境界と繰り上がり
   \item 各差を倍数かどうかの判定として読みます.
     和を取ると,途中の\bookterm{floor}{ガウス記号}が打ち消し合います.
@@ -58,7 +58,7 @@
 \end{enumerate}
 
 \subsubsection{答え}\label{節：ガウス記号の関連問題：答え}
-\begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-gauss}{answer}{problem}]
+\begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-gauss}{answer}{solution}]
   % G1: 境界と繰り上がり
   \item \[
       a_n=\left\lfloor\frac n4\right\rfloor
@@ -114,7 +114,7 @@
       a_n=a_q+r.
     \]
     0の桁の和を0とする.$n=3q+r$の表示は,$q$の最後に$r$を付けたものなので,桁の和も$r$増える.
-    $a_0=0$は0の桁の和に一致する.また,$n$未満のすべての添字で一致すると仮定すれば,$q<n$より$a_q$は$q$の桁の和である.従って$a_n=a_q+r$も$n$の桁の和になる.このように,それより前のすべての場合を仮定する帰納法を,強い帰納法という.
+    $a_0=0$は0の桁の和に一致する.また,$n$未満のすべての添字で一致すると仮定すれば,$q<n$より$a_q$は$q$の桁の和である.従って$a_n=a_q+r$も$n$の桁の和になる.このように,それより前のすべての場合を仮定する帰納法を,\textbf{\bookterm{strong-induction}{強い帰納法}}という.
 
     実際,$14=3\cdot4+2,\ 4=3\cdot1+1,\ 1=3\cdot0+1$なので,
     \[
@@ -123,14 +123,14 @@
     値の意味を読むことも,\bookterm{sequence}{数列}を理解する方法である.
   % G3: 小数部分と回転
   \item $n=0$では予想した式は$a_0=0$を与える.
-    $a_n=n\alpha-\lfloor n\alpha\rfloor$とすると,整数との和の性質から,
+    $a_n=n\alpha-\lfloor n\alpha\rfloor$とすると,整数との和の性質から次の2式が成り立つ.
     \begin{align*}
       \lfloor a_n+\alpha\rfloor
       &=\lfloor(n+1)\alpha\rfloor-\lfloor n\alpha\rfloor,\\
       a_{n+1}
       &=(n+1)\alpha-\lfloor(n+1)\alpha\rfloor.
     \end{align*}
-    より帰納的に答えを得る.各項は$[0,1)$に入る.
+    よって帰納的に答えを得る.各項は$[0,1)$に入る.
 
     $a_{n+T}=a_n\ (T\ge1)$とすると,
     \[
@@ -140,5 +140,6 @@
 
     同じ\bookterm{recurrence}{漸化式}で$\alpha$が有理数$\frac pq\ (0<p<q)$であり,$p,q$が互いに素なら,
     最小周期は$q$となる.$q\alpha$は整数で,$T\alpha$が整数となる正整数$T$は$q$の倍数だからである.
+    逆に$q\alpha$が整数なら$a_{n+q}=a_n$である.
 \end{enumerate}
 

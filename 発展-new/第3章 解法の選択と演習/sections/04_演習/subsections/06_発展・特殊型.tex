@@ -3,6 +3,7 @@
 \sectionref{節：発展的な解法}と\sectionref{節：式の構造を使う}の15題である.
 \bookterm{floor}{ガウス記号}には整数性・余り,多項間の関係には\bookterm{difference}{階差}・\bookterm{characteristic}{特性方程式},
 \bookterm{nonlinear}{非線形}な式には対称式・\bookterm{trigonometric}{三角関数}の恒等式を使う.
+\bookterm{general}{一般項}を求めることに加え,周期・\bookterm{limit}{極限}・項が定義できる条件も調べる.
 候補は\bookterm{initial}{初期条件}と漸化式で確かめ,分母や角度の定義域も確認する.
 問14・問15では初項を動かし,定\bookterm{sequence}{数列}・周期列・有界な\bookterm{sequence}{数列}が現れる条件を調べる.有界や$+\infty$への発散の意味は\sectionref*{節：数列の極限}を参照する.
 以下,特に指定しない限り,$n$は正の整数とする.
@@ -10,7 +11,7 @@ $\lfloor x\rfloor$は$x$を超えない最大の整数を表す.
 周期の最小値とは,すべての添字で$a_{n+p}=a_n$となる正の整数$p$の最小値をいう.
 
 \subsubsection{問題}\label{節：発展・特殊型：問題}
-\begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-special}{problem}{answer}]
+\begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-special}{problem}{hint}]
   % E1: ガウス型・整数の半減
   \item \bookterm{sequence}{数列}$\{a_n\}$を
     \[
@@ -115,7 +116,7 @@ $\lfloor x\rfloor$は$x$を超えない最大の整数を表す.
     ただし,$k$は正の整数とする.
     \par\smallskip\noindent
     (2) $\lim_{n\to\infty}a_n$を求めよ.
-    % E9: 基本対称式型・平行移動して恒等式を使う
+    % E9: 対称式型・平行移動して恒等式を使う
   \item \bookterm{sequence}{数列}$\{a_n\}$を
     \[
       a_1=\frac72,\qquad
@@ -131,7 +132,7 @@ $\lfloor x\rfloor$は$x$を超えない最大の整数を表す.
       \quad(u\ne0)
     \]
     を用いて$a_n$の\bookterm{general}{一般項}を求めよ.
-    % E10: 基本対称式型・三乗の対称式
+    % E10: 対称式型・三乗の対称式
   \item \bookterm{sequence}{数列}$\{a_n\}$を
     \[
       a_1=\frac52,\qquad
@@ -215,63 +216,63 @@ $\lfloor x\rfloor$は$x$を超えない最大の整数を表す.
 \end{enumerate}
 
 \subsubsection{方針}\label{節：発展・特殊型：方針}
-\begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-special}{hint}{problem}]
+\begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-special}{hint}{answer}]
   % E1
   \item 整数を$2$で割った商と余りに分け,
     $\left\lfloor\frac{\lfloor x\rfloor}{2}\right\rfloor
-      =\left\lfloor\frac{x}{2}\right\rfloor$となることを確かめる.
-    初めて$0$になる位置は,$2026$と$2$の累乗を比べればよい.
-    (3)では$b_n-6$を考え,負の数の切り捨てにも注意する.
+      =\left\lfloor\frac{x}{2}\right\rfloor$となることを確かめます.
+    初めて$0$になる位置は,$2026$と$2$の累乗を比べれば分かります.
+    (3)では$b_n-6$を考え,負の数の切り捨てにも注意します.
     % E2
-  \item \bookterm{difference}{階差}を足すと$\sum_{k=1}^{n}\lfloor\frac{k}{3}\rfloor$になる.
-    同じ値を取る添字を三つずつまとめ,最後の群を$r+1$項として数える.
-    $\lfloor\frac{k}{3}\rfloor$は,$x=k$上にある指定範囲の格子点の個数でもある.
+  \item \bookterm{difference}{階差}を足すと$\sum_{k=1}^{n}\lfloor\frac{k}{3}\rfloor$になります.
+    同じ値を取る添字を三つずつまとめ,最後の群を$r+1$項として数えます.
+    $\lfloor\frac{k}{3}\rfloor$は,$x=k$上にある指定範囲の格子点の個数でもあります.
     % E3
-  \item $x-5\lfloor\frac{x}{5}\rfloor$は整数$x$を$5$で割った余りである.
-    項の値が五つに絞れたら,それぞれが次にどの値へ移るかを表にする.
+  \item $x-5\lfloor\frac{x}{5}\rfloor$は整数$x$を$5$で割った余りです.
+    項の値が五つに絞れたら,それぞれが次にどの値へ移るかを表にします.
     % E4
-  \item $d_{n+1}-d_n$を作ると元の\bookterm{recurrence}{漸化式}を移項した式の左辺が現れる.
-    その後,$e_n=a_{n+1}-a_n$を求め,もう一度足して$a_n$へ戻す.
+  \item $d_{n+1}-d_n$を作ると元の\bookterm{recurrence}{漸化式}を移項した式の左辺が現れます.
+    その後,$e_n=a_{n+1}-a_n$を求め,もう一度足して$a_n$へ戻します.
     % E5
-  \item $d_{n+1}-3d_n$を展開すると$0$になる.
-    得られた3項間の式を満たす$3^{n-1}$を引き,残りを解く.
+  \item $d_{n+1}-3d_n$を展開すると$0$になります.
+    得られた3項間の式を満たす$3^{n-1}$を引き,残りを解きます.
     % E6
-  \item \bookterm{characteristic}{特性方程式}の根の絶対値と\bookterm{argument}{偏角}を調べる.
-    最初の二つの項に合う$\sin$の式を作り,実際の値の並びから周期を確かめる.
+  \item \bookterm{characteristic}{特性方程式}の解の絶対値と\bookterm{argument}{偏角}を調べます.
+    最初の二つの項に合う$\sin$の式を作り,実際の値の並びから周期を確かめます.
     % E7
-  \item 特性方程式の解の絶対値は$1$未満である.
-    \bookterm{polar}{極形式}から\bookterm{trigonometric}{三角関数}の\bookterm{general}{一般項}を作り,その絶対値を\bookterm{geometric}{等比数列}で上から押さえる.
+  \item 特性方程式の解の絶対値は$1$未満です.
+    \bookterm{polar}{極形式}から\bookterm{trigonometric}{三角関数}の\bookterm{general}{一般項}を作り,その絶対値を\bookterm{geometric}{等比数列}で上から押さえます.
     % E8
-  \item 正値を確かめてから逆数を取る.
-    奇数番目と偶数番目を別々の\bookterm{sequence}{数列}にすると,二つの\bookterm{arithmetic}{等差数列}が得られる.
+  \item 正値を確かめてから逆数を取ります.
+    奇数番目と偶数番目を別々の\bookterm{sequence}{数列}にすると,二つの\bookterm{arithmetic}{等差数列}が得られます.
     % E9
-  \item $a_n^2-2a_n=(a_n-1)^2-1$と\bookterm{square}{平方完成}する.
-    $b_1=2+2^{-1}$と書けば,恒等式によって指数が毎回2倍になる.
+  \item $a_n^2-2a_n=(a_n-1)^2-1$と\bookterm{square}{平方完成}します.
+    $b_1=2+2^{-1}$と書けば,恒等式によって指数が毎回2倍になります.
     % E10
-  \item 展開すると,交差項が$3(u+u^{-1})$であることが分かる.
-    初項を$2+2^{-1}$と表し,指数を毎回3倍にする候補を作る.
+  \item 展開すると,交差項が$3(u+u^{-1})$であることが分かります.
+    初項を$2+2^{-1}$と表し,指数を毎回3倍にする候補を作ります.
     % E11
-  \item 余弦の倍角公式で,角度を毎回2倍にする候補を作る.
-    3回倍にした角度と元の角度との差が$2\pi$の整数倍になることを調べる.
+  \item 余弦の倍角公式で,角度を毎回2倍にする候補を作ります.
+    3回倍にした角度と元の角度との差が$2\pi$の整数倍になることを調べます.
     % E12
-  \item 正接の倍角公式を使う.
+  \item 正接の倍角公式を使います.
     候補の角度が$\frac{\pi}{2}$に$\pi$の整数倍を加えた値になるかを,
-    整数の偶奇で判断する.次の角度でも正接が定義できれば,\bookterm{recurrence}{漸化式}の分母も$0$にならない.
+    整数の偶奇で判断します.次の角度でも正接が定義できれば,\bookterm{recurrence}{漸化式}の分母も$0$になりません.
     % E13
-  \item $a_{n+1}\pm\sqrt3$の分子は平方になる.比を取って$b_{n+1}=b_n^2$を導く.
-    $b_1<0$なので,\bookterm{logarithm}{対数}を取らずにべき乗の形を帰納法で確かめる.
-    減少を示す範囲が$n\ge2$であることにも注意する.
+  \item $a_{n+1}\pm\sqrt3$の分子は平方になります.比を取って$b_{n+1}=b_n^2$を導きます.
+    $b_1<0$なので,\bookterm{logarithm}{対数}を取らずにべき乗の形を帰納法で確かめます.
+    減少を示す範囲が$n\ge2$であることにも注意します.
     % E14
-  \item 定\bookterm{sequence}{数列}には$a_2=a_1$,周期2の候補には$a_3=a_1$が必要である.
-    後者の方程式を因数分解し,定\bookterm{sequence}{数列}の初項を除く.残った初項が実際に二つの値を往復することも確かめる.
+  \item 定\bookterm{sequence}{数列}には$a_2=a_1$,周期2の候補には$a_3=a_1$が必要です.
+    後者の方程式を因数分解し,定\bookterm{sequence}{数列}の初項を除きます.残った初項が実際に二つの値を往復することも確かめます.
     % E15
-  \item $|c|\le2$では$2\cos\theta$という表示を使う.
+  \item $|c|\le2$では$2\cos\theta$という表示を使います.
     $|c|>2$では第2項が$2$を超えるので,
-    $a_{n+1}-2=(a_n-2)(a_n+2)$から下からの評価を作る.
+    $a_{n+1}-2=(a_n-2)(a_n+2)$から下からの評価を作ります.
 \end{enumerate}
 
 \subsubsection{答え}\label{節：発展・特殊型：答え}
-\begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-special}{answer}{problem}]
+\begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-special}{answer}{solution}]
   % E1
   \item (1)
     \[
@@ -584,7 +585,7 @@ $\lfloor x\rfloor$は$x$を超えない最大の整数を表す.
     % E6
   \item \textbf{(1)~特性方程式の解を角度で表す.}
     \sectionref{節：特性方程式の解が虚数の場合}を使う.
-    \bookterm{characteristic}{特性方程式}$x^2-x+1=0$の根は,
+    \bookterm{characteristic}{特性方程式}$x^2-x+1=0$の解は,
     \[
       \frac{1\pm\sqrt3\,i}{2}
       =\cos\frac\pi3\pm i\sin\frac\pi3.
@@ -620,7 +621,7 @@ $\lfloor x\rfloor$は$x$を超えない最大の整数を表す.
     % E7
   \item \textbf{振幅と\bookterm{limit}{極限}.}
     \sectionref{節：特性方程式の解が虚数の場合}では,特性方程式の解の絶対値も見る.
-    \bookterm{characteristic}{特性方程式}$x^2-x+\frac12=0$の根は,
+    \bookterm{characteristic}{特性方程式}$x^2-x+\frac12=0$の解は,
     \[
       \frac{1\pm i}{2}
       =\frac1{\sqrt2}

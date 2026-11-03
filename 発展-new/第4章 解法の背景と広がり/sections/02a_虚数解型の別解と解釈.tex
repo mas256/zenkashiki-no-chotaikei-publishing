@@ -27,15 +27,15 @@ $U\alpha^{n-1}+V\overline\alpha^{\,n-1}$がすべての項で0になるなら,�
 同じ連立方程式で任意の初めの2項に合わせられ,それ以降の項は漸化式によってすべて決まる.
 したがって,どの解も複素数$A,B$を用いて$A\alpha^{n-1}+B\overline\alpha^{\,n-1}$とただ1通りに表せる.
 
-実数解なら$a_n=\overline{a_n}$より,
+漸化式を満たす数列$a_n$の項がすべて実数なら,$a_n=\overline{a_n}$より,
 \[
   A\alpha^{n-1}+B\overline\alpha^{\,n-1}
   =\overline B\alpha^{n-1}+\overline A\,\overline\alpha^{\,n-1}.
 \]
 係数の一意性から$A=\overline B,B=\overline A$が必要である.
-一方,実数解$\rho^{n-1}\cos((n-1)\theta)$と$\rho^{n-1}\sin((n-1)\theta)$の初めの2項は,
+一方,実数の数列$\rho^{n-1}\cos((n-1)\theta)$と$\rho^{n-1}\sin((n-1)\theta)$も漸化式を満たし,その初めの2項は,
 それぞれ$(1,\rho\cos\theta)$と$(0,\rho\sin\theta)$である.
-$\rho\sin\theta\ne0$なので,どの実数解もこの2つの数列を実数倍して足した形にただ1通りに表せる.
+$\rho\sin\theta\ne0$なので,漸化式を満たすどの実数の数列も,この2つの数列を実数倍して足した形にただ1通りに表せる.
 虚部を消す計算は,一般項を組み立てる2つの数列を取り替える計算だったのである.
 
 \subsubsection{初期二項の影響を分ける}
@@ -98,7 +98,7 @@ $a_2=\rho^2(c\cos2\theta+d\sin2\theta)$から決まり,対応は
   D_0=\cfrac{\cfrac{a_1}{\rho}-a_0\cos\theta}{\sin\theta}
 \]
 と決まる.例えば$a_{n+2}=2a_{n+1}-2a_n$,$a_0=1,a_1=2$では,
-根$1\pm i$から$\rho=\sqrt2,\theta=\frac{\pi}{4}$.
+解$1\pm i$から$\rho=\sqrt2,\theta=\frac{\pi}{4}$.
 $C_0=1$, $2=\frac{\sqrt2(C_0+D_0)}{\sqrt2}=1+D_0$より$D_0=1$なので,
 \[
   a_n=(\sqrt2)^n\left(\cos\frac{n\pi}{4}+\sin\frac{n\pi}{4}\right)
@@ -153,8 +153,8 @@ $z_n$の点は,毎回$\theta$回転しながら距離が$\rho$倍になる.
 \BookImport{f-6dfda5da3083}
 
 \subsection{一次分数型には角度が残る}\label{節：一次分数型には角度が残る}
-ここからは節の冒頭の隣接3項型$a_{n+2}+pa_{n+1}+qa_n=0$に戻る.
-その特性根を再び$\alpha=\rho(\cos\theta+i\sin\theta)$と$\overline\alpha$とする.
+ここからは節の冒頭の隣接3項間型$a_{n+2}+pa_{n+1}+qa_n=0$に戻る.
+その特性方程式の解を再び$\alpha=\rho(\cos\theta+i\sin\theta)$と$\overline\alpha$とする.
 $a_n\ne0$の範囲で$r_n=\frac{a_{n+1}}{a_n}$と置けば,
 \[
   r_{n+1}=-p-\frac{q}{r_n}
@@ -195,7 +195,7 @@ $z_n$の距離が$\rho$倍されても,共役な二つの数の比ではその�
 一方,$\alpha^4=\overline\alpha^{\,4}=-4$なので,$a_{n+4}=-4a_n$である.元の数列自体は周期的ではない.
 
 比を使うときは零の項にも注意しよう.$a_n=0$では$r_n$を作れないが,元の漸化式は続けられる.
-零数列でない実数解なら$z_1\ne0$であり,$\alpha\ne0$よりすべての$z_n$も0ではない.
+零数列でない実数の数列なら$z_1\ne0$であり,$\alpha\ne0$よりすべての$z_n$も0ではない.
 従って,$\frac{\overline z_n}{z_n}$は$a_n=0$でも定義できる.
 比の分母が0になることと,元の数列が定義できなくなることは別の問題である.
 
@@ -263,7 +263,7 @@ $\rho=1$かつ$\frac{\theta}{2\pi}$が有理数なら,$T\theta=2k\pi$となる�
   A(\alpha^T-1)\alpha^{n-1}
   +\overline A(\overline\alpha^{\,T}-1)\overline\alpha^{\,n-1}=0.
 \]
-先ほど示した表し方の一意性から,両係数が0となる.すべての項が0ではない実数解では$A,\overline A\ne0$なので,
+先ほど示した表し方の一意性から,両係数が0となる.すべての項が0ではない実数の数列では$A,\overline A\ne0$なので,
 $\alpha^T=\overline\alpha^{\,T}=1$.したがって$\rho=1$,$\frac{\theta}{2\pi}$は有理数である.
 
 \subsection{一定間隔で項を取り出す}\label{節：一定間隔で項を取り出す}
@@ -279,8 +279,8 @@ $\alpha^T=\overline\alpha^{\,T}=1$.したがって$\rho=1$,$\frac{\theta}{2\pi}$
              &+\rho^{2m}a_n=0
   \end{aligned}
 \]
-となる.一定間隔で取り出した数列も隣接3項型を満たすのだ.
-特に$m\theta=k\pi$となる整数$k$があれば,両方の根の$m$乗が$(-1)^k\rho^m$となり,
+となる.一定間隔で取り出した数列も隣接3項間型を満たすのだ.
+特に$m\theta=k\pi$となる整数$k$があれば,両方の解の$m$乗が$(-1)^k\rho^m$となり,
 \[
   a_{n+m}=(-1)^k\rho^m a_n
 \]
@@ -317,7 +317,7 @@ $v_n=b_n-b_{n-1}$, $\kappa=4\sin^2\frac{\theta}{2}$と置けば,
   \end{cases}
 \]
 となる.位置$b_n$とその変化$v_n$を記録すると,原点へ戻す作用を受ける振動と読める.
-連続的な単振動の$y''=-\omega^2y$に対応する離散的な関係であり,微分と階差は同じものではない.
+数学IIIで学ぶ微分を知っていれば,これは連続的な単振動の$y''=-\omega^2y$に対応する離散的な関係と読める.ただし,微分と階差は同じものではない.
 階差と微分の関係は\sectionref*{節：和と差から微積分へ}で扱う.
 
 \subsection{重解になる境界を見る}
@@ -325,7 +325,9 @@ $b_1=0,b_2=1$とすれば,
 \[
   b_n=\frac{\sin((n-1)\theta)}{\sin\theta}
 \]
-である.ここで三角関数の極限
+である.
+ここからこの項の終わりまでは,数学IIIで学ぶ三角関数の極限を使う.初めて読むときは飛ばしてもよい.
+ここで三角関数の極限
 \[
   \lim_{x\to0}\frac{\sin x}{x}=1
 \]

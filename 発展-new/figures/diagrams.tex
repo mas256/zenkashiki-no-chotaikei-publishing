@@ -212,21 +212,19 @@
     \end{scope}
   }}
 
-\newcommand{\BookFigFlowchart}{\BookDiagram{式全体・項・付加項の観察から解法候補を選ぶ}{
+\newcommand{\BookFigFlowchart}{\BookDiagram{特徴を見つけ,候補の型を選んで確かめる}{
 
-    \node[box](a)at(0,0){式全体\\総和・分母・隣接性};
-    \node[box](b)at(3.1,0){数列の項\\係数と指数};
-    \node[box](c)at(6.2,0){付加項\\定数・多項式・指数};
-    \node[box](d)at(3.1,-1.7){候補を立てる\\差・比・逆数・対数};
-    \node[box](e)at(3.1,-3.15){定義域・初期条件};
-    \node[box](f)at(3.1,-4.45){変形と再評価};
-    \draw[->](a.south)--(d.north west);
-    \draw[->](b.south)--(d.north);
-    \draw[->](c.south)--(d.north east);
-    \draw[->](d)--(e);\draw[->](e)--(f);
-    \draw[->,dashed](f.west)--node[above]{もう一度}(-1.1,-4.45)
-    --(-1.1,.8)--(3.1,.8);
-    \draw[dashed](-.9,.55)--(-.9,.8)--(7.1,.8)--(7.1,.55);
+    \node[box](a)at(0,0){\textbf{漸化式の特徴を見る}\\式全体・数列の項・付加項};
+    \node[box](d)at(0,-1.5){\textbf{候補}\\特徴に合う型を選ぶ};
+    \node[box](e)at(0,-3.0){\textbf{条件}\\割る量・真数・初項を確かめる};
+    \node[box](f)at(0,-4.5){\textbf{変形と評価}\\その型の解法で置き換えた漸化式を計算する};
+    \node[box](g)at(0,-6.0){既知の形になれば一般項を求め,\\初期条件と元の漸化式で確かめる};
+    \draw[->](a)--(d);
+    \draw[->](d)--(e);
+    \draw[->](e)--(f);
+    \draw[->](f)--(g);
+    \draw[->,dashed](f.east)--node[above,align=center,font=\scriptsize]{簡単に\\ならなければ}(4.2,-4.5)
+      --(4.2,0)--(a.east);
   }}
 
 \newcommand{\BookFigFallback}{\BookDiagram{行き詰まりの理由を次の方針の手掛かりにする}{

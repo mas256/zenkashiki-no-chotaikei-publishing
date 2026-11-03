@@ -9,15 +9,15 @@ $a_{n+1}=\lfloor\lambda a_n\rfloor$のように,無理数を掛けてから切�
 \]
 と置けば,$\varepsilon_n$の範囲が分かっているので,次の整数部分を確定できることがある.
 手掛かりになるのは,$\lambda^2$が$\lambda$と整数で表せることである.
-ただし,誤差の範囲をきちんと示せて初めて隣接3項型に帰着できることを忘れないようにしよう.
+ただし,誤差の範囲をきちんと示せて初めて隣接3項間型に帰着できることを忘れないようにしよう.
 
 \begin{bookpoint}
   \textbf{POINT}\par
   捨てた部分$\varepsilon_n$を置き,その範囲から次の項の整数部分を確定する.
 \end{bookpoint}
 
-\noindent \bookblocklink{example-gauss-role-5}{problem}{answer}{【例題】}\par\nobreak
-\begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-5}{problem}{answer}]
+\noindent \bookblocklink{example-gauss-role-5}{problem}{hint}{【例題】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-5}{problem}{hint}]
   \item \bookterm{sequence}{数列}を次のように定める.\bookterm{floor}{ガウス記号}を含まない\bookterm{recurrence}{漸化式}に帰着させ,\bookterm{general}{一般項}を求めよ.
     \[
       a_1=1,\qquad
@@ -26,14 +26,14 @@ $a_{n+1}=\lfloor\lambda a_n\rfloor$のように,無理数を掛けてから切�
     \]
 \end{enumerate}
 
-\noindent \bookblocklink{example-gauss-role-5}{hint}{problem}{【方針】}\par\nobreak
-\begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-5}{hint}{problem}]
+\noindent \bookblocklink{example-gauss-role-5}{hint}{answer}{【方針】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-5}{hint}{answer}]
   \item $\lambda=1+\sqrt2$とおき,$\lambda^2=2\lambda+1$を使います.
     整数から正の1未満の誤差を引く形にして,\bookterm{floor}{ガウス記号}の値を確定しましょう.
 \end{enumerate}
 
-\noindent \bookblocklink{example-gauss-role-5}{answer}{problem}{【解答】}\par\nobreak
-\begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-5}{answer}{problem}]
+\noindent \bookblocklink{example-gauss-role-5}{answer}{solution}{【解答】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,beginpenalty=10000,format=\bookitemlink{example-gauss-role-5}{answer}{solution}]
   \item \[
       a_1=1,\quad a_2=2,\qquad
       a_{n+2}=2a_{n+1}+a_n-1.

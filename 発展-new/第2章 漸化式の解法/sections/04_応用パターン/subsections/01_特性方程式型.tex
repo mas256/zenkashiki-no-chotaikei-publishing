@@ -35,7 +35,7 @@
   $a_n=\alpha$なら$a_{n+1}=\alpha$となり,数列の値は変わらない.
   このような値$\alpha$を\bookterm{fixed}{不動点}という.
 
-  形式的には,$a_n$を$\alpha$に置き換えてできる方程式によってその解を得れば良い.
+  形式的には,$a_{n+1}$と$a_n$をともに$\alpha$に置き換えてできる方程式を解けば良い.
   また,方程式
   \[
     \alpha=p\alpha+q
@@ -48,22 +48,22 @@
     \textbf{POINT}\par
     特性方程式$\alpha=p\alpha+q$を解いて$a_{n+1}-\alpha=p(a_n-\alpha)$として等比型に帰着させる.
   \end{bookpoint}
-  \noindent \bookblocklink{example-characteristic-1}{problem}{answer}{【例題】}\par\nobreak
-  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-characteristic-1}{problem}{answer}]
+  \noindent \bookblocklink{example-characteristic-1}{problem}{hint}{【例題】}\par\nobreak
+  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-characteristic-1}{problem}{hint}]
     \item $a_1=1,\, a_{n+1}=2a_n+1$
     \item $a_1=1,\, a_{n+1}=\frac{1}{2}a_n+2$
     \item $a_1=1,\, a_{n+1}=a_n+2$
   \end{enumerate}
   
-  \noindent\bookblocklink{example-characteristic-1}{hint}{problem}{【方針】}\par\nobreak
-  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-characteristic-1}{hint}{problem}]
+  \noindent\bookblocklink{example-characteristic-1}{hint}{answer}{【方針】}\par\nobreak
+  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-characteristic-1}{hint}{answer}]
     \item まずは,$\alpha$を求めて等比型に帰着させる方法で解きましょう.
     \item 同じく,$\alpha$を求めて等比型に帰着させる方法で解きましょう.
     \item 等差型として解けます.定数を引く方法では,$\alpha=\alpha+2$を満たす値がないことも確かめましょう.
   \end{enumerate}
   
-  \noindent\bookblocklink{example-characteristic-1}{answer}{problem}{【解答】}\par\nobreak
-  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-characteristic-1}{answer}{problem}]
+  \noindent\bookblocklink{example-characteristic-1}{answer}{solution}{【解答】}\par\nobreak
+  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-characteristic-1}{answer}{solution}]
     \item $a_n=2^n-1$
     \item $a_n=4-3\cdot\left(\frac{1}{2}\right)^{n-1}$
     \item $a_n=1+2(n-1)$
@@ -183,7 +183,7 @@
   
   $p$に関しておおよその推測がたった今,いかにして$q$を処理するかが争点になってくる.
   使える手札は,等比型,等差型,階差型,階比型の漸化式を解くことといくつかの基本的な計算テクニックである.
-  既知の4パターンはそのまま使えないので,基本的な計算テクニックの内,邪魔なもの,つまりは$q$を消すためにはどのような手法を考えてみよう.
+  既知の4パターンはそのまま使えない.そこで,基本的な計算テクニックのうち,邪魔な項,つまり$q$を消すのに使えるものを考えてみよう.
   邪魔な項を消す場合は以下のような方法がよく用いられる.
   \begin{enumerate}
     \item 同じ値を引く
@@ -220,7 +220,7 @@
     &\alpha=p\alpha+q\\
     &\therefore \quad \alpha=\frac{q}{1-p}
   \end{align*}
-  その後の計算は$b_n=a_n-\alpha$と置くことでもとの漸化式は公比$p$,初項$a_1-\alpha$の等比型漸化式に帰着する.
+  その後は,$b_n=a_n-\alpha$と置けば,もとの漸化式は公比$p$,初項$a_1-\alpha$の等比型漸化式に帰着する.
   \begin{align*}
     &b_{n+1}=pb_n\\
     &\therefore \quad b_n=b_1p^{n-1}\\
@@ -310,9 +310,9 @@
   漸化式どうしの引き算では,1本の直線$y=px+q$に異なる入力を入れて比べる.
   $f(x)=px+q$なら,
   \[
-    f(x)-f(y)=(px+q)-(py+q)=p(x-y)
+    f(u)-f(v)=(pu+q)-(pv+q)=p(u-v)
   \]
-  となる.$x=a_{n+1},\ y=a_n$としたものが\bookeqref{affine-difference-2}{(♢)}から\bookeqref{affine-difference-1}{(♡)}を引いた式である.\footnote{添字を1つずらして引く操作は,付録\sectionref{節：和と差から微積分へ}で詳しく扱う.}
+  となる.$u=a_{n+1},\ v=a_n$としたものが\bookeqref{affine-difference-2}{(♢)}から\bookeqref{affine-difference-1}{(♡)}を引いた式である.\footnote{添字を1つずらして引く操作は,付録\sectionref{節：和と差から微積分へ}で詳しく扱う.}
   共通の$q$が消えた.次の図では,$p=2,\ q=1,\ a_n=0$として,入力と出力の差を比べる.
   
   \begin{tikzpicture}[scale=0.9]
