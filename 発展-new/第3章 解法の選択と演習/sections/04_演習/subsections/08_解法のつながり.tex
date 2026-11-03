@@ -6,7 +6,7 @@
 読んだ説明に対応する題を選べる.
 
 \subsubsection{問題}
-\begin{enumerate}[label=\textbf{問\arabic*.},format=\bookitemlink{practice-connections}{problem}{answer}]
+\begin{enumerate}[label=\textbf{問\arabic*.},format=\bookitemlink{practice-connections}{problem}{hint}]
   \item $a_1=3$,
     $a_{n+1}=\frac{n+2}{n}a_n+n(n+1)(n+2)$ $(n\ge1)$とする.
     $b_n=\frac{a_n}{n(n+1)}$が満たす漸化式を求め,\bookterm{general}{一般項}を求めよ.
@@ -45,7 +45,7 @@
 \end{enumerate}
 
 \subsubsection{方針}
-\begin{enumerate}[label=\textbf{問\arabic*.},format=\bookitemlink{practice-connections}{hint}{problem}]
+\begin{enumerate}[label=\textbf{問\arabic*.},format=\bookitemlink{practice-connections}{hint}{answer}]
   \item 割る因子の隣り合う比を確認する.残った\bookterm{difference}{階差}は$n$となる.
     両辺を割った後の式の1つの解から,引く量$v_n$を逆に作る.
   \item 正値性を先に帰納的に確かめる.$xz=y^2+1$から$I_{n+1}=I_n$を示し,
@@ -62,7 +62,7 @@
 \end{enumerate}
 
 \subsubsection{答え}
-\begin{enumerate}[label=\textbf{問\arabic*.},format=\bookitemlink{practice-connections}{answer}{problem}]
+\begin{enumerate}[label=\textbf{問\arabic*.},format=\bookitemlink{practice-connections}{answer}{solution}]
   \item $b_{n+1}-b_n=n$, $b_1=\frac32$より,
     \[
       a_n=\frac{n(n+1)(n^2-n+3)}2.

@@ -57,8 +57,8 @@
     底が正で1以外,真数が正であることを確かめて一次の漸化式へ移し,解いた後は指数に戻す.
   \end{bookpoint}
   
-  \noindent\bookblocklink{example-logarithmic-1}{problem}{answer}{【例題】}\par\nobreak
-  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-logarithmic-1}{problem}{answer}]
+  \noindent\bookblocklink{example-logarithmic-1}{problem}{hint}{【例題】}\par\nobreak
+  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-logarithmic-1}{problem}{hint}]
     \item $a_1=2,\quad a_{n+1}=2a_n^2$
     \item $a_1=\frac{1}{2},\quad a_{n+1}=\frac{1}{a_n}$
     \item $a_1=1,\quad a_{n+1}=2^na_n$
@@ -67,8 +67,8 @@
     \item $a_1=1,\quad a_{n+1}=(n+1)a_n$
   \end{enumerate}
   
-  \noindent\bookblocklink{example-logarithmic-1}{hint}{problem}{【方針】}\par\nobreak
-  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-logarithmic-1}{hint}{problem}]
+  \noindent\bookblocklink{example-logarithmic-1}{hint}{answer}{【方針】}\par\nobreak
+  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-logarithmic-1}{hint}{answer}]
     \item $b_n=\log_2a_n$で$b_{n+1}=2b_n+1$に変え,定数項を消します.
     \item 逆数を\bookterm{logarithm}{対数}で符号反転に変えます.
     \item $f(n)=2^n$が指数関数なので,\bookterm{logarithm}{対数}を取ると和の形に帰着できます.
@@ -77,8 +77,8 @@
     \item 積を直接まとめる方法と,\bookterm{logarithm}{対数}で和に変える方法を比べましょう.最後には同じ積$n!$を計算します.
   \end{enumerate}
   
-  \noindent\bookblocklink{example-logarithmic-1}{answer}{problem}{【解答】}\par\nobreak
-  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-logarithmic-1}{answer}{problem}]
+  \noindent\bookblocklink{example-logarithmic-1}{answer}{solution}{【解答】}\par\nobreak
+  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-logarithmic-1}{answer}{solution}]
     \item $a_n=2^{2^{n}-1}$
     \item $a_n=2^{(-1)^{n}}$
     \item $a_n=2^{\frac{n(n-1)}{2}}$
@@ -109,7 +109,7 @@
       \[
         \log a_n=\sum_{k=1}^{n-1}k\log2=\frac{n(n-1)}2\log2.
       \]
-      従って$a_n=2^{\dfrac{n(n-1)}{2}}$となる.
+      従って$a_n=2^{\frac{n(n-1)}{2}}$となる.
     \item \bookterm{square}{平方完成}で$a_{n+1}-1=(a_n-1)^2$となる.\bookterm{logarithm}{対数}を取ると,
       \[
         \log_2(a_{n+1}-1)=2\log_2(a_n-1).

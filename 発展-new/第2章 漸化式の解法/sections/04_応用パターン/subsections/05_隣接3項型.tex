@@ -90,22 +90,22 @@ $b_n=a_{n+1}-\alpha a_n$を等比型として解き,残る式から復元する.
   \end{align*}
   を解けば良い.
 \end{bookpoint}
-\noindent \bookblocklink{example-three-term-1}{problem}{answer}{【例題】}\par\nobreak
-\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-three-term-1}{problem}{answer}]
+\noindent \bookblocklink{example-three-term-1}{problem}{hint}{【例題】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-three-term-1}{problem}{hint}]
   \item $a_1=1,\,a_2=1,\, a_{n+2}=5a_{n+1}-6a_n$
   \item $a_1=1,\,a_2=4,\, a_{n+2}=4a_{n+1}-4a_n$
   \item $a_1=2,\,a_2=1,\, a_{n+2}=a_{n+1}+6a_n$
 \end{enumerate}
 
-\noindent\bookblocklink{example-three-term-1}{hint}{problem}{【方針】}\par\nobreak
-\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-three-term-1}{hint}{problem}]
+\noindent\bookblocklink{example-three-term-1}{hint}{answer}{【方針】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-three-term-1}{hint}{answer}]
   \item \bookterm{characteristic}{特性方程式}$x^2-5x+6=0$の解は異なる2つの実数解です.それぞれの根で二項をまとめ,2本の\bookterm{geometric}{等比数列}を作りましょう.
   \item \bookterm{characteristic}{特性方程式}$x^2-4x+4=0$を解くと重解になります.\bookterm{geometric}{等比数列}は1本しか作れないことに注意しましょう.
   \item \bookterm{characteristic}{特性方程式}の解の1つが負になるパターンです.符号に注意して計算しましょう.
 \end{enumerate}
 
-\noindent\bookblocklink{example-three-term-1}{answer}{problem}{【解答】}\par\nobreak
-\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-three-term-1}{answer}{problem}]
+\noindent\bookblocklink{example-three-term-1}{answer}{solution}{【解答】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-three-term-1}{answer}{solution}]
   \item $a_n=2^n-3^{n-1}$
   \item $a_n=n\cdot2^{n-1}$
   \item $a_n=(-2)^{n-1}+3^{n-1}$
@@ -226,20 +226,20 @@ $1+p+q\ne0$なら$\alpha=\frac{r}{1+p+q}$である.
 $b_1=a_1-\alpha,\ b_2=a_2-\alpha$から\sectionref*{節：付加項がない場合}の隣接3項型を解き,$a_n=b_n+\alpha$へ戻す.
 $1+p+q=0$の場合は,例題の後で階差を使って考える.
 
-\noindent \bookblocklink{example-three-term-2}{problem}{answer}{【例題】}\par\nobreak
-\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-three-term-2}{problem}{answer}]
+\noindent \bookblocklink{example-three-term-2}{problem}{hint}{【例題】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-three-term-2}{problem}{hint}]
   \item $a_1=2,\,a_2=2,\, a_{n+2}=5a_{n+1}-6a_n+2$
   \item $a_1=1,\,a_2=2,\, a_{n+2}=4a_{n+1}-4a_n+3$
 \end{enumerate}
 
-\noindent\bookblocklink{example-three-term-2}{hint}{problem}{【方針】}\par\nobreak
-\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-three-term-2}{hint}{problem}]
+\noindent\bookblocklink{example-three-term-2}{hint}{answer}{【方針】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-three-term-2}{hint}{answer}]
   \item まず\bookterm{fixed}{不動点}$\alpha$を求め,$b_n=a_n-\alpha$と置いて\sectionref*{節：付加項がない場合}の二次\bookterm{characteristic}{特性方程式}型に帰着させましょう.
   \item こちらは重解のパターンです.同じ手順で$\alpha$を求めてから\sectionref*{節：付加項がない場合}の重解の場合の処理を行いましょう.
 \end{enumerate}
 
-\noindent\bookblocklink{example-three-term-2}{answer}{problem}{【解答】}\par\nobreak
-\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-three-term-2}{answer}{problem}]
+\noindent\bookblocklink{example-three-term-2}{answer}{solution}{【解答】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-three-term-2}{answer}{solution}]
   \item $a_n=1+2^n-3^{n-1}$
   \item $a_n=3+2^{n-2}(3n-7)$
 \end{enumerate}

@@ -154,24 +154,24 @@ $\alpha$と$\beta$の大小関係は,解の大小関係を要求されていな�
   $b_n$について等比型漸化式が作れるので,その一般項を得たら$a_n$に戻す.
 \end{bookpoint}
 
-\noindent \bookblocklink{example-mobius-1}{problem}{answer}{【例題】}\par\nobreak
-\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-mobius-1}{problem}{answer}]
+\noindent \bookblocklink{example-mobius-1}{problem}{hint}{【例題】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-mobius-1}{problem}{hint}]
   \item $a_1=3,\, a_{n+1}=\frac{2a_n+1}{a_n+2}$
   \item $a_1=0,\, a_{n+1}=\frac{a_n+4}{a_n+1}$
   \item $a_1=5,\, a_{n+1}=\frac{4a_{n}-9}{a_{n}-2}$
   \item $a_1=1,\, a_{n+1}=1+\frac{1}{a_n}$
 \end{enumerate}
 
-\noindent\bookblocklink{example-mobius-1}{hint}{problem}{【方針】}\par\nobreak
-\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-mobius-1}{hint}{problem}]
+\noindent\bookblocklink{example-mobius-1}{hint}{answer}{【方針】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-mobius-1}{hint}{answer}]
   \item 不動点$1,-1$からの差の比を作ると,共通の分母$a_n+2$が消えます.
   \item 同様に\bookterm{fixed}{不動点}$\alpha,\beta$を求めましょう.今回は差の比の公比が負の値になります.
   \item 今回は\bookterm{fixed}{不動点}の方程式が重解になります.$\frac{a_n-\alpha}{a_n-\beta}$は使えないので,$b_n=a_n-\alpha$と置いてから逆数型に帰着させる別の手法を使います.
   \item このような形も一次分数型です.解と係数の関係を活用して解きましょう.
 \end{enumerate}
 
-\noindent\bookblocklink{example-mobius-1}{answer}{problem}{【解答】}\par\nobreak
-\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-mobius-1}{answer}{problem}]
+\noindent\bookblocklink{example-mobius-1}{answer}{solution}{【解答】}\par\nobreak
+\begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-mobius-1}{answer}{solution}]
   \item $a_n=\frac{2\cdot3^{n-1}+1}{2\cdot3^{n-1}-1}$
   \item $a_n=\frac{2\left(3^{n-1}+(-1)^n\right)}{3^{n-1}-(-1)^n}$
   \item $a_{n}=\frac{6n-1}{2n-1}$
@@ -293,7 +293,7 @@ $\alpha$と$\beta$の大小関係は,解の大小関係を要求されていな�
 \paragraphbf{数学的帰納法による一般項の証明}
   一次分数型では,初めの数項から一般項を予想し,帰納法で確かめる方法もある.
   数項を求める誘導があれば,分母と分子の増え方にも注目しよう.\mbox{\bookproblemref{example-mobius-1}{3}{例題(3)}}で試す.\\
-  \noindent\bookblocklink{example-mobius-2}{problem}{answer}{【例題】}\par\nobreak
+  \noindent\bookblocklink{example-mobius-2}{problem}{hint}{【例題】}\par\nobreak
   \begin{quote}
     以下の\bookterm{recurrence}{漸化式}
     \[
@@ -301,7 +301,7 @@ $\alpha$と$\beta$の大小関係は,解の大小関係を要求されていな�
     \]
     を満たす\bookterm{sequence}{数列}$a_n$の\bookterm{general}{一般項}を帰納法を用いて求めよ.
   \end{quote}
-  \bookblocklink{example-mobius-2}{hint}{problem}{【方針】}
+  \bookblocklink{example-mobius-2}{hint}{answer}{【方針】}
   \begin{quote}
     実験的に代入計算をしてみると,
     \[

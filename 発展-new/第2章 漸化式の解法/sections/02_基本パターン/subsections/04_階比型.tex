@@ -23,7 +23,7 @@
       &\prod_{i=1}^{n}k=k^n\\
       &\prod_{i=1}^{n}a_ib_i=\displaystyle\prod_{i=1}^na_i\displaystyle\prod_{i=1}^nb_i\\
       &\prod_{i=1}^{n}a_i=\displaystyle\prod_{i=1+k}^{n+k}a_{i-k}\\
-      &\prod_{i=1}^{n}(i+k)=\dfrac{(n+k)!}{k!}\qquad(k\ge0)
+      &\prod_{i=1}^{n}(i+k)=\frac{(n+k)!}{k!}\qquad(k\ge0)
     \end{align*}
     が成り立つ.
     2行目の$k$は$i$によらない定数,最後の$k$は整数である.
@@ -93,22 +93,22 @@
   
     また,これらの問題は\sectionref{節：対数型}で扱われる対数型としても解くことができる場合がある.
   
-  \noindent \bookblocklink{example-ratio-1}{problem}{answer}{【例題】}\par\nobreak
-  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-ratio-1}{problem}{answer}]
+  \noindent \bookblocklink{example-ratio-1}{problem}{hint}{【例題】}\par\nobreak
+  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-ratio-1}{problem}{hint}]
     \item $a_1=1,\, a_{n+1}=2na_n$
     \item $a_1=2,\, a_{n+1}=\frac{n+2}{n}a_n$
     \item $a_1=1,\, a_{n+1}=n(n+1)a_n$
   \end{enumerate}
   
-  \noindent\bookblocklink{example-ratio-1}{hint}{problem}{【方針】}\par\nobreak
-  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-ratio-1}{hint}{problem}]
+  \noindent\bookblocklink{example-ratio-1}{hint}{answer}{【方針】}\par\nobreak
+  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-ratio-1}{hint}{answer}]
     \item ラージパイを使って処理するか,$n!$で割ってみましょう.
     \item 階乗以外で割ることもあります.上手く$n$が$n+1$になると$g(n)$も$g(n+1)$になるような$g$を探しましょう.
     \item (1)と同じように階乗で割ってみたいですが,うまくいきません.$n$に依存する関数で割ってみましょう.
   \end{enumerate}
   
-  \noindent\bookblocklink{example-ratio-1}{answer}{problem}{【解答】}\par\nobreak
-  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-ratio-1}{answer}{problem}]
+  \noindent\bookblocklink{example-ratio-1}{answer}{solution}{【解答】}\par\nobreak
+  \begin{enumerate}[label=(\arabic*),parsep=3pt,format=\bookitemlink{example-ratio-1}{answer}{solution}]
     \item $a_n=(n-1)!\cdot 2^{n-1}$
     \item $a_n=n(n+1)$
     \item $a_n=n!(n-1)!$
