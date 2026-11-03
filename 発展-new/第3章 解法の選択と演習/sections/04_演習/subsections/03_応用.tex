@@ -92,27 +92,27 @@
 \subsubsection{方針}\label{節：応用：方針}
 \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-advanced}{hint}{answer}]
   % A1: 階乗で重みをそろえた総和
-  \item 総和の中の$\frac{a_k}{k!}$と,前項の係数$n+1$を同時に見よう.まず$b_n=\frac{a_n}{n!}$とおき,その部分和を消去する.得られる3項間\bookterm{recurrence}{漸化式}では,さらに$2^{n-1}$で割る.
+  \item 総和の中の$\frac{a_k}{k!}$と,前項の係数$n+1$を同時に見ましょう.まず$b_n=\frac{a_n}{n!}$とおき,その部分和を消去します.得られる3項間\bookterm{recurrence}{漸化式}では,さらに$2^{n-1}$で割ります.
     % A2: 添字を含む分母と不動点
-  \item 係数に$n$があるので,初めから一定の公比を探してもうまくいかない.まず$a_{n+1}-1$を計算し,その逆数を取る.最後に$n$の一次式を加えて等比型にする.
+  \item 係数に$n$があるので,初めから一定の公比を探してもうまくいきません.まず$a_{n+1}-1$を計算し,その逆数を取ります.最後に$n$の一次式を加えて等比型にします.
     % A3: 三角形状の重みをもつ積
-  \item \bookterm{logarithm}{対数}を取ると,係数が$n-k+1$の重み付き総和になる.隣接する式の差を取ると重みが$1$になり,もう一度差を取ると総和が消える.
+  \item \bookterm{logarithm}{対数}を取ると,係数が$n-k+1$の重み付き総和になります.隣接する式の差を取ると重みが$1$になり,もう一度差を取ると総和が消えます.
     % A4: 非線形3項間式から階比を作る
-  \item 項そのものではなく, $r_n=\frac{a_{n+1}}{a_n}$を導入する.次に$\frac{1}{r_n}$の\bookterm{recurrence}{漸化式}を作り,定数$1$を引くと積の相殺が見える.
+  \item 項そのものではなく, $r_n=\frac{a_{n+1}}{a_n}$を導入します.次に$\frac{1}{r_n}$の\bookterm{recurrence}{漸化式}を作り,定数$1$を引くと積の相殺が見えます.
     % A5: 和と差で異なる構造が現れる連立
-  \item 2式に共通する部分と,符号だけが違う部分を分ける.和は係数が$n$に依存する\bookterm{ratio}{階比}型で,差は逆数を取ると\bookterm{difference}{階差}型になる.
+  \item 2式に共通する部分と,符号だけが違う部分を分けます.和は係数が$n$に依存する\bookterm{ratio}{階比}型で,差は逆数を取ると\bookterm{difference}{階差}型になります.
     % A6: 積の3項間関係と二重の階差
-  \item \bookterm{logarithm}{対数}を取った後, $x_{n+1}-x_n$を新しい\bookterm{sequence}{数列}として扱う.また,\bookterm{logarithm}{対数}を取る前に$\frac{a_{n+1}}{a_n}$を作るルートもある.
+  \item \bookterm{logarithm}{対数}を取った後, $x_{n+1}-x_n$を新しい\bookterm{sequence}{数列}として扱います.また,\bookterm{logarithm}{対数}を取る前に$\frac{a_{n+1}}{a_n}$を作るルートもあります.
     % A7: 添字とともに動く基準点
-  \item $a_n=n$を代入すると次項は$n+1$になる.
-    添字とともに動く数列を基準にし,$c_n=\frac{a_n}{n}$とおけば,その基準は一定の値$1$になる.
-    同様に$a_n=-n$からは$-1$が現れる.その後$c_n=1,-1$からの差の比を作る.
+  \item $a_n=n$を代入すると次項は$n+1$になります.
+    添字とともに動く数列を基準にし,$c_n=\frac{a_n}{n}$とおけば,その基準は一定の値$1$になります.
+    同様に$a_n=-n$からは$-1$が現れます.その後$c_n=1,-1$からの差の比を作ります.
     % A8: 係数の和が0になる3項間関係
-  \item 3つの係数を符号も含めて足すと$0$になる.式を隣接する項の差でまとめ,その\bookterm{difference}{階差}\bookterm{sequence}{数列}を\bookterm{ratio}{階比}型として解く.最後の和には\bookterm{partial}{部分分数分解}を使う.
+  \item 3つの係数を符号も含めて足すと$0$になります.式を隣接する項の差でまとめ,その\bookterm{difference}{階差}\bookterm{sequence}{数列}を\bookterm{ratio}{階比}型として解きます.最後の和には\bookterm{partial}{部分分数分解}を使います.
     % A9: 掛け算で結び付いた二つの数列
-  \item \bookterm{logarithm}{対数}を取ると,対称な連立\bookterm{recurrence}{漸化式}になる.和と差を取れば,指数の増え方を分離できる.\bookterm{logarithm}{対数}を取る前に$a_nb_n$と$\frac{a_n}{b_n}$を作る方法も考えよう.
+  \item \bookterm{logarithm}{対数}を取ると,対称な連立\bookterm{recurrence}{漸化式}になります.和と差を取れば,指数の増え方を分離できます.\bookterm{logarithm}{対数}を取る前に$a_nb_n$と$\frac{a_n}{b_n}$を作る方法も考えましょう.
     % A10: 二つの平方が作る分数式
-  \item 分子と分母の和・差を使って$a_{n+1}\pm1$を計算する.それらの比を取ると平方が現れるが,係数$2^n$も残る.その次に\bookterm{logarithm}{対数}を使う.
+  \item 分子と分母の和・差を使って$a_{n+1}\pm1$を計算します.それらの比を取ると平方が現れますが,係数$2^n$も残ります.その次に\bookterm{logarithm}{対数}を使います.
 \end{enumerate}
 
 \subsubsection{答え}\label{節：応用：答え}
@@ -314,7 +314,7 @@
     \[
       x_{n+2}-3x_{n+1}+x_n=0.
     \]
-    \bookterm{characteristic}{特性方程式}の2根を
+    \bookterm{characteristic}{特性方程式}の2つの解を
     \[
       \alpha=\frac{3+\sqrt5}{2},\qquad
       \beta=\frac{3-\sqrt5}{2}
@@ -701,6 +701,8 @@
       b_{n+1}=2^n b_n^2,\qquad b_1=\frac18.
     \]
     次の項が定義できる条件も確かめる.
+    $D_n=(a_n+1)^2(1-2^nb_n^2)$なので,次項が定まるには$2^nb_n^2<1$が要る.
+    そこで,それより強く,しかも$b_{n+1}=2^nb_n^2$によって次の番号へ引き継げる$b_n\le2^{-n-2}$を,帰納法の仮定に置く.
     \[
       a_n>1,\qquad 0<b_n\le2^{-n-2}
     \]

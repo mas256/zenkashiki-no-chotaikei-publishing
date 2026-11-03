@@ -123,14 +123,14 @@
     値の意味を読むことも,\bookterm{sequence}{数列}を理解する方法である.
   % G3: 小数部分と回転
   \item $n=0$では予想した式は$a_0=0$を与える.
-    $a_n=n\alpha-\lfloor n\alpha\rfloor$とすると,整数との和の性質から,
+    $a_n=n\alpha-\lfloor n\alpha\rfloor$とすると,整数との和の性質から次の2式が成り立つ.
     \begin{align*}
       \lfloor a_n+\alpha\rfloor
       &=\lfloor(n+1)\alpha\rfloor-\lfloor n\alpha\rfloor,\\
       a_{n+1}
       &=(n+1)\alpha-\lfloor(n+1)\alpha\rfloor.
     \end{align*}
-    より帰納的に答えを得る.各項は$[0,1)$に入る.
+    よって帰納的に答えを得る.各項は$[0,1)$に入る.
 
     $a_{n+T}=a_n\ (T\ge1)$とすると,
     \[
@@ -140,5 +140,6 @@
 
     同じ\bookterm{recurrence}{漸化式}で$\alpha$が有理数$\frac pq\ (0<p<q)$であり,$p,q$が互いに素なら,
     最小周期は$q$となる.$q\alpha$は整数で,$T\alpha$が整数となる正整数$T$は$q$の倍数だからである.
+    逆に$q\alpha$が整数なら$a_{n+q}=a_n$である.
 \end{enumerate}
 
