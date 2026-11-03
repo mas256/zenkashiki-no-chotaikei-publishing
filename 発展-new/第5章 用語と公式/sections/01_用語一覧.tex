@@ -1,14 +1,15 @@
 % BOOK-FILE-ID: f-94a6f53f3fe9
-\section{用語一覧}\label{節：用語一覧}
+\section{用語の一覧と意味}\label{節：用語一覧}
 本文で使う用語と,その説明がある場所をまとめる.
+前半の一覧では,各用語の短い説明と参照先を示す.後半の項では,そのうち定義を具体例で確かめておきたいものを詳しく扱う.
 \paragraphbf{数列と漸化式}
 \begin{description}[style=nextline,leftmargin=0pt,labelsep=0pt,itemsep=5pt]
   \item[\hypertarget{term:recurrence}{漸化式}] 項どうしの関係によって数列を定める式. \booknavref{節：数列と漸化式}{説明へ.}
   \item[\hypertarget{term:sequence}{数列}] 数を順に並べたもの.添字で各項の位置を表す. \booknavref{節：数列と漸化式}{説明へ.}
   \item[\hypertarget{term:initial}{初期条件}] 数列を作り始めるために与える値. \booknavref{節：数列と漸化式}{説明へ.}
   \item[\hypertarget{term:general}{一般項}] 番号からその位置の項を直接表す式. \booknavref{節：数列と漸化式}{説明へ.}
-  \item[\hypertarget{term:arithmetic}{等差数列}] 次の項へ進むとき,同じ数を足す数列. \booknavref{節：等差型}{説明へ.}
-  \item[\hypertarget{term:geometric}{等比数列}] 次の項へ進むとき,同じ数を掛ける数列. \booknavref{節：等比型}{説明へ.}
+  \item[\hypertarget{term:arithmetic}{等差数列}] 次の項へ進むとき,同じ数を足す数列. \booknavref{節：等差数列の和}{説明へ.}
+  \item[\hypertarget{term:geometric}{等比数列}] 次の項へ進むとき,同じ数を掛ける数列. \booknavref{節：等比数列の和}{説明へ.}
   \item[\hypertarget{term:difference}{階差}] 隣り合う項の差$a_{n+1}-a_n$のこと.階差の和に初項を加えると元の数列になる. \booknavref{節：階差型}{説明へ.}
   \item[\hypertarget{term:ratio}{階比}] 隣り合う項の比$\frac{a_{n+1}}{a_n}$のこと.分母が0でない範囲で考える. \booknavref{節：階比型}{説明へ.}
   \item[\hypertarget{term:sigma}{シグマ}] 和を,添字の範囲とともに書く記号. \booknavref{節：シグマの計算}{説明へ.}
@@ -25,7 +26,7 @@
   \item[\hypertarget{term:auxiliary}{補助数列}] 元の数列を調べるために,$b_n=a_n-\alpha$のように新しく置いた数列. \booknavref{節：定数型}{説明へ.}
   \item[\hypertarget{term:addend}{付加項}] 漸化式の右辺で,$a_n$などの未知の項を含まずに足されている項.$a_{n+1}=pa_n+f(n)$の$f(n)$など. \booknavref{節：階差等比複合型}{説明へ.}
   \item[\hypertarget{term:constant-sequence}{定数数列}] すべての項が同じ値をとる数列. \booknavref{節：定数型}{説明へ.}
-  \item[\hypertarget{term:normalize}{正規化}] 本書では,階比型の解$h_n$で両辺を割り,$a_n$の係数を1にする操作をこう呼ぶ. \booknavref{節：添字ごとに置き換え方を変える}{説明へ.}
+  \item[\hypertarget{term:normalize}{正規化}] 本書では,階比型の解$h_n$で両辺を割り,$a_n$の係数を1にする操作をこう呼ぶ. \booknavref{節：正規化}{説明へ.}
   \item[\hypertarget{term:partial}{部分分数分解}] 1つの分数を,分母がより簡単な分数の和へ直す操作. \booknavref{節：部分分数分解}{説明へ.}
   \item[\hypertarget{term:square}{平方完成}] 二次式を,$a(x-p)^2+q$のように一次式の二乗を用いて表す操作. \booknavref{節：同じ数を足して引く}{説明へ.}
   \item[\hypertarget{term:fixed}{不動点}] $a_{n+1}=f(a_n)$で,$f(\alpha)=\alpha$を満たす値$\alpha$.その値から始めると数列は変化しない. \booknavref{節：特性方程式型}{説明へ.}
@@ -82,6 +83,64 @@
   \item[\hypertarget{term:generating}{母関数}] 数列の項を係数に並べ,数列全体を1つの式として扱う道具. \booknavref{節：数列をまとめて見る}{説明へ.}
   \item[\hypertarget{term:convolution}{畳み込み}] 添字の和を合わせた項どうしの積を足す操作.母関数の積に現れる. \booknavref{節：数列をまとめて見る}{説明へ.}
   \item[\hypertarget{term:chebyshev}{チェビシェフ多項式}] 余弦の整数倍の公式を,多項式の列として表したもの. \booknavref{節：角度の整数倍}{説明へ.}
-  \item[\hypertarget{term:legendre}{ルジャンドル多項式}] 三項漸化式で作られる多項式列.本文では直交性も紹介する. \booknavref{節：漸化式と行列}{説明へ.}
-  \item[\hypertarget{term:interpolation}{ラグランジュ補間}] 有限個の点を通る多項式を作る方法. \booknavref{節：漸化式と行列}{説明へ.}
+  \item[\hypertarget{term:legendre}{ルジャンドル多項式}] 三項漸化式で作られる多項式列.本文では直交性も紹介する. \booknavref{節：角度を足す漸化式と,角度を倍にする漸化式}{説明へ.}
+  \item[\hypertarget{term:interpolation}{ラグランジュ補間}] 有限個の点を通る多項式を作る方法. \booknavref{節：有限個の点から多項式を作る}{説明へ.}
 \end{description}
+
+\phantomsection\label{節：用語の意味}
+% 旧「用語の意味」節(02_用語の意味.tex)をここへ統合した.ラベル「節：用語の意味」はこの位置を指す.
+ここからは,線形・同次・定数係数・不動点の定義を,具体例で確かめていく.
+
+\subsection{線形・非線形}\label{節：線形・非線形}
+関数$f$が\textbf{\bookterm{linear}{線形}}であるとは,実数$x,y,c$に対して
+\[
+  f(x+y)=f(x)+f(y),\qquad f(cx)=cf(x)
+\]
+が成り立つことである.$f(x)=2x$は線形だが,$f(x)=x^2$は一般に$(x+y)^2\ne x^2+y^2$なので線形ではない.
+線形でないものを\textbf{\bookterm{nonlinear}{非線形}}という.
+
+未知の項が係数を掛けて足す形だけで現れるものを\textbf{\bookterm{linear}{線形}\bookterm{recurrence}{漸化式}}という.
+$a_{n+1}=2a_n+3$や$a_{n+2}=3a_{n+1}-2a_n$がその例である.
+$a_{n+1}=a_n^2+1$や$a_{n+1}=\frac{1}{a_n}$は非線形であり,後者には$a_n\ne0$が必要になる.
+
+線形かどうかは\textbf{何を未知の量とするか}で決まる.
+$a_{n+1}=n^2a_n+2^n$も,$n^2,2^n$は既知の数なので$a_n$に関して線形である.
+一般項のグラフが直線になるという意味ではない.例えば$a_{n+1}=2a_n$の\bookterm{general}{一般項}は$a_n=a_1 2^{n-1}$である.
+
+\subsection{同次・重ね合わせ}\label{節：同次・重ね合わせ}
+未知の項を左辺に集めた$a_{n+1}-pa_n=q$で,右辺の\bookterm{addend}{付加項}が$0$なら\textbf{\bookterm{homogeneous}{同次}}（斉次）という.
+付加項がある場合は非同次という.右辺は$n$の式でもよく,$a_{n+1}-2a_n=n$は非同次である.
+
+同次の線形漸化式の解$u_n,v_n$から作る$Cu_n+Dv_n$も解になる.
+これを\textbf{\bookterm{superposition}{重ね合わせの原理}}といい,$Cu_n+Dv_n$を$u_n,v_n$の\textbf{\bookterm{combination}{線形結合}}という.
+例えば$u_{n+1}=2u_n$, $v_{n+1}=2v_n$なら
+\[
+  Cu_{n+1}+Dv_{n+1}=2(Cu_n+Dv_n).
+\]
+ただし,$Cu_n+Dv_n$が与えられた\bookterm{initial}{初期条件}を満たすかどうかは,$C,D$の選び方による.また,非同次の式では,解どうしを足したものは一般に解にならない.
+
+非同次の式を同次へ直す例もある.$a_{n+1}=2a_n+3$で$b_n=a_n+3$と置くと
+\[
+  b_{n+1}=a_{n+1}+3=2(a_n+3)=2b_n
+\]
+となる.
+
+\subsection{定数係数・変数係数}\label{節：定数係数・変数係数}
+線形漸化式で未知の項に掛かる数を\textbf{係数}という.
+$n$によらず一定なら\textbf{\bookterm{constant}{定数係数}},変わるなら\textbf{\bookterm{variable}{変数係数}}という.
+$a_{n+2}=3a_{n+1}-2a_n$は定数係数,$a_{n+1}=(n+1)a_n$は変数係数である.
+$a_{n+1}=2a_n+n^2$も定数係数である.$n^2$は未知の項に掛からない付加項だからである.
+定数係数かどうかと,同次かどうかは別に判断する.
+
+
+\subsection{不動点}\label{節：不動点}
+$a_{n+1}=f(a_n)$で,$f(\alpha)=\alpha$を満たす値$\alpha$を\textbf{\bookterm{fixed}{不動点}}という.その値から始めると数列は変化しない.
+$f(x)=2x+3$なら$\alpha=2\alpha+3$より$\alpha=-3$である.
+一般の初項でも,そこからのずれ$b_n=a_n+3$は$b_{n+1}=2b_n$と簡単になる.
+ただし,不動点があっても収束するとは限らない.この例では$a_1\ne-3$なら$|b_n|$は毎回2倍になる.
+
+\begin{bookpoint}
+  \textbf{POINT}\par
+  線形かは未知の項の現れ方,同次かは付加項の有無,定数係数かは未知の項に掛かる数で判断する.
+  不動点から始めれば定数数列になるが,ほかの初項から近づくかは別に調べる.
+\end{bookpoint}
