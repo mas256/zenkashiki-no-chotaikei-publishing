@@ -1066,18 +1066,18 @@
     \par\smallskip\noindent\textbf{【第1段：偶数番目と奇数番目の動き】}\par\nopagebreak[4]
     隣り合う偶数番目どうしの差を計算しよう.
     $P_{2m+2}$と$P_{2m}$の差は,$k=2m+1$と$k=2m+2$の2項だけである.
-    \[
-      P_{2m+2}-P_{2m}
-      =-\frac1{(2m+1)!}+\frac1{(2m+2)!}
-      =-\frac{2m+1}{(2m+2)!}<0.
-    \]
+    \begin{align*}
+      &P_{2m+2}-P_{2m}\\
+      &\quad=-\frac1{(2m+1)!}+\frac1{(2m+2)!}\\
+      &\quad=-\frac{2m+1}{(2m+2)!}<0.
+    \end{align*}
     すなわち,偶数番目は減少する.
     同じように,奇数番目どうしの差は
-    \[
-      P_{2m+3}-P_{2m+1}
-      =\frac1{(2m+2)!}-\frac1{(2m+3)!}
-      =\frac{2m+2}{(2m+3)!}>0
-    \]
+    \begin{align*}
+      &P_{2m+3}-P_{2m+1}\\
+      &\quad=\frac1{(2m+2)!}-\frac1{(2m+3)!}\\
+      &\quad=\frac{2m+2}{(2m+3)!}>0
+    \end{align*}
     であり,奇数番目は増加する.
     また,隣り合う偶数番目と奇数番目の差は
     \[
@@ -1089,11 +1089,11 @@
     $\frac1e$を直接$P_n$と比べることはできない.
     そこで,$\frac1e$を有限の和で近似できる形に書き換える.
     整数$M\ge2$について$t=M-1$とおくと,$1-\frac1M=\frac{t}{t+1}$なので,
-    \[
+    \begin{align*}
       \left(1-\frac1M\right)^M
-      =\left(1+\frac1t\right)^{-(t+1)}
-      =\cfrac{1}{\left(1+\cfrac1t\right)^t\left(1+\cfrac1t\right)}
-    \]
+      &=\left(1+\frac1t\right)^{-(t+1)}\\
+      &=\cfrac{1}{\left(1+\cfrac1t\right)^t\left(1+\cfrac1t\right)}
+    \end{align*}
     となる.
     $M\to\infty$のとき$t\to\infty$であり,$\left(1+\frac1t\right)^t\to e$,$1+\frac1t\to1$だから,
     \[
@@ -1122,30 +1122,32 @@
       R_L=\sum_{k=L+1}^{M}(-1)^kb_{M,k}
     \]
     とおく.
-    $R_L$の項を先頭から2つずつ組にすると,
-    \[
-      R_L=(-1)^{L+1}\left\{(b_{M,L+1}-b_{M,L+2})+(b_{M,L+3}-b_{M,L+4})+\cdots\right\}
-    \]
-    となる.項の数が奇数なら,最後に組にならない1項が残るが,その符号も$(-1)^{L+1}$である.
-    $b_{M,k}$は減少するので,波括弧の中はすべて0以上である.
-    したがって,$R_L$の符号は$(-1)^{L+1}$で決まる.
+    $R_L$の項を先頭から2つずつ組にすると,$R_L=(-1)^{L+1}T$と書ける.ここで,
+    \begin{align*}
+      T&=(b_{M,L+1}-b_{M,L+2})\\
+      &\quad+(b_{M,L+3}-b_{M,L+4})+\cdots
+    \end{align*}
+    である.項の数が奇数なら,$T$の最後には組にならない1項$b_{M,M}$が残る.
+    $b_{M,k}$は減少するので,$T$の括弧の中はすべて0以上であり,残る1項も正である.
+    よって$T\ge0$であり,$R_L$の符号は$(-1)^{L+1}$で決まる.
     すなわち,奇数$L=2\ell+1$で止めれば$R_L\ge0$,偶数$L=2\ell$で止めれば$R_L\le0$である.
     よって,$M\ge2\ell+2$のとき,
-    \[
+    \begin{align*}
       \sum_{k=0}^{2\ell+1}(-1)^kb_{M,k}
-      \le\left(1-\frac1M\right)^M
-      \le\sum_{k=0}^{2\ell}(-1)^kb_{M,k}
-    \]
+      &\le\left(1-\frac1M\right)^M,\\
+      \left(1-\frac1M\right)^M
+      &\le\sum_{k=0}^{2\ell}(-1)^kb_{M,k}
+    \end{align*}
     が成り立つ.
 
     \par\smallskip\noindent\textbf{【第4段：$\ell$を固定して$M\to\infty$とする】}\par\nopagebreak[4]
     $\ell$を固定すると,両端の和の項数は変わらない.
     各項は,
-    \[
-      b_{M,k}=\frac{M(M-1)\cdots(M-k+1)}{k!\,M^k}
-      =\frac1{k!}\prod_{j=0}^{k-1}\left(1-\frac jM\right)
+    \begin{align*}
+      b_{M,k}&=\frac{M(M-1)\cdots(M-k+1)}{k!\,M^k}\\
+      &=\frac1{k!}\prod_{j=0}^{k-1}\left(1-\frac jM\right)
       \longrightarrow\frac1{k!}
-    \]
+    \end{align*}
     となる.$k=0$のときは何も掛けないので,積は$1$である.
     したがって,両端の和はそれぞれ$P_{2\ell+1}$,$P_{2\ell}$へ近づき,真ん中は$\frac1e$へ近づく.
     不等式は極限を取っても保たれるから,
