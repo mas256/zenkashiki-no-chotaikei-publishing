@@ -8,7 +8,7 @@
 問14・問15では初項を動かし,定\bookterm{sequence}{数列}・周期列・有界な\bookterm{sequence}{数列}が現れる条件を調べる.有界や$+\infty$への発散の意味は\sectionref*{節：数列の極限}を参照する.
 以下,特に指定しない限り,$n$は正の整数とする.
 $\lfloor x\rfloor$は$x$を超えない最大の整数を表す.
-周期の最小値とは,すべての添字で$a_{n+p}=a_n$となる正の整数$p$の最小値をいう.
+周期の最小値とは,すべての添字で$a_{n+p}=a_n$となる正の整数$p$の最小値をいい,\sectionref*{節：非線形の周期性}の最小周期と同じである.
 
 \subsubsection{問題}\label{節：発展・特殊型：問題}
 \begin{enumerate}[label=\textbf{問\arabic*.},leftmargin=3.8em,format=\bookitemlink{practice-special}{problem}{hint}]
@@ -564,7 +564,7 @@ $\lfloor x\rfloor$は$x$を超えない最大の整数を表す.
     \[
       d_n=2\cdot3^{n-1}.
     \]
-    初期値が0でないので,右辺を残して進める.
+    $d_1\ne0$なので,$a_{n+2}-3a_{n+1}+2a_n=2\cdot3^{n-1}$の右辺を残したまま進める.
 
     \smallskip
     \textbf{(2)~右辺を作る\bookterm{sequence}{数列}を引く.}
@@ -597,7 +597,7 @@ $\lfloor x\rfloor$は$x$を超えない最大の整数を表す.
     \]
     とおける.$a_1=0$より$C=0$であり,
     $a_2=1$より$D=\frac2{\sqrt3}$である.
-    得られた漸化式は$\sin$の\bookterm{addition}{加法定理}からも確認できる.
+    得られた一般項が漸化式を満たすことは,$\sin$の\bookterm{addition}{加法定理}からも確認できる.
 
     \smallskip
     \textbf{(2)~最小周期を確かめる.}

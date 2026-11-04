@@ -10,6 +10,7 @@
 \]
 なら,$(x_1,y_1)=(1,0)$から$(x_2,y_2)=(2,1)$,次に$(x_3,y_3)=(5,4)$と進む.
 毎回の計算には2つの値が両方必要なので,いっそ2つの値を1組として記録し,その組をまとめて計算してしまおう.
+\bookterm{recurrence}{漸化式}では,次の項を計算するために記録しておく値の組を\textbf{状態}と呼ぶ.
 そのとき,漸化式の係数をまとめて書くための道具が\bookterm{matrix}{行列}である.
 まずは行列の掛け方を学び,そこから連立型で行った「等比型への分解」が何をしていたのかを見ていく.
 
@@ -60,7 +61,7 @@
   \begin{pmatrix}2&1\\1&2\end{pmatrix}
   \begin{pmatrix}x\\y\end{pmatrix}
   =
-  \begin{pmatrix}2x+y\\x+2y\end{pmatrix}.
+  \begin{pmatrix}2x+y\\x+2y\end{pmatrix}
 \]
 となる.各行の数を$x,y$にそれぞれ掛けて足す.
 たとえば
@@ -285,7 +286,7 @@ $k=0$のときは元の分解式を読み,$k\ge1$で\bookterm{eigenvalue}{固有
 
 \subsection{行列式と固有値}
 
-\bookterm{eigenvalue}{固有値}の条件をまとめるため,\bookterm{matrix}{行列}式を導入する.
+\bookterm{eigenvalue}{固有値}の条件をまとめるため,\textbf{行列式}を導入する.
 二行二列の場合には
 \[
   \det\begin{pmatrix}a&b\\c&d\end{pmatrix}=ad-bc
@@ -299,6 +300,8 @@ $k=0$のときは元の分解式を読み,$k\ge1$で\bookterm{eigenvalue}{固有
 逆に$ad-bc=0$なら,0でない解が存在する.
 実際,$(a,b)\ne(0,\,0)$なら$(x,y)=(b,-a)$が両方の式を満たす.
 $(a,b)=(0,\,0)$の場合も,残る一つの式から0でない解を選べる.
+行列式が$0$でないときは,\bookterm{matrix}{行列}を掛けた後の2つの値から掛ける前の2つの値を一意に求め直せる.
+このように逆向きに戻せる\bookterm{matrix}{行列}を\textbf{可逆な\bookterm{matrix}{行列}}という.
 
 \bookterm{eigenvalue}{固有値}の式$A\boldsymbol{u}=\lambda\boldsymbol{u}$は
 \[
@@ -327,10 +330,6 @@ $\lambda$を求めた後,成分の連立方程式から対応する\bookterm{eig
 \]
 だから,\bookterm{eigenvalue}{固有値}は$3,\,1$である.
 これは数値例で確かめた倍数と一致する.
-
-\bookterm{recurrence}{漸化式}では,次の項を計算するために記録しておく値の組を\textbf{状態}と呼ぶ.
-また,\bookterm{matrix}{行列}式が$0$でないときは,$A$を掛けた後の2つの値から掛ける前の2つの値を一意に求め直せる.
-このように逆向きに戻せる\bookterm{matrix}{行列}を\textbf{可逆な\bookterm{matrix}{行列}}という.
 
 \begin{bookpoint}
   \textbf{POINT}\par

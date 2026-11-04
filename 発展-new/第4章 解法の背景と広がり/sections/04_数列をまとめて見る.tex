@@ -68,7 +68,7 @@ $F(x)$から初めの2項$F_0+F_1x=x$を取り除くと,
   F(x)-x=\sum_{n=0}^{\infty}F_{n+2}x^{n+2}
 \]
 である.
-\bookterm{recurrence}{漸化式} $F_{n+2}=F_{n+1}+F_n$ を代入すると,右辺の二つの和はそれぞれ $xF(x)$ と $x^2F(x)$ になる.
+\bookterm{recurrence}{漸化式} $F_{n+2}=F_{n+1}+F_n$ を代入すると,右辺は$\sum_{n=0}^{\infty}F_{n+1}x^{n+2}+\sum_{n=0}^{\infty}F_nx^{n+2}$となる.$F_0=0$より前の和は$xF(x)$,後の和は$x^2F(x)$である.
 したがって
 \[
   F(x)-x=xF(x)+x^2F(x)
@@ -216,7 +216,7 @@ $C(x)=\frac{1-H(x)}{2x}$より$C_n=-\frac{h_{n+1}}{2}$なので,$C_n$も
   (1-2xt+t^2)G(t)=1-xt.
 \]
 右辺は$T_0(x)=1$, $T_1(x)=x$に由来し,二次以上の係数は\bookterm{recurrence}{漸化式}によって打ち消される.
-余弦の整数倍を表す列が,一つの有理関数にもまとまった.\bookterm{recurrence}{漸化式},\bookterm{trigonometric}{三角関数},\bookterm{generating}{母関数}は同じ列の三つの表現である.
+整数倍の角の余弦を表す列が,一つの有理関数にもまとまった.\bookterm{recurrence}{漸化式},\bookterm{trigonometric}{三角関数},\bookterm{generating}{母関数}は同じ列の三つの表現である.
 
 \paragraphbf{別の広がり：階乗の番号を広げる}
 この部分では広義積分など数学IIIの内容を使う.初めて読むときは飛ばしてもよい.
