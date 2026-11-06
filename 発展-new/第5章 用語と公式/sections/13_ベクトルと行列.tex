@@ -1,0 +1,235 @@
+% BOOK-FILE-ID: f-48f25ef2268d
+% section: ベクトルと行列
+
+\section{ベクトルと行列}\label{節：ベクトルと行列}
+ベクトルの大きさと内積,行列の掛け方と行列式を,本書で使う範囲に絞ってまとめる.
+位置ベクトルは,\bookproblemref{practice-bridge}{5}{発展入門問5}と\bookproblemref{practice-entrance}{4}{発展問4}の解説で,中点・重心・内分点を表すときに使う.
+内積は,\bookproblemref{practice-entrance}{4}{発展問4}の解説と\sectionref*{節：二方向の階差}で,長さの二乗を展開するときに使う.
+行列は,\sectionref*{節：行列の基本}と\sectionref*{節：漸化式と行列}で連立漸化式の係数をまとめて表すときに使う.
+ベクトルは数学Cで学ぶ内容だが,ここでは三平方の定理と\bookterm{addition}{加法定理}だけを使って説明する.
+
+\subsection{ベクトルの成分と大きさ}\label{節：ベクトルの成分と大きさ}
+向きと大きさをもつ量を\textbf{ベクトル}という.
+点$A$から点$B$へ向かう矢印が表すベクトルを$\overrightarrow{AB}$と書き,一文字で表すときは$\boldsymbol a$のように太字を使う.
+矢印を平行に動かしても,向きと長さが同じなら同じベクトルを表す.
+
+座標平面で,矢印の始点を原点$O$に置いたときの終点が$(a_1,a_2)$なら,$\boldsymbol a=(a_1,a_2)$と書き,$a_1,a_2$を\textbf{成分}という.
+このとき$\boldsymbol a=\overrightarrow{OA}$を,点$A(a_1,a_2)$の\textbf{位置ベクトル}という.
+成分を縦に並べた
+\[
+  \boldsymbol a=\begin{pmatrix}a_1\\a_2\end{pmatrix}
+\]
+を\textbf{\bookterm{column-vector}{列ベクトル}}と呼ぶ.\bookterm{matrix}{行列}を掛けるときは,この縦の形を使う.
+
+矢印の長さを\textbf{\bookterm{magnitude}{ベクトルの大きさ}}といい,$|\boldsymbol a|$と書く.
+三平方の定理より
+\[
+  |\boldsymbol a|=\sqrt{a_1^2+a_2^2}
+\]
+である.たとえば$\boldsymbol a=(3,4)$なら$|\boldsymbol a|=\sqrt{9+16}=5$である.
+成分がすべて$0$のベクトルを零ベクトルといい,$\boldsymbol 0$と書く.大きさが$0$のベクトルは零ベクトルだけである.
+
+ベクトルの足し算と定数倍は,成分ごとに行う.
+\[
+  \begin{pmatrix}x\\y\end{pmatrix}
+  +\begin{pmatrix}u\\v\end{pmatrix}
+  =\begin{pmatrix}x+u\\y+v\end{pmatrix},
+  \qquad
+  c\begin{pmatrix}x\\y\end{pmatrix}
+  =\begin{pmatrix}cx\\cy\end{pmatrix}.
+\]
+たとえば$\begin{pmatrix}3\\1\end{pmatrix}+\begin{pmatrix}1\\-1\end{pmatrix}=\begin{pmatrix}4\\0\end{pmatrix}$である.
+等号も成分ごとの等しさを表す.
+矢印で見ると,$\boldsymbol a+\boldsymbol b$は,$\boldsymbol a$の終点から$\boldsymbol b$の矢印をつないだときの,始点から終点への矢印である.
+$c\boldsymbol a$は,$c>0$なら$\boldsymbol a$と同じ向き,$c<0$なら逆向きで,大きさは$|c\boldsymbol a|=|c||\boldsymbol a|$となる.
+
+大きさが$1$のベクトルを\textbf{単位ベクトル}という.
+0でない$\boldsymbol a$について,$\frac{1}{|\boldsymbol a|}\boldsymbol a$は$\boldsymbol a$と同じ向きの単位ベクトルである.
+たとえば$(3,4)$と同じ向きの単位ベクトルは$\left(\frac35,\frac45\right)$である.
+正の$x$軸から反時計回りに角$\alpha$だけ回った向きの単位ベクトルは,\sectionref*{節：三角関数}の定義より$(\cos\alpha,\sin\alpha)$である.
+したがって,0でないベクトルは$\boldsymbol a=|\boldsymbol a|(\cos\alpha,\sin\alpha)$と表せる.
+
+\subsection{位置ベクトルと内分}\label{節：位置ベクトルと内分}
+点を位置ベクトルで表すと,図形の点を式で扱える.
+位置ベクトルが$\boldsymbol a,\boldsymbol b$の点$A,B$について,$\overrightarrow{AB}=\boldsymbol b-\boldsymbol a$である.
+正の数$m,n$について,線分$AB$を$m:n$に内分する点$P$では$\overrightarrow{AP}=\frac{m}{m+n}\overrightarrow{AB}$なので,$P$の位置ベクトルは
+\[
+  \boldsymbol a+\frac{m}{m+n}(\boldsymbol b-\boldsymbol a)
+  =\frac{n\boldsymbol a+m\boldsymbol b}{m+n}
+\]
+となる.
+たとえば,$A(3,0)$と$B(0,6)$を結ぶ線分を$1:2$に内分する点は$\frac{2(3,0)+(0,6)}{3}=(2,2)$である.
+特に,$t:(1-t)$ $(0<t<1)$に内分する点は$(1-t)\boldsymbol a+t\boldsymbol b$,中点は$\frac{\boldsymbol a+\boldsymbol b}{2}$である.
+
+三角形$ABC$の重心$G$は,$A$と辺$BC$の中点$M$を結ぶ線分を$2:1$に内分する点である.
+$M$の位置ベクトルを$\boldsymbol m=\frac{\boldsymbol b+\boldsymbol c}{2}$とすれば,上の式から$G$の位置ベクトルは
+\[
+  \frac{\boldsymbol a+2\boldsymbol m}{3}
+  =\frac{\boldsymbol a+\boldsymbol b+\boldsymbol c}{3}
+\]
+となる.したがって,重心を原点$O$にとれば$\boldsymbol a+\boldsymbol b+\boldsymbol c=\boldsymbol 0$である.
+
+\subsection{内積}\label{節：内積}
+0でない二つのベクトル$\boldsymbol a,\boldsymbol b$を同じ始点から描いたときにできる角$\theta$ $(0\le\theta\le\pi)$を,$\boldsymbol a,\boldsymbol b$のなす角という.
+このとき
+\[
+  \boldsymbol a\cdot\boldsymbol b=|\boldsymbol a||\boldsymbol b|\cos\theta
+\]
+を$\boldsymbol a,\boldsymbol b$の\textbf{\bookterm{inner-product}{内積}}という.どちらかが零ベクトルなら,内積は$0$と定める.
+内積はベクトルではなく,一つの数である.
+同じベクトルどうしではなす角が$0$なので,$\boldsymbol a\cdot\boldsymbol a=|\boldsymbol a|^2$となる.
+
+内積は成分で計算できる.$\boldsymbol a=(a_1,a_2)$,$\boldsymbol b=(b_1,b_2)$なら
+\[
+  \boldsymbol a\cdot\boldsymbol b=a_1b_1+a_2b_2
+\]
+である.
+実際,0でない$\boldsymbol a,\boldsymbol b$を$\boldsymbol a=|\boldsymbol a|(\cos\alpha,\sin\alpha)$,$\boldsymbol b=|\boldsymbol b|(\cos\beta,\sin\beta)$と表せば,\bookterm{addition}{加法定理}より
+\[
+  \begin{aligned}
+    a_1b_1+a_2b_2
+    &=|\boldsymbol a||\boldsymbol b|(\cos\alpha\cos\beta+\sin\alpha\sin\beta)\\
+    &=|\boldsymbol a||\boldsymbol b|\cos(\beta-\alpha)
+  \end{aligned}
+\]
+となる.
+なす角$\theta$は,$\beta-\alpha$か$\alpha-\beta$に$2\pi$の整数倍を加えたものなので,$\cos(\beta-\alpha)=\cos\theta$である.
+どちらかが零ベクトルなら,両辺とも$0$である.
+たとえば$\boldsymbol a=(1,0)$,$\boldsymbol b=(1,1)$では,$\boldsymbol a\cdot\boldsymbol b=1$,$|\boldsymbol a|=1$,$|\boldsymbol b|=\sqrt2$なので,$\cos\theta=\frac{1}{\sqrt2}$,すなわち$\theta=\frac{\pi}{4}$である.
+
+0でない二つのベクトルが\textbf{直交}するとは,なす角が$\frac{\pi}{2}$,すなわち矢印が垂直に交わることである.
+$\cos\frac{\pi}{2}=0$なので,直交する条件は$\boldsymbol a\cdot\boldsymbol b=0$,成分では$a_1b_1+a_2b_2=0$である.
+たとえば$(1,1)$と$(1,-1)$は,$1\cdot1+1\cdot(-1)=0$なので直交する.
+
+成分で書けば,内積は数の積と同じように展開できることも分かる.
+\[
+  \begin{aligned}
+    \boldsymbol a\cdot\boldsymbol b&=\boldsymbol b\cdot\boldsymbol a,\\
+    \boldsymbol a\cdot(\boldsymbol b+\boldsymbol c)&=\boldsymbol a\cdot\boldsymbol b+\boldsymbol a\cdot\boldsymbol c,\\
+    (k\boldsymbol a)\cdot\boldsymbol b&=k(\boldsymbol a\cdot\boldsymbol b).
+  \end{aligned}
+\]
+どれも,両辺を成分で書けば同じ式になる.
+これらと$\boldsymbol a\cdot\boldsymbol a=|\boldsymbol a|^2$を使うと
+\[
+  \begin{aligned}
+    |\boldsymbol a+\boldsymbol b|^2
+    &=(\boldsymbol a+\boldsymbol b)\cdot(\boldsymbol a+\boldsymbol b)\\
+    &=|\boldsymbol a|^2+2\boldsymbol a\cdot\boldsymbol b+|\boldsymbol b|^2
+  \end{aligned}
+\]
+となる.数の$(x+y)^2=x^2+2xy+y^2$と同じ形であり,$2\boldsymbol a\cdot\boldsymbol b$が$\boldsymbol a$と$\boldsymbol b$の両方を含む交差項にあたる.
+たとえば$\boldsymbol a=(1,0)$,$\boldsymbol b=(1,1)$なら,左辺は$|(2,1)|^2=5$,右辺は$1+2\cdot1+2=5$で一致する.
+$\boldsymbol a,\boldsymbol b$の代わりに$s\boldsymbol a,t\boldsymbol b$を入れれば
+\[
+  |s\boldsymbol a+t\boldsymbol b|^2
+  =s^2|\boldsymbol a|^2+2st\,\boldsymbol a\cdot\boldsymbol b+t^2|\boldsymbol b|^2
+\]
+も得られる.
+$\boldsymbol b$を$-\boldsymbol b$に変えた$|\boldsymbol a-\boldsymbol b|^2=|\boldsymbol a|^2-2|\boldsymbol a||\boldsymbol b|\cos\theta+|\boldsymbol b|^2$は,余弦定理をベクトルで書いたものである.
+また,$\cos\theta\le1$より$\boldsymbol a\cdot\boldsymbol b\le|\boldsymbol a||\boldsymbol b|$なので,$|\boldsymbol a+\boldsymbol b|^2\le(|\boldsymbol a|+|\boldsymbol b|)^2$,すなわち
+\[
+  |\boldsymbol a+\boldsymbol b|\le|\boldsymbol a|+|\boldsymbol b|
+\]
+が成り立つ.三角形の二辺の長さの和は,残りの一辺の長さ以上になるということである.
+
+\subsection{行列を掛ける}\label{節：行列を掛ける}
+\bookterm{matrix}{行列}とは,数を長方形に並べ,全体を括弧で囲んだものである.
+たとえば
+\[
+  A=\begin{pmatrix}2&1\\1&2\end{pmatrix}
+\]
+は二行二列の\bookterm{matrix}{行列}である.横の並びを\textbf{行},縦の並びを\textbf{列},各数を\textbf{成分}という.
+行は上から,列は左から数え,この例の第一行・第二列の成分は$1$である.
+行列の定数倍は各成分をその定数倍する.
+
+この$A$を\bookterm{column-vector}{列ベクトル}に掛けると
+\[
+  \begin{pmatrix}2&1\\1&2\end{pmatrix}
+  \begin{pmatrix}x\\y\end{pmatrix}
+  =
+  \begin{pmatrix}2x+y\\x+2y\end{pmatrix}
+\]
+となる.各行の数を$x,y$にそれぞれ掛けて足す.
+たとえば
+\[
+  A\begin{pmatrix}1\\0\end{pmatrix}
+  =\begin{pmatrix}2\\1\end{pmatrix},
+  \qquad
+  A\begin{pmatrix}2\\1\end{pmatrix}
+  =\begin{pmatrix}5\\4\end{pmatrix}.
+\]
+$A$は$x,y$を$2x+y,x+2y$へ移す規則を表す.
+\BookFigMatrixMap
+
+一般には
+\[
+  \begin{pmatrix}p&q\\r&s\end{pmatrix}
+  \begin{pmatrix}x\\y\end{pmatrix}
+  =\begin{pmatrix}px+qy\\rx+sy\end{pmatrix}
+\]
+と定める.連立式$x'=px+qy,\ y'=rx+sy$を積一つにまとめたもので,$x',y'$は$A$を掛けた後の値を表す.
+このように行列を掛けてベクトルを移す操作を一次変換という.
+
+また,成分ごとに展開すれば
+\[
+  A(c\boldsymbol{u}+d\boldsymbol{v})
+  =cA\boldsymbol{u}+dA\boldsymbol{v}
+\]
+が成り立つ.
+つまり,足してから$A$を掛けても,別々に$A$を掛けてから足しても同じになる.\sectionref*{節：行列の基本}で初期値を分ける際に使う.
+
+\subsection{行列の積}\label{節：行列の積}
+$A$を2回掛ける操作をまとめた\bookterm{matrix}{行列}を$A^2$と書く.文字$x,y$で計算すると
+\[
+  \begin{aligned}
+    A\left(A\begin{pmatrix}x\\y\end{pmatrix}\right)
+    &=A\begin{pmatrix}2x+y\\x+2y\end{pmatrix}\\
+    &=\begin{pmatrix}5x+4y\\4x+5y\end{pmatrix}.
+  \end{aligned}
+\]
+したがって$A^2=\begin{pmatrix}5&4\\4&5\end{pmatrix}$である.各成分の二乗とは異なる.
+同様に,$A$を$k$回掛ける操作をまとめた行列を$A^k$と書く.
+
+異なる\bookterm{matrix}{行列}$A,B$でも,まず$B$,次に$A$を掛ける操作を$AB$と書く.
+$B$の各列に$A$を掛けた結果を並べると,積$AB$が得られる.
+具体的には
+\[
+  \begin{aligned}
+    &\begin{pmatrix}p&q\\r&s\end{pmatrix}
+    \begin{pmatrix}u&v\\w&z\end{pmatrix}\\
+    &\qquad=
+    \begin{pmatrix}
+      pu+qw&pv+qz\\
+      ru+sw&rv+sz
+    \end{pmatrix}.
+  \end{aligned}
+\]
+右の\bookterm{matrix}{行列}から先に作用するため,一般には$AB$と$BA$は一致しない.
+
+何も変えない変換を表す行列は
+\[
+  I=\begin{pmatrix}1&0\\0&1\end{pmatrix},
+  \qquad
+  I\begin{pmatrix}x\\y\end{pmatrix}
+  =\begin{pmatrix}x\\y\end{pmatrix}
+\]
+で表される.
+$I$を\textbf{\bookterm{identity}{単位行列}}という.
+数の累乗で$a^0=1$とするのに対応して,\bookterm{matrix}{行列}では$A^0=I$と定める.
+
+\subsection{行列式}\label{節：行列式}
+二行二列の\bookterm{matrix}{行列}に対して
+\[
+  \det\begin{pmatrix}a&b\\c&d\end{pmatrix}=ad-bc
+\]
+と定めた数を\textbf{行列式}という.
+\bookterm{matrix}{行列}そのものではなく,四つの成分から計算した一つの数である.
+たとえば$A=\begin{pmatrix}2&1\\1&2\end{pmatrix}$なら,$\det A=2\cdot2-1\cdot1=3$である.
+\sectionref*{節：行列の基本}では,行列式が$0$かどうかで,連立方程式$ax+by=0,\ cx+dy=0$が0でない解をもつかどうかが決まることを確かめ,\bookterm{eigenvalue}{固有値}を求める方程式を作る.
+
+\begin{bookpoint}
+  \textbf{POINT}\par
+  ベクトルの大きさと内積は成分で計算でき,$|s\boldsymbol a+t\boldsymbol b|^2$は数の式と同じように展開できる.
+  行列をベクトルに掛けるときは各行の数を成分に掛けて足し,行列の積は右の行列から順に作用する.
+\end{bookpoint}

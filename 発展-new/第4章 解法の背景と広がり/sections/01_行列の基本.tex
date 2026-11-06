@@ -11,41 +11,25 @@
 なら,$(x_1,y_1)=(1,0)$から$(x_2,y_2)=(2,1)$,次に$(x_3,y_3)=(5,4)$と進む.
 毎回の計算には2つの値が両方必要なので,いっそ2つの値を1組として記録し,その組をまとめて計算してしまおう.
 \bookterm{recurrence}{漸化式}では,次の項を計算するために記録しておく値の組を\textbf{状態}と呼ぶ.
-そのとき,漸化式の係数をまとめて書くための道具が\bookterm{matrix}{行列}である.
-まずは行列の掛け方を学び,そこから連立型で行った「等比型への分解」が何をしていたのかを見ていく.
+その組をまとめて計算するとき,漸化式の係数をまとめて書くための道具が\bookterm{matrix}{行列}である.
+行列とベクトルの掛け方や行列式の定め方は,\sectionref*{節：ベクトルと行列}にまとめた.行列が初めてなら,先にそちらを読んでおこう.
+ここでは,その計算を使って,連立型で行った「等比型への分解」が何をしていたのかを見ていく.
 
-\subsection{行列とベクトル}
+\subsection{状態をベクトルで表す}
 
-\bookterm{matrix}{行列}とは,数を長方形に並べ,全体を括弧で囲んだものである.
-たとえば
+状態を\bookterm{column-vector}{列ベクトル}$\boldsymbol v_n=\begin{pmatrix}x_n\\y_n\end{pmatrix}$にまとめ,係数を並べた\bookterm{matrix}{行列}を
 \[
   A=\begin{pmatrix}2&1\\1&2\end{pmatrix}
 \]
-は二行二列の\bookterm{matrix}{行列}である.横の並びを\textbf{行},縦の並びを\textbf{列},各数を\textbf{成分}という.
-行は上から,列は左から数え,この例の第一行・第二列の成分は$1$である.
-行列の定数倍は各成分をその定数倍する.
-
-また,二つの数を縦に並べた
+とする.すると冒頭の連立式は
 \[
-  \boldsymbol{v}=\begin{pmatrix}x\\y\end{pmatrix}
+  \boldsymbol v_{n+1}=A\boldsymbol v_n
 \]
-を\textbf{\bookterm{column-vector}{列ベクトル}}と呼ぶ.
-太字の$\boldsymbol{v}$は二つの値をまとめた記号で,平面上の点$(x,y)$への矢印とも読める.
-0でない二つのベクトルが直交するとは,矢印が垂直に交わることである.
-成分が$(u_1,u_2)$と$(v_1,v_2)$なら,直交する条件は$u_1v_1+u_2v_2=0$である.
+と一つの式になる.
+$A$を掛けるたびに,状態は$(1,0)$から$(2,1)$,$(5,4)$へと冒頭の計算どおりに進む.
+同じ漸化式を$k$回用いることは,$A^k$を掛けることにあたる.
 
-\bookterm{column-vector}{列ベクトル}の足し算と定数倍は,成分ごとに行う.
-\[
-  \begin{pmatrix}x\\y\end{pmatrix}
-  +\begin{pmatrix}u\\v\end{pmatrix}
-  =\begin{pmatrix}x+u\\y+v\end{pmatrix},
-  \qquad
-  c\begin{pmatrix}x\\y\end{pmatrix}
-  =\begin{pmatrix}cx\\cy\end{pmatrix}.
-\]
-たとえば$\begin{pmatrix}3\\1\end{pmatrix}+\begin{pmatrix}1\\-1\end{pmatrix}=\begin{pmatrix}4\\0\end{pmatrix}$である.
-等号も成分ごとの等しさを表す.
-一般の二成分のベクトルも
+どんな二成分のベクトルも,和と定数倍を使って
 \[
   \begin{pmatrix}x\\y\end{pmatrix}
   =\frac{x+y}{2}\begin{pmatrix}1\\1\end{pmatrix}
@@ -53,83 +37,6 @@
 \]
 と分けられる.本編の和と差は,この二つの係数を求める操作に対応する.
 \bookproblemref{practice-basic}{7}{標準問7}でも使うこの分解が,後で固有値に結び付く.
-
-\subsubsection{行列を掛ける}
-
-先ほどの$A$を\bookterm{column-vector}{列ベクトル}に掛けると
-\[
-  \begin{pmatrix}2&1\\1&2\end{pmatrix}
-  \begin{pmatrix}x\\y\end{pmatrix}
-  =
-  \begin{pmatrix}2x+y\\x+2y\end{pmatrix}
-\]
-となる.各行の数を$x,y$にそれぞれ掛けて足す.
-たとえば
-\[
-  A\begin{pmatrix}1\\0\end{pmatrix}
-  =\begin{pmatrix}2\\1\end{pmatrix},
-  \qquad
-  A\begin{pmatrix}2\\1\end{pmatrix}
-  =\begin{pmatrix}5\\4\end{pmatrix}.
-\]
-$A$は$x,y$を$2x+y,x+2y$へ移す規則を表す.
-\BookFigMatrixMap
-
-一般には
-\[
-  \begin{pmatrix}p&q\\r&s\end{pmatrix}
-  \begin{pmatrix}x\\y\end{pmatrix}
-  =\begin{pmatrix}px+qy\\rx+sy\end{pmatrix}
-\]
-と定める.連立式$x'=px+qy,\ y'=rx+sy$を積一つにまとめたもので,$x',y'$は$A$を掛けた後の値を表す.
-このように行列を掛けてベクトルを移す操作を一次変換という.
-
-また,成分ごとに展開すれば
-\[
-  A(c\boldsymbol{u}+d\boldsymbol{v})
-  =cA\boldsymbol{u}+dA\boldsymbol{v}
-\]
-が成り立つ.
-つまり,足してから$A$を掛けても,別々に$A$を掛けてから足しても同じになる.後で初期値を分ける際に使う.
-
-\subsection{行列の積}
-
-$A$を2回掛ける操作をまとめた\bookterm{matrix}{行列}を$A^2$と書く.文字$x,y$で計算すると
-\[
-  \begin{aligned}
-    A\left(A\begin{pmatrix}x\\y\end{pmatrix}\right)
-    &=A\begin{pmatrix}2x+y\\x+2y\end{pmatrix}\\
-    &=\begin{pmatrix}5x+4y\\4x+5y\end{pmatrix}.
-  \end{aligned}
-\]
-したがって$A^2=\begin{pmatrix}5&4\\4&5\end{pmatrix}$である.各成分の二乗とは異なる.
-
-異なる\bookterm{matrix}{行列}$A,B$でも,まず$B$,次に$A$を掛ける操作を$AB$と書く.
-$B$の各列に$A$を掛けた結果を並べると,積$AB$が得られる.
-具体的には
-\[
-  \begin{aligned}
-    &\begin{pmatrix}p&q\\r&s\end{pmatrix}
-    \begin{pmatrix}u&v\\w&z\end{pmatrix}\\
-    &\qquad=
-    \begin{pmatrix}
-      pu+qw&pv+qz\\
-      ru+sw&rv+sz
-    \end{pmatrix}.
-  \end{aligned}
-\]
-右の\bookterm{matrix}{行列}から先に作用するため,一般には$AB$と$BA$は一致しない.
-
-何も変えない変換を表す行列は
-\[
-  I=\begin{pmatrix}1&0\\0&1\end{pmatrix},
-  \qquad
-  I\begin{pmatrix}x\\y\end{pmatrix}
-  =\begin{pmatrix}x\\y\end{pmatrix}
-\]
-で表される.
-$I$を\textbf{\bookterm{identity}{単位行列}}という.
-数の累乗で$a^0=1$とするのに対応して,\bookterm{matrix}{行列}では$A^0=I$と定める.
 
 \subsection{回転と複素数の掛け算}\label{節：回転と複素数の掛け算}
 
@@ -221,7 +128,7 @@ $I$を\textbf{\bookterm{identity}{単位行列}}という.
 \]
 である.
 \booknavref{解釈：2つの解の和で表せる理由}{隣接3項間型}で一般項を2つの解の和に分けたように,ここでは$(1,0)$というベクトルを,二つの\bookterm{column-vector}{列ベクトル}の\bookterm{combination}{線形結合}で表している.
-2つの部分に別々に$A$を$k$回掛ければ
+足してから$A$を掛けても,別々に掛けてから足しても同じなので(\sectionref*{節：行列を掛ける}),2つの部分に別々に$A$を$k$回掛ければ
 \[
   \begin{aligned}
     A^k\begin{pmatrix}1\\0\end{pmatrix}
@@ -286,13 +193,7 @@ $k=0$のときは元の分解式を読み,$k\ge1$で\bookterm{eigenvalue}{固有
 
 \subsection{行列式と固有値}
 
-\bookterm{eigenvalue}{固有値}の条件をまとめるため,\textbf{行列式}を導入する.
-二行二列の場合には
-\[
-  \det\begin{pmatrix}a&b\\c&d\end{pmatrix}=ad-bc
-\]
-と定める.
-\bookterm{matrix}{行列}そのものではなく,四つの成分から計算した一つの数である.
+\bookterm{eigenvalue}{固有値}の条件をまとめるため,\sectionref*{節：行列式}で定めた行列式$\det\begin{pmatrix}a&b\\c&d\end{pmatrix}=ad-bc$を使う.
 
 二つの式$ax+by=0,\ cx+dy=0$について,$ad-bc\ne0$なら解は$x=y=0$だけになる.
 たとえば,第一の式を$d$倍したものから第二の式を$b$倍したものを引くと,$(ad-bc)x=0$となる.
