@@ -2,7 +2,7 @@
 % section: ベクトルと行列
 
 \section{ベクトルと行列}\label{節：ベクトルと行列}
-ベクトルの大きさと内積,行列の掛け方と行列式を,本書で使う範囲に絞ってまとめる.
+ベクトルの大きさと内積,位置ベクトルと内分,行列の掛け方と行列式を,本書で使う範囲に絞ってまとめる.
 位置ベクトルは,\bookproblemref{practice-bridge}{5}{発展入門問5}と\bookproblemref{practice-entrance}{4}{発展問4}の解説で,中点・重心・内分点を表すときに使う.
 内積は,\bookproblemref{practice-entrance}{4}{発展問4}の解説と\sectionref*{節：二方向の階差}で,長さの二乗を展開するときに使う.
 行列は,\sectionref*{節：行列の基本}と\sectionref*{節：漸化式と行列}で連立漸化式の係数をまとめて表すときに使う.
@@ -40,7 +40,7 @@
 \]
 たとえば$\begin{pmatrix}3\\1\end{pmatrix}+\begin{pmatrix}1\\-1\end{pmatrix}=\begin{pmatrix}4\\0\end{pmatrix}$である.
 等号も成分ごとの等しさを表す.
-矢印で見ると,$\boldsymbol a+\boldsymbol b$は,$\boldsymbol a$の終点から$\boldsymbol b$の矢印をつないだときの,始点から終点への矢印である.
+矢印で見ると,$\boldsymbol a+\boldsymbol b$は,$\boldsymbol a$の終点に$\boldsymbol b$の始点をつないだときの,$\boldsymbol a$の始点から$\boldsymbol b$の終点への矢印である.
 $c\boldsymbol a$は,$c>0$なら$\boldsymbol a$と同じ向き,$c<0$なら逆向きで,大きさは$|c\boldsymbol a|=|c||\boldsymbol a|$となる.
 
 大きさが$1$のベクトルを\textbf{単位ベクトル}という.
@@ -51,7 +51,7 @@ $c\boldsymbol a$は,$c>0$なら$\boldsymbol a$と同じ向き,$c<0$なら逆向�
 
 \subsection{位置ベクトルと内分}\label{節：位置ベクトルと内分}
 点を位置ベクトルで表すと,図形の点を式で扱える.
-位置ベクトルが$\boldsymbol a,\boldsymbol b$の点$A,B$について,$\overrightarrow{AB}=\boldsymbol b-\boldsymbol a$である.
+位置ベクトルが$\boldsymbol a,\boldsymbol b$の点$A,B$について,$\boldsymbol a+\overrightarrow{AB}=\boldsymbol b$なので,$\overrightarrow{AB}=\boldsymbol b-\boldsymbol a$である.
 正の数$m,n$について,線分$AB$を$m:n$に内分する点$P$では$\overrightarrow{AP}=\frac{m}{m+n}\overrightarrow{AB}$なので,$P$の位置ベクトルは
 \[
   \boldsymbol a+\frac{m}{m+n}(\boldsymbol b-\boldsymbol a)
@@ -106,7 +106,7 @@ $\cos\frac{\pi}{2}=0$なので,直交する条件は$\boldsymbol a\cdot\boldsymb
   \begin{aligned}
     \boldsymbol a\cdot\boldsymbol b&=\boldsymbol b\cdot\boldsymbol a,\\
     \boldsymbol a\cdot(\boldsymbol b+\boldsymbol c)&=\boldsymbol a\cdot\boldsymbol b+\boldsymbol a\cdot\boldsymbol c,\\
-    (k\boldsymbol a)\cdot\boldsymbol b&=k(\boldsymbol a\cdot\boldsymbol b).
+    (c\boldsymbol a)\cdot\boldsymbol b&=c(\boldsymbol a\cdot\boldsymbol b).
   \end{aligned}
 \]
 どれも,両辺を成分で書けば同じ式になる.
@@ -231,5 +231,6 @@ $I$を\textbf{\bookterm{identity}{単位行列}}という.
 \begin{bookpoint}
   \textbf{POINT}\par
   ベクトルの大きさと内積は成分で計算でき,$|s\boldsymbol a+t\boldsymbol b|^2$は数の式と同じように展開できる.
+  線分$AB$を$m:n$に内分する点の位置ベクトルは,$A,B$の位置ベクトル$\boldsymbol a,\boldsymbol b$から$\frac{n\boldsymbol a+m\boldsymbol b}{m+n}$と求まる.
   行列をベクトルに掛けるときは各行の数を成分に掛けて足し,行列の積は右の行列から順に作用する.
 \end{bookpoint}
