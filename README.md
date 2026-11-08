@@ -103,3 +103,5 @@ Pages WorkflowはPDFと一緒に `catalog.json` を公開します。正式版�
 既存リンクとの互換性のため `book.pdf` と `latest.pdf` も残しますが、紹介ページと本棚はタイトル・版番号付きのPDFを案内します。公開済みReleaseのassetやTagは変更しません。
 
 スマホ版の情報は同じ `catalog.json` の `release.mobile` / `latest.mobile` にPDF名とSHA-256を追加します。本棚と紹介ページはこの情報がある場合に「スマホ版で読む」を表示します。スマホ版がなかった旧Releaseも引き続き配信できます。
+
+`catalog.json` には目次 `toc` と正式版の履歴 `history` も含めます。目次は正式版PDFのしおりの上位2階層（章と節）から、ページ番号付きで作ります（`scripts/pages_toc.py`、poppler-utils の `pdftohtml` を使用）。履歴は公開済みの正式版を新しい順に並べたものです。本棚の教科書ページはこの情報から目次と版の履歴を表示します。しおりを読み取れない場合は警告を出し、目次を省いて公開を続けます。

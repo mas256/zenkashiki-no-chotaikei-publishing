@@ -21,6 +21,7 @@ def load(name):
 
 assets = load("verify-release-assets")
 layout = load("verify-tex-layout")
+toc = load("pages_toc")
 
 
 def write_pdf(directory, name, data=b"%PDF-test"):
@@ -91,6 +92,8 @@ class PublishingTests(unittest.TestCase):
             catalog = json.loads((site / "catalog.json").read_text())
             self.assertEqual(catalog["release"]["mobile"]["pdf"], "Test book-スマホ版-v2.0.1.pdf")
             self.assertEqual(catalog["latest"]["commit"], "a" * 40)
+            self.assertEqual(catalog["history"], [dict(version="v2.0.1", published_at="2026-10-13T00:00:00Z")])
+            self.assertNotIn("toc", catalog)
             self.assertIn("スマホ版で読む", (site / "index.html").read_text())
             (site / "latest-mobile.pdf").write_bytes(b"%PDF-different-build")
             result = subprocess.run(command, cwd=directory, capture_output=True, text=True)
@@ -108,6 +111,29 @@ class PublishingTests(unittest.TestCase):
             self.assertNotIn("mobile", json.loads((directory / "site/catalog.json").read_text())["release"])
             self.assertNotIn("スマホ版で読む", (directory / "site/index.html").read_text())
 
+
+    def test_outline_becomes_two_level_toc_with_pages(self):
+        xml = ("<?xml version=\"1.0\"?><pdf2xml><page number=\"1\"></page><outline>"
+               "<item page=\"9\">第1章 はじめに</item><outline><item page=\"9\">1.1 本書について</item>"
+               "<outline><item page=\"10\">【深い見出し】</item></outline></outline>"
+               "<item page=\"11\">第2章 A &amp; B</item><item page=\"x\">付録</item></outline></pdf2xml>")
+        self.assertEqual(toc.parse_outline_xml(xml), [
+            dict(title="第1章 はじめに", page=9, sections=[dict(title="1.1 本書について", page=9)]),
+            dict(title="第2章 A & B", page=11),
+            dict(title="付録"),
+        ])
+        self.assertEqual(toc.parse_outline_xml("<pdf2xml></pdf2xml>"), [])
+
+    def test_tex_headings_and_release_history(self):
+        with tempfile.TemporaryDirectory() as temp:
+            source = Path(temp) / "book.tex"
+            source.write_text("\\section{はじめに}\n\\subsection{$x$の積分} % note\n\\section*{付録}\n", encoding="utf-8")
+            self.assertEqual(toc.toc_from_tex(source), [
+                dict(title="はじめに", sections=[dict(title="xの積分")]), dict(title="付録")])
+        rows = [dict(tagName="v1.2.0", publishedAt="2026-01-01T00:00:00Z"),
+                dict(tagName="v1.10.0", publishedAt="2026-03-01T00:00:00Z"),
+                dict(tagName="latest-build-3", publishedAt="2026-03-02T00:00:00Z")]
+        self.assertEqual([row["version"] for row in toc.release_history(rows)], ["v1.10.0", "v1.2.0"])
 
 if __name__ == "__main__":
     unittest.main()
