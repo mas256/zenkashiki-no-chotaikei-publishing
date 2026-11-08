@@ -8,6 +8,7 @@ on:
     paths:
       - .github/workflows/pages.yml
       - scripts/pages-*.py
+      - scripts/pages_toc.py
       - scripts/pages-build.sh
       - scripts/verify-release-assets.py
       - scripts/lib/common.sh
@@ -197,6 +198,11 @@ jobs:
             digest="$(sha256sum site/latest-mobile.pdf | cut -d' ' -f1)"
             printf '%s  latest-mobile.pdf\n' "$digest" > site/latest-mobile.pdf.sha256
           fi
+
+      - name: Install poppler-utils for the table of contents
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq --no-install-recommends poppler-utils
 
       - name: Publish named PDFs and catalog metadata
         run: python3 scripts/pages-catalog.py --tag "$LATEST" --repo "$GH_REPO"

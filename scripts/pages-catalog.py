@@ -11,6 +11,7 @@ from datetime import datetime
 from pathlib import Path
 
 from render_index import parse_book
+from pages_toc import outline_from_pdf, release_history
 
 
 def read_json(path):
@@ -87,6 +88,10 @@ def main():
                 raise ValueError("Preserved smartphone PDF does not match its metadata")
             mobile = publish(site / "latest-mobile.pdf", f"latest-{title}-スマホ版-{args.tag}.pdf", updated_at)
             catalog["latest"]["mobile"] = {key: mobile[key] for key in ("pdf", "sha256")}
+    toc = outline_from_pdf(site / "book.pdf")
+    if toc:
+        catalog["toc"] = toc
+    catalog["history"] = release_history(releases)
     (site / "catalog.json").write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + "\n",
                                        encoding="utf-8")
     root = Path(__file__).resolve().parent.parent
