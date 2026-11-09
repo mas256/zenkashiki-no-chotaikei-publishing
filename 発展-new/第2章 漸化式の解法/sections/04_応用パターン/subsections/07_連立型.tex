@@ -36,7 +36,33 @@ $a_{n+1}$を求めるには$b_n$が,$b_{n+1}$を求めるには$a_n$が必要な
   a_{n+1}-b_{n+1}=2a_n-2b_n=2(a_n-b_n)
 \]
 となり,差$a_n-b_n$も公比$2$の等比型になる.
-和と差が分かれば,あとは$a_n$と$b_n$についての連立方程式を解くだけである.
+和と差が分かれば,あとは$a_n$と$b_n$についての連立方程式を解くだけである.\footnote{以下の累乗の式は$p+q,\,p-q$が0でない場合に使う.0になる方は,初項を別に扱い,$n\ge2$で0とする.}
+\begin{align*}
+  &a_{n+1}+b_{n+1}=(p+q)(a_n+b_n),\\
+  &a_n+b_n=(a_1+b_1)(p+q)^{n-1}
+  \booktag{sim-general-sum}{1}
+\end{align*}
+\begin{align*}
+  &a_{n+1}-b_{n+1}=(p-q)(a_n-b_n),\\
+  &a_n-b_n=(a_1-b_1)(p-q)^{n-1}
+  \booktag{sim-general-difference}{2}
+\end{align*}
+$\bookeqbackref{sim-general-sum}{(1)}+\bookeqbackref{sim-general-difference}{(2)}$から,
+\[
+  \begin{aligned}
+    a_n&=\frac12\bigl\{(a_1+b_1)(p+q)^{n-1}\\
+    &\qquad+(a_1-b_1)(p-q)^{n-1}\bigr\}
+  \end{aligned}
+\]
+を得る.$\bookeqref{sim-general-sum}{(1)}-\bookeqref{sim-general-difference}{(2)}$からは,
+\[
+  \begin{aligned}
+    b_n&=\frac12\bigl\{(a_1+b_1)(p+q)^{n-1}\\
+    &\qquad-(a_1-b_1)(p-q)^{n-1}\bigr\}
+  \end{aligned}
+\]
+となる.
+
 
 \begin{bookpoint}
   \textbf{POINT}\par
@@ -75,45 +101,15 @@ $a_{n+1}$を求めるには$b_n$が,$b_{n+1}$を求めるには$a_n$が必要な
     従って,$a_n=b_n=4^{n-1}$である.
 \end{enumerate}
 
-\paragraphbf{係数が対称な場合の一般形}
-一般に,係数の位置が入れ替わった\bookterm{recurrence}{漸化式}
+\subsubsection{重みを付けて分ける}
+では,係数が対称でない一般の連立漸化式ではどうだろうか.
 \[
   \begin{cases}
     a_{n+1}=pa_n+qb_n\\
-    b_{n+1}=qa_n+pb_n
+    b_{n+1}=ra_n+sb_n
   \end{cases}
 \]
-では,足すと両方の係数が$p+q$,引くと$p-q$とその符号反転になる.
-したがって,和と差がそれぞれ等比型になる.\footnote{以下の累乗の式は$p+q,\,p-q$が0でない場合に使う.0になる方は,初項を別に扱い,$n\ge2$で0とする.}
-\begin{align*}
-  &a_{n+1}+b_{n+1}=(p+q)(a_n+b_n),\\
-  &a_n+b_n=(a_1+b_1)(p+q)^{n-1}
-  \booktag{sim-general-sum}{1}
-\end{align*}
-\begin{align*}
-  &a_{n+1}-b_{n+1}=(p-q)(a_n-b_n),\\
-  &a_n-b_n=(a_1-b_1)(p-q)^{n-1}
-  \booktag{sim-general-difference}{2}
-\end{align*}
-$\bookeqbackref{sim-general-sum}{(1)}+\bookeqbackref{sim-general-difference}{(2)}$から,
-\[
-  \begin{aligned}
-    a_n&=\frac12\bigl\{(a_1+b_1)(p+q)^{n-1}\\
-    &\qquad+(a_1-b_1)(p-q)^{n-1}\bigr\}
-  \end{aligned}
-\]
-を得る.$\bookeqref{sim-general-sum}{(1)}-\bookeqref{sim-general-difference}{(2)}$からは,
-\[
-  \begin{aligned}
-    b_n&=\frac12\bigl\{(a_1+b_1)(p+q)^{n-1}\\
-    &\qquad-(a_1-b_1)(p-q)^{n-1}\bigr\}
-  \end{aligned}
-\]
-となる.
-
-\subsubsection{重みを付けて分ける}
-では,係数が対称でない一般の連立漸化式ではどうだろうか.
-単に足すと,
+について,単に足すと,
 \[
   a_{n+1}+b_{n+1}=(p+r)a_n+(q+s)b_n
 \]
