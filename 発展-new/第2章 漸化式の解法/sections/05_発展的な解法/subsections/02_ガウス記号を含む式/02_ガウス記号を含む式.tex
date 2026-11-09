@@ -1,48 +1,51 @@
-% BOOK-FILE-ID: f-59858680990d
+  % BOOK-FILE-ID: f-59858680990d
 \subsection{ガウス記号を含む式}\label{節：ガウス記号を含む式}
-ここではガウス記号を含む\bookterm{recurrence}{漸化式}を扱う.
-ガウス記号を含む漸化式は,記号があるからといって解法が1つに決まるわけではない.
-項の値を整数にするために使われることもあれば,参照する添字を指定したり,余りを表したりするのに使われることもある.
-したがって,式変形だけでなく,整数の性質や不等式,偶奇,数え上げといった考え方が必要になる.
-大事なのは,\textbf{ガウス記号が式の中で何をしているのか}を見極めることである.
-以下では,整数部分の確定,群と和,余りと周期,丸め誤差,添字の分割を例題で学ぶ.
-
+  ここではガウス記号を含む\bookterm{recurrence}{漸化式}を扱う.
+  ガウス記号を含む漸化式は,記号があるからといって解法が1つに決まるわけではない.
+  項の値を整数にするために使われることもあれば,参照する添字を指定したり,余りを表したりするのに使われることもある.
+  したがって,式変形だけでなく,整数の性質や不等式,偶奇,数え上げといった考え方が必要になる.
+  大事なのは,\textbf{ガウス記号が式の中で何をしているのか}を見極めることである.
+  以下では,整数部分の確定,群と和,余りと周期,丸め誤差,添字の分割を例題で学ぶ.
+  
 \subsubsection{基本性質と使い方}\label{節：基本性質と使い方}
-\bookterm{floor}{ガウス記号}$\lfloor x\rfloor$または$[x]$は,実数$x$を超えない最大の整数を表す.\footnote{大学以降では$\lfloor x\rfloor$を\bookterm{floor-function}{床関数}と呼ぶ.対になる記号として,\bookterm{ceiling-function}{天井関数}$\lceil x\rceil$は$x$以上の最小の整数を表す.
-  整数$k$について$\lceil x\rceil=k\iff k-1<x\le k$である.以下の例題ではガウス記号を使う.}
-整数$k$について,
-\[
-  \lfloor x\rfloor=k\iff k\le x<k+1
-\]
-である.$x\ge0$では小数点以下の切り捨てに一致するが,負数では$\lfloor-1.5\rfloor=-2$となる.
+  \bookterm{floor}{ガウス記号}$\lfloor x\rfloor$または$[x]$は,実数$x$を超えない最大の整数を表す.\footnote{大学以降では$\lfloor x\rfloor$を\bookterm{floor-function}{床関数}と呼ぶ.対になる記号として,\bookterm{ceiling-function}{天井関数}$\lceil x\rceil$は$x$以上の最小の整数を表す.整数$k$について$\lceil x\rceil=k\iff k-1<x\le k$である.以下の例題ではガウス記号を使う.}
+  整数$k$について,
+  \[
+    \lfloor x\rfloor=k\iff k\le x<k+1
+  \]
+  である.$x\ge0$では小数点以下の切り捨てに一致するが,負数では$\lfloor-1.5\rfloor=-2$となる.
 
-\BookFigFloorGraph
+  \BookFigFloorGraph
 
-問題を見たら,まず\bookterm{floor}{ガウス記号}が\textbf{項の値,添字,付加項のどれに作用しているか}を確かめよう.
-項の値に作用していれば,整数性や不等式で記号を外せるか,余りや切り捨てた部分を表しているかを調べる.
-付加項が$n$だけで決まるなら,同じ値を取る範囲をまとめて足すことを考える.
-添字に作用していれば,偶奇などで式を分け,どの項を参照しているかを確かめる.
-
-なお,整数$k$については$\lfloor x+k\rfloor=\lfloor x\rfloor+k$だが,実数同士では$\lfloor x+y\rfloor=\lfloor x\rfloor+\lfloor y\rfloor$とは限らない.
-また,ガウス記号を含む漸化式では,数項を計算する実験が特に有効である.
-ただし,実験から得た予想は,不等式や数学的帰納法できちんと確かめること.
-
-\begin{bookpoint}
-  \textbf{POINT}\par
-  ガウス記号が項の値・添字・付加項のどれに作用しているかを見て方法を選ぶ.
-  整数$k$に対する$k\le x<k+1$を使い,整数部分を確定してから記号を外す.
-\end{bookpoint}
-
-\BookImport{f-c645fd39fc8a}
-\BookImport{f-5cbe4e236eb3}
-\BookImport{f-37df9e500439}
-\BookImport{f-1d78b7d19b95}
-\BookImport{f-d9a31815e10d}
-
-\medskip
-\paragraphbf{着眼点のまとめ}
-整数部分を確定できれば,既知の漸化式へ帰着できる.
-それが難しいときも,群ごとの和,余りの移り方,丸め誤差の範囲,添字の分け方を調べてみよう.
-停止する値は\bookproblemref{practice-special}{1}{発展・特殊型問1},
-和を格子点の個数と読む方法は\bookproblemref{practice-special}{2}{問2}で確かめる.
-境界の検出,桁,小数部分への応用は\sectionref*{節：ガウス記号の関連問題}で扱う.
+  また,これらの性質から以下の式が成り立つ.
+  \[  
+    \lfloor x+k \rfloor=\lfloor x \rfloor +k \quad (x \in \mathbb{R},\,k \in ,\mathbb{Z})
+  \]
+  
+  問題を見たら,まず\bookterm{floor}{ガウス記号}が\textbf{項の値,添字,付加項のどれに作用しているか}を確かめよう.
+  項の値に作用していれば,整数性や不等式で記号を外せるか,余りや切り捨てた部分を表しているかを調べる.
+  付加項が$n$だけで決まるなら,同じ値を取る範囲をまとめて足すことを考える.
+  添字に作用していれば,偶奇などで式を分け,どの項を参照しているかを確かめる.
+  
+  また,ガウス記号を含む漸化式では,数項を計算する実験が特に有効である.
+  ただし,実験から得た予想は,不等式や数学的帰納法できちんと確かめること.
+  
+  \begin{bookpoint}
+    \textbf{POINT}\par
+    ガウス記号が項の値・添字・付加項のどれに作用しているかを見て方法を選ぶ.
+    整数$k$に対する$k\le x<k+1$を使い,整数部分を確定してから記号を外す.
+  \end{bookpoint}
+  
+  \BookImport{f-c645fd39fc8a}
+  \BookImport{f-5cbe4e236eb3}
+  \BookImport{f-37df9e500439}
+  \BookImport{f-1d78b7d19b95}
+  \BookImport{f-d9a31815e10d}
+  
+  \medskip
+  \paragraphbf{着眼点のまとめ}
+  整数部分を確定できれば,既知の漸化式へ帰着できる.
+  それが難しいときも,群ごとの和,余りの移り方,丸め誤差の範囲,添字の分け方を調べてみよう.
+  停止する値は\bookproblemref{practice-special}{1}{発展・特殊型問1},
+  和を格子点の個数と読む方法は\bookproblemref{practice-special}{2}{問2}で確かめる.
+  境界の検出,桁,小数部分への応用は\sectionref*{節：ガウス記号の関連問題}で扱う.
