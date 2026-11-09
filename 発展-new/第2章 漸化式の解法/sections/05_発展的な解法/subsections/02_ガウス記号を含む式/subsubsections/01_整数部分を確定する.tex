@@ -6,13 +6,16 @@
 \[
   \lfloor k+x\rfloor=k+\lfloor x\rfloor
 \]
-が成り立つので,例えば$a_n$が整数なら$\lfloor a_n+\sqrt3\rfloor=a_n+1$と外せる.
-中身が平方根なら,隣り合う平方数で挟んでやればよい.
-いずれにせよ,先に各項が整数であることを確かめておく必要がある.
+が成り立つので,例えば$a_n$が整数なら
+\[
+  \lfloor a_n+\sqrt3\rfloor=a_n+1
+\]  
+という式変形によってガウス記号を外せる.
+根号が含まれる場合では,その値に近い平方数2つのうち,小さい方の平方数の平方根の正の方を外に出せば整数だけの式にすることができる.
 
 \begin{bookpoint}
   \textbf{POINT}\par
-  中身を$k\le X<k+1$の形に挟んでガウス記号を外し,既知の漸化式に帰着させる.
+  中身を$k \le X<k+1$の形に挟んでガウス記号を外し,既知の漸化式に帰着させる.
 \end{bookpoint}
 
 \noindent \bookblocklink{example-gauss-role-1}{problem}{hint}{【例題】}\par\nobreak
