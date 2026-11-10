@@ -52,7 +52,7 @@ $\rho\sin\theta\ne0$なので,漸化式を満たすどの実数の数列も,こ�
   \end{aligned}
 \]
 である.実際,$n=1,2$でそれぞれ$(1,0),(0,1)$になる.
-従って,係数$C,D$を残さずに
+従って,本編の表示$a_n=\rho^{n-1}\{C\cos((n-1)\theta)+D\sin((n-1)\theta)\}$の係数$C,D$を残さずに
 \[
   \begin{aligned}
     a_n={}&-a_1\rho^{n-1}\frac{\sin((n-2)\theta)}{\sin\theta}\\
@@ -114,7 +114,7 @@ $C_0=1$, $2=\frac{\sqrt2(C_0+D_0)}{\sqrt2}=1+D_0$より$D_0=1$なので,
   \end{cases}
 \]
 という連立型になる.本編の\sectionref{節：連立型}では,重みを付けて足し,等比型を作った.
-その重みを複素数に広げて,
+\sectionref*{節：特性方程式の解が実数でない場合と回転}では具体例でその重みを複素数に広げたが,ここでは一般の場合に,
 \[
   z_n=a_{n+1}-\overline\alpha a_n
 \]
@@ -209,7 +209,7 @@ $z_n$の距離が$\rho$倍されても,共役な二つの数の比ではその�
   r_{n+1}=\rho\frac{\sin(t_n+2\theta)}{\sin(t_n+\theta)}
 \]
 となる.従って$t_{n+1}=t_n+\theta$としてよい.分母が0でない範囲での表示である.
-$\frac{\sin(t+\theta)}{\sin t}=\cos\theta+\sin\theta\cot t$より,どの実数の$r_n$もこの形で表せる.
+$\frac{\sin(t+\theta)}{\sin t}=\cos\theta+\sin\theta\cdot\frac{\cos t}{\sin t}$であり,$\frac{\cos t}{\sin t}$は$0<t<\pi$であらゆる実数の値を取るから,どの実数の$r_n$もこの形で表せる.
 一次分数型を角度を足す漸化式へ変えたのである.
 本編\sectionref{節：三角関数型}の角度を倍にする漸化式との違いは,\sectionref*{節：角度を足す漸化式と,角度を倍にする漸化式}とも比べてみよう.
 
@@ -256,9 +256,9 @@ $C=D=0$なら,すべての項が0の数列である.それ以外では$R=\sqrt{C
 三角関数の式でも,整数添字で周期的とは限らない.
 $\rho=1$かつ$\frac{\theta}{2\pi}$が有理数なら,$T\theta=2k\pi$となる正整数$T$と整数$k$が存在する.
 角度が一周の整数倍だけ進むので,$a_{n+T}=a_n$となる.
-すべての項が0の数列を除けば,この2条件は必要でもある.先ほどの表し方の一意性を使って確かめよう.
+すべての項が0の数列を除けば,この2条件は\bookterm{periodic}{周期性}の必要条件でもある.先ほどの表し方の一意性を使って確かめよう.
 
-\bookterm{periodic}{周期性}の必要条件も示せる.周期$T$があるなら,
+周期$T$があるなら,
 \[
   A(\alpha^T-1)\alpha^{n-1}
   +\overline A(\overline\alpha^{\,T}-1)\overline\alpha^{\,n-1}=0.

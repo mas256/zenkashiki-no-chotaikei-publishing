@@ -193,10 +193,12 @@
 
 % 番号なし小見出しは、その位置に応じた階層で目次・しおりに載せる。
 \BookImport{f-841209ff6cd3}
+% 版の識別子。改訂のたびに手で書き換える。
+\newcommand{\BookVersion}{第2回改訂 2026-11-04}
 \hypersetup{
   pdftitle={漸化式の超体系的解説},
   pdfauthor={MAS256},
-  pdfsubject={漸化式の解法・発想・数学的なつながり}
+  pdfsubject={漸化式の解法・発想・数学的なつながり（\BookVersion）}
 }
 
 % =========================================================
@@ -369,7 +371,7 @@
 
 \begin{document}
 
-  \date{\today}
+  \date{\BookVersion\\{\small 作成日：\today}}
   \author{MAS256}
   \maketitle
 
