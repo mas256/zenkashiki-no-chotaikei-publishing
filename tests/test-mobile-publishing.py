@@ -22,6 +22,7 @@ def load(name):
 assets = load("verify-release-assets")
 layout = load("verify-tex-layout")
 toc = load("pages_toc")
+index = load("render_index")
 
 
 def write_pdf(directory, name, data=b"%PDF-test"):
@@ -134,6 +135,13 @@ class PublishingTests(unittest.TestCase):
                 dict(tagName="v1.10.0", publishedAt="2026-03-01T00:00:00Z"),
                 dict(tagName="latest-build-3", publishedAt="2026-03-02T00:00:00Z")]
         self.assertEqual([row["version"] for row in toc.release_history(rows)], ["v1.10.0", "v1.2.0"])
+
+    def test_book_title_matches_the_manuscript(self):
+        # 書名の正はTeX原稿の \title。book.yml(Pages・本棚の表示名)とREADMEをそろえる。
+        source = (ROOT / "発展-new" / "漸化式の超体系的解説.tex").read_text(encoding="utf-8")
+        tex_title = re.search(r"^\\title\{([^{}]+)\}", source, re.M).group(1)
+        self.assertEqual(index.parse_book((ROOT / "book.yml").read_text(encoding="utf-8"))["title"], tex_title)
+        self.assertEqual((ROOT / "README.md").read_text(encoding="utf-8").splitlines()[0], "# " + tex_title)
 
 if __name__ == "__main__":
     unittest.main()
