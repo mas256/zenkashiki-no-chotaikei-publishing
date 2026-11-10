@@ -169,7 +169,7 @@ export function verifyTeX(readText, pdfDestinations = null) {
   }
   assert(groups["practice-basic"].problem.size===55,"standard exercise count changed");
   assert(groups["practice-advanced"].problem.size===10,"advanced exercise count changed");
-  assert(groups["practice-bridge"].problem.size===10,"bridge exercise count changed");
+  assert(groups["practice-bridge"].problem.size===11,"bridge exercise count changed");
   assert(groups["practice-entrance"].problem.size===10,"research exercise count changed");
   assert(groups["practice-special"].problem.size===15,"special exercise count changed");
   assert(groups["practice-gauss"].problem.size===3,"floor-function exercise count changed");
@@ -184,7 +184,7 @@ export function verifyTeX(readText, pdfDestinations = null) {
   const bridge=readText("発展-new/第3章 解法の選択と演習/sections/04_演習/subsections/04_発展入門.tex");
   const bridgeProblems=bridge.slice(bridge.indexOf("\\subsubsection{問題}"),bridge.indexOf("\\subsubsection{方針}"));
   const bridgeIds=[...bridgeProblems.matchAll(/^\s*% (B\d+):/gm)].map(m=>m[1]);
-  assert(bridgeIds.join(",")===Array.from({length:10},(_,i)=>"B"+(i+1)).join(","),"bridge reading route identities changed");
+  assert(bridgeIds.join(",")===Array.from({length:11},(_,i)=>"B"+(i+1)).join(","),"bridge reading route identities changed");
   let pdfProblemDestinations=0;
   if (pdfDestinations) {
     for (const [id,roles] of Object.entries(groups)) for (const [role,numbers] of Object.entries(roles)) {
